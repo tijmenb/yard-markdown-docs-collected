@@ -1,0 +1,13 @@
+alphagov/async_experiments
+alphagov/bad_link_finder
+alphagov/gem_publisher
+alphagov/govuk_content_models
+alphagov/govuk_frontend_toolkit_gem
+alphagov/govuk_message_queue_consumer
+alphagov/govuk_sidekiq
+alphagov/govuk_template
+alphagov/notifications-ruby-client
+alphagov/rummageable
+mongodb/mongo-ruby-driver
+nanoc/nanoc
+sporkmonger/addressable
