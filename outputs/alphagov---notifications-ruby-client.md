@@ -6,7 +6,7 @@
 Returns the value of attribute speaker
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client.rb#L10)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client.rb#L10)
 
 ### `#initialize(*args)`
 
@@ -16,7 +16,7 @@ Returns the value of attribute speaker
 
 **See**:
 - Notifications::Client::Speaker#initialize
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client.rb#L19)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client.rb#L19)
 
 ### `#send_email(args)`
 
@@ -27,7 +27,7 @@ Returns the value of attribute speaker
 - (`ResponseNotification`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client.rb#L26)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client.rb#L26)
 
 ### `#send_sms(args)`
 
@@ -37,7 +37,7 @@ Returns the value of attribute speaker
 
 **See**:
 - Notifications::Client::Speaker#post
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client.rb#L35)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client.rb#L35)
 
 ### `#get_notification(id)`
 
@@ -52,7 +52,7 @@ Returns the value of attribute speaker
 
 **See**:
 - Notifications::Client::Speaker#get
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client.rb#L45)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client.rb#L45)
 
 ### `#get_notifications(options = {})`
 
@@ -73,7 +73,7 @@ temporarily failed, or technical failure
 
 **See**:
 - Notifications::Client::Speaker#get
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client.rb#L63)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client.rb#L63)
 
 ---
 
@@ -84,21 +84,21 @@ temporarily failed, or technical failure
 Returns the value of attribute base_url
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/speaker.rb#L9)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/speaker.rb#L9)
 
 ### `#service_id`
 
 Returns the value of attribute service_id
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/speaker.rb#L10)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/speaker.rb#L10)
 
 ### `#secret_token`
 
 Returns the value of attribute secret_token
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/speaker.rb#L11)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/speaker.rb#L11)
 
 ### `#initialize(service_id, secret_token = nil, base_url = nil)`
 
@@ -121,7 +121,7 @@ the address to perform the requests
 - (`Speaker`) — a new instance of Speaker
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/speaker.rb#L23)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/speaker.rb#L23)
 
 ### `#post(kind, form_data)`
 
@@ -142,7 +142,7 @@ the address to perform the requests
 
 **See**:
 - #perform_request!
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/speaker.rb#L49)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/speaker.rb#L49)
 
 ### `#get(id = nil, options = {})`
 
@@ -156,7 +156,7 @@ the address to perform the requests
 
 **See**:
 - #perform_request!
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/speaker.rb#L62)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/speaker.rb#L62)
 
 ---
 
@@ -169,7 +169,7 @@ the address to perform the requests
 - (`Notification`) — a new instance of Notification
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/notification.rb#L26)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/notification.rb#L26)
 
 ---
 
@@ -180,14 +180,14 @@ the address to perform the requests
 Returns the value of attribute code
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/request_error.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/request_error.rb#L4)
 
 ### `#message`
 
 Returns the value of attribute message
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/request_error.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/request_error.rb#L4)
 
 ### `#initialize(response)`
 
@@ -196,19 +196,19 @@ Returns the value of attribute message
 - (`RequestError`) — a new instance of RequestError
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/request_error.rb#L6)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/request_error.rb#L6)
 
 ### `#to_s`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/request_error.rb#L11)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/request_error.rb#L11)
 
 ### `#message_from(body)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/request_error.rb#L15)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/request_error.rb#L15)
 
 ---
 
@@ -219,7 +219,7 @@ Returns the value of attribute message
 Returns the value of attribute id
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/response_notification.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/response_notification.rb#L4)
 
 ### `#initialize(response)`
 
@@ -228,7 +228,7 @@ Returns the value of attribute id
 - (`ResponseNotification`) — a new instance of ResponseNotification
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/response_notification.rb#L6)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/response_notification.rb#L6)
 
 ---
 
@@ -239,28 +239,28 @@ Returns the value of attribute id
 Returns the value of attribute links
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/notifications_collection.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/notifications_collection.rb#L4)
 
 ### `#total`
 
 Returns the value of attribute total
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/notifications_collection.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/notifications_collection.rb#L4)
 
 ### `#page_size`
 
 Returns the value of attribute page_size
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/notifications_collection.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/notifications_collection.rb#L4)
 
 ### `#collection`
 
 Returns the value of attribute collection
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/notifications_collection.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/notifications_collection.rb#L4)
 
 ### `#initialize(response)`
 
@@ -269,13 +269,13 @@ Returns the value of attribute collection
 - (`NotificationsCollection`) — a new instance of NotificationsCollection
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/notifications_collection.rb#L9)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/notifications_collection.rb#L9)
 
 ### `#collection_from(notifications)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/notifications/client/notifications_collection.rb#L16)
+- [Source on GitHub](https://github.com/alphagov/notifications-ruby-client/blob/master/lib/notifications/client/notifications_collection.rb#L16)
 
 ---
 

@@ -5,13 +5,13 @@
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_sidekiq/api_headers.rb#L10)
+- [Source on GitHub](https://github.com/alphagov/govuk_sidekiq/blob/master/lib/govuk_sidekiq/api_headers.rb#L10)
 
 ### `#header_arguments`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_sidekiq/api_headers.rb#L15)
+- [Source on GitHub](https://github.com/alphagov/govuk_sidekiq/blob/master/lib/govuk_sidekiq/api_headers.rb#L15)
 
 ---
 
@@ -21,7 +21,7 @@
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_sidekiq/api_headers.rb#L27)
+- [Source on GitHub](https://github.com/alphagov/govuk_sidekiq/blob/master/lib/govuk_sidekiq/api_headers.rb#L27)
 
 ---
 
@@ -31,7 +31,7 @@
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_sidekiq/sidekiq_initializer.rb#L9)
+- [Source on GitHub](https://github.com/alphagov/govuk_sidekiq/blob/master/lib/govuk_sidekiq/sidekiq_initializer.rb#L9)
 
 ---
 

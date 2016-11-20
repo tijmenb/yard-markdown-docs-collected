@@ -7,61 +7,61 @@ Let an app configure the collection name to use, e.g. set a constant in an
 initializer
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/user.rb#L13)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/user.rb#L13)
 
 ### `#to_s`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/user.rb#L36)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/user.rb#L36)
 
 ### `#gravatar_url(opts = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/user.rb#L40)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/user.rb#L40)
 
 ### `#progress(edition, action_attributes)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/user.rb#L49)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/user.rb#L49)
 
 ### `#record_note(edition, comment, type = Action::NOTE)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/user.rb#L57)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/user.rb#L57)
 
 ### `#resolve_important_note(edition)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/user.rb#L61)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/user.rb#L61)
 
 ### `#create_edition(format, attributes = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/user.rb#L65)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/user.rb#L65)
 
 ### `#new_version(edition, convert_to = nil)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/user.rb#L69)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/user.rb#L69)
 
 ### `#assign(edition, recipient)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/user.rb#L73)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/user.rb#L73)
 
 ### `#unassign(edition)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/user.rb#L77)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/user.rb#L77)
 
 ---
 
@@ -71,7 +71,7 @@ initializer
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/action.rb#L44)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/action.rb#L44)
 
 ### `#status_action?`
 
@@ -80,13 +80,13 @@ initializer
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/action.rb#L48)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/action.rb#L48)
 
 ### `#to_s`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/action.rb#L52)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/action.rb#L52)
 
 ### `#is_fact_check_request?`
 
@@ -95,7 +95,7 @@ initializer
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/action.rb#L62)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/action.rb#L62)
 
 ---
 
@@ -105,37 +105,37 @@ initializer
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L64)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L64)
 
 ### `#series`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L66)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L66)
 
 ### `#history`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L70)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L70)
 
 ### `#siblings`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L74)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L74)
 
 ### `#previous_siblings`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L78)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L78)
 
 ### `#subsequent_siblings`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L82)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L82)
 
 ### `#latest_edition?`
 
@@ -144,25 +144,25 @@ initializer
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L86)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L86)
 
 ### `#published_edition`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L90)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L90)
 
 ### `#previous_published_edition`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L94)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L94)
 
 ### `#in_progress_sibling`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L98)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L98)
 
 ### `#can_create_new_edition?`
 
@@ -171,31 +171,31 @@ initializer
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L102)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L102)
 
 ### `#major_updates_in_series`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L106)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L106)
 
 ### `#latest_major_update`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L110)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L110)
 
 ### `#latest_change_note`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L114)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L114)
 
 ### `#public_updated_at`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L120)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L120)
 
 ### `#has_ever_been_published?`
 
@@ -204,43 +204,43 @@ initializer
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L128)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L128)
 
 ### `#first_edition_of_published`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L132)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L132)
 
 ### `#meta_data`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L136)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L136)
 
 ### `#get_next_version_number`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L140)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L140)
 
 ### `#indexable_content`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L145)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L145)
 
 ### `#indexable_content_without_parts`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L149)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L149)
 
 ### `#indexable_content_with_parts`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L157)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L157)
 
 ### `#fields_to_copy(target_class)`
 
@@ -249,19 +249,19 @@ we are changing the type of the edition, any fields other than the base
 fields will likely be meaningless.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L168)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L168)
 
 ### `#build_clone(target_class=nil)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L176)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L176)
 
 ### `#clone_whole_body_from(origin_edition)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L207)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L207)
 
 ### `#cloning_between_parted_types?(new_edition)`
 
@@ -270,31 +270,31 @@ fields will likely be meaningless.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L222)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L222)
 
 ### `.find_or_create_from_panopticon_data(panopticon_id, importing_user)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L226)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L226)
 
 ### `.find_and_identify(slug, edition)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L239)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L239)
 
 ### `#format`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L251)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L251)
 
 ### `#format_name`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L255)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L255)
 
 ### `#has_video?`
 
@@ -303,7 +303,7 @@ fields will likely be meaningless.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L259)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L259)
 
 ### `#safe_to_preview?`
 
@@ -312,7 +312,7 @@ fields will likely be meaningless.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L263)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L263)
 
 ### `#has_sibling_in_progress?`
 
@@ -321,38 +321,38 @@ fields will likely be meaningless.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L267)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L267)
 
 ### `#broadcast_action(callback_action)`
 
 Stop broadcasting a delete message unless there are no siblings.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L272)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L272)
 
 ### `#was_published`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L278)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L278)
 
 ### `#update_slug_from_artefact(artefact)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L283)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L283)
 
 ### `#check_for_archived_artefact`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L288)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L288)
 
 ### `#artefact`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L302)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L302)
 
 ### `#destroy_artefact`
 
@@ -366,7 +366,7 @@ published (and therefore aren't registered in the rest of the)
 system.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/edition.rb#L314)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L314)
 
 ---
 
@@ -376,7 +376,7 @@ system.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L6)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L6)
 
 ---
 
@@ -386,44 +386,44 @@ system.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L123)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L123)
 
 ### `.in_alphabetical_order`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L158)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L158)
 
 ### `.find_by_slug(s)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L162)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L162)
 
 ### `#language`
 
 Fallback to english if no language is present
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L167)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L167)
 
 ### `#normalise`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L171)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L171)
 
 ### `#admin_url(options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L176)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L176)
 
 ### `#as_json(options={})`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L182)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L182)
 
 ### `#any_editions_published?`
 
@@ -432,7 +432,7 @@ Fallback to english if no language is present
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L188)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L188)
 
 ### `#any_editions_ever_published?`
 
@@ -441,37 +441,37 @@ Fallback to english if no language is present
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L192)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L192)
 
 ### `#update_editions`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L197)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L197)
 
 ### `#archive_editions`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L211)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L211)
 
 ### `.from_param(slug_or_id)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L220)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L220)
 
 ### `#update_attributes_as(user, *args)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L224)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L224)
 
 ### `#save_as(user, options={})`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L229)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L229)
 
 ### `#save_as_task!(task_name, options = {})`
 
@@ -480,25 +480,25 @@ message queue consumer or any other performed tasks that have no user associated
 as we are still interested to know what triggered the action.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L239)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L239)
 
 ### `#record_create_action`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L247)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L247)
 
 ### `#record_update_action`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L251)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L251)
 
 ### `#record_action(action_type, options={})`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L255)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L255)
 
 ### `#archived?`
 
@@ -507,7 +507,7 @@ as we are still interested to know what triggered the action.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L280)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L280)
 
 ### `#live?`
 
@@ -516,19 +516,19 @@ as we are still interested to know what triggered the action.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L284)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L284)
 
 ### `#snapshot`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L288)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L288)
 
 ### `#need_id=(new_need_id)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/artefact.rb#L293)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L293)
 
 ---
 
@@ -538,7 +538,7 @@ as we are still interested to know what triggered the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/downtime.rb#L15)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/downtime.rb#L15)
 
 ### `#publicise?`
 
@@ -547,7 +547,7 @@ as we are still interested to know what triggered the action.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/downtime.rb#L19)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/downtime.rb#L19)
 
 ---
 
@@ -560,7 +560,7 @@ as we are still interested to know what triggered the action.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/guide_edition.rb#L12)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/guide_edition.rb#L12)
 
 ### `#safe_to_preview?`
 
@@ -569,7 +569,7 @@ as we are still interested to know what triggered the action.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/guide_edition.rb#L16)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/guide_edition.rb#L16)
 
 ---
 
@@ -579,7 +579,7 @@ as we are still interested to know what triggered the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/place_edition.rb#L11)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/place_edition.rb#L11)
 
 ---
 
@@ -589,19 +589,19 @@ as we are still interested to know what triggered the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/safe_html.rb#L15)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/safe_html.rb#L15)
 
 ### `#check_struct(record, field_name, value)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/safe_html.rb#L22)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/safe_html.rb#L22)
 
 ### `#check_string(record, field_name, string)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/safe_html.rb#L32)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/safe_html.rb#L32)
 
 ---
 
@@ -614,13 +614,13 @@ as we are still interested to know what triggered the action.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/video_edition.rb#L15)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/video_edition.rb#L15)
 
 ### `#whole_body`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/video_edition.rb#L19)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/video_edition.rb#L19)
 
 ---
 
@@ -630,7 +630,7 @@ as we are still interested to know what triggered the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/local_service.rb#L17)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/local_service.rb#L17)
 
 ---
 
@@ -640,7 +640,7 @@ as we are still interested to know what triggered the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/answer_edition.rb#L8)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/answer_edition.rb#L8)
 
 ---
 
@@ -650,13 +650,13 @@ as we are still interested to know what triggered the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/licence_edition.rb#L17)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/licence_edition.rb#L17)
 
 ### `#indexable_content`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/licence_edition.rb#L21)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/licence_edition.rb#L21)
 
 ---
 
@@ -666,7 +666,7 @@ as we are still interested to know what triggered the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/campaign_edition.rb#L65)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/campaign_edition.rb#L65)
 
 ---
 
@@ -676,7 +676,7 @@ as we are still interested to know what triggered the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/help_page_edition.rb#L8)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/help_page_edition.rb#L8)
 
 ---
 
@@ -686,7 +686,7 @@ as we are still interested to know what triggered the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/programme_edition.rb#L19)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/programme_edition.rb#L19)
 
 ---
 
@@ -697,7 +697,7 @@ as we are still interested to know what triggered the action.
 implement the method called during validation
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L3)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L3)
 
 ---
 
@@ -710,7 +710,7 @@ implement the method called during validation
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L20)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L20)
 
 ### `#ends_with?(expected_suffix)`
 
@@ -719,7 +719,7 @@ implement the method called during validation
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L24)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L24)
 
 ### `#of_kind?(expected_kind)`
 
@@ -728,25 +728,25 @@ implement the method called during validation
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L28)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L28)
 
 ### `#url_after_first_slash`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L32)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L32)
 
 ### `#url_after_first_slash_is_valid_slug!`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L36)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L36)
 
 ### `#url_parts`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L42)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L42)
 
 ### `#valid_slug?(url_part)`
 
@@ -755,7 +755,7 @@ implement the method called during validation
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L46)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L46)
 
 ---
 
@@ -768,13 +768,13 @@ implement the method called during validation
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L55)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L55)
 
 ### `#validate!`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L59)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L59)
 
 ---
 
@@ -787,13 +787,13 @@ implement the method called during validation
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L65)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L65)
 
 ### `#validate!`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L69)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L69)
 
 ---
 
@@ -806,13 +806,13 @@ implement the method called during validation
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L75)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L75)
 
 ### `#validate!`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L79)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L79)
 
 ---
 
@@ -825,13 +825,13 @@ implement the method called during validation
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L85)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L85)
 
 ### `#validate!`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L89)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L89)
 
 ---
 
@@ -841,7 +841,7 @@ implement the method called during validation
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L96)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L96)
 
 ### `#applicable?`
 
@@ -850,13 +850,13 @@ implement the method called during validation
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L101)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L101)
 
 ### `#validate!`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L105)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L105)
 
 ---
 
@@ -869,13 +869,13 @@ implement the method called during validation
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L119)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L119)
 
 ### `#validate!`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L123)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L123)
 
 ---
 
@@ -888,13 +888,13 @@ implement the method called during validation
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L150)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L150)
 
 ### `#validate!`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L154)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L154)
 
 ---
 
@@ -907,13 +907,13 @@ implement the method called during validation
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L160)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L160)
 
 ### `#validate!`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/slug_validator.rb#L164)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L164)
 
 ---
 
@@ -923,13 +923,13 @@ implement the method called during validation
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/link_validator.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/link_validator.rb#L4)
 
 ### `#errors(string)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/link_validator.rb#L14)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/link_validator.rb#L14)
 
 ---
 
@@ -939,13 +939,13 @@ implement the method called during validation
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/transaction_edition.rb#L16)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/transaction_edition.rb#L16)
 
 ### `#whole_body`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/transaction_edition.rb#L20)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/transaction_edition.rb#L20)
 
 ---
 
@@ -956,7 +956,7 @@ implement the method called during validation
 Returns the value of attribute fields_to_clone
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/travel_advice_edition.rb#L52)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/travel_advice_edition.rb#L52)
 
 ### `.fields_to_clone=(value)`
 
@@ -968,37 +968,37 @@ Sets the attribute fields_to_clone
   
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/travel_advice_edition.rb#L52)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/travel_advice_edition.rb#L52)
 
 ### `#indexable_content`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/travel_advice_edition.rb#L88)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/travel_advice_edition.rb#L88)
 
 ### `#build_clone`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/travel_advice_edition.rb#L97)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/travel_advice_edition.rb#L97)
 
 ### `#build_action_as(user, action_type, comment = nil)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/travel_advice_edition.rb#L106)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/travel_advice_edition.rb#L106)
 
 ### `#publish_as(user)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/travel_advice_edition.rb#L110)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/travel_advice_edition.rb#L110)
 
 ### `#previous_version`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/travel_advice_edition.rb#L115)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/travel_advice_edition.rb#L115)
 
 ---
 
@@ -1008,7 +1008,7 @@ Sets the attribute fields_to_clone
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/validators/reviewer_validator.rb#L2)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/reviewer_validator.rb#L2)
 
 ---
 
@@ -1018,7 +1018,7 @@ Sets the attribute fields_to_clone
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/business_support_edition.rb#L44)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/business_support_edition.rb#L44)
 
 ---
 
@@ -1028,31 +1028,31 @@ Sets the attribute fields_to_clone
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/local_transaction_edition.rb#L15)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/local_transaction_edition.rb#L15)
 
 ### `#format_name`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/local_transaction_edition.rb#L21)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/local_transaction_edition.rb#L21)
 
 ### `#search_format`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/local_transaction_edition.rb#L25)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/local_transaction_edition.rb#L25)
 
 ### `#service`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/local_transaction_edition.rb#L29)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/local_transaction_edition.rb#L29)
 
 ### `#whole_body`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/local_transaction_edition.rb#L33)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/local_transaction_edition.rb#L33)
 
 ---
 
@@ -1062,13 +1062,13 @@ Sets the attribute fields_to_clone
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/simple_smart_answer_edition.rb#L19)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/simple_smart_answer_edition.rb#L19)
 
 ### `#build_clone(target_class=nil)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/simple_smart_answer_edition.rb#L27)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/simple_smart_answer_edition.rb#L27)
 
 ### `#original_update_attributes`
 
@@ -1079,19 +1079,19 @@ This get around the problem of mongoid issuing a query with conflicting modifica
 to the same document.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/simple_smart_answer_edition.rb#L43)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/simple_smart_answer_edition.rb#L43)
 
 ### `#update_attributes(attributes)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/simple_smart_answer_edition.rb#L45)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/simple_smart_answer_edition.rb#L45)
 
 ### `#initial_node`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/simple_smart_answer_edition.rb#L64)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/simple_smart_answer_edition.rb#L64)
 
 ### `#destroy_in_attrs?(attrs)`
 
@@ -1100,7 +1100,7 @@ to the same document.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/simple_smart_answer_edition.rb#L68)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/simple_smart_answer_edition.rb#L68)
 
 ---
 
@@ -1110,7 +1110,7 @@ to the same document.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/completed_transaction_edition.rb#L10)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/completed_transaction_edition.rb#L10)
 
 ---
 
@@ -1121,7 +1121,7 @@ to the same document.
 Returns the value of attribute actor
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
 
 ### `#actor=(value)`
 
@@ -1133,14 +1133,14 @@ Sets the attribute actor
   
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
 
 ### `#edition`
 
 Returns the value of attribute edition
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
 
 ### `#edition=(value)`
 
@@ -1152,14 +1152,14 @@ Sets the attribute edition
   
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
 
 ### `#action_attributes`
 
 Returns the value of attribute action_attributes
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
 
 ### `#action_attributes=(value)`
 
@@ -1171,14 +1171,14 @@ Sets the attribute action_attributes
   
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
 
 ### `#event_attributes`
 
 Returns the value of attribute event_attributes
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
 
 ### `#event_attributes=(value)`
 
@@ -1190,7 +1190,7 @@ Sets the attribute event_attributes
   
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
 
 ### `#initialize(actor, edition, action_attributes={}, event_attributes={})`
 
@@ -1199,13 +1199,13 @@ Sets the attribute event_attributes
 - (`BaseProcessor`) — a new instance of BaseProcessor
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L6)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L6)
 
 ### `#processed_edition`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L13)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L13)
 
 ---
 
@@ -1215,7 +1215,7 @@ Sets the attribute event_attributes
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/assign_processor.rb#L5)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/assign_processor.rb#L5)
 
 ---
 
@@ -1228,7 +1228,7 @@ Sets the attribute event_attributes
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/skip_review_processor.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/skip_review_processor.rb#L4)
 
 ---
 
@@ -1241,13 +1241,13 @@ Sets the attribute event_attributes
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/new_version_processor.rb#L5)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/new_version_processor.rb#L5)
 
 ### `#process`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/new_version_processor.rb#L9)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/new_version_processor.rb#L9)
 
 ### `#record_action?`
 
@@ -1256,7 +1256,7 @@ Sets the attribute event_attributes
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/new_version_processor.rb#L20)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/new_version_processor.rb#L20)
 
 ---
 
@@ -1266,13 +1266,13 @@ Sets the attribute event_attributes
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/create_edition_processor.rb#L5)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/create_edition_processor.rb#L5)
 
 ### `#process`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/create_edition_processor.rb#L9)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/create_edition_processor.rb#L9)
 
 ### `#record_action?`
 
@@ -1281,7 +1281,7 @@ Sets the attribute event_attributes
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/create_edition_processor.rb#L16)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/create_edition_processor.rb#L16)
 
 ---
 
@@ -1294,7 +1294,7 @@ Sets the attribute event_attributes
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/approve_review_processor.rb#L5)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/approve_review_processor.rb#L5)
 
 ---
 
@@ -1304,7 +1304,7 @@ Sets the attribute event_attributes
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/send_fact_check_processor.rb#L5)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/send_fact_check_processor.rb#L5)
 
 ---
 
@@ -1317,7 +1317,7 @@ Sets the attribute event_attributes
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/request_amendments_processor.rb#L5)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/request_amendments_processor.rb#L5)
 
 ---
 
@@ -1328,7 +1328,7 @@ Sets the attribute event_attributes
 Always records the action.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/receive_fact_check_processor.rb#L6)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/receive_fact_check_processor.rb#L6)
 
 ### `#record_action?`
 
@@ -1337,7 +1337,7 @@ Always records the action.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/receive_fact_check_processor.rb#L13)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/receive_fact_check_processor.rb#L13)
 
 ---
 
@@ -1347,7 +1347,7 @@ Always records the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/action_processors/schedule_for_publishing_processor.rb#L5)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/schedule_for_publishing_processor.rb#L5)
 
 ---
 
@@ -1357,19 +1357,19 @@ Always records the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/parted.rb#L11)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/parted.rb#L11)
 
 ### `#order_parts`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/parted.rb#L23)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/parted.rb#L23)
 
 ### `#whole_body`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/parted.rb#L30)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/parted.rb#L30)
 
 ---
 
@@ -1382,19 +1382,19 @@ Always records the action.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/workflow.rb#L108)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/workflow.rb#L108)
 
 ### `#status_text`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/workflow.rb#L112)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/workflow.rb#L112)
 
 ### `#denormalise_users!`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/workflow.rb#L118)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/workflow.rb#L118)
 
 ### `#can_destroy?`
 
@@ -1403,31 +1403,31 @@ Always records the action.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/workflow.rb#L127)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/workflow.rb#L127)
 
 ### `#check_can_delete_and_notify`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/workflow.rb#L131)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/workflow.rb#L131)
 
 ### `#mark_as_rejected`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/workflow.rb#L135)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/workflow.rb#L135)
 
 ### `#previous_edition`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/workflow.rb#L139)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/workflow.rb#L139)
 
 ### `#notify_siblings_of_new_edition`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/workflow.rb#L143)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/workflow.rb#L143)
 
 ### `#in_progress?`
 
@@ -1436,7 +1436,7 @@ Always records the action.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/workflow.rb#L147)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/workflow.rb#L147)
 
 ### `#locked_for_edits?`
 
@@ -1445,25 +1445,25 @@ Always records the action.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/workflow.rb#L151)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/workflow.rb#L151)
 
 ### `#error_description`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/workflow.rb#L155)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/workflow.rb#L155)
 
 ### `#perform_event_without_validations(event)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/workflow.rb#L159)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/workflow.rb#L159)
 
 ### `#important_note`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/workflow.rb#L166)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/workflow.rb#L166)
 
 ---
 
@@ -1473,13 +1473,13 @@ Always records the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/traits/attachable.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/traits/attachable.rb#L4)
 
 ### `.asset_api_client=(api_client)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/traits/attachable.rb#L8)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/traits/attachable.rb#L8)
 
 ---
 
@@ -1489,7 +1489,7 @@ Always records the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/traits/attachable.rb#L13)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/traits/attachable.rb#L13)
 
 ---
 
@@ -1499,7 +1499,7 @@ Always records the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongoid/monkey_patches.rb#L8)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/mongoid/monkey_patches.rb#L8)
 
 ---
 
@@ -1509,13 +1509,13 @@ Always records the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/prerendered_entity.rb#L2)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/prerendered_entity.rb#L2)
 
 ### `#find_by_slug(slug)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/app/models/prerendered_entity.rb#L10)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/prerendered_entity.rb#L10)
 
 ---
 
@@ -1525,19 +1525,19 @@ Always records the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/presentation_toggles.rb#L10)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/presentation_toggles.rb#L10)
 
 ### `#promotion_choice_url=(value)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/presentation_toggles.rb#L14)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/presentation_toggles.rb#L14)
 
 ### `#promotion_choice`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/presentation_toggles.rb#L18)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/presentation_toggles.rb#L18)
 
 ### `#promotes_something?`
 
@@ -1546,19 +1546,19 @@ Always records the action.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/presentation_toggles.rb#L23)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/presentation_toggles.rb#L23)
 
 ### `#promotion_choice_url`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/presentation_toggles.rb#L27)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/presentation_toggles.rb#L27)
 
 ### `#promotion_choice_key`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/presentation_toggles.rb#L31)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/presentation_toggles.rb#L31)
 
 ---
 
@@ -1568,7 +1568,7 @@ Always records the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/presentation_toggles.rb#L39)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/presentation_toggles.rb#L39)
 
 ---
 
@@ -1578,7 +1578,7 @@ Always records the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/test_helpers/local_services.rb#L2)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/test_helpers/local_services.rb#L2)
 
 ---
 
@@ -1588,55 +1588,55 @@ Always records the action.
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L4)
 
 ### `#approve_review(user, edition)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L8)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L8)
 
 ### `#send_fact_check(user, edition, comment="Fact check this guide please.")`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L12)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L12)
 
 ### `#receive_fact_check(user, edition, comment="Please verify these facts.")`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L16)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L16)
 
 ### `#approve_fact_check(user, edition, comment="No changes needed, this is all correct")`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L20)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L20)
 
 ### `#request_amendments(user, edition)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L24)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L24)
 
 ### `#publish(user, edition, comment='Yo!')`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L28)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L28)
 
 ### `#schedule_for_publishing(user, edition, action_attributes)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L32)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L32)
 
 ### `#skip_review(user, edition)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L38)
+- [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/test_helpers/action_processor_helpers.rb#L38)
 
 ---
 

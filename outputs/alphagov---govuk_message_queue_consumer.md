@@ -6,7 +6,7 @@
 Returns the value of attribute delivery_info
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
 
 ### `#delivery_info=(value)`
 
@@ -18,14 +18,14 @@ Sets the attribute delivery_info
   
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
 
 ### `#headers`
 
 Returns the value of attribute headers
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
 
 ### `#headers=(value)`
 
@@ -37,14 +37,14 @@ Sets the attribute headers
   
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
 
 ### `#payload`
 
 Returns the value of attribute payload
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
 
 ### `#payload=(value)`
 
@@ -56,14 +56,14 @@ Sets the attribute payload
   
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
 
 ### `#status`
 
 Returns the value of attribute status
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
 
 ### `#status=(value)`
 
@@ -75,7 +75,7 @@ Sets the attribute status
   
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
 
 ### `#initialize(payload, headers, delivery_info)`
 
@@ -84,25 +84,25 @@ Sets the attribute status
 - (`Message`) — a new instance of Message
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/message.rb#L6)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L6)
 
 ### `#ack`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/message.rb#L13)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L13)
 
 ### `#retry`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/message.rb#L18)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L18)
 
 ### `#discard`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/message.rb#L23)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L23)
 
 ---
 
@@ -135,13 +135,13 @@ and should already exist and have a binding via puppet
 - (`Consumer`) — a new instance of Consumer
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/consumer.rb#L20)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/consumer.rb#L20)
 
 ### `#run`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/consumer.rb#L28)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/consumer.rb#L28)
 
 ---
 
@@ -151,7 +151,7 @@ and should already exist and have a binding via puppet
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/consumer.rb#L49)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/consumer.rb#L49)
 
 ---
 
@@ -164,13 +164,13 @@ and should already exist and have a binding via puppet
 - (`JSONProcessor`) — a new instance of JSONProcessor
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/json_processor.rb#L5)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/json_processor.rb#L5)
 
 ### `#process(message)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/json_processor.rb#L9)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/json_processor.rb#L9)
 
 ---
 
@@ -183,13 +183,13 @@ and should already exist and have a binding via puppet
 - (`HeartbeatProcessor`) — a new instance of HeartbeatProcessor
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/heartbeat_processor.rb#L3)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/heartbeat_processor.rb#L3)
 
 ### `#process(message)`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/heartbeat_processor.rb#L7)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/heartbeat_processor.rb#L7)
 
 ---
 
@@ -200,42 +200,42 @@ and should already exist and have a binding via puppet
 Returns the value of attribute acked
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L3)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L3)
 
 ### `#retried`
 
 Returns the value of attribute retried
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L3)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L3)
 
 ### `#discarded`
 
 Returns the value of attribute discarded
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L3)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L3)
 
 ### `#acked`
 
 Returns the value of attribute acked
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L5)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L5)
 
 ### `#discarded`
 
 Returns the value of attribute discarded
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L6)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L6)
 
 ### `#retried`
 
 Returns the value of attribute retried
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L7)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L7)
 
 ### `#initialize(payload = {}, headers = {}, delivery_info = {})`
 
@@ -244,25 +244,25 @@ Returns the value of attribute retried
 - (`MockMessage`) — a new instance of MockMessage
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L9)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L9)
 
 ### `#ack`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L15)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L15)
 
 ### `#retry`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L19)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L19)
 
 ### `#discard`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L23)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L23)
 
 ---
 
@@ -272,7 +272,7 @@ Returns the value of attribute retried
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/govuk_message_queue_consumer/rabbitmq_config.rb#L6)
+- [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/rabbitmq_config.rb#L6)
 
 ---
 

@@ -6,21 +6,21 @@
 The uri parser object options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/uri.rb#L37)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L37)
 
 ### `#uri_options`
 
 The options specified in the uri.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/uri.rb#L42)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L42)
 
 ### `#servers`
 
 The servers specified in the uri.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/uri.rb#L47)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L47)
 
 ### `#initialize(string, options = {})`
 
@@ -45,7 +45,7 @@ URI.new('mongodb://localhost:27017')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/uri.rb#L193)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L193)
 
 ### `#client_options`
 
@@ -64,7 +64,7 @@ uri.client_options
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/uri.rb#L211)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L211)
 
 ### `#credentials`
 
@@ -83,7 +83,7 @@ uri.credentials
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/uri.rb#L226)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L226)
 
 ### `#database`
 
@@ -100,7 +100,7 @@ uri.database
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/uri.rb#L238)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L238)
 
 ---
 
@@ -122,7 +122,7 @@ string type.
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bson.rb#L29)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bson.rb#L29)
 
 ---
 
@@ -148,7 +148,7 @@ Mongo::Auth::InvalidMechanism.new(:test)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth.rb#L84)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth.rb#L84)
 
 ---
 
@@ -174,7 +174,7 @@ Mongo::Auth::Unauthorized.new(user)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth.rb#L102)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth.rb#L102)
 
 ---
 
@@ -187,7 +187,7 @@ Mongo::Auth::Unauthorized.new(user)
 - (`String`) — collection The collection name.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/dbref.rb#L39)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/dbref.rb#L39)
 
 ### `#id`
 
@@ -196,7 +196,7 @@ Mongo::Auth::Unauthorized.new(user)
 - (`BSON::ObjectId`) — id The referenced document id.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/dbref.rb#L42)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/dbref.rb#L42)
 
 ### `#database`
 
@@ -205,7 +205,7 @@ Mongo::Auth::Unauthorized.new(user)
 - (`String`) — database The database name.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/dbref.rb#L45)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/dbref.rb#L45)
 
 ### `#as_json(*args)`
 
@@ -222,7 +222,7 @@ dbref.as_json
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/dbref.rb#L55)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/dbref.rb#L55)
 
 ### `#initialize(collection, id, database = nil)`
 
@@ -250,7 +250,7 @@ Mongo::DBRef.new('users', id, 'database')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/dbref.rb#L71)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/dbref.rb#L71)
 
 ### `#to_bson(buffer = BSON::ByteBuffer.new, validating_keys = BSON::Config.validating_keys?)`
 
@@ -275,7 +275,7 @@ dbref.to_bson
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/dbref.rb#L88)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/dbref.rb#L88)
 
 ---
 
@@ -288,7 +288,7 @@ dbref.to_bson
 - (`Integer`) — family The type of host family.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket.rb#L45)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket.rb#L45)
 
 ### `#socket`
 
@@ -297,7 +297,7 @@ dbref.to_bson
 - (`Socket`) — socket The wrapped socket.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket.rb#L48)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket.rb#L48)
 
 ### `#alive?`
 
@@ -314,7 +314,7 @@ socket.alive?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket.rb#L58)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket.rb#L58)
 
 ### `#close`
 
@@ -331,7 +331,7 @@ socket.close
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket.rb#L75)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket.rb#L75)
 
 ### `#gets(*args)`
 
@@ -353,7 +353,7 @@ socket.gets(10)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket.rb#L90)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket.rb#L90)
 
 ### `#initialize(family)`
 
@@ -375,7 +375,7 @@ Socket.new(Socket::PF_INET)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket.rb#L102)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket.rb#L102)
 
 ### `#read(length)`
 
@@ -398,7 +398,7 @@ socket.read(4096)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket.rb#L121)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket.rb#L121)
 
 ### `#readbyte`
 
@@ -415,7 +415,7 @@ socket.readbyte
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket.rb#L142)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket.rb#L142)
 
 ### `#write(*args)`
 
@@ -437,7 +437,7 @@ socket.write(data)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket.rb#L156)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket.rb#L156)
 
 ### `#eof?`
 
@@ -448,7 +448,7 @@ Tests if this socket has reached EOF. Primarily used for liveness checks.
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket.rb#L163)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket.rb#L163)
 
 ---
 
@@ -461,7 +461,7 @@ Tests if this socket has reached EOF. Primarily used for liveness checks.
 - (`Mongo::Cluster`) — cluster The cluster of servers for the client.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L75)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L75)
 
 ### `#database`
 
@@ -470,7 +470,7 @@ Tests if this socket has reached EOF. Primarily used for liveness checks.
 - (`Mongo::Database`) — database The database the client is operating on.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L78)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L78)
 
 ### `#options`
 
@@ -479,7 +479,7 @@ Tests if this socket has reached EOF. Primarily used for liveness checks.
 - (`Hash`) — options The configuration options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L81)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L81)
 
 ### `#==(other)`
 
@@ -501,7 +501,7 @@ client == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L99)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L99)
 
 ### `#==(other)`
 
@@ -523,7 +523,7 @@ client == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L103)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L103)
 
 ### `#[](collection_name, options = {})`
 
@@ -548,7 +548,7 @@ client[:users]
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L116)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L116)
 
 ### `#hash`
 
@@ -565,7 +565,7 @@ client.hash
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L128)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L128)
 
 ### `#initialize(addresses_or_uri, options = Options::Redacted.new)`
 
@@ -757,7 +757,7 @@ Mongo::Client.new([ '127.0.0.1:27017', '127.0.0.1:27021' ])
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L227)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L227)
 
 ### `#inspect`
 
@@ -774,7 +774,7 @@ client.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L245)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L245)
 
 ### `#read_preference`
 
@@ -792,7 +792,7 @@ client.read_preference
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L258)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L258)
 
 ### `#use(name)`
 
@@ -815,7 +815,7 @@ client.use(:users)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L273)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L273)
 
 ### `#with(new_options = Options::Redacted.new)`
 
@@ -839,7 +839,7 @@ client.with(:read => { :mode => :primary_preferred })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L289)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L289)
 
 ### `#write_concern`
 
@@ -857,7 +857,7 @@ client.write_concern
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L311)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L311)
 
 ### `#close`
 
@@ -874,7 +874,7 @@ client.close
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L323)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L323)
 
 ### `#reconnect`
 
@@ -891,7 +891,7 @@ client.reconnect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L335)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L335)
 
 ### `#database_names`
 
@@ -908,7 +908,7 @@ client.database_names
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L347)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L347)
 
 ### `#list_databases`
 
@@ -925,7 +925,7 @@ client.list_databases
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/client.rb#L359)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L359)
 
 ---
 
@@ -938,7 +938,7 @@ client.list_databases
 - (`String`) — The configured address for the server.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L32)
 
 ### `#cluster`
 
@@ -947,7 +947,7 @@ client.list_databases
 - (`Cluster`) — cluster The server cluster.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L35)
 
 ### `#monitor`
 
@@ -956,7 +956,7 @@ client.list_databases
 - (`Monitor`) — monitor The server monitor.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L38)
 
 ### `#options`
 
@@ -965,7 +965,7 @@ client.list_databases
 - (`Hash`) — The options hash.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L41)
 
 ### `#monitoring`
 
@@ -974,7 +974,7 @@ client.list_databases
 - (`Monitoring`) — monitoring The monitoring.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L44)
 
 ### `#==(other)`
 
@@ -996,7 +996,7 @@ server == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L84)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L84)
 
 ### `#context`
 
@@ -1013,7 +1013,7 @@ server.context
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L99)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L99)
 
 ### `#connectable?`
 
@@ -1031,7 +1031,7 @@ server.connectable?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L112)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L112)
 
 ### `#disconnect!`
 
@@ -1048,7 +1048,7 @@ server.disconnect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L126)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L126)
 
 ### `.finalize(monitor)`
 
@@ -1067,7 +1067,7 @@ Server.finalize(monitor)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L140)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L140)
 
 ### `#initialize(address, cluster, monitoring, event_listeners, options = {})`
 
@@ -1102,7 +1102,7 @@ Mongo::Server.new('127.0.0.1:27017', cluster, monitoring, listeners)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L161)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L161)
 
 ### `#inspect`
 
@@ -1119,7 +1119,7 @@ server.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L180)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L180)
 
 ### `#pool`
 
@@ -1136,7 +1136,7 @@ server.pool
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L192)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L192)
 
 ### `#matches_tag_set?(tag_set)`
 
@@ -1158,7 +1158,7 @@ server.matches_tag_set?({ 'rack' => 'a', 'dc' => 'nyc' })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L206)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L206)
 
 ### `#reconnect!`
 
@@ -1175,7 +1175,7 @@ server.reconnect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L220)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L220)
 
 ### `#with_connection(&block)`
 
@@ -1195,7 +1195,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L235)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L235)
 
 ### `#handle_auth_failure!`
 
@@ -1214,7 +1214,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server.rb#L251)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L251)
 
 ---
 
@@ -1236,7 +1236,7 @@ Mongo::Logger.logger
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/logger.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/logger.rb#L35)
 
 ### `.logger=(other)`
 
@@ -1258,7 +1258,7 @@ Mongo::Logger.logger = logger
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/logger.rb#L49)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/logger.rb#L49)
 
 ### `.level`
 
@@ -1275,7 +1275,7 @@ Mongo::Logger.level
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/logger.rb#L61)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/logger.rb#L61)
 
 ### `.level=(level)`
 
@@ -1292,7 +1292,7 @@ Mongo::Logger.level == Logger::DEBUG
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/logger.rb#L73)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/logger.rb#L73)
 
 ---
 
@@ -1305,7 +1305,7 @@ Mongo::Logger.level == Logger::DEBUG
 - (`Collection::View`) — view The collection view.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor.rb#L43)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor.rb#L43)
 
 ### `#initialize(view, result, server)`
 
@@ -1333,7 +1333,7 @@ Mongo::Cursor.new(view, response, server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor.rb#L55)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor.rb#L55)
 
 ### `.finalize(cursor_id, cluster, op_spec, server)`
 
@@ -1365,7 +1365,7 @@ Cursor.finalize(id, cluster, op, server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor.rb#L83)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor.rb#L83)
 
 ### `#inspect`
 
@@ -1382,7 +1382,7 @@ cursor.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor.rb#L95)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor.rb#L95)
 
 ### `#each`
 
@@ -1401,7 +1401,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor.rb#L109)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor.rb#L109)
 
 ### `#batch_size`
 
@@ -1418,7 +1418,7 @@ cursor.batch_size
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor.rb#L125)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor.rb#L125)
 
 ### `#closed?`
 
@@ -1435,7 +1435,7 @@ cursor.closed?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor.rb#L137)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor.rb#L137)
 
 ### `#collection_name`
 
@@ -1452,7 +1452,7 @@ cursor.coll_name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor.rb#L149)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor.rb#L149)
 
 ### `#id`
 
@@ -1469,7 +1469,7 @@ cursor.id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor.rb#L163)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor.rb#L163)
 
 ### `#to_return`
 
@@ -1487,7 +1487,7 @@ cursor.to_return
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor.rb#L176)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor.rb#L176)
 
 ---
 
@@ -1500,7 +1500,7 @@ cursor.to_return
 - (`Mongo::Auth::User`) — The user to authenticate.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/cr.rb#L31)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr.rb#L31)
 
 ### `#initialize(user)`
 
@@ -1522,7 +1522,7 @@ Mongo::Auth::CR.new(user)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/cr.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr.rb#L41)
 
 ### `#login(connection)`
 
@@ -1544,7 +1544,7 @@ user.login(connection)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/cr.rb#L55)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr.rb#L55)
 
 ---
 
@@ -1557,7 +1557,7 @@ user.login(connection)
 - (`String`) — seed The seed address.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address.rb#L43)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address.rb#L43)
 
 ### `#host`
 
@@ -1566,7 +1566,7 @@ user.login(connection)
 - (`String`) — host The original host name.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address.rb#L46)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address.rb#L46)
 
 ### `#port`
 
@@ -1575,7 +1575,7 @@ user.login(connection)
 - (`Integer`) — port The port.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address.rb#L49)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address.rb#L49)
 
 ### `#==(other)`
 
@@ -1597,7 +1597,7 @@ address == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address.rb#L61)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address.rb#L61)
 
 ### `#eql?(other)`
 
@@ -1619,7 +1619,7 @@ address.eql?(other)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address.rb#L76)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address.rb#L76)
 
 ### `#hash`
 
@@ -1636,7 +1636,7 @@ address.hash
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address.rb#L88)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address.rb#L88)
 
 ### `#initialize(seed, options = {})`
 
@@ -1685,7 +1685,7 @@ Mongo::Address.new("/path/to/socket.sock")
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address.rb#L119)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address.rb#L119)
 
 ### `#inspect`
 
@@ -1702,7 +1702,7 @@ address.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address.rb#L132)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address.rb#L132)
 
 ### `#socket(timeout, ssl_options = {})`
 
@@ -1727,7 +1727,7 @@ address.socket(5, :ssl => true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address.rb#L147)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address.rb#L147)
 
 ### `#to_s`
 
@@ -1744,7 +1744,7 @@ address.to_s
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address.rb#L160)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address.rb#L160)
 
 ---
 
@@ -1757,7 +1757,7 @@ address.to_s
 - (`Hash`) — The options hash.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L41)
 
 ### `#topology`
 
@@ -1766,7 +1766,7 @@ address.to_s
 - (`Object`) — The cluster topology.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L44)
 
 ### `#app_metadata`
 
@@ -1776,7 +1776,7 @@ address.to_s
 handshakes.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L50)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L50)
 
 ### `#==(other)`
 
@@ -1799,7 +1799,7 @@ cluster == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L66)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L66)
 
 ### `#add(host)`
 
@@ -1823,7 +1823,7 @@ cluster.add('127.0.0.1:27018')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L83)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L83)
 
 ### `#initialize(seeds, monitoring, options = Options::Redacted.new)`
 
@@ -1851,7 +1851,7 @@ Mongo::Cluster.new(["127.0.0.1:27017"], monitoring)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L110)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L110)
 
 ### `.finalize(pools)`
 
@@ -1875,7 +1875,7 @@ Cluster.finalize(pools)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L145)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L145)
 
 ### `#inspect`
 
@@ -1892,7 +1892,7 @@ cluster.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L163)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L163)
 
 ### `#next_primary(ping = true)`
 
@@ -1914,7 +1914,7 @@ cluster.next_primary
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L177)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L177)
 
 ### `#elect_primary!(description)`
 
@@ -1937,7 +1937,7 @@ cluster.elect_primary!(description)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L193)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L193)
 
 ### `#max_read_retries`
 
@@ -1955,7 +1955,7 @@ cluster.max_read_retries
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L206)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L206)
 
 ### `#pool(server)`
 
@@ -1977,7 +1977,7 @@ cluster.pool(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L220)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L220)
 
 ### `#read_retry_interval`
 
@@ -1995,7 +1995,7 @@ cluster.read_retry_interval
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L235)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L235)
 
 ### `#standalone_discovered`
 
@@ -2013,7 +2013,7 @@ cluster.standalone_discovered
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L248)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L248)
 
 ### `#remove(host)`
 
@@ -2032,7 +2032,7 @@ server.remove('127.0.0.1:27017')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L261)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L261)
 
 ### `#scan!`
 
@@ -2049,7 +2049,7 @@ cluster.scan!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L281)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L281)
 
 ### `#servers`
 
@@ -2067,7 +2067,7 @@ cluster.servers
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L294)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L294)
 
 ### `#disconnect!`
 
@@ -2084,7 +2084,7 @@ cluster.disconnect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L306)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L306)
 
 ### `#reconnect!`
 
@@ -2101,7 +2101,7 @@ cluster.reconnect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L320)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L320)
 
 ### `#add_hosts(description)`
 
@@ -2119,7 +2119,7 @@ cluster.add_hosts(description)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L334)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L334)
 
 ### `#remove_hosts(description)`
 
@@ -2137,7 +2137,7 @@ cluster.remove_hosts(description)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L348)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L348)
 
 ### `.create(client)`
 
@@ -2160,7 +2160,7 @@ Cluster.create(client)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L369)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L369)
 
 ### `#addresses`
 
@@ -2177,7 +2177,7 @@ cluster.addresses
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster.rb#L386)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L386)
 
 ---
 
@@ -2190,7 +2190,7 @@ cluster.addresses
 - (`Client`) — client The database client.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L57)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L57)
 
 ### `#name`
 
@@ -2199,7 +2199,7 @@ cluster.addresses
 - (`String`) — name The name of the database.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L60)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L60)
 
 ### `#options`
 
@@ -2208,7 +2208,7 @@ cluster.addresses
 - (`Hash`) — options The options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L63)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L63)
 
 ### `#def_delegators :cluster,`
 
@@ -2217,7 +2217,7 @@ cluster.addresses
 - (`Mongo::Server`) — Get the primary server from the cluster.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L72)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L72)
 
 ### `#==(other)`
 
@@ -2240,7 +2240,7 @@ database == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L86)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L86)
 
 ### `#[](collection_name, options = {})`
 
@@ -2265,7 +2265,7 @@ database[:users]
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L102)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L102)
 
 ### `#[](collection_name, options = {})`
 
@@ -2290,7 +2290,7 @@ database[:users]
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L105)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L105)
 
 ### `#collection_names(options = {})`
 
@@ -2307,7 +2307,7 @@ database.collection_names
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L115)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L115)
 
 ### `#list_collections`
 
@@ -2324,7 +2324,7 @@ database.list_collections
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L127)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L127)
 
 ### `#collections`
 
@@ -2341,7 +2341,7 @@ database.collections
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L139)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L139)
 
 ### `#command(operation, opts = {})`
 
@@ -2368,7 +2368,7 @@ database.command(:ismaster => 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L154)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L154)
 
 ### `#drop`
 
@@ -2385,7 +2385,7 @@ database.drop
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L172)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L172)
 
 ### `#initialize(client, name, options = {})`
 
@@ -2413,7 +2413,7 @@ Mongo::Database.new(client, :test)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L193)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L193)
 
 ### `#inspect`
 
@@ -2430,7 +2430,7 @@ database.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L208)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L208)
 
 ### `#fs(options = {})`
 
@@ -2447,7 +2447,7 @@ database.fs
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L220)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L220)
 
 ### `#users`
 
@@ -2464,7 +2464,7 @@ database.users
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L232)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L232)
 
 ### `.create(client)`
 
@@ -2487,7 +2487,7 @@ Database.create(client)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database.rb#L249)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L249)
 
 ---
 
@@ -2500,7 +2500,7 @@ Database.create(client)
 - (`Mongo::Auth::User`) — The user to authenticate.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/ldap.rb#L31)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap.rb#L31)
 
 ### `#initialize(user)`
 
@@ -2522,7 +2522,7 @@ Mongo::Auth::LDAP.new(user)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/ldap.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap.rb#L41)
 
 ### `#login(connection)`
 
@@ -2545,7 +2545,7 @@ user.login(connection)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/ldap.rb#L55)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap.rb#L55)
 
 ---
 
@@ -2558,7 +2558,7 @@ user.login(connection)
 - (`Mongo::Auth::User`) — The user to authenticate.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/x509.rb#L31)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509.rb#L31)
 
 ### `#initialize(user)`
 
@@ -2580,7 +2580,7 @@ Mongo::Auth::X509.new(user)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/x509.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509.rb#L41)
 
 ### `#login(connection)`
 
@@ -2603,7 +2603,7 @@ user.login(connection)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/x509.rb#L56)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509.rb#L56)
 
 ---
 
@@ -2616,7 +2616,7 @@ user.login(connection)
 - (`Array<Chunk>`) — chunks The file chunks.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L34)
 
 ### `#info`
 
@@ -2625,7 +2625,7 @@ user.login(connection)
 - (`File::Info`) — info The file information.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file.rb#L37)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L37)
 
 ### `#==(other)`
 
@@ -2647,7 +2647,7 @@ file == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file.rb#L49)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L49)
 
 ### `#initialize(data, options = {})`
 
@@ -2700,7 +2700,7 @@ Grid::File.new(data, :filename => 'test.txt')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file.rb#L73)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L73)
 
 ### `#data`
 
@@ -2711,7 +2711,7 @@ Joins chunks into a string.
 - (`String`) — The raw data for the file.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file.rb#L84)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L84)
 
 ### `#inspect`
 
@@ -2728,7 +2728,7 @@ file.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file.rb#L96)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L96)
 
 ---
 
@@ -2742,7 +2742,7 @@ file.inspect
 external name.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L32)
 
 ### `#database`
 
@@ -2751,7 +2751,7 @@ external name.
 - (`String`) — The database the user is created in.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L35)
 
 ### `#auth_mech_properties`
 
@@ -2760,7 +2760,7 @@ external name.
 - (`Hash`) — The authentication mechanism properties.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L38)
 
 ### `#mechanism`
 
@@ -2769,7 +2769,7 @@ external name.
 - (`Symbol`) — The authorization mechanism.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L41)
 
 ### `#name`
 
@@ -2778,7 +2778,7 @@ external name.
 - (`String`) — The username.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L44)
 
 ### `#password`
 
@@ -2787,7 +2787,7 @@ external name.
 - (`String`) — The cleartext password.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user.rb#L47)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L47)
 
 ### `#roles`
 
@@ -2796,7 +2796,7 @@ external name.
 - (`Array<String>`) — roles The user roles.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user.rb#L50)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L50)
 
 ### `#==(other)`
 
@@ -2818,7 +2818,7 @@ user == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user.rb#L62)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L62)
 
 ### `#auth_key(nonce)`
 
@@ -2841,7 +2841,7 @@ user.auth_key(nonce)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user.rb#L78)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L78)
 
 ### `#encoded_name`
 
@@ -2859,7 +2859,7 @@ user.encoded_name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user.rb#L91)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L91)
 
 ### `#hash`
 
@@ -2876,7 +2876,7 @@ user.hash
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user.rb#L103)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L103)
 
 ### `#hashed_password`
 
@@ -2893,7 +2893,7 @@ user.hashed_password
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user.rb#L115)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L115)
 
 ### `#initialize(options)`
 
@@ -2923,7 +2923,7 @@ Mongo::Auth::User.new(options)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user.rb#L136)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L136)
 
 ### `#spec`
 
@@ -2940,7 +2940,7 @@ user.spec
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user.rb#L154)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L154)
 
 ---
 
@@ -2953,7 +2953,7 @@ user.spec
 - (`Mongo::Auth::User`) — The user to authenticate.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/scram.rb#L31)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/scram.rb#L31)
 
 ### `#initialize(user)`
 
@@ -2975,7 +2975,7 @@ Mongo::Auth::SCRAM.new(user)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/scram.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/scram.rb#L41)
 
 ### `#login(connection)`
 
@@ -2998,7 +2998,7 @@ user.login(connection)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/scram.rb#L56)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/scram.rb#L56)
 
 ---
 
@@ -3019,7 +3019,7 @@ Monitoring.next_operation_id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring.rb#L42)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L42)
 
 ### `#initialize(options = {})`
 
@@ -3041,7 +3041,7 @@ Monitoring.new(:monitoring => true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring.rb#L96)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L96)
 
 ### `#started(topic, event)`
 
@@ -3062,7 +3062,7 @@ monitoring.started(COMMAND, event)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring.rb#L116)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L116)
 
 ### `#succeeded(topic, event)`
 
@@ -3083,7 +3083,7 @@ monitoring.succeeded(COMMAND, event)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring.rb#L129)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L129)
 
 ### `#failed(topic, event)`
 
@@ -3104,7 +3104,7 @@ monitoring.failed(COMMAND, event)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring.rb#L142)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L142)
 
 ### `#subscribe(topic, subscriber)`
 
@@ -3125,7 +3125,7 @@ monitoring.subscribe(QUERY, subscriber)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring.rb#L155)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L155)
 
 ### `#subscribers`
 
@@ -3142,7 +3142,7 @@ monitoring.subscribers
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring.rb#L167)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L167)
 
 ### `#subscribers?(topic)`
 
@@ -3164,7 +3164,7 @@ monitoring.subscribers?(COMMAND)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring.rb#L181)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L181)
 
 ---
 
@@ -3177,7 +3177,7 @@ monitoring.subscribers?(COMMAND)
 - (`Collection`) — collection The indexes collection.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/index/view.rb#L26)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/index/view.rb#L26)
 
 ### `#batch_size`
 
@@ -3187,7 +3187,7 @@ monitoring.subscribers?(COMMAND)
 when sending the listIndexes command.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/index/view.rb#L30)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/index/view.rb#L30)
 
 ### `#drop_one(name)`
 
@@ -3209,7 +3209,7 @@ view.drop_one('name_1')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/index/view.rb#L81)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/index/view.rb#L81)
 
 ### `#drop_all`
 
@@ -3226,7 +3226,7 @@ view.drop_all
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/index/view.rb#L94)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/index/view.rb#L94)
 
 ### `#create_one(keys, options = {})`
 
@@ -3285,7 +3285,7 @@ view.create_one({ name: 1 }, { unique: true })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/index/view.rb#L129)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/index/view.rb#L129)
 
 ### `#create_many(*models)`
 
@@ -3311,7 +3311,7 @@ view.create_many([
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/index/view.rb#L150)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/index/view.rb#L150)
 
 ### `#get(keys_or_name)`
 
@@ -3338,7 +3338,7 @@ view.get(name: 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/index/view.rb#L176)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/index/view.rb#L176)
 
 ### `#each(&block)`
 
@@ -3353,7 +3353,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/index/view.rb#L190)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/index/view.rb#L190)
 
 ### `#initialize(collection, options = {})`
 
@@ -3384,7 +3384,7 @@ View::Index.new(collection)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/index/view.rb#L213)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/index/view.rb#L213)
 
 ---
 
@@ -3397,7 +3397,7 @@ View::Index.new(collection)
 - (`String`) — host The host to connect to.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/tcp.rb#L24)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/tcp.rb#L24)
 
 ### `#port`
 
@@ -3406,7 +3406,7 @@ View::Index.new(collection)
 - (`Integer`) — port The port to connect to.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/tcp.rb#L27)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/tcp.rb#L27)
 
 ### `#timeout`
 
@@ -3415,7 +3415,7 @@ View::Index.new(collection)
 - (`Float`) — timeout The connection timeout.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/tcp.rb#L30)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/tcp.rb#L30)
 
 ### `#connect!`
 
@@ -3432,7 +3432,7 @@ sock.connect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/tcp.rb#L43)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/tcp.rb#L43)
 
 ### `#initialize(host, port, timeout, family)`
 
@@ -3464,7 +3464,7 @@ TCP.new('127.0.0.1', 27017, 30, Socket::PF_INET)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/tcp.rb#L63)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/tcp.rb#L63)
 
 ### `#connectable?`
 
@@ -3481,7 +3481,7 @@ socket.connectable?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/tcp.rb#L76)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/tcp.rb#L76)
 
 ---
 
@@ -3494,7 +3494,7 @@ socket.connectable?
 - (`SSLContext`) — context The ssl context.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/ssl.rb#L27)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L27)
 
 ### `#host`
 
@@ -3503,7 +3503,7 @@ socket.connectable?
 - (`String`) — host The host to connect to.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/ssl.rb#L30)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L30)
 
 ### `#host_name`
 
@@ -3512,7 +3512,7 @@ socket.connectable?
 - (`String`) — host_name The original host name.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/ssl.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L33)
 
 ### `#options`
 
@@ -3521,7 +3521,7 @@ socket.connectable?
 - (`Hash`) — The ssl options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/ssl.rb#L36)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L36)
 
 ### `#port`
 
@@ -3530,7 +3530,7 @@ socket.connectable?
 - (`Integer`) — port The port to connect to.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/ssl.rb#L39)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L39)
 
 ### `#timeout`
 
@@ -3539,7 +3539,7 @@ socket.connectable?
 - (`Float`) — timeout The connection timeout.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/ssl.rb#L42)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L42)
 
 ### `#connect!`
 
@@ -3556,7 +3556,7 @@ sock.connect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/ssl.rb#L55)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L55)
 
 ### `#initialize(host, port, host_name, timeout, family, options = {})`
 
@@ -3590,7 +3590,7 @@ SSL.new('::1', 27017, 30)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/ssl.rb#L79)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L79)
 
 ### `#readbyte`
 
@@ -3607,7 +3607,7 @@ socket.readbyte
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/ssl.rb#L96)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L96)
 
 ### `#connectable?`
 
@@ -3624,7 +3624,7 @@ socket.connectable?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/ssl.rb#L111)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L111)
 
 ---
 
@@ -3637,7 +3637,7 @@ socket.connectable?
 - (`Mongo::Collection`) — collection The collection.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write.rb#L29)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write.rb#L29)
 
 ### `#requests`
 
@@ -3646,7 +3646,7 @@ socket.connectable?
 - (`Array<Hash, BSON::Document>`) — requests The requests.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write.rb#L32)
 
 ### `#options`
 
@@ -3655,7 +3655,7 @@ socket.connectable?
 - (`Hash, BSON::Document`) — options The options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write.rb#L35)
 
 ### `#execute`
 
@@ -3672,7 +3672,7 @@ bulk_write.execute
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write.rb#L53)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write.rb#L53)
 
 ### `#initialize(collection, requests, options = {})`
 
@@ -3715,7 +3715,7 @@ Mongo::BulkWrite.new(
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write.rb#L98)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write.rb#L98)
 
 ### `#ordered?`
 
@@ -3732,7 +3732,7 @@ bulk_write.ordered?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write.rb#L114)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write.rb#L114)
 
 ### `#write_concern`
 
@@ -3749,7 +3749,7 @@ bulk_write.write_concern
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write.rb#L128)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write.rb#L128)
 
 ---
 
@@ -3762,7 +3762,7 @@ bulk_write.write_concern
 - (`Mongo::Database`) — The database the collection resides in.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L39)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L39)
 
 ### `#name`
 
@@ -3771,7 +3771,7 @@ bulk_write.write_concern
 - (`String`) — The name of the collection.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L42)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L42)
 
 ### `#options`
 
@@ -3780,7 +3780,7 @@ bulk_write.write_concern
 - (`Hash`) — The collection options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L45)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L45)
 
 ### `#==(other)`
 
@@ -3803,7 +3803,7 @@ collection == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L72)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L72)
 
 ### `#initialize(database, name, options = {})`
 
@@ -3831,7 +3831,7 @@ Mongo::Collection.new(database, 'test')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L87)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L87)
 
 ### `#read_concern`
 
@@ -3848,7 +3848,7 @@ collection.read_concern
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L102)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L102)
 
 ### `#read_preference`
 
@@ -3865,7 +3865,7 @@ collection.read_preference
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L114)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L114)
 
 ### `#write_concern`
 
@@ -3882,7 +3882,7 @@ collection.write_concern
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L126)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L126)
 
 ### `#with(new_options)`
 
@@ -3896,7 +3896,7 @@ collection.write_concern
 - (`Mongo::Collection`) — A new collection instance.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L144)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L144)
 
 ### `#capped?`
 
@@ -3913,7 +3913,7 @@ collection.capped?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L159)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L159)
 
 ### `#create`
 
@@ -3930,7 +3930,7 @@ collection.create
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L171)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L171)
 
 ### `#drop`
 
@@ -3948,7 +3948,7 @@ collection.drop
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L196)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L196)
 
 ### `#find(filter = nil, options = {})`
 
@@ -4021,7 +4021,7 @@ collection.find
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L245)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L245)
 
 ### `#aggregate(pipeline, options = {})`
 
@@ -4066,7 +4066,7 @@ collection.aggregate([ { "$group" => { "_id" => "$city", "tpop" => { "$sum" => "
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L271)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L271)
 
 ### `#count(filter = nil, options = {})`
 
@@ -4103,7 +4103,7 @@ collection.count(name: 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L293)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L293)
 
 ### `#distinct(field_name, filter = nil, options = {})`
 
@@ -4140,7 +4140,7 @@ collection.distinct('name')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L313)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L313)
 
 ### `#indexes(options = {})`
 
@@ -4163,7 +4163,7 @@ collection.indexes
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L328)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L328)
 
 ### `#inspect`
 
@@ -4180,7 +4180,7 @@ collection.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L340)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L340)
 
 ### `#insert_one(document, options = {})`
 
@@ -4205,7 +4205,7 @@ collection.insert_one({ name: 'test' })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L355)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L355)
 
 ### `#insert_many(documents, options = {})`
 
@@ -4230,7 +4230,7 @@ collection.insert_many([{ name: 'test' }])
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L380)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L380)
 
 ### `#bulk_write(requests, options = {})`
 
@@ -4267,7 +4267,7 @@ collection.bulk_write(operations, options)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L403)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L403)
 
 ### `#delete_one(filter = nil, options = {})`
 
@@ -4294,7 +4294,7 @@ collection.delete_one
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L420)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L420)
 
 ### `#delete_many(filter = nil, options = {})`
 
@@ -4321,7 +4321,7 @@ collection.delete_many
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L437)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L437)
 
 ### `#parallel_scan(cursor_count, options = {})`
 
@@ -4354,7 +4354,7 @@ collection.parallel_scan(2)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L459)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L459)
 
 ### `#replace_one(filter, replacement, options = {})`
 
@@ -4397,7 +4397,7 @@ collection.replace_one({ name: 'test' }, { name: 'test1' })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L481)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L481)
 
 ### `#update_many(filter, update, options = {})`
 
@@ -4440,7 +4440,7 @@ collection.update_many({ name: 'test'}, '$set' => { name: 'test1' })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L503)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L503)
 
 ### `#update_one(filter, update, options = {})`
 
@@ -4483,7 +4483,7 @@ collection.update_one({ name: 'test'}, '$set' => { name: 'test1'})
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L525)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L525)
 
 ### `#find_one_and_delete(filter, options = {})`
 
@@ -4525,7 +4525,7 @@ collection.find_one_and_delete(name: 'test')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L550)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L550)
 
 ### `#find_one_and_update(filter, update, options = {})`
 
@@ -4594,7 +4594,7 @@ collection.find_one_and_update({ name: 'test' }, { "$set" => { name: 'test1' }},
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L583)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L583)
 
 ### `#find_one_and_replace(filter, replacement, options = {})`
 
@@ -4663,7 +4663,7 @@ collection.find_one_and_replace({ name: 'test' }, { name: 'test1' }, :return_doc
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L616)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L616)
 
 ### `#namespace`
 
@@ -4680,7 +4680,7 @@ collection.namespace
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection.rb#L628)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L628)
 
 ---
 
@@ -4693,7 +4693,7 @@ collection.namespace
 - (`Collection`) — chunks_collection The chunks collection.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L42)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L42)
 
 ### `#database`
 
@@ -4702,7 +4702,7 @@ collection.namespace
 - (`Database`) — database The database.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L47)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L47)
 
 ### `#files_collection`
 
@@ -4711,7 +4711,7 @@ collection.namespace
 - (`Collection`) — files_collection The files collection.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L52)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L52)
 
 ### `#options`
 
@@ -4720,7 +4720,7 @@ collection.namespace
 - (`Hash`) — options The FSBucket options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L57)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L57)
 
 ### `#find(selector = nil, options = {})`
 
@@ -4763,7 +4763,7 @@ fs.find(filename: 'file.txt')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L86)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L86)
 
 ### `#find_one(selector = nil)`
 
@@ -4789,7 +4789,7 @@ fs.find_one(filename: 'test.txt')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L106)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L106)
 
 ### `#insert_one(file)`
 
@@ -4811,7 +4811,7 @@ fs.insert_one(file)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L126)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L126)
 
 ### `#initialize(database, options = {})`
 
@@ -4852,7 +4852,7 @@ Grid::FSBucket.new(database)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L151)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L151)
 
 ### `#prefix`
 
@@ -4869,7 +4869,7 @@ fs.prefix
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L166)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L166)
 
 ### `#delete_one(file)`
 
@@ -4891,7 +4891,7 @@ fs.delete_one(file)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L180)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L180)
 
 ### `#delete(id)`
 
@@ -4913,7 +4913,7 @@ fs.delete(id)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L196)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L196)
 
 ### `#open_download_stream(id)`
 
@@ -4935,7 +4935,7 @@ fs.open_download_stream(id)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L215)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L215)
 
 ### `#download_to_stream(id, io)`
 
@@ -4957,7 +4957,7 @@ fs.download_to_stream(id, io)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L234)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L234)
 
 ### `#open_download_stream_by_name(filename, opts = {}, &block)`
 
@@ -5002,7 +5002,7 @@ fs.open_download_stream_by_name('some-file.txt', revision: 2)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L276)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L276)
 
 ### `#download_to_stream_by_name(filename, io, opts = {})`
 
@@ -5048,7 +5048,7 @@ fs.download_to_stream_by_name('some-file.txt', io, revision: 2)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L328)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L328)
 
 ### `#open_upload_stream(filename, opts = {})`
 
@@ -5091,7 +5091,7 @@ fs.open_upload_stream('a-file.txt')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L355)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L355)
 
 ### `#upload_from_stream(filename, io, opts = {})`
 
@@ -5149,7 +5149,7 @@ fs.upload_from_stream('a-file.txt', file)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L389)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L389)
 
 ### `#read_preference`
 
@@ -5166,7 +5166,7 @@ fs.read_preference
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L411)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L411)
 
 ### `#write_concern`
 
@@ -5183,7 +5183,7 @@ stream.write_concern
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/fs_bucket.rb#L423)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L423)
 
 ---
 
@@ -5196,7 +5196,7 @@ stream.write_concern
 - (`String`) — path The path to connect to.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/unix.rb#L24)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/unix.rb#L24)
 
 ### `#timeout`
 
@@ -5205,7 +5205,7 @@ stream.write_concern
 - (`Float`) — timeout The connection timeout.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/unix.rb#L27)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/unix.rb#L27)
 
 ### `#connect!`
 
@@ -5222,7 +5222,7 @@ sock.connect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/unix.rb#L40)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/unix.rb#L40)
 
 ### `#initialize(path, timeout)`
 
@@ -5247,7 +5247,7 @@ Unix.new('/path/to.sock', 5)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/unix.rb#L53)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/unix.rb#L53)
 
 ### `#connectable?`
 
@@ -5264,7 +5264,7 @@ socket.connectable?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/socket/unix.rb#L67)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/unix.rb#L67)
 
 ---
 
@@ -5277,7 +5277,7 @@ socket.connectable?
 - (`String`) — host The host.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/ipv6.rb#L25)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv6.rb#L25)
 
 ### `#host_name`
 
@@ -5286,7 +5286,7 @@ socket.connectable?
 - (`String`) — host_name The original host name.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/ipv6.rb#L28)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv6.rb#L28)
 
 ### `#port`
 
@@ -5295,7 +5295,7 @@ socket.connectable?
 - (`Integer`) — port The port.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/ipv6.rb#L31)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv6.rb#L31)
 
 ### `.parse(address)`
 
@@ -5317,7 +5317,7 @@ IPv4.parse("[::1]:28011")
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/ipv6.rb#L48)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv6.rb#L48)
 
 ### `#initialize(host, port, host_name=nil)`
 
@@ -5342,7 +5342,7 @@ IPv6.new("::1", 28011, 'localhost')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/ipv6.rb#L64)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv6.rb#L64)
 
 ### `#socket(timeout, ssl_options = {})`
 
@@ -5367,7 +5367,7 @@ ipv4.socket(5, :ssl => true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/ipv6.rb#L81)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv6.rb#L81)
 
 ---
 
@@ -5380,7 +5380,7 @@ ipv4.socket(5, :ssl => true)
 - (`BSON::Document`) — document The returned document.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/parser.rb#L25)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/parser.rb#L25)
 
 ### `#message`
 
@@ -5389,7 +5389,7 @@ ipv4.socket(5, :ssl => true)
 - (`String`) — message The error message parsed from the document.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/parser.rb#L28)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/parser.rb#L28)
 
 ### `#replies`
 
@@ -5398,7 +5398,7 @@ ipv4.socket(5, :ssl => true)
 - (`Array<Protocol::Reply>`) — replies The message replies.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/parser.rb#L31)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/parser.rb#L31)
 
 ### `#initialize(document, replies = nil)`
 
@@ -5420,7 +5420,7 @@ Parser.new({ 'errmsg' => 'failed' })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/parser.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/parser.rb#L41)
 
 ---
 
@@ -5433,7 +5433,7 @@ Parser.new({ 'errmsg' => 'failed' })
 - (`String`) — host The host.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/unix.rb#L24)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/unix.rb#L24)
 
 ### `#port`
 
@@ -5442,7 +5442,7 @@ Parser.new({ 'errmsg' => 'failed' })
 - (`nil`) — port Will always be nil.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/unix.rb#L27)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/unix.rb#L27)
 
 ### `.parse(address)`
 
@@ -5464,7 +5464,7 @@ Unix.parse("/path/to/socket.sock")
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/unix.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/unix.rb#L44)
 
 ### `#initialize(host, port=nil, host_name=nil)`
 
@@ -5486,7 +5486,7 @@ Unix.new("/path/to/socket.sock", "/path/to/socket.sock")
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/unix.rb#L56)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/unix.rb#L56)
 
 ### `#socket(timeout, ssl_options = {})`
 
@@ -5511,7 +5511,7 @@ address.socket(5)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/unix.rb#L71)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/unix.rb#L71)
 
 ---
 
@@ -5524,7 +5524,7 @@ address.socket(5)
 - (`String`) — host The host.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/ipv4.rb#L25)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv4.rb#L25)
 
 ### `#host_name`
 
@@ -5533,7 +5533,7 @@ address.socket(5)
 - (`String`) — host_name The original host name.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/ipv4.rb#L28)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv4.rb#L28)
 
 ### `#port`
 
@@ -5542,7 +5542,7 @@ address.socket(5)
 - (`Integer`) — port The port.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/ipv4.rb#L31)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv4.rb#L31)
 
 ### `.parse(address)`
 
@@ -5564,7 +5564,7 @@ IPv4.parse("127.0.0.1:28011")
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/ipv4.rb#L53)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv4.rb#L53)
 
 ### `#initialize(host, port, host_name=nil)`
 
@@ -5589,7 +5589,7 @@ IPv4.new("127.0.0.1", 27017, 'localhost')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/ipv4.rb#L69)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv4.rb#L69)
 
 ### `#socket(timeout, ssl_options = {})`
 
@@ -5614,7 +5614,7 @@ ipv4.socket(5, :ssl => true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/address/ipv4.rb#L86)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv4.rb#L86)
 
 ---
 
@@ -5628,7 +5628,7 @@ ipv4.socket(5, :ssl => true)
 when sending the listCollections command.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database/view.rb#L30)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database/view.rb#L30)
 
 ### `#limit`
 
@@ -5637,7 +5637,7 @@ when sending the listCollections command.
 - (`Integer`) — limit The limit when sending a command.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database/view.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database/view.rb#L33)
 
 ### `#collection`
 
@@ -5646,7 +5646,7 @@ when sending the listCollections command.
 - (`Collection`) — collection The command collection.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database/view.rb#L36)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database/view.rb#L36)
 
 ### `#collection_names(options = {})`
 
@@ -5670,7 +5670,7 @@ database.collection_names
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database/view.rb#L51)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database/view.rb#L51)
 
 ### `#list_collections`
 
@@ -5687,7 +5687,7 @@ database.list_collections
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database/view.rb#L73)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database/view.rb#L73)
 
 ### `#initialize(database)`
 
@@ -5709,7 +5709,7 @@ View::Index.new(database)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/database/view.rb#L85)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database/view.rb#L85)
 
 ---
 
@@ -5722,7 +5722,7 @@ View::Index.new(database)
 - (`BSON::Document`) — document The files collection document.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/info.rb#L53)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/info.rb#L53)
 
 ### `#==(other)`
 
@@ -5744,7 +5744,7 @@ file_info == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/info.rb#L65)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/info.rb#L65)
 
 ### `#bson_type`
 
@@ -5761,7 +5761,7 @@ file_info.bson_type
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/info.rb#L78)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/info.rb#L78)
 
 ### `#chunk_size`
 
@@ -5778,7 +5778,7 @@ file_info.chunk_size
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/info.rb#L90)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/info.rb#L90)
 
 ### `#content_type`
 
@@ -5795,7 +5795,7 @@ file_info.content_type
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/info.rb#L102)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/info.rb#L102)
 
 ### `#filename`
 
@@ -5812,7 +5812,7 @@ file_info.filename
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/info.rb#L112)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/info.rb#L112)
 
 ### `#id`
 
@@ -5829,7 +5829,7 @@ file_info.id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/info.rb#L124)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/info.rb#L124)
 
 ### `#initialize(document)`
 
@@ -5851,7 +5851,7 @@ Info.new(:filename => 'test.txt')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/info.rb#L136)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/info.rb#L136)
 
 ### `#inspect`
 
@@ -5868,7 +5868,7 @@ file_info.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/info.rb#L149)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/info.rb#L149)
 
 ### `#length`
 
@@ -5885,7 +5885,7 @@ file_info.length
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/info.rb#L162)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/info.rb#L162)
 
 ### `#length`
 
@@ -5902,7 +5902,7 @@ file_info.length
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/info.rb#L165)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/info.rb#L165)
 
 ### `#metadata`
 
@@ -5919,7 +5919,7 @@ file_info.metadata
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/info.rb#L175)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/info.rb#L175)
 
 ### `#md5`
 
@@ -5936,7 +5936,7 @@ file_info.md5
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/info.rb#L187)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/info.rb#L187)
 
 ### `#to_bson(buffer = BSON::ByteBuffer.new, validating_keys = BSON::Config.validating_keys?)`
 
@@ -5961,7 +5961,7 @@ file_info.to_bson
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/info.rb#L205)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/info.rb#L205)
 
 ### `#upload_date`
 
@@ -5978,7 +5978,7 @@ file_info.upload_date
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/info.rb#L218)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/info.rb#L218)
 
 ---
 
@@ -6054,7 +6054,7 @@ Query.new('xgen', 'users', {}, :fields => {:id => 1})
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/query.rb#L60)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/query.rb#L60)
 
 ### `#payload`
 
@@ -6071,7 +6071,7 @@ message.payload
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/query.rb#L81)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/query.rb#L81)
 
 ### `#replyable?`
 
@@ -6088,7 +6088,7 @@ message.replyable?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/query.rb#L98)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/query.rb#L98)
 
 ---
 
@@ -6101,7 +6101,7 @@ message.replyable?
 - (`String`) — collection The name of the collection.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/query.rb#L207)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/query.rb#L207)
 
 ### `#filter`
 
@@ -6110,7 +6110,7 @@ message.replyable?
 - (`BSON::Document, Hash`) — filter The query filter or command.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/query.rb#L210)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/query.rb#L210)
 
 ### `#options`
 
@@ -6119,7 +6119,7 @@ message.replyable?
 - (`BSON::Document, Hash`) — options The options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/query.rb#L213)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/query.rb#L213)
 
 ### `#flags`
 
@@ -6128,7 +6128,7 @@ message.replyable?
 - (`Array<Symbol>`) — flags The flags.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/query.rb#L216)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/query.rb#L216)
 
 ### `#initialize(collection, filter, options, flags)`
 
@@ -6159,7 +6159,7 @@ Upconverter.new('users', { name: 'test' }, { skip: 10 })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/query.rb#L229)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/query.rb#L229)
 
 ### `#command`
 
@@ -6176,7 +6176,7 @@ upconverter.command
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/query.rb#L244)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/query.rb#L244)
 
 ### `#command_name`
 
@@ -6194,7 +6194,7 @@ upconverter.command_name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/query.rb#L257)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/query.rb#L257)
 
 ---
 
@@ -6215,7 +6215,7 @@ reply.query_failure?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L37)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L37)
 
 ### `#cursor_not_found?`
 
@@ -6232,7 +6232,7 @@ reply.cursor_not_found?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L49)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L49)
 
 ### `#payload`
 
@@ -6249,7 +6249,7 @@ message.payload
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L61)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L61)
 
 ### `#flags`
 
@@ -6261,7 +6261,7 @@ Supported flags: +:cursor_not_found+, +:query_failure+,
 +:shard_config_stale+, +:await_capable+
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L92)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L92)
 
 ### `#flags=(value)`
 
@@ -6273,7 +6273,7 @@ Supported flags: +:cursor_not_found+, +:query_failure+,
 +:shard_config_stale+, +:await_capable+
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L92)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L92)
 
 ### `#cursor_id`
 
@@ -6283,7 +6283,7 @@ Supported flags: +:cursor_not_found+, +:query_failure+,
 if there are no additional results.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L97)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L97)
 
 ### `#cursor_id=(value)`
 
@@ -6293,7 +6293,7 @@ if there are no additional results.
 if there are no additional results.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L97)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L97)
 
 ### `#starting_from`
 
@@ -6302,7 +6302,7 @@ if there are no additional results.
 - (`Fixnum`) — The starting position of the cursor for this Reply.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L101)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L101)
 
 ### `#starting_from=(value)`
 
@@ -6311,7 +6311,7 @@ if there are no additional results.
 - (`Fixnum`) — The starting position of the cursor for this Reply.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L101)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L101)
 
 ### `#number_returned`
 
@@ -6320,7 +6320,7 @@ if there are no additional results.
 - (`Fixnum`) — Number of documents in this Reply.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L105)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L105)
 
 ### `#number_returned=(value)`
 
@@ -6329,7 +6329,7 @@ if there are no additional results.
 - (`Fixnum`) — Number of documents in this Reply.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L105)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L105)
 
 ### `#documents`
 
@@ -6338,7 +6338,7 @@ if there are no additional results.
 - (`Array<Hash>`) — The documents in this Reply.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L109)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L109)
 
 ### `#documents=(value)`
 
@@ -6347,7 +6347,7 @@ if there are no additional results.
 - (`Array<Hash>`) — The documents in this Reply.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L109)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L109)
 
 ---
 
@@ -6360,7 +6360,7 @@ if there are no additional results.
 - (`Array<BSON::Document>`) — documents The documents.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L137)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L137)
 
 ### `#cursor_id`
 
@@ -6369,7 +6369,7 @@ if there are no additional results.
 - (`Integer`) — cursor_id The cursor id.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L140)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L140)
 
 ### `#starting_from`
 
@@ -6378,7 +6378,7 @@ if there are no additional results.
 - (`Integer`) — starting_from The starting point in the cursor.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L143)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L143)
 
 ### `#initialize(documents, cursor_id, starting_from)`
 
@@ -6406,7 +6406,7 @@ Upconverter.new(docs, 1, 3)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L155)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L155)
 
 ### `#command`
 
@@ -6423,7 +6423,7 @@ upconverter.command
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/reply.rb#L169)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L169)
 
 ---
 
@@ -6436,7 +6436,7 @@ upconverter.command
 - (`Mongo::Server`) — server The server the context is for.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/context.rb#L28)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/context.rb#L28)
 
 ### `#initialize(server)`
 
@@ -6458,7 +6458,7 @@ Mongo::Server::Context.new(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/context.rb#L49)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/context.rb#L49)
 
 ### `#with_connection(&block)`
 
@@ -6478,7 +6478,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/context.rb#L64)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/context.rb#L64)
 
 ---
 
@@ -6491,7 +6491,7 @@ end
 - (`Database`) — database The view's database.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user/view.rb#L26)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user/view.rb#L26)
 
 ### `#create(user_or_name, options = {})`
 
@@ -6516,7 +6516,7 @@ view.create('user', password: 'password', roles: [ 'readWrite' ])
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user/view.rb#L42)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user/view.rb#L42)
 
 ### `#initialize(database)`
 
@@ -6538,7 +6538,7 @@ View::User.new(database)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user/view.rb#L58)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user/view.rb#L58)
 
 ### `#remove(name)`
 
@@ -6560,7 +6560,7 @@ view.remove('user')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user/view.rb#L72)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user/view.rb#L72)
 
 ### `#update(user_or_name, options = {})`
 
@@ -6585,7 +6585,7 @@ view.update('name', password: 'testpwd')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user/view.rb#L90)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user/view.rb#L90)
 
 ### `#info(name)`
 
@@ -6607,7 +6607,7 @@ view.info('emily')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/user/view.rb#L108)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user/view.rb#L108)
 
 ---
 
@@ -6620,7 +6620,7 @@ view.info('emily')
 - (`Mongo::Connection`) — connection The connection to use.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/monitor.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L44)
 
 ### `#description`
 
@@ -6630,7 +6630,7 @@ view.info('emily')
 description the monitor refreshes.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/monitor.rb#L48)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L48)
 
 ### `#inspector`
 
@@ -6639,7 +6639,7 @@ description the monitor refreshes.
 - (`Description::Inspector`) — inspector The description inspector.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/monitor.rb#L51)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L51)
 
 ### `#options`
 
@@ -6648,7 +6648,7 @@ description the monitor refreshes.
 - (`Hash`) — options The server options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/monitor.rb#L54)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L54)
 
 ### `#last_scan`
 
@@ -6657,7 +6657,7 @@ description the monitor refreshes.
 - (`Time`) — last_scan The time of the last server scan.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/monitor.rb#L59)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L59)
 
 ### `#scan!`
 
@@ -6674,7 +6674,7 @@ monitor.scan!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/monitor.rb#L69)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L69)
 
 ### `#heartbeat_frequency`
 
@@ -6692,7 +6692,7 @@ server.heartbeat_frequency
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/monitor.rb#L83)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L83)
 
 ### `#initialize(address, listeners, options = {})`
 
@@ -6720,7 +6720,7 @@ Mongo::Server::Monitor.new(address, listeners)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/monitor.rb#L101)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L101)
 
 ### `#run!`
 
@@ -6738,7 +6738,7 @@ monitor.run
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/monitor.rb#L120)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L120)
 
 ### `#stop!`
 
@@ -6756,7 +6756,7 @@ monitor.stop!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/monitor.rb#L138)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L138)
 
 ### `#restart!`
 
@@ -6773,7 +6773,7 @@ monitor.restart!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/monitor.rb#L150)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L150)
 
 ---
 
@@ -6786,7 +6786,7 @@ monitor.restart!
 - (`Collection`) — The +Collection+ to query.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view.rb#L53)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L53)
 
 ### `#filter`
 
@@ -6795,7 +6795,7 @@ monitor.restart!
 - (`Hash`) — The query filter.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view.rb#L56)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L56)
 
 ### `#filter`
 
@@ -6804,7 +6804,7 @@ monitor.restart!
 - (`Hash`) — The query filter.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view.rb#L69)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L69)
 
 ### `#==(other)`
 
@@ -6822,7 +6822,7 @@ view == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view.rb#L80)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L80)
 
 ### `#==(other)`
 
@@ -6840,7 +6840,7 @@ view == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view.rb#L86)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L86)
 
 ### `#hash`
 
@@ -6858,7 +6858,7 @@ view.hash
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view.rb#L97)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L97)
 
 ### `#initialize(collection, filter = {}, options = {})`
 
@@ -6954,7 +6954,7 @@ View.new(collection, {:name => 'Emily'}, :read => :secondary_preferred)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view.rb#L138)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L138)
 
 ### `#inspect`
 
@@ -6971,7 +6971,7 @@ view.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view.rb#L152)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L152)
 
 ---
 
@@ -7022,7 +7022,7 @@ Insert.new('xgen', 'users', users, :flags => [:continue_on_error])
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/insert.rb#L51)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/insert.rb#L51)
 
 ### `#payload`
 
@@ -7039,7 +7039,7 @@ message.payload
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/insert.rb#L69)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/insert.rb#L69)
 
 ---
 
@@ -7052,7 +7052,7 @@ message.payload
 - (`String`) — collection The name of the collection.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/insert.rb#L131)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/insert.rb#L131)
 
 ### `#documents`
 
@@ -7061,7 +7061,7 @@ message.payload
 - (`Array<BSON::Document>`) — documents The documents to insert.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/insert.rb#L134)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/insert.rb#L134)
 
 ### `#options`
 
@@ -7070,7 +7070,7 @@ message.payload
 - (`Hash`) — options The options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/insert.rb#L137)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/insert.rb#L137)
 
 ### `#initialize(collection, documents, options)`
 
@@ -7098,7 +7098,7 @@ Upconverter.new('users', documents)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/insert.rb#L149)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/insert.rb#L149)
 
 ### `#command`
 
@@ -7115,7 +7115,7 @@ upconverter.command
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/insert.rb#L163)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/insert.rb#L163)
 
 ---
 
@@ -7162,7 +7162,7 @@ Query.new('xgen', 'users', {:name => 'Tyler'})
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/delete.rb#L43)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L43)
 
 ### `#payload`
 
@@ -7179,7 +7179,7 @@ message.payload
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/delete.rb#L60)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L60)
 
 ---
 
@@ -7192,7 +7192,7 @@ message.payload
 - (`String`) — collection The name of the collection.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/delete.rb#L116)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L116)
 
 ### `#filter`
 
@@ -7201,7 +7201,7 @@ message.payload
 - (`BSON::Document, Hash`) — filter The query filter or command.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/delete.rb#L119)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L119)
 
 ### `#options`
 
@@ -7210,7 +7210,7 @@ message.payload
 - (`Hash`) — options The options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/delete.rb#L122)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L122)
 
 ### `#initialize(collection, filter, options)`
 
@@ -7235,7 +7235,7 @@ Upconverter.new('users', { name: 'test' })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/delete.rb#L133)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L133)
 
 ### `#command`
 
@@ -7252,7 +7252,7 @@ upconverter.command
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/delete.rb#L147)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L147)
 
 ---
 
@@ -7273,7 +7273,7 @@ Listeners.new
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/event/listeners.rb#L29)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/listeners.rb#L29)
 
 ### `#add_listener(event, listener)`
 
@@ -7298,7 +7298,7 @@ publisher.add_listener("my_event", listener)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/event/listeners.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/listeners.rb#L44)
 
 ### `#listeners_for(event)`
 
@@ -7320,7 +7320,7 @@ publisher.listeners_for("test")
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/event/listeners.rb#L58)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/listeners.rb#L58)
 
 ---
 
@@ -7334,7 +7334,7 @@ publisher.listeners_for("test")
 chunk.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/chunk.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/chunk.rb#L38)
 
 ### `#==(other)`
 
@@ -7356,7 +7356,7 @@ chunk == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/chunk.rb#L50)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/chunk.rb#L50)
 
 ### `#bson_type`
 
@@ -7373,7 +7373,7 @@ chunk.bson_type
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/chunk.rb#L63)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/chunk.rb#L63)
 
 ### `#data`
 
@@ -7390,7 +7390,7 @@ chunk.data
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/chunk.rb#L75)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/chunk.rb#L75)
 
 ### `#id`
 
@@ -7407,7 +7407,7 @@ chunk.id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/chunk.rb#L87)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/chunk.rb#L87)
 
 ### `#files_id`
 
@@ -7424,7 +7424,7 @@ chunk.files_id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/chunk.rb#L99)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/chunk.rb#L99)
 
 ### `#n`
 
@@ -7441,7 +7441,7 @@ chunk.n
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/chunk.rb#L111)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/chunk.rb#L111)
 
 ### `#initialize(document)`
 
@@ -7464,7 +7464,7 @@ Chunk.new(document)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/chunk.rb#L124)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/chunk.rb#L124)
 
 ### `#to_bson(buffer = BSON::ByteBuffer.new, validating_keys = BSON::Config.validating_keys?)`
 
@@ -7489,7 +7489,7 @@ chunk.to_bson
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/chunk.rb#L139)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/chunk.rb#L139)
 
 ### `.assemble(chunks)`
 
@@ -7512,7 +7512,7 @@ Chunk.assemble(chunks)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/chunk.rb#L156)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/chunk.rb#L156)
 
 ### `.split(io, file_info, offset = 0)`
 
@@ -7540,7 +7540,7 @@ Chunks.split(data)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/file/chunk.rb#L172)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/chunk.rb#L172)
 
 ---
 
@@ -7602,7 +7602,7 @@ Update.new('xgen', 'users', {:name => 'Tyler'}, :flags => [:upsert])
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/update.rb#L54)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L54)
 
 ### `#payload`
 
@@ -7619,7 +7619,7 @@ message.payload
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/update.rb#L73)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L73)
 
 ---
 
@@ -7632,7 +7632,7 @@ message.payload
 - (`String`) — collection The name of the collection.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/update.rb#L148)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L148)
 
 ### `#filter`
 
@@ -7641,7 +7641,7 @@ message.payload
 - (`Hash`) — filter The filter.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/update.rb#L151)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L151)
 
 ### `#update`
 
@@ -7650,7 +7650,7 @@ message.payload
 - (`Hash`) — update The update.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/update.rb#L154)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L154)
 
 ### `#flags`
 
@@ -7659,7 +7659,7 @@ message.payload
 - (`Array<Symbol>`) — flags The flags.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/update.rb#L157)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L157)
 
 ### `#initialize(collection, filter, update, flags)`
 
@@ -7695,7 +7695,7 @@ Upconverter.new(
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/update.rb#L175)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L175)
 
 ### `#command`
 
@@ -7712,7 +7712,7 @@ upconverter.command
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/update.rb#L190)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L190)
 
 ---
 
@@ -7727,7 +7727,7 @@ Get a string representation of the options.
 - (`String`) — The string representation of the options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/options/redacted.rb#L40)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L40)
 
 ### `#to_s`
 
@@ -7738,7 +7738,7 @@ Get a string representation of the options.
 - (`String`) — The string representation of the options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/options/redacted.rb#L49)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L49)
 
 ### `#has_key?(key)`
 
@@ -7760,7 +7760,7 @@ options.has_key?(:name)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/options/redacted.rb#L63)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L63)
 
 ### `#has_key?(key)`
 
@@ -7782,7 +7782,7 @@ options.has_key?(:name)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/options/redacted.rb#L66)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L66)
 
 ### `#reject(&block)`
 
@@ -7799,7 +7799,7 @@ new_options = options.reject { |k, v| k == 'database' }
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/options/redacted.rb#L78)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L78)
 
 ### `#reject!`
 
@@ -7816,7 +7816,7 @@ options.reject! { |k, v| k == 'database' }
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/options/redacted.rb#L93)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L93)
 
 ### `#select(&block)`
 
@@ -7833,7 +7833,7 @@ ssl_options = options.select { |k, v| k =~ /ssl/ }
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/options/redacted.rb#L115)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L115)
 
 ### `#select!`
 
@@ -7850,7 +7850,7 @@ options.select! { |k, v| k =~ /ssl/ }
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/options/redacted.rb#L130)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L130)
 
 ---
 
@@ -7863,7 +7863,7 @@ options.select! { |k, v| k =~ /ssl/ }
 - (`Array<Protocol::Reply>`) — replies The wrapped wire protocol replies.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/result.rb#L66)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L66)
 
 ### `#acknowledged?`
 
@@ -7874,7 +7874,7 @@ Is the result acknowledged?
 - (`true, false`) — If the result is acknowledged.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/result.rb#L79)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L79)
 
 ### `#multiple?`
 
@@ -7892,7 +7892,7 @@ result.multiple?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/result.rb#L92)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L92)
 
 ### `#cursor_id`
 
@@ -7909,7 +7909,7 @@ result.cursor_id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/result.rb#L106)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L106)
 
 ### `#namespace`
 
@@ -7921,7 +7921,7 @@ result classes where 'ns' is in the server response.
 - (`Nil`) — 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/result.rb#L116)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L116)
 
 ### `#documents`
 
@@ -7938,7 +7938,7 @@ result.documents
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/result.rb#L128)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L128)
 
 ### `#each(&block)`
 
@@ -7957,7 +7957,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/result.rb#L148)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L148)
 
 ### `#initialize(replies)`
 
@@ -7979,7 +7979,7 @@ Result.new(replies)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/result.rb#L160)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L160)
 
 ### `#inspect`
 
@@ -7996,7 +7996,7 @@ result.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/result.rb#L172)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L172)
 
 ### `#reply`
 
@@ -8013,7 +8013,7 @@ result.reply
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/result.rb#L184)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L184)
 
 ### `#returned_count`
 
@@ -8030,7 +8030,7 @@ result.returned_count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/result.rb#L200)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L200)
 
 ### `#successful?`
 
@@ -8048,7 +8048,7 @@ result.successful?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/result.rb#L220)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L220)
 
 ### `#ok?`
 
@@ -8065,7 +8065,7 @@ result.ok?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/result.rb#L237)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L237)
 
 ### `#validate!`
 
@@ -8082,7 +8082,7 @@ result.validate!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/result.rb#L255)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L255)
 
 ### `#written_count`
 
@@ -8099,7 +8099,7 @@ result.written_count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/result.rb#L267)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L267)
 
 ### `#written_count`
 
@@ -8116,7 +8116,7 @@ result.written_count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/result.rb#L274)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L274)
 
 ---
 
@@ -8131,7 +8131,7 @@ Returns the request id for the message
 - (`Fixnum`) — The request id for this message
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/message.rb#L78)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L78)
 
 ### `#initialize(*args) # :nodoc:`
 
@@ -8142,7 +8142,7 @@ Returns the request id for the message
 - (`Message`) — a new instance of Message
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/message.rb#L80)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L80)
 
 ### `#replyable?`
 
@@ -8160,7 +8160,7 @@ message.replyable?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/message.rb#L93)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L93)
 
 ### `#serialize(buffer = BSON::ByteBuffer.new, max_bson_size = nil)`
 
@@ -8176,7 +8176,7 @@ Serializes message into bytes that can be sent on the wire
 - (`String`) — buffer containing the serialized message
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/message.rb#L101)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L101)
 
 ### `#serialize(buffer = BSON::ByteBuffer.new, max_bson_size = nil)`
 
@@ -8192,7 +8192,7 @@ Serializes message into bytes that can be sent on the wire
 - (`String`) — buffer containing the serialized message
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/message.rb#L108)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L108)
 
 ### `.deserialize(io, max_message_size = MAX_MESSAGE_SIZE, expected_response_to = nil)`
 
@@ -8211,7 +8211,7 @@ Deserializes messages from an IO stream
 - (`Message`) — Instance of a Message class
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/message.rb#L116)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L116)
 
 ### `#==(other)`
 
@@ -8228,7 +8228,7 @@ by comparing class and field values.
 - (`true, false`) — The equality of the messages.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/message.rb#L149)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L149)
 
 ### `#==(other)`
 
@@ -8245,7 +8245,7 @@ by comparing class and field values.
 - (`true, false`) — The equality of the messages.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/message.rb#L157)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L157)
 
 ### `#hash`
 
@@ -8256,7 +8256,7 @@ Creates a hash from the values of the fields of a message.
 - (`Fixnum`) — The hash code for the message.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/message.rb#L162)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L162)
 
 ### `#set_request_id`
 
@@ -8269,7 +8269,7 @@ server. The server will put this id in the response_to field of
 a reply.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/message.rb#L171)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L171)
 
 ---
 
@@ -8282,7 +8282,7 @@ a reply.
 - (`FSBucket`) — fs The fs bucket from which this stream reads.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/read.rb#L29)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L29)
 
 ### `#options`
 
@@ -8291,7 +8291,7 @@ a reply.
 - (`Hash`) — options The stream options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/read.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L34)
 
 ### `#file_id`
 
@@ -8300,7 +8300,7 @@ a reply.
 - (`BSON::ObjectId, Object`) — file_id The id of the file being read.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/read.rb#L39)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L39)
 
 ### `#initialize(fs, options)`
 
@@ -8325,7 +8325,7 @@ Stream::Read.new(fs, options)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/read.rb#L50)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L50)
 
 ### `#each`
 
@@ -8344,7 +8344,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/read.rb#L71)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L71)
 
 ### `#read`
 
@@ -8361,7 +8361,7 @@ stream.read
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/read.rb#L94)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L94)
 
 ### `#close`
 
@@ -8378,7 +8378,7 @@ stream.close
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/read.rb#L108)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L108)
 
 ### `#closed?`
 
@@ -8395,7 +8395,7 @@ stream.closed?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/read.rb#L123)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L123)
 
 ### `#read_preference`
 
@@ -8412,7 +8412,7 @@ stream.read_preference
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/read.rb#L135)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L135)
 
 ### `#file_info`
 
@@ -8429,7 +8429,7 @@ stream.file_info
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/read.rb#L147)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L147)
 
 ---
 
@@ -8450,7 +8450,7 @@ result.deleted_count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/result.rb#L84)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result.rb#L84)
 
 ### `#initialize(results)`
 
@@ -8472,7 +8472,7 @@ Result.new({ 'n_inserted' => 10 })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/result.rb#L96)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result.rb#L96)
 
 ### `#inserted_count`
 
@@ -8489,7 +8489,7 @@ result.inserted_count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/result.rb#L108)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result.rb#L108)
 
 ### `#inserted_ids`
 
@@ -8506,7 +8506,7 @@ result.inserted_ids
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/result.rb#L120)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result.rb#L120)
 
 ### `#matched_count`
 
@@ -8523,7 +8523,7 @@ result.matched_count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/result.rb#L132)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result.rb#L132)
 
 ### `#modified_count`
 
@@ -8540,7 +8540,7 @@ result.modified_count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/result.rb#L144)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result.rb#L144)
 
 ### `#upserted_count`
 
@@ -8557,7 +8557,7 @@ result.upserted_count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/result.rb#L156)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result.rb#L156)
 
 ### `#upserted_ids`
 
@@ -8574,7 +8574,7 @@ result.upserted_ids
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/result.rb#L168)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result.rb#L168)
 
 ### `#validate!`
 
@@ -8591,7 +8591,7 @@ result.validate!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/result.rb#L182)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result.rb#L182)
 
 ---
 
@@ -8604,7 +8604,7 @@ result.validate!
 - (`FSBucket`) — fs The fs bucket to which this stream writes.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/write.rb#L28)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L28)
 
 ### `#file_id`
 
@@ -8613,7 +8613,7 @@ result.validate!
 - (`Object`) — file_id The id of the file being uploaded.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/write.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L33)
 
 ### `#filename`
 
@@ -8622,7 +8622,7 @@ result.validate!
 - (`String`) — filename The name of the file being uploaded.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/write.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L38)
 
 ### `#options`
 
@@ -8631,7 +8631,7 @@ result.validate!
 - (`Hash`) — options The write stream options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/write.rb#L43)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L43)
 
 ### `#initialize(fs, options)`
 
@@ -8683,7 +8683,7 @@ Stream::Write.new(fs, options)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/write.rb#L63)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L63)
 
 ### `#write(io)`
 
@@ -8705,7 +8705,7 @@ stream.write(io)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/write.rb#L83)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L83)
 
 ### `#close`
 
@@ -8722,7 +8722,7 @@ stream.close
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/write.rb#L103)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L103)
 
 ### `#write_concern`
 
@@ -8739,7 +8739,7 @@ stream.write_concern
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/write.rb#L119)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L119)
 
 ### `#closed?`
 
@@ -8756,7 +8756,7 @@ stream.closed?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/write.rb#L132)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L132)
 
 ### `#abort`
 
@@ -8773,7 +8773,7 @@ stream.abort
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream/write.rb#L144)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L144)
 
 ---
 
@@ -8794,7 +8794,7 @@ Mongo::Error::InvalidURI.new(uri)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_uri.rb#L30)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_uri.rb#L30)
 
 ---
 
@@ -8829,7 +8829,7 @@ GetMore.new('xgen', 'users', 15, 123)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/get_more.rb#L39)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L39)
 
 ### `#payload`
 
@@ -8846,7 +8846,7 @@ message.payload
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/get_more.rb#L56)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L56)
 
 ### `#replyable?`
 
@@ -8863,7 +8863,7 @@ message.replyable?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/get_more.rb#L73)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L73)
 
 ---
 
@@ -8876,7 +8876,7 @@ message.replyable?
 - (`String`) — collection The name of the collection.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/get_more.rb#L116)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L116)
 
 ### `#cursor_id`
 
@@ -8885,7 +8885,7 @@ message.replyable?
 - (`Integer`) — cursor_id The cursor id.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/get_more.rb#L119)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L119)
 
 ### `#number_to_return`
 
@@ -8894,7 +8894,7 @@ message.replyable?
 - (`Integer`) — number_to_return The number of docs to return.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/get_more.rb#L122)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L122)
 
 ### `#initialize(collection, cursor_id, number_to_return)`
 
@@ -8923,7 +8923,7 @@ Upconverter.new('users', 1, 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/get_more.rb#L135)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L135)
 
 ### `#command`
 
@@ -8940,7 +8940,7 @@ upconverter.command
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/get_more.rb#L149)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L149)
 
 ---
 
@@ -8961,7 +8961,7 @@ connection.connect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection.rb#L60)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection.rb#L60)
 
 ### `#disconnect!`
 
@@ -8978,7 +8978,7 @@ connection.disconnect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection.rb#L81)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection.rb#L81)
 
 ### `#dispatch(messages, operation_id = nil)`
 
@@ -9004,7 +9004,7 @@ connection.dispatch([ insert, command ])
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection.rb#L105)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection.rb#L105)
 
 ### `#initialize(server, options = {})`
 
@@ -9029,7 +9029,7 @@ Connection.new(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection.rb#L129)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection.rb#L129)
 
 ### `#ping`
 
@@ -9047,7 +9047,7 @@ connection.ping
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection.rb#L151)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection.rb#L151)
 
 ---
 
@@ -9076,7 +9076,7 @@ Mongo::Error::InvalidFile.new(file_md5, server_md5)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_file.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_file.rb#L33)
 
 ---
 
@@ -9089,7 +9089,7 @@ Mongo::Error::InvalidFile.new(file_md5, server_md5)
 - (`Address`) — address The server's address.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L163)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L163)
 
 ### `#config`
 
@@ -9098,7 +9098,7 @@ Mongo::Error::InvalidFile.new(file_md5, server_md5)
 - (`Hash`) — The actual result from the ismaster command.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L166)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L166)
 
 ### `#features`
 
@@ -9107,7 +9107,7 @@ Mongo::Error::InvalidFile.new(file_md5, server_md5)
 - (`Features`) — features The features for the server.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L169)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L169)
 
 ### `#average_round_trip_time`
 
@@ -9116,7 +9116,7 @@ Mongo::Error::InvalidFile.new(file_md5, server_md5)
 - (`Float`) — The moving average time the ismaster call took to complete.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L172)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L172)
 
 ### `#arbiter?`
 
@@ -9133,7 +9133,7 @@ description.arbiter?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L182)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L182)
 
 ### `#arbiters`
 
@@ -9150,7 +9150,7 @@ description.arbiters
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L194)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L194)
 
 ### `#ghost?`
 
@@ -9167,7 +9167,7 @@ description.ghost?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L206)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L206)
 
 ### `#hidden?`
 
@@ -9184,7 +9184,7 @@ description.hidden?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L218)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L218)
 
 ### `#hosts`
 
@@ -9201,7 +9201,7 @@ description.hosts
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L230)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L230)
 
 ### `#initialize(address, config = {}, average_round_trip_time = 0)`
 
@@ -9231,7 +9231,7 @@ Description.new(address, { 'ismaster' => true }, 0.5)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L246)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L246)
 
 ### `#inspect`
 
@@ -9248,7 +9248,7 @@ description.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L261)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L261)
 
 ### `#max_bson_object_size`
 
@@ -9265,7 +9265,7 @@ description.max_bson_object_size
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L273)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L273)
 
 ### `#max_message_size`
 
@@ -9282,7 +9282,7 @@ description.max_message_size
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L285)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L285)
 
 ### `#max_write_batch_size`
 
@@ -9299,7 +9299,7 @@ description.max_write_batch_size
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L297)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L297)
 
 ### `#max_wire_version`
 
@@ -9316,7 +9316,7 @@ description.max_wire_version
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L309)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L309)
 
 ### `#min_wire_version`
 
@@ -9333,7 +9333,7 @@ description.min_wire_version
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L321)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L321)
 
 ### `#me`
 
@@ -9350,7 +9350,7 @@ description.me
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L333)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L333)
 
 ### `#tags`
 
@@ -9367,7 +9367,7 @@ description.tags
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L345)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L345)
 
 ### `#election_id`
 
@@ -9384,7 +9384,7 @@ description.election_id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L357)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L357)
 
 ### `#set_version`
 
@@ -9401,7 +9401,7 @@ description.set_version
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L369)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L369)
 
 ### `#last_write_date`
 
@@ -9418,7 +9418,7 @@ description.last_write_date
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L381)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L381)
 
 ### `#mongos?`
 
@@ -9435,7 +9435,7 @@ description.mongos?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L393)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L393)
 
 ### `#other?`
 
@@ -9452,7 +9452,7 @@ description.other?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L405)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L405)
 
 ### `#passive?`
 
@@ -9469,7 +9469,7 @@ description.passive?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L418)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L418)
 
 ### `#passives`
 
@@ -9486,7 +9486,7 @@ description.passives
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L430)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L430)
 
 ### `#primary?`
 
@@ -9503,7 +9503,7 @@ description.primary?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L442)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L442)
 
 ### `#replica_set_name`
 
@@ -9521,7 +9521,7 @@ description.replica_set_name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L455)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L455)
 
 ### `#servers`
 
@@ -9538,7 +9538,7 @@ description.servers
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L467)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L467)
 
 ### `#secondary?`
 
@@ -9555,7 +9555,7 @@ description.secondary?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L479)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L479)
 
 ### `#standalone?`
 
@@ -9572,7 +9572,7 @@ description.standalone?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L491)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L491)
 
 ### `#unknown?`
 
@@ -9589,7 +9589,7 @@ description.unknown?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L503)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L503)
 
 ### `#unknown!`
 
@@ -9608,7 +9608,7 @@ description.unknown!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L517)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L517)
 
 ### `#wire_versions`
 
@@ -9625,7 +9625,7 @@ description.wire_versions
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L529)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L529)
 
 ### `#is_server?(server)`
 
@@ -9642,7 +9642,7 @@ description.is_server?(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L541)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L541)
 
 ### `#lists_server?(server)`
 
@@ -9660,7 +9660,7 @@ description.lists_server?(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L554)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L554)
 
 ### `#replica_set_member?`
 
@@ -9678,7 +9678,7 @@ description.replica_set_member?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L567)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L567)
 
 ### `#me_mismatch?`
 
@@ -9695,7 +9695,7 @@ description.me_mismatch?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L579)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L579)
 
 ### `#==(other)`
 
@@ -9717,7 +9717,7 @@ description == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L593)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L593)
 
 ### `#==(other)`
 
@@ -9739,7 +9739,7 @@ description == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description.rb#L597)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L597)
 
 ---
 
@@ -9760,7 +9760,7 @@ Mongo::Error::MaxBSONSize.new(max)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/max_bson_size.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/max_bson_size.rb#L35)
 
 ---
 
@@ -9781,7 +9781,7 @@ Mongo::Error::ClosedStream.new
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/closed_stream.rb#L29)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/closed_stream.rb#L29)
 
 ---
 
@@ -9801,7 +9801,7 @@ Initializes a BitVector with a layout
 - (`BitVector`) — a new instance of BitVector
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/bit_vector.rb#L28)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/bit_vector.rb#L28)
 
 ### `#serialize(buffer, value, validating_keys = BSON::Config.validating_keys?)`
 
@@ -9820,7 +9820,7 @@ Serializes vector by encoding each symbol according to its mask
 - (`String`) — Buffer that received the serialized vector
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/bit_vector.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/bit_vector.rb#L41)
 
 ### `#deserialize(buffer)`
 
@@ -9836,7 +9836,7 @@ Deserializes vector by decoding the symbol according to its mask
 - (`Array<Symbol>`) — Flags contained in the vector
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/bit_vector.rb#L52)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/bit_vector.rb#L52)
 
 ---
 
@@ -9849,7 +9849,7 @@ Deserializes vector by decoding the symbol according to its mask
 - (`String`) — nonce The client nonce.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_nonce.rb#L25)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_nonce.rb#L25)
 
 ### `#rnonce`
 
@@ -9858,7 +9858,7 @@ Deserializes vector by decoding the symbol according to its mask
 - (`String`) — rnonce The server nonce.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_nonce.rb#L28)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_nonce.rb#L28)
 
 ### `#initialize(nonce, rnonce)`
 
@@ -9883,7 +9883,7 @@ InvalidNonce.new(nonce, rnonce)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_nonce.rb#L39)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_nonce.rb#L39)
 
 ---
 
@@ -9897,7 +9897,7 @@ InvalidNonce.new(nonce, rnonce)
 conversation.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/cr/conversation.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr/conversation.rb#L32)
 
 ### `#database`
 
@@ -9906,7 +9906,7 @@ conversation.
 - (`String`) — database The database to authenticate against.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/cr/conversation.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr/conversation.rb#L35)
 
 ### `#nonce`
 
@@ -9915,7 +9915,7 @@ conversation.
 - (`String`) — nonce The initial auth nonce.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/cr/conversation.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr/conversation.rb#L38)
 
 ### `#user`
 
@@ -9924,7 +9924,7 @@ conversation.
 - (`User`) — user The user for the conversation.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/cr/conversation.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr/conversation.rb#L41)
 
 ### `#continue(reply)`
 
@@ -9949,7 +9949,7 @@ conversation.continue(reply)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/cr/conversation.rb#L56)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr/conversation.rb#L56)
 
 ### `#finalize(reply)`
 
@@ -9973,7 +9973,7 @@ conversation.finalize(reply)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/cr/conversation.rb#L78)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr/conversation.rb#L78)
 
 ### `#start`
 
@@ -9991,7 +9991,7 @@ conversation.start
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/cr/conversation.rb#L91)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr/conversation.rb#L91)
 
 ### `#initialize(user)`
 
@@ -10013,7 +10013,7 @@ Conversation.new(user, "admin")
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/cr/conversation.rb#L107)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr/conversation.rb#L107)
 
 ---
 
@@ -10042,7 +10042,7 @@ Mongo::Error::FileNotFound.new(id, :id)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/file_not_found.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/file_not_found.rb#L32)
 
 ---
 
@@ -10068,7 +10068,7 @@ Mongo::Cluster.AppMetadata.new(cluster)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/app_metadata.rb#L54)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/app_metadata.rb#L54)
 
 ### `#ismaster_bytes`
 
@@ -10085,7 +10085,7 @@ metadata.ismaster_bytes
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/app_metadata.rb#L68)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/app_metadata.rb#L68)
 
 ---
 
@@ -10098,7 +10098,7 @@ metadata.ismaster_bytes
 - (`Mongo::Cluster`) — cluster The event publisher.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/event/primary_elected.rb#L24)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/primary_elected.rb#L24)
 
 ### `#initialize(cluster)`
 
@@ -10120,7 +10120,7 @@ PrimaryElected.new(cluster)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/event/primary_elected.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/primary_elected.rb#L34)
 
 ### `#handle(description)`
 
@@ -10140,7 +10140,7 @@ primary_elected.handle(description)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/event/primary_elected.rb#L48)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/primary_elected.rb#L48)
 
 ---
 
@@ -10172,7 +10172,7 @@ KillCursors.new([1])
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/kill_cursors.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L34)
 
 ### `#payload`
 
@@ -10189,7 +10189,7 @@ message.payload
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/kill_cursors.rb#L50)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L50)
 
 ---
 
@@ -10202,7 +10202,7 @@ message.payload
 - (`String`) — collection The name of the collection.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/kill_cursors.rb#L99)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L99)
 
 ### `#cursor_ids`
 
@@ -10211,7 +10211,7 @@ message.payload
 - (`Array<Integer>`) — cursor_ids The cursor ids.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/kill_cursors.rb#L102)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L102)
 
 ### `#initialize(collection, cursor_ids)`
 
@@ -10236,7 +10236,7 @@ Upconverter.new('users', [ 1, 2, 3 ])
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/kill_cursors.rb#L113)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L113)
 
 ### `#command`
 
@@ -10253,7 +10253,7 @@ upconverter.command
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/kill_cursors.rb#L126)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L126)
 
 ---
 
@@ -10274,7 +10274,7 @@ Mongo::Cluster::CursorReaper.new(cluster)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/cursor_reaper.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/cursor_reaper.rb#L41)
 
 ### `#run!`
 
@@ -10287,7 +10287,7 @@ reaper.run!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/cursor_reaper.rb#L55)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/cursor_reaper.rb#L55)
 
 ### `#run!`
 
@@ -10300,7 +10300,7 @@ reaper.run!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/cursor_reaper.rb#L58)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/cursor_reaper.rb#L58)
 
 ### `#schedule_kill_cursor(id, op_spec, server)`
 
@@ -10324,7 +10324,7 @@ cursor_reaper.schedule_kill_cursor(id, op_spec, server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/cursor_reaper.rb#L72)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/cursor_reaper.rb#L72)
 
 ### `#register_cursor(id)`
 
@@ -10342,7 +10342,7 @@ cursor_reaper.register_cursor(id)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/cursor_reaper.rb#L91)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/cursor_reaper.rb#L91)
 
 ### `#unregister_cursor(id)`
 
@@ -10360,7 +10360,7 @@ cursor_reaper.unregister_cursor(id)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/cursor_reaper.rb#L109)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/cursor_reaper.rb#L109)
 
 ### `#stop!`
 
@@ -10373,7 +10373,7 @@ reaper.stop!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/cursor_reaper.rb#L123)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/cursor_reaper.rb#L123)
 
 ### `#kill_cursors`
 
@@ -10386,7 +10386,7 @@ cursor_reaper.kill_cursors
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/cursor_reaper.rb#L135)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/cursor_reaper.rb#L135)
 
 ---
 
@@ -10407,7 +10407,7 @@ Mongo::Error::ExtraFileChunk.new
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/extra_file_chunk.rb#L29)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/extra_file_chunk.rb#L29)
 
 ---
 
@@ -10421,7 +10421,7 @@ Mongo::Error::ExtraFileChunk.new
 conversation.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/x509/conversation.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509/conversation.rb#L32)
 
 ### `#user`
 
@@ -10430,7 +10430,7 @@ conversation.
 - (`User`) — user The user for the conversation.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/x509/conversation.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509/conversation.rb#L35)
 
 ### `#finalize(reply)`
 
@@ -10454,7 +10454,7 @@ conversation.finalize(reply)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/x509/conversation.rb#L49)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509/conversation.rb#L49)
 
 ### `#start`
 
@@ -10472,7 +10472,7 @@ conversation.start
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/x509/conversation.rb#L62)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509/conversation.rb#L62)
 
 ### `#initialize(user)`
 
@@ -10494,7 +10494,7 @@ Conversation.new(user, "admin")
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/x509/conversation.rb#L79)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509/conversation.rb#L79)
 
 ---
 
@@ -10515,7 +10515,7 @@ Mongo::Error::MultiIndexDrop.new
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/multi_index_drop.rb#L29)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/multi_index_drop.rb#L29)
 
 ---
 
@@ -10541,7 +10541,7 @@ Mongo::Error::MaxMessageSize.new(max)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/max_message_size.rb#L37)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/max_message_size.rb#L37)
 
 ---
 
@@ -10554,7 +10554,7 @@ Mongo::Error::MaxMessageSize.new(max)
 - (`Hash`) — options The pool options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool.rb#L27)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool.rb#L27)
 
 ### `#checkin(connection)`
 
@@ -10568,7 +10568,7 @@ pool.checkin
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool.rb#L36)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool.rb#L36)
 
 ### `#checkout`
 
@@ -10587,7 +10587,7 @@ pool.checkout
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool.rb#L50)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool.rb#L50)
 
 ### `#disconnect!`
 
@@ -10604,7 +10604,7 @@ pool.disconnect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool.rb#L62)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool.rb#L62)
 
 ### `#initialize(options = {}, &block)`
 
@@ -10628,7 +10628,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool.rb#L78)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool.rb#L78)
 
 ### `#inspect`
 
@@ -10645,7 +10645,7 @@ pool.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool.rb#L91)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool.rb#L91)
 
 ### `#with_connection`
 
@@ -10664,7 +10664,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool.rb#L105)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool.rb#L105)
 
 ### `.get(server)`
 
@@ -10686,7 +10686,7 @@ Mongo::Pool.get(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool.rb#L130)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool.rb#L130)
 
 ---
 
@@ -10707,7 +10707,7 @@ Mongo::Error::InvalidDocument.new
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_document.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_document.rb#L34)
 
 ---
 
@@ -10721,7 +10721,7 @@ Mongo::Error::InvalidDocument.new
 conversation.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/ldap/conversation.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap/conversation.rb#L32)
 
 ### `#user`
 
@@ -10730,7 +10730,7 @@ conversation.
 - (`User`) — user The user for the conversation.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/ldap/conversation.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap/conversation.rb#L35)
 
 ### `#finalize(reply)`
 
@@ -10754,7 +10754,7 @@ conversation.finalize(reply)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/ldap/conversation.rb#L49)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap/conversation.rb#L49)
 
 ### `#start`
 
@@ -10772,7 +10772,7 @@ conversation.start
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/ldap/conversation.rb#L62)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap/conversation.rb#L62)
 
 ### `#initialize(user)`
 
@@ -10794,7 +10794,7 @@ Conversation.new(user, "admin")
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/ldap/conversation.rb#L79)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap/conversation.rb#L79)
 
 ---
 
@@ -10807,7 +10807,7 @@ Conversation.new(user, "admin")
 - (`BSON::Document`) — result The error result.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/bulk_write_error.rb#L25)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/bulk_write_error.rb#L25)
 
 ### `#initialize(result)`
 
@@ -10830,7 +10830,7 @@ Mongo::Error::BulkWriteFailure.new(response)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/bulk_write_error.rb#L36)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/bulk_write_error.rb#L36)
 
 ---
 
@@ -10851,7 +10851,7 @@ preference.name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/primary.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary.rb#L34)
 
 ### `#slave_ok?`
 
@@ -10863,7 +10863,7 @@ Whether the slaveOk bit should be set on wire protocol messages.
 - (`false`) — false
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/primary.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary.rb#L44)
 
 ### `#tags_allowed?`
 
@@ -10874,7 +10874,7 @@ Whether tag sets are allowed to be defined for this server preference.
 - (`false`) — false
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/primary.rb#L53)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary.rb#L53)
 
 ### `#to_mongos`
 
@@ -10894,7 +10894,7 @@ preference.to_mongos
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/primary.rb#L68)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary.rb#L68)
 
 ---
 
@@ -10907,7 +10907,7 @@ preference.to_mongos
 - (`String`) — seed The seed address.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/single.rb#L25)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L25)
 
 ### `#display_name`
 
@@ -10924,7 +10924,7 @@ Single.display_name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/single.rb#L40)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L40)
 
 ### `#elect_primary(description, servers); self; end`
 
@@ -10951,7 +10951,7 @@ topology.elect_primary(description, servers)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/single.rb#L55)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L55)
 
 ### `#initialize(options, seeds = [])`
 
@@ -10973,7 +10973,7 @@ Single.new(options)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/single.rb#L65)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L65)
 
 ### `#replica_set?; false; end`
 
@@ -10990,7 +10990,7 @@ Single.replica_set?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/single.rb#L78)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L78)
 
 ### `#replica_set_name; nil; end`
 
@@ -11007,7 +11007,7 @@ single.replica_set_name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/single.rb#L88)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L88)
 
 ### `#servers(servers, name = nil)`
 
@@ -11029,7 +11029,7 @@ Single.servers(servers, 'test')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/single.rb#L100)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L100)
 
 ### `#add_hosts?(description, servers); false; end`
 
@@ -11055,7 +11055,7 @@ topology.add_hosts?(description, servers)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/single.rb#L116)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L116)
 
 ### `#remove_hosts?(description); false; end`
 
@@ -11081,7 +11081,7 @@ from a cluster of Single topology.
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/single.rb#L130)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L130)
 
 ### `#remove_server?(description, server); false; end`
 
@@ -11106,7 +11106,7 @@ topology.remove_server?(description, server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/single.rb#L143)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L143)
 
 ### `#sharded?; false; end`
 
@@ -11123,7 +11123,7 @@ Single.sharded?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/single.rb#L153)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L153)
 
 ### `#single?; true; end`
 
@@ -11140,7 +11140,7 @@ Single.single?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/single.rb#L163)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L163)
 
 ### `#unknown?; false; end`
 
@@ -11157,7 +11157,7 @@ Single.unknown?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/single.rb#L173)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L173)
 
 ### `#standalone_discovered; self; end`
 
@@ -11174,7 +11174,7 @@ topology.standalone_discovered
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/single.rb#L183)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L183)
 
 ---
 
@@ -11187,7 +11187,7 @@ topology.standalone_discovered
 - (`String`) — verifier The server verifier string.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_signature.rb#L25)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_signature.rb#L25)
 
 ### `#server_signature`
 
@@ -11196,7 +11196,7 @@ topology.standalone_discovered
 - (`String`) — server_signature The expected server signature.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_signature.rb#L28)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_signature.rb#L28)
 
 ### `#initialize(verifier, server_signature)`
 
@@ -11222,7 +11222,7 @@ InvalidSignature.new(verifier, server_signature)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_signature.rb#L40)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_signature.rb#L40)
 
 ---
 
@@ -11243,7 +11243,7 @@ error.retryable?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/operation_failure.rb#L53)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/operation_failure.rb#L53)
 
 ---
 
@@ -11256,7 +11256,7 @@ error.retryable?
 - (`String`) — nonce The initial user nonce.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/scram/conversation.rb#L89)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/scram/conversation.rb#L89)
 
 ### `#reply`
 
@@ -11266,7 +11266,7 @@ error.retryable?
 conversation.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/scram/conversation.rb#L93)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/scram/conversation.rb#L93)
 
 ### `#user`
 
@@ -11275,7 +11275,7 @@ conversation.
 - (`User`) — user The user for the conversation.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/scram/conversation.rb#L96)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/scram/conversation.rb#L96)
 
 ### `#continue(reply)`
 
@@ -11300,7 +11300,7 @@ conversation.continue(reply)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/scram/conversation.rb#L111)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/scram/conversation.rb#L111)
 
 ### `#finalize(reply)`
 
@@ -11324,7 +11324,7 @@ conversation.finalize(reply)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/scram/conversation.rb#L133)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/scram/conversation.rb#L133)
 
 ### `#start`
 
@@ -11342,7 +11342,7 @@ conversation.start
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/scram/conversation.rb#L152)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/scram/conversation.rb#L152)
 
 ### `#id`
 
@@ -11359,7 +11359,7 @@ conversation.id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/scram/conversation.rb#L169)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/scram/conversation.rb#L169)
 
 ### `#initialize(user)`
 
@@ -11381,7 +11381,7 @@ Conversation.new(user)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth/scram/conversation.rb#L181)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/scram/conversation.rb#L181)
 
 ---
 
@@ -11402,7 +11402,7 @@ preference.name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/nearest.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/nearest.rb#L33)
 
 ### `#slave_ok?`
 
@@ -11414,7 +11414,7 @@ Whether the slaveOk bit should be set on wire protocol messages.
 - (`true`) — true
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/nearest.rb#L43)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/nearest.rb#L43)
 
 ### `#tags_allowed?`
 
@@ -11425,7 +11425,7 @@ Whether tag sets are allowed to be defined for this server preference.
 - (`true`) — true
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/nearest.rb#L52)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/nearest.rb#L52)
 
 ### `#to_mongos`
 
@@ -11445,7 +11445,7 @@ preference.to_mongos
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/nearest.rb#L67)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/nearest.rb#L67)
 
 ---
 
@@ -11474,7 +11474,7 @@ Mongo::Error::MissingFileChunk.new(expected_n, chunk)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/missing_file_chunk.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/missing_file_chunk.rb#L33)
 
 ---
 
@@ -11487,7 +11487,7 @@ Mongo::Error::MissingFileChunk.new(expected_n, chunk)
 - (`Hash`) — options The options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/unknown.rb#L31)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L31)
 
 ### `#display_name`
 
@@ -11504,7 +11504,7 @@ Unknown.display_name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/unknown.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L41)
 
 ### `#elect_primary(description, servers)`
 
@@ -11531,7 +11531,7 @@ topology.elect_primary(description, servers)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/unknown.rb#L56)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L56)
 
 ### `#initialize(options, seeds = [])`
 
@@ -11553,7 +11553,7 @@ Unknown.new(options)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/unknown.rb#L73)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L73)
 
 ### `#replica_set?; false; end`
 
@@ -11570,7 +11570,7 @@ Unknown.replica_set?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/unknown.rb#L86)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L86)
 
 ### `#replica_set_name; nil; end`
 
@@ -11587,7 +11587,7 @@ unknown.replica_set_name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/unknown.rb#L96)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L96)
 
 ### `#servers(servers)`
 
@@ -11605,7 +11605,7 @@ Unknown.servers(servers)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/unknown.rb#L109)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L109)
 
 ### `#sharded?; false; end`
 
@@ -11622,7 +11622,7 @@ Unknown.sharded?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/unknown.rb#L121)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L121)
 
 ### `#single?; false; end`
 
@@ -11639,7 +11639,7 @@ Unknown.single?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/unknown.rb#L131)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L131)
 
 ### `#unknown?; true; end`
 
@@ -11656,7 +11656,7 @@ Unknown.unknown?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/unknown.rb#L141)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L141)
 
 ### `#add_hosts?(description, servers)`
 
@@ -11681,7 +11681,7 @@ topology.add_hosts?(description, servers)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/unknown.rb#L154)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L154)
 
 ### `#remove_hosts?(description)`
 
@@ -11703,7 +11703,7 @@ topology.remove_hosts?(description)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/unknown.rb#L168)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L168)
 
 ### `#remove_server?(description, server)`
 
@@ -11728,7 +11728,7 @@ topology.remove_server?(description, server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/unknown.rb#L183)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L183)
 
 ### `#standalone_discovered`
 
@@ -11746,7 +11746,7 @@ topology.standalone_discovered
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/unknown.rb#L196)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L196)
 
 ---
 
@@ -11767,7 +11767,7 @@ Sharded.display_name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/sharded.rb#L37)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L37)
 
 ### `#elect_primary(description, servers); self; end`
 
@@ -11794,7 +11794,7 @@ topology.elect_primary(description, servers)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/sharded.rb#L52)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L52)
 
 ### `#initialize(options, seeds = [])`
 
@@ -11816,7 +11816,7 @@ Sharded.new(options)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/sharded.rb#L62)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L62)
 
 ### `#replica_set?; false; end`
 
@@ -11833,7 +11833,7 @@ Sharded.replica_set?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/sharded.rb#L74)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L74)
 
 ### `#replica_set_name; nil; end`
 
@@ -11850,7 +11850,7 @@ sharded.replica_set_name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/sharded.rb#L84)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L84)
 
 ### `#servers(servers)`
 
@@ -11872,7 +11872,7 @@ Sharded.servers(servers)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/sharded.rb#L96)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L96)
 
 ### `#add_hosts?(description, servers); false; end`
 
@@ -11898,7 +11898,7 @@ topology.add_hosts?(description, servers)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/sharded.rb#L112)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L112)
 
 ### `#remove_hosts?(description); true; end`
 
@@ -11924,7 +11924,7 @@ from a sharded cluster.
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/sharded.rb#L126)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L126)
 
 ### `#remove_server?(description, server)`
 
@@ -11949,7 +11949,7 @@ topology.remove_server?(description, server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/sharded.rb#L139)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L139)
 
 ### `#sharded?; true; end`
 
@@ -11966,7 +11966,7 @@ Sharded.sharded?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/sharded.rb#L152)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L152)
 
 ### `#single?; false; end`
 
@@ -11983,7 +11983,7 @@ Sharded.single?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/sharded.rb#L162)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L162)
 
 ### `#unknown?; false; end`
 
@@ -12000,7 +12000,7 @@ Sharded.unknown?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/sharded.rb#L172)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L172)
 
 ### `#standalone_discovered; self; end`
 
@@ -12017,7 +12017,7 @@ topology.standalone_discovered
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/sharded.rb#L182)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L182)
 
 ---
 
@@ -12046,7 +12046,7 @@ Mongo::Error::UnexpectedResponse.new(expected_response_to, response_to)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/unexpected_response.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/unexpected_response.rb#L32)
 
 ---
 
@@ -12067,7 +12067,7 @@ preference.name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/secondary.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/secondary.rb#L34)
 
 ### `#slave_ok?`
 
@@ -12079,7 +12079,7 @@ Whether the slaveOk bit should be set on wire protocol messages.
 - (`true`) — true
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/secondary.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/secondary.rb#L44)
 
 ### `#tags_allowed?`
 
@@ -12090,7 +12090,7 @@ Whether tag sets are allowed to be defined for this server preference.
 - (`true`) — true
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/secondary.rb#L53)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/secondary.rb#L53)
 
 ### `#to_mongos`
 
@@ -12110,7 +12110,7 @@ preference.to_mongos
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/secondary.rb#L68)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/secondary.rb#L68)
 
 ---
 
@@ -12131,7 +12131,7 @@ connection.ismaster
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/monitor/connection.rb#L54)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor/connection.rb#L54)
 
 ### `#connect!`
 
@@ -12148,7 +12148,7 @@ connection.connect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/monitor/connection.rb#L74)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor/connection.rb#L74)
 
 ### `#disconnect!`
 
@@ -12165,7 +12165,7 @@ connection.disconnect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/monitor/connection.rb#L94)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor/connection.rb#L94)
 
 ### `#initialize(address, options = {})`
 
@@ -12190,7 +12190,7 @@ Connection.new(address)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/monitor/connection.rb#L116)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor/connection.rb#L116)
 
 ### `#timeout`
 
@@ -12207,7 +12207,7 @@ connection.timeout
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/monitor/connection.rb#L133)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor/connection.rb#L133)
 
 ---
 
@@ -12220,7 +12220,7 @@ connection.timeout
 - (`Mongo::Cluster`) — cluster The event publisher.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/event/description_changed.rb#L25)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/description_changed.rb#L25)
 
 ### `#initialize(cluster)`
 
@@ -12242,7 +12242,7 @@ ServerAdded.new(cluster)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/event/description_changed.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/description_changed.rb#L35)
 
 ### `#handle(updated)`
 
@@ -12261,7 +12261,7 @@ server_added.handle('127.0.0.1:27018')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/event/description_changed.rb#L48)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/description_changed.rb#L48)
 
 ---
 
@@ -12288,7 +12288,7 @@ Mongo::Error::NoServerAvailable.new(server_selector)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/no_server_available.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/no_server_available.rb#L32)
 
 ---
 
@@ -12314,7 +12314,7 @@ operation.execute(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/drop_index.rb#L51)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/drop_index.rb#L51)
 
 ---
 
@@ -12327,7 +12327,7 @@ operation.execute(server)
 - (`Integer`) — count The count of documents in the entire batch.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/result_combiner.rb#L26)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L26)
 
 ### `#results`
 
@@ -12336,7 +12336,7 @@ operation.execute(server)
 - (`Hash`) — results The results hash.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/result_combiner.rb#L29)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L29)
 
 ### `#initialize`
 
@@ -12353,7 +12353,7 @@ ResultCombiner.new
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/result_combiner.rb#L39)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L39)
 
 ### `#combine!(result, count)`
 
@@ -12374,7 +12374,7 @@ combiner.combine!(result, count)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/result_combiner.rb#L55)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L55)
 
 ### `#result`
 
@@ -12391,7 +12391,7 @@ combinator.result
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/result_combiner.rb#L72)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L72)
 
 ---
 
@@ -12417,7 +12417,7 @@ operation.execute(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/indexes.rb#L47)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/indexes.rb#L47)
 
 ---
 
@@ -12430,7 +12430,7 @@ operation.execute(server)
 - (`View`) — view The collection view.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/map_reduce.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/map_reduce.rb#L41)
 
 ### `#map`
 
@@ -12439,7 +12439,7 @@ operation.execute(server)
 - (`String`) — map The map function.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/map_reduce.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/map_reduce.rb#L44)
 
 ### `#reduce`
 
@@ -12448,7 +12448,7 @@ operation.execute(server)
 - (`String`) — reduce The reduce function.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/map_reduce.rb#L47)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/map_reduce.rb#L47)
 
 ### `#each`
 
@@ -12467,7 +12467,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/map_reduce.rb#L67)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/map_reduce.rb#L67)
 
 ### `#finalize(function = nil)`
 
@@ -12490,7 +12490,7 @@ map_reduce.finalize(function)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/map_reduce.rb#L91)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/map_reduce.rb#L91)
 
 ### `#initialize(view, map, reduce, options = {})`
 
@@ -12522,7 +12522,7 @@ and options.
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/map_reduce.rb#L106)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/map_reduce.rb#L106)
 
 ### `#js_mode(value = nil)`
 
@@ -12545,7 +12545,7 @@ map_reduce.js_mode(true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/map_reduce.rb#L124)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/map_reduce.rb#L124)
 
 ### `#out(location = nil)`
 
@@ -12580,7 +12580,7 @@ map_reduce.out(reduce: 'users')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/map_reduce.rb#L148)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/map_reduce.rb#L148)
 
 ### `#scope(object = nil)`
 
@@ -12603,7 +12603,7 @@ map_reduce.scope(value: 'test')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/map_reduce.rb#L163)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/map_reduce.rb#L163)
 
 ### `#verbose(value = nil)`
 
@@ -12627,7 +12627,7 @@ map_reduce.verbose(false)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/map_reduce.rb#L179)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/map_reduce.rb#L179)
 
 ---
 
@@ -12640,7 +12640,7 @@ map_reduce.verbose(false)
 - (`Cursor`) — cursor The cursor.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor/builder/op_get_more.rb#L26)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/op_get_more.rb#L26)
 
 ### `#initialize(cursor)`
 
@@ -12662,7 +12662,7 @@ OpGetMore.new(cursor)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor/builder/op_get_more.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/op_get_more.rb#L38)
 
 ### `#specification`
 
@@ -12679,7 +12679,7 @@ op_get_more.specification
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor/builder/op_get_more.rb#L50)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/op_get_more.rb#L50)
 
 ---
 
@@ -12700,7 +12700,7 @@ acknowledged.get_last_error
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/write_concern/acknowledged.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern/acknowledged.rb#L33)
 
 ### `#inspect`
 
@@ -12717,7 +12717,7 @@ write_concern.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/write_concern/acknowledged.rb#L47)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern/acknowledged.rb#L47)
 
 ---
 
@@ -12744,7 +12744,7 @@ Unsupported.new(0..3)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/unsupported_features.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/unsupported_features.rb#L33)
 
 ---
 
@@ -12765,7 +12765,7 @@ Mongo::Error::UnsupportedCollation.new
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/unsupported_collation.rb#L46)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/unsupported_collation.rb#L46)
 
 ---
 
@@ -12778,7 +12778,7 @@ Mongo::Error::UnsupportedCollation.new
 - (`View`) — view The collection view.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/aggregation.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/aggregation.rb#L32)
 
 ### `#pipeline`
 
@@ -12787,7 +12787,7 @@ Mongo::Error::UnsupportedCollation.new
 - (`Array<Hash>`) — pipeline The aggregation pipeline.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/aggregation.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/aggregation.rb#L34)
 
 ### `#allow_disk_use(value = nil)`
 
@@ -12810,7 +12810,7 @@ aggregation.allow_disk_use(true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/aggregation.rb#L58)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/aggregation.rb#L58)
 
 ### `#initialize(view, pipeline, options = {})`
 
@@ -12839,7 +12839,7 @@ Aggregation.view.new(view, pipeline)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/aggregation.rb#L73)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/aggregation.rb#L73)
 
 ### `#explain`
 
@@ -12856,7 +12856,7 @@ aggregation.explain
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/aggregation.rb#L87)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/aggregation.rb#L87)
 
 ---
 
@@ -12869,7 +12869,7 @@ aggregation.explain
 - (`Mongo::Cluster`) — cluster The event publisher.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/event/standalone_discovered.rb#L24)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/standalone_discovered.rb#L24)
 
 ### `#initialize(cluster)`
 
@@ -12891,7 +12891,7 @@ StandaloneDiscovered.new(cluster)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/event/standalone_discovered.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/standalone_discovered.rb#L34)
 
 ### `#handle(description)`
 
@@ -12911,7 +12911,7 @@ standalone_discovered.handle(description)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/event/standalone_discovered.rb#L48)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/standalone_discovered.rb#L48)
 
 ---
 
@@ -12932,7 +12932,7 @@ result.successful?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/read/query/result.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/read/query/result.rb#L33)
 
 ---
 
@@ -12946,7 +12946,7 @@ result.successful?
 versions.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description/features.rb#L63)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/features.rb#L63)
 
 ### `#initialize(server_wire_versions)`
 
@@ -12969,7 +12969,7 @@ Features.new(0..3)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description/features.rb#L74)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/features.rb#L74)
 
 ---
 
@@ -12990,7 +12990,7 @@ Mongo::Error::InvalidDatabaseName.new
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_database_name.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_database_name.rb#L34)
 
 ---
 
@@ -13011,7 +13011,7 @@ Mongo::Error::InvalidWriteConcern.new
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_write_concern.rb#L29)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_write_concern.rb#L29)
 
 ---
 
@@ -13040,7 +13040,7 @@ Mongo::Error::InvalidFileRevision.new('some-file.txt', 3)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_file_revision.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_file_revision.rb#L32)
 
 ---
 
@@ -13061,7 +13061,7 @@ combiner.combine
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/ordered_combiner.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/ordered_combiner.rb#L38)
 
 ---
 
@@ -13074,7 +13074,7 @@ combiner.combine
 - (`Array`) — inspectors The description inspectors.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description/inspector.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector.rb#L41)
 
 ### `#initialize(listeners)`
 
@@ -13096,7 +13096,7 @@ Inspector.new(listeners)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description/inspector.rb#L51)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector.rb#L51)
 
 ### `#run(description, ismaster, average_round_trip_time)`
 
@@ -13124,7 +13124,7 @@ inspector.run(description, { 'ismaster' => true })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description/inspector.rb#L69)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector.rb#L69)
 
 ---
 
@@ -13145,7 +13145,7 @@ unacknowledged.get_last_error
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/write_concern/unacknowledged.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern/unacknowledged.rb#L38)
 
 ### `#inspect`
 
@@ -13162,7 +13162,7 @@ write_concern.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/write_concern/unacknowledged.rb#L50)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern/unacknowledged.rb#L50)
 
 ---
 
@@ -13175,7 +13175,7 @@ write_concern.inspect
 - (`Hash`) — options The options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/replica_set.rb#L31)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L31)
 
 ### `#display_name`
 
@@ -13192,7 +13192,7 @@ ReplicaSet.display_name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/replica_set.rb#L46)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L46)
 
 ### `#elect_primary(description, servers)`
 
@@ -13219,7 +13219,7 @@ topology.elect_primary(description, servers)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/replica_set.rb#L61)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L61)
 
 ### `#initialize(options, seeds = [])`
 
@@ -13241,7 +13241,7 @@ ReplicaSet.new(options)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/replica_set.rb#L90)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L90)
 
 ### `#replica_set?; true; end`
 
@@ -13258,7 +13258,7 @@ ReplicaSet.replica_set?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/replica_set.rb#L104)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L104)
 
 ### `#replica_set_name`
 
@@ -13275,7 +13275,7 @@ topology.replica_set_name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/replica_set.rb#L114)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L114)
 
 ### `#servers(servers)`
 
@@ -13297,7 +13297,7 @@ ReplicaSet.servers(servers)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/replica_set.rb#L128)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L128)
 
 ### `#add_hosts?(description, servers)`
 
@@ -13322,7 +13322,7 @@ topology.add_hosts?(description, servers)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/replica_set.rb#L146)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L146)
 
 ### `#remove_hosts?(description)`
 
@@ -13344,7 +13344,7 @@ topology.remove_hosts?(description)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/replica_set.rb#L161)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L161)
 
 ### `#remove_server?(description, server)`
 
@@ -13369,7 +13369,7 @@ topology.remove_server?(description, server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/replica_set.rb#L180)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L180)
 
 ### `#sharded?; false; end`
 
@@ -13386,7 +13386,7 @@ ReplicaSet.sharded?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/replica_set.rb#L193)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L193)
 
 ### `#single?; false; end`
 
@@ -13403,7 +13403,7 @@ ReplicaSet.single?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/replica_set.rb#L203)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L203)
 
 ### `#unknown?; false; end`
 
@@ -13420,7 +13420,7 @@ ReplicaSet.unknown?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/replica_set.rb#L213)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L213)
 
 ### `#standalone_discovered; self; end`
 
@@ -13437,7 +13437,7 @@ topology.standalone_discovered
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology/replica_set.rb#L223)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L223)
 
 ---
 
@@ -13450,7 +13450,7 @@ topology.standalone_discovered
 - (`Array`) — queue The underlying array of connections.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool/queue.rb#L40)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L40)
 
 ### `#mutex`
 
@@ -13459,7 +13459,7 @@ topology.standalone_discovered
 - (`Mutex`) — mutex The mutex used for synchronization.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool/queue.rb#L43)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L43)
 
 ### `#options`
 
@@ -13468,7 +13468,7 @@ topology.standalone_discovered
 - (`Hash`) — options The options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool/queue.rb#L46)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L46)
 
 ### `#resource`
 
@@ -13477,7 +13477,7 @@ topology.standalone_discovered
 - (`ConditionVariable`) — resource The resource.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool/queue.rb#L49)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L49)
 
 ### `#dequeue`
 
@@ -13495,7 +13495,7 @@ queue.dequeue
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool/queue.rb#L60)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L60)
 
 ### `#disconnect!`
 
@@ -13512,7 +13512,7 @@ queue.disconnect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool/queue.rb#L74)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L74)
 
 ### `#enqueue(connection)`
 
@@ -13530,7 +13530,7 @@ queue.enqueue(connection)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool/queue.rb#L89)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L89)
 
 ### `#initialize(options = {}, &block)`
 
@@ -13557,7 +13557,7 @@ Mongo::Pool::Queue.new(max_pool_size: 5) { Connection.new }
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool/queue.rb#L110)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L110)
 
 ### `#inspect`
 
@@ -13574,7 +13574,7 @@ queue.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool/queue.rb#L127)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L127)
 
 ### `#max_size`
 
@@ -13591,7 +13591,7 @@ queue.max_size
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool/queue.rb#L140)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L140)
 
 ### `#min_size`
 
@@ -13608,7 +13608,7 @@ queue.min_size
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool/queue.rb#L152)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L152)
 
 ### `#wait_timeout`
 
@@ -13625,7 +13625,7 @@ queue.wait_timeout
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connection_pool/queue.rb#L164)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L164)
 
 ---
 
@@ -13654,7 +13654,7 @@ Mongo::Error::InvalidBulkOperation.new(name)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_bulk_operation.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_bulk_operation.rb#L32)
 
 ---
 
@@ -13680,7 +13680,7 @@ operation.execute(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/user_query.rb#L46)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/user_query.rb#L46)
 
 ---
 
@@ -13709,7 +13709,7 @@ Mongo::Error::UnexpectedChunkLength.new(expected_len, chunk)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/unexpected_chunk_length.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/unexpected_chunk_length.rb#L33)
 
 ---
 
@@ -13730,7 +13730,7 @@ result.deleted_count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/delete/result.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/delete/result.rb#L33)
 
 ---
 
@@ -13751,7 +13751,7 @@ Mongo::Collection::InvalidName.new
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_collection_name.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_collection_name.rb#L34)
 
 ---
 
@@ -13762,7 +13762,7 @@ Mongo::Collection::InvalidName.new
 Get the ids of the inserted documents.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/insert/result.rb#L31)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/insert/result.rb#L31)
 
 ### `#initialize(replies, ids)`
 
@@ -13787,7 +13787,7 @@ Result.new(replies, inserted_ids)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/insert/result.rb#L42)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/insert/result.rb#L42)
 
 ### `#inserted_id`
 
@@ -13804,7 +13804,7 @@ result.inserted_id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/insert/result.rb#L55)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/insert/result.rb#L55)
 
 ---
 
@@ -13825,7 +13825,7 @@ combiner.combine
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/unordered_combiner.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/unordered_combiner.rb#L38)
 
 ---
 
@@ -13846,7 +13846,7 @@ result.matched_count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/update/result.rb#L43)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/update/result.rb#L43)
 
 ### `#modified_count`
 
@@ -13863,7 +13863,7 @@ result.modified_count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/update/result.rb#L60)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/update/result.rb#L60)
 
 ### `#upserted_id`
 
@@ -13881,7 +13881,7 @@ result.upserted_id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/update/result.rb#L74)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/update/result.rb#L74)
 
 ---
 
@@ -13902,7 +13902,7 @@ result.matched_count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/update/result.rb#L110)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/update/result.rb#L110)
 
 ### `#modified_count`
 
@@ -13919,7 +13919,7 @@ result.modified_count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/update/result.rb#L127)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/update/result.rb#L127)
 
 ### `#upserted_id`
 
@@ -13937,7 +13937,7 @@ result.upserted_id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/update/result.rb#L143)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/update/result.rb#L143)
 
 ---
 
@@ -13958,7 +13958,7 @@ Mongo::Error::InvalidUpdateDocument.new
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_update_document.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_update_document.rb#L34)
 
 ---
 
@@ -13979,7 +13979,7 @@ object_id_generator.generate
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/object_id_generator.rb#L31)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/object_id_generator.rb#L31)
 
 ---
 
@@ -14008,7 +14008,7 @@ InvalidApplicationName.new(app_name, 128)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_application_name.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_application_name.rb#L33)
 
 ---
 
@@ -14021,7 +14021,7 @@ InvalidApplicationName.new(app_name, 128)
 - (`Cursor`) — cursor The cursor.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor/builder/op_kill_cursors.rb#L26)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/op_kill_cursors.rb#L26)
 
 ### `#initialize(cursor)`
 
@@ -14043,7 +14043,7 @@ OpKillCursors.new(cursor)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor/builder/op_kill_cursors.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/op_kill_cursors.rb#L38)
 
 ### `#specification`
 
@@ -14060,7 +14060,7 @@ op_kill_cursors.specification
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor/builder/op_kill_cursors.rb#L50)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/op_kill_cursors.rb#L50)
 
 ### `.update_cursors(spec, ids)`
 
@@ -14079,7 +14079,7 @@ OpKillCursors.update_cursors(spec, ids)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor/builder/op_kill_cursors.rb#L65)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/op_kill_cursors.rb#L65)
 
 ### `.get_cursors_list(spec)`
 
@@ -14096,7 +14096,7 @@ OpKillCursors.cursors(spec)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor/builder/op_kill_cursors.rb#L77)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/op_kill_cursors.rb#L77)
 
 ---
 
@@ -14117,7 +14117,7 @@ result.cursor_id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/find/result.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/find/result.rb#L33)
 
 ### `#documents`
 
@@ -14134,7 +14134,7 @@ result.documents
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/find/result.rb#L45)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/find/result.rb#L45)
 
 ---
 
@@ -14147,7 +14147,7 @@ result.documents
 - (`Cursor`) — cursor The cursor.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor/builder/get_more_command.rb#L26)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/get_more_command.rb#L26)
 
 ### `#initialize(cursor)`
 
@@ -14169,7 +14169,7 @@ GetMoreCommand.new(cursor)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor/builder/get_more_command.rb#L39)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/get_more_command.rb#L39)
 
 ### `#specification`
 
@@ -14186,7 +14186,7 @@ get_more_command.specification
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor/builder/get_more_command.rb#L51)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/get_more_command.rb#L51)
 
 ---
 
@@ -14199,7 +14199,7 @@ get_more_command.specification
 - (`Server::Address`) — address The server address.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_failed.rb#L25)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L25)
 
 ### `#command_name`
 
@@ -14208,7 +14208,7 @@ get_more_command.specification
 - (`String`) — command_name The name of the command.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_failed.rb#L28)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L28)
 
 ### `#database_name`
 
@@ -14217,7 +14217,7 @@ get_more_command.specification
 - (`String`) — database_name The name of the database_name.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_failed.rb#L31)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L31)
 
 ### `#duration`
 
@@ -14226,7 +14226,7 @@ get_more_command.specification
 - (`Float`) — duration The duration of the command in seconds.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_failed.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L34)
 
 ### `#message`
 
@@ -14235,7 +14235,7 @@ get_more_command.specification
 - (`String`) — message The error message.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_failed.rb#L37)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L37)
 
 ### `#operation_id`
 
@@ -14244,7 +14244,7 @@ get_more_command.specification
 - (`Integer`) — operation_id The operation id.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_failed.rb#L40)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L40)
 
 ### `#request_id`
 
@@ -14253,7 +14253,7 @@ get_more_command.specification
 - (`Integer`) — request_id The request id.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_failed.rb#L43)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L43)
 
 ### `#initialize(command_name, database_name, address, request_id, operation_id, message, duration)`
 
@@ -14293,7 +14293,7 @@ Create the new event.
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_failed.rb#L58)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L58)
 
 ### `.generate(address, operation_id, payload, message, duration)`
 
@@ -14327,7 +14327,7 @@ CommandFailed.generate(address, 1, payload, duration)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_failed.rb#L82)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L82)
 
 ---
 
@@ -14353,7 +14353,7 @@ Mongo::Error::InvalidServerPreference.new
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_server_preference.rb#L52)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_server_preference.rb#L52)
 
 ---
 
@@ -14366,7 +14366,7 @@ Mongo::Error::InvalidServerPreference.new
 - (`Server::Address`) — address The server address.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_started.rb#L26)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_started.rb#L26)
 
 ### `#command`
 
@@ -14375,7 +14375,7 @@ Mongo::Error::InvalidServerPreference.new
 - (`BSON::Document`) — command The command arguments.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_started.rb#L29)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_started.rb#L29)
 
 ### `#command_name`
 
@@ -14384,7 +14384,7 @@ Mongo::Error::InvalidServerPreference.new
 - (`String`) — command_name The name of the command.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_started.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_started.rb#L32)
 
 ### `#database_name`
 
@@ -14393,7 +14393,7 @@ Mongo::Error::InvalidServerPreference.new
 - (`String`) — database_name The name of the database_name.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_started.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_started.rb#L35)
 
 ### `#operation_id`
 
@@ -14402,7 +14402,7 @@ Mongo::Error::InvalidServerPreference.new
 - (`Integer`) — operation_id The operation id.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_started.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_started.rb#L38)
 
 ### `#request_id`
 
@@ -14411,7 +14411,7 @@ Mongo::Error::InvalidServerPreference.new
 - (`Integer`) — request_id The request id.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_started.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_started.rb#L41)
 
 ### `#initialize(command_name, database_name, address, request_id, operation_id, command)`
 
@@ -14448,7 +14448,7 @@ Create the new event.
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_started.rb#L55)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_started.rb#L55)
 
 ### `.generate(address, operation_id, payload)`
 
@@ -14476,7 +14476,7 @@ CommandStarted.generate(address, 1, payload)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_started.rb#L76)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_started.rb#L76)
 
 ---
 
@@ -14489,7 +14489,7 @@ CommandStarted.generate(address, 1, payload)
 - (`BSON::Document`) — modifiers The server modifiers.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/op_query.rb#L29)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/op_query.rb#L29)
 
 ### `#initialize(view)`
 
@@ -14511,13 +14511,13 @@ QueryBuilder.new(view)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/op_query.rb#L39)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/op_query.rb#L39)
 
 ### `#specification`
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/op_query.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/op_query.rb#L44)
 
 ---
 
@@ -14530,7 +14530,7 @@ QueryBuilder.new(view)
 - (`Hash`) — options The options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L25)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L25)
 
 ### `#initialize(options = {})`
 
@@ -14553,7 +14553,7 @@ CommandLogSubscriber.new
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L43)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L43)
 
 ### `#started(event)`
 
@@ -14571,7 +14571,7 @@ subscriber.started(event)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L55)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L55)
 
 ### `#succeeded(event)`
 
@@ -14589,7 +14589,7 @@ subscriber.succeeded(event)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L69)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L69)
 
 ### `#failed(event)`
 
@@ -14607,7 +14607,7 @@ subscriber.failed(event)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L83)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L83)
 
 ---
 
@@ -14628,7 +14628,7 @@ preference.name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/primary_preferred.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary_preferred.rb#L34)
 
 ### `#slave_ok?`
 
@@ -14640,7 +14640,7 @@ Whether the slaveOk bit should be set on wire protocol messages.
 - (`true`) — true
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/primary_preferred.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary_preferred.rb#L44)
 
 ### `#tags_allowed?`
 
@@ -14651,7 +14651,7 @@ Whether tag sets are allowed to be defined for this server preference.
 - (`true`) — true
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/primary_preferred.rb#L53)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary_preferred.rb#L53)
 
 ### `#to_mongos`
 
@@ -14671,7 +14671,7 @@ preference.to_mongos
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/primary_preferred.rb#L68)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary_preferred.rb#L68)
 
 ---
 
@@ -14697,7 +14697,7 @@ Mongo::Error::InvalidBulkOperationType.new(type)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_bulk_operation_type.rb#L31)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_bulk_operation_type.rb#L31)
 
 ---
 
@@ -14718,7 +14718,7 @@ result.n_upserted
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/update/result.rb#L45)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/update/result.rb#L45)
 
 ### `#n_matched`
 
@@ -14735,7 +14735,7 @@ result.n_matched
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/update/result.rb#L64)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/update/result.rb#L64)
 
 ### `#n_modified`
 
@@ -14756,7 +14756,7 @@ result.n_modified
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/update/result.rb#L91)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/update/result.rb#L91)
 
 ### `#upserted`
 
@@ -14773,7 +14773,7 @@ result.upserted
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/update/result.rb#L110)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/update/result.rb#L110)
 
 ---
 
@@ -14794,7 +14794,7 @@ result.n_upserted
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/update/result.rb#L141)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/update/result.rb#L141)
 
 ### `#n_matched`
 
@@ -14811,7 +14811,7 @@ result.n_matched
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/update/result.rb#L160)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/update/result.rb#L160)
 
 ### `#n_modified`
 
@@ -14828,7 +14828,7 @@ result.n_modified
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/update/result.rb#L179)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/update/result.rb#L179)
 
 ---
 
@@ -14839,7 +14839,7 @@ result.n_modified
 Get the ids of the inserted documents.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L30)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L30)
 
 ### `#initialize(replies, ids)`
 
@@ -14864,7 +14864,7 @@ Result.new(replies, inserted_ids)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L41)
 
 ### `#n_inserted`
 
@@ -14881,7 +14881,7 @@ result.n_inserted
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L54)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L54)
 
 ### `#inserted_id`
 
@@ -14898,7 +14898,7 @@ result.inserted_id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L66)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L66)
 
 ---
 
@@ -14909,7 +14909,7 @@ result.inserted_id
 Get the ids of the inserted documents.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L81)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L81)
 
 ### `#initialize(replies, ids)`
 
@@ -14934,7 +14934,7 @@ Result.new(replies, inserted_ids)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L92)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L92)
 
 ### `#n_inserted`
 
@@ -14951,7 +14951,7 @@ result.n_inserted
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L105)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L105)
 
 ### `#inserted_id`
 
@@ -14968,7 +14968,7 @@ result.inserted_id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L121)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L121)
 
 ---
 
@@ -14981,7 +14981,7 @@ result.inserted_id
 - (`Server::Address`) — address The server address.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L26)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L26)
 
 ### `#command_name`
 
@@ -14990,7 +14990,7 @@ result.inserted_id
 - (`String`) — command_name The name of the command.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L29)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L29)
 
 ### `#reply`
 
@@ -14999,7 +14999,7 @@ result.inserted_id
 - (`BSON::Document`) — reply The command reply.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L32)
 
 ### `#database_name`
 
@@ -15008,7 +15008,7 @@ result.inserted_id
 - (`String`) — database_name The name of the database.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L35)
 
 ### `#duration`
 
@@ -15017,7 +15017,7 @@ result.inserted_id
 - (`Float`) — duration The duration of the event.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L38)
 
 ### `#operation_id`
 
@@ -15026,7 +15026,7 @@ result.inserted_id
 - (`Integer`) — operation_id The operation id.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L41)
 
 ### `#request_id`
 
@@ -15035,7 +15035,7 @@ result.inserted_id
 - (`Integer`) — request_id The request id.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L44)
 
 ### `#initialize(command_name, database_name, address, request_id, operation_id, reply, duration)`
 
@@ -15075,7 +15075,7 @@ Create the new event.
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L59)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L59)
 
 ### `.generate(address, operation_id, command_payload, reply_payload, duration)`
 
@@ -15109,7 +15109,7 @@ CommandSucceeded.generate(address, 1, command_payload, reply_payload, 0.5)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L83)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L83)
 
 ---
 
@@ -15130,7 +15130,7 @@ result.cursor_id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/get_more/result.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/get_more/result.rb#L33)
 
 ### `#documents`
 
@@ -15147,7 +15147,7 @@ result.documents
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/get_more/result.rb#L45)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/get_more/result.rb#L45)
 
 ---
 
@@ -15160,7 +15160,7 @@ result.documents
 - (`String`) — map The map function.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L42)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L42)
 
 ### `#reduce`
 
@@ -15169,7 +15169,7 @@ result.documents
 - (`String`) — reduce The reduce function.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L45)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L45)
 
 ### `#view`
 
@@ -15178,7 +15178,7 @@ result.documents
 - (`Collection::View`) — view The collection view.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L48)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L48)
 
 ### `#options`
 
@@ -15187,7 +15187,7 @@ result.documents
 - (`Hash`) — options The map/reduce specific options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L51)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L51)
 
 ### `#initialize(map, reduce, view, options)`
 
@@ -15218,7 +15218,7 @@ MapReduce.new(map, reduce, view, options)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L64)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L64)
 
 ### `#command_specification`
 
@@ -15236,7 +15236,7 @@ builder.command_specification
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L80)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L80)
 
 ### `#query_specification`
 
@@ -15253,7 +15253,7 @@ builder.query_specification
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L96)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L96)
 
 ### `#specification`
 
@@ -15270,7 +15270,7 @@ builder.specification
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L108)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L108)
 
 ---
 
@@ -15291,7 +15291,7 @@ Mongo::Error::InvalidReplacementDoc.new
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/invalid_replacement_document.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_replacement_document.rb#L34)
 
 ---
 
@@ -15317,7 +15317,7 @@ operation.execute(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/collections_info.rb#L49)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/collections_info.rb#L49)
 
 ---
 
@@ -15330,7 +15330,7 @@ operation.execute(server)
 - (`Cursor`) — cursor The cursor.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor/builder/kill_cursors_command.rb#L26)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/kill_cursors_command.rb#L26)
 
 ### `#initialize(cursor)`
 
@@ -15352,7 +15352,7 @@ KillCursorsCommand.new(cursor)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor/builder/kill_cursors_command.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/kill_cursors_command.rb#L38)
 
 ### `#specification`
 
@@ -15369,7 +15369,7 @@ kill_cursors_command.specification
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor/builder/kill_cursors_command.rb#L50)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/kill_cursors_command.rb#L50)
 
 ### `.update_cursors(spec, ids)`
 
@@ -15388,7 +15388,7 @@ KillCursorsCommand.update_cursors(spec, ids)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor/builder/kill_cursors_command.rb#L71)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/kill_cursors_command.rb#L71)
 
 ### `.get_cursors_list(spec)`
 
@@ -15405,7 +15405,7 @@ KillCursorsCommand.cursors(spec)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cursor/builder/kill_cursors_command.rb#L83)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/kill_cursors_command.rb#L83)
 
 ---
 
@@ -15418,7 +15418,7 @@ KillCursorsCommand.cursors(spec)
 - (`Array<Hash>`) — pipeline The pipeline.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/aggregation.rb#L40)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L40)
 
 ### `#view`
 
@@ -15427,7 +15427,7 @@ KillCursorsCommand.cursors(spec)
 - (`Collection::View`) — view The collection view.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/aggregation.rb#L43)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L43)
 
 ### `#options`
 
@@ -15436,7 +15436,7 @@ KillCursorsCommand.cursors(spec)
 - (`Hash`) — options The map/reduce specific options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/aggregation.rb#L46)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L46)
 
 ### `#initialize(pipeline, view, options)`
 
@@ -15464,7 +15464,7 @@ Aggregation.new(map, reduce, view, options)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/aggregation.rb#L58)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L58)
 
 ### `#specification`
 
@@ -15481,7 +15481,7 @@ builder.specification
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/aggregation.rb#L72)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L72)
 
 ---
 
@@ -15502,7 +15502,7 @@ preference.name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/secondary_preferred.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/secondary_preferred.rb#L34)
 
 ### `#slave_ok?`
 
@@ -15514,7 +15514,7 @@ Whether the slaveOk bit should be set on wire protocol messages.
 - (`true`) — true
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/secondary_preferred.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/secondary_preferred.rb#L44)
 
 ### `#tags_allowed?`
 
@@ -15525,7 +15525,7 @@ Whether tag sets are allowed to be defined for this server preference.
 - (`true`) — true
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/secondary_preferred.rb#L53)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/secondary_preferred.rb#L53)
 
 ### `#to_mongos`
 
@@ -15547,7 +15547,7 @@ preference.to_mongos
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/secondary_preferred.rb#L70)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/secondary_preferred.rb#L70)
 
 ---
 
@@ -15568,7 +15568,7 @@ result.cursor_id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/aggregate/result.rb#L52)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/aggregate/result.rb#L52)
 
 ### `#documents`
 
@@ -15588,7 +15588,7 @@ result.documents
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/aggregate/result.rb#L67)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/aggregate/result.rb#L67)
 
 ---
 
@@ -15609,7 +15609,7 @@ result.counts
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/map_reduce/result.rb#L48)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/map_reduce/result.rb#L48)
 
 ### `#documents`
 
@@ -15626,7 +15626,7 @@ result.documents
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/map_reduce/result.rb#L60)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/map_reduce/result.rb#L60)
 
 ### `#successful?`
 
@@ -15644,7 +15644,7 @@ result.successful?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/map_reduce/result.rb#L76)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/map_reduce/result.rb#L76)
 
 ### `#time`
 
@@ -15661,7 +15661,7 @@ result.time
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/map_reduce/result.rb#L88)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/map_reduce/result.rb#L88)
 
 ### `#validate!`
 
@@ -15678,7 +15678,7 @@ result.validate!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/map_reduce/result.rb#L106)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/map_reduce/result.rb#L106)
 
 ---
 
@@ -15700,7 +15700,7 @@ builder.explain_specification
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/find_command.rb#L66)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/find_command.rb#L66)
 
 ### `#initialize(view)`
 
@@ -15722,7 +15722,7 @@ FindCommandBuilder.new(view)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/find_command.rb#L78)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/find_command.rb#L78)
 
 ### `#specification`
 
@@ -15739,7 +15739,7 @@ builder.specification
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/find_command.rb#L90)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/find_command.rb#L90)
 
 ---
 
@@ -15749,7 +15749,7 @@ builder.specification
 
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/users_info/result.rb#L31)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/users_info/result.rb#L31)
 
 ---
 
@@ -15775,7 +15775,7 @@ Mongo::Error::UnchangeableCollectionOption.new(option)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/error/unchangeable_collection_option.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/unchangeable_collection_option.rb#L32)
 
 ---
 
@@ -15796,7 +15796,7 @@ result.cursor_id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/list_indexes/result.rb#L39)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/list_indexes/result.rb#L39)
 
 ### `#namespace`
 
@@ -15813,7 +15813,7 @@ result.namespace
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/list_indexes/result.rb#L51)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/list_indexes/result.rb#L51)
 
 ### `#documents`
 
@@ -15831,7 +15831,7 @@ result.documents
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/list_indexes/result.rb#L64)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/list_indexes/result.rb#L64)
 
 ### `#validate!`
 
@@ -15851,7 +15851,7 @@ result.validate!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/list_indexes/result.rb#L81)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/list_indexes/result.rb#L81)
 
 ---
 
@@ -15872,7 +15872,7 @@ result.cursor_ids
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/parallel_scan/result.rb#L39)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/parallel_scan/result.rb#L39)
 
 ### `#documents`
 
@@ -15889,7 +15889,7 @@ result.documents
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/parallel_scan/result.rb#L51)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/parallel_scan/result.rb#L51)
 
 ---
 
@@ -15910,7 +15910,7 @@ result.cursor_id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/list_collections/result.rb#L39)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/list_collections/result.rb#L39)
 
 ### `#namespace`
 
@@ -15927,7 +15927,7 @@ result.namespace
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/list_collections/result.rb#L51)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/list_collections/result.rb#L51)
 
 ### `#documents`
 
@@ -15945,7 +15945,7 @@ result.documents
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/list_collections/result.rb#L64)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/list_collections/result.rb#L64)
 
 ### `#validate!`
 
@@ -15963,7 +15963,7 @@ result.validate!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/list_collections/result.rb#L77)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/list_collections/result.rb#L77)
 
 ---
 
@@ -15984,7 +15984,7 @@ result.namespace
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/commands/collections_info/result.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/collections_info/result.rb#L34)
 
 ---
 
@@ -16010,7 +16010,7 @@ PrimaryElected.new(listeners)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description/inspector/primary_elected.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector/primary_elected.rb#L35)
 
 ### `#run(description, updated)`
 
@@ -16031,7 +16031,7 @@ PrimaryElected.run(description, {})
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description/inspector/primary_elected.rb#L48)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector/primary_elected.rb#L48)
 
 ---
 
@@ -16057,7 +16057,7 @@ ServerAdded.new(listeners)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description/inspector/description_changed.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector/description_changed.rb#L35)
 
 ### `#run(description, updated)`
 
@@ -16078,7 +16078,7 @@ ServerAdded.run(description, {})
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description/inspector/description_changed.rb#L48)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector/description_changed.rb#L48)
 
 ---
 
@@ -16104,7 +16104,7 @@ StandaloneDiscovered.new(listeners)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description/inspector/standalone_discovered.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector/standalone_discovered.rb#L34)
 
 ### `#run(description, updated)`
 
@@ -16125,7 +16125,7 @@ StandaloneDiscovered.run(description, {})
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/description/inspector/standalone_discovered.rb#L47)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector/standalone_discovered.rb#L47)
 
 ---
 
@@ -16151,7 +16151,7 @@ Auth.get(user)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/auth.rb#L65)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth.rb#L65)
 
 ---
 
@@ -16172,7 +16172,7 @@ Deserialize the hash from BSON, converting to a DBRef if appropriate.
 
 **See**:
 - http://bsonspec.org/#/specification
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/dbref.rb#L103)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/dbref.rb#L103)
 
 ---
 
@@ -16194,7 +16194,7 @@ log_debug('Message')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/loggable.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/loggable.rb#L35)
 
 ### `#log_error(message)`
 
@@ -16212,7 +16212,7 @@ log_error('Message')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/loggable.rb#L47)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/loggable.rb#L47)
 
 ### `#log_fatal(message)`
 
@@ -16230,7 +16230,7 @@ log_fatal('Message')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/loggable.rb#L59)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/loggable.rb#L59)
 
 ### `#log_info(message)`
 
@@ -16248,7 +16248,7 @@ log_info('Message')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/loggable.rb#L71)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/loggable.rb#L71)
 
 ### `#log_warn(message)`
 
@@ -16266,7 +16266,7 @@ log_warn('Message')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/loggable.rb#L83)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/loggable.rb#L83)
 
 ### `#logger`
 
@@ -16283,7 +16283,7 @@ loggable.logger
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/loggable.rb#L95)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/loggable.rb#L95)
 
 ---
 
@@ -16314,7 +16314,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/retryable.rb#L49)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/retryable.rb#L49)
 
 ### `#read_with_one_retry(&block)`
 
@@ -16338,7 +16338,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/retryable.rb#L86)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/retryable.rb#L86)
 
 ### `#write_with_retry(&block)`
 
@@ -16362,7 +16362,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/retryable.rb#L110)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/retryable.rb#L110)
 
 ---
 
@@ -16387,7 +16387,7 @@ Monitoring::Global.subscribe(QUERY, subscriber)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring.rb#L63)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L63)
 
 ### `#subscribers`
 
@@ -16404,7 +16404,7 @@ Monitoring::Global.subscribers
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring.rb#L75)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L75)
 
 ---
 
@@ -16436,7 +16436,7 @@ FSBucket::Stream.get(fs, FSBucket::READ_MODE, options)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/grid/stream.rb#L58)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream.rb#L58)
 
 ---
 
@@ -16470,7 +16470,7 @@ Mongo::WriteConcern.get(:w => 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/write_concern.rb#L78)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern.rb#L78)
 
 ---
 
@@ -16500,7 +16500,7 @@ Mapper.transform({ name: 1 }, { :name => :nombre })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/options/mapper.rb#L36)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/mapper.rb#L36)
 
 ### `#transform_documents(options, mappings, document = BSON::Document.new)`
 
@@ -16530,7 +16530,7 @@ Mapper.transform_documents({ name: 1 }, { :name => :nombre })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/options/mapper.rb#L59)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/mapper.rb#L59)
 
 ### `#transform_keys_to_strings(options)`
 
@@ -16552,7 +16552,7 @@ Mapper.transform({ :name => 1 })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/options/mapper.rb#L77)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/mapper.rb#L77)
 
 ### `#transform_keys_to_symbols(options)`
 
@@ -16574,7 +16574,7 @@ Mapper.transform({ 'name' => 1 })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/options/mapper.rb#L94)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/mapper.rb#L94)
 
 ### `#transform_values_to_strings(options)`
 
@@ -16596,7 +16596,7 @@ Mapper.transform({ :name => 1 })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/options/mapper.rb#L111)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/mapper.rb#L111)
 
 ---
 
@@ -16619,7 +16619,7 @@ Mongo::ServerSelector.get(:mode => :secondary, :tag_sets => [{'dc' => 'nyc'}])
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector.rb#L67)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector.rb#L67)
 
 ---
 
@@ -16632,7 +16632,7 @@ Mongo::ServerSelector.get(:mode => :secondary, :tag_sets => [{'dc' => 'nyc'}])
 - (`Event::Listeners`) — event_listeners The listeners.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/event/publisher.rb#L24)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/publisher.rb#L24)
 
 ### `#publish(event, *args)`
 
@@ -16653,7 +16653,7 @@ publisher.publish("my_event", "payload")
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/event/publisher.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/publisher.rb#L35)
 
 ---
 
@@ -16682,7 +16682,7 @@ Topology.initial(topology: :replica_set)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/cluster/topology.rb#L49)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology.rb#L49)
 
 ---
 
@@ -16695,7 +16695,7 @@ Topology.initial(topology: :replica_set)
 - (`Event::Listeners`) — event_listeners The listeners.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/event/subscriber.rb#L24)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/subscriber.rb#L24)
 
 ### `#subscribe_to(event, listener)`
 
@@ -16716,7 +16716,7 @@ subscriber.subscribe_to('test', listener)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/event/subscriber.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/subscriber.rb#L35)
 
 ---
 
@@ -16738,7 +16738,7 @@ limited.options
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/limited.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/limited.rb#L32)
 
 ---
 
@@ -16751,7 +16751,7 @@ limited.options
 - (`Mongo::Address`) — address The address to connect to.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connectable.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connectable.rb#L38)
 
 ### `#options`
 
@@ -16760,7 +16760,7 @@ limited.options
 - (`Hash`) — options The passed in options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connectable.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connectable.rb#L41)
 
 ### `#pid`
 
@@ -16769,7 +16769,7 @@ limited.options
 - (`Integer`) — pid The process id when the connection was created.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connectable.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connectable.rb#L44)
 
 ### `#connectable?`
 
@@ -16787,7 +16787,7 @@ connection.connectable?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connectable.rb#L55)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connectable.rb#L55)
 
 ### `#connected?`
 
@@ -16804,7 +16804,7 @@ connection.connected?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connectable.rb#L67)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connectable.rb#L67)
 
 ### `#timeout`
 
@@ -16821,7 +16821,7 @@ connection.timeout
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server/connectable.rb#L79)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connectable.rb#L79)
 
 ---
 
@@ -16847,7 +16847,7 @@ operation.execute(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/executable.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/executable.rb#L34)
 
 ---
 
@@ -16870,7 +16870,7 @@ Serializes the header value into the buffer
 - (`String`) — Buffer with serialized value.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/serializers.rb#L53)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L53)
 
 ### `.deserialize(buffer)`
 
@@ -16887,7 +16887,7 @@ Deserializes the header value from the IO stream
 length, request id, response id, and op code.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/serializers.rb#L63)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L63)
 
 ---
 
@@ -16910,7 +16910,7 @@ Serializes a C style string into the buffer
 - (`String`) — Buffer with serialized value.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/serializers.rb#L79)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L79)
 
 ---
 
@@ -16933,7 +16933,7 @@ Serializes a 32-bit Zero into the buffer
 - (`String`) — Buffer with serialized value.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/serializers.rb#L95)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L95)
 
 ---
 
@@ -16956,7 +16956,7 @@ Serializes a fixnum to a 4-byte 32-bit integer
 - (`String`) — Buffer with serialized value.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/serializers.rb#L111)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L111)
 
 ### `.deserialize(buffer)`
 
@@ -16972,7 +16972,7 @@ Deserializes a 32-bit Fixnum from the IO stream
 - (`Fixnum`) — Deserialized Int32
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/serializers.rb#L120)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L120)
 
 ---
 
@@ -16995,7 +16995,7 @@ Serializes a fixnum to an 8-byte 64-bit integer
 - (`String`) — Buffer with serialized value.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/serializers.rb#L136)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L136)
 
 ### `.deserialize(buffer)`
 
@@ -17011,7 +17011,7 @@ Deserializes a 64-bit Fixnum from the IO stream
 - (`Fixnum`) — Deserialized Int64.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/serializers.rb#L145)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L145)
 
 ---
 
@@ -17034,7 +17034,7 @@ Serializes a document into the buffer
 - (`String`) — Buffer with serialized value.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/serializers.rb#L161)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L161)
 
 ### `.deserialize(buffer)`
 
@@ -17050,7 +17050,7 @@ Deserializes a document from the IO stream
 - (`Hash`) — The decoded BSON document.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/serializers.rb#L174)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L174)
 
 ### `.size_limited?`
 
@@ -17061,7 +17061,7 @@ Whether there can be a size limit on this type after serialization.
 - (`true`) — Documents can be size limited upon serialization.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/protocol/serializers.rb#L183)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L183)
 
 ---
 
@@ -17074,7 +17074,7 @@ Whether there can be a size limit on this type after serialization.
 - (`Hash`) — spec The specification for the operation.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L150)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L150)
 
 ### `#==(other)`
 
@@ -17096,7 +17096,7 @@ operation == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L162)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L162)
 
 ### `#==(other)`
 
@@ -17118,7 +17118,7 @@ operation == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L166)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L166)
 
 ### `#cursor_count`
 
@@ -17135,7 +17135,7 @@ specifiable.cursor_count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L176)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L176)
 
 ### `#db_name`
 
@@ -17152,7 +17152,7 @@ specifiable.db_name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L188)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L188)
 
 ### `#deletes`
 
@@ -17169,7 +17169,7 @@ specifiable.deletes
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L200)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L200)
 
 ### `#delete`
 
@@ -17186,7 +17186,7 @@ specifiable.delete
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L212)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L212)
 
 ### `#documents`
 
@@ -17203,7 +17203,7 @@ specifiable.documents
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L224)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L224)
 
 ### `#coll_name`
 
@@ -17220,7 +17220,7 @@ specifiable.coll_name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L236)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L236)
 
 ### `#cursor_id`
 
@@ -17237,7 +17237,7 @@ specifiable.cursor_id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L248)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L248)
 
 ### `#cursor_ids`
 
@@ -17254,7 +17254,7 @@ specifiable.cursor_ids
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L260)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L260)
 
 ### `#index`
 
@@ -17271,7 +17271,7 @@ specifiable.index
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L272)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L272)
 
 ### `#index_name`
 
@@ -17288,7 +17288,7 @@ specifiable.index_name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L284)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L284)
 
 ### `#indexes`
 
@@ -17305,7 +17305,7 @@ specifiable.indexes
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L296)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L296)
 
 ### `#initialize(spec)`
 
@@ -17325,7 +17325,7 @@ Specifiable.new(spec)
 **See**:
 - Theindividual operations for the values they require in their
 specs.
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L311)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L311)
 
 ### `#operation_id`
 
@@ -17343,7 +17343,7 @@ specifiable.operation_id
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L324)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L324)
 
 ### `#options`
 
@@ -17360,7 +17360,7 @@ specifiable.options
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L336)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L336)
 
 ### `#read_concern`
 
@@ -17377,7 +17377,7 @@ specifiable.read_concern
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L348)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L348)
 
 ### `#max_time_ms`
 
@@ -17394,7 +17394,7 @@ specifiable.max_time_ms
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L360)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L360)
 
 ### `#bypass_document_validation`
 
@@ -17411,7 +17411,7 @@ specifiable.bypass_documentation_validation.
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L372)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L372)
 
 ### `#collation`
 
@@ -17428,7 +17428,7 @@ specifiable.collation.
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L384)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L384)
 
 ### `#selector`
 
@@ -17445,7 +17445,7 @@ specifiable.selector.
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L396)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L396)
 
 ### `#to_return`
 
@@ -17462,7 +17462,7 @@ specifiable.to_return
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L408)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L408)
 
 ### `#updates`
 
@@ -17479,7 +17479,7 @@ The update documents from the spec.
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L419)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L419)
 
 ### `#update`
 
@@ -17496,7 +17496,7 @@ The update document from the spec.
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L430)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L430)
 
 ### `#user`
 
@@ -17513,7 +17513,7 @@ specifiable.user
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L442)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L442)
 
 ### `#user_name`
 
@@ -17530,7 +17530,7 @@ specifiable.user_name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L454)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L454)
 
 ### `#write_concern`
 
@@ -17547,7 +17547,7 @@ specifiable.write_concern
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L466)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L466)
 
 ### `#read`
 
@@ -17564,7 +17564,7 @@ specifiable.read
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L478)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L478)
 
 ### `#ordered?`
 
@@ -17581,7 +17581,7 @@ specifiable.ordered?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L490)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L490)
 
 ### `#namespace`
 
@@ -17598,7 +17598,7 @@ specifiable.namespace
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/specifiable.rb#L502)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L502)
 
 ---
 
@@ -17611,7 +17611,7 @@ specifiable.namespace
 - (`Array<Hash, BSON::Document>`) — requests The provided requests.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/combineable.rb#L26)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/combineable.rb#L26)
 
 ### `#has_collation`
 
@@ -17620,7 +17620,7 @@ specifiable.namespace
 - (`true, false`) — has_collation Whether one or more operations has a collation defined.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/combineable.rb#L29)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/combineable.rb#L29)
 
 ### `#initialize(requests)`
 
@@ -17638,7 +17638,7 @@ OrderedCombiner.new([{ insert_one: { _id: 0 }}])
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/combineable.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/combineable.rb#L41)
 
 ---
 
@@ -17651,7 +17651,7 @@ OrderedCombiner.new([{ insert_one: { _id: 0 }}])
 - (`Monitoring`) — monitoring The monitoring.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/publishable.rb#L24)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/publishable.rb#L24)
 
 ### `#publish_command(messages, operation_id = Monitoring.next_operation_id)`
 
@@ -17675,7 +17675,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/publishable.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/publishable.rb#L38)
 
 ---
 
@@ -17696,7 +17696,7 @@ idable.id_generator
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/idable.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/idable.rb#L38)
 
 ---
 
@@ -17725,7 +17725,7 @@ validatable.validate(:insert_one, { _id: 0 })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/bulk_write/validatable.rb#L40)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/validatable.rb#L40)
 
 ---
 
@@ -17755,7 +17755,7 @@ secure.redacted(command_name, document)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/monitoring/event/secure.rb#L52)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/secure.rb#L52)
 
 ---
 
@@ -17786,7 +17786,7 @@ view.aggregate([
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L47)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L47)
 
 ### `#allow_partial_results`
 
@@ -17803,7 +17803,7 @@ view.allow_partial_results
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L59)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L59)
 
 ### `#await_data`
 
@@ -17820,7 +17820,7 @@ view.await_data
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L71)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L71)
 
 ### `#batch_size(batch_size = nil)`
 
@@ -17844,7 +17844,7 @@ view.batch_size(5)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L88)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L88)
 
 ### `#comment(comment = nil)`
 
@@ -17867,7 +17867,7 @@ view.comment('slow query')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L106)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L106)
 
 ### `#count(options = {})`
 
@@ -17897,7 +17897,7 @@ collection_view.count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L129)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L129)
 
 ### `#distinct(field_name, options={})`
 
@@ -17930,7 +17930,7 @@ collection_view.distinct('name')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L167)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L167)
 
 ### `#hint(hint = nil)`
 
@@ -17952,7 +17952,7 @@ view.hint(name: 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L198)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L198)
 
 ### `#limit(limit = nil)`
 
@@ -17974,7 +17974,7 @@ view.limit(5)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L212)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L212)
 
 ### `#map_reduce(map, reduce, options = {})`
 
@@ -18002,7 +18002,7 @@ view.map_reduce(map, reduce)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L228)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L228)
 
 ### `#max_scan(value = nil)`
 
@@ -18024,7 +18024,7 @@ view.max_scan(1000)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L242)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L242)
 
 ### `#max_value(value = nil)`
 
@@ -18046,7 +18046,7 @@ view.max_value(_id: 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L256)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L256)
 
 ### `#min_value(value = nil)`
 
@@ -18068,7 +18068,7 @@ view.min_value(_id: 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L270)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L270)
 
 ### `#no_cursor_timeout`
 
@@ -18086,7 +18086,7 @@ view.no_cursor_timeout
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L283)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L283)
 
 ### `#projection(document = nil)`
 
@@ -18108,7 +18108,7 @@ view.projection(name: 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L301)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L301)
 
 ### `#read(value = nil)`
 
@@ -18125,7 +18125,7 @@ The read preference to use for the query.
 new +View+.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L317)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L317)
 
 ### `#return_key(value = nil)`
 
@@ -18147,7 +18147,7 @@ view.return_key(true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L333)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L333)
 
 ### `#show_disk_loc(value = nil)`
 
@@ -18170,7 +18170,7 @@ view.show_disk_loc(true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L348)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L348)
 
 ### `#show_disk_loc(value = nil)`
 
@@ -18193,7 +18193,7 @@ view.show_disk_loc(true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L351)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L351)
 
 ### `#skip(number = nil)`
 
@@ -18216,7 +18216,7 @@ view.skip(10)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L364)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L364)
 
 ### `#snapshot(value = nil)`
 
@@ -18234,7 +18234,7 @@ view.snapshot(true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L379)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L379)
 
 ### `#sort(spec = nil)`
 
@@ -18257,7 +18257,7 @@ view.sort(name: -1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L394)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L394)
 
 ### `#modifiers(doc = nil)`
 
@@ -18279,7 +18279,7 @@ view.modifiers(:$orderby => Mongo::Index::ASCENDING)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L408)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L408)
 
 ### `#max_await_time_ms(max = nil)`
 
@@ -18302,7 +18302,7 @@ view.max_await_time_ms(500)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L424)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L424)
 
 ### `#max_time_ms(max = nil)`
 
@@ -18324,7 +18324,7 @@ view.max_time_ms(500)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L438)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L438)
 
 ### `#cursor_type(type = nil)`
 
@@ -18346,7 +18346,7 @@ view.cursor_type(:tailable)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/readable.rb#L452)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L452)
 
 ---
 
@@ -18368,7 +18368,7 @@ view.find_one_and_delete
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/writable.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L33)
 
 ### `#find_one_and_replace(replacement, opts = {})`
 
@@ -18418,7 +18418,7 @@ view.find_one_and_replace({ name: 'test' }, :return_document => :after)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/writable.rb#L73)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L73)
 
 ### `#find_one_and_update(document, opts = {})`
 
@@ -18455,7 +18455,7 @@ view.find_one_and_update({ "$set" => { name: 'test' }}, :return_document => :bef
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/writable.rb#L95)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L95)
 
 ### `#delete_many(opts = {})`
 
@@ -18478,7 +18478,7 @@ collection_view.delete_many
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/writable.rb#L131)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L131)
 
 ### `#delete_one(opts = {})`
 
@@ -18501,7 +18501,7 @@ collection_view.delete_one
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/writable.rb#L147)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L147)
 
 ### `#replace_one(replacement, opts = {})`
 
@@ -18532,7 +18532,7 @@ collection_view.replace_one({ name: 'test' })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/writable.rb#L166)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L166)
 
 ### `#update_many(spec, opts = {})`
 
@@ -18563,7 +18563,7 @@ collection_view.update_many('$set' => { name: 'test' })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/writable.rb#L185)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L185)
 
 ### `#update_one(spec, opts = {})`
 
@@ -18594,7 +18594,7 @@ collection_view.update_one('$set' => { name: 'test' })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/writable.rb#L204)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L204)
 
 ---
 
@@ -18617,7 +18617,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/iterable.rb#L37)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/iterable.rb#L37)
 
 ### `#close_query`
 
@@ -18630,7 +18630,7 @@ view.close_query
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/iterable.rb#L56)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/iterable.rb#L56)
 
 ### `#close_query`
 
@@ -18643,7 +18643,7 @@ view.close_query
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/iterable.rb#L59)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/iterable.rb#L59)
 
 ---
 
@@ -18656,7 +18656,7 @@ view.close_query
 - (`Hash`) — options The additional query options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/immutable.rb#L25)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/immutable.rb#L25)
 
 ---
 
@@ -18669,7 +18669,7 @@ view.close_query
 - (`Hash`) — The write concern options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/write_concern/normalizable.rb#L25)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern/normalizable.rb#L25)
 
 ### `#initialize(options)`
 
@@ -18695,7 +18695,7 @@ Mongo::WriteConcern.new(:w => 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/write_concern/normalizable.rb#L46)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern/normalizable.rb#L46)
 
 ---
 
@@ -18708,7 +18708,7 @@ Mongo::WriteConcern.new(:w => 1)
 - (`Hash`) — options The options.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/selectable.rb#L24)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L24)
 
 ### `#tag_sets`
 
@@ -18717,7 +18717,7 @@ Mongo::WriteConcern.new(:w => 1)
 - (`Array`) — tag_sets The tag sets used to select servers.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/selectable.rb#L27)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L27)
 
 ### `#max_staleness`
 
@@ -18727,7 +18727,7 @@ Mongo::WriteConcern.new(:w => 1)
 secondary can suffer and still be eligible for a read.
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/selectable.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L33)
 
 ### `#==(other)`
 
@@ -18749,7 +18749,7 @@ preference == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/selectable.rb#L45)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L45)
 
 ### `#initialize(options = {})`
 
@@ -18773,7 +18773,7 @@ Mongo::ServerSelector::Secondary.new
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/selectable.rb#L68)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L68)
 
 ### `#inspect`
 
@@ -18790,7 +18790,7 @@ selector.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/selectable.rb#L83)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L83)
 
 ### `#select_server(cluster, ping = true)`
 
@@ -18812,7 +18812,7 @@ selector.select_server(cluster)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/selectable.rb#L97)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L97)
 
 ### `#server_selection_timeout`
 
@@ -18829,7 +18829,7 @@ selector.server_selection_timeout
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/selectable.rb#L129)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L129)
 
 ### `#local_threshold`
 
@@ -18846,7 +18846,7 @@ selector.local_threshold
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/server_selector/selectable.rb#L145)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L145)
 
 ---
 
@@ -18867,7 +18867,7 @@ view.explain
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/explainable.rb#L47)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/explainable.rb#L47)
 
 ---
 
@@ -18893,7 +18893,7 @@ operation.execute(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/bulkable.rb#L37)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/bulkable.rb#L37)
 
 ---
 
@@ -18919,7 +18919,7 @@ result.aggregate_write_errors(0)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/mergable.rb#L36)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/mergable.rb#L36)
 
 ### `#aggregate_write_concern_errors(count)`
 
@@ -18941,7 +18941,7 @@ result.aggregate_write_concern_errors(100)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/mergable.rb#L57)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/mergable.rb#L57)
 
 ---
 
@@ -18967,7 +18967,7 @@ Flags.map_flags(options)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/flags.rb#L49)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/flags.rb#L49)
 
 ---
 
@@ -18993,7 +18993,7 @@ operation.execute(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/command/writable.rb#L37)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/command/writable.rb#L37)
 
 ---
 
@@ -19019,7 +19019,7 @@ Modifiers.map_driver_options(modifiers)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/modifiers.rb#L58)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/modifiers.rb#L58)
 
 ### `.map_server_modifiers(options)`
 
@@ -19042,7 +19042,7 @@ Modifiers.map_server_modifiers(options)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/collection/view/builder/modifiers.rb#L73)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/modifiers.rb#L73)
 
 ---
 
@@ -19063,7 +19063,7 @@ result.n_removed
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/delete/result.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/delete/result.rb#L34)
 
 ---
 
@@ -19089,7 +19089,7 @@ result.aggregate_write_errors(0)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/legacy_mergable.rb#L36)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/legacy_mergable.rb#L36)
 
 ### `#aggregate_write_concern_errors(count)`
 
@@ -19111,7 +19111,7 @@ result.aggregate_write_concern_errors(4)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/bulk/legacy_mergable.rb#L58)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/legacy_mergable.rb#L58)
 
 ---
 
@@ -19137,7 +19137,7 @@ operation.execute(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com//blob/master/lib/mongo/operation/write/write_command_enabled.rb#L36)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/write_command_enabled.rb#L36)
 
 ---
 
