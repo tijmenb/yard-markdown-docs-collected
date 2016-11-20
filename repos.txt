@@ -11,3 +11,6 @@ alphagov/rummageable
 mongodb/mongo-ruby-driver
 nanoc/nanoc
 sporkmonger/addressable
+lsegal/yard
+airbrake/airbrake
+appsignal/appsignal-ruby
