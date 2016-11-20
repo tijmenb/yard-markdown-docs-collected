@@ -7221,7 +7221,7 @@ Returns an object that can be used for uniquely identifying objects.
 - (`Array<Nanoc::Int::Item, Nanoc::Int::Layout>`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L5)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L49)
 
 ### `#objects=(value)`
 
@@ -7230,7 +7230,7 @@ Returns an object that can be used for uniquely identifying objects.
 - (`Array<Nanoc::Int::Item, Nanoc::Int::Layout>`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L5)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L49)
 
 ### `#initialize(objects, env_name: nil)`
 
@@ -7244,7 +7244,13 @@ Returns an object that can be used for uniquely identifying objects.
 - (`DependencyStore`) — a new instance of DependencyStore
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L8)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L52)
+
+### `#dependencies_causing_outdatedness_of(object)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L60)
 
 ### `#objects_causing_outdatedness_of(object)`
 
@@ -7273,7 +7279,7 @@ which to fetch the direct predecessors
 - (`Array<Nanoc::Int::Item, Nanoc::Int::Layout, nil>`) — The direct
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L32)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L92)
 
 ### `#objects_outdated_due_to(object)`
 
@@ -7297,9 +7303,9 @@ fetch the direct successors
 the given object
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L49)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L109)
 
-### `#record_dependency(src, dst)`
+### `#record_dependency(src, dst, raw_content: false, attributes: false, compiled_content: false, path: false)`
 
 Records a dependency from `src` to `dst` in the dependency graph. When
 `dst` is oudated, `src` will also become outdated.
@@ -7320,7 +7326,7 @@ outdated if the destination is outdated
 - (`void`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L64)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L125)
 
 ### `#forget_dependencies_for(object)`
 
@@ -7340,7 +7346,68 @@ forget all dependencies
 - (`void`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L78)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L143)
+
+---
+
+## `class Nanoc::Int::DependencyStore::Dependency`
+
+### `#from`
+
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L9)
+
+### `#to`
+
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L12)
+
+### `#initialize(from, to, raw_content:, attributes:, compiled_content:, path:)`
+
+**Returns**:
+
+- (`Dependency`) — a new instance of Dependency
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L15)
+
+### `#raw_content?`
+
+**Returns**:
+
+- (`Boolean`) — 
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L26)
+
+### `#attributes?`
+
+**Returns**:
+
+- (`Boolean`) — 
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L31)
+
+### `#compiled_content?`
+
+**Returns**:
+
+- (`Boolean`) — 
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L36)
+
+### `#path?`
+
+**Returns**:
+
+- (`Boolean`) — 
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L41)
 
 ---
 
@@ -7414,7 +7481,7 @@ Creates a new directed graph with the given vertices.
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L35)
 
-### `#add_edge(from, to)`
+### `#add_edge(from, to, props: nil)`
 
 Adds an edge from the first vertex to the second vertex.
 
@@ -7431,7 +7498,7 @@ Adds an edge from the first vertex to the second vertex.
 - (`void`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L58)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L60)
 
 ### `#delete_edge(from, to)`
 
@@ -7451,7 +7518,7 @@ edge does not exist, nothing is done.
 - (`void`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L83)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L89)
 
 ### `#add_vertex(v)`
 
@@ -7467,7 +7534,7 @@ Adds the given vertex to the graph.
 - (`void`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L102)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L110)
 
 ### `#delete_edges_from(from)`
 
@@ -7483,7 +7550,7 @@ Deletes all edges coming from the given vertex.
 - (`void`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L117)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L125)
 
 ### `#delete_edges_to(to)`
 
@@ -7499,7 +7566,7 @@ Deletes all edges going to the given vertex.
 - (`void`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L132)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L141)
 
 ### `#delete_vertex(v)`
 
@@ -7515,7 +7582,7 @@ Removes the given vertex from the graph.
 - (`void`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L149)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L159)
 
 ### `#direct_predecessors_of(to)`
 
@@ -7532,7 +7599,7 @@ x where there is an edge from x to the given vertex y.
 - (`Array`) — Direct predecessors of the given vertex
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L165)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L175)
 
 ### `#direct_successors_of(from)`
 
@@ -7549,7 +7616,7 @@ where there is an edge from the given vertex x to y.
 - (`Array`) — Direct successors of the given vertex
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L175)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L185)
 
 ### `#predecessors_of(to)`
 
@@ -7566,7 +7633,7 @@ which there is a path from x to the given vertex y.
 - (`Array`) — Predecessors of the given vertex
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L185)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L195)
 
 ### `#successors_of(from)`
 
@@ -7583,7 +7650,13 @@ which there is a path from the given vertex x to y.
 - (`Array`) — Successors of the given vertex
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L195)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L205)
+
+### `#props_for(from, to)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L209)
 
 ### `#vertices`
 
@@ -7592,7 +7665,7 @@ which there is a path from the given vertex x to y.
 - (`Array`) — The list of all vertices in this graph.
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L200)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L214)
 
 ### `#edges`
 
@@ -7604,7 +7677,7 @@ method may take a while to compute and should be cached if possible.
 - (`Array`) — The list of all edges in this graph.
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L208)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L222)
 
 ### `#roots`
 
@@ -7615,7 +7688,7 @@ Returns all root vertices, i.e. vertices where no edge points to.
 - (`Set`) — The set of all root vertices in this graph.
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L223)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/directed_graph.rb#L237)
 
 ---
 
@@ -8197,7 +8270,7 @@ memory for
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L22)
 
-### `#enter(obj)`
+### `#enter(obj, raw_content: false, attributes: false, compiled_content: false, path: false)`
 
 
 **See**:
@@ -8207,19 +8280,19 @@ memory for
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L38)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L45)
 
-### `#bounce(obj)`
+### `#bounce(obj, raw_content: false, attributes: false, compiled_content: false, path: false)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L43)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L50)
 
 ---
 
 ## `class Nanoc::Int::DependencyTracker::Null`
 
-### `#enter(_obj)`
+### `#enter(_obj, raw_content: false, attributes: false, compiled_content: false, path: false)`
 
 
 **See**:
@@ -8231,7 +8304,7 @@ memory for
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L12)
 
-### `#bounce(_obj)`
+### `#bounce(_obj, raw_content: false, attributes: false, compiled_content: false, path: false)`
 
 
 **See**:
@@ -10168,7 +10241,7 @@ into a symlink
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/mixins/document_view_mixin.rb#L80)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/mixins/document_view_mixin.rb#L81)
 
 ---
 
