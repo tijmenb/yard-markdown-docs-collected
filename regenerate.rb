@@ -1,5 +1,5 @@
 repos = File.read("other-repos.txt") + File.read("alphagov-repos.txt")
-repos.lines.map(&:strip).each do |repo|
+repos.lines.map(&:strip).uniq.each do |repo|
   dir = repo.gsub('/', '---')
 
   command = [
