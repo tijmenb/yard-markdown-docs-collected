@@ -6,6 +6,7 @@
 Let an app configure the collection name to use, e.g. set a constant in an
 initializer
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/user.rb#L13)
 
@@ -75,6 +76,7 @@ initializer
 
 ### `#status_action?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -89,6 +91,7 @@ initializer
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/action.rb#L52)
 
 ### `#is_fact_check_request?`
+
 
 **Returns**:
 
@@ -139,6 +142,7 @@ initializer
 
 ### `#latest_edition?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -165,6 +169,7 @@ initializer
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L98)
 
 ### `#can_create_new_edition?`
+
 
 **Returns**:
 
@@ -198,6 +203,7 @@ initializer
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L120)
 
 ### `#has_ever_been_published?`
+
 
 **Returns**:
 
@@ -248,6 +254,7 @@ If the new clone is of the same type, we can copy all its fields over; if
 we are changing the type of the edition, any fields other than the base
 fields will likely be meaningless.
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L168)
 
@@ -264,6 +271,7 @@ fields will likely be meaningless.
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L207)
 
 ### `#cloning_between_parted_types?(new_edition)`
+
 
 **Returns**:
 
@@ -298,6 +306,7 @@ fields will likely be meaningless.
 
 ### `#has_video?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -307,6 +316,7 @@ fields will likely be meaningless.
 
 ### `#safe_to_preview?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -315,6 +325,7 @@ fields will likely be meaningless.
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L263)
 
 ### `#has_sibling_in_progress?`
+
 
 **Returns**:
 
@@ -326,6 +337,7 @@ fields will likely be meaningless.
 ### `#broadcast_action(callback_action)`
 
 Stop broadcasting a delete message unless there are no siblings.
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L272)
@@ -364,6 +376,7 @@ We don't do this by notifying panopticon as this will only ever
 happen for artefacts representing editions that haven't been
 published (and therefore aren't registered in the rest of the)
 system.
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/edition.rb#L314)
@@ -404,6 +417,7 @@ system.
 
 Fallback to english if no language is present
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L167)
 
@@ -427,6 +441,7 @@ Fallback to english if no language is present
 
 ### `#any_editions_published?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -435,6 +450,7 @@ Fallback to english if no language is present
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L188)
 
 ### `#any_editions_ever_published?`
+
 
 **Returns**:
 
@@ -479,6 +495,7 @@ We should use this method when performing save actions from rake tasks,
 message queue consumer or any other performed tasks that have no user associated
 as we are still interested to know what triggered the action.
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L239)
 
@@ -502,6 +519,7 @@ as we are still interested to know what triggered the action.
 
 ### `#archived?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -510,6 +528,7 @@ as we are still interested to know what triggered the action.
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/artefact.rb#L280)
 
 ### `#live?`
+
 
 **Returns**:
 
@@ -542,6 +561,7 @@ as we are still interested to know what triggered the action.
 
 ### `#publicise?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -555,6 +575,7 @@ as we are still interested to know what triggered the action.
 
 ### `#has_video?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -563,6 +584,7 @@ as we are still interested to know what triggered the action.
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/guide_edition.rb#L12)
 
 ### `#safe_to_preview?`
+
 
 **Returns**:
 
@@ -608,6 +630,7 @@ as we are still interested to know what triggered the action.
 ## `class VideoEdition`
 
 ### `#has_video?`
+
 
 **Returns**:
 
@@ -696,6 +719,7 @@ as we are still interested to know what triggered the action.
 
 implement the method called during validation
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L3)
 
@@ -704,6 +728,7 @@ implement the method called during validation
 ## `class SlugValidator::InstanceValidator`
 
 ### `#starts_with?(expected_prefix)`
+
 
 **Returns**:
 
@@ -714,6 +739,7 @@ implement the method called during validation
 
 ### `#ends_with?(expected_suffix)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -722,6 +748,7 @@ implement the method called during validation
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/validators/slug_validator.rb#L24)
 
 ### `#of_kind?(expected_kind)`
+
 
 **Returns**:
 
@@ -750,6 +777,7 @@ implement the method called during validation
 
 ### `#valid_slug?(url_part)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -762,6 +790,7 @@ implement the method called during validation
 ## `class SlugValidator::DonePageValidator`
 
 ### `#applicable?`
+
 
 **Returns**:
 
@@ -782,6 +811,7 @@ implement the method called during validation
 
 ### `#applicable?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -801,6 +831,7 @@ implement the method called during validation
 
 ### `#applicable?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -819,6 +850,7 @@ implement the method called during validation
 ## `class SlugValidator::HelpPageValidator`
 
 ### `#applicable?`
+
 
 **Returns**:
 
@@ -845,6 +877,7 @@ implement the method called during validation
 
 ### `#applicable?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -863,6 +896,7 @@ implement the method called during validation
 ## `class SlugValidator::ManualPageValidator`
 
 ### `#applicable?`
+
 
 **Returns**:
 
@@ -883,6 +917,7 @@ implement the method called during validation
 
 ### `#applicable?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -901,6 +936,7 @@ implement the method called during validation
 ## `class SlugValidator::DefaultValidator`
 
 ### `#applicable?`
+
 
 **Returns**:
 
@@ -954,6 +990,7 @@ implement the method called during validation
 ### `.fields_to_clone`
 
 Returns the value of attribute fields_to_clone
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/travel_advice_edition.rb#L52)
@@ -1078,6 +1115,7 @@ Override update_attributes so that nested nodes are updated individually.
 This get around the problem of mongoid issuing a query with conflicting modifications
 to the same document.
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/simple_smart_answer_edition.rb#L43)
 
@@ -1094,6 +1132,7 @@ to the same document.
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/simple_smart_answer_edition.rb#L64)
 
 ### `#destroy_in_attrs?(attrs)`
+
 
 **Returns**:
 
@@ -1120,6 +1159,7 @@ to the same document.
 
 Returns the value of attribute actor
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
 
@@ -1138,6 +1178,7 @@ Sets the attribute actor
 ### `#edition`
 
 Returns the value of attribute edition
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
@@ -1158,6 +1199,7 @@ Sets the attribute edition
 
 Returns the value of attribute action_attributes
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
 
@@ -1177,6 +1219,7 @@ Sets the attribute action_attributes
 
 Returns the value of attribute event_attributes
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
 
@@ -1193,6 +1236,7 @@ Sets the attribute event_attributes
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
 
 ### `#initialize(actor, edition, action_attributes={}, event_attributes={})`
+
 
 **Returns**:
 
@@ -1223,6 +1267,7 @@ Sets the attribute event_attributes
 
 ### `#process?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -1235,6 +1280,7 @@ Sets the attribute event_attributes
 ## `class GovukContentModels::ActionProcessors::NewVersionProcessor`
 
 ### `#process?`
+
 
 **Returns**:
 
@@ -1250,6 +1296,7 @@ Sets the attribute event_attributes
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/new_version_processor.rb#L9)
 
 ### `#record_action?`
+
 
 **Returns**:
 
@@ -1276,6 +1323,7 @@ Sets the attribute event_attributes
 
 ### `#record_action?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -1288,6 +1336,7 @@ Sets the attribute event_attributes
 ## `class GovukContentModels::ActionProcessors::ApproveReviewProcessor`
 
 ### `#process?`
+
 
 **Returns**:
 
@@ -1312,6 +1361,7 @@ Sets the attribute event_attributes
 
 ### `#process?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -1327,10 +1377,12 @@ Sets the attribute event_attributes
 
 Always records the action.
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/receive_fact_check_processor.rb#L6)
 
 ### `#record_action?`
+
 
 **Returns**:
 
@@ -1377,6 +1429,7 @@ Always records the action.
 
 ### `#fact_checked?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -1397,6 +1450,7 @@ Always records the action.
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/workflow.rb#L118)
 
 ### `#can_destroy?`
+
 
 **Returns**:
 
@@ -1431,6 +1485,7 @@ Always records the action.
 
 ### `#in_progress?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -1439,6 +1494,7 @@ Always records the action.
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/workflow.rb#L147)
 
 ### `#locked_for_edits?`
+
 
 **Returns**:
 
@@ -1540,6 +1596,7 @@ Always records the action.
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/presentation_toggles.rb#L18)
 
 ### `#promotes_something?`
+
 
 **Returns**:
 

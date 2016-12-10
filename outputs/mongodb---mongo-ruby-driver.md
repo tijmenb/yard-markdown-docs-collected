@@ -5,6 +5,7 @@
 
 The uri parser object options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L37)
 
@@ -12,12 +13,14 @@ The uri parser object options.
 
 The options specified in the uri.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L42)
 
 ### `#servers`
 
 The servers specified in the uri.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L47)
@@ -45,7 +48,7 @@ URI.new('mongodb://localhost:27017')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L193)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L194)
 
 ### `#client_options`
 
@@ -64,7 +67,7 @@ uri.client_options
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L211)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L212)
 
 ### `#credentials`
 
@@ -83,7 +86,7 @@ uri.credentials
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L226)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L227)
 
 ### `#database`
 
@@ -100,7 +103,7 @@ uri.database
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L238)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L239)
 
 ---
 
@@ -182,6 +185,7 @@ Mongo::Auth::Unauthorized.new(user)
 
 ### `#collection`
 
+
 **Returns**:
 
 - (`String`) — collection The collection name.
@@ -191,6 +195,7 @@ Mongo::Auth::Unauthorized.new(user)
 
 ### `#id`
 
+
 **Returns**:
 
 - (`BSON::ObjectId`) — id The referenced document id.
@@ -199,6 +204,7 @@ Mongo::Auth::Unauthorized.new(user)
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/dbref.rb#L42)
 
 ### `#database`
+
 
 **Returns**:
 
@@ -283,6 +289,7 @@ dbref.to_bson
 
 ### `#family`
 
+
 **Returns**:
 
 - (`Integer`) — family The type of host family.
@@ -291,6 +298,7 @@ dbref.to_bson
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket.rb#L45)
 
 ### `#socket`
+
 
 **Returns**:
 
@@ -302,6 +310,8 @@ dbref.to_bson
 ### `#alive?`
 
 Is the socket connection alive?
+
+⚠️ **Use #connectable? on the connection instead.**
 
 **Returns**:
 
@@ -456,30 +466,33 @@ Tests if this socket has reached EOF. Primarily used for liveness checks.
 
 ### `#cluster`
 
+
 **Returns**:
 
 - (`Mongo::Cluster`) — cluster The cluster of servers for the client.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L75)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L76)
 
 ### `#database`
+
 
 **Returns**:
 
 - (`Mongo::Database`) — database The database the client is operating on.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L78)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L79)
 
 ### `#options`
+
 
 **Returns**:
 
 - (`Hash`) — options The configuration options.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L81)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L82)
 
 ### `#==(other)`
 
@@ -501,7 +514,7 @@ client == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L99)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L100)
 
 ### `#==(other)`
 
@@ -523,7 +536,7 @@ client == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L103)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L104)
 
 ### `#[](collection_name, options = {})`
 
@@ -548,7 +561,7 @@ client[:users]
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L116)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L117)
 
 ### `#hash`
 
@@ -565,7 +578,7 @@ client.hash
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L128)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L129)
 
 ### `#initialize(addresses_or_uri, options = Options::Redacted.new)`
 
@@ -635,10 +648,10 @@ other end of the connection. One of :ssl_ca_cert, :ssl_ca_cert_string or
 certification authority certifications used to validate certs passed from the
 other end of the connection. One of :ssl_ca_cert, :ssl_ca_cert_string or
 :ssl_ca_cert_object (in order of priority) is required for :ssl_verify.
-  - `:ssl_ca_cert_object` (`Array<OpenSSL::X509::Certificate>`) — An array of OpenSSL::X509::Certificate
-reprenting the certification authority certifications used to validate certs passed from the
-other end of the connection. One of :ssl_ca_cert, :ssl_ca_cert_string or
-:ssl_ca_cert_object (in order of priority) is required for :ssl_verify.
+  - `:ssl_ca_cert_object` (`Array<OpenSSL::X509::Certificate>`) — An array of
+OpenSSL::X509::Certificate representing the certification authority certifications used
+to validate certs passed from the other end of the connection. One of :ssl_ca_cert,
+:ssl_ca_cert_string or :ssl_ca_cert_object (in order of priority) is required for :ssl_verify.
   - `:socket_timeout` (`Float`) — The timeout, in seconds, to
 execute operations on a socket.
   - `:user` (`String`) — The user name.
@@ -657,6 +670,8 @@ in which reads on a mongos are retried.
 for documents. Must respond to #generate.
   - `:app_name` (`String`) — Application name that is printed to the
 mongod logs upon establishing a connection in server versions >= 3.4.
+  - `:platform` (`String`) — Platform information to include in the
+metadata printed to the mongod logs upon establishing a connection in server versions >= 3.4.
 
 - `options` (`Hash`) — The options to be used by the client.
   
@@ -719,10 +734,10 @@ other end of the connection. One of :ssl_ca_cert, :ssl_ca_cert_string or
 certification authority certifications used to validate certs passed from the
 other end of the connection. One of :ssl_ca_cert, :ssl_ca_cert_string or
 :ssl_ca_cert_object (in order of priority) is required for :ssl_verify.
-  - `:ssl_ca_cert_object` (`Array<OpenSSL::X509::Certificate>`) — An array of OpenSSL::X509::Certificate
-reprenting the certification authority certifications used to validate certs passed from the
-other end of the connection. One of :ssl_ca_cert, :ssl_ca_cert_string or
-:ssl_ca_cert_object (in order of priority) is required for :ssl_verify.
+  - `:ssl_ca_cert_object` (`Array<OpenSSL::X509::Certificate>`) — An array of
+OpenSSL::X509::Certificate representing the certification authority certifications used
+to validate certs passed from the other end of the connection. One of :ssl_ca_cert,
+:ssl_ca_cert_string or :ssl_ca_cert_object (in order of priority) is required for :ssl_verify.
   - `:socket_timeout` (`Float`) — The timeout, in seconds, to
 execute operations on a socket.
   - `:user` (`String`) — The user name.
@@ -741,6 +756,8 @@ in which reads on a mongos are retried.
 for documents. Must respond to #generate.
   - `:app_name` (`String`) — Application name that is printed to the
 mongod logs upon establishing a connection in server versions >= 3.4.
+  - `:platform` (`String`) — Platform information to include in the
+metadata printed to the mongod logs upon establishing a connection in server versions >= 3.4.
 
 **Returns**:
 
@@ -757,7 +774,7 @@ Mongo::Client.new([ '127.0.0.1:27017', '127.0.0.1:27021' ])
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L227)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L230)
 
 ### `#inspect`
 
@@ -774,7 +791,7 @@ client.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L245)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L248)
 
 ### `#read_preference`
 
@@ -792,7 +809,7 @@ client.read_preference
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L258)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L261)
 
 ### `#use(name)`
 
@@ -815,7 +832,7 @@ client.use(:users)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L273)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L276)
 
 ### `#with(new_options = Options::Redacted.new)`
 
@@ -839,7 +856,7 @@ client.with(:read => { :mode => :primary_preferred })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L289)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L292)
 
 ### `#write_concern`
 
@@ -857,7 +874,7 @@ client.write_concern
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L311)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L314)
 
 ### `#close`
 
@@ -874,7 +891,7 @@ client.close
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L323)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L326)
 
 ### `#reconnect`
 
@@ -891,7 +908,7 @@ client.reconnect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L335)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L338)
 
 ### `#database_names`
 
@@ -908,7 +925,7 @@ client.database_names
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L347)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L350)
 
 ### `#list_databases`
 
@@ -925,7 +942,7 @@ client.list_databases
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L359)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L362)
 
 ---
 
@@ -933,48 +950,59 @@ client.list_databases
 
 ### `#address`
 
+
 **Returns**:
 
 - (`String`) — The configured address for the server.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L33)
 
 ### `#cluster`
+
 
 **Returns**:
 
 - (`Cluster`) — cluster The server cluster.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L36)
 
 ### `#monitor`
+
 
 **Returns**:
 
 - (`Monitor`) — monitor The server monitor.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L39)
 
 ### `#options`
+
 
 **Returns**:
 
 - (`Hash`) — The options hash.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L42)
 
 ### `#monitoring`
+
 
 **Returns**:
 
 - (`Monitoring`) — monitoring The monitoring.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L45)
+
+### `#heartbeat_frequency_seconds`
+
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L49)
 
 ### `#==(other)`
 
@@ -996,11 +1024,13 @@ server == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L84)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L86)
 
 ### `#context`
 
 Get a new context for this server in which to send messages.
+
+⚠️ **Will be removed in version 3.0**
 
 **Returns**:
 
@@ -1013,7 +1043,7 @@ server.context
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L99)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L101)
 
 ### `#connectable?`
 
@@ -1031,7 +1061,7 @@ server.connectable?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L112)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L114)
 
 ### `#disconnect!`
 
@@ -1048,7 +1078,7 @@ server.disconnect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L126)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L128)
 
 ### `.finalize(monitor)`
 
@@ -1067,12 +1097,14 @@ Server.finalize(monitor)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L140)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L142)
 
 ### `#initialize(address, cluster, monitoring, event_listeners, options = {})`
 
 Instantiate a new server object. Will start the background refresh and
 subscribe to the appropriate events.
+
+**Server must never be directly instantiated outside of a Cluster.**
 
 **Params**:
 
@@ -1102,7 +1134,7 @@ Mongo::Server.new('127.0.0.1:27017', cluster, monitoring, listeners)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L161)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L163)
 
 ### `#inspect`
 
@@ -1119,7 +1151,7 @@ server.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L180)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L186)
 
 ### `#pool`
 
@@ -1136,7 +1168,7 @@ server.pool
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L192)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L198)
 
 ### `#matches_tag_set?(tag_set)`
 
@@ -1158,7 +1190,7 @@ server.matches_tag_set?({ 'rack' => 'a', 'dc' => 'nyc' })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L206)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L212)
 
 ### `#reconnect!`
 
@@ -1175,7 +1207,7 @@ server.reconnect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L220)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L226)
 
 ### `#with_connection(&block)`
 
@@ -1195,7 +1227,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L235)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L241)
 
 ### `#handle_auth_failure!`
 
@@ -1214,7 +1246,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L251)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L257)
 
 ---
 
@@ -1298,7 +1330,10 @@ Mongo::Logger.level == Logger::DEBUG
 
 ## `class Mongo::Cursor`
 
+**The +Cursor+ API is semipublic.**
+
 ### `#view`
+
 
 **Returns**:
 
@@ -1458,6 +1493,8 @@ cursor.coll_name
 
 Get the cursor id.
 
+**A cursor id of 0 means the cursor was closed on the server.**
+
 **Returns**:
 
 - (`Integer`) — The cursor id.
@@ -1494,6 +1531,7 @@ cursor.to_return
 ## `class Mongo::Auth::CR`
 
 ### `#user`
+
 
 **Returns**:
 
@@ -1552,6 +1590,7 @@ user.login(connection)
 
 ### `#seed`
 
+
 **Returns**:
 
 - (`String`) — seed The seed address.
@@ -1561,6 +1600,7 @@ user.login(connection)
 
 ### `#host`
 
+
 **Returns**:
 
 - (`String`) — host The original host name.
@@ -1569,6 +1609,7 @@ user.login(connection)
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address.rb#L46)
 
 ### `#port`
+
 
 **Returns**:
 
@@ -1752,23 +1793,36 @@ address.to_s
 
 ### `#options`
 
+
 **Returns**:
 
 - (`Hash`) — The options hash.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L41)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L47)
+
+### `#monitoring`
+
+
+**Returns**:
+
+- (`Monitoring`) — monitoring The monitoring.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L50)
 
 ### `#topology`
+
 
 **Returns**:
 
 - (`Object`) — The cluster topology.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L53)
 
 ### `#app_metadata`
+
 
 **Returns**:
 
@@ -1776,7 +1830,7 @@ address.to_s
 handshakes.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L50)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L59)
 
 ### `#==(other)`
 
@@ -1799,7 +1853,7 @@ cluster == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L66)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L76)
 
 ### `#add(host)`
 
@@ -1823,11 +1877,54 @@ cluster.add('127.0.0.1:27018')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L83)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L93)
+
+### `#has_readable_server?(server_selector = nil)`
+
+Determine if the cluster would select a readable server for the
+provided read preference.
+
+**Params**:
+
+- `server_selector` (`ServerSelector`) — The server
+selector.
+  
+
+**Returns**:
+
+- (`true, false`) — If a readable server is present.
+
+**Examples**:
+
+```ruby
+topology.has_readable_server?(server_selector)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L117)
+
+### `#has_writable_server?`
+
+Determine if the cluster would select a writable server.
+
+**Returns**:
+
+- (`true, false`) — If a writable server is present.
+
+**Examples**:
+
+```ruby
+topology.has_writable_server?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L129)
 
 ### `#initialize(seeds, monitoring, options = Options::Redacted.new)`
 
 Instantiate the new cluster.
+
+**Cluster should never be directly instantiated outside of a Client.**
 
 **Params**:
 
@@ -1851,7 +1948,7 @@ Mongo::Cluster.new(["127.0.0.1:27017"], monitoring)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L110)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L147)
 
 ### `.finalize(pools)`
 
@@ -1875,7 +1972,7 @@ Cluster.finalize(pools)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L145)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L192)
 
 ### `#inspect`
 
@@ -1892,7 +1989,7 @@ cluster.inspect
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L163)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L210)
 
 ### `#next_primary(ping = true)`
 
@@ -1914,7 +2011,7 @@ cluster.next_primary
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L177)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L224)
 
 ### `#elect_primary!(description)`
 
@@ -1937,7 +2034,7 @@ cluster.elect_primary!(description)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L193)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L240)
 
 ### `#max_read_retries`
 
@@ -1955,7 +2052,7 @@ cluster.max_read_retries
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L206)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L253)
 
 ### `#pool(server)`
 
@@ -1977,7 +2074,7 @@ cluster.pool(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L220)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L267)
 
 ### `#read_retry_interval`
 
@@ -1995,7 +2092,7 @@ cluster.read_retry_interval
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L235)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L282)
 
 ### `#standalone_discovered`
 
@@ -2013,7 +2110,7 @@ cluster.standalone_discovered
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L248)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L295)
 
 ### `#remove(host)`
 
@@ -2032,11 +2129,14 @@ server.remove('127.0.0.1:27017')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L261)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L308)
 
 ### `#scan!`
 
 Force a scan of all known servers in the cluster.
+
+**This operation is done synchronously. If servers in the cluster are
+down or slow to respond this can potentially be a slow operation.**
 
 **Returns**:
 
@@ -2049,7 +2149,7 @@ cluster.scan!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L281)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L331)
 
 ### `#servers`
 
@@ -2067,7 +2167,7 @@ cluster.servers
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L294)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L344)
 
 ### `#disconnect!`
 
@@ -2084,7 +2184,7 @@ cluster.disconnect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L306)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L356)
 
 ### `#reconnect!`
 
@@ -2101,7 +2201,7 @@ cluster.reconnect!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L320)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L370)
 
 ### `#add_hosts(description)`
 
@@ -2119,7 +2219,7 @@ cluster.add_hosts(description)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L334)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L384)
 
 ### `#remove_hosts(description)`
 
@@ -2137,7 +2237,7 @@ cluster.remove_hosts(description)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L348)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L398)
 
 ### `.create(client)`
 
@@ -2160,7 +2260,7 @@ Cluster.create(client)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L369)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L419)
 
 ### `#addresses`
 
@@ -2177,13 +2277,14 @@ cluster.addresses
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L386)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L436)
 
 ---
 
 ## `class Mongo::Database`
 
 ### `#client`
+
 
 **Returns**:
 
@@ -2194,6 +2295,7 @@ cluster.addresses
 
 ### `#name`
 
+
 **Returns**:
 
 - (`String`) — name The name of the database.
@@ -2203,6 +2305,7 @@ cluster.addresses
 
 ### `#options`
 
+
 **Returns**:
 
 - (`Hash`) — options The options.
@@ -2211,6 +2314,7 @@ cluster.addresses
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L63)
 
 ### `#def_delegators :cluster,`
+
 
 **Returns**:
 
@@ -2491,250 +2595,10 @@ Database.create(client)
 
 ---
 
-## `class Mongo::Auth::LDAP`
-
-### `#user`
-
-**Returns**:
-
-- (`Mongo::Auth::User`) — The user to authenticate.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap.rb#L31)
-
-### `#initialize(user)`
-
-Instantiate a new authenticator.
-
-**Params**:
-
-- `user` (`Mongo::Auth::User`) — The user to authenticate.
-  
-
-**Returns**:
-
-- (`LDAP`) — a new instance of LDAP
-
-**Examples**:
-
-```ruby
-Mongo::Auth::LDAP.new(user)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap.rb#L41)
-
-### `#login(connection)`
-
-Log the user in on the given connection.
-
-**Params**:
-
-- `connection` (`Mongo::Connection`) — The connection to log into.
-on.
-  
-
-**Returns**:
-
-- (`Protocol::Reply`) — The authentication response.
-
-**Examples**:
-
-```ruby
-user.login(connection)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap.rb#L55)
-
----
-
-## `class Mongo::Auth::X509`
-
-### `#user`
-
-**Returns**:
-
-- (`Mongo::Auth::User`) — The user to authenticate.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509.rb#L31)
-
-### `#initialize(user)`
-
-Instantiate a new authenticator.
-
-**Params**:
-
-- `user` (`Mongo::Auth::User`) — The user to authenticate.
-  
-
-**Returns**:
-
-- (`X509`) — a new instance of X509
-
-**Examples**:
-
-```ruby
-Mongo::Auth::X509.new(user)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509.rb#L41)
-
-### `#login(connection)`
-
-Log the user in on the given connection.
-
-**Params**:
-
-- `connection` (`Mongo::Connection`) — The connection to log into.
-on.
-  
-
-**Returns**:
-
-- (`Protocol::Reply`) — The authentication response.
-
-**Examples**:
-
-```ruby
-user.login(connection)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509.rb#L56)
-
----
-
-## `class Mongo::Grid::File`
-
-### `#chunks`
-
-**Returns**:
-
-- (`Array<Chunk>`) — chunks The file chunks.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L34)
-
-### `#info`
-
-**Returns**:
-
-- (`File::Info`) — info The file information.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L37)
-
-### `#==(other)`
-
-Check equality of files.
-
-**Params**:
-
-- `other` (`Object`) — The object to check against.
-  
-
-**Returns**:
-
-- (`true, false`) — If the objects are equal.
-
-**Examples**:
-
-```ruby
-file == other
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L49)
-
-### `#initialize(data, options = {})`
-
-Initialize the file.
-
-**Params**:
-
-- `data` (`IO, String, Array<BSON::Document>`) — The file object, file
-contents or chunks.
-  
-  - `:filename` (`String`) — Required name of the file.
-  - `:content_type` (`String`) — The content type of the file.
-Deprecated, please use the metadata document instead.
-  - `:metadata` (`String`) — Optional file metadata.
-  - `:chunk_size` (`Integer`) — Override the default chunk
-size.
-  - `:aliases` (`Array<String>`) — A list of aliases.
-Deprecated, please use the metadata document instead.
-
-- `options` (`BSON::Document, Hash`) — The info options.
-  
-  - `:filename` (`String`) — Required name of the file.
-  - `:content_type` (`String`) — The content type of the file.
-Deprecated, please use the metadata document instead.
-  - `:metadata` (`String`) — Optional file metadata.
-  - `:chunk_size` (`Integer`) — Override the default chunk
-size.
-  - `:aliases` (`Array<String>`) — A list of aliases.
-Deprecated, please use the metadata document instead.
-
-- `opts` (`Hash`) — a customizable set of options
-  
-  - `:filename` (`String`) — Required name of the file.
-  - `:content_type` (`String`) — The content type of the file.
-Deprecated, please use the metadata document instead.
-  - `:metadata` (`String`) — Optional file metadata.
-  - `:chunk_size` (`Integer`) — Override the default chunk
-size.
-  - `:aliases` (`Array<String>`) — A list of aliases.
-Deprecated, please use the metadata document instead.
-
-**Returns**:
-
-- (`File`) — a new instance of File
-
-**Examples**:
-
-```ruby
-Grid::File.new(data, :filename => 'test.txt')
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L73)
-
-### `#data`
-
-Joins chunks into a string.
-
-**Returns**:
-
-- (`String`) — The raw data for the file.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L84)
-
-### `#inspect`
-
-Gets a pretty inspection of the file.
-
-**Returns**:
-
-- (`String`) — The file inspection.
-
-**Examples**:
-
-```ruby
-file.inspect
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L96)
-
----
-
 ## `class Mongo::Auth::User`
 
 ### `#auth_source`
+
 
 **Returns**:
 
@@ -2746,6 +2610,7 @@ external name.
 
 ### `#database`
 
+
 **Returns**:
 
 - (`String`) — The database the user is created in.
@@ -2754,6 +2619,7 @@ external name.
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L35)
 
 ### `#auth_mech_properties`
+
 
 **Returns**:
 
@@ -2764,6 +2630,7 @@ external name.
 
 ### `#mechanism`
 
+
 **Returns**:
 
 - (`Symbol`) — The authorization mechanism.
@@ -2772,6 +2639,7 @@ external name.
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L41)
 
 ### `#name`
+
 
 **Returns**:
 
@@ -2782,6 +2650,7 @@ external name.
 
 ### `#password`
 
+
 **Returns**:
 
 - (`String`) — The cleartext password.
@@ -2790,6 +2659,7 @@ external name.
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L47)
 
 ### `#roles`
+
 
 **Returns**:
 
@@ -2944,9 +2814,258 @@ user.spec
 
 ---
 
+## `class Mongo::Grid::File`
+
+⚠️ **Please use the 'stream' API on a FSBucket instead.
+Will be removed in driver version 3.0.**
+
+### `#chunks`
+
+
+**Returns**:
+
+- (`Array<Chunk>`) — chunks The file chunks.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L34)
+
+### `#info`
+
+
+**Returns**:
+
+- (`File::Info`) — info The file information.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L37)
+
+### `#==(other)`
+
+Check equality of files.
+
+**Params**:
+
+- `other` (`Object`) — The object to check against.
+  
+
+**Returns**:
+
+- (`true, false`) — If the objects are equal.
+
+**Examples**:
+
+```ruby
+file == other
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L49)
+
+### `#initialize(data, options = {})`
+
+Initialize the file.
+
+**Params**:
+
+- `data` (`IO, String, Array<BSON::Document>`) — The file object, file
+contents or chunks.
+  
+  - `:filename` (`String`) — Required name of the file.
+  - `:content_type` (`String`) — The content type of the file.
+Deprecated, please use the metadata document instead.
+  - `:metadata` (`String`) — Optional file metadata.
+  - `:chunk_size` (`Integer`) — Override the default chunk
+size.
+  - `:aliases` (`Array<String>`) — A list of aliases.
+Deprecated, please use the metadata document instead.
+
+- `options` (`BSON::Document, Hash`) — The info options.
+  
+  - `:filename` (`String`) — Required name of the file.
+  - `:content_type` (`String`) — The content type of the file.
+Deprecated, please use the metadata document instead.
+  - `:metadata` (`String`) — Optional file metadata.
+  - `:chunk_size` (`Integer`) — Override the default chunk
+size.
+  - `:aliases` (`Array<String>`) — A list of aliases.
+Deprecated, please use the metadata document instead.
+
+- `opts` (`Hash`) — a customizable set of options
+  
+  - `:filename` (`String`) — Required name of the file.
+  - `:content_type` (`String`) — The content type of the file.
+Deprecated, please use the metadata document instead.
+  - `:metadata` (`String`) — Optional file metadata.
+  - `:chunk_size` (`Integer`) — Override the default chunk
+size.
+  - `:aliases` (`Array<String>`) — A list of aliases.
+Deprecated, please use the metadata document instead.
+
+**Returns**:
+
+- (`File`) — a new instance of File
+
+**Examples**:
+
+```ruby
+Grid::File.new(data, :filename => 'test.txt')
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L73)
+
+### `#data`
+
+Joins chunks into a string.
+
+**Returns**:
+
+- (`String`) — The raw data for the file.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L84)
+
+### `#inspect`
+
+Gets a pretty inspection of the file.
+
+**Returns**:
+
+- (`String`) — The file inspection.
+
+**Examples**:
+
+```ruby
+file.inspect
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L96)
+
+---
+
+## `class Mongo::Auth::LDAP`
+
+### `#user`
+
+
+**Returns**:
+
+- (`Mongo::Auth::User`) — The user to authenticate.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap.rb#L31)
+
+### `#initialize(user)`
+
+Instantiate a new authenticator.
+
+**Params**:
+
+- `user` (`Mongo::Auth::User`) — The user to authenticate.
+  
+
+**Returns**:
+
+- (`LDAP`) — a new instance of LDAP
+
+**Examples**:
+
+```ruby
+Mongo::Auth::LDAP.new(user)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap.rb#L41)
+
+### `#login(connection)`
+
+Log the user in on the given connection.
+
+**Params**:
+
+- `connection` (`Mongo::Connection`) — The connection to log into.
+on.
+  
+
+**Returns**:
+
+- (`Protocol::Reply`) — The authentication response.
+
+**Examples**:
+
+```ruby
+user.login(connection)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap.rb#L55)
+
+---
+
+## `class Mongo::Auth::X509`
+
+### `#user`
+
+
+**Returns**:
+
+- (`Mongo::Auth::User`) — The user to authenticate.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509.rb#L31)
+
+### `#initialize(user)`
+
+Instantiate a new authenticator.
+
+**Params**:
+
+- `user` (`Mongo::Auth::User`) — The user to authenticate.
+  
+
+**Returns**:
+
+- (`X509`) — a new instance of X509
+
+**Examples**:
+
+```ruby
+Mongo::Auth::X509.new(user)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509.rb#L41)
+
+### `#login(connection)`
+
+Log the user in on the given connection.
+
+**Params**:
+
+- `connection` (`Mongo::Connection`) — The connection to log into.
+on.
+  
+
+**Returns**:
+
+- (`Protocol::Reply`) — The authentication response.
+
+**Examples**:
+
+```ruby
+user.login(connection)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509.rb#L56)
+
+---
+
 ## `class Mongo::Auth::SCRAM`
 
 ### `#user`
+
 
 **Returns**:
 
@@ -3002,175 +3121,10 @@ user.login(connection)
 
 ---
 
-## `class Mongo::Monitoring`
-
-### `.next_operation_id`
-
-Used for generating unique operation ids to link events together.
-
-**Returns**:
-
-- (`Integer`) — The next operation id.
-
-**Examples**:
-
-```ruby
-Monitoring.next_operation_id
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L42)
-
-### `#initialize(options = {})`
-
-Initialize the monitoring.
-
-**Params**:
-
-- `options` (`Hash`) — The options.
-  
-
-**Returns**:
-
-- (`Monitoring`) — a new instance of Monitoring
-
-**Examples**:
-
-```ruby
-Monitoring.new(:monitoring => true)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L96)
-
-### `#started(topic, event)`
-
-Publish a started event.
-
-**Params**:
-
-- `topic` (`String`) — The event topic.
-  
-
-- `event` (`Event`) — The event to publish.
-  
-
-**Examples**:
-
-```ruby
-monitoring.started(COMMAND, event)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L116)
-
-### `#succeeded(topic, event)`
-
-Publish a succeeded event.
-
-**Params**:
-
-- `topic` (`String`) — The event topic.
-  
-
-- `event` (`Event`) — The event to publish.
-  
-
-**Examples**:
-
-```ruby
-monitoring.succeeded(COMMAND, event)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L129)
-
-### `#failed(topic, event)`
-
-Publish a failed event.
-
-**Params**:
-
-- `topic` (`String`) — The event topic.
-  
-
-- `event` (`Event`) — The event to publish.
-  
-
-**Examples**:
-
-```ruby
-monitoring.failed(COMMAND, event)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L142)
-
-### `#subscribe(topic, subscriber)`
-
-Subscribe a listener to an event topic.
-
-**Params**:
-
-- `topic` (`String`) — The event topic.
-  
-
-- `subscriber` (`Object`) — The subscriber to handle the event.
-  
-
-**Examples**:
-
-```ruby
-monitoring.subscribe(QUERY, subscriber)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L155)
-
-### `#subscribers`
-
-Get all the subscribers.
-
-**Returns**:
-
-- (`Hash<String, Object>`) — The subscribers.
-
-**Examples**:
-
-```ruby
-monitoring.subscribers
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L167)
-
-### `#subscribers?(topic)`
-
-Determine if there are any subscribers for a particular event.
-
-**Params**:
-
-- `topic` (`String`) — The event topic.
-  
-
-**Returns**:
-
-- (`true, false`) — If there are subscribers for the topic.
-
-**Examples**:
-
-```ruby
-monitoring.subscribers?(COMMAND)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L181)
-
----
-
 ## `class Mongo::Index::View`
 
 ### `#collection`
+
 
 **Returns**:
 
@@ -3180,6 +3134,7 @@ monitoring.subscribers?(COMMAND)
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/index/view.rb#L26)
 
 ### `#batch_size`
+
 
 **Returns**:
 
@@ -3233,6 +3188,8 @@ view.drop_all
 Creates an index on the collection.
 
 See the MongoDB documentation for a full list of supported options by server version.
+
+**Note that the options listed may be subset of those available.**
 
 **Params**:
 
@@ -3291,6 +3248,9 @@ view.create_one({ name: 1 }, { unique: true })
 
 Creates multiple indexes on the collection.
 
+**On MongoDB 3.0.0 and higher, the indexes will be created in
+parallel on the server.**
+
 **Params**:
 
 - `models` (`Array<Hash>`) — The index specifications. Each model MUST
@@ -3344,6 +3304,7 @@ view.get(name: 1)
 
 Iterate over all indexes for the collection.
 
+
 **Examples**:
 
 ```ruby
@@ -3392,6 +3353,7 @@ View::Index.new(collection)
 
 ### `#host`
 
+
 **Returns**:
 
 - (`String`) — host The host to connect to.
@@ -3401,6 +3363,7 @@ View::Index.new(collection)
 
 ### `#port`
 
+
 **Returns**:
 
 - (`Integer`) — port The port to connect to.
@@ -3409,6 +3372,7 @@ View::Index.new(collection)
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/tcp.rb#L27)
 
 ### `#timeout`
+
 
 **Returns**:
 
@@ -3420,6 +3384,9 @@ View::Index.new(collection)
 ### `#connect!`
 
 Establishes a socket connection.
+
+**This method mutates the object by setting the socket
+internally.**
 
 **Returns**:
 
@@ -3485,152 +3452,10 @@ socket.connectable?
 
 ---
 
-## `class Mongo::Socket::SSL`
-
-### `#context`
-
-**Returns**:
-
-- (`SSLContext`) — context The ssl context.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L27)
-
-### `#host`
-
-**Returns**:
-
-- (`String`) — host The host to connect to.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L30)
-
-### `#host_name`
-
-**Returns**:
-
-- (`String`) — host_name The original host name.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L33)
-
-### `#options`
-
-**Returns**:
-
-- (`Hash`) — The ssl options.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L36)
-
-### `#port`
-
-**Returns**:
-
-- (`Integer`) — port The port to connect to.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L39)
-
-### `#timeout`
-
-**Returns**:
-
-- (`Float`) — timeout The connection timeout.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L42)
-
-### `#connect!`
-
-Establishes a socket connection.
-
-**Returns**:
-
-- (`SSL`) — The connected socket instance.
-
-**Examples**:
-
-```ruby
-sock.connect!
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L55)
-
-### `#initialize(host, port, host_name, timeout, family, options = {})`
-
-Initializes a new SSL socket.
-
-**Params**:
-
-- `host` (`String`) — The hostname or IP address.
-  
-
-- `port` (`Integer`) — The port number.
-  
-
-- `timeout` (`Float`) — The socket timeout value.
-  
-
-- `family` (`Integer`) — The socket family.
-  
-
-- `options` (`Hash`) — The ssl options.
-  
-
-**Returns**:
-
-- (`SSL`) — a new instance of SSL
-
-**Examples**:
-
-```ruby
-SSL.new('::1', 27017, 30)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L79)
-
-### `#readbyte`
-
-Read a single byte from the socket.
-
-**Returns**:
-
-- (`Object`) — The read byte.
-
-**Examples**:
-
-```ruby
-socket.readbyte
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L96)
-
-### `#connectable?`
-
-This socket can only be used if the ssl socket (@socket) has been created.
-
-**Returns**:
-
-- (`true, false`) — If the socket is connectable.
-
-**Examples**:
-
-```ruby
-socket.connectable?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L111)
-
----
-
 ## `class Mongo::BulkWrite`
 
 ### `#collection`
+
 
 **Returns**:
 
@@ -3641,6 +3466,7 @@ socket.connectable?
 
 ### `#requests`
 
+
 **Returns**:
 
 - (`Array<Hash, BSON::Document>`) — requests The requests.
@@ -3649,6 +3475,7 @@ socket.connectable?
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write.rb#L32)
 
 ### `#options`
+
 
 **Returns**:
 
@@ -3753,9 +3580,162 @@ bulk_write.write_concern
 
 ---
 
+## `class Mongo::Socket::SSL`
+
+### `#context`
+
+
+**Returns**:
+
+- (`SSLContext`) — context The ssl context.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L27)
+
+### `#host`
+
+
+**Returns**:
+
+- (`String`) — host The host to connect to.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L30)
+
+### `#host_name`
+
+
+**Returns**:
+
+- (`String`) — host_name The original host name.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L33)
+
+### `#options`
+
+
+**Returns**:
+
+- (`Hash`) — The ssl options.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L36)
+
+### `#port`
+
+
+**Returns**:
+
+- (`Integer`) — port The port to connect to.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L39)
+
+### `#timeout`
+
+
+**Returns**:
+
+- (`Float`) — timeout The connection timeout.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L42)
+
+### `#connect!`
+
+Establishes a socket connection.
+
+**This method mutates the object by setting the socket
+internally.**
+
+**Returns**:
+
+- (`SSL`) — The connected socket instance.
+
+**Examples**:
+
+```ruby
+sock.connect!
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L55)
+
+### `#initialize(host, port, host_name, timeout, family, options = {})`
+
+Initializes a new SSL socket.
+
+**Params**:
+
+- `host` (`String`) — The hostname or IP address.
+  
+
+- `port` (`Integer`) — The port number.
+  
+
+- `timeout` (`Float`) — The socket timeout value.
+  
+
+- `family` (`Integer`) — The socket family.
+  
+
+- `options` (`Hash`) — The ssl options.
+  
+
+**Returns**:
+
+- (`SSL`) — a new instance of SSL
+
+**Examples**:
+
+```ruby
+SSL.new('::1', 27017, 30)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L79)
+
+### `#readbyte`
+
+Read a single byte from the socket.
+
+**Returns**:
+
+- (`Object`) — The read byte.
+
+**Examples**:
+
+```ruby
+socket.readbyte
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L96)
+
+### `#connectable?`
+
+This socket can only be used if the ssl socket (@socket) has been created.
+
+**Returns**:
+
+- (`true, false`) — If the socket is connectable.
+
+**Examples**:
+
+```ruby
+socket.connectable?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L111)
+
+---
+
 ## `class Mongo::Collection`
 
 ### `#database`
+
 
 **Returns**:
 
@@ -3766,6 +3746,7 @@ bulk_write.write_concern
 
 ### `#name`
 
+
 **Returns**:
 
 - (`String`) — The name of the collection.
@@ -3774,6 +3755,7 @@ bulk_write.write_concern
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L42)
 
 ### `#options`
+
 
 **Returns**:
 
@@ -3936,6 +3918,8 @@ collection.create
 
 Drop the collection. Will also drop all indexes associated with the
 collection.
+
+**An error returned if the collection doesn't exist is suppressed.**
 
 **Returns**:
 
@@ -4684,9 +4668,176 @@ collection.namespace
 
 ---
 
+## `class Mongo::Monitoring`
+
+### `.next_operation_id`
+
+Used for generating unique operation ids to link events together.
+
+**Returns**:
+
+- (`Integer`) — The next operation id.
+
+**Examples**:
+
+```ruby
+Monitoring.next_operation_id
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L78)
+
+### `#initialize(options = {})`
+
+Initialize the monitoring.
+
+**Params**:
+
+- `options` (`Hash`) — The options.
+  
+
+**Returns**:
+
+- (`Monitoring`) — a new instance of Monitoring
+
+**Examples**:
+
+```ruby
+Monitoring.new(:monitoring => true)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L132)
+
+### `#started(topic, event)`
+
+Publish a started event.
+
+**Params**:
+
+- `topic` (`String`) — The event topic.
+  
+
+- `event` (`Event`) — The event to publish.
+  
+
+**Examples**:
+
+```ruby
+monitoring.started(COMMAND, event)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L157)
+
+### `#succeeded(topic, event)`
+
+Publish a succeeded event.
+
+**Params**:
+
+- `topic` (`String`) — The event topic.
+  
+
+- `event` (`Event`) — The event to publish.
+  
+
+**Examples**:
+
+```ruby
+monitoring.succeeded(COMMAND, event)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L170)
+
+### `#failed(topic, event)`
+
+Publish a failed event.
+
+**Params**:
+
+- `topic` (`String`) — The event topic.
+  
+
+- `event` (`Event`) — The event to publish.
+  
+
+**Examples**:
+
+```ruby
+monitoring.failed(COMMAND, event)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L183)
+
+### `#subscribe(topic, subscriber)`
+
+Subscribe a listener to an event topic.
+
+**Params**:
+
+- `topic` (`String`) — The event topic.
+  
+
+- `subscriber` (`Object`) — The subscriber to handle the event.
+  
+
+**Examples**:
+
+```ruby
+monitoring.subscribe(QUERY, subscriber)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L196)
+
+### `#subscribers`
+
+Get all the subscribers.
+
+**Returns**:
+
+- (`Hash<String, Object>`) — The subscribers.
+
+**Examples**:
+
+```ruby
+monitoring.subscribers
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L208)
+
+### `#subscribers?(topic)`
+
+Determine if there are any subscribers for a particular event.
+
+**Params**:
+
+- `topic` (`String`) — The event topic.
+  
+
+**Returns**:
+
+- (`true, false`) — If there are subscribers for the topic.
+
+**Examples**:
+
+```ruby
+monitoring.subscribers?(COMMAND)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L222)
+
+---
+
 ## `class Mongo::Grid::FSBucket`
 
 ### `#chunks_collection`
+
 
 **Returns**:
 
@@ -4697,6 +4848,7 @@ collection.namespace
 
 ### `#database`
 
+
 **Returns**:
 
 - (`Database`) — database The database.
@@ -4706,6 +4858,7 @@ collection.namespace
 
 ### `#files_collection`
 
+
 **Returns**:
 
 - (`Collection`) — files_collection The files collection.
@@ -4714,6 +4867,7 @@ collection.namespace
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L52)
 
 ### `#options`
+
 
 **Returns**:
 
@@ -4769,6 +4923,9 @@ fs.find(filename: 'file.txt')
 
 Find a file in the GridFS.
 
+⚠️ **Please use #find instead with a limit of -1.
+Will be removed in version 3.0.**
+
 **Params**:
 
 - `selector` (`Hash`) — The selector.
@@ -4794,6 +4951,9 @@ fs.find_one(filename: 'test.txt')
 ### `#insert_one(file)`
 
 Insert a single file into the GridFS.
+
+⚠️ **Please use #upload_from_stream or #open_upload_stream instead.
+Will be removed in version 3.0.**
 
 **Params**:
 
@@ -5191,6 +5351,7 @@ stream.write_concern
 
 ### `#path`
 
+
 **Returns**:
 
 - (`String`) — path The path to connect to.
@@ -5199,6 +5360,7 @@ stream.write_concern
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/unix.rb#L24)
 
 ### `#timeout`
+
 
 **Returns**:
 
@@ -5210,6 +5372,9 @@ stream.write_concern
 ### `#connect!`
 
 Establishes a socket connection.
+
+**This method mutates the object by setting the socket
+internally.**
 
 **Returns**:
 
@@ -5272,6 +5437,7 @@ socket.connectable?
 
 ### `#host`
 
+
 **Returns**:
 
 - (`String`) — host The host.
@@ -5281,6 +5447,7 @@ socket.connectable?
 
 ### `#host_name`
 
+
 **Returns**:
 
 - (`String`) — host_name The original host name.
@@ -5289,6 +5456,7 @@ socket.connectable?
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv6.rb#L28)
 
 ### `#port`
+
 
 **Returns**:
 
@@ -5371,62 +5539,10 @@ ipv4.socket(5, :ssl => true)
 
 ---
 
-## `class Mongo::Error::Parser`
-
-### `#document`
-
-**Returns**:
-
-- (`BSON::Document`) — document The returned document.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/parser.rb#L25)
-
-### `#message`
-
-**Returns**:
-
-- (`String`) — message The error message parsed from the document.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/parser.rb#L28)
-
-### `#replies`
-
-**Returns**:
-
-- (`Array<Protocol::Reply>`) — replies The message replies.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/parser.rb#L31)
-
-### `#initialize(document, replies = nil)`
-
-Create the new parser with the returned document.
-
-**Params**:
-
-- `document` (`BSON::Document`) — The returned document.
-  
-
-**Returns**:
-
-- (`Parser`) — a new instance of Parser
-
-**Examples**:
-
-```ruby
-Parser.new({ 'errmsg' => 'failed' })
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/parser.rb#L41)
-
----
-
 ## `class Mongo::Address::Unix`
 
 ### `#host`
+
 
 **Returns**:
 
@@ -5436,6 +5552,7 @@ Parser.new({ 'errmsg' => 'failed' })
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/unix.rb#L24)
 
 ### `#port`
+
 
 **Returns**:
 
@@ -5515,9 +5632,66 @@ address.socket(5)
 
 ---
 
+## `class Mongo::Error::Parser`
+
+### `#document`
+
+
+**Returns**:
+
+- (`BSON::Document`) — document The returned document.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/parser.rb#L25)
+
+### `#message`
+
+
+**Returns**:
+
+- (`String`) — message The error message parsed from the document.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/parser.rb#L28)
+
+### `#replies`
+
+
+**Returns**:
+
+- (`Array<Protocol::Reply>`) — replies The message replies.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/parser.rb#L31)
+
+### `#initialize(document, replies = nil)`
+
+Create the new parser with the returned document.
+
+**Params**:
+
+- `document` (`BSON::Document`) — The returned document.
+  
+
+**Returns**:
+
+- (`Parser`) — a new instance of Parser
+
+**Examples**:
+
+```ruby
+Parser.new({ 'errmsg' => 'failed' })
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/parser.rb#L41)
+
+---
+
 ## `class Mongo::Address::IPv4`
 
 ### `#host`
+
 
 **Returns**:
 
@@ -5528,6 +5702,7 @@ address.socket(5)
 
 ### `#host_name`
 
+
 **Returns**:
 
 - (`String`) — host_name The original host name.
@@ -5536,6 +5711,7 @@ address.socket(5)
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv4.rb#L28)
 
 ### `#port`
+
 
 **Returns**:
 
@@ -5622,6 +5798,7 @@ ipv4.socket(5, :ssl => true)
 
 ### `#batch_size`
 
+
 **Returns**:
 
 - (`Integer`) — batch_size The size of the batch of results
@@ -5632,6 +5809,7 @@ when sending the listCollections command.
 
 ### `#limit`
 
+
 **Returns**:
 
 - (`Integer`) — limit The limit when sending a command.
@@ -5640,6 +5818,7 @@ when sending the listCollections command.
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database/view.rb#L33)
 
 ### `#collection`
+
 
 **Returns**:
 
@@ -5715,7 +5894,11 @@ View::Index.new(database)
 
 ## `class Mongo::Grid::File::Info`
 
+⚠️ **Please use the 'stream' API on a FSBucket instead.
+Will be removed in driver version 3.0.**
+
 ### `#document`
+
 
 **Returns**:
 
@@ -5942,6 +6125,9 @@ file_info.md5
 
 Convert the file information document to BSON for storage.
 
+**If no md5 exists in the file information document (it was loaded
+from the server and is not a new file) then we digest the md5 and set it.**
+
 **Params**:
 
 - `buffer` (`BSON::ByteBuffer`) — The encoded BSON buffer to append to.
@@ -6096,6 +6282,7 @@ message.replyable?
 
 ### `#collection`
 
+
 **Returns**:
 
 - (`String`) — collection The name of the collection.
@@ -6104,6 +6291,7 @@ message.replyable?
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/query.rb#L207)
 
 ### `#filter`
+
 
 **Returns**:
 
@@ -6114,6 +6302,7 @@ message.replyable?
 
 ### `#options`
 
+
 **Returns**:
 
 - (`BSON::Document, Hash`) — options The options.
@@ -6122,6 +6311,7 @@ message.replyable?
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/query.rb#L213)
 
 ### `#flags`
+
 
 **Returns**:
 
@@ -6253,6 +6443,7 @@ message.payload
 
 ### `#flags`
 
+
 **Returns**:
 
 - (`Array<Symbol>`) — The flags for this reply.
@@ -6264,6 +6455,7 @@ Supported flags: +:cursor_not_found+, +:query_failure+,
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L92)
 
 ### `#flags=(value)`
+
 
 **Returns**:
 
@@ -6277,6 +6469,7 @@ Supported flags: +:cursor_not_found+, +:query_failure+,
 
 ### `#cursor_id`
 
+
 **Returns**:
 
 - (`Fixnum`) — The cursor id for this response. Will be zero
@@ -6286,6 +6479,7 @@ if there are no additional results.
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L97)
 
 ### `#cursor_id=(value)`
+
 
 **Returns**:
 
@@ -6297,6 +6491,7 @@ if there are no additional results.
 
 ### `#starting_from`
 
+
 **Returns**:
 
 - (`Fixnum`) — The starting position of the cursor for this Reply.
@@ -6305,6 +6500,7 @@ if there are no additional results.
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L101)
 
 ### `#starting_from=(value)`
+
 
 **Returns**:
 
@@ -6315,6 +6511,7 @@ if there are no additional results.
 
 ### `#number_returned`
 
+
 **Returns**:
 
 - (`Fixnum`) — Number of documents in this Reply.
@@ -6323,6 +6520,7 @@ if there are no additional results.
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L105)
 
 ### `#number_returned=(value)`
+
 
 **Returns**:
 
@@ -6333,6 +6531,7 @@ if there are no additional results.
 
 ### `#documents`
 
+
 **Returns**:
 
 - (`Array<Hash>`) — The documents in this Reply.
@@ -6341,6 +6540,7 @@ if there are no additional results.
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L109)
 
 ### `#documents=(value)`
+
 
 **Returns**:
 
@@ -6355,6 +6555,7 @@ if there are no additional results.
 
 ### `#documents`
 
+
 **Returns**:
 
 - (`Array<BSON::Document>`) — documents The documents.
@@ -6364,6 +6565,7 @@ if there are no additional results.
 
 ### `#cursor_id`
 
+
 **Returns**:
 
 - (`Integer`) — cursor_id The cursor id.
@@ -6372,6 +6574,7 @@ if there are no additional results.
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L140)
 
 ### `#starting_from`
+
 
 **Returns**:
 
@@ -6427,9 +6630,185 @@ upconverter.command
 
 ---
 
+## `class Mongo::Server::Monitor`
+
+### `#connection`
+
+
+**Returns**:
+
+- (`Mongo::Connection`) — connection The connection to use.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L44)
+
+### `#description`
+
+
+**Returns**:
+
+- (`Server::Description`) — description The server
+description the monitor refreshes.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L48)
+
+### `#inspector`
+
+
+**Returns**:
+
+- (`Description::Inspector`) — inspector The description inspector.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L51)
+
+### `#options`
+
+
+**Returns**:
+
+- (`Hash`) — options The server options.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L54)
+
+### `#last_scan`
+
+
+**Returns**:
+
+- (`Time`) — last_scan The time of the last server scan.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L59)
+
+### `#scan!`
+
+Force the monitor to immediately do a check of its server.
+
+**Returns**:
+
+- (`Description`) — The updated description.
+
+**Examples**:
+
+```ruby
+monitor.scan!
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L69)
+
+### `#heartbeat_frequency`
+
+Get the refresh interval for the server. This will be defined via an option
+or will default to 5.
+
+**Returns**:
+
+- (`Integer`) — The heartbeat frequency, in seconds.
+
+**Examples**:
+
+```ruby
+server.heartbeat_frequency
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L83)
+
+### `#initialize(address, listeners, options = {})`
+
+Create the new server monitor.
+
+**Monitor must never be directly instantiated outside of a Server.**
+
+**Params**:
+
+- `address` (`Address`) — The address to monitor.
+  
+
+- `listeners` (`Event::Listeners`) — The event listeners.
+  
+
+- `options` (`Hash`) — The options.
+  
+
+**Returns**:
+
+- (`Monitor`) — a new instance of Monitor
+
+**Examples**:
+
+```ruby
+Mongo::Server::Monitor.new(address, listeners)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L101)
+
+### `#run!`
+
+Runs the server monitor. Refreshing happens on a separate thread per
+server.
+
+**Returns**:
+
+- (`Thread`) — The thread the monitor runs on.
+
+**Examples**:
+
+```ruby
+monitor.run
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L120)
+
+### `#stop!`
+
+Stops the server monitor. Kills the thread so it doesn't continue
+taking memory and sending commands to the connection.
+
+**Returns**:
+
+- (`Boolean`) — Is the Thread stopped?
+
+**Examples**:
+
+```ruby
+monitor.stop!
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L138)
+
+### `#restart!`
+
+Restarts the server monitor unless the current thread is alive.
+
+**Returns**:
+
+- (`Thread`) — The thread the monitor runs on.
+
+**Examples**:
+
+```ruby
+monitor.restart!
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L150)
+
+---
+
 ## `class Mongo::Server::Context`
 
+⚠️ **Will be removed in version 3.0**
+
 ### `#server`
+
 
 **Returns**:
 
@@ -6485,6 +6864,7 @@ end
 ## `class Mongo::Auth::User::View`
 
 ### `#database`
+
 
 **Returns**:
 
@@ -6611,367 +6991,179 @@ view.info('emily')
 
 ---
 
-## `class Mongo::Server::Monitor`
+## `class Mongo::Protocol::Update`
 
-### `#connection`
+### `#initialize(database, collection, selector, update, options = {})`
 
-**Returns**:
-
-- (`Mongo::Connection`) — connection The connection to use.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L44)
-
-### `#description`
-
-**Returns**:
-
-- (`Server::Description`) — description The server
-description the monitor refreshes.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L48)
-
-### `#inspector`
-
-**Returns**:
-
-- (`Description::Inspector`) — inspector The description inspector.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L51)
-
-### `#options`
-
-**Returns**:
-
-- (`Hash`) — options The server options.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L54)
-
-### `#last_scan`
-
-**Returns**:
-
-- (`Time`) — last_scan The time of the last server scan.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L59)
-
-### `#scan!`
-
-Force the monitor to immediately do a check of its server.
-
-**Returns**:
-
-- (`Description`) — The updated description.
-
-**Examples**:
-
-```ruby
-monitor.scan!
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L69)
-
-### `#heartbeat_frequency`
-
-Get the refresh interval for the server. This will be defined via an option
-or will default to 5.
-
-**Returns**:
-
-- (`Integer`) — The heartbeat frequency, in seconds.
-
-**Examples**:
-
-```ruby
-server.heartbeat_frequency
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L83)
-
-### `#initialize(address, listeners, options = {})`
-
-Create the new server monitor.
+Creates a new Update message
 
 **Params**:
 
-- `address` (`Address`) — The address to monitor.
+- `database` (`String, Symbol`) — The database to update.
   
+  - `:flags` (`Array`) — The flags for the update message.
 
-- `listeners` (`Event::Listeners`) — The event listeners.
+Supported flags: +:upsert+, +:multi_update+
+
+- `collection` (`String, Symbol`) — The collection to update.
   
+  - `:flags` (`Array`) — The flags for the update message.
 
-- `options` (`Hash`) — The options.
+Supported flags: +:upsert+, +:multi_update+
+
+- `selector` (`Hash`) — The update selector.
   
+  - `:flags` (`Array`) — The flags for the update message.
 
-**Returns**:
+Supported flags: +:upsert+, +:multi_update+
 
-- (`Monitor`) — a new instance of Monitor
-
-**Examples**:
-
-```ruby
-Mongo::Server::Monitor.new(address, listeners)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L101)
-
-### `#run!`
-
-Runs the server monitor. Refreshing happens on a separate thread per
-server.
-
-**Returns**:
-
-- (`Thread`) — The thread the monitor runs on.
-
-**Examples**:
-
-```ruby
-monitor.run
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L120)
-
-### `#stop!`
-
-Stops the server monitor. Kills the thread so it doesn't continue
-taking memory and sending commands to the connection.
-
-**Returns**:
-
-- (`Boolean`) — Is the Thread stopped?
-
-**Examples**:
-
-```ruby
-monitor.stop!
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L138)
-
-### `#restart!`
-
-Restarts the server monitor unless the current thread is alive.
-
-**Returns**:
-
-- (`Thread`) — The thread the monitor runs on.
-
-**Examples**:
-
-```ruby
-monitor.restart!
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L150)
-
----
-
-## `class Mongo::Collection::View`
-
-### `#collection`
-
-**Returns**:
-
-- (`Collection`) — The +Collection+ to query.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L53)
-
-### `#filter`
-
-**Returns**:
-
-- (`Hash`) — The query filter.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L56)
-
-### `#filter`
-
-**Returns**:
-
-- (`Hash`) — The query filter.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L69)
-
-### `#==(other)`
-
-Compare two +View+ objects.
-
-**Returns**:
-
-- (`true, false`) — Equal if collection, filter, and options of two
-+View+ match.
-
-**Examples**:
-
-```ruby
-view == other
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L80)
-
-### `#==(other)`
-
-Compare two +View+ objects.
-
-**Returns**:
-
-- (`true, false`) — Equal if collection, filter, and options of two
-+View+ match.
-
-**Examples**:
-
-```ruby
-view == other
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L86)
-
-### `#hash`
-
-A hash value for the +View+ composed of the collection namespace,
-hash of the options and hash of the filter.
-
-**Returns**:
-
-- (`Integer`) — A hash value of the +View+ object.
-
-**Examples**:
-
-```ruby
-view.hash
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L97)
-
-### `#initialize(collection, filter = {}, options = {})`
-
-Creates a new +View+.
-
-**Params**:
-
-- `collection` (`Collection`) — The +Collection+ to query.
+- `update` (`Hash`) — The update to perform.
   
-  - `:comment` (`String`) — Associate a comment with the query.
-  - `:batch_size` (`Integer`) — The number of docs to return in
-each response from MongoDB.
-  - `:fields` (`Hash`) — The fields to include or exclude in
-returned docs.
-  - `:hint` (`Hash`) — Override default index selection and force
-MongoDB to use a specific index for the query.
-  - `:limit` (`Integer`) — Max number of docs to return.
-  - `:max_scan` (`Integer`) — Constrain the query to only scan the
-specified number of docs. Use to prevent queries from running too long.
-  - `:read` (`Symbol`) — The read preference to use for the query.
-If none is provided, the collection's default read preference is used.
-  - `:show_disk_loc` (`true`) — Return disk location info as
-a field in each doc.
-  - `:skip` (`Integer`) — The number of documents to skip.
-  - `:snapshot` (`true`) — Prevents returning a doc more than
-once.
-  - `:sort` (`Hash`) — The key and direction pairs used to sort the
-results.
-  - `:collation` (`Hash`) — The collation to use.
+  - `:flags` (`Array`) — The flags for the update message.
 
-- `filter` (`Hash`) — The query filter.
-  
-  - `:comment` (`String`) — Associate a comment with the query.
-  - `:batch_size` (`Integer`) — The number of docs to return in
-each response from MongoDB.
-  - `:fields` (`Hash`) — The fields to include or exclude in
-returned docs.
-  - `:hint` (`Hash`) — Override default index selection and force
-MongoDB to use a specific index for the query.
-  - `:limit` (`Integer`) — Max number of docs to return.
-  - `:max_scan` (`Integer`) — Constrain the query to only scan the
-specified number of docs. Use to prevent queries from running too long.
-  - `:read` (`Symbol`) — The read preference to use for the query.
-If none is provided, the collection's default read preference is used.
-  - `:show_disk_loc` (`true`) — Return disk location info as
-a field in each doc.
-  - `:skip` (`Integer`) — The number of documents to skip.
-  - `:snapshot` (`true`) — Prevents returning a doc more than
-once.
-  - `:sort` (`Hash`) — The key and direction pairs used to sort the
-results.
-  - `:collation` (`Hash`) — The collation to use.
+Supported flags: +:upsert+, +:multi_update+
 
 - `options` (`Hash`) — The additional query options.
   
-  - `:comment` (`String`) — Associate a comment with the query.
-  - `:batch_size` (`Integer`) — The number of docs to return in
-each response from MongoDB.
-  - `:fields` (`Hash`) — The fields to include or exclude in
-returned docs.
-  - `:hint` (`Hash`) — Override default index selection and force
-MongoDB to use a specific index for the query.
-  - `:limit` (`Integer`) — Max number of docs to return.
-  - `:max_scan` (`Integer`) — Constrain the query to only scan the
-specified number of docs. Use to prevent queries from running too long.
-  - `:read` (`Symbol`) — The read preference to use for the query.
-If none is provided, the collection's default read preference is used.
-  - `:show_disk_loc` (`true`) — Return disk location info as
-a field in each doc.
-  - `:skip` (`Integer`) — The number of documents to skip.
-  - `:snapshot` (`true`) — Prevents returning a doc more than
-once.
-  - `:sort` (`Hash`) — The key and direction pairs used to sort the
-results.
-  - `:collation` (`Hash`) — The collation to use.
+  - `:flags` (`Array`) — The flags for the update message.
+
+Supported flags: +:upsert+, +:multi_update+
 
 **Returns**:
 
-- (`View`) — a new instance of View
+- (`Update`) — a new instance of Update
 
 **Examples**:
 
 ```ruby
-View.new(collection, {:name => 'Emily'})
+Update.new('xgen', 'users', {:name => 'Tyler'}, {:name => 'Bob'})
 ```
 
 ```ruby
-View.new(collection, {:name => 'Emily'}, :skip => 5, :limit => 10)
+Update.new('xgen', 'users',
+  {:age => 20}, {:age => 21}, :flags => [:multi_update])
 ```
 
 ```ruby
-View.new(collection, {:name => 'Emily'}, :read => :secondary_preferred)
+Update.new('xgen', 'users', {:name => 'Tyler'}, :flags => [:upsert])
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L138)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L54)
 
-### `#inspect`
+### `#payload`
 
-Get a human-readable string representation of +View+.
+Return the event payload for monitoring.
 
 **Returns**:
 
-- (`String`) — A string representation of a +View+ instance.
+- (`Hash`) — The event payload.
 
 **Examples**:
 
 ```ruby
-view.inspect
+message.payload
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L152)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L73)
+
+---
+
+## `class Mongo::Protocol::Update::Upconverter`
+
+### `#collection`
+
+
+**Returns**:
+
+- (`String`) — collection The name of the collection.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L148)
+
+### `#filter`
+
+
+**Returns**:
+
+- (`Hash`) — filter The filter.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L151)
+
+### `#update`
+
+
+**Returns**:
+
+- (`Hash`) — update The update.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L154)
+
+### `#flags`
+
+
+**Returns**:
+
+- (`Array<Symbol>`) — flags The flags.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L157)
+
+### `#initialize(collection, filter, update, flags)`
+
+Instantiate the upconverter.
+
+**Params**:
+
+- `collection` (`String`) — The name of the collection.
+  
+
+- `filter` (`Hash`) — The filter.
+  
+
+- `update` (`Hash`) — The update.
+  
+
+- `flags` (`Array<Symbol>`) — The flags.
+  
+
+**Returns**:
+
+- (`Upconverter`) — a new instance of Upconverter
+
+**Examples**:
+
+```ruby
+Upconverter.new(
+  'users',
+  { name: 'test' },
+  { '$set' => { 'name' => 't' }},
+  []
+)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L175)
+
+### `#command`
+
+Get the upconverted command.
+
+**Returns**:
+
+- (`BSON::Document`) — The upconverted command.
+
+**Examples**:
+
+```ruby
+upconverter.command
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L190)
 
 ---
 
@@ -7047,6 +7239,7 @@ message.payload
 
 ### `#collection`
 
+
 **Returns**:
 
 - (`String`) — collection The name of the collection.
@@ -7056,6 +7249,7 @@ message.payload
 
 ### `#documents`
 
+
 **Returns**:
 
 - (`Array<BSON::Document>`) — documents The documents to insert.
@@ -7064,6 +7258,7 @@ message.payload
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/insert.rb#L134)
 
 ### `#options`
+
 
 **Returns**:
 
@@ -7119,214 +7314,10 @@ upconverter.command
 
 ---
 
-## `class Mongo::Protocol::Delete`
-
-### `#initialize(database, collection, selector, options = {})`
-
-Creates a new Delete message
-
-**Params**:
-
-- `database` (`String, Symbol`) — The database to remove from.
-  
-  - `:flags` (`Array`) — The flags for the delete message.
-
-Supported flags: +:single_remove+
-
-- `collection` (`String, Symbol`) — The collection to remove from.
-  
-  - `:flags` (`Array`) — The flags for the delete message.
-
-Supported flags: +:single_remove+
-
-- `selector` (`Hash`) — The query used to select doc(s) to remove.
-  
-  - `:flags` (`Array`) — The flags for the delete message.
-
-Supported flags: +:single_remove+
-
-- `options` (`Hash`) — The additional delete options.
-  
-  - `:flags` (`Array`) — The flags for the delete message.
-
-Supported flags: +:single_remove+
-
-**Returns**:
-
-- (`Delete`) — a new instance of Delete
-
-**Examples**:
-
-```ruby
-Query.new('xgen', 'users', {:name => 'Tyler'})
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L43)
-
-### `#payload`
-
-Return the event payload for monitoring.
-
-**Returns**:
-
-- (`Hash`) — The event payload.
-
-**Examples**:
-
-```ruby
-message.payload
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L60)
-
----
-
-## `class Mongo::Protocol::Delete::Upconverter`
-
-### `#collection`
-
-**Returns**:
-
-- (`String`) — collection The name of the collection.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L116)
-
-### `#filter`
-
-**Returns**:
-
-- (`BSON::Document, Hash`) — filter The query filter or command.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L119)
-
-### `#options`
-
-**Returns**:
-
-- (`Hash`) — options The options.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L122)
-
-### `#initialize(collection, filter, options)`
-
-Instantiate the upconverter.
-
-**Params**:
-
-- `collection` (`String`) — The name of the collection.
-  
-
-- `filter` (`BSON::Document, Hash`) — The filter or command.
-  
-
-**Returns**:
-
-- (`Upconverter`) — a new instance of Upconverter
-
-**Examples**:
-
-```ruby
-Upconverter.new('users', { name: 'test' })
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L133)
-
-### `#command`
-
-Get the upconverted command.
-
-**Returns**:
-
-- (`BSON::Document`) — The upconverted command.
-
-**Examples**:
-
-```ruby
-upconverter.command
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L147)
-
----
-
-## `class Mongo::Event::Listeners`
-
-### `#initialize`
-
-Initialize the event listeners.
-
-**Returns**:
-
-- (`Listeners`) — a new instance of Listeners
-
-**Examples**:
-
-```ruby
-Listeners.new
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/listeners.rb#L29)
-
-### `#add_listener(event, listener)`
-
-Add an event listener for the provided event.
-
-**Params**:
-
-- `event` (`String`) — The event to listen for.
-  
-
-- `listener` (`Object`) — The event listener.
-  
-
-**Returns**:
-
-- (`Array<Object>`) — The listeners for the event.
-
-**Examples**:
-
-```ruby
-publisher.add_listener("my_event", listener)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/listeners.rb#L44)
-
-### `#listeners_for(event)`
-
-Get the listeners for a specific event.
-
-**Params**:
-
-- `event` (`String`) — The event name.
-  
-
-**Returns**:
-
-- (`Array<Object>`) — The listeners.
-
-**Examples**:
-
-```ruby
-publisher.listeners_for("test")
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/listeners.rb#L58)
-
----
-
 ## `class Mongo::Grid::File::Chunk`
 
 ### `#document`
+
 
 **Returns**:
 
@@ -7544,65 +7535,321 @@ Chunks.split(data)
 
 ---
 
-## `class Mongo::Protocol::Update`
+## `class Mongo::Collection::View`
 
-### `#initialize(database, collection, selector, update, options = {})`
+**The +View+ API is semipublic.**
 
-Creates a new Update message
+### `#collection`
 
-**Params**:
-
-- `database` (`String, Symbol`) — The database to update.
-  
-  - `:flags` (`Array`) — The flags for the update message.
-
-Supported flags: +:upsert+, +:multi_update+
-
-- `collection` (`String, Symbol`) — The collection to update.
-  
-  - `:flags` (`Array`) — The flags for the update message.
-
-Supported flags: +:upsert+, +:multi_update+
-
-- `selector` (`Hash`) — The update selector.
-  
-  - `:flags` (`Array`) — The flags for the update message.
-
-Supported flags: +:upsert+, +:multi_update+
-
-- `update` (`Hash`) — The update to perform.
-  
-  - `:flags` (`Array`) — The flags for the update message.
-
-Supported flags: +:upsert+, +:multi_update+
-
-- `options` (`Hash`) — The additional query options.
-  
-  - `:flags` (`Array`) — The flags for the update message.
-
-Supported flags: +:upsert+, +:multi_update+
 
 **Returns**:
 
-- (`Update`) — a new instance of Update
+- (`Collection`) — The +Collection+ to query.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L53)
+
+### `#filter`
+
+
+**Returns**:
+
+- (`Hash`) — The query filter.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L56)
+
+### `#filter`
+
+
+**Returns**:
+
+- (`Hash`) — The query filter.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L69)
+
+### `#==(other)`
+
+Compare two +View+ objects.
+
+**Returns**:
+
+- (`true, false`) — Equal if collection, filter, and options of two
++View+ match.
 
 **Examples**:
 
 ```ruby
-Update.new('xgen', 'users', {:name => 'Tyler'}, {:name => 'Bob'})
-```
-
-```ruby
-Update.new('xgen', 'users',
-  {:age => 20}, {:age => 21}, :flags => [:multi_update])
-```
-
-```ruby
-Update.new('xgen', 'users', {:name => 'Tyler'}, :flags => [:upsert])
+view == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L54)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L80)
+
+### `#==(other)`
+
+Compare two +View+ objects.
+
+**Returns**:
+
+- (`true, false`) — Equal if collection, filter, and options of two
++View+ match.
+
+**Examples**:
+
+```ruby
+view == other
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L86)
+
+### `#hash`
+
+A hash value for the +View+ composed of the collection namespace,
+hash of the options and hash of the filter.
+
+**Returns**:
+
+- (`Integer`) — A hash value of the +View+ object.
+
+**Examples**:
+
+```ruby
+view.hash
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L97)
+
+### `#initialize(collection, filter = {}, options = {})`
+
+Creates a new +View+.
+
+**Params**:
+
+- `collection` (`Collection`) — The +Collection+ to query.
+  
+  - `:comment` (`String`) — Associate a comment with the query.
+  - `:batch_size` (`Integer`) — The number of docs to return in
+each response from MongoDB.
+  - `:fields` (`Hash`) — The fields to include or exclude in
+returned docs.
+  - `:hint` (`Hash`) — Override default index selection and force
+MongoDB to use a specific index for the query.
+  - `:limit` (`Integer`) — Max number of docs to return.
+  - `:max_scan` (`Integer`) — Constrain the query to only scan the
+specified number of docs. Use to prevent queries from running too long.
+  - `:read` (`Symbol`) — The read preference to use for the query.
+If none is provided, the collection's default read preference is used.
+  - `:show_disk_loc` (`true`) — Return disk location info as
+a field in each doc.
+  - `:skip` (`Integer`) — The number of documents to skip.
+  - `:snapshot` (`true`) — Prevents returning a doc more than
+once.
+  - `:sort` (`Hash`) — The key and direction pairs used to sort the
+results.
+  - `:collation` (`Hash`) — The collation to use.
+
+- `filter` (`Hash`) — The query filter.
+  
+  - `:comment` (`String`) — Associate a comment with the query.
+  - `:batch_size` (`Integer`) — The number of docs to return in
+each response from MongoDB.
+  - `:fields` (`Hash`) — The fields to include or exclude in
+returned docs.
+  - `:hint` (`Hash`) — Override default index selection and force
+MongoDB to use a specific index for the query.
+  - `:limit` (`Integer`) — Max number of docs to return.
+  - `:max_scan` (`Integer`) — Constrain the query to only scan the
+specified number of docs. Use to prevent queries from running too long.
+  - `:read` (`Symbol`) — The read preference to use for the query.
+If none is provided, the collection's default read preference is used.
+  - `:show_disk_loc` (`true`) — Return disk location info as
+a field in each doc.
+  - `:skip` (`Integer`) — The number of documents to skip.
+  - `:snapshot` (`true`) — Prevents returning a doc more than
+once.
+  - `:sort` (`Hash`) — The key and direction pairs used to sort the
+results.
+  - `:collation` (`Hash`) — The collation to use.
+
+- `options` (`Hash`) — The additional query options.
+  
+  - `:comment` (`String`) — Associate a comment with the query.
+  - `:batch_size` (`Integer`) — The number of docs to return in
+each response from MongoDB.
+  - `:fields` (`Hash`) — The fields to include or exclude in
+returned docs.
+  - `:hint` (`Hash`) — Override default index selection and force
+MongoDB to use a specific index for the query.
+  - `:limit` (`Integer`) — Max number of docs to return.
+  - `:max_scan` (`Integer`) — Constrain the query to only scan the
+specified number of docs. Use to prevent queries from running too long.
+  - `:read` (`Symbol`) — The read preference to use for the query.
+If none is provided, the collection's default read preference is used.
+  - `:show_disk_loc` (`true`) — Return disk location info as
+a field in each doc.
+  - `:skip` (`Integer`) — The number of documents to skip.
+  - `:snapshot` (`true`) — Prevents returning a doc more than
+once.
+  - `:sort` (`Hash`) — The key and direction pairs used to sort the
+results.
+  - `:collation` (`Hash`) — The collation to use.
+
+**Returns**:
+
+- (`View`) — a new instance of View
+
+**Examples**:
+
+```ruby
+View.new(collection, {:name => 'Emily'})
+```
+
+```ruby
+View.new(collection, {:name => 'Emily'}, :skip => 5, :limit => 10)
+```
+
+```ruby
+View.new(collection, {:name => 'Emily'}, :read => :secondary_preferred)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L138)
+
+### `#inspect`
+
+Get a human-readable string representation of +View+.
+
+**Returns**:
+
+- (`String`) — A string representation of a +View+ instance.
+
+**Examples**:
+
+```ruby
+view.inspect
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L152)
+
+---
+
+## `class Mongo::Event::Listeners`
+
+### `#initialize`
+
+Initialize the event listeners.
+
+**Returns**:
+
+- (`Listeners`) — a new instance of Listeners
+
+**Examples**:
+
+```ruby
+Listeners.new
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/listeners.rb#L29)
+
+### `#add_listener(event, listener)`
+
+Add an event listener for the provided event.
+
+**Params**:
+
+- `event` (`String`) — The event to listen for.
+  
+
+- `listener` (`Object`) — The event listener.
+  
+
+**Returns**:
+
+- (`Array<Object>`) — The listeners for the event.
+
+**Examples**:
+
+```ruby
+publisher.add_listener("my_event", listener)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/listeners.rb#L44)
+
+### `#listeners_for(event)`
+
+Get the listeners for a specific event.
+
+**Params**:
+
+- `event` (`String`) — The event name.
+  
+
+**Returns**:
+
+- (`Array<Object>`) — The listeners.
+
+**Examples**:
+
+```ruby
+publisher.listeners_for("test")
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/listeners.rb#L58)
+
+---
+
+## `class Mongo::Protocol::Delete`
+
+### `#initialize(database, collection, selector, options = {})`
+
+Creates a new Delete message
+
+**Params**:
+
+- `database` (`String, Symbol`) — The database to remove from.
+  
+  - `:flags` (`Array`) — The flags for the delete message.
+
+Supported flags: +:single_remove+
+
+- `collection` (`String, Symbol`) — The collection to remove from.
+  
+  - `:flags` (`Array`) — The flags for the delete message.
+
+Supported flags: +:single_remove+
+
+- `selector` (`Hash`) — The query used to select doc(s) to remove.
+  
+  - `:flags` (`Array`) — The flags for the delete message.
+
+Supported flags: +:single_remove+
+
+- `options` (`Hash`) — The additional delete options.
+  
+  - `:flags` (`Array`) — The flags for the delete message.
+
+Supported flags: +:single_remove+
+
+**Returns**:
+
+- (`Delete`) — a new instance of Delete
+
+**Examples**:
+
+```ruby
+Query.new('xgen', 'users', {:name => 'Tyler'})
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L43)
 
 ### `#payload`
 
@@ -7619,49 +7866,43 @@ message.payload
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L73)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L60)
 
 ---
 
-## `class Mongo::Protocol::Update::Upconverter`
+## `class Mongo::Protocol::Delete::Upconverter`
 
 ### `#collection`
+
 
 **Returns**:
 
 - (`String`) — collection The name of the collection.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L148)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L116)
 
 ### `#filter`
 
-**Returns**:
-
-- (`Hash`) — filter The filter.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L151)
-
-### `#update`
 
 **Returns**:
 
-- (`Hash`) — update The update.
+- (`BSON::Document, Hash`) — filter The query filter or command.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L154)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L119)
 
-### `#flags`
+### `#options`
+
 
 **Returns**:
 
-- (`Array<Symbol>`) — flags The flags.
+- (`Hash`) — options The options.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L157)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L122)
 
-### `#initialize(collection, filter, update, flags)`
+### `#initialize(collection, filter, options)`
 
 Instantiate the upconverter.
 
@@ -7670,13 +7911,7 @@ Instantiate the upconverter.
 - `collection` (`String`) — The name of the collection.
   
 
-- `filter` (`Hash`) — The filter.
-  
-
-- `update` (`Hash`) — The update.
-  
-
-- `flags` (`Array<Symbol>`) — The flags.
+- `filter` (`BSON::Document, Hash`) — The filter or command.
   
 
 **Returns**:
@@ -7686,16 +7921,11 @@ Instantiate the upconverter.
 **Examples**:
 
 ```ruby
-Upconverter.new(
-  'users',
-  { name: 'test' },
-  { '$set' => { 'name' => 't' }},
-  []
-)
+Upconverter.new('users', { name: 'test' })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L175)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L133)
 
 ### `#command`
 
@@ -7712,151 +7942,177 @@ upconverter.command
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L190)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L147)
 
 ---
 
-## `class Mongo::Options::Redacted`
+## `class Mongo::Grid::FSBucket::Stream::Read`
 
-### `#inspect`
+### `#fs`
 
-Get a string representation of the options.
-
-**Returns**:
-
-- (`String`) — The string representation of the options.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L40)
-
-### `#to_s`
-
-Get a string representation of the options.
 
 **Returns**:
 
-- (`String`) — The string representation of the options.
+- (`FSBucket`) — fs The fs bucket from which this stream reads.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L49)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L29)
 
-### `#has_key?(key)`
+### `#options`
 
-Whether these options contain a given key.
+
+**Returns**:
+
+- (`Hash`) — options The stream options.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L34)
+
+### `#file_id`
+
+
+**Returns**:
+
+- (`BSON::ObjectId, Object`) — file_id The id of the file being read.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L39)
+
+### `#initialize(fs, options)`
+
+Create a stream for reading files from the FSBucket.
 
 **Params**:
 
-- `key` (`String, Symbol`) — The key to check for existence.
+- `fs` (`FSBucket`) — The GridFS bucket object.
+  
+
+- `options` (`Hash`) — The read stream options.
   
 
 **Returns**:
 
-- (`true, false`) — If the options contain the given key.
+- (`Read`) — a new instance of Read
 
 **Examples**:
 
 ```ruby
-options.has_key?(:name)
+Stream::Read.new(fs, options)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L63)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L50)
 
-### `#has_key?(key)`
+### `#each`
 
-Whether these options contain a given key.
-
-**Params**:
-
-- `key` (`String, Symbol`) — The key to check for existence.
-  
+Iterate through chunk data streamed from the FSBucket.
 
 **Returns**:
 
-- (`true, false`) — If the options contain the given key.
+- (`Enumerator`) — The enumerator.
 
 **Examples**:
 
 ```ruby
-options.has_key?(:name)
+stream.each do |data|
+  buffer << data
+end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L66)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L71)
 
-### `#reject(&block)`
+### `#read`
 
-Returns a new options object consisting of pairs for which the block returns false.
+Read all file data.
 
 **Returns**:
 
-- (`Options::Redacted`) — A new options object.
+- (`String`) — The file data.
 
 **Examples**:
 
 ```ruby
-new_options = options.reject { |k, v| k == 'database' }
+stream.read
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L78)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L94)
 
-### `#reject!`
+### `#close`
 
-Only keeps pairs for which the block returns false.
+Close the read stream.
 
 **Returns**:
 
-- (`Options::Redacted, nil`) — This object or nil if no changes were made.
+- (`BSON::ObjectId, Object`) — The file id.
 
 **Examples**:
 
 ```ruby
-options.reject! { |k, v| k == 'database' }
+stream.close
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L93)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L108)
 
-### `#select(&block)`
+### `#closed?`
 
-Returns a new options object consisting of pairs for which the block returns true.
+Is the stream closed.
 
 **Returns**:
 
-- (`Options::Redacted`) — A new options object.
+- (`true, false`) — Whether the stream is closed.
 
 **Examples**:
 
 ```ruby
-ssl_options = options.select { |k, v| k =~ /ssl/ }
+stream.closed?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L115)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L123)
 
-### `#select!`
+### `#read_preference`
 
-Only keeps pairs for which the block returns true.
+Get the read preference used when streaming.
 
 **Returns**:
 
-- (`Options::Redacted, nil`) — This object or nil if no changes were made.
+- (`Mongo::ServerSelector`) — The read preference.
 
 **Examples**:
 
 ```ruby
-options.select! { |k, v| k =~ /ssl/ }
+stream.read_preference
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L130)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L135)
+
+### `#file_info`
+
+Get the files collection file information document for the file being read.
+
+**Returns**:
+
+- (`Hash`) — The file info document.
+
+**Examples**:
+
+```ruby
+stream.file_info
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L147)
 
 ---
 
 ## `class Mongo::Operation::Result`
 
 ### `#replies`
+
 
 **Returns**:
 
@@ -7868,6 +8124,12 @@ options.select! { |k, v| k =~ /ssl/ }
 ### `#acknowledged?`
 
 Is the result acknowledged?
+
+**On MongoDB 2.6 and higher all writes are acknowledged since the
+driver uses write commands for all write operations. On 2.4 and
+lower, the result is acknowledged if the GLE has been executed after
+the command. If not, no replies will be specified. Reads will always
+return true here since a replies is always provided.**
 
 **Returns**:
 
@@ -7897,6 +8159,8 @@ result.multiple?
 ### `#cursor_id`
 
 Get the cursor id if the response is acknowledged.
+
+**Cursor ids of 0 indicate there is no cursor on the server.**
 
 **Returns**:
 
@@ -8037,6 +8301,9 @@ result.returned_count
 If the result was a command then determine if it was considered a
 success.
 
+**If the write was unacknowledged, then this will always return
+true.**
+
 **Returns**:
 
 - (`true, false`) — If the command was successful.
@@ -8070,6 +8337,10 @@ result.ok?
 ### `#validate!`
 
 Validate the result by checking for any errors.
+
+**This only checks for errors with writes since authentication is
+handled at the connection level and any authentication errors would
+be raised there, before a Result is ever created.**
 
 **Returns**:
 
@@ -8273,99 +8544,533 @@ a reply.
 
 ---
 
-## `class Mongo::Grid::FSBucket::Stream::Read`
+## `class Mongo::Options::Redacted`
+
+### `#inspect`
+
+Get a string representation of the options.
+
+**Returns**:
+
+- (`String`) — The string representation of the options.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L40)
+
+### `#to_s`
+
+Get a string representation of the options.
+
+**Returns**:
+
+- (`String`) — The string representation of the options.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L49)
+
+### `#has_key?(key)`
+
+Whether these options contain a given key.
+
+**Params**:
+
+- `key` (`String, Symbol`) — The key to check for existence.
+  
+
+**Returns**:
+
+- (`true, false`) — If the options contain the given key.
+
+**Examples**:
+
+```ruby
+options.has_key?(:name)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L63)
+
+### `#has_key?(key)`
+
+Whether these options contain a given key.
+
+**Params**:
+
+- `key` (`String, Symbol`) — The key to check for existence.
+  
+
+**Returns**:
+
+- (`true, false`) — If the options contain the given key.
+
+**Examples**:
+
+```ruby
+options.has_key?(:name)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L66)
+
+### `#reject(&block)`
+
+Returns a new options object consisting of pairs for which the block returns false.
+
+**Returns**:
+
+- (`Options::Redacted`) — A new options object.
+
+**Examples**:
+
+```ruby
+new_options = options.reject { |k, v| k == 'database' }
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L78)
+
+### `#reject!`
+
+Only keeps pairs for which the block returns false.
+
+**Returns**:
+
+- (`Options::Redacted, nil`) — This object or nil if no changes were made.
+
+**Examples**:
+
+```ruby
+options.reject! { |k, v| k == 'database' }
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L93)
+
+### `#select(&block)`
+
+Returns a new options object consisting of pairs for which the block returns true.
+
+**Returns**:
+
+- (`Options::Redacted`) — A new options object.
+
+**Examples**:
+
+```ruby
+ssl_options = options.select { |k, v| k =~ /ssl/ }
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L115)
+
+### `#select!`
+
+Only keeps pairs for which the block returns true.
+
+**Returns**:
+
+- (`Options::Redacted, nil`) — This object or nil if no changes were made.
+
+**Examples**:
+
+```ruby
+options.select! { |k, v| k =~ /ssl/ }
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L130)
+
+---
+
+## `class Mongo::Protocol::GetMore`
+
+### `#initialize(database, collection, number_to_return, cursor_id)`
+
+Creates a new GetMore message
+
+**Params**:
+
+- `database` (`String, Symbol`) — The database to query.
+  
+
+- `collection` (`String, Symbol`) — The collection to query.
+  
+
+- `number_to_return` (`Integer`) — The number of documents to return.
+  
+
+- `cursor_id` (`Integer`) — The cursor id returned in a reply.
+  
+
+**Returns**:
+
+- (`GetMore`) — a new instance of GetMore
+
+**Examples**:
+
+```ruby
+GetMore.new('xgen', 'users', 15, 123)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L39)
+
+### `#payload`
+
+Return the event payload for monitoring.
+
+**Returns**:
+
+- (`Hash`) — The event payload.
+
+**Examples**:
+
+```ruby
+message.payload
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L56)
+
+### `#replyable?`
+
+Get more messages require replies from the database.
+
+**Returns**:
+
+- (`true`) — Always true for get more.
+
+**Examples**:
+
+```ruby
+message.replyable?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L73)
+
+---
+
+## `class Mongo::Protocol::GetMore::Upconverter`
+
+### `#collection`
+
+
+**Returns**:
+
+- (`String`) — collection The name of the collection.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L116)
+
+### `#cursor_id`
+
+
+**Returns**:
+
+- (`Integer`) — cursor_id The cursor id.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L119)
+
+### `#number_to_return`
+
+
+**Returns**:
+
+- (`Integer`) — number_to_return The number of docs to return.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L122)
+
+### `#initialize(collection, cursor_id, number_to_return)`
+
+Instantiate the upconverter.
+
+**Params**:
+
+- `collection` (`String`) — The name of the collection.
+  
+
+- `cursor_id` (`Integer`) — The cursor id.
+  
+
+- `number_to_return` (`Integer`) — The number of documents to
+return.
+  
+
+**Returns**:
+
+- (`Upconverter`) — a new instance of Upconverter
+
+**Examples**:
+
+```ruby
+Upconverter.new('users', 1, 1)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L135)
+
+### `#command`
+
+Get the upconverted command.
+
+**Returns**:
+
+- (`BSON::Document`) — The upconverted command.
+
+**Examples**:
+
+```ruby
+upconverter.command
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L149)
+
+---
+
+## `class Mongo::Server::Connection`
+
+### `#connect!`
+
+Tell the underlying socket to establish a connection to the host.
+
+**This method mutates the connection class by setting a socket if
+one previously did not exist.**
+
+**Returns**:
+
+- (`true`) — If the connection succeeded.
+
+**Examples**:
+
+```ruby
+connection.connect!
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection.rb#L60)
+
+### `#disconnect!`
+
+Disconnect the connection.
+
+**This method mutates the connection by setting the socket to nil
+if the closing succeeded.**
+
+**Returns**:
+
+- (`true`) — If the disconnect succeeded.
+
+**Examples**:
+
+```ruby
+connection.disconnect!
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection.rb#L81)
+
+### `#dispatch(messages, operation_id = nil)`
+
+Dispatch the provided messages to the connection. If the last message
+requires a response a reply will be returned.
+
+**This method is named dispatch since 'send' is a core Ruby method on
+all objects.**
+
+**Params**:
+
+- `messages` (`Array<Message>`) — The messages to dispatch.
+  
+
+- `operation_id` (`Integer`) — The operation id to link messages.
+  
+
+**Returns**:
+
+- (`Protocol::Reply`) — The reply if needed.
+
+**Examples**:
+
+```ruby
+connection.dispatch([ insert, command ])
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection.rb#L105)
+
+### `#initialize(server, options = {})`
+
+Initialize a new socket connection from the client to the server.
+
+**Connection must never be directly instantiated outside of a
+Server.**
+
+**Params**:
+
+- `server` (`Mongo::Server`) — The server the connection is for.
+  
+
+- `options` (`Hash`) — The connection options.
+  
+
+**Returns**:
+
+- (`Connection`) — a new instance of Connection
+
+**Examples**:
+
+```ruby
+Connection.new(server)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection.rb#L129)
+
+### `#ping`
+
+Ping the connection to see if the server is responding to commands.
+This is non-blocking on the server side.
+
+**This uses a pre-serialized ping message for optimization.**
+
+**Returns**:
+
+- (`true, false`) — If the server is accepting connections.
+
+**Examples**:
+
+```ruby
+connection.ping
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection.rb#L151)
+
+---
+
+## `class Mongo::Grid::FSBucket::Stream::Write`
 
 ### `#fs`
 
-**Returns**:
-
-- (`FSBucket`) — fs The fs bucket from which this stream reads.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L29)
-
-### `#options`
 
 **Returns**:
 
-- (`Hash`) — options The stream options.
+- (`FSBucket`) — fs The fs bucket to which this stream writes.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L28)
 
 ### `#file_id`
 
+
 **Returns**:
 
-- (`BSON::ObjectId, Object`) — file_id The id of the file being read.
+- (`Object`) — file_id The id of the file being uploaded.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L39)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L33)
+
+### `#filename`
+
+
+**Returns**:
+
+- (`String`) — filename The name of the file being uploaded.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L38)
+
+### `#options`
+
+
+**Returns**:
+
+- (`Hash`) — options The write stream options.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L43)
 
 ### `#initialize(fs, options)`
 
-Create a stream for reading files from the FSBucket.
+Create a stream for writing files to the FSBucket.
 
 **Params**:
 
 - `fs` (`FSBucket`) — The GridFS bucket object.
   
+  - `:file_id` (`Object`) — The file id. An ObjectId is generated otherwise.
+  - `:chunk_size` (`Integer`) — Override the default chunk size.
+  - `:write` (`Hash`) — The write concern.
+  - `:metadata` (`Hash`) — User data for the 'metadata' field of the files collection document.
+  - `:content_type` (`String`) — The content type of the file.
+Deprecated, please use the metadata document instead.
+  - `:aliases` (`Array<String>`) — A list of aliases.
+Deprecated, please use the metadata document instead.
 
-- `options` (`Hash`) — The read stream options.
+- `options` (`Hash`) — The write stream options.
+  
+  - `:file_id` (`Object`) — The file id. An ObjectId is generated otherwise.
+  - `:chunk_size` (`Integer`) — Override the default chunk size.
+  - `:write` (`Hash`) — The write concern.
+  - `:metadata` (`Hash`) — User data for the 'metadata' field of the files collection document.
+  - `:content_type` (`String`) — The content type of the file.
+Deprecated, please use the metadata document instead.
+  - `:aliases` (`Array<String>`) — A list of aliases.
+Deprecated, please use the metadata document instead.
+
+- `opts` (`Hash`) — a customizable set of options
+  
+  - `:file_id` (`Object`) — The file id. An ObjectId is generated otherwise.
+  - `:chunk_size` (`Integer`) — Override the default chunk size.
+  - `:write` (`Hash`) — The write concern.
+  - `:metadata` (`Hash`) — User data for the 'metadata' field of the files collection document.
+  - `:content_type` (`String`) — The content type of the file.
+Deprecated, please use the metadata document instead.
+  - `:aliases` (`Array<String>`) — A list of aliases.
+Deprecated, please use the metadata document instead.
+
+**Returns**:
+
+- (`Write`) — a new instance of Write
+
+**Examples**:
+
+```ruby
+Stream::Write.new(fs, options)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L63)
+
+### `#write(io)`
+
+Write to the GridFS bucket from the source stream.
+
+**Params**:
+
+- `io` (`IO`) — The source io stream to upload from.
   
 
 **Returns**:
 
-- (`Read`) — a new instance of Read
+- (`Stream::Write`) — self The write stream itself.
 
 **Examples**:
 
 ```ruby
-Stream::Read.new(fs, options)
+stream.write(io)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L50)
-
-### `#each`
-
-Iterate through chunk data streamed from the FSBucket.
-
-**Returns**:
-
-- (`Enumerator`) — The enumerator.
-
-**Examples**:
-
-```ruby
-stream.each do |data|
-  buffer << data
-end
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L71)
-
-### `#read`
-
-Read all file data.
-
-**Returns**:
-
-- (`String`) — The file data.
-
-**Examples**:
-
-```ruby
-stream.read
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L94)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L83)
 
 ### `#close`
 
-Close the read stream.
+Close the write stream.
 
 **Returns**:
 
@@ -8378,7 +9083,24 @@ stream.close
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L108)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L103)
+
+### `#write_concern`
+
+Get the write concern used when uploading.
+
+**Returns**:
+
+- (`Mongo::WriteConcern`) — The write concern.
+
+**Examples**:
+
+```ruby
+stream.write_concern
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L119)
 
 ### `#closed?`
 
@@ -8395,41 +9117,24 @@ stream.closed?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L123)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L132)
 
-### `#read_preference`
+### `#abort`
 
-Get the read preference used when streaming.
+Abort the upload by deleting all chunks already inserted.
 
 **Returns**:
 
-- (`Mongo::ServerSelector`) — The read preference.
+- (`true`) — True if the operation was aborted and the stream is closed.
 
 **Examples**:
 
 ```ruby
-stream.read_preference
+stream.abort
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L135)
-
-### `#file_info`
-
-Get the files collection file information document for the file being read.
-
-**Returns**:
-
-- (`Hash`) — The file info document.
-
-**Examples**:
-
-```ruby
-stream.file_info
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L147)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L144)
 
 ---
 
@@ -8595,188 +9300,6 @@ result.validate!
 
 ---
 
-## `class Mongo::Grid::FSBucket::Stream::Write`
-
-### `#fs`
-
-**Returns**:
-
-- (`FSBucket`) — fs The fs bucket to which this stream writes.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L28)
-
-### `#file_id`
-
-**Returns**:
-
-- (`Object`) — file_id The id of the file being uploaded.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L33)
-
-### `#filename`
-
-**Returns**:
-
-- (`String`) — filename The name of the file being uploaded.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L38)
-
-### `#options`
-
-**Returns**:
-
-- (`Hash`) — options The write stream options.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L43)
-
-### `#initialize(fs, options)`
-
-Create a stream for writing files to the FSBucket.
-
-**Params**:
-
-- `fs` (`FSBucket`) — The GridFS bucket object.
-  
-  - `:file_id` (`Object`) — The file id. An ObjectId is generated otherwise.
-  - `:chunk_size` (`Integer`) — Override the default chunk size.
-  - `:write` (`Hash`) — The write concern.
-  - `:metadata` (`Hash`) — User data for the 'metadata' field of the files collection document.
-  - `:content_type` (`String`) — The content type of the file.
-Deprecated, please use the metadata document instead.
-  - `:aliases` (`Array<String>`) — A list of aliases.
-Deprecated, please use the metadata document instead.
-
-- `options` (`Hash`) — The write stream options.
-  
-  - `:file_id` (`Object`) — The file id. An ObjectId is generated otherwise.
-  - `:chunk_size` (`Integer`) — Override the default chunk size.
-  - `:write` (`Hash`) — The write concern.
-  - `:metadata` (`Hash`) — User data for the 'metadata' field of the files collection document.
-  - `:content_type` (`String`) — The content type of the file.
-Deprecated, please use the metadata document instead.
-  - `:aliases` (`Array<String>`) — A list of aliases.
-Deprecated, please use the metadata document instead.
-
-- `opts` (`Hash`) — a customizable set of options
-  
-  - `:file_id` (`Object`) — The file id. An ObjectId is generated otherwise.
-  - `:chunk_size` (`Integer`) — Override the default chunk size.
-  - `:write` (`Hash`) — The write concern.
-  - `:metadata` (`Hash`) — User data for the 'metadata' field of the files collection document.
-  - `:content_type` (`String`) — The content type of the file.
-Deprecated, please use the metadata document instead.
-  - `:aliases` (`Array<String>`) — A list of aliases.
-Deprecated, please use the metadata document instead.
-
-**Returns**:
-
-- (`Write`) — a new instance of Write
-
-**Examples**:
-
-```ruby
-Stream::Write.new(fs, options)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L63)
-
-### `#write(io)`
-
-Write to the GridFS bucket from the source stream.
-
-**Params**:
-
-- `io` (`IO`) — The source io stream to upload from.
-  
-
-**Returns**:
-
-- (`Stream::Write`) — self The write stream itself.
-
-**Examples**:
-
-```ruby
-stream.write(io)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L83)
-
-### `#close`
-
-Close the write stream.
-
-**Returns**:
-
-- (`BSON::ObjectId, Object`) — The file id.
-
-**Examples**:
-
-```ruby
-stream.close
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L103)
-
-### `#write_concern`
-
-Get the write concern used when uploading.
-
-**Returns**:
-
-- (`Mongo::WriteConcern`) — The write concern.
-
-**Examples**:
-
-```ruby
-stream.write_concern
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L119)
-
-### `#closed?`
-
-Is the stream closed.
-
-**Returns**:
-
-- (`true, false`) — Whether the stream is closed.
-
-**Examples**:
-
-```ruby
-stream.closed?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L132)
-
-### `#abort`
-
-Abort the upload by deleting all chunks already inserted.
-
-**Returns**:
-
-- (`true`) — True if the operation was aborted and the stream is closed.
-
-**Examples**:
-
-```ruby
-stream.abort
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L144)
-
----
-
 ## `class Mongo::Error::InvalidURI`
 
 ### `#initialize(uri, details)`
@@ -8798,291 +9321,10 @@ Mongo::Error::InvalidURI.new(uri)
 
 ---
 
-## `class Mongo::Protocol::GetMore`
-
-### `#initialize(database, collection, number_to_return, cursor_id)`
-
-Creates a new GetMore message
-
-**Params**:
-
-- `database` (`String, Symbol`) — The database to query.
-  
-
-- `collection` (`String, Symbol`) — The collection to query.
-  
-
-- `number_to_return` (`Integer`) — The number of documents to return.
-  
-
-- `cursor_id` (`Integer`) — The cursor id returned in a reply.
-  
-
-**Returns**:
-
-- (`GetMore`) — a new instance of GetMore
-
-**Examples**:
-
-```ruby
-GetMore.new('xgen', 'users', 15, 123)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L39)
-
-### `#payload`
-
-Return the event payload for monitoring.
-
-**Returns**:
-
-- (`Hash`) — The event payload.
-
-**Examples**:
-
-```ruby
-message.payload
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L56)
-
-### `#replyable?`
-
-Get more messages require replies from the database.
-
-**Returns**:
-
-- (`true`) — Always true for get more.
-
-**Examples**:
-
-```ruby
-message.replyable?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L73)
-
----
-
-## `class Mongo::Protocol::GetMore::Upconverter`
-
-### `#collection`
-
-**Returns**:
-
-- (`String`) — collection The name of the collection.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L116)
-
-### `#cursor_id`
-
-**Returns**:
-
-- (`Integer`) — cursor_id The cursor id.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L119)
-
-### `#number_to_return`
-
-**Returns**:
-
-- (`Integer`) — number_to_return The number of docs to return.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L122)
-
-### `#initialize(collection, cursor_id, number_to_return)`
-
-Instantiate the upconverter.
-
-**Params**:
-
-- `collection` (`String`) — The name of the collection.
-  
-
-- `cursor_id` (`Integer`) — The cursor id.
-  
-
-- `number_to_return` (`Integer`) — The number of documents to
-return.
-  
-
-**Returns**:
-
-- (`Upconverter`) — a new instance of Upconverter
-
-**Examples**:
-
-```ruby
-Upconverter.new('users', 1, 1)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L135)
-
-### `#command`
-
-Get the upconverted command.
-
-**Returns**:
-
-- (`BSON::Document`) — The upconverted command.
-
-**Examples**:
-
-```ruby
-upconverter.command
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L149)
-
----
-
-## `class Mongo::Server::Connection`
-
-### `#connect!`
-
-Tell the underlying socket to establish a connection to the host.
-
-**Returns**:
-
-- (`true`) — If the connection succeeded.
-
-**Examples**:
-
-```ruby
-connection.connect!
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection.rb#L60)
-
-### `#disconnect!`
-
-Disconnect the connection.
-
-**Returns**:
-
-- (`true`) — If the disconnect succeeded.
-
-**Examples**:
-
-```ruby
-connection.disconnect!
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection.rb#L81)
-
-### `#dispatch(messages, operation_id = nil)`
-
-Dispatch the provided messages to the connection. If the last message
-requires a response a reply will be returned.
-
-**Params**:
-
-- `messages` (`Array<Message>`) — The messages to dispatch.
-  
-
-- `operation_id` (`Integer`) — The operation id to link messages.
-  
-
-**Returns**:
-
-- (`Protocol::Reply`) — The reply if needed.
-
-**Examples**:
-
-```ruby
-connection.dispatch([ insert, command ])
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection.rb#L105)
-
-### `#initialize(server, options = {})`
-
-Initialize a new socket connection from the client to the server.
-
-**Params**:
-
-- `server` (`Mongo::Server`) — The server the connection is for.
-  
-
-- `options` (`Hash`) — The connection options.
-  
-
-**Returns**:
-
-- (`Connection`) — a new instance of Connection
-
-**Examples**:
-
-```ruby
-Connection.new(server)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection.rb#L129)
-
-### `#ping`
-
-Ping the connection to see if the server is responding to commands.
-This is non-blocking on the server side.
-
-**Returns**:
-
-- (`true, false`) — If the server is accepting connections.
-
-**Examples**:
-
-```ruby
-connection.ping
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection.rb#L151)
-
----
-
-## `class Mongo::Error::InvalidFile`
-
-### `#initialize(client_md5, server_md5)`
-
-Create the new exception.
-
-**Params**:
-
-- `client_md5` (`String`) — The client side file md5.
-  
-
-- `server_md5` (`String`) — The server side file md5.
-  
-
-**Returns**:
-
-- (`InvalidFile`) — a new instance of InvalidFile
-
-**Examples**:
-
-```ruby
-Mongo::Error::InvalidFile.new(file_md5, server_md5)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_file.rb#L33)
-
----
-
 ## `class Mongo::Server::Description`
 
 ### `#address`
+
 
 **Returns**:
 
@@ -9093,6 +9335,7 @@ Mongo::Error::InvalidFile.new(file_md5, server_md5)
 
 ### `#config`
 
+
 **Returns**:
 
 - (`Hash`) — The actual result from the ismaster command.
@@ -9102,6 +9345,7 @@ Mongo::Error::InvalidFile.new(file_md5, server_md5)
 
 ### `#features`
 
+
 **Returns**:
 
 - (`Features`) — features The features for the server.
@@ -9110,6 +9354,7 @@ Mongo::Error::InvalidFile.new(file_md5, server_md5)
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L169)
 
 ### `#average_round_trip_time`
+
 
 **Returns**:
 
@@ -9557,6 +9802,23 @@ description.secondary?
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L479)
 
+### `#server_type`
+
+Returns the server type as a symbol.
+
+**Returns**:
+
+- (`Symbol`) — The server type.
+
+**Examples**:
+
+```ruby
+description.server_type
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L491)
+
 ### `#standalone?`
 
 Is this server a standalone server?
@@ -9572,7 +9834,7 @@ description.standalone?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L491)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L509)
 
 ### `#unknown?`
 
@@ -9589,7 +9851,7 @@ description.unknown?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L503)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L521)
 
 ### `#unknown!`
 
@@ -9608,7 +9870,7 @@ description.unknown!
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L517)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L536)
 
 ### `#wire_versions`
 
@@ -9625,7 +9887,7 @@ description.wire_versions
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L529)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L548)
 
 ### `#is_server?(server)`
 
@@ -9642,7 +9904,7 @@ description.is_server?(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L541)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L560)
 
 ### `#lists_server?(server)`
 
@@ -9660,7 +9922,7 @@ description.lists_server?(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L554)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L573)
 
 ### `#replica_set_member?`
 
@@ -9678,7 +9940,7 @@ description.replica_set_member?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L567)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L586)
 
 ### `#me_mismatch?`
 
@@ -9695,7 +9957,7 @@ description.me_mismatch?
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L579)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L598)
 
 ### `#==(other)`
 
@@ -9717,7 +9979,7 @@ description == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L593)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L612)
 
 ### `#==(other)`
 
@@ -9739,7 +10001,36 @@ description == other
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L597)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L617)
+
+---
+
+## `class Mongo::Error::InvalidFile`
+
+### `#initialize(client_md5, server_md5)`
+
+Create the new exception.
+
+**Params**:
+
+- `client_md5` (`String`) — The client side file md5.
+  
+
+- `server_md5` (`String`) — The server side file md5.
+  
+
+**Returns**:
+
+- (`InvalidFile`) — a new instance of InvalidFile
+
+**Examples**:
+
+```ruby
+Mongo::Error::InvalidFile.new(file_md5, server_md5)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_file.rb#L33)
 
 ---
 
@@ -9761,6 +10052,55 @@ Mongo::Error::MaxBSONSize.new(max)
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/max_bson_size.rb#L35)
+
+---
+
+## `class Mongo::Error::InvalidNonce`
+
+### `#nonce`
+
+
+**Returns**:
+
+- (`String`) — nonce The client nonce.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_nonce.rb#L25)
+
+### `#rnonce`
+
+
+**Returns**:
+
+- (`String`) — rnonce The server nonce.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_nonce.rb#L28)
+
+### `#initialize(nonce, rnonce)`
+
+Instantiate the new exception.
+
+**Params**:
+
+- `nonce` (`String`) — The client nonce.
+  
+
+- `rnonce` (`String`) — The server nonce.
+  
+
+**Returns**:
+
+- (`InvalidNonce`) — a new instance of InvalidNonce
+
+**Examples**:
+
+```ruby
+InvalidNonce.new(nonce, rnonce)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_nonce.rb#L39)
 
 ---
 
@@ -9840,56 +10180,39 @@ Deserializes vector by decoding the symbol according to its mask
 
 ---
 
-## `class Mongo::Error::InvalidNonce`
+## `class Mongo::Error::FileNotFound`
 
-### `#nonce`
+### `#initialize(value, property)`
 
-**Returns**:
-
-- (`String`) — nonce The client nonce.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_nonce.rb#L25)
-
-### `#rnonce`
-
-**Returns**:
-
-- (`String`) — rnonce The server nonce.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_nonce.rb#L28)
-
-### `#initialize(nonce, rnonce)`
-
-Instantiate the new exception.
+Create the new exception.
 
 **Params**:
 
-- `nonce` (`String`) — The client nonce.
+- `value` (`Object`) — The property value used to find the file.
   
 
-- `rnonce` (`String`) — The server nonce.
+- `property` (`String, Symbol`) — The name of the property used to find the file.
   
 
 **Returns**:
 
-- (`InvalidNonce`) — a new instance of InvalidNonce
+- (`FileNotFound`) — a new instance of FileNotFound
 
 **Examples**:
 
 ```ruby
-InvalidNonce.new(nonce, rnonce)
+Mongo::Error::FileNotFound.new(id, :id)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_nonce.rb#L39)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/file_not_found.rb#L32)
 
 ---
 
 ## `class Mongo::Auth::CR::Conversation`
 
 ### `#reply`
+
 
 **Returns**:
 
@@ -9901,6 +10224,7 @@ conversation.
 
 ### `#database`
 
+
 **Returns**:
 
 - (`String`) — database The database to authenticate against.
@@ -9910,6 +10234,7 @@ conversation.
 
 ### `#nonce`
 
+
 **Returns**:
 
 - (`String`) — nonce The initial auth nonce.
@@ -9918,6 +10243,7 @@ conversation.
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr/conversation.rb#L38)
 
 ### `#user`
+
 
 **Returns**:
 
@@ -10017,35 +10343,6 @@ Conversation.new(user, "admin")
 
 ---
 
-## `class Mongo::Error::FileNotFound`
-
-### `#initialize(value, property)`
-
-Create the new exception.
-
-**Params**:
-
-- `value` (`Object`) — The property value used to find the file.
-  
-
-- `property` (`String, Symbol`) — The name of the property used to find the file.
-  
-
-**Returns**:
-
-- (`FileNotFound`) — a new instance of FileNotFound
-
-**Examples**:
-
-```ruby
-Mongo::Error::FileNotFound.new(id, :id)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/file_not_found.rb#L32)
-
----
-
 ## `class Mongo::Cluster::AppMetadata`
 
 ### `#initialize(cluster)`
@@ -10085,175 +10382,7 @@ metadata.ismaster_bytes
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/app_metadata.rb#L68)
-
----
-
-## `class Mongo::Event::PrimaryElected`
-
-### `#cluster`
-
-**Returns**:
-
-- (`Mongo::Cluster`) — cluster The event publisher.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/primary_elected.rb#L24)
-
-### `#initialize(cluster)`
-
-Initialize the new primary elected event handler.
-
-**Params**:
-
-- `cluster` (`Mongo::Cluster`) — The cluster to publish from.
-  
-
-**Returns**:
-
-- (`PrimaryElected`) — a new instance of PrimaryElected
-
-**Examples**:
-
-```ruby
-PrimaryElected.new(cluster)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/primary_elected.rb#L34)
-
-### `#handle(description)`
-
-This event tells the cluster to take all previous primaries to an
-unknown state.
-
-**Params**:
-
-- `description` (`Server::Description`) — The description of the
-elected server.
-  
-
-**Examples**:
-
-```ruby
-primary_elected.handle(description)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/primary_elected.rb#L48)
-
----
-
-## `class Mongo::Protocol::KillCursors`
-
-### `#initialize(collection, database, cursor_ids)`
-
-Creates a new KillCursors message
-
-**Params**:
-
-- `collection` (`Mongo::Database`) — The collection.
-  
-
-- `database` (`Mongo::Database`) — The database.
-  
-
-- `cursor_ids` (`Array<Fixnum>`) — The cursor ids to kill.
-  
-
-**Returns**:
-
-- (`KillCursors`) — a new instance of KillCursors
-
-**Examples**:
-
-```ruby
-KillCursors.new([1])
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L34)
-
-### `#payload`
-
-Return the event payload for monitoring.
-
-**Returns**:
-
-- (`Hash`) — The event payload.
-
-**Examples**:
-
-```ruby
-message.payload
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L50)
-
----
-
-## `class Mongo::Protocol::KillCursors::Upconverter`
-
-### `#collection`
-
-**Returns**:
-
-- (`String`) — collection The name of the collection.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L99)
-
-### `#cursor_ids`
-
-**Returns**:
-
-- (`Array<Integer>`) — cursor_ids The cursor ids.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L102)
-
-### `#initialize(collection, cursor_ids)`
-
-Instantiate the upconverter.
-
-**Params**:
-
-- `collection` (`String`) — The name of the collection.
-  
-
-- `cursor_ids` (`Array<Integer>`) — The cursor ids.
-  
-
-**Returns**:
-
-- (`Upconverter`) — a new instance of Upconverter
-
-**Examples**:
-
-```ruby
-Upconverter.new('users', [ 1, 2, 3 ])
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L113)
-
-### `#command`
-
-Get the upconverted command.
-
-**Returns**:
-
-- (`BSON::Document`) — The upconverted command.
-
-**Examples**:
-
-```ruby
-upconverter.command
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L126)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/app_metadata.rb#L69)
 
 ---
 
@@ -10280,6 +10409,7 @@ Mongo::Cluster::CursorReaper.new(cluster)
 
 Start the cursor reaper's thread.
 
+
 **Examples**:
 
 ```ruby
@@ -10292,6 +10422,7 @@ reaper.run!
 ### `#run!`
 
 Start the cursor reaper's thread.
+
 
 **Examples**:
 
@@ -10366,6 +10497,7 @@ cursor_reaper.unregister_cursor(id)
 
 Stop the cursor reaper's thread.
 
+
 **Examples**:
 
 ```ruby
@@ -10379,6 +10511,7 @@ reaper.stop!
 
 Execute all pending kill cursors operations.
 
+
 **Examples**:
 
 ```ruby
@@ -10390,30 +10523,249 @@ cursor_reaper.kill_cursors
 
 ---
 
-## `class Mongo::Error::ExtraFileChunk`
+## `class Mongo::Protocol::KillCursors`
 
-### `#initialize`
+### `#initialize(collection, database, cursor_ids)`
 
-Create the new exception.
+Creates a new KillCursors message
+
+**Params**:
+
+- `collection` (`Mongo::Database`) — The collection.
+  
+
+- `database` (`Mongo::Database`) — The database.
+  
+
+- `cursor_ids` (`Array<Fixnum>`) — The cursor ids to kill.
+  
 
 **Returns**:
 
-- (`ExtraFileChunk`) — a new instance of ExtraFileChunk
+- (`KillCursors`) — a new instance of KillCursors
 
 **Examples**:
 
 ```ruby
-Mongo::Error::ExtraFileChunk.new
+KillCursors.new([1])
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/extra_file_chunk.rb#L29)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L34)
+
+### `#payload`
+
+Return the event payload for monitoring.
+
+**Returns**:
+
+- (`Hash`) — The event payload.
+
+**Examples**:
+
+```ruby
+message.payload
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L50)
+
+---
+
+## `class Mongo::Protocol::KillCursors::Upconverter`
+
+### `#collection`
+
+
+**Returns**:
+
+- (`String`) — collection The name of the collection.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L99)
+
+### `#cursor_ids`
+
+
+**Returns**:
+
+- (`Array<Integer>`) — cursor_ids The cursor ids.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L102)
+
+### `#initialize(collection, cursor_ids)`
+
+Instantiate the upconverter.
+
+**Params**:
+
+- `collection` (`String`) — The name of the collection.
+  
+
+- `cursor_ids` (`Array<Integer>`) — The cursor ids.
+  
+
+**Returns**:
+
+- (`Upconverter`) — a new instance of Upconverter
+
+**Examples**:
+
+```ruby
+Upconverter.new('users', [ 1, 2, 3 ])
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L113)
+
+### `#command`
+
+Get the upconverted command.
+
+**Returns**:
+
+- (`BSON::Document`) — The upconverted command.
+
+**Examples**:
+
+```ruby
+upconverter.command
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L126)
+
+---
+
+## `class Mongo::Event::PrimaryElected`
+
+### `#cluster`
+
+
+**Returns**:
+
+- (`Mongo::Cluster`) — cluster The cluster.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/primary_elected.rb#L26)
+
+### `#initialize(cluster)`
+
+Initialize the new primary elected event handler.
+
+**Params**:
+
+- `cluster` (`Mongo::Cluster`) — The cluster to publish from.
+  
+
+**Returns**:
+
+- (`PrimaryElected`) — a new instance of PrimaryElected
+
+**Examples**:
+
+```ruby
+PrimaryElected.new(cluster)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/primary_elected.rb#L36)
+
+### `#handle(description)`
+
+This event tells the cluster to take all previous primaries to an
+unknown state.
+
+**Params**:
+
+- `description` (`Server::Description`) — The description of the
+elected server.
+  
+
+**Examples**:
+
+```ruby
+primary_elected.handle(description)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/primary_elected.rb#L50)
+
+---
+
+## `class Mongo::Error::MultiIndexDrop`
+
+### `#initialize`
+
+Instantiate the new exception.
+
+**Returns**:
+
+- (`MultiIndexDrop`) — a new instance of MultiIndexDrop
+
+**Examples**:
+
+```ruby
+Mongo::Error::MultiIndexDrop.new
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/multi_index_drop.rb#L29)
+
+---
+
+## `class Mongo::Error::InvalidDocument`
+
+### `#initialize`
+
+Instantiate the new exception.
+
+**Returns**:
+
+- (`InvalidDocument`) — a new instance of InvalidDocument
+
+**Examples**:
+
+```ruby
+Mongo::Error::InvalidDocument.new
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_document.rb#L34)
+
+---
+
+## `class Mongo::Error::MaxMessageSize`
+
+### `#initialize(max_size = nil)`
+
+Instantiate the new exception.
+
+**Params**:
+
+- `max_size` (`Integer`) — The maximum message size.
+  
+
+**Returns**:
+
+- (`MaxMessageSize`) — a new instance of MaxMessageSize
+
+**Examples**:
+
+```ruby
+Mongo::Error::MaxMessageSize.new(max)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/max_message_size.rb#L37)
 
 ---
 
 ## `class Mongo::Auth::X509::Conversation`
 
 ### `#reply`
+
 
 **Returns**:
 
@@ -10424,6 +10776,7 @@ conversation.
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509/conversation.rb#L32)
 
 ### `#user`
+
 
 **Returns**:
 
@@ -10494,60 +10847,35 @@ Conversation.new(user, "admin")
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509/conversation.rb#L79)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509/conversation.rb#L81)
 
 ---
 
-## `class Mongo::Error::MultiIndexDrop`
+## `class Mongo::Error::ExtraFileChunk`
 
 ### `#initialize`
 
-Instantiate the new exception.
+Create the new exception.
 
 **Returns**:
 
-- (`MultiIndexDrop`) — a new instance of MultiIndexDrop
+- (`ExtraFileChunk`) — a new instance of ExtraFileChunk
 
 **Examples**:
 
 ```ruby
-Mongo::Error::MultiIndexDrop.new
+Mongo::Error::ExtraFileChunk.new
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/multi_index_drop.rb#L29)
-
----
-
-## `class Mongo::Error::MaxMessageSize`
-
-### `#initialize(max_size = nil)`
-
-Instantiate the new exception.
-
-**Params**:
-
-- `max_size` (`Integer`) — The maximum message size.
-  
-
-**Returns**:
-
-- (`MaxMessageSize`) — a new instance of MaxMessageSize
-
-**Examples**:
-
-```ruby
-Mongo::Error::MaxMessageSize.new(max)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/max_message_size.rb#L37)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/extra_file_chunk.rb#L29)
 
 ---
 
 ## `class Mongo::Server::ConnectionPool`
 
 ### `#options`
+
 
 **Returns**:
 
@@ -10560,6 +10888,7 @@ Mongo::Error::MaxMessageSize.new(max)
 
 Check a connection back into the pool. Will pull the connection from a
 thread local stack that should contain it after it was checked out.
+
 
 **Examples**:
 
@@ -10609,6 +10938,8 @@ pool.disconnect!
 ### `#initialize(options = {}, &block)`
 
 Create the new connection pool.
+
+**A block must be passed to set up the connections on initialization.**
 
 **Params**:
 
@@ -10690,30 +11021,10 @@ Mongo::Pool.get(server)
 
 ---
 
-## `class Mongo::Error::InvalidDocument`
-
-### `#initialize`
-
-Instantiate the new exception.
-
-**Returns**:
-
-- (`InvalidDocument`) — a new instance of InvalidDocument
-
-**Examples**:
-
-```ruby
-Mongo::Error::InvalidDocument.new
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_document.rb#L34)
-
----
-
 ## `class Mongo::Auth::LDAP::Conversation`
 
 ### `#reply`
+
 
 **Returns**:
 
@@ -10724,6 +11035,7 @@ conversation.
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap/conversation.rb#L32)
 
 ### `#user`
+
 
 **Returns**:
 
@@ -10802,6 +11114,7 @@ Conversation.new(user, "admin")
 
 ### `#result`
 
+
 **Returns**:
 
 - (`BSON::Document`) — result The error result.
@@ -10834,7 +11147,7 @@ Mongo::Error::BulkWriteFailure.new(response)
 
 ---
 
-## `class Mongo::ServerSelector::Primary`
+## `class Mongo::ServerSelector::Nearest`
 
 ### `#name`
 
@@ -10842,7 +11155,7 @@ Get the name of the server mode type.
 
 **Returns**:
 
-- (`Symbol`) — :primary
+- (`Symbol`) — :nearest
 
 **Examples**:
 
@@ -10851,7 +11164,7 @@ preference.name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/nearest.rb#L33)
 
 ### `#slave_ok?`
 
@@ -10860,10 +11173,10 @@ Whether the slaveOk bit should be set on wire protocol messages.
 
 **Returns**:
 
-- (`false`) — false
+- (`true`) — true
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary.rb#L44)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/nearest.rb#L43)
 
 ### `#tags_allowed?`
 
@@ -10871,10 +11184,10 @@ Whether tag sets are allowed to be defined for this server preference.
 
 **Returns**:
 
-- (`false`) — false
+- (`true`) — true
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary.rb#L53)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/nearest.rb#L52)
 
 ### `#to_mongos`
 
@@ -10883,373 +11196,25 @@ Convert this server preference definition into a format appropriate
 
 **Returns**:
 
-- (`nil`) — nil
+- (`Hash`) — The server preference formatted for a mongos server.
 
 **Examples**:
 
 ```ruby
 for mongos.
-preference = Mongo::ServerSelector::Primary.new
+preference = Mongo::ServerSelector::Nearest.new
 preference.to_mongos
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary.rb#L68)
-
----
-
-## `class Mongo::Cluster::Topology::Single`
-
-### `#seed`
-
-**Returns**:
-
-- (`String`) — seed The seed address.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L25)
-
-### `#display_name`
-
-Get the display name.
-
-**Returns**:
-
-- (`String`) — The display name.
-
-**Examples**:
-
-```ruby
-Single.display_name
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L40)
-
-### `#elect_primary(description, servers); self; end`
-
-Elect a primary server within this topology.
-
-**Params**:
-
-- `description` (`Server::Description`) — The description of the
-elected primary.
-  
-
-- `servers` (`Array<Server>`) — The list of known servers to the
-cluster.
-  
-
-**Returns**:
-
-- (`Single`) — The topology.
-
-**Examples**:
-
-```ruby
-topology.elect_primary(description, servers)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L55)
-
-### `#initialize(options, seeds = [])`
-
-Initialize the topology with the options.
-
-**Params**:
-
-- `options` (`Hash`) — The options.
-  
-
-**Returns**:
-
-- (`Single`) — a new instance of Single
-
-**Examples**:
-
-```ruby
-Single.new(options)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L65)
-
-### `#replica_set?; false; end`
-
-A single topology is not a replica set.
-
-**Returns**:
-
-- (`false`) — Always false.
-
-**Examples**:
-
-```ruby
-Single.replica_set?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L78)
-
-### `#replica_set_name; nil; end`
-
-Single topologies have no replica set name.
-
-**Returns**:
-
-- (`nil`) — Always nil.
-
-**Examples**:
-
-```ruby
-single.replica_set_name
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L88)
-
-### `#servers(servers, name = nil)`
-
-Select appropriate servers for this topology.
-
-**Params**:
-
-- `servers` (`Array<Server>`) — The known servers.
-  
-
-**Returns**:
-
-- (`Array<Server>`) — The single servers.
-
-**Examples**:
-
-```ruby
-Single.servers(servers, 'test')
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L100)
-
-### `#add_hosts?(description, servers); false; end`
-
-Whether a server description's hosts may be added to the cluster.
-
-**Params**:
-
-- `description` (`Mongo::Server::Description`) — The description.
-  
-
-- `servers` (`Array<Mongo::Server>`) — The cluster servers.
-  
-
-**Returns**:
-
-- (`false`) — A description's hosts are never added to a
-cluster of Single topology.
-
-**Examples**:
-
-```ruby
-topology.add_hosts?(description, servers)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L116)
-
-### `#remove_hosts?(description); false; end`
-
-Whether a description can be used to remove hosts from the cluster.
-
-the cluster.
-  topology.remove_hosts?(description)
-
-**Params**:
-
-- `description` (`Mongo::Server::Description`) — The description.
-  
-
-**Returns**:
-
-- (`true`) — A description can never be used to remove hosts
-from a cluster of Single topology.
-
-**Examples**:
-
-```ruby
-
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L130)
-
-### `#remove_server?(description, server); false; end`
-
-Whether a specific server in the cluster can be removed, given a description.
-
-**Params**:
-
-- `description` (`Mongo::Server::Description`) — The description.
-  
-
-- `server` (`Mongo::Serve`) — The server in question.
-  
-
-**Returns**:
-
-- (`false`) — A server is never removed from a cluster of Single topology.
-
-**Examples**:
-
-```ruby
-topology.remove_server?(description, server)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L143)
-
-### `#sharded?; false; end`
-
-A single topology is not sharded.
-
-**Returns**:
-
-- (`false`) — Always false.
-
-**Examples**:
-
-```ruby
-Single.sharded?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L153)
-
-### `#single?; true; end`
-
-A single topology is single.
-
-**Returns**:
-
-- (`true`) — Always true.
-
-**Examples**:
-
-```ruby
-Single.single?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L163)
-
-### `#unknown?; false; end`
-
-An single topology is not unknown.
-
-**Returns**:
-
-- (`false`) — Always false.
-
-**Examples**:
-
-```ruby
-Single.unknown?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L173)
-
-### `#standalone_discovered; self; end`
-
-Notify the topology that a standalone was discovered.
-
-**Returns**:
-
-- (`Topology::Single`) — Always returns self.
-
-**Examples**:
-
-```ruby
-topology.standalone_discovered
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L183)
-
----
-
-## `class Mongo::Error::InvalidSignature`
-
-### `#verifier`
-
-**Returns**:
-
-- (`String`) — verifier The server verifier string.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_signature.rb#L25)
-
-### `#server_signature`
-
-**Returns**:
-
-- (`String`) — server_signature The expected server signature.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_signature.rb#L28)
-
-### `#initialize(verifier, server_signature)`
-
-Create the new exception.
-
-**Params**:
-
-- `verifier` (`String`) — The verifier returned from the server.
-  
-
-- `server_signature` (`String`) — The expected value from the
-server.
-  
-
-**Returns**:
-
-- (`InvalidSignature`) — a new instance of InvalidSignature
-
-**Examples**:
-
-```ruby
-InvalidSignature.new(verifier, server_signature)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_signature.rb#L40)
-
----
-
-## `class Mongo::Error::OperationFailure`
-
-### `#retryable?`
-
-Can the operation that caused the error be retried?
-
-**Returns**:
-
-- (`true, false`) — If the error is retryable.
-
-**Examples**:
-
-```ruby
-error.retryable?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/operation_failure.rb#L53)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/nearest.rb#L67)
 
 ---
 
 ## `class Mongo::Auth::SCRAM::Conversation`
 
 ### `#nonce`
+
 
 **Returns**:
 
@@ -11260,6 +11225,7 @@ error.retryable?
 
 ### `#reply`
 
+
 **Returns**:
 
 - (`Protocol::Reply`) — reply The current reply in the
@@ -11269,6 +11235,7 @@ conversation.
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/scram/conversation.rb#L93)
 
 ### `#user`
+
 
 **Returns**:
 
@@ -11385,7 +11352,526 @@ Conversation.new(user)
 
 ---
 
-## `class Mongo::ServerSelector::Nearest`
+## `class Mongo::Error::InvalidSignature`
+
+### `#verifier`
+
+
+**Returns**:
+
+- (`String`) — verifier The server verifier string.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_signature.rb#L25)
+
+### `#server_signature`
+
+
+**Returns**:
+
+- (`String`) — server_signature The expected server signature.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_signature.rb#L28)
+
+### `#initialize(verifier, server_signature)`
+
+Create the new exception.
+
+**Params**:
+
+- `verifier` (`String`) — The verifier returned from the server.
+  
+
+- `server_signature` (`String`) — The expected value from the
+server.
+  
+
+**Returns**:
+
+- (`InvalidSignature`) — a new instance of InvalidSignature
+
+**Examples**:
+
+```ruby
+InvalidSignature.new(verifier, server_signature)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_signature.rb#L40)
+
+---
+
+## `class Mongo::Error::OperationFailure`
+
+### `#retryable?`
+
+Can the operation that caused the error be retried?
+
+**Returns**:
+
+- (`true, false`) — If the error is retryable.
+
+**Examples**:
+
+```ruby
+error.retryable?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/operation_failure.rb#L53)
+
+---
+
+## `class Mongo::Event::MemberDiscovered`
+
+### `#cluster`
+
+
+**Returns**:
+
+- (`Mongo::Cluster`) — cluster The cluster.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/member_discovered.rb#L25)
+
+### `#options`
+
+
+**Returns**:
+
+- (`Hash`) — options The options.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/member_discovered.rb#L28)
+
+### `#monitoring`
+
+
+**Returns**:
+
+- (`Monitoring`) — monitoring The monitoring.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/member_discovered.rb#L31)
+
+### `#initialize(cluster)`
+
+Initialize the new member discovered event handler.
+
+**Params**:
+
+- `cluster` (`Mongo::Cluster`) — The cluster to publish from.
+  
+
+**Returns**:
+
+- (`MemberDiscovered`) — a new instance of MemberDiscovered
+
+**Examples**:
+
+```ruby
+MemberDiscovered.new(cluster)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/member_discovered.rb#L41)
+
+### `#handle(previous, updated)`
+
+This event tells the cluster that a member of a topology is discovered.
+
+**Params**:
+
+- `previous` (`Server::Description`) — The previous description of the server.
+  
+
+- `updated` (`Server::Description`) — The updated description of the server.
+  
+
+**Examples**:
+
+```ruby
+member_discovered.handle(previous_description, description)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/member_discovered.rb#L56)
+
+---
+
+## `class Mongo::Cluster::Topology::Single`
+
+### `#options`
+
+
+**Returns**:
+
+- (`Hash`) — options The options.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L31)
+
+### `#seed`
+
+
+**Returns**:
+
+- (`String`) — seed The seed address.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L34)
+
+### `#monitoring`
+
+
+**Returns**:
+
+- (`monitoring`) — monitoring the monitoring.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L37)
+
+### `#display_name`
+
+Get the display name.
+
+**Returns**:
+
+- (`String`) — The display name.
+
+**Examples**:
+
+```ruby
+Single.display_name
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L47)
+
+### `#elect_primary(description, servers); self; end`
+
+Elect a primary server within this topology.
+
+**Params**:
+
+- `description` (`Server::Description`) — The description of the
+elected primary.
+  
+
+- `servers` (`Array<Server>`) — The list of known servers to the
+cluster.
+  
+
+**Returns**:
+
+- (`Single`) — The topology.
+
+**Examples**:
+
+```ruby
+topology.elect_primary(description, servers)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L62)
+
+### `#has_readable_server?(cluster, server_selector = nil); true; end`
+
+Determine if the topology would select a readable server for the
+provided candidates and read preference.
+
+**Params**:
+
+- `cluster` (`Cluster`) — The cluster.
+  
+
+- `server_selector` (`ServerSelector`) — The server
+selector.
+  
+
+**Returns**:
+
+- (`true`) — A standalone always has a readable server.
+
+**Examples**:
+
+```ruby
+topology.has_readable_server?(cluster, server_selector)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L77)
+
+### `#has_writable_server?(cluster); true; end`
+
+Determine if the topology would select a writable server for the
+provided candidates.
+
+**Params**:
+
+- `cluster` (`Cluster`) — The cluster.
+  
+
+**Returns**:
+
+- (`true`) — A standalone always has a writable server.
+
+**Examples**:
+
+```ruby
+topology.has_writable_server?(servers)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L90)
+
+### `#initialize(options, monitoring, seeds = [])`
+
+Initialize the topology with the options.
+
+**Params**:
+
+- `options` (`Hash`) — The options.
+  
+
+- `monitoring` (`Monitoring`) — The monitoring.
+  
+
+- `seeds` (`Array<String>`) — The seeds.
+  
+
+**Returns**:
+
+- (`Single`) — a new instance of Single
+
+**Examples**:
+
+```ruby
+Single.new(options)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L102)
+
+### `#replica_set?; false; end`
+
+A single topology is not a replica set.
+
+**Returns**:
+
+- (`false`) — Always false.
+
+**Examples**:
+
+```ruby
+Single.replica_set?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L116)
+
+### `#replica_set_name; nil; end`
+
+Single topologies have no replica set name.
+
+**Returns**:
+
+- (`nil`) — Always nil.
+
+**Examples**:
+
+```ruby
+single.replica_set_name
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L126)
+
+### `#servers(servers, name = nil)`
+
+Select appropriate servers for this topology.
+
+**Params**:
+
+- `servers` (`Array<Server>`) — The known servers.
+  
+
+**Returns**:
+
+- (`Array<Server>`) — The single servers.
+
+**Examples**:
+
+```ruby
+Single.servers(servers, 'test')
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L138)
+
+### `#add_hosts?(description, servers); false; end`
+
+Whether a server description's hosts may be added to the cluster.
+
+**Params**:
+
+- `description` (`Mongo::Server::Description`) — The description.
+  
+
+- `servers` (`Array<Mongo::Server>`) — The cluster servers.
+  
+
+**Returns**:
+
+- (`false`) — A description's hosts are never added to a
+cluster of Single topology.
+
+**Examples**:
+
+```ruby
+topology.add_hosts?(description, servers)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L154)
+
+### `#remove_hosts?(description); false; end`
+
+Whether a description can be used to remove hosts from the cluster.
+
+the cluster.
+  topology.remove_hosts?(description)
+
+**Params**:
+
+- `description` (`Mongo::Server::Description`) — The description.
+  
+
+**Returns**:
+
+- (`true`) — A description can never be used to remove hosts
+from a cluster of Single topology.
+
+**Examples**:
+
+```ruby
+
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L168)
+
+### `#remove_server?(description, server); false; end`
+
+Whether a specific server in the cluster can be removed, given a description.
+
+**Params**:
+
+- `description` (`Mongo::Server::Description`) — The description.
+  
+
+- `server` (`Mongo::Serve`) — The server in question.
+  
+
+**Returns**:
+
+- (`false`) — A server is never removed from a cluster of Single topology.
+
+**Examples**:
+
+```ruby
+topology.remove_server?(description, server)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L181)
+
+### `#sharded?; false; end`
+
+A single topology is not sharded.
+
+**Returns**:
+
+- (`false`) — Always false.
+
+**Examples**:
+
+```ruby
+Single.sharded?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L191)
+
+### `#single?; true; end`
+
+A single topology is single.
+
+**Returns**:
+
+- (`true`) — Always true.
+
+**Examples**:
+
+```ruby
+Single.single?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L201)
+
+### `#unknown?; false; end`
+
+An single topology is not unknown.
+
+**Returns**:
+
+- (`false`) — Always false.
+
+**Examples**:
+
+```ruby
+Single.unknown?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L211)
+
+### `#standalone_discovered; self; end`
+
+Notify the topology that a standalone was discovered.
+
+**Returns**:
+
+- (`Topology::Single`) — Always returns self.
+
+**Examples**:
+
+```ruby
+topology.standalone_discovered
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L221)
+
+### `#member_discovered`
+
+Publish that a member of this topology was discovered.
+
+
+**Examples**:
+
+```ruby
+topology.member_discovered
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L229)
+
+---
+
+## `class Mongo::ServerSelector::Primary`
 
 ### `#name`
 
@@ -11393,7 +11879,7 @@ Get the name of the server mode type.
 
 **Returns**:
 
-- (`Symbol`) — :nearest
+- (`Symbol`) — :primary
 
 **Examples**:
 
@@ -11402,7 +11888,7 @@ preference.name
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/nearest.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary.rb#L34)
 
 ### `#slave_ok?`
 
@@ -11411,10 +11897,10 @@ Whether the slaveOk bit should be set on wire protocol messages.
 
 **Returns**:
 
-- (`true`) — true
+- (`false`) — false
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/nearest.rb#L43)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary.rb#L44)
 
 ### `#tags_allowed?`
 
@@ -11422,10 +11908,10 @@ Whether tag sets are allowed to be defined for this server preference.
 
 **Returns**:
 
-- (`true`) — true
+- (`false`) — false
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/nearest.rb#L52)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary.rb#L53)
 
 ### `#to_mongos`
 
@@ -11434,18 +11920,732 @@ Convert this server preference definition into a format appropriate
 
 **Returns**:
 
-- (`Hash`) — The server preference formatted for a mongos server.
+- (`nil`) — nil
 
 **Examples**:
 
 ```ruby
 for mongos.
-preference = Mongo::ServerSelector::Nearest.new
+preference = Mongo::ServerSelector::Primary.new
 preference.to_mongos
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/nearest.rb#L67)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary.rb#L68)
+
+---
+
+## `class Mongo::Cluster::Topology::Sharded`
+
+### `#options`
+
+
+**Returns**:
+
+- (`Hash`) — options The options.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L31)
+
+### `#monitoring`
+
+
+**Returns**:
+
+- (`Monitoring`) — monitoring The monitoring.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L34)
+
+### `#display_name`
+
+Get the display name.
+
+**Returns**:
+
+- (`String`) — The display name.
+
+**Examples**:
+
+```ruby
+Sharded.display_name
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L44)
+
+### `#elect_primary(description, servers); self; end`
+
+Elect a primary server within this topology.
+
+**Params**:
+
+- `description` (`Server::Description`) — The description of the
+elected primary.
+  
+
+- `servers` (`Array<Server>`) — The list of known servers to the
+cluster.
+  
+
+**Returns**:
+
+- (`Sharded`) — The topology.
+
+**Examples**:
+
+```ruby
+topology.elect_primary(description, servers)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L59)
+
+### `#has_readable_server?(cluster, server_selector = nil); true; end`
+
+Determine if the topology would select a readable server for the
+provided candidates and read preference.
+
+**Params**:
+
+- `cluster` (`Cluster`) — The cluster.
+  
+
+- `server_selector` (`ServerSelector`) — The server
+selector.
+  
+
+**Returns**:
+
+- (`true`) — A Sharded cluster always has a readable server.
+
+**Examples**:
+
+```ruby
+topology.has_readable_server?(cluster, server_selector)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L74)
+
+### `#has_writable_server?(cluster); true; end`
+
+Determine if the topology would select a writable server for the
+provided candidates.
+
+**Params**:
+
+- `cluster` (`Cluster`) — The cluster.
+  
+
+**Returns**:
+
+- (`true`) — A Sharded cluster always has a writable server.
+
+**Examples**:
+
+```ruby
+topology.has_writable_server?(servers)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L87)
+
+### `#initialize(options, monitoring, seeds = [])`
+
+Initialize the topology with the options.
+
+**Params**:
+
+- `options` (`Hash`) — The options.
+  
+
+- `monitoring` (`Monitoring`) — The monitoring.
+  
+
+- `seeds` (`Array<String>`) — The seeds.
+  
+
+**Returns**:
+
+- (`Sharded`) — a new instance of Sharded
+
+**Examples**:
+
+```ruby
+Sharded.new(options)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L99)
+
+### `#replica_set?; false; end`
+
+A sharded topology is not a replica set.
+
+**Returns**:
+
+- (`false`) — Always false.
+
+**Examples**:
+
+```ruby
+Sharded.replica_set?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L112)
+
+### `#replica_set_name; nil; end`
+
+Sharded topologies have no replica set name.
+
+**Returns**:
+
+- (`nil`) — Always nil.
+
+**Examples**:
+
+```ruby
+sharded.replica_set_name
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L122)
+
+### `#servers(servers)`
+
+Select appropriate servers for this topology.
+
+**Params**:
+
+- `servers` (`Array<Server>`) — The known servers.
+  
+
+**Returns**:
+
+- (`Array<Server>`) — The mongos servers.
+
+**Examples**:
+
+```ruby
+Sharded.servers(servers)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L134)
+
+### `#add_hosts?(description, servers); false; end`
+
+Whether a server description's hosts may be added to the cluster.
+
+**Params**:
+
+- `description` (`Mongo::Server::Description`) — The description.
+  
+
+- `servers` (`Array<Mongo::Server>`) — The cluster servers.
+  
+
+**Returns**:
+
+- (`false`) — A description's hosts are never added to a
+sharded cluster.
+
+**Examples**:
+
+```ruby
+topology.add_hosts?(description, servers)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L150)
+
+### `#remove_hosts?(description); true; end`
+
+Whether a description can be used to remove hosts from the cluster.
+
+the cluster.
+  topology.remove_hosts?(description)
+
+**Params**:
+
+- `description` (`Mongo::Server::Description`) — The description.
+  
+
+**Returns**:
+
+- (`true`) — A description can always be used to remove hosts
+from a sharded cluster.
+
+**Examples**:
+
+```ruby
+
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L164)
+
+### `#remove_server?(description, server)`
+
+Whether a specific server in the cluster can be removed, given a description.
+
+**Params**:
+
+- `description` (`Mongo::Server::Description`) — The description.
+  
+
+- `server` (`Mongo::Serve`) — The server in question.
+  
+
+**Returns**:
+
+- (`true, false`) — Whether the server can be removed from the cluster.
+
+**Examples**:
+
+```ruby
+topology.remove_server?(description, server)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L177)
+
+### `#sharded?; true; end`
+
+A sharded topology is sharded.
+
+**Returns**:
+
+- (`true`) — Always true.
+
+**Examples**:
+
+```ruby
+Sharded.sharded?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L190)
+
+### `#single?; false; end`
+
+A sharded topology is not single.
+
+**Returns**:
+
+- (`false`) — Always false.
+
+**Examples**:
+
+```ruby
+Sharded.single?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L200)
+
+### `#unknown?; false; end`
+
+A sharded topology is not unknown.
+
+**Returns**:
+
+- (`false`) — Always false.
+
+**Examples**:
+
+```ruby
+Sharded.unknown?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L210)
+
+### `#standalone_discovered; self; end`
+
+Notify the topology that a standalone was discovered.
+
+**Returns**:
+
+- (`Topology::Sharded`) — Always returns self.
+
+**Examples**:
+
+```ruby
+topology.standalone_discovered
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L220)
+
+### `#member_discovered; end;`
+
+Notify the topology that a member was discovered.
+
+
+**Examples**:
+
+```ruby
+topology.member_discovered
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L228)
+
+---
+
+## `class Mongo::Cluster::Topology::Unknown`
+
+### `#options`
+
+
+**Returns**:
+
+- (`Hash`) — options The options.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L32)
+
+### `#monitoring`
+
+
+**Returns**:
+
+- (`Monitoring`) — monitoring The monitoring.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L35)
+
+### `#display_name`
+
+Get the display name.
+
+**Returns**:
+
+- (`String`) — The display name.
+
+**Examples**:
+
+```ruby
+Unknown.display_name
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L45)
+
+### `#elect_primary(description, servers)`
+
+Elect a primary server within this topology.
+
+**Params**:
+
+- `description` (`Server::Description`) — The description of the
+elected primary.
+  
+
+- `servers` (`Array<Server>`) — The list of known servers to the
+cluster.
+  
+
+**Returns**:
+
+- (`Sharded, ReplicaSet`) — The new topology.
+
+**Examples**:
+
+```ruby
+topology.elect_primary(description, servers)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L60)
+
+### `#has_readable_server?(cluster, server_selector = nil); false; end`
+
+Determine if the topology would select a readable server for the
+provided candidates and read preference.
+
+**Params**:
+
+- `cluster` (`Cluster`) — The cluster.
+  
+
+- `server_selector` (`ServerSelector`) — The server
+selector.
+  
+
+**Returns**:
+
+- (`false`) — An Unknown topology will never have a readable server.
+
+**Examples**:
+
+```ruby
+topology.has_readable_server?(cluster, server_selector)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L83)
+
+### `#has_writable_server?(cluster); false; end`
+
+Determine if the topology would select a writable server for the
+provided candidates.
+
+**Params**:
+
+- `cluster` (`Cluster`) — The cluster.
+  
+
+**Returns**:
+
+- (`false`) — An Unknown topology will never have a writable server.
+
+**Examples**:
+
+```ruby
+topology.has_writable_server?(servers)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L96)
+
+### `#initialize(options, monitoring, seeds = [])`
+
+Initialize the topology with the options.
+
+**Params**:
+
+- `options` (`Hash`) — The options.
+  
+
+- `monitoring` (`Monitoring`) — The monitoring.
+  
+
+- `seeds` (`Array<String>`) — The seeds.
+  
+
+**Returns**:
+
+- (`Unknown`) — a new instance of Unknown
+
+**Examples**:
+
+```ruby
+Unknown.new(options)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L108)
+
+### `#replica_set?; false; end`
+
+An unknown topology is not a replica set.
+
+**Returns**:
+
+- (`false`) — Always false.
+
+**Examples**:
+
+```ruby
+Unknown.replica_set?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L122)
+
+### `#replica_set_name; nil; end`
+
+Unknown topologies have no replica set name.
+
+**Returns**:
+
+- (`nil`) — Always nil.
+
+**Examples**:
+
+```ruby
+unknown.replica_set_name
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L132)
+
+### `#servers(servers)`
+
+Select appropriate servers for this topology.
+
+**Params**:
+
+- `servers` (`Array<Server>`) — The known servers.
+  
+
+**Examples**:
+
+```ruby
+Unknown.servers(servers)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L145)
+
+### `#sharded?; false; end`
+
+An unknown topology is not sharded.
+
+**Returns**:
+
+- (`false`) — Always false.
+
+**Examples**:
+
+```ruby
+Unknown.sharded?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L157)
+
+### `#single?; false; end`
+
+An unknown topology is not single.
+
+**Returns**:
+
+- (`true`) — Always false.
+
+**Examples**:
+
+```ruby
+Unknown.single?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L167)
+
+### `#unknown?; true; end`
+
+An unknown topology is unknown.
+
+**Returns**:
+
+- (`true`) — Always true.
+
+**Examples**:
+
+```ruby
+Unknown.unknown?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L177)
+
+### `#add_hosts?(description, servers)`
+
+Whether a server description's hosts may be added to the cluster.
+
+**Params**:
+
+- `description` (`Mongo::Server::Description`) — The description.
+  
+
+- `servers` (`Array<Mongo::Server>`) — The cluster servers.
+  
+
+**Returns**:
+
+- (`true, false`) — Whether a description's hosts may be added.
+
+**Examples**:
+
+```ruby
+topology.add_hosts?(description, servers)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L190)
+
+### `#remove_hosts?(description)`
+
+Whether a description can be used to remove hosts from the cluster.
+
+**Params**:
+
+- `description` (`Mongo::Server::Description`) — The description.
+  
+
+**Returns**:
+
+- (`true, false`) — Whether hosts may be removed from the cluster.
+
+**Examples**:
+
+```ruby
+topology.remove_hosts?(description)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L204)
+
+### `#remove_server?(description, server)`
+
+Whether a specific server in the cluster can be removed, given a description.
+
+**Params**:
+
+- `description` (`Mongo::Server::Description`) — The description.
+  
+
+- `server` (`Mongo::Serve`) — The server in question.
+  
+
+**Returns**:
+
+- (`true, false`) — Whether the server can be removed from the cluster.
+
+**Examples**:
+
+```ruby
+topology.remove_server?(description, server)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L219)
+
+### `#standalone_discovered`
+
+Notify the topology that a standalone was discovered.
+
+**Returns**:
+
+- (`Topology::Unknown, Topology::Single`) — Either self or a
+new Single topology.
+
+**Examples**:
+
+```ruby
+topology.standalone_discovered
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L232)
+
+### `#member_discovered`
+
+Notify the topology that a member was discovered.
+
+
+**Examples**:
+
+```ruby
+topology.member_discovered
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L248)
 
 ---
 
@@ -11475,549 +12675,6 @@ Mongo::Error::MissingFileChunk.new(expected_n, chunk)
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/missing_file_chunk.rb#L33)
-
----
-
-## `class Mongo::Cluster::Topology::Unknown`
-
-### `#options`
-
-**Returns**:
-
-- (`Hash`) — options The options.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L31)
-
-### `#display_name`
-
-Get the display name.
-
-**Returns**:
-
-- (`String`) — The display name.
-
-**Examples**:
-
-```ruby
-Unknown.display_name
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L41)
-
-### `#elect_primary(description, servers)`
-
-Elect a primary server within this topology.
-
-**Params**:
-
-- `description` (`Server::Description`) — The description of the
-elected primary.
-  
-
-- `servers` (`Array<Server>`) — The list of known servers to the
-cluster.
-  
-
-**Returns**:
-
-- (`Sharded, ReplicaSet`) — The new topology.
-
-**Examples**:
-
-```ruby
-topology.elect_primary(description, servers)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L56)
-
-### `#initialize(options, seeds = [])`
-
-Initialize the topology with the options.
-
-**Params**:
-
-- `options` (`Hash`) — The options.
-  
-
-**Returns**:
-
-- (`Unknown`) — a new instance of Unknown
-
-**Examples**:
-
-```ruby
-Unknown.new(options)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L73)
-
-### `#replica_set?; false; end`
-
-An unknown topology is not a replica set.
-
-**Returns**:
-
-- (`false`) — Always false.
-
-**Examples**:
-
-```ruby
-Unknown.replica_set?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L86)
-
-### `#replica_set_name; nil; end`
-
-Unknown topologies have no replica set name.
-
-**Returns**:
-
-- (`nil`) — Always nil.
-
-**Examples**:
-
-```ruby
-unknown.replica_set_name
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L96)
-
-### `#servers(servers)`
-
-Select appropriate servers for this topology.
-
-**Params**:
-
-- `servers` (`Array<Server>`) — The known servers.
-  
-
-**Examples**:
-
-```ruby
-Unknown.servers(servers)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L109)
-
-### `#sharded?; false; end`
-
-An unknown topology is not sharded.
-
-**Returns**:
-
-- (`false`) — Always false.
-
-**Examples**:
-
-```ruby
-Unknown.sharded?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L121)
-
-### `#single?; false; end`
-
-An unknown topology is not single.
-
-**Returns**:
-
-- (`true`) — Always false.
-
-**Examples**:
-
-```ruby
-Unknown.single?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L131)
-
-### `#unknown?; true; end`
-
-An unknown topology is unknown.
-
-**Returns**:
-
-- (`true`) — Always true.
-
-**Examples**:
-
-```ruby
-Unknown.unknown?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L141)
-
-### `#add_hosts?(description, servers)`
-
-Whether a server description's hosts may be added to the cluster.
-
-**Params**:
-
-- `description` (`Mongo::Server::Description`) — The description.
-  
-
-- `servers` (`Array<Mongo::Server>`) — The cluster servers.
-  
-
-**Returns**:
-
-- (`true, false`) — Whether a description's hosts may be added.
-
-**Examples**:
-
-```ruby
-topology.add_hosts?(description, servers)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L154)
-
-### `#remove_hosts?(description)`
-
-Whether a description can be used to remove hosts from the cluster.
-
-**Params**:
-
-- `description` (`Mongo::Server::Description`) — The description.
-  
-
-**Returns**:
-
-- (`true, false`) — Whether hosts may be removed from the cluster.
-
-**Examples**:
-
-```ruby
-topology.remove_hosts?(description)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L168)
-
-### `#remove_server?(description, server)`
-
-Whether a specific server in the cluster can be removed, given a description.
-
-**Params**:
-
-- `description` (`Mongo::Server::Description`) — The description.
-  
-
-- `server` (`Mongo::Serve`) — The server in question.
-  
-
-**Returns**:
-
-- (`true, false`) — Whether the server can be removed from the cluster.
-
-**Examples**:
-
-```ruby
-topology.remove_server?(description, server)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L183)
-
-### `#standalone_discovered`
-
-Notify the topology that a standalone was discovered.
-
-**Returns**:
-
-- (`Topology::Unknown, Topology::Single`) — Either self or a
-new Single topology.
-
-**Examples**:
-
-```ruby
-topology.standalone_discovered
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L196)
-
----
-
-## `class Mongo::Cluster::Topology::Sharded`
-
-### `#display_name`
-
-Get the display name.
-
-**Returns**:
-
-- (`String`) — The display name.
-
-**Examples**:
-
-```ruby
-Sharded.display_name
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L37)
-
-### `#elect_primary(description, servers); self; end`
-
-Elect a primary server within this topology.
-
-**Params**:
-
-- `description` (`Server::Description`) — The description of the
-elected primary.
-  
-
-- `servers` (`Array<Server>`) — The list of known servers to the
-cluster.
-  
-
-**Returns**:
-
-- (`Sharded`) — The topology.
-
-**Examples**:
-
-```ruby
-topology.elect_primary(description, servers)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L52)
-
-### `#initialize(options, seeds = [])`
-
-Initialize the topology with the options.
-
-**Params**:
-
-- `options` (`Hash`) — The options.
-  
-
-**Returns**:
-
-- (`Sharded`) — a new instance of Sharded
-
-**Examples**:
-
-```ruby
-Sharded.new(options)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L62)
-
-### `#replica_set?; false; end`
-
-A sharded topology is not a replica set.
-
-**Returns**:
-
-- (`false`) — Always false.
-
-**Examples**:
-
-```ruby
-Sharded.replica_set?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L74)
-
-### `#replica_set_name; nil; end`
-
-Sharded topologies have no replica set name.
-
-**Returns**:
-
-- (`nil`) — Always nil.
-
-**Examples**:
-
-```ruby
-sharded.replica_set_name
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L84)
-
-### `#servers(servers)`
-
-Select appropriate servers for this topology.
-
-**Params**:
-
-- `servers` (`Array<Server>`) — The known servers.
-  
-
-**Returns**:
-
-- (`Array<Server>`) — The mongos servers.
-
-**Examples**:
-
-```ruby
-Sharded.servers(servers)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L96)
-
-### `#add_hosts?(description, servers); false; end`
-
-Whether a server description's hosts may be added to the cluster.
-
-**Params**:
-
-- `description` (`Mongo::Server::Description`) — The description.
-  
-
-- `servers` (`Array<Mongo::Server>`) — The cluster servers.
-  
-
-**Returns**:
-
-- (`false`) — A description's hosts are never added to a
-sharded cluster.
-
-**Examples**:
-
-```ruby
-topology.add_hosts?(description, servers)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L112)
-
-### `#remove_hosts?(description); true; end`
-
-Whether a description can be used to remove hosts from the cluster.
-
-the cluster.
-  topology.remove_hosts?(description)
-
-**Params**:
-
-- `description` (`Mongo::Server::Description`) — The description.
-  
-
-**Returns**:
-
-- (`true`) — A description can always be used to remove hosts
-from a sharded cluster.
-
-**Examples**:
-
-```ruby
-
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L126)
-
-### `#remove_server?(description, server)`
-
-Whether a specific server in the cluster can be removed, given a description.
-
-**Params**:
-
-- `description` (`Mongo::Server::Description`) — The description.
-  
-
-- `server` (`Mongo::Serve`) — The server in question.
-  
-
-**Returns**:
-
-- (`true, false`) — Whether the server can be removed from the cluster.
-
-**Examples**:
-
-```ruby
-topology.remove_server?(description, server)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L139)
-
-### `#sharded?; true; end`
-
-A sharded topology is sharded.
-
-**Returns**:
-
-- (`true`) — Always true.
-
-**Examples**:
-
-```ruby
-Sharded.sharded?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L152)
-
-### `#single?; false; end`
-
-A sharded topology is not single.
-
-**Returns**:
-
-- (`false`) — Always false.
-
-**Examples**:
-
-```ruby
-Sharded.single?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L162)
-
-### `#unknown?; false; end`
-
-A sharded topology is not unknown.
-
-**Returns**:
-
-- (`false`) — Always false.
-
-**Examples**:
-
-```ruby
-Sharded.unknown?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L172)
-
-### `#standalone_discovered; self; end`
-
-Notify the topology that a standalone was discovered.
-
-**Returns**:
-
-- (`Topology::Sharded`) — Always returns self.
-
-**Examples**:
-
-```ruby
-topology.standalone_discovered
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L182)
 
 ---
 
@@ -12114,6 +12771,108 @@ preference.to_mongos
 
 ---
 
+## `class Mongo::Error::NoServerAvailable`
+
+### `#initialize(server_selector)`
+
+Instantiate the new exception.
+
+**Params**:
+
+- `server_selector` (`Hash`) — The server preference that could not be
+satisfied.
+  
+
+**Returns**:
+
+- (`NoServerAvailable`) — a new instance of NoServerAvailable
+
+**Examples**:
+
+```ruby
+Mongo::Error::NoServerAvailable.new(server_selector)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/no_server_available.rb#L32)
+
+---
+
+## `class Mongo::Event::DescriptionChanged`
+
+### `#cluster`
+
+
+**Returns**:
+
+- (`Mongo::Cluster`) — cluster The cluster.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/description_changed.rb#L26)
+
+### `#options`
+
+
+**Returns**:
+
+- (`Hash`) — options The options.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/description_changed.rb#L29)
+
+### `#monitoring`
+
+
+**Returns**:
+
+- (`Monitoring`) — monitoring The monitoring.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/description_changed.rb#L32)
+
+### `#initialize(cluster)`
+
+Initialize the new host added event handler.
+
+**Params**:
+
+- `cluster` (`Mongo::Cluster`) — The cluster to publish from.
+  
+
+**Returns**:
+
+- (`DescriptionChanged`) — a new instance of DescriptionChanged
+
+**Examples**:
+
+```ruby
+ServerAdded.new(cluster)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/description_changed.rb#L42)
+
+### `#handle(previous, updated)`
+
+This event publishes an event to add the cluster and logs the
+configuration change.
+
+**Params**:
+
+- `updated` (`Server::Description`) — The changed description.
+  
+
+**Examples**:
+
+```ruby
+server_added.handle('127.0.0.1:27018')
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/description_changed.rb#L57)
+
+---
+
 ## `class Mongo::Server::Monitor::Connection`
 
 ### `#ismaster`
@@ -12137,6 +12896,9 @@ connection.ismaster
 
 Tell the underlying socket to establish a connection to the host.
 
+**This method mutates the connection class by setting a socket if
+one previously did not exist.**
+
 **Returns**:
 
 - (`true`) — If the connection succeeded.
@@ -12154,6 +12916,9 @@ connection.connect!
 
 Disconnect the connection.
 
+**This method mutates the connection by setting the socket to nil
+if the closing succeeded.**
+
 **Returns**:
 
 - (`true`) — If the disconnect succeeded.
@@ -12170,6 +12935,9 @@ connection.disconnect!
 ### `#initialize(address, options = {})`
 
 Initialize a new socket connection from the client to the server.
+
+**Connection must never be directly instantiated outside of a
+Monitor.**
 
 **Params**:
 
@@ -12211,219 +12979,10 @@ connection.timeout
 
 ---
 
-## `class Mongo::Event::DescriptionChanged`
-
-### `#cluster`
-
-**Returns**:
-
-- (`Mongo::Cluster`) — cluster The event publisher.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/description_changed.rb#L25)
-
-### `#initialize(cluster)`
-
-Initialize the new host added event handler.
-
-**Params**:
-
-- `cluster` (`Mongo::Cluster`) — The cluster to publish from.
-  
-
-**Returns**:
-
-- (`DescriptionChanged`) — a new instance of DescriptionChanged
-
-**Examples**:
-
-```ruby
-ServerAdded.new(cluster)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/description_changed.rb#L35)
-
-### `#handle(updated)`
-
-This event publishes an event to add the cluster and logs the
-configuration change.
-
-**Params**:
-
-- `updated` (`Server::Description`) — The changed description.
-  
-
-**Examples**:
-
-```ruby
-server_added.handle('127.0.0.1:27018')
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/description_changed.rb#L48)
-
----
-
-## `class Mongo::Error::NoServerAvailable`
-
-### `#initialize(server_selector)`
-
-Instantiate the new exception.
-
-**Params**:
-
-- `server_selector` (`Hash`) — The server preference that could not be
-satisfied.
-  
-
-**Returns**:
-
-- (`NoServerAvailable`) — a new instance of NoServerAvailable
-
-**Examples**:
-
-```ruby
-Mongo::Error::NoServerAvailable.new(server_selector)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/no_server_available.rb#L32)
-
----
-
-## `class Mongo::Operation::Write::DropIndex`
-
-### `#execute(server)`
-
-Execute the drop index operation.
-
-**Params**:
-
-- `server` (`Mongo::Server`) — The server to send this operation to.
-  
-
-**Returns**:
-
-- (`Result`) — The result of the operation.
-
-**Examples**:
-
-```ruby
-operation.execute(server)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/drop_index.rb#L51)
-
----
-
-## `class Mongo::BulkWrite::ResultCombiner`
-
-### `#count`
-
-**Returns**:
-
-- (`Integer`) — count The count of documents in the entire batch.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L26)
-
-### `#results`
-
-**Returns**:
-
-- (`Hash`) — results The results hash.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L29)
-
-### `#initialize`
-
-Create the new result combiner.
-
-**Returns**:
-
-- (`ResultCombiner`) — a new instance of ResultCombiner
-
-**Examples**:
-
-```ruby
-ResultCombiner.new
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L39)
-
-### `#combine!(result, count)`
-
-Combines a result into the overall results.
-
-**Params**:
-
-- `result` (`Operation::Result`) — The result to combine.
-  
-
-- `count` (`Integer`) — The count of requests in the batch.
-  
-
-**Examples**:
-
-```ruby
-combiner.combine!(result, count)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L55)
-
-### `#result`
-
-Get the final result.
-
-**Returns**:
-
-- (`BulkWrite::Result`) — The final result.
-
-**Examples**:
-
-```ruby
-combinator.result
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L72)
-
----
-
-## `class Mongo::Operation::Commands::Indexes`
-
-### `#execute(server)`
-
-Execute the operation.
-
-**Params**:
-
-- `server` (`Mongo::Server`) — The server to send this operation to.
-  
-
-**Returns**:
-
-- (`Result`) — The indexes operation response.
-
-**Examples**:
-
-```ruby
-operation.execute(server)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/indexes.rb#L47)
-
----
-
 ## `class Mongo::Collection::View::MapReduce`
 
 ### `#view`
+
 
 **Returns**:
 
@@ -12434,6 +12993,7 @@ operation.execute(server)
 
 ### `#map`
 
+
 **Returns**:
 
 - (`String`) — map The map function.
@@ -12442,6 +13002,7 @@ operation.execute(server)
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/map_reduce.rb#L44)
 
 ### `#reduce`
+
 
 **Returns**:
 
@@ -12631,9 +13192,48 @@ map_reduce.verbose(false)
 
 ---
 
+## `class Mongo::WriteConcern::Acknowledged`
+
+### `#get_last_error`
+
+Get the get last error command for the concern.
+
+**Returns**:
+
+- (`Hash`) — The gle command.
+
+**Examples**:
+
+```ruby
+acknowledged.get_last_error
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern/acknowledged.rb#L33)
+
+### `#inspect`
+
+Get a human-readable string representation of an acknowledged write concern.
+
+**Returns**:
+
+- (`String`) — A string representation of an acknowledged write concern.
+
+**Examples**:
+
+```ruby
+write_concern.inspect
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern/acknowledged.rb#L47)
+
+---
+
 ## `class Mongo::Cursor::Builder::OpGetMore`
 
 ### `#cursor`
+
 
 **Returns**:
 
@@ -12683,41 +13283,134 @@ op_get_more.specification
 
 ---
 
-## `class Mongo::WriteConcern::Acknowledged`
+## `class Mongo::Operation::Commands::Indexes`
 
-### `#get_last_error`
+### `#execute(server)`
 
-Get the get last error command for the concern.
+Execute the operation.
+
+**Params**:
+
+- `server` (`Mongo::Server`) — The server to send this operation to.
+  
 
 **Returns**:
 
-- (`Hash`) — The gle command.
+- (`Result`) — The indexes operation response.
 
 **Examples**:
 
 ```ruby
-acknowledged.get_last_error
+operation.execute(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern/acknowledged.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/indexes.rb#L47)
 
-### `#inspect`
+---
 
-Get a human-readable string representation of an acknowledged write concern.
+## `class Mongo::Operation::Write::DropIndex`
+
+### `#execute(server)`
+
+Execute the drop index operation.
+
+**Params**:
+
+- `server` (`Mongo::Server`) — The server to send this operation to.
+  
 
 **Returns**:
 
-- (`String`) — A string representation of an acknowledged write concern.
+- (`Result`) — The result of the operation.
 
 **Examples**:
 
 ```ruby
-write_concern.inspect
+operation.execute(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern/acknowledged.rb#L47)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/drop_index.rb#L51)
+
+---
+
+## `class Mongo::BulkWrite::ResultCombiner`
+
+### `#count`
+
+
+**Returns**:
+
+- (`Integer`) — count The count of documents in the entire batch.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L26)
+
+### `#results`
+
+
+**Returns**:
+
+- (`Hash`) — results The results hash.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L29)
+
+### `#initialize`
+
+Create the new result combiner.
+
+**Returns**:
+
+- (`ResultCombiner`) — a new instance of ResultCombiner
+
+**Examples**:
+
+```ruby
+ResultCombiner.new
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L39)
+
+### `#combine!(result, count)`
+
+Combines a result into the overall results.
+
+**Params**:
+
+- `result` (`Operation::Result`) — The result to combine.
+  
+
+- `count` (`Integer`) — The count of requests in the batch.
+  
+
+**Examples**:
+
+```ruby
+combiner.combine!(result, count)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L55)
+
+### `#result`
+
+Get the final result.
+
+**Returns**:
+
+- (`BulkWrite::Result`) — The final result.
+
+**Examples**:
+
+```ruby
+combinator.result
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L72)
 
 ---
 
@@ -12748,6 +13441,65 @@ Unsupported.new(0..3)
 
 ---
 
+## `class Mongo::Server::Description::Features`
+
+### `#server_wire_versions`
+
+
+**Returns**:
+
+- (`Range`) — server_wire_versions The server's supported wire
+versions.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/features.rb#L63)
+
+### `#initialize(server_wire_versions)`
+
+Initialize the features.
+
+**Params**:
+
+- `server_wire_versions` (`Range`) — The server supported wire
+versions.
+  
+
+**Returns**:
+
+- (`Features`) — a new instance of Features
+
+**Examples**:
+
+```ruby
+Features.new(0..3)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/features.rb#L74)
+
+---
+
+## `class Mongo::Error::InvalidWriteConcern`
+
+### `#initialize`
+
+Instantiate the new exception.
+
+**Returns**:
+
+- (`InvalidWriteConcern`) — a new instance of InvalidWriteConcern
+
+**Examples**:
+
+```ruby
+Mongo::Error::InvalidWriteConcern.new
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_write_concern.rb#L29)
+
+---
+
 ## `class Mongo::Error::UnsupportedCollation`
 
 ### `#initialize(message = nil)`
@@ -12769,9 +13521,102 @@ Mongo::Error::UnsupportedCollation.new
 
 ---
 
+## `class Mongo::BulkWrite::OrderedCombiner`
+
+### `#combine`
+
+Combine the requests in order.
+
+**Returns**:
+
+- (`Array<Hash>`) — The combined requests.
+
+**Examples**:
+
+```ruby
+combiner.combine
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/ordered_combiner.rb#L38)
+
+---
+
+## `class Mongo::Error::InvalidFileRevision`
+
+### `#initialize(filename, revision)`
+
+Create the new exception.
+
+**Params**:
+
+- `filename` (`String`) — The name of the file.
+  
+
+- `revision` (`Integer`) — The requested revision.
+  
+
+**Returns**:
+
+- (`InvalidFileRevision`) — a new instance of InvalidFileRevision
+
+**Examples**:
+
+```ruby
+Mongo::Error::InvalidFileRevision.new('some-file.txt', 3)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_file_revision.rb#L32)
+
+---
+
+## `class Mongo::Error::InvalidDatabaseName`
+
+### `#initialize`
+
+Instantiate the new exception.
+
+**Returns**:
+
+- (`InvalidDatabaseName`) — a new instance of InvalidDatabaseName
+
+**Examples**:
+
+```ruby
+Mongo::Error::InvalidDatabaseName.new
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_database_name.rb#L34)
+
+---
+
+## `class Mongo::Operation::Read::Query::Result`
+
+### `#successful?`
+
+Determine if the query was a success.
+
+**Returns**:
+
+- (`true, false`) — If the query was successful.
+
+**Examples**:
+
+```ruby
+result.successful?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/read/query/result.rb#L33)
+
+---
+
 ## `class Mongo::Collection::View::Aggregation`
 
 ### `#view`
+
 
 **Returns**:
 
@@ -12781,6 +13626,7 @@ Mongo::Error::UnsupportedCollation.new
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/aggregation.rb#L32)
 
 ### `#pipeline`
+
 
 **Returns**:
 
@@ -12864,9 +13710,10 @@ aggregation.explain
 
 ### `#cluster`
 
+
 **Returns**:
 
-- (`Mongo::Cluster`) — cluster The event publisher.
+- (`Mongo::Cluster`) — cluster The cluster.
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/standalone_discovered.rb#L24)
@@ -12915,535 +13762,39 @@ standalone_discovered.handle(description)
 
 ---
 
-## `class Mongo::Operation::Read::Query::Result`
+## `class Mongo::Error::InvalidBulkOperation`
 
-### `#successful?`
-
-Determine if the query was a success.
-
-**Returns**:
-
-- (`true, false`) — If the query was successful.
-
-**Examples**:
-
-```ruby
-result.successful?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/read/query/result.rb#L33)
-
----
-
-## `class Mongo::Server::Description::Features`
-
-### `#server_wire_versions`
-
-**Returns**:
-
-- (`Range`) — server_wire_versions The server's supported wire
-versions.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/features.rb#L63)
-
-### `#initialize(server_wire_versions)`
-
-Initialize the features.
-
-**Params**:
-
-- `server_wire_versions` (`Range`) — The server supported wire
-versions.
-  
-
-**Returns**:
-
-- (`Features`) — a new instance of Features
-
-**Examples**:
-
-```ruby
-Features.new(0..3)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/features.rb#L74)
-
----
-
-## `class Mongo::Error::InvalidDatabaseName`
-
-### `#initialize`
+### `#initialize(type, operation)`
 
 Instantiate the new exception.
 
-**Returns**:
-
-- (`InvalidDatabaseName`) — a new instance of InvalidDatabaseName
-
-**Examples**:
-
-```ruby
-Mongo::Error::InvalidDatabaseName.new
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_database_name.rb#L34)
-
----
-
-## `class Mongo::Error::InvalidWriteConcern`
-
-### `#initialize`
-
-Instantiate the new exception.
-
-**Returns**:
-
-- (`InvalidWriteConcern`) — a new instance of InvalidWriteConcern
-
-**Examples**:
-
-```ruby
-Mongo::Error::InvalidWriteConcern.new
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_write_concern.rb#L29)
-
----
-
-## `class Mongo::Error::InvalidFileRevision`
-
-### `#initialize(filename, revision)`
-
-Create the new exception.
-
 **Params**:
 
-- `filename` (`String`) — The name of the file.
+- `type` (`String`) — The bulk operation type.
   
 
-- `revision` (`Integer`) — The requested revision.
-  
-
-**Returns**:
-
-- (`InvalidFileRevision`) — a new instance of InvalidFileRevision
-
-**Examples**:
-
-```ruby
-Mongo::Error::InvalidFileRevision.new('some-file.txt', 3)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_file_revision.rb#L32)
-
----
-
-## `class Mongo::BulkWrite::OrderedCombiner`
-
-### `#combine`
-
-Combine the requests in order.
-
-**Returns**:
-
-- (`Array<Hash>`) — The combined requests.
-
-**Examples**:
-
-```ruby
-combiner.combine
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/ordered_combiner.rb#L38)
-
----
-
-## `class Mongo::Server::Description::Inspector`
-
-### `#inspectors`
-
-**Returns**:
-
-- (`Array`) — inspectors The description inspectors.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector.rb#L41)
-
-### `#initialize(listeners)`
-
-Create the new inspector.
-
-**Params**:
-
-- `listeners` (`Event::Listeners`) — The event listeners.
+- `operation` (`Hash`) — The bulk operation.
   
 
 **Returns**:
 
-- (`Inspector`) — a new instance of Inspector
+- (`InvalidBulkOperation`) — a new instance of InvalidBulkOperation
 
 **Examples**:
 
 ```ruby
-Inspector.new(listeners)
+Mongo::Error::InvalidBulkOperation.new(name)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector.rb#L51)
-
-### `#run(description, ismaster, average_round_trip_time)`
-
-Run the server description inspector.
-
-**Params**:
-
-- `description` (`Description`) — The old description.
-  
-
-- `ismaster` (`Hash`) — The updated ismaster.
-  
-
-- `average_round_trip_time` (`Float`) — The moving average round trip time (sec).
-  
-
-**Returns**:
-
-- (`Description`) — The new description.
-
-**Examples**:
-
-```ruby
-inspector.run(description, { 'ismaster' => true })
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector.rb#L69)
-
----
-
-## `class Mongo::WriteConcern::Unacknowledged`
-
-### `#get_last_error`
-
-Get the gle command for an unacknowledged write.
-
-**Returns**:
-
-- (`nil`) — The noop.
-
-**Examples**:
-
-```ruby
-unacknowledged.get_last_error
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern/unacknowledged.rb#L38)
-
-### `#inspect`
-
-Get a human-readable string representation of an unacknowledged write concern.
-
-**Returns**:
-
-- (`String`) — A string representation of an unacknowledged write concern.
-
-**Examples**:
-
-```ruby
-write_concern.inspect
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern/unacknowledged.rb#L50)
-
----
-
-## `class Mongo::Cluster::Topology::ReplicaSet`
-
-### `#options`
-
-**Returns**:
-
-- (`Hash`) — options The options.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L31)
-
-### `#display_name`
-
-Get the display name.
-
-**Returns**:
-
-- (`String`) — The display name.
-
-**Examples**:
-
-```ruby
-ReplicaSet.display_name
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L46)
-
-### `#elect_primary(description, servers)`
-
-Elect a primary server within this topology.
-
-**Params**:
-
-- `description` (`Server::Description`) — The description of the
-elected primary.
-  
-
-- `servers` (`Array<Server>`) — The list of known servers to the
-cluster.
-  
-
-**Returns**:
-
-- (`ReplicaSet`) — The topology.
-
-**Examples**:
-
-```ruby
-topology.elect_primary(description, servers)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L61)
-
-### `#initialize(options, seeds = [])`
-
-Initialize the topology with the options.
-
-**Params**:
-
-- `options` (`Hash`) — The options.
-  
-
-**Returns**:
-
-- (`ReplicaSet`) — a new instance of ReplicaSet
-
-**Examples**:
-
-```ruby
-ReplicaSet.new(options)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L90)
-
-### `#replica_set?; true; end`
-
-A replica set topology is a replica set.
-
-**Returns**:
-
-- (`true`) — Always true.
-
-**Examples**:
-
-```ruby
-ReplicaSet.replica_set?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L104)
-
-### `#replica_set_name`
-
-Get the replica set name configured for this topology.
-
-**Returns**:
-
-- (`String`) — The name of the configured replica set.
-
-**Examples**:
-
-```ruby
-topology.replica_set_name
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L114)
-
-### `#servers(servers)`
-
-Select appropriate servers for this topology.
-
-**Params**:
-
-- `servers` (`Array<Server>`) — The known servers.
-  
-
-**Returns**:
-
-- (`Array<Server>`) — The servers in the replica set.
-
-**Examples**:
-
-```ruby
-ReplicaSet.servers(servers)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L128)
-
-### `#add_hosts?(description, servers)`
-
-Whether a server description's hosts may be added to the cluster.
-
-**Params**:
-
-- `description` (`Mongo::Server::Description`) — The description.
-  
-
-- `servers` (`Array<Mongo::Server>`) — The cluster servers.
-  
-
-**Returns**:
-
-- (`true, false`) — Whether a description's hosts may be added.
-
-**Examples**:
-
-```ruby
-topology.add_hosts?(description, servers)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L146)
-
-### `#remove_hosts?(description)`
-
-Whether a description can be used to remove hosts from the cluster.
-
-**Params**:
-
-- `description` (`Mongo::Server::Description`) — The description.
-  
-
-**Returns**:
-
-- (`true, false`) — Whether hosts may be removed from the cluster.
-
-**Examples**:
-
-```ruby
-topology.remove_hosts?(description)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L161)
-
-### `#remove_server?(description, server)`
-
-Whether a specific server in the cluster can be removed, given a description.
-
-**Params**:
-
-- `description` (`Mongo::Server::Description`) — The description.
-  
-
-- `server` (`Mongo::Serve`) — The server in question.
-  
-
-**Returns**:
-
-- (`true, false`) — Whether the server can be removed from the cluster.
-
-**Examples**:
-
-```ruby
-topology.remove_server?(description, server)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L180)
-
-### `#sharded?; false; end`
-
-A replica set topology is not sharded.
-
-**Returns**:
-
-- (`false`) — Always false.
-
-**Examples**:
-
-```ruby
-ReplicaSet.sharded?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L193)
-
-### `#single?; false; end`
-
-A replica set topology is not single.
-
-**Returns**:
-
-- (`false`) — Always false.
-
-**Examples**:
-
-```ruby
-ReplicaSet.single?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L203)
-
-### `#unknown?; false; end`
-
-A replica set topology is not unknown.
-
-**Returns**:
-
-- (`false`) — Always false.
-
-**Examples**:
-
-```ruby
-ReplicaSet.unknown?
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L213)
-
-### `#standalone_discovered; self; end`
-
-Notify the topology that a standalone was discovered.
-
-**Returns**:
-
-- (`Topology::ReplicaSet`) — Always returns self.
-
-**Examples**:
-
-```ruby
-topology.standalone_discovered
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L223)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_bulk_operation.rb#L32)
 
 ---
 
 ## `class Mongo::Server::ConnectionPool::Queue`
 
 ### `#queue`
+
 
 **Returns**:
 
@@ -13454,6 +13805,7 @@ topology.standalone_discovered
 
 ### `#mutex`
 
+
 **Returns**:
 
 - (`Mutex`) — mutex The mutex used for synchronization.
@@ -13463,6 +13815,7 @@ topology.standalone_discovered
 
 ### `#options`
 
+
 **Returns**:
 
 - (`Hash`) — options The options.
@@ -13471,6 +13824,7 @@ topology.standalone_discovered
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L46)
 
 ### `#resource`
+
 
 **Returns**:
 
@@ -13629,203 +13983,482 @@ queue.wait_timeout
 
 ---
 
-## `class Mongo::Error::InvalidBulkOperation`
+## `class Mongo::Server::Description::Inspector`
 
-### `#initialize(type, operation)`
+### `#inspectors`
 
-Instantiate the new exception.
+
+**Returns**:
+
+- (`Array`) — inspectors The description inspectors.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector.rb#L43)
+
+### `#initialize(listeners)`
+
+Create the new inspector.
 
 **Params**:
 
-- `type` (`String`) — The bulk operation type.
-  
-
-- `operation` (`Hash`) — The bulk operation.
+- `listeners` (`Event::Listeners`) — The event listeners.
   
 
 **Returns**:
 
-- (`InvalidBulkOperation`) — a new instance of InvalidBulkOperation
+- (`Inspector`) — a new instance of Inspector
 
 **Examples**:
 
 ```ruby
-Mongo::Error::InvalidBulkOperation.new(name)
+Inspector.new(listeners)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_bulk_operation.rb#L32)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector.rb#L53)
 
----
+### `#run(description, ismaster, average_round_trip_time)`
 
-## `class Mongo::Operation::Commands::UserQuery`
-
-### `#execute(server)`
-
-Execute the operation.
+Run the server description inspector.
 
 **Params**:
 
-- `server` (`Mongo::Server`) — The server to send this operation to.
+- `description` (`Description`) — The old description.
+  
+
+- `ismaster` (`Hash`) — The updated ismaster.
+  
+
+- `average_round_trip_time` (`Float`) — The moving average round trip time (sec).
   
 
 **Returns**:
 
-- (`Result`) — The operation response, if there is one.
+- (`Description`) — The new description.
 
 **Examples**:
 
 ```ruby
-operation.execute(server)
+inspector.run(description, { 'ismaster' => true })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/user_query.rb#L46)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector.rb#L71)
 
 ---
 
-## `class Mongo::Error::UnexpectedChunkLength`
+## `class Mongo::WriteConcern::Unacknowledged`
 
-### `#initialize(expected_len, chunk)`
+### `#get_last_error`
 
-Create the new exception.
+Get the gle command for an unacknowledged write.
+
+**Returns**:
+
+- (`nil`) — The noop.
+
+**Examples**:
+
+```ruby
+unacknowledged.get_last_error
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern/unacknowledged.rb#L38)
+
+### `#inspect`
+
+Get a human-readable string representation of an unacknowledged write concern.
+
+**Returns**:
+
+- (`String`) — A string representation of an unacknowledged write concern.
+
+**Examples**:
+
+```ruby
+write_concern.inspect
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern/unacknowledged.rb#L50)
+
+---
+
+## `class Mongo::Cluster::Topology::ReplicaSet`
+
+### `#options`
+
+
+**Returns**:
+
+- (`Hash`) — options The options.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L32)
+
+### `#monitoring`
+
+
+**Returns**:
+
+- (`Monitoring`) — monitoring The monitoring.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L35)
+
+### `#display_name`
+
+Get the display name.
+
+**Returns**:
+
+- (`String`) — The display name.
+
+**Examples**:
+
+```ruby
+ReplicaSet.display_name
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L50)
+
+### `#elect_primary(description, servers)`
+
+Elect a primary server within this topology.
 
 **Params**:
 
-- `expected_len` (`Integer`) — The expected length.
+- `description` (`Server::Description`) — The description of the
+elected primary.
   
 
-- `chunk` (`Grid::File::Chunk`) — The chunk read from GridFS.
+- `servers` (`Array<Server>`) — The list of known servers to the
+cluster.
   
 
 **Returns**:
 
-- (`UnexpectedChunkLength`) — a new instance of UnexpectedChunkLength
+- (`ReplicaSet`) — The topology.
 
 **Examples**:
 
 ```ruby
-Mongo::Error::UnexpectedChunkLength.new(expected_len, chunk)
+topology.elect_primary(description, servers)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/unexpected_chunk_length.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L65)
 
----
+### `#has_readable_server?(cluster, server_selector = nil)`
 
-## `class Mongo::Operation::Write::Delete::Result`
-
-### `#deleted_count`
-
-Get the number of documents deleted.
-
-**Returns**:
-
-- (`Integer`) — The deleted count.
-
-**Examples**:
-
-```ruby
-result.deleted_count
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/delete/result.rb#L33)
-
----
-
-## `class Mongo::Error::InvalidCollectionName`
-
-### `#initialize`
-
-Instantiate the new exception.
-
-**Returns**:
-
-- (`InvalidCollectionName`) — a new instance of InvalidCollectionName
-
-**Examples**:
-
-```ruby
-Mongo::Collection::InvalidName.new
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_collection_name.rb#L34)
-
----
-
-## `class Mongo::Operation::Write::Insert::Result`
-
-### `#inserted_ids`
-
-Get the ids of the inserted documents.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/insert/result.rb#L31)
-
-### `#initialize(replies, ids)`
-
-Initialize a new result.
+Determine if the topology would select a readable server for the
+provided candidates and read preference.
 
 **Params**:
 
-- `replies` (`Protocol::Reply`) — The wire protocol replies.
+- `cluster` (`Cluster`) — The cluster.
   
 
-- `ids` (`Array<Object>`) — The ids of the inserted documents.
+- `server_selector` (`ServerSelector`) — The server
+selector.
   
 
 **Returns**:
 
-- (`Result`) — a new instance of Result
+- (`true, false`) — If a readable server is present.
 
 **Examples**:
 
 ```ruby
-Result.new(replies, inserted_ids)
+topology.has_readable_server?(cluster, server_selector)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/insert/result.rb#L42)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L98)
 
-### `#inserted_id`
+### `#has_writable_server?(cluster)`
 
-Gets the id of the document inserted.
+Determine if the topology would select a writable server for the
+provided candidates.
+
+**Params**:
+
+- `cluster` (`Cluster`) — The cluster.
+  
 
 **Returns**:
 
-- (`Object`) — The id of the document inserted.
+- (`true, false`) — If a writable server is present.
 
 **Examples**:
 
 ```ruby
-result.inserted_id
+topology.has_writable_server?(servers)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/insert/result.rb#L55)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L113)
+
+### `#initialize(options, monitoring, seeds = [])`
+
+Initialize the topology with the options.
+
+**Params**:
+
+- `options` (`Hash`) — The options.
+  
+
+- `monitoring` (`Monitoring`) — The monitoring.
+  
+
+- `seeds` (`Array<String>`) — The seeds.
+  
+
+**Returns**:
+
+- (`ReplicaSet`) — a new instance of ReplicaSet
+
+**Examples**:
+
+```ruby
+ReplicaSet.new(options)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L127)
+
+### `#replica_set?; true; end`
+
+A replica set topology is a replica set.
+
+**Returns**:
+
+- (`true`) — Always true.
+
+**Examples**:
+
+```ruby
+ReplicaSet.replica_set?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L142)
+
+### `#replica_set_name`
+
+Get the replica set name configured for this topology.
+
+**Returns**:
+
+- (`String`) — The name of the configured replica set.
+
+**Examples**:
+
+```ruby
+topology.replica_set_name
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L152)
+
+### `#servers(servers)`
+
+Select appropriate servers for this topology.
+
+**Params**:
+
+- `servers` (`Array<Server>`) — The known servers.
+  
+
+**Returns**:
+
+- (`Array<Server>`) — The servers in the replica set.
+
+**Examples**:
+
+```ruby
+ReplicaSet.servers(servers)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L166)
+
+### `#add_hosts?(description, servers)`
+
+Whether a server description's hosts may be added to the cluster.
+
+**Params**:
+
+- `description` (`Mongo::Server::Description`) — The description.
+  
+
+- `servers` (`Array<Mongo::Server>`) — The cluster servers.
+  
+
+**Returns**:
+
+- (`true, false`) — Whether a description's hosts may be added.
+
+**Examples**:
+
+```ruby
+topology.add_hosts?(description, servers)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L184)
+
+### `#remove_hosts?(description)`
+
+Whether a description can be used to remove hosts from the cluster.
+
+**Params**:
+
+- `description` (`Mongo::Server::Description`) — The description.
+  
+
+**Returns**:
+
+- (`true, false`) — Whether hosts may be removed from the cluster.
+
+**Examples**:
+
+```ruby
+topology.remove_hosts?(description)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L199)
+
+### `#remove_server?(description, server)`
+
+Whether a specific server in the cluster can be removed, given a description.
+
+**Params**:
+
+- `description` (`Mongo::Server::Description`) — The description.
+  
+
+- `server` (`Mongo::Serve`) — The server in question.
+  
+
+**Returns**:
+
+- (`true, false`) — Whether the server can be removed from the cluster.
+
+**Examples**:
+
+```ruby
+topology.remove_server?(description, server)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L218)
+
+### `#sharded?; false; end`
+
+A replica set topology is not sharded.
+
+**Returns**:
+
+- (`false`) — Always false.
+
+**Examples**:
+
+```ruby
+ReplicaSet.sharded?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L231)
+
+### `#single?; false; end`
+
+A replica set topology is not single.
+
+**Returns**:
+
+- (`false`) — Always false.
+
+**Examples**:
+
+```ruby
+ReplicaSet.single?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L241)
+
+### `#unknown?; false; end`
+
+A replica set topology is not unknown.
+
+**Returns**:
+
+- (`false`) — Always false.
+
+**Examples**:
+
+```ruby
+ReplicaSet.unknown?
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L251)
+
+### `#standalone_discovered; self; end`
+
+Notify the topology that a standalone was discovered.
+
+**Returns**:
+
+- (`Topology::ReplicaSet`) — Always returns self.
+
+**Examples**:
+
+```ruby
+topology.standalone_discovered
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L261)
+
+### `#member_discovered; end;`
+
+Notify the topology that a member was discovered.
+
+
+**Examples**:
+
+```ruby
+topology.member_discovered
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L269)
 
 ---
 
-## `class Mongo::BulkWrite::UnorderedCombiner`
+## `class Mongo::Operation::ObjectIdGenerator`
 
-### `#combine`
+### `#generate`
 
-Combine the requests in order.
+Generate a nwe id.
 
 **Returns**:
 
-- (`Array<Hash>`) — The combined requests.
+- (`BSON::ObjectId`) — The new id.
 
 **Examples**:
 
 ```ruby
-combiner.combine
+object_id_generator.generate
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/unordered_combiner.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/object_id_generator.rb#L31)
 
 ---
 
@@ -13941,6 +14574,178 @@ result.upserted_id
 
 ---
 
+## `class Mongo::Error::InvalidCollectionName`
+
+### `#initialize`
+
+Instantiate the new exception.
+
+**Returns**:
+
+- (`InvalidCollectionName`) — a new instance of InvalidCollectionName
+
+**Examples**:
+
+```ruby
+Mongo::Collection::InvalidName.new
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_collection_name.rb#L34)
+
+---
+
+## `class Mongo::Error::UnexpectedChunkLength`
+
+### `#initialize(expected_len, chunk)`
+
+Create the new exception.
+
+**Params**:
+
+- `expected_len` (`Integer`) — The expected length.
+  
+
+- `chunk` (`Grid::File::Chunk`) — The chunk read from GridFS.
+  
+
+**Returns**:
+
+- (`UnexpectedChunkLength`) — a new instance of UnexpectedChunkLength
+
+**Examples**:
+
+```ruby
+Mongo::Error::UnexpectedChunkLength.new(expected_len, chunk)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/unexpected_chunk_length.rb#L33)
+
+---
+
+## `class Mongo::Operation::Write::Insert::Result`
+
+### `#inserted_ids`
+
+Get the ids of the inserted documents.
+
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/insert/result.rb#L31)
+
+### `#initialize(replies, ids)`
+
+Initialize a new result.
+
+**Params**:
+
+- `replies` (`Protocol::Reply`) — The wire protocol replies.
+  
+
+- `ids` (`Array<Object>`) — The ids of the inserted documents.
+  
+
+**Returns**:
+
+- (`Result`) — a new instance of Result
+
+**Examples**:
+
+```ruby
+Result.new(replies, inserted_ids)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/insert/result.rb#L42)
+
+### `#inserted_id`
+
+Gets the id of the document inserted.
+
+**Returns**:
+
+- (`Object`) — The id of the document inserted.
+
+**Examples**:
+
+```ruby
+result.inserted_id
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/insert/result.rb#L55)
+
+---
+
+## `class Mongo::Operation::Write::Delete::Result`
+
+### `#deleted_count`
+
+Get the number of documents deleted.
+
+**Returns**:
+
+- (`Integer`) — The deleted count.
+
+**Examples**:
+
+```ruby
+result.deleted_count
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/delete/result.rb#L33)
+
+---
+
+## `class Mongo::BulkWrite::UnorderedCombiner`
+
+### `#combine`
+
+Combine the requests in order.
+
+**Returns**:
+
+- (`Array<Hash>`) — The combined requests.
+
+**Examples**:
+
+```ruby
+combiner.combine
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/unordered_combiner.rb#L38)
+
+---
+
+## `class Mongo::Operation::Commands::UserQuery`
+
+### `#execute(server)`
+
+Execute the operation.
+
+**Params**:
+
+- `server` (`Mongo::Server`) — The server to send this operation to.
+  
+
+**Returns**:
+
+- (`Result`) — The operation response, if there is one.
+
+**Examples**:
+
+```ruby
+operation.execute(server)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/user_query.rb#L46)
+
+---
+
 ## `class Mongo::Error::InvalidUpdateDocument`
 
 ### `#initialize`
@@ -13962,59 +14767,10 @@ Mongo::Error::InvalidUpdateDocument.new
 
 ---
 
-## `class Mongo::Operation::ObjectIdGenerator`
-
-### `#generate`
-
-Generate a nwe id.
-
-**Returns**:
-
-- (`BSON::ObjectId`) — The new id.
-
-**Examples**:
-
-```ruby
-object_id_generator.generate
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/object_id_generator.rb#L31)
-
----
-
-## `class Mongo::Error::InvalidApplicationName`
-
-### `#initialize(app_name, max_size)`
-
-Instantiate the new exception.
-
-**Params**:
-
-- `app_name` (`String`) — The application name option.
-  
-
-- `max_size` (`Integer`) — The max byte size of the application name.
-  
-
-**Returns**:
-
-- (`InvalidApplicationName`) — a new instance of InvalidApplicationName
-
-**Examples**:
-
-```ruby
-InvalidApplicationName.new(app_name, 128)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_application_name.rb#L33)
-
----
-
 ## `class Mongo::Cursor::Builder::OpKillCursors`
 
 ### `#cursor`
+
 
 **Returns**:
 
@@ -14100,6 +14856,139 @@ OpKillCursors.cursors(spec)
 
 ---
 
+## `class Mongo::Monitoring::SDAMLogSubscriber`
+
+### `#options`
+
+
+**Returns**:
+
+- (`Hash`) — options The options.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/sdam_log_subscriber.rb#L25)
+
+### `#initialize(options = {})`
+
+Create the new log subscriber.
+
+**Params**:
+
+- `options` (`Hash`) — The options.
+  
+  - `:logger` (`Logger`) — An optional custom logger.
+
+**Returns**:
+
+- (`SDAMLogSubscriber`) — a new instance of SDAMLogSubscriber
+
+**Examples**:
+
+```ruby
+SDAMLogSubscriber.new
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/sdam_log_subscriber.rb#L37)
+
+### `#succeeded(event)`
+
+Handle the SDAM succeeded event.
+
+**Params**:
+
+- `event` (`Event`) — The event.
+  
+
+**Examples**:
+
+```ruby
+subscriber.succeeded(event)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/sdam_log_subscriber.rb#L49)
+
+---
+
+## `class Mongo::Monitoring::Event::ServerClosed`
+
+### `#address`
+
+
+**Returns**:
+
+- (`Address`) — address The server address.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_closed.rb#L25)
+
+### `#topology`
+
+
+**Returns**:
+
+- (`Topology`) — topology The topology.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_closed.rb#L28)
+
+### `#initialize(address, topology)`
+
+Create the event.
+
+**Params**:
+
+- `address` (`Address`) — The server address.
+  
+
+- `topology` (`Integer`) — The topology.
+  
+
+**Returns**:
+
+- (`ServerClosed`) — a new instance of ServerClosed
+
+**Examples**:
+
+```ruby
+ServerClosed.new(address)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_closed.rb#L39)
+
+---
+
+## `class Mongo::Error::InvalidApplicationName`
+
+### `#initialize(app_name, max_size)`
+
+Instantiate the new exception.
+
+**Params**:
+
+- `app_name` (`String`) — The application name option.
+  
+
+- `max_size` (`Integer`) — The max byte size of the application name.
+  
+
+**Returns**:
+
+- (`InvalidApplicationName`) — a new instance of InvalidApplicationName
+
+**Examples**:
+
+```ruby
+InvalidApplicationName.new(app_name, 128)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_application_name.rb#L33)
+
+---
+
 ## `class Mongo::Operation::Commands::Find::Result`
 
 ### `#cursor_id`
@@ -14138,9 +15027,36 @@ result.documents
 
 ---
 
+## `class Mongo::Error::InvalidServerPreference`
+
+### `#initialize(message)`
+
+Instantiate the new exception.
+
+**Params**:
+
+- `message` (`String`) — The error message.
+  
+
+**Returns**:
+
+- (`InvalidServerPreference`) — a new instance of InvalidServerPreference
+
+**Examples**:
+
+```ruby
+Mongo::Error::InvalidServerPreference.new
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_server_preference.rb#L54)
+
+---
+
 ## `class Mongo::Cursor::Builder::GetMoreCommand`
 
 ### `#cursor`
+
 
 **Returns**:
 
@@ -14194,6 +15110,7 @@ get_more_command.specification
 
 ### `#address`
 
+
 **Returns**:
 
 - (`Server::Address`) — address The server address.
@@ -14202,6 +15119,7 @@ get_more_command.specification
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L25)
 
 ### `#command_name`
+
 
 **Returns**:
 
@@ -14212,6 +15130,7 @@ get_more_command.specification
 
 ### `#database_name`
 
+
 **Returns**:
 
 - (`String`) — database_name The name of the database_name.
@@ -14220,6 +15139,7 @@ get_more_command.specification
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L31)
 
 ### `#duration`
+
 
 **Returns**:
 
@@ -14230,6 +15150,7 @@ get_more_command.specification
 
 ### `#message`
 
+
 **Returns**:
 
 - (`String`) — message The error message.
@@ -14239,6 +15160,7 @@ get_more_command.specification
 
 ### `#operation_id`
 
+
 **Returns**:
 
 - (`Integer`) — operation_id The operation id.
@@ -14247,6 +15169,7 @@ get_more_command.specification
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L40)
 
 ### `#request_id`
+
 
 **Returns**:
 
@@ -14331,35 +15254,59 @@ CommandFailed.generate(address, 1, payload, duration)
 
 ---
 
-## `class Mongo::Error::InvalidServerPreference`
+## `class Mongo::Monitoring::Event::ServerOpening`
 
-### `#initialize(message)`
+### `#address`
 
-Instantiate the new exception.
+
+**Returns**:
+
+- (`Address`) — address The server address.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_opening.rb#L25)
+
+### `#topology`
+
+
+**Returns**:
+
+- (`Topology`) — topology The topology.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_opening.rb#L28)
+
+### `#initialize(address, topology)`
+
+Create the event.
 
 **Params**:
 
-- `message` (`String`) — The error message.
+- `address` (`Address`) — The server address.
+  
+
+- `topology` (`Integer`) — The topology.
   
 
 **Returns**:
 
-- (`InvalidServerPreference`) — a new instance of InvalidServerPreference
+- (`ServerOpening`) — a new instance of ServerOpening
 
 **Examples**:
 
 ```ruby
-Mongo::Error::InvalidServerPreference.new
+ServerOpening.new(address)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_server_preference.rb#L52)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_opening.rb#L39)
 
 ---
 
 ## `class Mongo::Monitoring::Event::CommandStarted`
 
 ### `#address`
+
 
 **Returns**:
 
@@ -14370,6 +15317,7 @@ Mongo::Error::InvalidServerPreference.new
 
 ### `#command`
 
+
 **Returns**:
 
 - (`BSON::Document`) — command The command arguments.
@@ -14378,6 +15326,7 @@ Mongo::Error::InvalidServerPreference.new
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_started.rb#L29)
 
 ### `#command_name`
+
 
 **Returns**:
 
@@ -14388,6 +15337,7 @@ Mongo::Error::InvalidServerPreference.new
 
 ### `#database_name`
 
+
 **Returns**:
 
 - (`String`) — database_name The name of the database_name.
@@ -14397,6 +15347,7 @@ Mongo::Error::InvalidServerPreference.new
 
 ### `#operation_id`
 
+
 **Returns**:
 
 - (`Integer`) — operation_id The operation id.
@@ -14405,6 +15356,7 @@ Mongo::Error::InvalidServerPreference.new
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_started.rb#L38)
 
 ### `#request_id`
+
 
 **Returns**:
 
@@ -14484,6 +15436,7 @@ CommandStarted.generate(address, 1, payload)
 
 ### `#modifiers`
 
+
 **Returns**:
 
 - (`BSON::Document`) — modifiers The server modifiers.
@@ -14521,93 +15474,124 @@ QueryBuilder.new(view)
 
 ---
 
-## `class Mongo::Monitoring::CommandLogSubscriber`
+## `class Mongo::Monitoring::Event::TopologyClosed`
 
-### `#options`
+### `#topology`
 
-**Returns**:
-
-- (`Hash`) — options The options.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L25)
-
-### `#initialize(options = {})`
-
-Create the new log subscriber.
-
-**Params**:
-
-- `options` (`Hash`) — The options.
-  
-  - `:logger` (`Logger`) — An optional custom logger.
 
 **Returns**:
 
-- (`CommandLogSubscriber`) — a new instance of CommandLogSubscriber
-
-**Examples**:
-
-```ruby
-CommandLogSubscriber.new
-```
+- (`Topology`) — topology The topology.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L43)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/topology_closed.rb#L25)
 
-### `#started(event)`
+### `#initialize(topology)`
 
-Handle the command started event.
+Create the event.
 
 **Params**:
 
-- `event` (`CommandStartedEvent`) — The event.
+- `topology` (`Integer`) — The topology.
   
+
+**Returns**:
+
+- (`TopologyClosed`) — a new instance of TopologyClosed
 
 **Examples**:
 
 ```ruby
-subscriber.started(event)
+TopologyClosed.new(topology)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L55)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/topology_closed.rb#L35)
 
-### `#succeeded(event)`
+---
 
-Handle the command succeeded event.
+## `class Mongo::Monitoring::Event::TopologyChanged`
+
+### `#previous_topology`
+
+
+**Returns**:
+
+- (`Cluster::Topology`) — previous_topology The previous topology.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/topology_changed.rb#L25)
+
+### `#new_topology`
+
+
+**Returns**:
+
+- (`Cluster::Topology`) — new_topology The new topology.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/topology_changed.rb#L28)
+
+### `#initialize(previous_topology, new_topology)`
+
+Create the event.
 
 **Params**:
 
-- `event` (`CommandSucceededEvent`) — The event.
+- `previous_topology` (`Cluster::Topology`) — The previous topology.
   
+
+- `new_topology` (`Cluster::Topology`) — The new topology.
+  
+
+**Returns**:
+
+- (`TopologyChanged`) — a new instance of TopologyChanged
 
 **Examples**:
 
 ```ruby
-subscriber.succeeded(event)
+TopologyChanged.new(previous, new)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L69)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/topology_changed.rb#L39)
 
-### `#failed(event)`
+---
 
-Handle the command failed event.
+## `class Mongo::Monitoring::Event::TopologyOpening`
+
+### `#topology`
+
+
+**Returns**:
+
+- (`Topology`) — topology The topology.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/topology_opening.rb#L25)
+
+### `#initialize(topology)`
+
+Create the event.
 
 **Params**:
 
-- `event` (`CommandFailedEvent`) — The event.
+- `topology` (`Integer`) — The topology.
   
+
+**Returns**:
+
+- (`TopologyOpening`) — a new instance of TopologyOpening
 
 **Examples**:
 
 ```ruby
-subscriber.failed(event)
+TopologyOpening.new(topology)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L83)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/topology_opening.rb#L35)
 
 ---
 
@@ -14698,6 +15682,552 @@ Mongo::Error::InvalidBulkOperationType.new(type)
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_bulk_operation_type.rb#L31)
+
+---
+
+## `class Mongo::Monitoring::CommandLogSubscriber`
+
+### `#options`
+
+
+**Returns**:
+
+- (`Hash`) — options The options.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L25)
+
+### `#initialize(options = {})`
+
+Create the new log subscriber.
+
+**Params**:
+
+- `options` (`Hash`) — The options.
+  
+  - `:logger` (`Logger`) — An optional custom logger.
+
+**Returns**:
+
+- (`CommandLogSubscriber`) — a new instance of CommandLogSubscriber
+
+**Examples**:
+
+```ruby
+CommandLogSubscriber.new
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L43)
+
+### `#started(event)`
+
+Handle the command started event.
+
+**Params**:
+
+- `event` (`CommandStartedEvent`) — The event.
+  
+
+**Examples**:
+
+```ruby
+subscriber.started(event)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L55)
+
+### `#succeeded(event)`
+
+Handle the command succeeded event.
+
+**Params**:
+
+- `event` (`CommandSucceededEvent`) — The event.
+  
+
+**Examples**:
+
+```ruby
+subscriber.succeeded(event)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L69)
+
+### `#failed(event)`
+
+Handle the command failed event.
+
+**Params**:
+
+- `event` (`CommandFailedEvent`) — The event.
+  
+
+**Examples**:
+
+```ruby
+subscriber.failed(event)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L83)
+
+---
+
+## `class Mongo::Operation::Commands::GetMore::Result`
+
+### `#cursor_id`
+
+Get the cursor id.
+
+**Returns**:
+
+- (`Integer`) — The cursor id.
+
+**Examples**:
+
+```ruby
+result.cursor_id
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/get_more/result.rb#L33)
+
+### `#documents`
+
+Get the documents in the result.
+
+**Returns**:
+
+- (`Array<BSON::Document>`) — The documents.
+
+**Examples**:
+
+```ruby
+result.documents
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/get_more/result.rb#L45)
+
+---
+
+## `class Mongo::Collection::View::Builder::MapReduce`
+
+### `#map`
+
+
+**Returns**:
+
+- (`String`) — map The map function.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L42)
+
+### `#reduce`
+
+
+**Returns**:
+
+- (`String`) — reduce The reduce function.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L45)
+
+### `#view`
+
+
+**Returns**:
+
+- (`Collection::View`) — view The collection view.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L48)
+
+### `#options`
+
+
+**Returns**:
+
+- (`Hash`) — options The map/reduce specific options.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L51)
+
+### `#initialize(map, reduce, view, options)`
+
+Initialize the builder.
+
+**Params**:
+
+- `map` (`String`) — The map function.
+  
+
+- `reduce` (`String`) — The reduce function.
+  
+
+- `view` (`Collection::View`) — The collection view.
+  
+
+- `options` (`Hash`) — The map/reduce options.
+  
+
+**Returns**:
+
+- (`MapReduce`) — a new instance of MapReduce
+
+**Examples**:
+
+```ruby
+MapReduce.new(map, reduce, view, options)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L64)
+
+### `#command_specification`
+
+Get the specification for issuing a find command on the map/reduce
+results.
+
+**Returns**:
+
+- (`Hash`) — The specification.
+
+**Examples**:
+
+```ruby
+builder.command_specification
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L80)
+
+### `#query_specification`
+
+Get the specification for the document query after a map/reduce.
+
+**Returns**:
+
+- (`Hash`) — The specification.
+
+**Examples**:
+
+```ruby
+builder.query_specification
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L96)
+
+### `#specification`
+
+Get the specification to pass to the map/reduce operation.
+
+**Returns**:
+
+- (`Hash`) — The specification.
+
+**Examples**:
+
+```ruby
+builder.specification
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L108)
+
+---
+
+## `class Mongo::Operation::Write::Bulk::Insert::Result`
+
+### `#inserted_ids`
+
+Get the ids of the inserted documents.
+
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L30)
+
+### `#initialize(replies, ids)`
+
+Initialize a new result.
+
+**Params**:
+
+- `replies` (`Protocol::Reply`) — The wire protocol replies.
+  
+
+- `ids` (`Array<Object>`) — The ids of the inserted documents.
+  
+
+**Returns**:
+
+- (`Result`) — a new instance of Result
+
+**Examples**:
+
+```ruby
+Result.new(replies, inserted_ids)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L41)
+
+### `#n_inserted`
+
+Gets the number of documents inserted.
+
+**Returns**:
+
+- (`Integer`) — The number of documents inserted.
+
+**Examples**:
+
+```ruby
+result.n_inserted
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L54)
+
+### `#inserted_id`
+
+Gets the id of the document inserted.
+
+**Returns**:
+
+- (`Object`) — The id of the document inserted.
+
+**Examples**:
+
+```ruby
+result.inserted_id
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L66)
+
+---
+
+## `class Mongo::Operation::Write::Bulk::Insert::LegacyResult`
+
+### `#inserted_ids`
+
+Get the ids of the inserted documents.
+
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L81)
+
+### `#initialize(replies, ids)`
+
+Initialize a new result.
+
+**Params**:
+
+- `replies` (`Protocol::Reply`) — The wire protocol replies.
+  
+
+- `ids` (`Array<Object>`) — The ids of the inserted documents.
+  
+
+**Returns**:
+
+- (`LegacyResult`) — a new instance of LegacyResult
+
+**Examples**:
+
+```ruby
+Result.new(replies, inserted_ids)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L92)
+
+### `#n_inserted`
+
+Gets the number of documents inserted.
+
+**Returns**:
+
+- (`Integer`) — The number of documents inserted.
+
+**Examples**:
+
+```ruby
+result.n_inserted
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L105)
+
+### `#inserted_id`
+
+Gets the id of the document inserted.
+
+**Returns**:
+
+- (`Object`) — The id of the document inserted.
+
+**Examples**:
+
+```ruby
+result.inserted_id
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L121)
+
+---
+
+## `class Mongo::Monitoring::Event::CommandSucceeded`
+
+### `#address`
+
+
+**Returns**:
+
+- (`Server::Address`) — address The server address.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L26)
+
+### `#command_name`
+
+
+**Returns**:
+
+- (`String`) — command_name The name of the command.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L29)
+
+### `#reply`
+
+
+**Returns**:
+
+- (`BSON::Document`) — reply The command reply.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L32)
+
+### `#database_name`
+
+
+**Returns**:
+
+- (`String`) — database_name The name of the database.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L35)
+
+### `#duration`
+
+
+**Returns**:
+
+- (`Float`) — duration The duration of the event.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L38)
+
+### `#operation_id`
+
+
+**Returns**:
+
+- (`Integer`) — operation_id The operation id.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L41)
+
+### `#request_id`
+
+
+**Returns**:
+
+- (`Integer`) — request_id The request id.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L44)
+
+### `#initialize(command_name, database_name, address, request_id, operation_id, reply, duration)`
+
+Create the new event.
+
+**Params**:
+
+- `command_name` (`String`) — The name of the command.
+  
+
+- `database_name` (`String`) — The database name.
+  
+
+- `address` (`Server::Address`) — The server address.
+  
+
+- `request_id` (`Integer`) — The request id.
+  
+
+- `operation_id` (`Integer`) — The operation id.
+  
+
+- `reply` (`BSON::Document`) — The command reply.
+  
+
+- `duration` (`Float`) — The duration the command took in seconds.
+  
+
+**Returns**:
+
+- (`CommandSucceeded`) — a new instance of CommandSucceeded
+
+**Examples**:
+
+```ruby
+
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L59)
+
+### `.generate(address, operation_id, command_payload, reply_payload, duration)`
+
+Create the event from a wire protocol message payload.
+
+**Params**:
+
+- `address` (`Server::Address`) — The server address.
+  
+
+- `operation_id` (`Integer`) — The operation id.
+  
+
+- `command_payload` (`Hash`) — The command message payload.
+  
+
+- `reply_payload` (`Hash`) — The reply message payload.
+  
+
+- `duration` (`Float`) — The duration of the command in seconds.
+  
+
+**Returns**:
+
+- (`CommandCompleted`) — The event.
+
+**Examples**:
+
+```ruby
+CommandSucceeded.generate(address, 1, command_payload, reply_payload, 0.5)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L83)
 
 ---
 
@@ -14832,448 +16362,6 @@ result.n_modified
 
 ---
 
-## `class Mongo::Operation::Write::Bulk::Insert::Result`
-
-### `#inserted_ids`
-
-Get the ids of the inserted documents.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L30)
-
-### `#initialize(replies, ids)`
-
-Initialize a new result.
-
-**Params**:
-
-- `replies` (`Protocol::Reply`) — The wire protocol replies.
-  
-
-- `ids` (`Array<Object>`) — The ids of the inserted documents.
-  
-
-**Returns**:
-
-- (`Result`) — a new instance of Result
-
-**Examples**:
-
-```ruby
-Result.new(replies, inserted_ids)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L41)
-
-### `#n_inserted`
-
-Gets the number of documents inserted.
-
-**Returns**:
-
-- (`Integer`) — The number of documents inserted.
-
-**Examples**:
-
-```ruby
-result.n_inserted
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L54)
-
-### `#inserted_id`
-
-Gets the id of the document inserted.
-
-**Returns**:
-
-- (`Object`) — The id of the document inserted.
-
-**Examples**:
-
-```ruby
-result.inserted_id
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L66)
-
----
-
-## `class Mongo::Operation::Write::Bulk::Insert::LegacyResult`
-
-### `#inserted_ids`
-
-Get the ids of the inserted documents.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L81)
-
-### `#initialize(replies, ids)`
-
-Initialize a new result.
-
-**Params**:
-
-- `replies` (`Protocol::Reply`) — The wire protocol replies.
-  
-
-- `ids` (`Array<Object>`) — The ids of the inserted documents.
-  
-
-**Returns**:
-
-- (`LegacyResult`) — a new instance of LegacyResult
-
-**Examples**:
-
-```ruby
-Result.new(replies, inserted_ids)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L92)
-
-### `#n_inserted`
-
-Gets the number of documents inserted.
-
-**Returns**:
-
-- (`Integer`) — The number of documents inserted.
-
-**Examples**:
-
-```ruby
-result.n_inserted
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L105)
-
-### `#inserted_id`
-
-Gets the id of the document inserted.
-
-**Returns**:
-
-- (`Object`) — The id of the document inserted.
-
-**Examples**:
-
-```ruby
-result.inserted_id
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/insert/result.rb#L121)
-
----
-
-## `class Mongo::Monitoring::Event::CommandSucceeded`
-
-### `#address`
-
-**Returns**:
-
-- (`Server::Address`) — address The server address.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L26)
-
-### `#command_name`
-
-**Returns**:
-
-- (`String`) — command_name The name of the command.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L29)
-
-### `#reply`
-
-**Returns**:
-
-- (`BSON::Document`) — reply The command reply.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L32)
-
-### `#database_name`
-
-**Returns**:
-
-- (`String`) — database_name The name of the database.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L35)
-
-### `#duration`
-
-**Returns**:
-
-- (`Float`) — duration The duration of the event.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L38)
-
-### `#operation_id`
-
-**Returns**:
-
-- (`Integer`) — operation_id The operation id.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L41)
-
-### `#request_id`
-
-**Returns**:
-
-- (`Integer`) — request_id The request id.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L44)
-
-### `#initialize(command_name, database_name, address, request_id, operation_id, reply, duration)`
-
-Create the new event.
-
-**Params**:
-
-- `command_name` (`String`) — The name of the command.
-  
-
-- `database_name` (`String`) — The database name.
-  
-
-- `address` (`Server::Address`) — The server address.
-  
-
-- `request_id` (`Integer`) — The request id.
-  
-
-- `operation_id` (`Integer`) — The operation id.
-  
-
-- `reply` (`BSON::Document`) — The command reply.
-  
-
-- `duration` (`Float`) — The duration the command took in seconds.
-  
-
-**Returns**:
-
-- (`CommandSucceeded`) — a new instance of CommandSucceeded
-
-**Examples**:
-
-```ruby
-
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L59)
-
-### `.generate(address, operation_id, command_payload, reply_payload, duration)`
-
-Create the event from a wire protocol message payload.
-
-**Params**:
-
-- `address` (`Server::Address`) — The server address.
-  
-
-- `operation_id` (`Integer`) — The operation id.
-  
-
-- `command_payload` (`Hash`) — The command message payload.
-  
-
-- `reply_payload` (`Hash`) — The reply message payload.
-  
-
-- `duration` (`Float`) — The duration of the command in seconds.
-  
-
-**Returns**:
-
-- (`CommandCompleted`) — The event.
-
-**Examples**:
-
-```ruby
-CommandSucceeded.generate(address, 1, command_payload, reply_payload, 0.5)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L83)
-
----
-
-## `class Mongo::Operation::Commands::GetMore::Result`
-
-### `#cursor_id`
-
-Get the cursor id.
-
-**Returns**:
-
-- (`Integer`) — The cursor id.
-
-**Examples**:
-
-```ruby
-result.cursor_id
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/get_more/result.rb#L33)
-
-### `#documents`
-
-Get the documents in the result.
-
-**Returns**:
-
-- (`Array<BSON::Document>`) — The documents.
-
-**Examples**:
-
-```ruby
-result.documents
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/get_more/result.rb#L45)
-
----
-
-## `class Mongo::Collection::View::Builder::MapReduce`
-
-### `#map`
-
-**Returns**:
-
-- (`String`) — map The map function.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L42)
-
-### `#reduce`
-
-**Returns**:
-
-- (`String`) — reduce The reduce function.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L45)
-
-### `#view`
-
-**Returns**:
-
-- (`Collection::View`) — view The collection view.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L48)
-
-### `#options`
-
-**Returns**:
-
-- (`Hash`) — options The map/reduce specific options.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L51)
-
-### `#initialize(map, reduce, view, options)`
-
-Initialize the builder.
-
-**Params**:
-
-- `map` (`String`) — The map function.
-  
-
-- `reduce` (`String`) — The reduce function.
-  
-
-- `view` (`Collection::View`) — The collection view.
-  
-
-- `options` (`Hash`) — The map/reduce options.
-  
-
-**Returns**:
-
-- (`MapReduce`) — a new instance of MapReduce
-
-**Examples**:
-
-```ruby
-MapReduce.new(map, reduce, view, options)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L64)
-
-### `#command_specification`
-
-Get the specification for issuing a find command on the map/reduce
-results.
-
-**Returns**:
-
-- (`Hash`) — The specification.
-
-**Examples**:
-
-```ruby
-builder.command_specification
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L80)
-
-### `#query_specification`
-
-Get the specification for the document query after a map/reduce.
-
-**Returns**:
-
-- (`Hash`) — The specification.
-
-**Examples**:
-
-```ruby
-builder.query_specification
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L96)
-
-### `#specification`
-
-Get the specification to pass to the map/reduce operation.
-
-**Returns**:
-
-- (`Hash`) — The specification.
-
-**Examples**:
-
-```ruby
-builder.specification
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L108)
-
----
-
 ## `class Mongo::Error::InvalidReplacementDocument`
 
 ### `#initialize`
@@ -15292,6 +16380,131 @@ Mongo::Error::InvalidReplacementDoc.new
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_replacement_document.rb#L34)
+
+---
+
+## `class Mongo::Collection::View::Builder::Aggregation`
+
+### `#pipeline`
+
+
+**Returns**:
+
+- (`Array<Hash>`) — pipeline The pipeline.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L40)
+
+### `#view`
+
+
+**Returns**:
+
+- (`Collection::View`) — view The collection view.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L43)
+
+### `#options`
+
+
+**Returns**:
+
+- (`Hash`) — options The map/reduce specific options.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L46)
+
+### `#initialize(pipeline, view, options)`
+
+Initialize the builder.
+
+**Params**:
+
+- `pipeline` (`Array<Hash>`) — The aggregation pipeline.
+  
+
+- `view` (`Collection::View`) — The collection view.
+  
+
+- `options` (`Hash`) — The map/reduce options.
+  
+
+**Returns**:
+
+- (`Aggregation`) — a new instance of Aggregation
+
+**Examples**:
+
+```ruby
+Aggregation.new(map, reduce, view, options)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L58)
+
+### `#specification`
+
+Get the specification to pass to the aggregation operation.
+
+**Returns**:
+
+- (`Hash`) — The specification.
+
+**Examples**:
+
+```ruby
+builder.specification
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L72)
+
+---
+
+## `class Mongo::Operation::Commands::Aggregate::Result`
+
+### `#cursor_id`
+
+Get the cursor id for the result.
+
+**Even though the wire protocol has a cursor_id field for all
+messages of type reply, it is always zero when using the
+aggregation framework and must be retrieved from the cursor
+document itself. Wahnsinn!**
+
+**Returns**:
+
+- (`Integer`) — The cursor id.
+
+**Examples**:
+
+```ruby
+result.cursor_id
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/aggregate/result.rb#L52)
+
+### `#documents`
+
+Get the documents for the aggregation result. This is either the
+first document's 'result' field, or if a cursor option was selected
+it is the 'firstBatch' field in the 'cursor' field of the first
+document returned.
+
+**Returns**:
+
+- (`Array<BSON::Document>`) — The documents.
+
+**Examples**:
+
+```ruby
+result.documents
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/aggregate/result.rb#L67)
 
 ---
 
@@ -15324,6 +16537,7 @@ operation.execute(server)
 ## `class Mongo::Cursor::Builder::KillCursorsCommand`
 
 ### `#cursor`
+
 
 **Returns**:
 
@@ -15409,82 +16623,6 @@ KillCursorsCommand.cursors(spec)
 
 ---
 
-## `class Mongo::Collection::View::Builder::Aggregation`
-
-### `#pipeline`
-
-**Returns**:
-
-- (`Array<Hash>`) — pipeline The pipeline.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L40)
-
-### `#view`
-
-**Returns**:
-
-- (`Collection::View`) — view The collection view.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L43)
-
-### `#options`
-
-**Returns**:
-
-- (`Hash`) — options The map/reduce specific options.
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L46)
-
-### `#initialize(pipeline, view, options)`
-
-Initialize the builder.
-
-**Params**:
-
-- `pipeline` (`Array<Hash>`) — The aggregation pipeline.
-  
-
-- `view` (`Collection::View`) — The collection view.
-  
-
-- `options` (`Hash`) — The map/reduce options.
-  
-
-**Returns**:
-
-- (`Aggregation`) — a new instance of Aggregation
-
-**Examples**:
-
-```ruby
-Aggregation.new(map, reduce, view, options)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L58)
-
-### `#specification`
-
-Get the specification to pass to the aggregation operation.
-
-**Returns**:
-
-- (`Hash`) — The specification.
-
-**Examples**:
-
-```ruby
-builder.specification
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L72)
-
----
-
 ## `class Mongo::ServerSelector::SecondaryPreferred`
 
 ### `#name`
@@ -15551,47 +16689,6 @@ preference.to_mongos
 
 ---
 
-## `class Mongo::Operation::Commands::Aggregate::Result`
-
-### `#cursor_id`
-
-Get the cursor id for the result.
-
-**Returns**:
-
-- (`Integer`) — The cursor id.
-
-**Examples**:
-
-```ruby
-result.cursor_id
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/aggregate/result.rb#L52)
-
-### `#documents`
-
-Get the documents for the aggregation result. This is either the
-first document's 'result' field, or if a cursor option was selected
-it is the 'firstBatch' field in the 'cursor' field of the first
-document returned.
-
-**Returns**:
-
-- (`Array<BSON::Document>`) — The documents.
-
-**Examples**:
-
-```ruby
-result.documents
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/aggregate/result.rb#L67)
-
----
-
 ## `class Mongo::Operation::Commands::MapReduce::Result`
 
 ### `#counts`
@@ -15633,6 +16730,9 @@ result.documents
 If the result was a command then determine if it was considered a
 success.
 
+**If the write was unacknowledged, then this will always return
+true.**
+
 **Returns**:
 
 - (`true, false`) — If the command was successful.
@@ -15667,6 +16767,10 @@ result.time
 
 Validate the result by checking for any errors.
 
+**This only checks for errors with writes since authentication is
+handled at the connection level and any authentication errors would
+be raised there, before a Result is ever created.**
+
 **Returns**:
 
 - (`Result`) — The result if verification passed.
@@ -15679,6 +16783,16 @@ result.validate!
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/map_reduce/result.rb#L106)
+
+---
+
+## `class Mongo::Operation::Commands::UsersInfo::Result`
+
+### `#documents`
+
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/users_info/result.rb#L31)
 
 ---
 
@@ -15743,16 +16857,6 @@ builder.specification
 
 ---
 
-## `class Mongo::Operation::Commands::UsersInfo::Result`
-
-### `#documents`
-
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/users_info/result.rb#L31)
-
----
-
 ## `class Mongo::Error::UnchangeableCollectionOption`
 
 ### `#initialize(option)`
@@ -15784,6 +16888,11 @@ Mongo::Error::UnchangeableCollectionOption.new(option)
 ### `#cursor_id`
 
 Get the cursor id for the result.
+
+**Even though the wire protocol has a cursor_id field for all
+messages of type reply, it is always zero when using the
+listIndexes command and must be retrieved from the cursor
+document itself.**
 
 **Returns**:
 
@@ -15893,11 +17002,37 @@ result.documents
 
 ---
 
+## `class Mongo::Operation::Commands::CollectionsInfo::Result`
+
+### `#namespace`
+
+Get the namespace for the cursor.
+
+**Returns**:
+
+- (`String`) — The namespace.
+
+**Examples**:
+
+```ruby
+result.namespace
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/collections_info/result.rb#L34)
+
+---
+
 ## `class Mongo::Operation::Commands::ListCollections::Result`
 
 ### `#cursor_id`
 
 Get the cursor id for the result.
+
+**Even though the wire protocol has a cursor_id field for all
+messages of type reply, it is always zero when using the
+listCollections command and must be retrieved from the cursor
+document itself.**
 
 **Returns**:
 
@@ -15967,24 +17102,80 @@ result.validate!
 
 ---
 
-## `class Mongo::Operation::Commands::CollectionsInfo::Result`
+## `class Mongo::Monitoring::Event::ServerDescriptionChanged`
 
-### `#namespace`
+### `#address`
 
-Get the namespace for the cursor.
 
 **Returns**:
 
-- (`String`) — The namespace.
+- (`Address`) — address The server address.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_description_changed.rb#L25)
+
+### `#topology`
+
+
+**Returns**:
+
+- (`Topology`) — topology The topology.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_description_changed.rb#L28)
+
+### `#previous_description`
+
+
+**Returns**:
+
+- (`Server::Description`) — previous_description The previous server
+description.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_description_changed.rb#L32)
+
+### `#new_description`
+
+
+**Returns**:
+
+- (`Server::Description`) — new_description The new server
+description.
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_description_changed.rb#L36)
+
+### `#initialize(address, topology, previous_description, new_description)`
+
+Create the event.
+
+**Params**:
+
+- `address` (`Address`) — The server address.
+  
+
+- `topology` (`Integer`) — The topology.
+  
+
+- `previous_description` (`Server::Description`) — The previous description.
+  
+
+- `new_description` (`Server::Description`) — The new description.
+  
+
+**Returns**:
+
+- (`ServerDescriptionChanged`) — a new instance of ServerDescriptionChanged
 
 **Examples**:
 
 ```ruby
-result.namespace
+ServerDescriptionChanged.new(address, topology, previous, new)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/collections_info/result.rb#L34)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_description_changed.rb#L49)
 
 ---
 
@@ -16010,7 +17201,7 @@ PrimaryElected.new(listeners)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector/primary_elected.rb#L35)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector/primary_elected.rb#L37)
 
 ### `#run(description, updated)`
 
@@ -16031,7 +17222,54 @@ PrimaryElected.run(description, {})
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector/primary_elected.rb#L48)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector/primary_elected.rb#L50)
+
+---
+
+## `class Mongo::Server::Description::Inspector::MemberDiscovered`
+
+### `#initialize(event_listeners)`
+
+Instantiate the member discovered inspection.
+
+**Params**:
+
+- `event_listeners` (`Event::Listeners`) — The event listeners.
+  
+
+**Returns**:
+
+- (`MemberDiscovered`) — a new instance of MemberDiscovered
+
+**Examples**:
+
+```ruby
+MemberDiscovered.new(listeners)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector/member_discovered.rb#L35)
+
+### `#run(description, updated)`
+
+Run the member discovered inspection.
+
+**Params**:
+
+- `description` (`Description`) — The server description.
+  
+
+- `updated` (`Description`) — The updated description.
+  
+
+**Examples**:
+
+```ruby
+MemberDiscovered.run(description, {})
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector/member_discovered.rb#L48)
 
 ---
 
@@ -16293,6 +17531,8 @@ loggable.logger
 
 Execute a read operation with a retry.
 
+**This only retries read operations on socket errors.**
+
 **Params**:
 
 - `attempt` (`Integer`) — The retry attempt count - for internal use.
@@ -16320,6 +17560,8 @@ end
 
 Execute a read operation with a single retry.
 
+**This only retries read operations on socket errors.**
+
 **Params**:
 
 - `block` (`Proc`) — The block to execute.
@@ -16343,6 +17585,9 @@ end
 ### `#write_with_retry(&block)`
 
 Execute a write operation with a retry.
+
+**This only retries operations on not master failures, since it is
+the only case we can be sure a partial write did not already occur.**
 
 **Params**:
 
@@ -16387,7 +17632,7 @@ Monitoring::Global.subscribe(QUERY, subscriber)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L63)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L99)
 
 ### `#subscribers`
 
@@ -16404,7 +17649,7 @@ Monitoring::Global.subscribers
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L75)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring.rb#L111)
 
 ---
 
@@ -16600,32 +17845,10 @@ Mapper.transform({ :name => 1 })
 
 ---
 
-## `module Mongo::ServerSelector`
-
-### `#get(preference = {})`
-
-Create a server selector object.
-
-**Params**:
-
-- `preference` (`Hash`) — The server preference.
-  
-
-**Examples**:
-
-```ruby
-specific tag sets.
-Mongo::ServerSelector.get(:mode => :secondary, :tag_sets => [{'dc' => 'nyc'}])
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector.rb#L67)
-
----
-
 ## `module Mongo::Event::Publisher`
 
 ### `#event_listeners`
+
 
 **Returns**:
 
@@ -16657,15 +17880,41 @@ publisher.publish("my_event", "payload")
 
 ---
 
+## `module Mongo::ServerSelector`
+
+### `#get(preference = {})`
+
+Create a server selector object.
+
+**Params**:
+
+- `preference` (`Hash`) — The server preference.
+  
+
+**Examples**:
+
+```ruby
+specific tag sets.
+Mongo::ServerSelector.get(:mode => :secondary, :tag_sets => [{'dc' => 'nyc'}])
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector.rb#L72)
+
+---
+
 ## `module Mongo::Cluster::Topology`
 
-### `#initial(seeds, options)`
+### `#initial(seeds, monitoring, options)`
 
 Get the initial cluster topology for the provided options.
 
 **Params**:
 
 - `seeds` (`Array<String>`) — The addresses of the configured servers.
+  
+
+- `monitoring` (`Monitoring`) — The monitoring.
   
 
 - `options` (`Hash`) — The cluster options.
@@ -16682,13 +17931,14 @@ Topology.initial(topology: :replica_set)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology.rb#L49)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology.rb#L50)
 
 ---
 
 ## `module Mongo::Event::Subscriber`
 
 ### `#event_listeners`
+
 
 **Returns**:
 
@@ -16746,6 +17996,7 @@ limited.options
 
 ### `#address`
 
+
 **Returns**:
 
 - (`Mongo::Address`) — address The address to connect to.
@@ -16755,6 +18006,7 @@ limited.options
 
 ### `#options`
 
+
 **Returns**:
 
 - (`Hash`) — options The passed in options.
@@ -16763,6 +18015,7 @@ limited.options
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connectable.rb#L41)
 
 ### `#pid`
+
 
 **Returns**:
 
@@ -16792,6 +18045,8 @@ connection.connectable?
 ### `#connected?`
 
 Determine if the connection is currently connected.
+
+⚠️ **Use #connectable? instead**
 
 **Returns**:
 
@@ -17068,6 +18323,7 @@ Whether there can be a size limit on this type after serialization.
 ## `module Mongo::Operation::Specifiable`
 
 ### `#spec`
+
 
 **Returns**:
 
@@ -17602,9 +18858,60 @@ specifiable.namespace
 
 ---
 
+## `module Mongo::BulkWrite::Validatable`
+
+### `#validate(name, document)`
+
+Validate the document.
+
+**Params**:
+
+- `name` (`Symbol`) — The operation name.
+  
+
+- `document` (`Hash, BSON::Document`) — The document.
+  
+
+**Returns**:
+
+- (`Hash, BSON::Document`) — The document.
+
+**Examples**:
+
+```ruby
+validatable.validate(:insert_one, { _id: 0 })
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/validatable.rb#L40)
+
+---
+
+## `module Mongo::Operation::Write::Idable`
+
+### `#id_generator`
+
+Get the id generator.
+
+**Returns**:
+
+- (`IdGenerator`) — The default or custom id generator.
+
+**Examples**:
+
+```ruby
+idable.id_generator
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/idable.rb#L38)
+
+---
+
 ## `module Mongo::BulkWrite::Combineable`
 
 ### `#requests`
+
 
 **Returns**:
 
@@ -17614,6 +18921,7 @@ specifiable.namespace
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/combineable.rb#L26)
 
 ### `#has_collation`
+
 
 **Returns**:
 
@@ -17646,6 +18954,7 @@ OrderedCombiner.new([{ insert_one: { _id: 0 }}])
 
 ### `#monitoring`
 
+
 **Returns**:
 
 - (`Monitoring`) — monitoring The monitoring.
@@ -17677,55 +18986,17 @@ end
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/publishable.rb#L38)
 
----
+### `#publish_event(topic, event)`
 
-## `module Mongo::Operation::Write::Idable`
-
-### `#id_generator`
-
-Get the id generator.
-
-**Returns**:
-
-- (`IdGenerator`) — The default or custom id generator.
-
-**Examples**:
-
-```ruby
-idable.id_generator
-```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/idable.rb#L38)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/publishable.rb#L58)
 
----
+### `#publish_sdam_event(topic, event)`
 
-## `module Mongo::BulkWrite::Validatable`
-
-### `#validate(name, document)`
-
-Validate the document.
-
-**Params**:
-
-- `name` (`Symbol`) — The operation name.
-  
-
-- `document` (`Hash, BSON::Document`) — The document.
-  
-
-**Returns**:
-
-- (`Hash, BSON::Document`) — The document.
-
-**Examples**:
-
-```ruby
-validatable.validate(:insert_one, { _id: 0 })
-```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/validatable.rb#L40)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/publishable.rb#L62)
 
 ---
 
@@ -17756,6 +19027,236 @@ secure.redacted(command_name, document)
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/secure.rb#L52)
+
+---
+
+## `module Mongo::Collection::View::Writable`
+
+### `#find_one_and_delete`
+
+Finds a single document in the database via findAndModify and deletes
+it, returning the original document.
+
+**Returns**:
+
+- (`BSON::Document, nil`) — The document, if found.
+
+**Examples**:
+
+```ruby
+view.find_one_and_delete
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L33)
+
+### `#find_one_and_replace(replacement, opts = {})`
+
+Finds a single document and replaces it.
+
+**Params**:
+
+- `replacement` (`BSON::Document`) — The replacement.
+  
+  - `:return_document` (`Symbol`) — Either :before or :after.
+  - `:upsert` (`true`) — Whether to upsert if the document doesn't exist.
+  - `:bypass_document_validation` (`true`) — Whether or
+not to skip document level validation.
+  - `:write_concern` (`Hash`) — The write concern options.
+Defaults to the collection's write concern.
+
+- `opts` (`Hash`) — The options.
+  
+  - `:return_document` (`Symbol`) — Either :before or :after.
+  - `:upsert` (`true`) — Whether to upsert if the document doesn't exist.
+  - `:bypass_document_validation` (`true`) — Whether or
+not to skip document level validation.
+  - `:write_concern` (`Hash`) — The write concern options.
+Defaults to the collection's write concern.
+
+- `options` (`Hash`) — a customizable set of options
+  
+  - `:return_document` (`Symbol`) — Either :before or :after.
+  - `:upsert` (`true`) — Whether to upsert if the document doesn't exist.
+  - `:bypass_document_validation` (`true`) — Whether or
+not to skip document level validation.
+  - `:write_concern` (`Hash`) — The write concern options.
+Defaults to the collection's write concern.
+
+**Returns**:
+
+- (`BSON::Document`) — The document.
+
+**Examples**:
+
+```ruby
+view.find_one_and_replace({ name: 'test' }, :return_document => :before)
+```
+
+```ruby
+view.find_one_and_replace({ name: 'test' }, :return_document => :after)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L72)
+
+### `#find_one_and_update(document, opts = {})`
+
+Finds a single document and updates it.
+
+**Params**:
+
+- `document` (`BSON::Document`) — The updates.
+  
+  - `:return_document` (`Symbol`) — Either :before or :after.
+  - `:upsert` (`true`) — Whether to upsert if the document doesn't exist.
+  - `:bypass_document_validation` (`true`) — Whether or
+not to skip document level validation.
+  - `:write_concern` (`Hash`) — The write concern options.
+Defaults to the collection's write concern.
+
+- `opts` (`Hash`) — The options.
+  
+  - `:return_document` (`Symbol`) — Either :before or :after.
+  - `:upsert` (`true`) — Whether to upsert if the document doesn't exist.
+  - `:bypass_document_validation` (`true`) — Whether or
+not to skip document level validation.
+  - `:write_concern` (`Hash`) — The write concern options.
+Defaults to the collection's write concern.
+
+**Returns**:
+
+- (`BSON::Document`) — The document.
+
+**Examples**:
+
+```ruby
+view.find_one_and_update({ "$set" => { name: 'test' }}, :return_document => :before)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L94)
+
+### `#delete_many`
+
+Remove documents from the collection.
+
+**Returns**:
+
+- (`Result`) — The response from the database.
+
+**Examples**:
+
+```ruby
+collection_view.delete_many
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L125)
+
+### `#delete_one`
+
+Remove a document from the collection.
+
+**Returns**:
+
+- (`Result`) — The response from the database.
+
+**Examples**:
+
+```ruby
+collection_view.delete_one
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L137)
+
+### `#replace_one(replacement, opts = {})`
+
+Replaces a single document in the database with the new document.
+
+**Params**:
+
+- `replacement` (`Hash`) — The replacement document.
+  
+  - `:upsert` (`true`) — Whether to upsert if the
+document doesn't exist.
+
+- `opts` (`Hash`) — The options.
+  
+  - `:upsert` (`true`) — Whether to upsert if the
+document doesn't exist.
+
+**Returns**:
+
+- (`Result`) — The response from the database.
+
+**Examples**:
+
+```ruby
+collection_view.replace_one({ name: 'test' })
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L155)
+
+### `#update_many(spec, opts = {})`
+
+Update documents in the collection.
+
+**Params**:
+
+- `spec` (`Hash`) — The update statement.
+  
+  - `:upsert` (`true`) — Whether to upsert if the
+document doesn't exist.
+
+- `opts` (`Hash`) — The options.
+  
+  - `:upsert` (`true`) — Whether to upsert if the
+document doesn't exist.
+
+**Returns**:
+
+- (`Result`) — The response from the database.
+
+**Examples**:
+
+```ruby
+collection_view.update_many('$set' => { name: 'test' })
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L173)
+
+### `#update_one(spec, opts = {})`
+
+Update a single document in the collection.
+
+**Params**:
+
+- `spec` (`Hash`) — The update statement.
+  
+  - `:upsert` (`true`) — Whether to upsert if the
+document doesn't exist.
+
+- `opts` (`Hash`) — The options.
+  
+  - `:upsert` (`true`) — Whether to upsert if the
+document doesn't exist.
+
+**Returns**:
+
+- (`Result`) — The response from the database.
+
+**Examples**:
+
+```ruby
+collection_view.update_one('$set' => { name: 'test' })
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L191)
 
 ---
 
@@ -17828,6 +19329,8 @@ The number of documents returned in each batch of results from MongoDB.
 
 new +View+.
 
+**Specifying 1 or a negative number is analogous to setting a limit.**
+
 **Params**:
 
 - `batch_size` (`Integer`) — The size of each batch of results.
@@ -17850,6 +19353,9 @@ view.batch_size(5)
 
 Associate a comment with the query.
 
+**Set profilingLevel to 2 and the comment will be logged in the profile
+collection along with the query.**
+
 **Params**:
 
 - `comment` (`String`) — The comment to be associated with the query.
@@ -17869,13 +19375,13 @@ view.comment('slow query')
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L106)
 
-### `#count(options = {})`
+### `#count(opts = {})`
 
 Get a count of matching documents in the collection.
 
 **Params**:
 
-- `options` (`Hash`) — Options for the count command.
+- `opts` (`Hash`) — Options for the count command.
   
   - `:skip` (`Integer`) — The number of documents to skip.
   - `:hint` (`Hash`) — Override default index selection and force
@@ -17883,8 +19389,6 @@ MongoDB to use a specific index for the query.
   - `:limit` (`Integer`) — Max number of docs to return.
   - `:max_time_ms` (`Integer`) — The maximum amount of time to allow the
 command to run.
-  - `:read` (`Hash`) — The read preference options.
-  - `:collation` (`Hash`) — The collation to use.
 
 **Returns**:
 
@@ -17897,9 +19401,9 @@ collection_view.count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L129)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L127)
 
-### `#distinct(field_name, options={})`
+### `#distinct(field_name, opts = {})`
 
 Get a list of distinct values for a specific field.
 
@@ -17909,15 +19413,11 @@ Get a list of distinct values for a specific field.
   
   - `:max_time_ms` (`Integer`) — The maximum amount of time to allow the
 command to run.
-  - `:read` (`Hash`) — The read preference options.
-  - `:collation` (`Hash`) — The collation to use.
 
-- `options` (`Hash`) — Options for the distinct command.
+- `opts` (`Hash`) — Options for the distinct command.
   
   - `:max_time_ms` (`Integer`) — The maximum amount of time to allow the
 command to run.
-  - `:read` (`Hash`) — The read preference options.
-  - `:collation` (`Hash`) — The collation to use.
 
 **Returns**:
 
@@ -17930,7 +19430,7 @@ collection_view.distinct('name')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L167)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L162)
 
 ### `#hint(hint = nil)`
 
@@ -17952,7 +19452,7 @@ view.hint(name: 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L198)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L192)
 
 ### `#limit(limit = nil)`
 
@@ -17974,7 +19474,7 @@ view.limit(5)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L212)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L206)
 
 ### `#map_reduce(map, reduce, options = {})`
 
@@ -18002,7 +19502,7 @@ view.map_reduce(map, reduce)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L228)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L222)
 
 ### `#max_scan(value = nil)`
 
@@ -18024,7 +19524,7 @@ view.max_scan(1000)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L242)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L236)
 
 ### `#max_value(value = nil)`
 
@@ -18046,7 +19546,7 @@ view.max_value(_id: 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L256)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L250)
 
 ### `#min_value(value = nil)`
 
@@ -18068,7 +19568,7 @@ view.min_value(_id: 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L270)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L264)
 
 ### `#no_cursor_timeout`
 
@@ -18086,11 +19586,15 @@ view.no_cursor_timeout
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L283)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L277)
 
 ### `#projection(document = nil)`
 
 The fields to include or exclude from each doc in the result set.
+
+**A value of 0 excludes a field from the doc. A value of 1 includes it.
+Values must all be 0 or all be 1, with the exception of the _id value.
+The _id field is included by default. It must be excluded explicitly.**
 
 **Params**:
 
@@ -18108,11 +19612,14 @@ view.projection(name: 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L301)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L295)
 
 ### `#read(value = nil)`
 
 The read preference to use for the query.
+
+**If none is specified for the query, the read preference of the
+collection will be used.**
 
 **Params**:
 
@@ -18125,7 +19632,7 @@ The read preference to use for the query.
 new +View+.
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L317)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L311)
 
 ### `#return_key(value = nil)`
 
@@ -18147,7 +19654,7 @@ view.return_key(true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L333)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L327)
 
 ### `#show_disk_loc(value = nil)`
 
@@ -18170,7 +19677,7 @@ view.show_disk_loc(true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L348)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L342)
 
 ### `#show_disk_loc(value = nil)`
 
@@ -18193,7 +19700,7 @@ view.show_disk_loc(true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L351)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L345)
 
 ### `#skip(number = nil)`
 
@@ -18216,11 +19723,14 @@ view.skip(10)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L364)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L358)
 
 ### `#snapshot(value = nil)`
 
 Set the snapshot value for the view.
+
+**When set to true, prevents documents from returning more than
+once.**
 
 **Params**:
 
@@ -18234,7 +19744,7 @@ view.snapshot(true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L379)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L373)
 
 ### `#sort(spec = nil)`
 
@@ -18257,7 +19767,7 @@ view.sort(name: -1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L394)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L388)
 
 ### `#modifiers(doc = nil)`
 
@@ -18279,7 +19789,7 @@ view.modifiers(:$orderby => Mongo::Index::ASCENDING)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L408)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L402)
 
 ### `#max_await_time_ms(max = nil)`
 
@@ -18302,7 +19812,7 @@ view.max_await_time_ms(500)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L424)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L418)
 
 ### `#max_time_ms(max = nil)`
 
@@ -18324,7 +19834,7 @@ view.max_time_ms(500)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L438)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L432)
 
 ### `#cursor_type(type = nil)`
 
@@ -18346,255 +19856,7 @@ view.cursor_type(:tailable)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L452)
-
----
-
-## `module Mongo::Collection::View::Writable`
-
-### `#find_one_and_delete`
-
-Finds a single document in the database via findAndModify and deletes
-it, returning the original document.
-
-**Returns**:
-
-- (`BSON::Document, nil`) — The document, if found.
-
-**Examples**:
-
-```ruby
-view.find_one_and_delete
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L33)
-
-### `#find_one_and_replace(replacement, opts = {})`
-
-Finds a single document and replaces it.
-
-**Params**:
-
-- `replacement` (`BSON::Document`) — The replacement.
-  
-  - `:return_document` (`Symbol`) — Either :before or :after.
-  - `:upsert` (`true`) — Whether to upsert if the document doesn't exist.
-  - `:bypass_document_validation` (`true`) — Whether or
-not to skip document level validation.
-  - `:write_concern` (`Hash`) — The write concern options.
-Defaults to the collection's write concern.
-
-- `opts` (`Hash`) — The options.
-  
-  - `:return_document` (`Symbol`) — Either :before or :after.
-  - `:upsert` (`true`) — Whether to upsert if the document doesn't exist.
-  - `:bypass_document_validation` (`true`) — Whether or
-not to skip document level validation.
-  - `:write_concern` (`Hash`) — The write concern options.
-Defaults to the collection's write concern.
-
-- `options` (`Hash`) — a customizable set of options
-  
-  - `:return_document` (`Symbol`) — Either :before or :after.
-  - `:upsert` (`true`) — Whether to upsert if the document doesn't exist.
-  - `:bypass_document_validation` (`true`) — Whether or
-not to skip document level validation.
-  - `:write_concern` (`Hash`) — The write concern options.
-Defaults to the collection's write concern.
-
-**Returns**:
-
-- (`BSON::Document`) — The document.
-
-**Examples**:
-
-```ruby
-view.find_one_and_replace({ name: 'test' }, :return_document => :before)
-```
-
-```ruby
-view.find_one_and_replace({ name: 'test' }, :return_document => :after)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L73)
-
-### `#find_one_and_update(document, opts = {})`
-
-Finds a single document and updates it.
-
-**Params**:
-
-- `document` (`BSON::Document`) — The updates.
-  
-  - `:return_document` (`Symbol`) — Either :before or :after.
-  - `:upsert` (`true`) — Whether to upsert if the document doesn't exist.
-  - `:bypass_document_validation` (`true`) — Whether or
-not to skip document level validation.
-  - `:write_concern` (`Hash`) — The write concern options.
-Defaults to the collection's write concern.
-
-- `opts` (`Hash`) — The options.
-  
-  - `:return_document` (`Symbol`) — Either :before or :after.
-  - `:upsert` (`true`) — Whether to upsert if the document doesn't exist.
-  - `:bypass_document_validation` (`true`) — Whether or
-not to skip document level validation.
-  - `:write_concern` (`Hash`) — The write concern options.
-Defaults to the collection's write concern.
-
-**Returns**:
-
-- (`BSON::Document`) — The document.
-
-**Examples**:
-
-```ruby
-view.find_one_and_update({ "$set" => { name: 'test' }}, :return_document => :before)
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L95)
-
-### `#delete_many(opts = {})`
-
-Remove documents from the collection.
-
-**Params**:
-
-- `opts` (`Hash`) — The options.
-  
-  - `:collation` (`Hash`) — The collation to use.
-
-**Returns**:
-
-- (`Result`) — The response from the database.
-
-**Examples**:
-
-```ruby
-collection_view.delete_many
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L131)
-
-### `#delete_one(opts = {})`
-
-Remove a document from the collection.
-
-**Params**:
-
-- `opts` (`Hash`) — The options.
-  
-  - `:collation` (`Hash`) — The collation to use.
-
-**Returns**:
-
-- (`Result`) — The response from the database.
-
-**Examples**:
-
-```ruby
-collection_view.delete_one
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L147)
-
-### `#replace_one(replacement, opts = {})`
-
-Replaces a single document in the database with the new document.
-
-**Params**:
-
-- `replacement` (`Hash`) — The replacement document.
-  
-  - `:upsert` (`true`) — Whether to upsert if the
-document doesn't exist.
-  - `:collation` (`Hash`) — The collation to use.
-
-- `opts` (`Hash`) — The options.
-  
-  - `:upsert` (`true`) — Whether to upsert if the
-document doesn't exist.
-  - `:collation` (`Hash`) — The collation to use.
-
-**Returns**:
-
-- (`Result`) — The response from the database.
-
-**Examples**:
-
-```ruby
-collection_view.replace_one({ name: 'test' })
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L166)
-
-### `#update_many(spec, opts = {})`
-
-Update documents in the collection.
-
-**Params**:
-
-- `spec` (`Hash`) — The update statement.
-  
-  - `:upsert` (`true`) — Whether to upsert if the
-document doesn't exist.
-  - `:collation` (`Hash`) — The collation to use.
-
-- `opts` (`Hash`) — The options.
-  
-  - `:upsert` (`true`) — Whether to upsert if the
-document doesn't exist.
-  - `:collation` (`Hash`) — The collation to use.
-
-**Returns**:
-
-- (`Result`) — The response from the database.
-
-**Examples**:
-
-```ruby
-collection_view.update_many('$set' => { name: 'test' })
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L185)
-
-### `#update_one(spec, opts = {})`
-
-Update a single document in the collection.
-
-**Params**:
-
-- `spec` (`Hash`) — The update statement.
-  
-  - `:upsert` (`true`) — Whether to upsert if the
-document doesn't exist.
-  - `:collation` (`Hash`) — The collation to use.
-
-- `opts` (`Hash`) — The options.
-  
-  - `:upsert` (`true`) — Whether to upsert if the
-document doesn't exist.
-  - `:collation` (`Hash`) — The collation to use.
-
-**Returns**:
-
-- (`Result`) — The response from the database.
-
-**Examples**:
-
-```ruby
-collection_view.update_one('$set' => { name: 'test' })
-```
-
-**See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L204)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L446)
 
 ---
 
@@ -18623,6 +19885,7 @@ end
 
 Stop the iteration by sending a KillCursors command to the server.
 
+
 **Examples**:
 
 ```ruby
@@ -18635,6 +19898,7 @@ view.close_query
 ### `#close_query`
 
 Stop the iteration by sending a KillCursors command to the server.
+
 
 **Examples**:
 
@@ -18651,6 +19915,7 @@ view.close_query
 
 ### `#options`
 
+
 **Returns**:
 
 - (`Hash`) — options The additional query options.
@@ -18663,6 +19928,7 @@ view.close_query
 ## `module Mongo::WriteConcern::Normalizable`
 
 ### `#options`
+
 
 **Returns**:
 
@@ -18703,6 +19969,7 @@ Mongo::WriteConcern.new(:w => 1)
 
 ### `#options`
 
+
 **Returns**:
 
 - (`Hash`) — options The options.
@@ -18711,6 +19978,7 @@ Mongo::WriteConcern.new(:w => 1)
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L24)
 
 ### `#tag_sets`
+
 
 **Returns**:
 
@@ -18721,9 +19989,10 @@ Mongo::WriteConcern.new(:w => 1)
 
 ### `#max_staleness`
 
+
 **Returns**:
 
-- (`Float`) — max_staleness The maximum replication lag, in seconds, that a
+- (`Integer`) — max_staleness The maximum replication lag, in seconds, that a
 secondary can suffer and still be eligible for a read.
 
 **See**:
@@ -18818,6 +20087,9 @@ selector.select_server(cluster)
 
 Get the timeout for server selection.
 
+⚠️ **This setting is now taken from the cluster options when a server is selected.
+Will be removed in 3.0.**
+
 **Returns**:
 
 - (`Float`) — The timeout.
@@ -18835,6 +20107,9 @@ selector.server_selection_timeout
 
 Get the local threshold boundary for nearest selection in seconds.
 
+⚠️ **This setting is now taken from the cluster options when a server is selected.
+Will be removed in 3.0.**
+
 **Returns**:
 
 - (`Float`) — The local threshold.
@@ -18847,6 +20122,28 @@ selector.local_threshold
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L145)
+
+### `#candidates(cluster)`
+
+Get the potential candidates to select from the cluster.
+
+**Params**:
+
+- `cluster` (`Cluster`) — The cluster.
+  
+
+**Returns**:
+
+- (`Array<Server>`) — The candidate servers.
+
+**Examples**:
+
+```ruby
+selectable.candidates(cluster)
+```
+
+**See**:
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L159)
 
 ---
 
@@ -18871,29 +20168,29 @@ view.explain
 
 ---
 
-## `module Mongo::Operation::Write::Bulk::Bulkable`
+## `module Mongo::Collection::View::Builder::Flags`
 
-### `#execute(server)`
+### `#map_flags(options)`
 
-Execute the bulk operation.
+Maps an array of flags from the provided options.
 
 **Params**:
 
-- `server` (`Mongo::Server`) — The server to send this operation to.
+- `options` (`Hash, BSON::Document`) — The options.
   
 
 **Returns**:
 
-- (`Result`) — The operation result.
+- (`Array<Symbol>`) — The flags.
 
 **Examples**:
 
 ```ruby
-operation.execute(server)
+Flags.map_flags(options)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/bulkable.rb#L37)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/flags.rb#L49)
 
 ---
 
@@ -18945,29 +20242,29 @@ result.aggregate_write_concern_errors(100)
 
 ---
 
-## `module Mongo::Collection::View::Builder::Flags`
+## `module Mongo::Operation::Write::Bulk::Bulkable`
 
-### `#map_flags(options)`
+### `#execute(server)`
 
-Maps an array of flags from the provided options.
+Execute the bulk operation.
 
 **Params**:
 
-- `options` (`Hash, BSON::Document`) — The options.
+- `server` (`Mongo::Server`) — The server to send this operation to.
   
 
 **Returns**:
 
-- (`Array<Symbol>`) — The flags.
+- (`Result`) — The operation result.
 
 **Examples**:
 
 ```ruby
-Flags.map_flags(options)
+operation.execute(server)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/flags.rb#L49)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/write/bulk/bulkable.rb#L37)
 
 ---
 

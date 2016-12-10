@@ -3,6 +3,7 @@
 
 ### `#initialize(base_url, index_name, options = {})`
 
+
 **Returns**:
 
 - (`Index`) — a new instance of Index

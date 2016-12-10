@@ -15,10 +15,12 @@
 
 Returns the value of attribute urls
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_seed_crawler/blob/master/lib/govuk_seed_crawler/indexer.rb#L5)
 
 ### `#initialize(site_root)`
+
 
 **Returns**:
 
@@ -32,6 +34,7 @@ Returns the value of attribute urls
 ## `class GovukSeedCrawler::CLIRunner`
 
 ### `#initialize(argv_array)`
+
 
 **Returns**:
 
@@ -54,10 +57,12 @@ Returns the value of attribute urls
 
 Returns the value of attribute help
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_seed_crawler/blob/master/lib/govuk_seed_crawler/cli_parser.rb#L5)
 
 ### `#initialize(message, help)`
+
 
 **Returns**:
 
@@ -71,6 +76,7 @@ Returns the value of attribute help
 ## `class GovukSeedCrawler::CLIParser`
 
 ### `#initialize(argv_array)`
+
 
 **Returns**:
 
@@ -99,10 +105,12 @@ Returns the value of attribute help
 
 Returns the value of attribute channel
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_seed_crawler/blob/master/lib/govuk_seed_crawler/amqp_client.rb#L5)
 
 ### `#initialize(connection_options = {})`
+
 
 **Returns**:
 

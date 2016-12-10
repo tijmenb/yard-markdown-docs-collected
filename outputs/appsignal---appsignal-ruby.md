@@ -5,8 +5,9 @@
 
 Returns the value of attribute options
 
+
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli.rb#L15)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli.rb#L16)
 
 ### `.options=(value)`
 
@@ -18,31 +19,25 @@ Sets the attribute options
   
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli.rb#L15)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli.rb#L16)
 
 ### `.run(argv=ARGV)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli.rb#L17)
-
-### `.config`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli.rb#L48)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli.rb#L18)
 
 ### `.global_option_parser`
 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli.rb#L57)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli.rb#L49)
 
 ### `.command_option_parser`
 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli.rb#L76)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli.rb#L68)
 
 ---
 
@@ -53,6 +48,80 @@ Sets the attribute options
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/demo.rb#L8)
+
+---
+
+## `class Appsignal::Hooks`
+
+### `.register(name, hook)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L4)
+
+### `.load_hooks`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L8)
+
+### `.hooks`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L14)
+
+---
+
+## `class Appsignal::Hooks::Hook`
+
+### `.register(name, hook=self)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L20)
+
+### `#initialize`
+
+
+**Returns**:
+
+- (`Hook`) — a new instance of Hook
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L24)
+
+### `#try_to_install(name)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L28)
+
+### `#installed?`
+
+
+**Returns**:
+
+- (`Boolean`) — 
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L40)
+
+### `#dependencies_present?`
+
+
+**Returns**:
+
+- (`Boolean`) — 
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L44)
+
+### `#install`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L48)
 
 ---
 
@@ -98,82 +167,12 @@ Sets the attribute options
 
 ---
 
-## `class Appsignal::Hooks`
-
-### `.register(name, hook)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L4)
-
-### `.load_hooks`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L8)
-
-### `.hooks`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L14)
-
----
-
-## `class Appsignal::Hooks::Hook`
-
-### `.register(name, hook=self)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L20)
-
-### `#initialize`
-
-**Returns**:
-
-- (`Hook`) — a new instance of Hook
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L24)
-
-### `#try_to_install(name)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L28)
-
-### `#installed?`
-
-**Returns**:
-
-- (`Boolean`) — 
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L40)
-
-### `#dependencies_present?`
-
-**Returns**:
-
-- (`Boolean`) — 
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L44)
-
-### `#install`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L48)
-
----
-
 ## `class Appsignal::Marker`
 
 ### `#marker_data`
 
 Returns the value of attribute marker_data
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/marker.rb#L3)
@@ -182,10 +181,12 @@ Returns the value of attribute marker_data
 
 Returns the value of attribute config
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/marker.rb#L3)
 
 ### `#initialize(marker_data, config)`
+
 
 **Returns**:
 
@@ -208,12 +209,14 @@ Returns the value of attribute config
 
 Returns the value of attribute root_path
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/config.rb#L61)
 
 ### `#env`
 
 Returns the value of attribute env
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/config.rb#L61)
@@ -222,6 +225,7 @@ Returns the value of attribute env
 
 Returns the value of attribute initial_config
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/config.rb#L61)
 
@@ -229,12 +233,14 @@ Returns the value of attribute initial_config
 
 Returns the value of attribute config_hash
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/config.rb#L61)
 
 ### `#logger`
 
 Returns the value of attribute logger
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/config.rb#L62)
@@ -252,6 +258,7 @@ Sets the attribute logger
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/config.rb#L62)
 
 ### `#initialize(root_path, env, initial_config={}, logger=Appsignal.logger)`
+
 
 **Returns**:
 
@@ -280,6 +287,7 @@ Sets the attribute logger
 
 ### `#valid?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -288,6 +296,7 @@ Sets the attribute logger
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/config.rb#L110)
 
 ### `#active?`
+
 
 **Returns**:
 
@@ -304,12 +313,23 @@ Sets the attribute logger
 
 ---
 
+## `class Appsignal::CLI::Demo`
+
+### `.run(options = {})`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/demo.rb#L7)
+
+---
+
 ## `class Appsignal::Minutely`
 
 ### `.probes`
 
 List of probes. Probes can be lamdba's or objects that
 respond to call.
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/minutely.rb#L6)
@@ -344,16 +364,6 @@ respond to call.
 
 ---
 
-## `class Appsignal::CLI::Demo`
-
-### `.run(options = {})`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/demo.rb#L7)
-
----
-
 ## `class Appsignal::Extension`
 
 ### `.agent_config`
@@ -378,6 +388,7 @@ respond to call.
 
 Starting and stopping
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L23)
 
@@ -391,6 +402,7 @@ Starting and stopping
 
 Server state
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L35)
 
@@ -398,12 +410,14 @@ Server state
 
 Start transaction
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L48)
 
 ### `.static VALUE data_map_new(VALUE self) {`
 
 Create a data map or array
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L267)
@@ -418,12 +432,14 @@ Create a data map or array
 
 Event hook installation
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L569)
 
 ### `.static VALUE set_gauge(VALUE self, VALUE key, VALUE value) {`
 
 Metrics
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L510)
@@ -466,6 +482,7 @@ Metrics
 
 Add content to a data map
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L291)
 
@@ -502,6 +519,7 @@ Add content to a data map
 ### `#static VALUE data_append_string(VALUE self, VALUE value) {`
 
 Add content to a data array
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L392)
@@ -540,12 +558,14 @@ Add content to a data array
 
 Data equality
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L477)
 
 ### `#static VALUE data_to_s(VALUE self) {`
 
 Get Json content of a data
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L495)
@@ -558,6 +578,7 @@ Get Json content of a data
 
 Returns the value of attribute config
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/auth_check.rb#L5)
 
@@ -565,10 +586,12 @@ Returns the value of attribute config
 
 Returns the value of attribute logger
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/auth_check.rb#L5)
 
 ### `#initialize(config, logger=Appsignal.logger)`
+
 
 **Returns**:
 
@@ -591,28 +614,10 @@ Returns the value of attribute logger
 
 ---
 
-## `class Appsignal::Hooks::RakeHook`
-
-### `#dependencies_present?`
-
-**Returns**:
-
-- (`Boolean`) — 
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/rake.rb#L6)
-
-### `#install`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/rake.rb#L10)
-
----
-
 ## `class Appsignal::Hooks::PumaHook`
 
 ### `#dependencies_present?`
+
 
 **Returns**:
 
@@ -629,31 +634,71 @@ Returns the value of attribute logger
 
 ---
 
-## `class Appsignal::CLI::Install`
+## `class Appsignal::Hooks::RakeHook`
 
-### `.run(push_api_key, config)`
+### `#dependencies_present?`
+
+
+**Returns**:
+
+- (`Boolean`) — 
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/rake.rb#L6)
+
+### `#install`
 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L12)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/rake.rb#L10)
+
+---
+
+## `class Appsignal::Hooks::RedisHook`
+
+### `#dependencies_present?`
+
+
+**Returns**:
+
+- (`Boolean`) — 
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/redis.rb#L6)
+
+### `#install`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/redis.rb#L12)
+
+---
+
+## `class Appsignal::CLI::Install`
+
+### `.run(push_api_key)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L14)
 
 ### `.install_for_rails(config)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L67)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L66)
 
 ### `.install_for_sinatra(config)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L85)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L84)
 
 ### `.install_for_padrino(config)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L100)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L102)
 
 ### `.install_for_grape(config)`
 
@@ -667,65 +712,83 @@ Returns the value of attribute logger
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L135)
 
-### `.colorize(text, color)`
+### `.configure(config, environments, name_overwritten)`
 
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L150)
 
-### `.periods`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L163)
-
-### `.press_any_key`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L170)
-
-### `.yes_or_no(prompt)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L178)
-
-### `.required_input(prompt)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L190)
-
-### `.configure(config, environments, name_overwritten)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L200)
-
 ### `.done_notice`
 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L245)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L194)
 
 ### `.installed_frameworks`
 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L268)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L217)
 
 ### `.rails_environments`
 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L293)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L242)
 
 ### `.write_config_file(data)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L299)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L248)
+
+### `.new_config`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L261)
+
+---
+
+## `class Appsignal::Transmitter`
+
+### `#config`
+
+Returns the value of attribute config
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transmitter.rb#L24)
+
+### `#action`
+
+Returns the value of attribute action
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transmitter.rb#L24)
+
+### `#initialize(action, config=Appsignal.config)`
+
+
+**Returns**:
+
+- (`Transmitter`) — a new instance of Transmitter
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transmitter.rb#L26)
+
+### `#uri`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transmitter.rb#L31)
+
+### `#transmit(payload)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transmitter.rb#L43)
 
 ---
 
@@ -759,12 +822,14 @@ Returns the value of attribute logger
 
 Returns the value of attribute ext
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L59)
 
 ### `#transaction_id`
 
 Returns the value of attribute transaction_id
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L59)
@@ -773,12 +838,14 @@ Returns the value of attribute transaction_id
 
 Returns the value of attribute namespace
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L59)
 
 ### `#request`
 
 Returns the value of attribute request
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L59)
@@ -787,12 +854,14 @@ Returns the value of attribute request
 
 Returns the value of attribute paused
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L59)
 
 ### `#tags`
 
 Returns the value of attribute tags
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L59)
@@ -801,6 +870,7 @@ Returns the value of attribute tags
 
 Returns the value of attribute options
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L59)
 
@@ -808,10 +878,12 @@ Returns the value of attribute options
 
 Returns the value of attribute discarded
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L59)
 
 ### `#initialize(transaction_id, namespace, request, options={})`
+
 
 **Returns**:
 
@@ -821,6 +893,7 @@ Returns the value of attribute discarded
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L61)
 
 ### `#nil_transaction?`
+
 
 **Returns**:
 
@@ -849,6 +922,7 @@ Returns the value of attribute discarded
 
 ### `#paused?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -869,6 +943,7 @@ Returns the value of attribute discarded
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L110)
 
 ### `#discarded?`
+
 
 **Returns**:
 
@@ -975,10 +1050,12 @@ Returns the value of attribute discarded
 
 Returns the value of attribute env
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L228)
 
 ### `#initialize(env)`
+
 
 **Returns**:
 
@@ -1007,10 +1084,12 @@ Returns the value of attribute env
 
 Instrument should still yield
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L332)
 
 ### `#nil_transaction?`
+
 
 **Returns**:
 
@@ -1021,67 +1100,20 @@ Instrument should still yield
 
 ---
 
-## `class Appsignal::Hooks::RedisHook`
+## `class Appsignal::CLI::Diagnose`
 
-### `#dependencies_present?`
-
-**Returns**:
-
-- (`Boolean`) — 
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/redis.rb#L6)
-
-### `#install`
+### `.run(options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/redis.rb#L12)
-
----
-
-## `class Appsignal::Transmitter`
-
-### `#config`
-
-Returns the value of attribute config
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transmitter.rb#L24)
-
-### `#action`
-
-Returns the value of attribute action
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transmitter.rb#L24)
-
-### `#initialize(action, config=Appsignal.config)`
-
-**Returns**:
-
-- (`Transmitter`) — a new instance of Transmitter
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transmitter.rb#L26)
-
-### `#uri`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transmitter.rb#L31)
-
-### `#transmit(payload)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transmitter.rb#L43)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/diagnose.rb#L10)
 
 ---
 
 ## `class Appsignal::Hooks::SequelHook`
 
 ### `#dependencies_present?`
+
 
 **Returns**:
 
@@ -1098,13 +1130,23 @@ Returns the value of attribute action
 
 ---
 
-## `class Appsignal::CLI::Diagnose`
+## `class Appsignal::Hooks::UnicornHook`
 
-### `.run`
+### `#dependencies_present?`
+
+
+**Returns**:
+
+- (`Boolean`) — 
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/unicorn.rb#L6)
+
+### `#install`
 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/diagnose.rb#L9)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/unicorn.rb#L11)
 
 ---
 
@@ -1134,6 +1176,7 @@ Returns the value of attribute action
 
 ### `#dependencies_present?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -1149,28 +1192,10 @@ Returns the value of attribute action
 
 ---
 
-## `class Appsignal::Hooks::UnicornHook`
-
-### `#dependencies_present?`
-
-**Returns**:
-
-- (`Boolean`) — 
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/unicorn.rb#L6)
-
-### `#install`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/unicorn.rb#L11)
-
----
-
 ## `class Appsignal::Hooks::NetHttpHook`
 
 ### `#dependencies_present?`
+
 
 **Returns**:
 
@@ -1190,6 +1215,7 @@ Returns the value of attribute action
 ## `class Appsignal::Hooks::PassengerHook`
 
 ### `#dependencies_present?`
+
 
 **Returns**:
 
@@ -1220,6 +1246,7 @@ Returns the value of attribute action
 
 ### `#dependencies_present?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -1232,25 +1259,6 @@ Returns the value of attribute action
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/shoryuken.rb#L33)
-
----
-
-## `class Appsignal::Hooks::CelluloidHook`
-
-### `#dependencies_present?`
-
-**Returns**:
-
-- (`Boolean`) — 
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/celluloid.rb#L6)
-
-### `#install`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/celluloid.rb#L10)
 
 ---
 
@@ -1282,6 +1290,7 @@ Returns the value of attribute action
 
 ### `.registered?(name, klass=nil)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -1303,9 +1312,30 @@ Returns the value of attribute action
 
 ---
 
+## `class Appsignal::Hooks::CelluloidHook`
+
+### `#dependencies_present?`
+
+
+**Returns**:
+
+- (`Boolean`) — 
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/celluloid.rb#L6)
+
+### `#install`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/celluloid.rb#L10)
+
+---
+
 ## `class Appsignal::Hooks::WebmachineHook`
 
 ### `#dependencies_present?`
+
 
 **Returns**:
 
@@ -1326,6 +1356,7 @@ Returns the value of attribute action
 
 ### `#dependencies_present?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -1344,6 +1375,7 @@ Returns the value of attribute action
 ## `class Appsignal::Hooks::DelayedJobHook`
 
 ### `#dependencies_present?`
+
 
 **Returns**:
 
@@ -1404,16 +1436,6 @@ Returns the value of attribute action
 
 ---
 
-## `class Appsignal::CLI::NotifyOfDeploy`
-
-### `.run(options)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/notify_of_deploy.rb#L5)
-
----
-
 ## `class Appsignal::Integrations::Railtie`
 
 ### `.initialize_appsignal(app)`
@@ -1421,6 +1443,16 @@ Returns the value of attribute action
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/railtie.rb#L12)
+
+---
+
+## `class Appsignal::CLI::NotifyOfDeploy`
+
+### `.run(options)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/notify_of_deploy.rb#L5)
 
 ---
 
@@ -1434,9 +1466,30 @@ Returns the value of attribute action
 
 ---
 
+## `class Appsignal::Hooks::MongoRubyDriverHook`
+
+### `#dependencies_present?`
+
+
+**Returns**:
+
+- (`Boolean`) — 
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/mongo_ruby_driver.rb#L6)
+
+### `#install`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/mongo_ruby_driver.rb#L10)
+
+---
+
 ## `class Appsignal::Rack::StreamingListener`
 
 ### `#initialize(app, options = {})`
+
 
 **Returns**:
 
@@ -1463,6 +1516,7 @@ Returns the value of attribute action
 
 ### `#initialize(stream, transaction)`
 
+
 **Returns**:
 
 - (`StreamWrapper`) — a new instance of StreamWrapper
@@ -1484,30 +1538,12 @@ Returns the value of attribute action
 
 ---
 
-## `class Appsignal::Hooks::MongoRubyDriverHook`
-
-### `#dependencies_present?`
-
-**Returns**:
-
-- (`Boolean`) — 
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/mongo_ruby_driver.rb#L6)
-
-### `#install`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/mongo_ruby_driver.rb#L10)
-
----
-
 ## `class Appsignal::JSExceptionTransaction`
 
 ### `#uuid`
 
 Returns the value of attribute uuid
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/js_exception_transaction.rb#L3)
@@ -1516,10 +1552,12 @@ Returns the value of attribute uuid
 
 Returns the value of attribute ext
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/js_exception_transaction.rb#L3)
 
 ### `#initialize(data)`
+
 
 **Returns**:
 
@@ -1564,6 +1602,7 @@ Returns the value of attribute ext
 
 ### `#initialize(app, options = {})`
 
+
 **Returns**:
 
 - (`JSExceptionCatcher`) — a new instance of JSExceptionCatcher
@@ -1582,6 +1621,7 @@ Returns the value of attribute ext
 ## `class Appsignal::Rack::RailsInstrumentation`
 
 ### `#initialize(app, options = {})`
+
 
 **Returns**:
 
@@ -1614,6 +1654,7 @@ Returns the value of attribute ext
 
 ### `#initialize`
 
+
 **Returns**:
 
 - (`GarbageCollectionProfiler`) — a new instance of GarbageCollectionProfiler
@@ -1631,6 +1672,7 @@ collection time is never counted more than once.
 Whenever @total_time gets above two billion milliseconds (about 23 days),
 it's reset to make sure the result fits in a signed 32-bit integer.
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/garbage_collection_profiler.rb#L20)
 
@@ -1639,6 +1681,7 @@ it's reset to make sure the result fits in a signed 32-bit integer.
 ## `class Appsignal::Rack::SinatraInstrumentation`
 
 ### `#initialize(app, options = {})`
+
 
 **Returns**:
 
@@ -1667,10 +1710,12 @@ it's reset to make sure the result fits in a signed 32-bit integer.
 
 Returns the value of attribute raise_errors_on
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/rack/sinatra_instrumentation.rb#L27)
 
 ### `#initialize(app, options = {})`
+
 
 **Returns**:
 
@@ -1703,6 +1748,7 @@ Returns the value of attribute raise_errors_on
 
 ### `#initialize(app, options = {})`
 
+
 **Returns**:
 
 - (`GenericInstrumentation`) — a new instance of GenericInstrumentation
@@ -1730,12 +1776,14 @@ Returns the value of attribute raise_errors_on
 
 Called by Mongo::Monitor when query starts
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/mongo_ruby_driver.rb#L5)
 
 ### `#succeeded(event)`
 
 Called by Mongo::Monitor when query succeeds
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/mongo_ruby_driver.rb#L23)
@@ -1744,12 +1792,14 @@ Called by Mongo::Monitor when query succeeds
 
 Called by Mongo::Monitor when query fails
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/mongo_ruby_driver.rb#L29)
 
 ### `#finish(result, event)`
 
 Finishes the event in the AppSignal extension
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/mongo_ruby_driver.rb#L35)
@@ -1769,6 +1819,7 @@ Finishes the event in the AppSignal extension
 ## `class Appsignal::Hooks::ActiveSupportNotificationsHook`
 
 ### `#dependencies_present?`
+
 
 **Returns**:
 
@@ -1831,10 +1882,12 @@ Finishes the event in the AppSignal extension
 
 Returns the value of attribute root_path
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/event_formatter/action_view/render_formatter.rb#L10)
 
 ### `#initialize`
+
 
 **Returns**:
 
@@ -1873,12 +1926,14 @@ Returns the value of attribute root_path
 
 Format command based on given strategy
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/event_formatter/mongo_ruby_driver/query_formatter.rb#L50)
 
 ### `.apply_strategy(strategy, val)`
 
 Applies strategy on hash values based on keys
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/event_formatter/mongo_ruby_driver/query_formatter.rb#L66)
@@ -1900,6 +1955,7 @@ Applies strategy on hash values based on keys
 ### `#static VALUE start_event(VALUE self, VALUE gc_duration_ms) {`
 
 Transaction instance methods
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L68)
@@ -1966,6 +2022,7 @@ Transaction instance methods
 
 Returns the value of attribute config
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L7)
 
@@ -1985,6 +2042,7 @@ Sets the attribute config
 
 Returns the value of attribute agent
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L7)
 
@@ -2003,6 +2061,7 @@ Sets the attribute agent
 ### `.extension_loaded`
 
 Returns the value of attribute extension_loaded
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L7)
@@ -2089,6 +2148,7 @@ Sets the attribute in_memory_log
 
 Wrap a transaction with appsignal monitoring.
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L98)
 
@@ -2099,6 +2159,7 @@ flushed.
 
 Useful for cases such as Rake tasks and Resque-like systems where a process is
 forked and immediately exits after the transaction finishes.
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L136)
@@ -2205,7 +2266,7 @@ forked and immediately exits after the transaction finishes.
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L226)
 
-### `.log_formatter`
+### `.log_formatter(prefix = nil)`
 
 
 **See**:
@@ -2215,75 +2276,65 @@ forked and immediately exits after the transaction finishes.
 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L239)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L240)
 
 ### `.extension_loaded?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L262)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L263)
 
 ### `.active?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L266)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L267)
 
 ### `.is_ignored_error?(error)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L270)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L271)
 
 ### `.is_ignored_error?(error)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L273)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L274)
 
 ### `.is_ignored_action?(action)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L275)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L276)
 
 ### `.without_instrumentation`
 
 Convenience method for skipping instrumentations around a block of code.
 
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L282)
-
----
-
-## `module Appsignal::Utils`
-
-### `.data_generate(body)`
-
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/utils.rb#L6)
-
-### `.json_generate(body)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/utils.rb#L75)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L283)
 
 ---
 
@@ -2315,9 +2366,26 @@ Convenience method for skipping instrumentations around a block of code.
 
 ---
 
+## `module Appsignal::Utils`
+
+### `.data_generate(body)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/utils.rb#L6)
+
+### `.json_generate(body)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/utils.rb#L75)
+
+---
+
 ## `module Appsignal::System`
 
 ### `.container?`
+
 
 **Returns**:
 
@@ -2327,6 +2395,7 @@ Convenience method for skipping instrumentations around a block of code.
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/system.rb#L3)
 
 ### `.heroku?`
+
 
 **Returns**:
 
@@ -2353,6 +2422,7 @@ Convenience method for skipping instrumentations around a block of code.
 
 Add query instrumentation
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/sequel.rb#L5)
 
@@ -2363,6 +2433,7 @@ Add query instrumentation
 ### `#log_connection_yield(sql, conn, args = nil)`
 
 Add query instrumentation
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/sequel.rb#L19)
@@ -2377,6 +2448,7 @@ Do not use this file as a template for your own background processor
 Resque is an exception to the rule and the code below causes the
 extension to shut itself down after a single job.
 see http://docs.appsignal.com/background-monitoring/custom.html
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/resque.rb#L9)

@@ -25,6 +25,7 @@
 
 ### `#initialize(paths:)`
 
+
 **Returns**:
 
 - (`Runner`) — a new instance of Runner
@@ -43,6 +44,7 @@
 ## `class Govuk::Diff::Pages::TextDiff::Runner`
 
 ### `#initialize(`
+
 
 **Returns**:
 
@@ -65,10 +67,12 @@
 
 Returns the value of attribute differing_pages
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-diff-pages/blob/master/lib/govuk/diff/pages/html_diff/differ.rb#L16)
 
 ### `#initialize`
+
 
 **Returns**:
 
@@ -89,6 +93,7 @@ Returns the value of attribute differing_pages
 
 ### `#initialize(kernel = Kernel)`
 
+
 **Returns**:
 
 - (`Renderer`) — a new instance of Renderer
@@ -107,6 +112,7 @@ Returns the value of attribute differing_pages
 ## `class Govuk::Diff::Pages::VisualDiff::Runner`
 
 ### `#initialize(paths:, kernel: Kernel)`
+
 
 **Returns**:
 
@@ -149,10 +155,12 @@ Returns the value of attribute differing_pages
 
 Returns the value of attribute location
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-diff-pages/blob/master/lib/govuk/diff/pages/visual_diff/wraith_config.rb#L9)
 
 ### `#initialize(paths:)`
+
 
 **Returns**:
 

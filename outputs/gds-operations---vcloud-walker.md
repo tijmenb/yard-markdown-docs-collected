@@ -3,6 +3,7 @@
 
 ### `#initialize(argv_array)`
 
+
 **Returns**:
 
 - (`Cli`) — a new instance of Cli
@@ -22,6 +23,7 @@
 
 ### `#initialize fog_vms`
 
+
 **Returns**:
 
 - (`Vms`) — a new instance of Vms
@@ -37,12 +39,14 @@
 
 Returns the value of attribute id
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vm.rb#L16)
 
 ### `#status`
 
 Returns the value of attribute status
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vm.rb#L16)
@@ -51,12 +55,14 @@ Returns the value of attribute status
 
 Returns the value of attribute cpu
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vm.rb#L16)
 
 ### `#memory`
 
 Returns the value of attribute memory
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vm.rb#L16)
@@ -65,12 +71,14 @@ Returns the value of attribute memory
 
 Returns the value of attribute operating_system
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vm.rb#L16)
 
 ### `#disks`
 
 Returns the value of attribute disks
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vm.rb#L16)
@@ -79,12 +87,14 @@ Returns the value of attribute disks
 
 Returns the value of attribute primary_network_connection_index
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vm.rb#L16)
 
 ### `#vmware_tools`
 
 Returns the value of attribute vmware_tools
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vm.rb#L16)
@@ -93,12 +103,14 @@ Returns the value of attribute vmware_tools
 
 Returns the value of attribute virtual_system_type
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vm.rb#L16)
 
 ### `#network_connections`
 
 Returns the value of attribute network_connections
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vm.rb#L16)
@@ -107,12 +119,14 @@ Returns the value of attribute network_connections
 
 Returns the value of attribute storage_profile
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vm.rb#L16)
 
 ### `#network_cards`
 
 Returns the value of attribute network_cards
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vm.rb#L16)
@@ -121,10 +135,12 @@ Returns the value of attribute network_cards
 
 Returns the value of attribute metadata
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vm.rb#L16)
 
 ### `#initialize fog_vm`
+
 
 **Returns**:
 
@@ -138,6 +154,7 @@ Returns the value of attribute metadata
 ## `class Vcloud::Walker::Resource::Vdcs`
 
 ### `#initialize fog_vdcs`
+
 
 **Returns**:
 
@@ -154,12 +171,14 @@ Returns the value of attribute metadata
 
 Returns the value of attribute vapps
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vdc.rb#L16)
 
 ### `#id`
 
 Returns the value of attribute id
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vdc.rb#L16)
@@ -168,12 +187,14 @@ Returns the value of attribute id
 
 Returns the value of attribute name
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vdc.rb#L16)
 
 ### `#description`
 
 Returns the value of attribute description
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vdc.rb#L16)
@@ -182,6 +203,7 @@ Returns the value of attribute description
 
 Returns the value of attribute quotas
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vdc.rb#L16)
 
@@ -189,10 +211,12 @@ Returns the value of attribute quotas
 
 Returns the value of attribute compute_capacity
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vdc.rb#L16)
 
 ### `#initialize(fog_vdc)`
+
 
 **Returns**:
 
@@ -209,12 +233,14 @@ Returns the value of attribute compute_capacity
 
 Returns the value of attribute id
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vapp.rb#L5)
 
 ### `#name`
 
 Returns the value of attribute name
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vapp.rb#L5)
@@ -223,12 +249,14 @@ Returns the value of attribute name
 
 Returns the value of attribute status
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vapp.rb#L5)
 
 ### `#description`
 
 Returns the value of attribute description
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vapp.rb#L5)
@@ -237,12 +265,14 @@ Returns the value of attribute description
 
 Returns the value of attribute network_config
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vapp.rb#L5)
 
 ### `#vms`
 
 Returns the value of attribute vms
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vapp.rb#L5)
@@ -251,12 +281,14 @@ Returns the value of attribute vms
 
 Returns the value of attribute deployed
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vapp.rb#L5)
 
 ### `#network_section`
 
 Returns the value of attribute network_section
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vapp.rb#L5)
@@ -265,10 +297,12 @@ Returns the value of attribute network_section
 
 Returns the value of attribute metadata
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vapp.rb#L5)
 
 ### `#initialize fog_vapp`
+
 
 **Returns**:
 
@@ -282,6 +316,7 @@ Returns the value of attribute metadata
 ## `class Vcloud::Walker::Resource::VApps`
 
 ### `#initialize ids`
+
 
 **Returns**:
 
@@ -316,12 +351,14 @@ Returns the value of attribute metadata
 
 we use the request here as we don't yet have a model for Edge Gateways
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/fog_interface.rb#L21)
 
 ### `.get_vapp vapp_id`
 
 service-layer
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/fog_interface.rb#L35)
@@ -360,12 +397,14 @@ service-layer
 
 Returns the value of attribute id
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/catalog.rb#L5)
 
 ### `#name`
 
 Returns the value of attribute name
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/catalog.rb#L5)
@@ -374,6 +413,7 @@ Returns the value of attribute name
 
 Returns the value of attribute description
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/catalog.rb#L5)
 
@@ -381,10 +421,12 @@ Returns the value of attribute description
 
 Returns the value of attribute items
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/catalog.rb#L5)
 
 ### `#initialize(fog_catalog)`
+
 
 **Returns**:
 
@@ -399,6 +441,7 @@ Returns the value of attribute items
 
 ### `#initialize fog_catalogs`
 
+
 **Returns**:
 
 - (`Catalogs`) — a new instance of Catalogs
@@ -411,6 +454,7 @@ Returns the value of attribute items
 ## `class Vcloud::Walker::Resource::Networks`
 
 ### `#initialize fog_networks`
+
 
 **Returns**:
 
@@ -427,12 +471,14 @@ Returns the value of attribute items
 
 Returns the value of attribute id
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/network.rb#L18)
 
 ### `#name`
 
 Returns the value of attribute name
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/network.rb#L18)
@@ -441,12 +487,14 @@ Returns the value of attribute name
 
 Returns the value of attribute description
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/network.rb#L18)
 
 ### `#is_inherited`
 
 Returns the value of attribute is_inherited
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/network.rb#L18)
@@ -455,12 +503,14 @@ Returns the value of attribute is_inherited
 
 Returns the value of attribute gateway
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/network.rb#L18)
 
 ### `#netmask`
 
 Returns the value of attribute netmask
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/network.rb#L18)
@@ -469,12 +519,14 @@ Returns the value of attribute netmask
 
 Returns the value of attribute dns1
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/network.rb#L18)
 
 ### `#dns2`
 
 Returns the value of attribute dns2
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/network.rb#L18)
@@ -483,6 +535,7 @@ Returns the value of attribute dns2
 
 Returns the value of attribute dns_suffix
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/network.rb#L18)
 
@@ -490,10 +543,12 @@ Returns the value of attribute dns_suffix
 
 Returns the value of attribute ip_ranges
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/network.rb#L18)
 
 ### `#initialize org_network`
+
 
 **Returns**:
 
@@ -554,12 +609,14 @@ Returns the value of attribute ip_ranges
 
 Returns the value of attribute id
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/catalog_item.rb#L5)
 
 ### `#name`
 
 Returns the value of attribute name
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/catalog_item.rb#L5)
@@ -568,6 +625,7 @@ Returns the value of attribute name
 
 Returns the value of attribute description
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/catalog_item.rb#L5)
 
@@ -575,10 +633,12 @@ Returns the value of attribute description
 
 Returns the value of attribute vapp_template_id
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/catalog_item.rb#L5)
 
 ### `#initialize fog_catalog_item`
+
 
 **Returns**:
 
@@ -592,6 +652,7 @@ Returns the value of attribute vapp_template_id
 ## `class Vcloud::Walker::Resource::CatalogItems`
 
 ### `#initialize fog_catalog_items`
+
 
 **Returns**:
 
@@ -608,6 +669,7 @@ Returns the value of attribute vapp_template_id
 
 Returns the value of attribute IsEnabled
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/gateway_ipsec_vpn_service.rb#L5)
 
@@ -615,10 +677,12 @@ Returns the value of attribute IsEnabled
 
 Returns the value of attribute Tunnels
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/gateway_ipsec_vpn_service.rb#L5)
 
 ### `#initialize fog_vpn_service`
+
 
 **Returns**:
 

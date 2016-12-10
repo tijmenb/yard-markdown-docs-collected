@@ -13,6 +13,7 @@
 
 ### `#initialize(name, id, type, redis, statsd, run_output = nil, duration = nil)`
 
+
 **Returns**:
 
 - (`ExperimentResult`) — a new instance of ExperimentResult
@@ -24,6 +25,7 @@
 
 Returns the value of attribute key
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/async_experiments/blob/master/lib/async_experiments/experiment_result.rb#L27)
 
@@ -31,12 +33,14 @@ Returns the value of attribute key
 
 Returns the value of attribute run_output
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/async_experiments/blob/master/lib/async_experiments/experiment_result.rb#L27)
 
 ### `#duration`
 
 Returns the value of attribute duration
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/async_experiments/blob/master/lib/async_experiments/experiment_result.rb#L27)
@@ -54,6 +58,7 @@ Returns the value of attribute duration
 - [Source on GitHub](https://github.com/alphagov/async_experiments/blob/master/lib/async_experiments/experiment_result.rb#L38)
 
 ### `#available?`
+
 
 **Returns**:
 
@@ -138,6 +143,7 @@ Returns the value of attribute duration
 
 ### `.present?(object)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -146,6 +152,7 @@ Returns the value of attribute duration
 - [Source on GitHub](https://github.com/alphagov/async_experiments/blob/master/lib/async_experiments/util.rb#L3)
 
 ### `.blank?(object)`
+
 
 **Returns**:
 

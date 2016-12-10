@@ -3,6 +3,7 @@
 
 ### `#initialize(argv_array)`
 
+
 **Returns**:
 
 - (`Cli`) — a new instance of Cli
@@ -22,6 +23,7 @@
 
 ### `#initialize(config_file=nil, vars_file=nil)`
 
+
 **Returns**:
 
 - (`Configure`) — a new instance of Configure
@@ -40,6 +42,7 @@
 ## `class Vcloud::EdgeGateway::ConfigurationDiffer`
 
 ### `#initialize local, remote`
+
 
 **Returns**:
 
@@ -90,6 +93,7 @@
 
 Returns the value of attribute config
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-edge_gateway/blob/master/lib/vcloud/edge_gateway/edge_gateway_configuration.rb#L5)
 
@@ -97,10 +101,12 @@ Returns the value of attribute config
 
 Returns the value of attribute diff
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-edge_gateway/blob/master/lib/vcloud/edge_gateway/edge_gateway_configuration.rb#L5)
 
 ### `#initialize(local_config, remote_config, edge_gateway_interfaces)`
+
 
 **Returns**:
 
@@ -110,6 +116,7 @@ Returns the value of attribute diff
 - [Source on GitHub](https://github.com/gds-operations/vcloud-edge_gateway/blob/master/lib/vcloud/edge_gateway/edge_gateway_configuration.rb#L7)
 
 ### `#update_required?`
+
 
 **Returns**:
 
@@ -153,6 +160,7 @@ Returns the value of attribute diff
 ## `class Vcloud::EdgeGateway::ConfigurationGenerator::NatService`
 
 ### `#initialize input_config, edge_gateway_interfaces`
+
 
 **Returns**:
 
@@ -211,6 +219,7 @@ Returns the value of attribute diff
 
 ### `#initialize(edge_gateway_interfaces)`
 
+
 **Returns**:
 
 - (`LoadBalancerService`) — a new instance of LoadBalancerService
@@ -229,6 +238,7 @@ Returns the value of attribute diff
 ## `class Vcloud::EdgeGateway::ConfigurationGenerator::StaticRoutingService`
 
 ### `#initialize input_config, edge_gateway_interfaces`
+
 
 **Returns**:
 
@@ -257,6 +267,7 @@ Returns the value of attribute diff
 
 ### `#routing_enabled?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -275,6 +286,7 @@ Returns the value of attribute diff
 ## `class Vcloud::EdgeGateway::ConfigurationGenerator::GatewayIpsecVpnService`
 
 ### `#initialize input_config`
+
 
 **Returns**:
 

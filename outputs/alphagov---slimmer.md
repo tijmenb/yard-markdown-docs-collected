@@ -5,6 +5,7 @@
 
 Returns the value of attribute logger
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/app.rb#L5)
 
@@ -22,6 +23,7 @@ Sets the attribute logger
 
 ### `#initialize(app, *args, &block)`
 
+
 **Returns**:
 
 - (`App`) — a new instance of App
@@ -37,6 +39,7 @@ Sets the attribute logger
 
 ### `#response_can_be_rewritten?(status, headers)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -45,6 +48,7 @@ Sets the attribute logger
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/app.rb#L52)
 
 ### `#skip_slimmer?(env, response)`
+
 
 **Returns**:
 
@@ -55,6 +59,7 @@ Sets the attribute logger
 
 ### `#in_development?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -64,6 +69,7 @@ Sets the attribute logger
 
 ### `#skip_slimmer_param?(env)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -72,6 +78,7 @@ Sets the attribute logger
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/app.rb#L64)
 
 ### `#skip_slimmer_header?(response)`
+
 
 **Returns**:
 
@@ -118,6 +125,7 @@ Sets the attribute logger
 
 Returns the value of attribute template_cache
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L6)
 
@@ -136,6 +144,7 @@ Sets the attribute template_cache
 ### `#asset_host`
 
 Returns the value of attribute asset_host
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L6)
@@ -156,6 +165,7 @@ Sets the attribute asset_host
 
 Returns the value of attribute logger
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L6)
 
@@ -174,6 +184,7 @@ Sets the attribute logger
 ### `#strict`
 
 Returns the value of attribute strict
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L6)
@@ -194,6 +205,7 @@ Sets the attribute strict
 
 Returns the value of attribute options
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L6)
 
@@ -210,6 +222,7 @@ Sets the attribute options
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L6)
 
 ### `#initialize options = {}`
+
 
 **Returns**:
 
@@ -249,6 +262,7 @@ Sets the attribute options
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L61)
 
 ### `#ignorable?(error)`
+
 
 **Returns**:
 
@@ -348,6 +362,7 @@ TODO: use a real cache rather than an in memory hash
 
 ### `.set?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -395,6 +410,7 @@ TODO: use a real cache rather than an in memory hash
 
 ### `#include_tag?(node, min_attrs)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -425,6 +441,7 @@ TODO: use a real cache rather than an in memory hash
 ## `class Slimmer::Processors::BodyInserter`
 
 ### `#initialize(source_id='wrapper', destination_id='wrapper')`
+
 
 **Returns**:
 
@@ -471,6 +488,7 @@ TODO: use a real cache rather than an in memory hash
 
 ### `#initialize(headers)`
 
+
 **Returns**:
 
 - (`SearchRemover`) — a new instance of SearchRemover
@@ -489,6 +507,7 @@ TODO: use a real cache rather than an in memory hash
 ## `class Slimmer::Processors::NavigationMover`
 
 ### `#initialize(skin)`
+
 
 **Returns**:
 
@@ -514,6 +533,7 @@ TODO: use a real cache rather than an in memory hash
 ## `class Slimmer::Processors::MetadataInserter`
 
 ### `#initialize(response, app_name)`
+
 
 **Returns**:
 
@@ -543,6 +563,7 @@ TODO: use a real cache rather than an in memory hash
 ## `class Slimmer::Processors::SearchPathSetter`
 
 ### `#initialize(response)`
+
 
 **Returns**:
 
@@ -579,6 +600,7 @@ TODO: use a real cache rather than an in memory hash
 
 ### `#initialize(path='.header-context')`
 
+
 **Returns**:
 
 - (`HeaderContextInserter`) — a new instance of HeaderContextInserter
@@ -613,6 +635,7 @@ TODO: use a real cache rather than an in memory hash
 ## `class Slimmer::Processors::SearchParameterInserter`
 
 ### `#initialize(response)`
+
 
 **Returns**:
 
@@ -651,6 +674,7 @@ TODO: use a real cache rather than an in memory hash
 
 ### `#initialize(skin, url, headers, wrapper_id)`
 
+
 **Returns**:
 
 - (`ReportAProblemInserter`) — a new instance of ReportAProblemInserter
@@ -676,9 +700,27 @@ TODO: use a real cache rather than an in memory hash
 
 ### `#set_slimmer_headers(hash)`
 
+Set the "slimmer headers" to configure the page
+
+**Params**:
+
+- `hash` (`Hash`) — the options
+  
+  - `application_name` (`String`) — 
+  - `format` (`String`) — 
+  - `organisations` (`String`) — 
+  - `page_owner` (`String`) — 
+  - `remove_search` (`String`) — 
+  - `report_a_problem` (`String`) — 
+  - `result_count` (`String`) — 
+  - `search_parameters` (`String`) — 
+  - `section` (`String`) — 
+  - `skip` (`String`) — 
+  - `template` (`String`) — 
+  - `world_locations` (`String`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/headers.rb#L35)
+- [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/headers.rb#L77)
 
 ---
 
@@ -699,16 +741,6 @@ TODO: use a real cache rather than an in memory hash
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/template.rb#L13)
-
----
-
-## `module Slimmer::GovukComponents`
-
-### `#add_govuk_components`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/govuk_components.rb#L7)
 
 ---
 

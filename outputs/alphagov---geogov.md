@@ -3,6 +3,7 @@
 
 ### `#initialize(size = 100)`
 
+
 **Returns**:
 
 - (`LruCache`) — a new instance of LruCache
@@ -34,6 +35,7 @@
 
 ### `#initialize(delegate)`
 
+
 **Returns**:
 
 - (`SimpleCache`) — a new instance of SimpleCache
@@ -55,6 +57,7 @@
 
 Returns the value of attribute ward
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
 
@@ -73,6 +76,7 @@ Sets the attribute ward
 ### `#council`
 
 Returns the value of attribute council
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
@@ -93,6 +97,7 @@ Sets the attribute council
 
 Returns the value of attribute nation
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
 
@@ -111,6 +116,7 @@ Sets the attribute nation
 ### `#country`
 
 Returns the value of attribute country
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
@@ -131,6 +137,7 @@ Sets the attribute country
 
 Returns the value of attribute region
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
 
@@ -149,6 +156,7 @@ Sets the attribute region
 ### `#lat`
 
 Returns the value of attribute lat
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
@@ -169,6 +177,7 @@ Sets the attribute lat
 
 Returns the value of attribute lon
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
 
@@ -187,6 +196,7 @@ Sets the attribute lon
 ### `#authorities`
 
 Returns the value of attribute authorities
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
@@ -207,6 +217,7 @@ Sets the attribute authorities
 
 Returns the value of attribute fuzzy_point
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
 
@@ -226,10 +237,12 @@ Sets the attribute fuzzy_point
 
 Returns the value of attribute postcode
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L5)
 
 ### `#initialize(&block)`
+
 
 **Returns**:
 
@@ -330,12 +343,14 @@ Returns the value of attribute postcode
 
 Returns the value of attribute lon
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/fuzzy_point.rb#L5)
 
 ### `#lat`
 
 Returns the value of attribute lat
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/fuzzy_point.rb#L5)
@@ -344,10 +359,12 @@ Returns the value of attribute lat
 
 Returns the value of attribute accuracy
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/fuzzy_point.rb#L5)
 
 ### `#initialize(lat,lon,accuracy)`
+
 
 **Returns**:
 
@@ -368,6 +385,7 @@ Returns the value of attribute accuracy
 
 ### `#initialize(default_url = "http://mapit.mysociety.org")`
 
+
 **Returns**:
 
 - (`Mapit`) — a new instance of Mapit
@@ -382,6 +400,7 @@ Returns the value of attribute accuracy
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/mapit.rb#L36)
 
 ### `#respond_to?(sym)`
+
 
 **Returns**:
 
@@ -400,6 +419,7 @@ Returns the value of attribute accuracy
 
 Borrowed heavily from mapit's pylib/postcodes/views.py with some amendments based on
 pylib/mapit/areas/models.py
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/mapit.rb#L51)
@@ -433,6 +453,7 @@ pylib/mapit/areas/models.py
 ## `class Geogov::Mapit::Method`
 
 ### `#initialize(url, params = [])`
+
 
 **Returns**:
 
@@ -487,6 +508,7 @@ pylib/mapit/areas/models.py
 
 ### `#initialize`
 
+
 **Returns**:
 
 - (`Hostip`) — a new instance of Hostip
@@ -505,6 +527,7 @@ pylib/mapit/areas/models.py
 ## `class Geogov::Geonames`
 
 ### `#initialize(username = "username", url = "http://api.geonames.org")`
+
 
 **Returns**:
 
@@ -543,6 +566,7 @@ pylib/mapit/areas/models.py
 
 ### `#initialize(url = "http://ojw.dev.openstreetmap.org")`
 
+
 **Returns**:
 
 - (`OpenStreetMap`) — a new instance of OpenStreetMap
@@ -567,6 +591,7 @@ pylib/mapit/areas/models.py
 ## `class Geogov::DracosGazetteer`
 
 ### `#initialize(default_url = "http://gazetteer.dracos.vm.bytemark.co.uk")`
+
 
 **Returns**:
 

@@ -15,6 +15,7 @@
 
 ### `#initialize( args )`
 
+
 **Returns**:
 
 - (`CLI`) — a new instance of CLI
@@ -33,6 +34,7 @@
 ## `class Provisioner::Provisioner`
 
 ### `#initialize options`
+
 
 **Returns**:
 
@@ -71,6 +73,7 @@
 
 ### `#ready?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -91,6 +94,7 @@
 ### `.ssh_client`
 
 Returns the value of attribute ssh_client
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-box-spinner/blob/master/lib/vcloud_box_provisioner.rb#L23)

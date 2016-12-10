@@ -3,6 +3,7 @@
 
 ### `#initialize`
 
+
 **Returns**:
 
 - (`PublishCommand`) — a new instance of PublishCommand
@@ -13,6 +14,7 @@
 ### `#usage # :nodoc:`
 
 :nodoc:
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/rubygems_plugin.rb#L26)
@@ -29,6 +31,7 @@
 
 ### `#initialize(cli_facade = CliFacade.new)`
 
+
 **Returns**:
 
 - (`Pusher`) — a new instance of Pusher
@@ -43,6 +46,7 @@ Publish the gem.
 Supported options:
   :as - specify a shared account to publish the gem (Gemfury only)
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/gem_publisher/pusher.rb#L18)
 
@@ -51,6 +55,7 @@ Supported options:
 ## `class GemPublisher::Builder`
 
 ### `#initialize(cli_facade = CliFacade.new)`
+
 
 **Returns**:
 
@@ -73,6 +78,7 @@ Supported options:
 
 Returns the value of attribute git_remote
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/gem_publisher/publisher.rb#L8)
 
@@ -91,6 +97,7 @@ Sets the attribute git_remote
 ### `#builder`
 
 Returns the value of attribute builder
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/gem_publisher/publisher.rb#L8)
@@ -111,6 +118,7 @@ Sets the attribute builder
 
 Returns the value of attribute pusher
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/gem_publisher/publisher.rb#L8)
 
@@ -129,6 +137,7 @@ Sets the attribute pusher
 ### `#version`
 
 Returns the value of attribute version
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/gem_publisher/publisher.rb#L9)
@@ -152,10 +161,12 @@ Publish the gem if its version has changed since the last release.
 Supported options:
   :as - specify a shared account to publish the gem (Gemfury only)
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/gem_publisher/publisher.rb#L28)
 
 ### `#version_released?`
+
 
 **Returns**:
 
@@ -179,6 +190,7 @@ Supported options:
 ## `class GemPublisher::GitRemote`
 
 ### `#initialize(name = "origin", cli_facade = CliFacade.new)`
+
 
 **Returns**:
 
@@ -222,6 +234,7 @@ credentials for the corresponding push command line tools must exist.
 
 Returns the gem file name if a gem was published; nil otherwise. A
 CliFacade::Error will be raised if a command fails.
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/gem_publisher.rb#L24)

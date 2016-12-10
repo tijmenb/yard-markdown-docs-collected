@@ -61,6 +61,45 @@ Return a random schema of a certain type
 
 ---
 
+## `class GovukSchemas::Example`
+
+### `.find_all(schema_name)`
+
+Find all examples for a schema
+
+**Params**:
+
+- `schema_name` (`String`) — like "detailed_guide", "policy" or "publication"
+  
+
+**Returns**:
+
+- (`Array`) — array of example content items
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/govuk_schemas_gem/blob/master/lib/govuk_schemas/example.rb#L7)
+
+### `.find(schema_name, example_name:)`
+
+Find an example by name
+
+**Params**:
+
+- `schema_name` (`String`) — like "detailed_guide", "policy" or "publication"
+  
+
+- `example_name` (`String`) — the name of the example JSON file
+  
+
+**Returns**:
+
+- (`Hash`) — the example content item
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/govuk_schemas_gem/blob/master/lib/govuk_schemas/example.rb#L19)
+
+---
+
 ## `class GovukSchemas::RandomExample`
 
 ### `#initialize(schema:)`

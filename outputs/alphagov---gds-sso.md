@@ -13,6 +13,7 @@
 
 ### `.api_call?(env)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -39,6 +40,7 @@
 ### `#store_location!`
 
 TOTALLY NOT DOING THE SCOPE THING. PROBABLY SHOULD.
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/failure_app.rb#L32)
@@ -107,6 +109,7 @@ TOTALLY NOT DOING THE SCOPE THING. PROBABLY SHOULD.
 
 ### `.below_rails_4?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -115,6 +118,7 @@ TOTALLY NOT DOING THE SCOPE THING. PROBABLY SHOULD.
 - [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/user.rb#L8)
 
 ### `#has_permission?(permission)`
+
 
 **Returns**:
 
@@ -163,6 +167,7 @@ TOTALLY NOT DOING THE SCOPE THING. PROBABLY SHOULD.
 
 ### `.use_mock_strategies?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -193,6 +198,7 @@ via omniauth and so receiving it in omniauth's preferred
 structure. Here we're addressing signonotron directly so
 we need to transform the response ourselves.
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/bearer_token.rb#L31)
 
@@ -210,7 +216,7 @@ we need to transform the response ourselves.
 
 ## `module GDS::SSO::ControllerMethods`
 
-### `#authorise_user!(permission)`
+### `#authorise_user!(permissions)`
 
 
 **See**:
@@ -220,49 +226,51 @@ we need to transform the response ourselves.
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/controller_methods.rb#L26)
+- [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/controller_methods.rb#L39)
 
 ### `#authenticate_user!`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/controller_methods.rb#L32)
+- [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/controller_methods.rb#L45)
 
 ### `#user_remotely_signed_out?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/controller_methods.rb#L36)
+- [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/controller_methods.rb#L49)
 
 ### `#user_signed_in?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/controller_methods.rb#L40)
+- [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/controller_methods.rb#L53)
 
 ### `#current_user`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/controller_methods.rb#L44)
+- [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/controller_methods.rb#L57)
 
 ### `#logout`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/controller_methods.rb#L48)
+- [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/controller_methods.rb#L61)
 
 ### `#warden`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/controller_methods.rb#L52)
+- [Source on GitHub](https://github.com/alphagov/gds-sso/blob/master/lib/gds-sso/controller_methods.rb#L65)
 
 ---
 

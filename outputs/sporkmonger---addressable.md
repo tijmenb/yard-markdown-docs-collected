@@ -695,6 +695,7 @@ the argument can be a bare IPv6 address (or 'IPvFuture').
 
 Returns the top-level domain for this host.
 
+
 **Examples**:
 
 ```ruby
@@ -707,6 +708,7 @@ Addressable::URI.parse("www.example.co.uk").tld # => "co.uk"
 ### `#domain`
 
 Returns the public suffix domain for this host.
+
 
 **Examples**:
 
@@ -784,6 +786,7 @@ Returns an array of known ip-based schemes. These schemes typically
 use a similar URI form:
 <code>//<user>:<password>@<host>:<port>/<url-path></code>
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1322)
 
@@ -792,6 +795,7 @@ use a similar URI form:
 Returns a hash of common IP-based schemes and their default port
 numbers. Adding new schemes to this hash, as necessary, will allow
 for better URI normalization.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1329)
@@ -1539,6 +1543,7 @@ Freeze URI, initializing instance variables.
 
 ### `#pattern`
 
+
 **Returns**:
 
 - (`String`) — The Template object's pattern.
@@ -1992,6 +1997,7 @@ MatchData objects should never be instantiated directly.
 
 ### `#uri`
 
+
 **Returns**:
 
 - (`Addressable::URI`) — The URI that the Template was matched against.
@@ -2001,6 +2007,7 @@ MatchData objects should never be instantiated directly.
 
 ### `#template`
 
+
 **Returns**:
 
 - (`Addressable::Template`) — The Template used for the match.
@@ -2009,6 +2016,7 @@ MatchData objects should never be instantiated directly.
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L116)
 
 ### `#mapping`
+
 
 **Returns**:
 
@@ -2022,6 +2030,7 @@ in the URI.
 
 ### `#variables`
 
+
 **Returns**:
 
 - (`Array`) — The list of variables that were present in the Template.
@@ -2032,6 +2041,7 @@ in the mapping because they were not present in URI.
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L131)
 
 ### `#variables`
+
 
 **Returns**:
 
@@ -2044,6 +2054,7 @@ in the mapping because they were not present in URI.
 
 ### `#variables`
 
+
 **Returns**:
 
 - (`Array`) — The list of variables that were present in the Template.
@@ -2055,6 +2066,7 @@ in the mapping because they were not present in URI.
 
 ### `#values`
 
+
 **Returns**:
 
 - (`Array`) — The list of values that were captured by the Template.
@@ -2065,6 +2077,7 @@ were in the Template, but did not appear in the URI.
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L142)
 
 ### `#values`
+
 
 **Returns**:
 
@@ -2104,6 +2117,7 @@ be returned instead.
 
 ### `#to_a`
 
+
 **Returns**:
 
 - (`Array`) — Array with the matched URI as first element followed by the captured
@@ -2114,6 +2128,7 @@ values.
 
 ### `#to_s`
 
+
 **Returns**:
 
 - (`String`) — The matched URI as String.
@@ -2122,6 +2137,7 @@ values.
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L190)
 
 ### `#to_s`
+
 
 **Returns**:
 
@@ -2189,6 +2205,7 @@ Dummy method for code expecting a ::MatchData instance
 Converts from a Unicode internationalized domain name to an ASCII
 domain name as described in RFC 3490.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/idna/pure.rb#L66)
 
@@ -2197,12 +2214,14 @@ domain name as described in RFC 3490.
 Converts from an ASCII domain name to a Unicode internationalized
 domain name as described in RFC 3490.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/idna/pure.rb#L92)
 
 ### `.unicode_normalize_kc(value)`
 
 Unicode normalization form KC.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/idna/pure.rb#L115)
@@ -2291,6 +2310,7 @@ Unicode aware downcase method.
 
 ### `.punycode_basic?(codepoint)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -2299,6 +2319,7 @@ Unicode aware downcase method.
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/idna/pure.rb#L628)
 
 ### `.punycode_delimiter?(codepoint)`
+
 
 **Returns**:
 
@@ -2319,12 +2340,14 @@ Returns the numeric value of a basic codepoint
 (for use in representing integers) in the range 0 to
 base - 1, or PUNYCODE_BASE if codepoint does not represent a value.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/idna/pure.rb#L646)
 
 ### `.punycode_adapt(delta, numpoints, firsttime)`
 
 Bias adaptation method
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/idna/pure.rb#L660)

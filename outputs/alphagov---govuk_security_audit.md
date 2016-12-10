@@ -25,6 +25,7 @@
 
 ### `#initialize(path = Dir.pwd)`
 
+
 **Returns**:
 
 - (`Scanner`) — a new instance of Scanner

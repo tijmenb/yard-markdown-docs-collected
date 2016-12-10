@@ -3,6 +3,7 @@
 
 ### `#initialize(client)`
 
+
 **Returns**:
 
 - (`Users`) — a new instance of Users
@@ -18,6 +19,7 @@
 
 ### `#suspended?(user_email)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -32,6 +34,7 @@
 ### `#config_options`
 
 Returns the value of attribute config_options
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/client.rb#L12)
@@ -49,6 +52,7 @@ Sets the attribute config_options
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/client.rb#L12)
 
 ### `#initialize(config_options)`
+
 
 **Returns**:
 
@@ -77,6 +81,7 @@ Sets the attribute config_options
 
 Returns the value of attribute ticket
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/dummy_client.rb#L6)
 
@@ -84,10 +89,12 @@ Returns the value of attribute ticket
 
 Returns the value of attribute users
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/dummy_client.rb#L6)
 
 ### `#initialize(options)`
+
 
 **Returns**:
 
@@ -104,10 +111,12 @@ Returns the value of attribute users
 
 Returns the value of attribute options
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/dummy_client.rb#L16)
 
 ### `#initialize(logger)`
+
 
 **Returns**:
 
@@ -128,6 +137,7 @@ Returns the value of attribute options
 
 ### `#initialize(logger)`
 
+
 **Returns**:
 
 - (`DummyUsers`) — a new instance of DummyUsers
@@ -142,6 +152,7 @@ Returns the value of attribute options
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/dummy_client.rb#L51)
 
 ### `#suspended?(user_email)`
+
 
 **Returns**:
 

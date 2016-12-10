@@ -45,6 +45,7 @@
 
 ### `#initialize(*args)`
 
+
 **Returns**:
 
 - (`RakeTask`) — a new instance of RakeTask
@@ -59,6 +60,7 @@
 ### `.exclude_paths`
 
 Returns the value of attribute exclude_paths
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/puppet-syntax/blob/master/lib/puppet-syntax.rb#L13)
@@ -79,6 +81,7 @@ Sets the attribute exclude_paths
 
 Returns the value of attribute future_parser
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/puppet-syntax/blob/master/lib/puppet-syntax.rb#L13)
 
@@ -97,6 +100,7 @@ Sets the attribute future_parser
 ### `.hieradata_paths`
 
 Returns the value of attribute hieradata_paths
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/puppet-syntax/blob/master/lib/puppet-syntax.rb#L13)
@@ -117,6 +121,7 @@ Sets the attribute hieradata_paths
 
 Returns the value of attribute fail_on_deprecation_notices
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/puppet-syntax/blob/master/lib/puppet-syntax.rb#L13)
 
@@ -135,6 +140,7 @@ Sets the attribute fail_on_deprecation_notices
 ### `.epp_only`
 
 Returns the value of attribute epp_only
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/puppet-syntax/blob/master/lib/puppet-syntax.rb#L13)

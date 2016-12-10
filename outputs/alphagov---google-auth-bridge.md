@@ -15,6 +15,7 @@
 
 ### `#initialize(scope, client_id, client_secret, token_file)`
 
+
 **Returns**:
 
 - (`GoogleAuthentication`) — a new instance of GoogleAuthentication
@@ -23,6 +24,7 @@
 - [Source on GitHub](https://github.com/alphagov/google-auth-bridge/blob/master/lib/google_auth_bridge.rb#L23)
 
 ### `#token_file_exists?`
+
 
 **Returns**:
 
@@ -67,6 +69,7 @@
 
 ### `#initialize filename`
 
+
 **Returns**:
 
 - (`FileNotFoundError`) — a new instance of FileNotFoundError
@@ -80,6 +83,7 @@
 
 ### `#initialize filename`
 
+
 **Returns**:
 
 - (`InvalidFileFormatError`) — a new instance of InvalidFileFormatError
@@ -92,6 +96,7 @@
 ## `class GoogleAuthenticationBridge::InvalidTokenError`
 
 ### `#initialize token`
+
 
 **Returns**:
 

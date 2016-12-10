@@ -3,6 +3,7 @@
 
 ### `#initialize(content_item)`
 
+
 **Returns**:
 
 - (`NavigationHelper`) — a new instance of NavigationHelper
@@ -40,6 +41,7 @@ Generate a related items payload
 
 ### `#initialize(content_item)`
 
+
 **Returns**:
 
 - (`Breadcrumbs`) — a new instance of Breadcrumbs
@@ -58,6 +60,7 @@ Generate a related items payload
 ## `class GovukNavigationHelpers::RelatedItems`
 
 ### `#initialize(content_item)`
+
 
 **Returns**:
 

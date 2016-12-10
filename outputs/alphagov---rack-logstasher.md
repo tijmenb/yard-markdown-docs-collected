@@ -3,6 +3,7 @@
 
 ### `#initialize(app, logger, opts = {})`
 
+
 **Returns**:
 
 - (`Logger`) — a new instance of Logger

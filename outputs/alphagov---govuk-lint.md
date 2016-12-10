@@ -61,6 +61,7 @@
 
 ### `#enabled_line?(line_number)`
 
+
 **Returns**:
 
 - (`Boolean`) — 

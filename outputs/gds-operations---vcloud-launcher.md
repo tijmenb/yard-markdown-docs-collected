@@ -3,6 +3,7 @@
 
 ### `#initialize(argv_array)`
 
+
 **Returns**:
 
 - (`Cli`) — a new instance of Cli
@@ -24,6 +25,7 @@
 
 Returns the value of attribute config
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-launcher/blob/master/lib/vcloud/launcher/launch.rb#L8)
 
@@ -31,10 +33,12 @@ Returns the value of attribute config
 
 Returns the value of attribute cli_options
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-launcher/blob/master/lib/vcloud/launcher/launch.rb#L8)
 
 ### `#initialize(config_file, cli_options = {})`
+
 
 **Returns**:
 
@@ -57,6 +61,7 @@ Returns the value of attribute cli_options
 
 Returns the value of attribute preamble_vars
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-launcher/blob/master/lib/vcloud/launcher/preamble.rb#L9)
 
@@ -64,10 +69,12 @@ Returns the value of attribute preamble_vars
 
 Returns the value of attribute script_path
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-launcher/blob/master/lib/vcloud/launcher/preamble.rb#L9)
 
 ### `#initialize(vapp_name, vm_config)`
+
 
 **Returns**:
 
@@ -93,6 +100,7 @@ Returns the value of attribute script_path
 ## `class Vcloud::Launcher::VmOrchestrator`
 
 ### `#initialize vcloud_vm, vapp`
+
 
 **Returns**:
 
@@ -128,6 +136,7 @@ Returns the value of attribute script_path
 ## `class Vcloud::Launcher::IndependentDiskOrchestrator`
 
 ### `#initialize(vm)`
+
 
 **Returns**:
 

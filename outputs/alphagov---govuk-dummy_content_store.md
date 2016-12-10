@@ -5,10 +5,12 @@
 
 Returns the value of attribute example_repository
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/index.rb#L8)
 
 ### `#initialize(example_repository)`
+
 
 **Returns**:
 
@@ -41,6 +43,7 @@ Returns the value of attribute example_repository
 
 Returns the value of attribute repository
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/content.rb#L9)
 
@@ -48,10 +51,12 @@ Returns the value of attribute repository
 
 Returns the value of attribute live_repository
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/content.rb#L10)
 
 ### `#initialize(repository, live_repository = nil)`
+
 
 **Returns**:
 
@@ -74,10 +79,12 @@ Returns the value of attribute live_repository
 
 Returns the value of attribute live_content_path
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/live_repository.rb#L4)
 
 ### `#initialize(live_content_path)`
+
 
 **Returns**:
 
@@ -100,10 +107,12 @@ Returns the value of attribute live_content_path
 
 Returns the value of attribute content_schemas_path
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/example_repository.rb#L7)
 
 ### `#initialize(content_schemas_path)`
+
 
 **Returns**:
 
@@ -132,10 +141,12 @@ Returns the value of attribute content_schemas_path
 
 Returns the value of attribute path
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/example_content_item.rb#L6)
 
 ### `#initialize(path)`
+
 
 **Returns**:
 

@@ -28,6 +28,7 @@
 In development we can't consistently set an environment
 variable, so use a default based on Rails.env
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_admin_template/blob/master/lib/govuk_admin_template.rb#L20)
 

@@ -3,6 +3,7 @@
 
 ### `#initialize`
 
+
 **Returns**:
 
 - (`Examples`) — a new instance of Examples
@@ -53,6 +54,7 @@
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/validator.rb#L6)
 
 ### `#valid?`
+
 
 **Returns**:
 
@@ -115,12 +117,14 @@ Sets the attribute project_root
 
 Returns the value of attribute schema_name
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/rspec_matchers.rb#L43)
 
 ### `#type`
 
 Returns the value of attribute type
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/rspec_matchers.rb#L43)
@@ -129,10 +133,12 @@ Returns the value of attribute type
 
 Returns the value of attribute payload
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/rspec_matchers.rb#L43)
 
 ### `#initialize(schema_name, type, payload)`
+
 
 **Returns**:
 
@@ -188,6 +194,7 @@ Returns the value of attribute payload
 ### `.formats`
 
 Get a list of the formats defined in govuk-content-schemas
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/util.rb#L22)

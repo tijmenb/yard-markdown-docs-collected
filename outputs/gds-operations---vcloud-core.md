@@ -5,6 +5,7 @@
 
 Returns the value of attribute id
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L6)
 
@@ -261,6 +262,7 @@ Update the storage profile of a VM
 
 Returns the value of attribute id
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vdc.rb#L5)
 
@@ -336,6 +338,7 @@ Return the href of vDC
 ### `#id`
 
 Returns the value of attribute id
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp.rb#L6)
@@ -566,6 +569,7 @@ Run the query and print to standard out
 
 <b>DEPRECATED:</b> Please use <tt>Vcloud::Core::QueryRunner.run</tt> instead.
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/query.rb#L32)
 
@@ -750,6 +754,7 @@ List the available entity types which can be queried
 
 Returns the value of attribute id
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway.rb#L5)
 
@@ -886,6 +891,7 @@ networks to be taken without inspecting the API details.
 
 Returns the value of attribute id
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp_template.rb#L5)
 
@@ -991,6 +997,7 @@ Return the id_prefix to be used for vAppTemplates
 Private interface to Fog service layer to allow direct access to Fog
 for functionality not exposed elsewhere in Vcloud::Core.
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/api_interface.rb#L12)
 
@@ -998,6 +1005,7 @@ for functionality not exposed elsewhere in Vcloud::Core.
 
 Private interface to Fog model layer to allow direct access to Fog for
 functionality not exposed elsewhere in Vcloud::Core.
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/api_interface.rb#L20)
@@ -1120,6 +1128,7 @@ by Mustache
 
 Returns the value of attribute id
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/org_vdc_network.rb#L5)
 
@@ -1213,12 +1222,14 @@ Delete OrgVdcNetwork
 
 Returns the value of attribute key
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/config_validator.rb#L26)
 
 ### `#data`
 
 Returns the value of attribute data
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/config_validator.rb#L26)
@@ -1227,12 +1238,14 @@ Returns the value of attribute data
 
 Returns the value of attribute schema
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/config_validator.rb#L26)
 
 ### `#type`
 
 Returns the value of attribute type
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/config_validator.rb#L26)
@@ -1241,12 +1254,14 @@ Returns the value of attribute type
 
 Returns the value of attribute errors
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/config_validator.rb#L26)
 
 ### `#warnings`
 
 Returns the value of attribute warnings
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/config_validator.rb#L26)
@@ -1259,6 +1274,7 @@ Returns the value of attribute warnings
 
 ### `#initialize(key, data, schema)`
 
+
 **Returns**:
 
 - (`ConfigValidator`) — a new instance of ConfigValidator
@@ -1267,6 +1283,7 @@ Returns the value of attribute warnings
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/config_validator.rb#L34)
 
 ### `#valid?`
+
 
 **Returns**:
 
@@ -1282,6 +1299,7 @@ Returns the value of attribute warnings
 ### `#id`
 
 Returns the value of attribute id
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/independent_disk.rb#L10)
@@ -1425,6 +1443,7 @@ Allowed suffixes are: mb, gb, mib, gib
 
 ### `#initialize`
 
+
 **Returns**:
 
 - (`ModelInterface`) — a new instance of ModelInterface
@@ -1461,6 +1480,7 @@ Allowed suffixes are: mb, gb, mib, gib
 ## `class Vcloud::Core::Fog::ServiceInterface`
 
 ### `#initialize (fog = FogFacade.new)`
+
 
 **Returns**:
 
@@ -1510,6 +1530,7 @@ Allowed suffixes are: mb, gb, mib, gib
 ## `class Vcloud::Core::Fog::ServiceInterface::FogFacade`
 
 ### `#initialize`
+
 
 **Returns**:
 
@@ -1742,6 +1763,7 @@ Allowed suffixes are: mb, gb, mib, gib
 
 Returns the value of attribute name
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway_interface.rb#L5)
 
@@ -1761,6 +1783,7 @@ Sets the attribute name
 
 Returns the value of attribute network_href
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway_interface.rb#L5)
 
@@ -1779,6 +1802,7 @@ Sets the attribute network_href
 ### `#network_name`
 
 Returns the value of attribute network_name
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway_interface.rb#L5)
@@ -1853,6 +1877,7 @@ Requires a FOG_VCLOUD_TOKEN environment variable to be set.
 Run any checks needed against the Fog credentials
 currently only used to disallow plaintext passwords
 in .fog files.
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog.rb#L32)

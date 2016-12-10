@@ -3,6 +3,7 @@
 
 ### `#dependency_tracker`
 
+
 **Returns**:
 
 - (`Nanoc::Int::DependencyTracker`) — 
@@ -94,6 +95,7 @@ Creates a new representation for the given item.
 
 ### `#helper`
 
+
 **Returns**:
 
 - (`Object`) — An object that includes the helper functions
@@ -115,6 +117,7 @@ Creates a new representation for the given item.
 
 ### `#config`
 
+
 **Returns**:
 
 - (`Nanoc::MutableConfigView`) — 
@@ -123,6 +126,7 @@ Creates a new representation for the given item.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/spec.rb#L82)
 
 ### `#item`
+
 
 **Returns**:
 
@@ -133,6 +137,7 @@ Creates a new representation for the given item.
 
 ### `#item_rep`
 
+
 **Returns**:
 
 - (`Nanoc::ItemRepView, nil`) — 
@@ -142,6 +147,7 @@ Creates a new representation for the given item.
 
 ### `#items`
 
+
 **Returns**:
 
 - (`Nanoc::ItemCollectionWithRepsView`) — 
@@ -150,6 +156,7 @@ Creates a new representation for the given item.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/spec.rb#L97)
 
 ### `#layouts`
+
 
 **Returns**:
 
@@ -201,6 +208,7 @@ respectively).
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/logger.rb#L26)
 
 ### `#initialize`
+
 
 **Returns**:
 
@@ -255,6 +263,32 @@ Logs a message.
 
 ---
 
+## `class Nanoc::Int::Errors::CompilationError`
+
+### `#item_rep`
+
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L16)
+
+### `#initialize(wrapped, item_rep)`
+
+
+**Returns**:
+
+- (`CompilationError`) — a new instance of CompilationError
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L18)
+
+### `#unwrap`
+
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L23)
+
+---
+
 ## `class Nanoc::Int::Errors::UnknownDataSource`
 
 ### `#initialize(data_source_name)`
@@ -270,7 +304,7 @@ data source could be found
 - (`UnknownDataSource`) — a new instance of UnknownDataSource
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L18)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L33)
 
 ---
 
@@ -289,7 +323,7 @@ layout could be found
 - (`UnknownLayout`) — a new instance of UnknownLayout
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L28)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L43)
 
 ---
 
@@ -308,7 +342,7 @@ be found
 - (`UnknownFilter`) — a new instance of UnknownFilter
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L38)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L53)
 
 ---
 
@@ -327,7 +361,7 @@ which the filter could not be determined
 - (`CannotDetermineFilter`) — a new instance of CannotDetermineFilter
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L49)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L64)
 
 ---
 
@@ -346,7 +380,7 @@ that mutually depend on each other
 - (`RecursiveCompilation`) — a new instance of RecursiveCompilation
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L59)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L74)
 
 ---
 
@@ -354,12 +388,13 @@ that mutually depend on each other
 
 ### `#initialize`
 
+
 **Returns**:
 
 - (`NoRulesFileFound`) — a new instance of NoRulesFileFound
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L68)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L83)
 
 ---
 
@@ -378,7 +413,7 @@ could be found
 - (`NoMatchingCompilationRuleFound`) — a new instance of NoMatchingCompilationRuleFound
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L78)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L93)
 
 ---
 
@@ -397,7 +432,7 @@ routing rule could be found
 - (`NoMatchingRoutingRuleFound`) — a new instance of NoMatchingRoutingRuleFound
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L88)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L103)
 
 ---
 
@@ -405,13 +440,14 @@ routing rule could be found
 
 ### `#rep`
 
+
 **Returns**:
 
 - (`Nanoc::Int::ItemRep`) — The item representation that cannot yet be
 compiled
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L98)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L113)
 
 ### `#initialize(rep)`
 
@@ -426,7 +462,7 @@ compiled
 - (`UnmetDependency`) — a new instance of UnmetDependency
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L102)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L117)
 
 ---
 
@@ -445,7 +481,7 @@ to be laid out
 - (`CannotLayoutBinaryItem`) — a new instance of CannotLayoutBinaryItem
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L112)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L127)
 
 ---
 
@@ -467,7 +503,7 @@ attempted to be filtered
 - (`CannotUseTextualFilter`) — a new instance of CannotUseTextualFilter
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L124)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L139)
 
 ---
 
@@ -489,7 +525,7 @@ attempted to be filtered
 - (`CannotUseBinaryFilter`) — a new instance of CannotUseBinaryFilter
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L136)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L151)
 
 ---
 
@@ -497,22 +533,24 @@ attempted to be filtered
 
 ### `#item_rep`
 
+
 **Returns**:
 
 - (`Nanoc::Int::ItemRep`) — The item rep from which the compiled content
 was requested
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L146)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L161)
 
 ### `#snapshot`
+
 
 **Returns**:
 
 - (`Symbol`) — The requested snapshot
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L149)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L164)
 
 ### `#initialize(item_rep, snapshot)`
 
@@ -530,7 +568,7 @@ content was requested
 - (`NoSuchSnapshot`) — a new instance of NoSuchSnapshot
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L155)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L170)
 
 ---
 
@@ -553,7 +591,7 @@ be made
 - (`CannotCreateMultipleSnapshotsWithSameName`) — a new instance of CannotCreateMultipleSnapshotsWithSameName
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L169)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L184)
 
 ---
 
@@ -571,7 +609,7 @@ be made
 - (`CannotGetCompiledContentOfBinaryItem`) — a new instance of CannotGetCompiledContentOfBinaryItem
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L177)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L192)
 
 ---
 
@@ -579,12 +617,13 @@ be made
 
 ### `#initialize(identifier, type)`
 
+
 **Returns**:
 
 - (`DuplicateIdentifier`) — a new instance of DuplicateIdentifier
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L184)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L199)
 
 ---
 
@@ -592,12 +631,13 @@ be made
 
 ### `#initialize(identifier)`
 
+
 **Returns**:
 
 - (`CannotGetParentOrChildrenOfNonLegacyItem`) — a new instance of CannotGetParentOrChildrenOfNonLegacyItem
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L191)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/errors.rb#L206)
 
 ---
 
@@ -638,6 +678,7 @@ be made
 ## `class Nanoc::Extra::Piper::Error`
 
 ### `#initialize(command, exit_code)`
+
 
 **Returns**:
 
@@ -819,6 +860,7 @@ Parameters passed to this filter will be passed on to Sass.
 
 ### `#initialize`
 
+
 **Returns**:
 
 - (`DSL`) — a new instance of DSL
@@ -859,6 +901,35 @@ This method takes no options.
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/filters/less.rb#L12)
 
+### `#imported_filenames_from(content)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/filters/less.rb#L26)
+
+### `#imported_filenames_to_items(imported_filenames)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/filters/less.rb#L34)
+
+### `#find_file(pathname, root_pathname)`
+
+**Params**:
+
+- `pathname` (`Pathname`) — Pathname of the file to find. Can be relative or absolute.
+  
+
+- `root_pathname` (`Pathname`) — Directory pathname from which the search will start.
+  
+
+**Returns**:
+
+- (`String, nil`) — A string containing the full path if a file is found, otherwise nil.
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/filters/less.rb#L59)
+
 ---
 
 ## `class Nanoc::Filters::Slim`
@@ -886,6 +957,7 @@ This method takes no options.
 
 ### `#rep_name`
 
+
 **Returns**:
 
 - (`Symbol`) — The name of the representation that will be compiled
@@ -895,6 +967,7 @@ using this rule
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/rule_dsl/rule.rb#L8)
 
 ### `#snapshot_name`
+
 
 **Returns**:
 
@@ -1007,6 +1080,7 @@ Parameters passed to this filter will be passed on to Maruku.
 
 ### `#initialize(directory_path)`
 
+
 **Returns**:
 
 - (`OutputDirNotFoundError`) — a new instance of OutputDirNotFoundError
@@ -1031,6 +1105,7 @@ Parameters passed to this filter will be passed on to Maruku.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/checking/check.rb#L15)
 
 ### `#initialize(context)`
+
 
 **Returns**:
 
@@ -1074,6 +1149,7 @@ Parameters passed to this filter will be passed on to Maruku.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/checking/issue.rb#L6)
 
 ### `#initialize(desc, subject, check_class)`
+
 
 **Returns**:
 
@@ -1187,6 +1263,7 @@ This method takes no options.
 
 ### `#checks_filename`
 
+
 **Returns**:
 
 - (`String`) — The name of the Checks file
@@ -1196,6 +1273,7 @@ This method takes no options.
 
 ### `#dsl_present?`
 
+
 **Returns**:
 
 - (`Boolean`) — true if a Checks file exists, false otherwise
@@ -1204,6 +1282,7 @@ This method takes no options.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/checking/runner.rb#L19)
 
 ### `#dsl_present?`
+
 
 **Returns**:
 
@@ -1321,6 +1400,7 @@ Runs the checks with the given names.
 
 ### `#initialize(context)`
 
+
 **Returns**:
 
 - (`View`) — a new instance of View
@@ -1364,6 +1444,7 @@ True if the wrapped object is frozen; false otherwise.
 
 ### `#filename`
 
+
 **Returns**:
 
 - (`String`) — The name of the file where data will be loaded from and
@@ -1373,6 +1454,7 @@ stored to.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/store.rb#L19)
 
 ### `#version`
+
 
 **Returns**:
 
@@ -1412,6 +1494,7 @@ number should be incremented.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/store.rb#L42)
 
 ### `#data`
+
 
 **Returns**:
 
@@ -1517,6 +1600,7 @@ This method takes no options.
 
 ### `#initialize(ref)`
 
+
 **Returns**:
 
 - (`Wrapper`) — a new instance of Wrapper
@@ -1541,6 +1625,7 @@ This method takes no options.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/memoization.rb#L28)
 
 ### `#initialize(value)`
+
 
 **Returns**:
 
@@ -1579,6 +1664,7 @@ options.
 
 Returns the value of attribute config
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L28)
 
@@ -1597,6 +1683,7 @@ Sets the attribute config
 ### `#limit`
 
 Returns the value of attribute limit
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L30)
@@ -1617,6 +1704,7 @@ Sets the attribute limit
 
 Returns the value of attribute relevant_articles
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L31)
 
@@ -1635,6 +1723,7 @@ Sets the attribute relevant_articles
 ### `#preserve_order`
 
 Returns the value of attribute preserve_order
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L32)
@@ -1655,6 +1744,7 @@ Sets the attribute preserve_order
 
 Returns the value of attribute content_proc
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L33)
 
@@ -1673,6 +1763,7 @@ Sets the attribute content_proc
 ### `#excerpt_proc`
 
 Returns the value of attribute excerpt_proc
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L34)
@@ -1693,6 +1784,7 @@ Sets the attribute excerpt_proc
 
 Returns the value of attribute title
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L35)
 
@@ -1711,6 +1803,7 @@ Sets the attribute title
 ### `#author_name`
 
 Returns the value of attribute author_name
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L36)
@@ -1731,6 +1824,7 @@ Sets the attribute author_name
 
 Returns the value of attribute author_uri
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L37)
 
@@ -1749,6 +1843,7 @@ Sets the attribute author_uri
 ### `#icon`
 
 Returns the value of attribute icon
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L38)
@@ -1769,6 +1864,7 @@ Sets the attribute icon
 
 Returns the value of attribute logo
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L39)
 
@@ -1785,6 +1881,7 @@ Sets the attribute logo
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L39)
 
 ### `#initialize(config, item)`
+
 
 **Returns**:
 
@@ -1991,6 +2088,7 @@ currently being executed, or nil if there is none
 Disables error handling. This is used by the test cases to prevent error
 from being handled by the CLI while tests are running.
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/error_handler.rb#L28)
 
@@ -1999,6 +2097,7 @@ from being handled by the CLI while tests are running.
 Re-enables error handling after it was disabled. This is used by the test
 cases to prevent error from being handled by the CLI while tests are
 running.
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/error_handler.rb#L35)
@@ -2096,6 +2195,7 @@ Writes a verbose representation of the error on the given stream.
 
 Runs the content through [Redcarpet](https://github.com/vmg/redcarpet).
 This method optionally takes processing options to pass on to Redcarpet.
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/filters/redcarpet.rb#L43)
@@ -2307,6 +2407,7 @@ This method takes no options.
 
 ### `#source_path`
 
+
 **Returns**:
 
 - (`String`) — The path to the directory that contains the files to
@@ -2317,6 +2418,7 @@ upload. It should not have a trailing slash.
 
 ### `#config`
 
+
 **Returns**:
 
 - (`Hash`) — The deployer configuration
@@ -2325,6 +2427,7 @@ upload. It should not have a trailing slash.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/deploying/deployer.rb#L16)
 
 ### `#dry_run`
+
 
 **Returns**:
 
@@ -2335,6 +2438,7 @@ deployed instead of doing the actual deployment
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/deploying/deployer.rb#L20)
 
 ### `#dry_run`
+
 
 **Returns**:
 
@@ -2367,6 +2471,7 @@ only show what would be deployed instead actually deploying
 
 Performs the actual deployment.
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/deploying/deployer.rb#L39)
 
@@ -2385,6 +2490,7 @@ Performs the actual deployment.
 ## `class Nanoc::CLI::CommandRunner`
 
 ### `#call`
+
 
 **Returns**:
 
@@ -2410,10 +2516,12 @@ loads its data.
 
 For debugging purposes.
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/command_runner.rb#L33)
 
 ### `#in_site_dir?`
+
 
 **Returns**:
 
@@ -2424,6 +2532,7 @@ directory, false otherwise
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/command_runner.rb#L39)
 
 ### `#in_site_dir?`
+
 
 **Returns**:
 
@@ -2445,6 +2554,7 @@ Asserts that the current working directory contains a site and loads the site in
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/command_runner.rb#L47)
 
 ### `#debug?`
+
 
 **Returns**:
 
@@ -2469,6 +2579,7 @@ Asserts that the current working directory contains a site and loads the site in
 ## `class Nanoc::Helpers::Breadcrumbs::CannotGetBreadcrumbsForNonLegacyItem`
 
 ### `#initialize(identifier)`
+
 
 **Returns**:
 
@@ -2548,6 +2659,7 @@ stream cleaner to add
 
 ### `#tty?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -2614,6 +2726,7 @@ stream cleaner to add
 
 ### `#exist?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -2623,6 +2736,7 @@ stream cleaner to add
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L106)
 
 ### `#exists?`
+
 
 **Returns**:
 
@@ -2670,6 +2784,7 @@ stream cleaner to add
 ### `#set_encoding(*args)`
 
 rubocop:disable Style/AccessorMethodName
+
 
 **See**:
 - ARGF.set_encoding
@@ -2756,6 +2871,7 @@ type :text => :binary
 
 ### `.from_binary?`
 
+
 **Returns**:
 
 - (`Boolean`) — True if this filter can be applied to binary item
@@ -2765,6 +2881,7 @@ representations, false otherwise
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/filter.rb#L78)
 
 ### `.to_binary?`
+
 
 **Returns**:
 
@@ -2812,6 +2929,7 @@ available during filtering.
 
 Sets up the filter and runs the filter. This method passes its arguments
 to {#run} unchanged and returns the return value from {#run}.
+
 
 **See**:
 - {#run}
@@ -2869,6 +2987,12 @@ Returns the filename associated with the item that is being filtered.
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/filter.rb#L177)
 
+### `#on_main_fiber(&block)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/filter.rb#L188)
+
 ### `#depend_on(items)`
 
 Creates a dependency from the item that is currently being filtered onto
@@ -2880,7 +3004,7 @@ to be compiled first before this items is processed.
 - (`void`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/filter.rb#L192)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/filter.rb#L197)
 
 ---
 
@@ -2900,6 +3024,7 @@ to be compiled first before this items is processed.
 
 ### `#initialize(options, arguments, command)`
 
+
 **Returns**:
 
 - (`Compile`) — a new instance of Compile
@@ -2918,6 +3043,7 @@ to be compiled first before this items is processed.
 ## `class Nanoc::CLI::Commands::Compile::Listener`
 
 ### `#initialize(*)`
+
 
 **Returns**:
 
@@ -2980,6 +3106,7 @@ Stops the listener. The default implementation removes self from all notificatio
 
 ### `.enable_for?(command_runner)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -3007,6 +3134,7 @@ Stops the listener. The default implementation removes self from all notificatio
 ## `class Nanoc::CLI::Commands::Compile::TimingRecorder`
 
 ### `.enable_for?(command_runner)`
+
 
 **Returns**:
 
@@ -3050,6 +3178,7 @@ Stops the listener. The default implementation removes self from all notificatio
 
 ### `.enable_for?(command_runner)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -3070,6 +3199,7 @@ Stops the listener. The default implementation removes self from all notificatio
 ## `class Nanoc::CLI::Commands::Compile::FileActionPrinter`
 
 ### `#initialize(reps:)`
+
 
 **Returns**:
 
@@ -3097,6 +3227,7 @@ Stops the listener. The default implementation removes self from all notificatio
 ## `class Nanoc::CLI::Commands::Compile::StackProfProfiler`
 
 ### `.enable_for?(command_runner)`
+
 
 **Returns**:
 
@@ -3311,6 +3442,7 @@ This method takes no options.
 
 ### `#initialize(filenames, mode = nil)`
 
+
 **Returns**:
 
 - (`LinkCollector`) — a new instance of LinkCollector
@@ -3331,6 +3463,7 @@ This method takes no options.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/extra/link_collector.rb#L38)
 
 ### `#external_href?(href)`
+
 
 **Returns**:
 
@@ -3392,6 +3525,7 @@ Prunes all output files not managed by Nanoc.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/pruner.rb#L28)
 
 ### `#exclude?(component)`
+
 
 **Returns**:
 
@@ -3759,6 +3893,7 @@ loaded and the site is compiled.
 
 ### `#initialize(_obj)`
 
+
 **Returns**:
 
 - (`Pattern`) — a new instance of Pattern
@@ -3767,6 +3902,7 @@ loaded and the site is compiled.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/pattern.rb#L20)
 
 ### `#match?(_identifier)`
+
 
 **Returns**:
 
@@ -3787,6 +3923,7 @@ loaded and the site is compiled.
 
 ### `#initialize(string)`
 
+
 **Returns**:
 
 - (`StringPattern`) — a new instance of StringPattern
@@ -3795,6 +3932,7 @@ loaded and the site is compiled.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/pattern.rb#L38)
 
 ### `#match?(identifier)`
+
 
 **Returns**:
 
@@ -3821,6 +3959,7 @@ loaded and the site is compiled.
 
 ### `#initialize(regexp)`
 
+
 **Returns**:
 
 - (`RegexpPattern`) — a new instance of RegexpPattern
@@ -3829,6 +3968,7 @@ loaded and the site is compiled.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/pattern.rb#L61)
 
 ### `#match?(identifier)`
+
 
 **Returns**:
 
@@ -3963,6 +4103,7 @@ the given path. This is a convenience method for {#snapshot}.
 
 ### `#initialize(config, rules_collection)`
 
+
 **Returns**:
 
 - (`RulesLoader`) — a new instance of RulesLoader
@@ -3987,6 +4128,7 @@ the given path. This is a convenience method for {#snapshot}.
 ## `class Nanoc::Int::Content`
 
 ### `#filename`
+
 
 **Returns**:
 
@@ -4036,6 +4178,7 @@ content (if any)
 
 ### `#binary?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -4049,6 +4192,7 @@ content (if any)
 
 ### `#string`
 
+
 **Returns**:
 
 - (`String`) — 
@@ -4057,6 +4201,7 @@ content (if any)
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/content.rb#L68)
 
 ### `#initialize(string, filename: nil)`
+
 
 **Returns**:
 
@@ -4073,6 +4218,7 @@ content (if any)
 
 ### `#binary?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -4084,12 +4230,14 @@ content (if any)
 
 TODO: Add contract
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/content.rb#L91)
 
 ### `#marshal_load(array)`
 
 TODO: Add contract
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/content.rb#L96)
@@ -4099,6 +4247,7 @@ TODO: Add contract
 ## `class Nanoc::Int::BinaryContent`
 
 ### `#binary?`
+
 
 **Returns**:
 
@@ -4163,6 +4312,7 @@ rubocop:disable Style/AccessorMethodName
 
 rubocop:enable Style/AccessorMethodName
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/context.rb#L46)
 
@@ -4181,6 +4331,7 @@ rubocop:enable Style/AccessorMethodName
 ## `class Nanoc::ConfigView`
 
 ### `#initialize(config, context)`
+
 
 **Returns**:
 
@@ -4203,6 +4354,7 @@ rubocop:enable Style/AccessorMethodName
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/config_view.rb#L18)
 
 ### `#key?(key)`
+
 
 **Returns**:
 
@@ -4257,6 +4409,7 @@ YUICompressor gem.
 
 ### `#initialize(compiler, dependency_tracker)`
 
+
 **Returns**:
 
 - (`Executor`) — a new instance of Executor
@@ -4280,47 +4433,50 @@ YUICompressor gem.
 
 rubocop:disable Lint/UnusedMethodArgument
 
+
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/executor.rb#L92)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/executor.rb#L88)
 
 ### `#assigns_for(rep)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/executor.rb#L111)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/executor.rb#L107)
 
 ### `#layouts`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/executor.rb#L115)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/executor.rb#L111)
 
 ### `#find_layout(arg)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/executor.rb#L119)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/executor.rb#L115)
 
 ### `#filter_for_filtering(rep, filter_name)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/executor.rb#L133)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/executor.rb#L129)
 
 ### `#use_globs?`
+
 
 **Returns**:
 
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/executor.rb#L146)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/executor.rb#L142)
 
 ---
 
 ## `class Nanoc::Int::Executor::OutputNotWrittenError`
 
 ### `#initialize(filter_name, output_filename)`
+
 
 **Returns**:
 
@@ -4335,6 +4491,7 @@ rubocop:disable Lint/UnusedMethodArgument
 
 ### `#content`
 
+
 **Returns**:
 
 - (`Nanoc::Int::Content`) — 
@@ -4343,6 +4500,7 @@ rubocop:disable Lint/UnusedMethodArgument
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/document.rb#L8)
 
 ### `#attributes`
+
 
 **Returns**:
 
@@ -4353,6 +4511,7 @@ rubocop:disable Lint/UnusedMethodArgument
 
 ### `#identifier`
 
+
 **Returns**:
 
 - (`Nanoc::Identifier`) — 
@@ -4361,6 +4520,7 @@ rubocop:disable Lint/UnusedMethodArgument
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/document.rb#L16)
 
 ### `#identifier=(value)`
+
 
 **Returns**:
 
@@ -4371,6 +4531,7 @@ rubocop:disable Lint/UnusedMethodArgument
 
 ### `#checksum_data`
 
+
 **Returns**:
 
 - (`String, nil`) — 
@@ -4379,6 +4540,7 @@ rubocop:disable Lint/UnusedMethodArgument
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/document.rb#L19)
 
 ### `#checksum_data=(value)`
+
 
 **Returns**:
 
@@ -4389,6 +4551,7 @@ rubocop:disable Lint/UnusedMethodArgument
 
 ### `#content_checksum_data`
 
+
 **Returns**:
 
 - (`String, nil`) — 
@@ -4397,6 +4560,7 @@ rubocop:disable Lint/UnusedMethodArgument
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/document.rb#L22)
 
 ### `#content_checksum_data=(value)`
+
 
 **Returns**:
 
@@ -4407,6 +4571,7 @@ rubocop:disable Lint/UnusedMethodArgument
 
 ### `#attributes_checksum_data`
 
+
 **Returns**:
 
 - (`String, nil`) — 
@@ -4415,6 +4580,7 @@ rubocop:disable Lint/UnusedMethodArgument
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/document.rb#L25)
 
 ### `#attributes_checksum_data=(value)`
+
 
 **Returns**:
 
@@ -4454,6 +4620,7 @@ rubocop:disable Lint/UnusedMethodArgument
 
 ### `#freeze`
 
+
 **Returns**:
 
 - (`void`) — 
@@ -4462,6 +4629,7 @@ rubocop:disable Lint/UnusedMethodArgument
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/document.rb#L60)
 
 ### `#reference`
+
 
 **Returns**:
 
@@ -4489,6 +4657,7 @@ rubocop:disable Lint/UnusedMethodArgument
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/document.rb#L86)
 
 ### `#eql?(other)`
+
 
 **Returns**:
 
@@ -4521,6 +4690,7 @@ rubocop:disable Lint/UnusedMethodArgument
 
 ### `.cwd_is_nanoc_site?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -4535,6 +4705,7 @@ rubocop:disable Lint/UnusedMethodArgument
 ### `#method_missing(*_args)`
 
 rubocop:disable Style/MethodMissing
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/contracts_support.rb#L10)
@@ -4556,6 +4727,7 @@ rubocop:enable Style/MethodMissing
 
 ### `#items_root`
 
+
 **Returns**:
 
 - (`String`) — The root path where items returned by this data source
@@ -4565,6 +4737,7 @@ should be mounted.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/data_source.rb#L20)
 
 ### `#layouts_root`
+
 
 **Returns**:
 
@@ -4576,6 +4749,7 @@ source should be mounted.
 
 ### `#config`
 
+
 **Returns**:
 
 - (`Hash`) — The configuration for this data source. For example,
@@ -4585,6 +4759,7 @@ online data sources could contain authentication details.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/data_source.rb#L28)
 
 ### `#initialize(site_config, items_root, layouts_root, config)`
+
 
 **Returns**:
 
@@ -4774,6 +4949,7 @@ the {#layouts} method.
 
 ### `#snapshot_contents`
 
+
 **Returns**:
 
 - (`Hash<Symbol,Nanoc::Int::Content>`) — 
@@ -4783,6 +4959,7 @@ the {#layouts} method.
 
 ### `#snapshot_contents=(value)`
 
+
 **Returns**:
 
 - (`Hash<Symbol,Nanoc::Int::Content>`) — 
@@ -4791,6 +4968,7 @@ the {#layouts} method.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/item_rep.rb#L7)
 
 ### `#compiled`
+
 
 **Returns**:
 
@@ -4801,6 +4979,7 @@ the {#layouts} method.
 
 ### `#compiled=(value)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -4809,6 +4988,7 @@ the {#layouts} method.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/item_rep.rb#L10)
 
 ### `#compiled`
+
 
 **Returns**:
 
@@ -4819,6 +4999,7 @@ the {#layouts} method.
 
 ### `#raw_paths`
 
+
 **Returns**:
 
 - (`Hash<Symbol,String>`) — 
@@ -4827,6 +5008,7 @@ the {#layouts} method.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/item_rep.rb#L14)
 
 ### `#raw_paths=(value)`
+
 
 **Returns**:
 
@@ -4837,6 +5019,7 @@ the {#layouts} method.
 
 ### `#paths`
 
+
 **Returns**:
 
 - (`Hash<Symbol,String>`) — 
@@ -4845,6 +5028,7 @@ the {#layouts} method.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/item_rep.rb#L17)
 
 ### `#paths=(value)`
+
 
 **Returns**:
 
@@ -4855,6 +5039,7 @@ the {#layouts} method.
 
 ### `#item`
 
+
 **Returns**:
 
 - (`Nanoc::Int::Item`) — 
@@ -4863,6 +5048,7 @@ the {#layouts} method.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/item_rep.rb#L20)
 
 ### `#name`
+
 
 **Returns**:
 
@@ -4873,6 +5059,7 @@ the {#layouts} method.
 
 ### `#snapshot_defs`
 
+
 **Returns**:
 
 - (`Enumerable<Nanoc::Int:SnapshotDef]`) — Enumerable<Nanoc::Int:SnapshotDef]
@@ -4882,6 +5069,7 @@ the {#layouts} method.
 
 ### `#snapshot_defs=(value)`
 
+
 **Returns**:
 
 - (`Enumerable<Nanoc::Int:SnapshotDef]`) — Enumerable<Nanoc::Int:SnapshotDef]
@@ -4890,6 +5078,7 @@ the {#layouts} method.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/item_rep.rb#L26)
 
 ### `#modified`
+
 
 **Returns**:
 
@@ -4900,6 +5089,7 @@ the {#layouts} method.
 
 ### `#modified=(value)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -4908,6 +5098,7 @@ the {#layouts} method.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/item_rep.rb#L29)
 
 ### `#modified`
+
 
 **Returns**:
 
@@ -4934,6 +5125,7 @@ the {#layouts} method.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/item_rep.rb#L36)
 
 ### `#binary?`
+
 
 **Returns**:
 
@@ -5071,12 +5263,14 @@ Returns an object that can be used for uniquely identifying objects.
 
 See {Nanoc::DataSource#up}.
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/data_sources/filesystem.rb#L50)
 
 ### `#down`
 
 See {Nanoc::DataSource#down}.
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/data_sources/filesystem.rb#L54)
@@ -5097,12 +5291,14 @@ See {Nanoc::DataSource#down}.
 
 See {Nanoc::DataSource#items}.
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/data_sources/filesystem.rb#L66)
 
 ### `#layouts`
 
 See {Nanoc::DataSource#layouts}.
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/data_sources/filesystem.rb#L71)
@@ -5142,6 +5338,7 @@ See {Nanoc::DataSource#layouts}.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/data_sources/filesystem.rb#L82)
 
 ### `#initialize(is_binary:, content: nil, filename: nil, attributes:, content_checksum_data: nil, attributes_checksum_data: nil)`
+
 
 **Returns**:
 
@@ -5186,6 +5383,7 @@ See {Nanoc::DataSource#layouts}.
 
 ### `#initialize(content:, attributes:, attributes_data:)`
 
+
 **Returns**:
 
 - (`ParseResult`) — a new instance of ParseResult
@@ -5198,6 +5396,7 @@ See {Nanoc::DataSource#layouts}.
 ## `class Nanoc::DataSources::Filesystem::InvalidMetadataError`
 
 ### `#initialize(filename, klass)`
+
 
 **Returns**:
 
@@ -5451,6 +5650,7 @@ Runs the content through [Highlight](http://www.andre-simon.de/doku/highlight/en
 
 Wraps the element in <div class="CodeRay"><div class="code">
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/filters/colorize_syntax.rb#L287)
 
@@ -5485,6 +5685,7 @@ After:
 
   <pre><code class="language-ruby highlight">
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/filters/colorize_syntax.rb#L343)
 
@@ -5518,6 +5719,7 @@ After:
 
 ### `#initialize(reps:, items:, dependency_tracker:, compiler:)`
 
+
 **Returns**:
 
 - (`ViewContext`) — a new instance of ViewContext
@@ -5541,6 +5743,7 @@ After:
 ## `class Nanoc::Deploying::Deployers::Fog::FogWrapper`
 
 ### `#initialize(directory, is_dry_run)`
+
 
 **Returns**:
 
@@ -5568,6 +5771,7 @@ After:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/deploying/deployers/fog.rb#L53)
 
 ### `#dry_run?`
+
 
 **Returns**:
 
@@ -5642,6 +5846,7 @@ is useful only for the `:xml` and `:xhtml` types.
 
 ### `#initialize(item_rep, context)`
 
+
 **Returns**:
 
 - (`ItemRepView`) — a new instance of ItemRepView
@@ -5664,6 +5869,7 @@ is useful only for the `:xml` and `:xhtml` types.
 
 ### `#eql?(other)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -5680,6 +5886,7 @@ is useful only for the `:xml` and `:xhtml` types.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/item_rep_view.rb#L27)
 
 ### `#name`
+
 
 **Returns**:
 
@@ -5746,6 +5953,7 @@ Returns the item that this item rep belongs to.
 
 ### `#binary?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -5764,6 +5972,7 @@ Returns the item that this item rep belongs to.
 ## `class Nanoc::Int::ItemRepRepo`
 
 ### `#initialize`
+
 
 **Returns**:
 
@@ -5802,6 +6011,7 @@ Returns the item that this item rep belongs to.
 
 ### `.cwd_is_nanoc_site?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -5810,6 +6020,7 @@ Returns the item that this item rep belongs to.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/config_loader.rb#L23)
 
 ### `.config_filename_for_cwd`
+
 
 **Returns**:
 
@@ -5836,6 +6047,7 @@ Returns the item that this item rep belongs to.
 
 ### `#initialize`
 
+
 **Returns**:
 
 - (`NoConfigFileFoundError`) — a new instance of NoConfigFileFoundError
@@ -5849,6 +6061,7 @@ Returns the item that this item rep belongs to.
 
 ### `#initialize(filename)`
 
+
 **Returns**:
 
 - (`NoParentConfigFileFoundError`) — a new instance of NoParentConfigFileFoundError
@@ -5861,6 +6074,7 @@ Returns the item that this item rep belongs to.
 ## `class Nanoc::Int::ConfigLoader::CyclicalConfigFileError`
 
 ### `#initialize(filename)`
+
 
 **Returns**:
 
@@ -5886,6 +6100,7 @@ Returns the item that this item rep belongs to.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/rule_dsl/action_provider.rb#L8)
 
 ### `#initialize(rules_collection, rule_memory_calculator)`
+
 
 **Returns**:
 
@@ -5954,6 +6169,7 @@ Returns the item that this item rep belongs to.
 
 ### `#initialize(string, type: :full)`
 
+
 **Returns**:
 
 - (`Identifier`) — a new instance of Identifier
@@ -5968,6 +6184,7 @@ Returns the item that this item rep belongs to.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/identifier.rb#L71)
 
 ### `#eql?(other)`
+
 
 **Returns**:
 
@@ -5996,6 +6213,7 @@ Returns the item that this item rep belongs to.
 
 ### `#full?`
 
+
 **Returns**:
 
 - (`Boolean`) — True if this is a full-type identifier (i.e. includes
@@ -6005,6 +6223,7 @@ the extension), false otherwise
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/identifier.rb#L103)
 
 ### `#legacy?`
+
 
 **Returns**:
 
@@ -6016,6 +6235,7 @@ include the extension), false otherwise
 
 ### `#chop`
 
+
 **Returns**:
 
 - (`String`) — 
@@ -6024,6 +6244,7 @@ include the extension), false otherwise
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/identifier.rb#L116)
 
 ### `#+(other)`
+
 
 **Returns**:
 
@@ -6034,6 +6255,7 @@ include the extension), false otherwise
 
 ### `#prefix(string)`
 
+
 **Returns**:
 
 - (`Nanoc::Identifier`) — 
@@ -6042,6 +6264,7 @@ include the extension), false otherwise
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/identifier.rb#L128)
 
 ### `#without_ext`
+
 
 **Returns**:
 
@@ -6052,6 +6275,7 @@ include the extension), false otherwise
 
 ### `#ext`
 
+
 **Returns**:
 
 - (`String, nil`) — The extension, without a leading dot.
@@ -6061,6 +6285,7 @@ include the extension), false otherwise
 
 ### `#without_exts`
 
+
 **Returns**:
 
 - (`String`) — 
@@ -6069,6 +6294,7 @@ include the extension), false otherwise
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/identifier.rb#L164)
 
 ### `#exts`
+
 
 **Returns**:
 
@@ -6107,6 +6333,7 @@ include the extension), false otherwise
 
 ### `#initialize(string)`
 
+
 **Returns**:
 
 - (`InvalidIdentifierError`) — a new instance of InvalidIdentifierError
@@ -6119,6 +6346,7 @@ include the extension), false otherwise
 ## `class Nanoc::Identifier::InvalidTypeError`
 
 ### `#initialize(type)`
+
 
 **Returns**:
 
@@ -6133,6 +6361,7 @@ include the extension), false otherwise
 
 ### `#initialize(string)`
 
+
 **Returns**:
 
 - (`InvalidPrefixError`) — a new instance of InvalidPrefixError
@@ -6146,6 +6375,7 @@ include the extension), false otherwise
 
 ### `#initialize`
 
+
 **Returns**:
 
 - (`UnsupportedLegacyOperationError`) — a new instance of UnsupportedLegacyOperationError
@@ -6158,6 +6388,7 @@ include the extension), false otherwise
 ## `class Nanoc::Identifier::NonCoercibleObjectError`
 
 ### `#initialize(obj)`
+
 
 **Returns**:
 
@@ -6186,6 +6417,7 @@ include the extension), false otherwise
 
 ### `#value`
 
+
 **Returns**:
 
 - (`Object`) — The value, generated when needed
@@ -6205,6 +6437,7 @@ Returns a new lazy value that will apply the given transformation when the value
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/lazy_value.rb#L29)
 
 ### `#freeze`
+
 
 **Returns**:
 
@@ -6259,6 +6492,7 @@ Returns a new lazy value that will apply the given transformation when the value
 
 ### `#initialize`
 
+
 **Returns**:
 
 - (`VerboseDigest`) — a new instance of VerboseDigest
@@ -6283,6 +6517,7 @@ Returns a new lazy value that will apply the given transformation when the value
 ## `class Nanoc::Int::Checksummer::CompactDigest`
 
 ### `#initialize`
+
 
 **Returns**:
 
@@ -6471,89 +6706,77 @@ Returns a new lazy value that will apply the given transformation when the value
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L30)
-
-### `#stack`
-
-The compilation stack. When the compiler begins compiling a rep or a
-layout, it will be placed on the stack; when it is done compiling the
-rep or layout, it will be removed from the stack.
-
-**Returns**:
-
-- (`Array`) — The compilation stack
-
-**See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L37)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L22)
 
 ### `#compiled_content_cache`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L40)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L25)
 
 ### `#checksum_store`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L43)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L28)
 
 ### `#rule_memory_store`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L46)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L31)
 
 ### `#action_provider`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L49)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L34)
 
 ### `#dependency_store`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L52)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L37)
 
 ### `#outdatedness_checker`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L55)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L40)
 
 ### `#reps`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L58)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L43)
 
 ### `#initialize(site, compiled_content_cache:, checksum_store:, rule_memory_store:, action_provider:, dependency_store:, outdatedness_checker:, reps:)`
+
 
 **Returns**:
 
 - (`Compiler`) — a new instance of Compiler
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L60)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L45)
 
 ### `#run_all`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L74)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L57)
 
 ### `#run`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L82)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L65)
 
 ### `#load_stores`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L101)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L83)
 
 ### `#store`
 
@@ -6564,13 +6787,13 @@ Store the modified helper data used for compiling the site.
 - (`void`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L112)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L94)
 
 ### `#build_reps`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L127)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L109)
 
 ### `#assigns_for(rep, dependency_tracker)`
 
@@ -6586,25 +6809,26 @@ assigns should be fetched
 operation
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L141)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L123)
 
 ### `#create_view_context(dependency_tracker)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L161)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L143)
 
 ### `#filter_name_and_args_for_layout(layout)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L171)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/compilation/compiler.rb#L153)
 
 ---
 
 ## `class Nanoc::RuleDSL::RulesCollection`
 
 ### `#data`
+
 
 **Returns**:
 
@@ -6614,6 +6838,7 @@ operation
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/rule_dsl/rules_collection.rb#L7)
 
 ### `#data=(value)`
+
 
 **Returns**:
 
@@ -6687,6 +6912,7 @@ be executed after all data is loaded and the site is compiled
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/rule_dsl/rules_collection.rb#L27)
 
 ### `#initialize`
+
 
 **Returns**:
 
@@ -6873,6 +7099,7 @@ items, layouts and code snippets.
 
 Calculates and stores the checksum for the given object.
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/checksum_store.rb#L30)
 
@@ -6893,6 +7120,7 @@ Calculates and stores the checksum for the given object.
 ## `class Nanoc::Int::RuleMemory`
 
 ### `#initialize(item_rep)`
+
 
 **Returns**:
 
@@ -6939,6 +7167,7 @@ Calculates and stores the checksum for the given object.
 
 ### `#any_layouts?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -6949,6 +7178,7 @@ Calculates and stores the checksum for the given object.
 ### `#serialize`
 
 TODO: Add contract
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/rule_memory.rb#L51)
@@ -7045,6 +7275,7 @@ Returns an object that can be used for uniquely identifying objects.
 
 ### `#initialize(name, is_final)`
 
+
 **Returns**:
 
 - (`SnapshotDef`) — a new instance of SnapshotDef
@@ -7053,6 +7284,7 @@ Returns an object that can be used for uniquely identifying objects.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/snapshot_def.rb#L9)
 
 ### `#final?`
+
 
 **Returns**:
 
@@ -7073,6 +7305,7 @@ Returns an object that can be used for uniquely identifying objects.
 
 ### `#initialize`
 
+
 **Returns**:
 
 - (`JRubyNokogiriWarner`) — a new instance of JRubyNokogiriWarner
@@ -7091,6 +7324,7 @@ Returns an object that can be used for uniquely identifying objects.
 ## `class Nanoc::Int::Configuration`
 
 ### `#env_name`
+
 
 **Returns**:
 
@@ -7137,6 +7371,7 @@ Creates a new configuration with the given hash.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/configuration.rb#L77)
 
 ### `#key?(key)`
+
 
 **Returns**:
 
@@ -7216,6 +7451,7 @@ Returns an object that can be used for uniquely identifying objects.
 
 ### `#objects`
 
+
 **Returns**:
 
 - (`Array<Nanoc::Int::Item, Nanoc::Int::Layout>`) — 
@@ -7224,6 +7460,7 @@ Returns an object that can be used for uniquely identifying objects.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L49)
 
 ### `#objects=(value)`
+
 
 **Returns**:
 
@@ -7366,6 +7603,7 @@ forget all dependencies
 
 ### `#initialize(from, to, raw_content:, attributes:, compiled_content:, path:)`
 
+
 **Returns**:
 
 - (`Dependency`) — a new instance of Dependency
@@ -7374,6 +7612,7 @@ forget all dependencies
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L15)
 
 ### `#raw_content?`
+
 
 **Returns**:
 
@@ -7384,6 +7623,7 @@ forget all dependencies
 
 ### `#attributes?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -7393,6 +7633,7 @@ forget all dependencies
 
 ### `#compiled_content?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -7401,6 +7642,7 @@ forget all dependencies
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/dependency_store.rb#L36)
 
 ### `#path?`
+
 
 **Returns**:
 
@@ -7417,10 +7659,12 @@ forget all dependencies
 
 Returns the value of attribute rule_memory
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/rule_dsl/recording_executor.rb#L12)
 
 ### `#initialize(item_rep, rules_collection, site)`
+
 
 **Returns**:
 
@@ -7458,6 +7702,7 @@ Returns the value of attribute rule_memory
 ## `class Nanoc::RuleDSL::RecordingExecutor::PathWithoutInitialSlashError`
 
 ### `#initialize(rep, basic_path)`
+
 
 **Returns**:
 
@@ -7660,6 +7905,7 @@ which there is a path from the given vertex x to y.
 
 ### `#vertices`
 
+
 **Returns**:
 
 - (`Array`) — The list of all vertices in this graph.
@@ -7715,6 +7961,7 @@ Returns a cleaned version of the given string.
 ## `class Nanoc::Int::RuleMemoryStore`
 
 ### `#initialize(env_name: nil)`
+
 
 **Returns**:
 
@@ -7804,6 +8051,7 @@ the layout to set the rule memory for
 
 ### `#initialize(reps, action_provider, site)`
 
+
 **Returns**:
 
 - (`ItemRepRouter`) — a new instance of ItemRepRouter
@@ -7835,6 +8083,7 @@ the layout to set the rule memory for
 
 ### `#initialize(output_path, rep_a, rep_b)`
 
+
 **Returns**:
 
 - (`IdenticalRoutesError`) — a new instance of IdenticalRoutesError
@@ -7864,6 +8113,7 @@ the layout to set the rule memory for
 
 ### `#filename`
 
+
 **Returns**:
 
 - (`String`) — The last filename that was attempted to be
@@ -7892,6 +8142,7 @@ resolved before giving up
 ## `class Nanoc::DataSources::Filesystem::Tools::UnsupportedFileTypeError`
 
 ### `#filename`
+
 
 **Returns**:
 
@@ -7943,6 +8194,7 @@ Sets the value for the given attribute.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/item_rep_builder.rb#L4)
 
 ### `#initialize(site, action_provider, reps)`
+
 
 **Returns**:
 
@@ -8011,6 +8263,7 @@ be skipped.
 
 ### `#excluded?(href)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -8019,6 +8272,7 @@ be skipped.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/checking/checks/external_links.rb#L135)
 
 ### `#excluded_file?(file)`
+
 
 **Returns**:
 
@@ -8044,6 +8298,7 @@ be skipped.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/checking/checks/external_links.rb#L37)
 
 ### `#initialize(href, explanation)`
+
 
 **Returns**:
 
@@ -8166,6 +8421,7 @@ memory for
 
 ### `#initialize(obj)`
 
+
 **Returns**:
 
 - (`UnsupportedObjectTypeException`) — a new instance of UnsupportedObjectTypeException
@@ -8178,6 +8434,7 @@ memory for
 ## `class Nanoc::RuleDSL::RuleMemoryCalculator::NoRuleMemoryForLayoutException`
 
 ### `#initialize(layout)`
+
 
 **Returns**:
 
@@ -8192,6 +8449,7 @@ memory for
 
 ### `#initialize(item)`
 
+
 **Returns**:
 
 - (`NoRuleMemoryForItemRepException`) — a new instance of NoRuleMemoryForItemRepException
@@ -8204,6 +8462,7 @@ memory for
 ## `class Nanoc::Int::ItemRepSelector`
 
 ### `#initialize(reps)`
+
 
 **Returns**:
 
@@ -8218,11 +8477,17 @@ memory for
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/item_rep_selector.rb#L10)
 
-### `#handle_dependency_error(e, rep, graph)`
+### `#handle_error(e, rep, graph)`
 
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/item_rep_selector.rb#L31)
+
+### `#handle_dependency_error(e, rep, graph)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/item_rep_selector.rb#L46)
 
 ---
 
@@ -8263,30 +8528,31 @@ memory for
 
 ### `#initialize(dependency_store)`
 
+
 **Returns**:
 
 - (`DependencyTracker`) — a new instance of DependencyTracker
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L22)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L25)
 
 ### `#enter(obj, raw_content: false, attributes: false, compiled_content: false, path: false)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L28)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L31)
 
 ### `#exit`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L45)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L48)
 
 ### `#bounce(obj, raw_content: false, attributes: false, compiled_content: false, path: false)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L50)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L53)
 
 ---
 
@@ -8296,19 +8562,19 @@ memory for
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L8)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L13)
 
 ### `#exit`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L12)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L17)
 
 ### `#bounce(_obj, raw_content: false, attributes: false, compiled_content: false, path: false)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L16)
+- [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/dependency_tracker.rb#L21)
 
 ---
 
@@ -8384,6 +8650,7 @@ removed.
 
 ### `.reset`
 
+
 **Returns**:
 
 - (`void`) — 
@@ -8413,6 +8680,7 @@ removed.
 
 ### `#modified`
 
+⚠️ **Use {#modified_reps} instead**
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/post_compile_item_view.rb#L8)
@@ -8455,6 +8723,7 @@ that have extensions, returns nil.
 
 ### `#binary?`
 
+
 **Returns**:
 
 - (`Boolean`) — True if the item is binary, false otherwise
@@ -8473,6 +8742,7 @@ that have extensions, returns nil.
 ## `class Nanoc::Int::CompiledContentCache`
 
 ### `#initialize(env_name: nil)`
+
 
 **Returns**:
 
@@ -8528,6 +8798,7 @@ content of the given representation
 
 ### `#root_dir`
 
+
 **Returns**:
 
 - (`String`) — The root directory for all temporary filenames
@@ -8537,6 +8808,7 @@ content of the given representation
 
 ### `.instance`
 
+
 **Returns**:
 
 - (`Nanoc::Int::TempFilenameFactory`) — A common instance
@@ -8545,6 +8817,7 @@ content of the given representation
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/temp_filename_factory.rb#L10)
 
 ### `#initialize`
+
 
 **Returns**:
 
@@ -8589,6 +8862,7 @@ filenames should be deleted.
 
 ### `#initialize(item_reps, context)`
 
+
 **Returns**:
 
 - (`ItemRepCollectionView`) — a new instance of ItemRepCollectionView
@@ -8626,6 +8900,7 @@ Calls the given block once for each item rep, passing that item rep as a paramet
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/item_rep_collection_view.rb#L38)
 
 ### `#size`
+
 
 **Returns**:
 
@@ -8675,6 +8950,7 @@ is no rep with the given name.
 
 ### `#initialize(rep_name)`
 
+
 **Returns**:
 
 - (`NoSuchItemRepError`) — a new instance of NoSuchItemRepError
@@ -8687,6 +8963,7 @@ is no rep with the given name.
 ## `class Nanoc::Int::OutdatednessReasons::Generic`
 
 ### `#message`
+
 
 **Returns**:
 
@@ -8825,6 +9102,7 @@ given object is outdated, or nil if the object is not outdated.
 
 ### `#initialize(config)`
 
+
 **Returns**:
 
 - (`IdentifiableCollection`) — a new instance of IdentifiableCollection
@@ -8851,6 +9129,7 @@ given object is outdated, or nil if the object is not outdated.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/identifiable_collection.rb#L45)
 
 ### `#empty?`
+
 
 **Returns**:
 
@@ -8925,6 +9204,7 @@ containing this content (if any)
 filter :foo
 filter :foo, params
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/processing_actions/filter.rb#L6)
 
@@ -8935,6 +9215,7 @@ filter :foo, params
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/processing_actions/filter.rb#L7)
 
 ### `#initialize(filter_name, params)`
+
 
 **Returns**:
 
@@ -8964,6 +9245,7 @@ filter :foo, params
 layout '/foo.erb'
 layout '/foo.erb', params
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/processing_actions/layout.rb#L6)
 
@@ -8974,6 +9256,7 @@ layout '/foo.erb', params
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/processing_actions/layout.rb#L7)
 
 ### `#initialize(layout_identifier, params)`
+
 
 **Returns**:
 
@@ -8999,6 +9282,7 @@ layout '/foo.erb', params
 ## `class Nanoc::IdentifiableCollectionView`
 
 ### `#initialize(objects, context)`
+
 
 **Returns**:
 
@@ -9031,6 +9315,7 @@ Calls the given block once for each object, passing that object as a parameter.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/identifiable_collection_view.rb#L30)
 
 ### `#size`
+
 
 **Returns**:
 
@@ -9071,6 +9356,7 @@ snapshot :before_layout
 snapshot :before_layout, final: true
 snapshot :before_layout, path: '/about.md'
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/processing_actions/snapshot.rb#L7)
 
@@ -9093,6 +9379,7 @@ snapshot :before_layout, path: '/about.md'
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/processing_actions/snapshot.rb#L10)
 
 ### `#initialize(snapshot_name, final, path)`
+
 
 **Returns**:
 
@@ -9187,6 +9474,7 @@ Creates a new layout and adds it to the site’s collection of layouts.
 
 ### `#initialize(value)`
 
+
 **Returns**:
 
 - (`DisallowedAttributeValueError`) — a new instance of DisallowedAttributeValueError
@@ -9231,6 +9519,7 @@ Deletes every object for which the block evaluates to true.
 
 ### `.version_information`
 
+
 **Returns**:
 
 - (`String`) — A string containing information about this Nanoc version
@@ -9240,6 +9529,7 @@ and its environment (Ruby engine and version, Rubygems version if any).
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc.rb#L6)
 
 ### `.on_windows?`
+
 
 **Returns**:
 
@@ -9253,6 +9543,7 @@ and its environment (Ruby engine and version, Rubygems version if any).
 ## `module Nanoc::CLI`
 
 ### `.debug?`
+
 
 **Returns**:
 
@@ -9293,6 +9584,7 @@ Invokes the Nanoc command-line tool with the given arguments.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli.rb#L43)
 
 ### `.root_command`
+
 
 **Returns**:
 
@@ -9455,6 +9747,7 @@ Nanoc::Feature.define('environments', version: '4.3')
 
 ### `.all_outdated`
 
+
 **Returns**:
 
 - (`Enumerable<String>`) — Names of features that still exist, but
@@ -9503,6 +9796,7 @@ Nanoc.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/link_to.rb#L39)
 
 ### `#relative_path_to(target)`
+
 
 **Returns**:
 
@@ -9623,6 +9917,7 @@ end
 
 ### `#articles`
 
+
 **Returns**:
 
 - (`Array`) — 
@@ -9631,6 +9926,7 @@ end
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L5)
 
 ### `#sorted_articles`
+
 
 **Returns**:
 
@@ -9665,6 +9961,7 @@ end
 
 ### `#url_for(item)`
 
+
 **Returns**:
 
 - (`String`) — 
@@ -9674,6 +9971,7 @@ end
 
 ### `#feed_url`
 
+
 **Returns**:
 
 - (`String`) — 
@@ -9682,6 +9980,7 @@ end
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L221)
 
 ### `#atom_tag_for(item)`
+
 
 **Returns**:
 
@@ -9757,6 +10056,7 @@ end
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/capturing.rb#L12)
 
 ### `#capture(&block)`
+
 
 **Returns**:
 
@@ -9834,6 +10134,7 @@ that message, or #freeze if they do not.
 
 ### `#breadcrumbs_trail`
 
+
 **Returns**:
 
 - (`Array`) — 
@@ -9878,6 +10179,7 @@ to that message, or #freeze if they do not.
 
 ### `#__nanoc_to_iso8601_date`
 
+
 **Returns**:
 
 - (`String`) — The time in an ISO-8601 date format.
@@ -9886,6 +10188,7 @@ to that message, or #freeze if they do not.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/extra/core_ext/time.rb#L4)
 
 ### `#__nanoc_to_iso8601_time`
+
 
 **Returns**:
 
@@ -9968,6 +10271,7 @@ this plugin.
 
 ### `#all`
 
+
 **Returns**:
 
 - (`Hash<Symbol, Class>`) — All plugins of this type, with keys
@@ -10039,6 +10343,7 @@ Returns the plugin with the given name (identifier)
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/extra/core_ext/pathname.rb#L4)
 
 ### `#__nanoc_include_component?(component)`
+
 
 **Returns**:
 
@@ -10168,6 +10473,7 @@ into a symlink
 
 ### `#eql?(other)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -10185,6 +10491,7 @@ into a symlink
 
 ### `#identifier`
 
+
 **Returns**:
 
 - (`Nanoc::Identifier`) — 
@@ -10201,6 +10508,7 @@ into a symlink
 
 ### `#attributes`
 
+
 **Returns**:
 
 - (`Hash`) — 
@@ -10216,6 +10524,7 @@ into a symlink
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/mixins/document_view_mixin.rb#L50)
 
 ### `#key?(key)`
+
 
 **Returns**:
 

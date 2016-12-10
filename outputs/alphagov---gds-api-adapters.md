@@ -17,6 +17,7 @@
 
 Returns the value of attribute options
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/base.rb#L30)
 
@@ -35,6 +36,7 @@ Sets the attribute logger
 ### `.default_options`
 
 Returns the value of attribute default_options
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/base.rb#L34)
@@ -57,7 +59,8 @@ Sets the attribute default_options
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/base.rb#L37)
 
-### `#initialize(endpoint_url, options={})`
+### `#initialize(endpoint_url, options = {})`
+
 
 **Returns**:
 
@@ -66,7 +69,7 @@ Sets the attribute default_options
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/base.rb#L41)
 
-### `#url_for_slug(slug, options={})`
+### `#url_for_slug(slug, options = {})`
 
 
 **See**:
@@ -86,64 +89,19 @@ Sets the attribute default_options
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L6)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L5)
 
 ### `#areas_for_type(type)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L11)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L10)
 
 ### `#area_for_code(code_type, code)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L15)
-
----
-
-## `class GdsApi::Config`
-
-### `#always_raise_for_not_found`
-
-Always raise an `HTTPNotFound` exception when the server returns 404 or an
-`HTTPGone` when the server returns 410. This avoids nil-errors in your
-code and makes debugging easier.
-
-Currently defaults to true.
-
-This configuration will be removed on December 1st, 2016. Please make sure
-you upgrade gds-api-adapters to the latest version and avoid configuring
-it on your client application.
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/config.rb#L20)
-
-### `#always_raise_for_not_found=(value)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/config.rb#L26)
-
-### `#hash_response_for_requests`
-
-Set to true to make `GdsApi::Response` behave like a simple hash, instead
-of an OpenStruct. This will prevent nil-errors.
-
-Currently defaults to true.
-
-This configuration will be removed on December 1st, 2016. Please make sure
-you upgrade gds-api-adapters to the latest version and avoid configuring
-it on your client application.
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/config.rb#L52)
-
-### `#hash_response_for_requests=(value)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/config.rb#L58)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L14)
 
 ---
 
@@ -163,57 +121,59 @@ it on your client application.
 
 Backends
 
+
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L7)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L6)
 
 ### `#add_backend(id, url)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L11)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L10)
 
 ### `#delete_backend(id)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L15)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L14)
 
 ### `#get_route(path, type = nil)`
 
 Routes
 
+
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L21)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L20)
 
 ### `#add_route(path, type, backend_id, options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L28)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L27)
 
 ### `#add_redirect_route(path, type, destination, redirect_type = "permanent", options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L34)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L33)
 
 ### `#add_gone_route(path, type, options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L41)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L50)
 
 ### `#delete_route(path, options_or_deprecated_type = {}, deprecated_options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L47)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L56)
 
 ### `#commit_routes`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L59)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/router.rb#L68)
 
 ---
 
@@ -270,14 +230,16 @@ Perform a search.
 
 **See**:
 - https://github.com/alphagov/rummager/blob/master/docs/search-api.md
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L13)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L12)
 
 ### `#advanced_search(args)`
 
 Advanced search.
 
+⚠️ **Only in use by Whitehall. Use the `#search` method.**
+
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L21)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L20)
 
 ### `#add_document(type, id, document)`
 
@@ -300,9 +262,9 @@ Add a document to the search index.
 
 **See**:
 - https://github.com/alphagov/rummager/blob/master/docs/documents.md
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L35)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L34)
 
-### `#delete_content!(base_path)`
+### `#delete_content(base_path)`
 
 Delete a content-document from the index by base path.
 
@@ -317,9 +279,9 @@ and contacts, which may be deleted with `delete_document`.
 
 **See**:
 - https://github.com/alphagov/rummager/blob/master/docs/content-api.md
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L53)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L52)
 
-### `#get_content!(base_path)`
+### `#get_content(base_path)`
 
 Retrieve a content-document from the index.
 
@@ -334,7 +296,7 @@ and contacts.
 
 **See**:
 - https://github.com/alphagov/rummager/blob/master/docs/content-api.md
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L66)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L70)
 
 ### `#delete_document(type, id)`
 
@@ -351,7 +313,7 @@ For example, best bets, recommended links, or contacts.
   
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L77)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L86)
 
 ---
 
@@ -361,55 +323,61 @@ For example, best bets, recommended links, or contacts.
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L5)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L4)
+
+### `#content_id(need_id)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L10)
 
 ### `#needs_by_id(*ids)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L11)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L14)
 
 ### `#need(need_id)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L18)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L21)
 
 ### `#create_need(need)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L22)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L25)
 
 ### `#update_need(need_id, need_update)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L26)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L29)
 
 ### `#organisations`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L31)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L34)
 
 ### `#close(need_id, duplicate_of)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L35)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L38)
 
 ### `#reopen(need_id, author)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L43)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L46)
 
 ### `#create_note(note)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L49)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/need_api.rb#L52)
 
 ---
 
@@ -417,109 +385,81 @@ For example, best bets, recommended links, or contacts.
 
 ### `#initialize(http_response, options = {})`
 
+
 **Returns**:
 
 - (`Response`) — a new instance of Response
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L30)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L29)
 
 ### `#raw_response_body`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L35)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L34)
 
 ### `#code`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L39)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L38)
 
 ### `#headers`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L44)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L43)
 
 ### `#expires_at`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L48)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L47)
 
 ### `#expires_in`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L57)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L56)
 
 ### `#cache_control`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L69)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L68)
 
 ### `#to_hash`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L73)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L72)
 
 ### `#parsed_content`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L77)
-
-### `#to_ostruct`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L81)
-
-### `#method_missing(method_sym, *arguments, &block)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L86)
-
-### `#respond_to_missing?(method, include_private)`
-
-**Returns**:
-
-- (`Boolean`) — 
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L91)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L76)
 
 ### `#present?; true; end`
 
+
 **Returns**:
 
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L96)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L80)
 
 ### `#blank?; false; end`
 
+
 **Returns**:
 
 - (`Boolean`) — 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L97)
-
----
-
-## `class GdsApi::Needotron`
-
-### `#need_by_id(id, opts = {})`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/needotron.rb#L4)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/response.rb#L82)
 
 ---
 
@@ -529,71 +469,43 @@ For example, best bets, recommended links, or contacts.
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/imminence.rb#L5)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/imminence.rb#L4)
 
-### `#places(type, lat, lon, limit=5)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/imminence.rb#L11)
-
-### `#places_for_postcode(type, postcode, limit=5)`
+### `#places(type, lat, lon, limit = 5)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/imminence.rb#L17)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/imminence.rb#L10)
+
+### `#places_for_postcode(type, postcode, limit = 5)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/imminence.rb#L16)
 
 ### `.parse_place_hash(place_hash)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/imminence.rb#L23)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/imminence.rb#L22)
 
 ### `#places_kml(type)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/imminence.rb#L30)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/imminence.rb#L29)
 
 ### `#areas_for_postcode(postcode)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/imminence.rb#L34)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/imminence.rb#L33)
 
 ### `#areas_for_type(type)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/imminence.rb#L39)
-
----
-
-## `class GdsApi::Publisher`
-
-### `#publication_for_slug(slug, options = {})`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publisher.rb#L5)
-
-### `#council_for_slug(slug, snac_codes)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publisher.rb#L19)
-
-### `#council_for_snac_code(snac)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publisher.rb#L27)
-
-### `#council_for_name(name)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publisher.rb#L32)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/imminence.rb#L38)
 
 ---
 
@@ -603,111 +515,19 @@ For example, best bets, recommended links, or contacts.
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/worldwide.rb#L5)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/worldwide.rb#L4)
 
 ### `#world_location(location_slug)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/worldwide.rb#L9)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/worldwide.rb#L8)
 
 ### `#organisations_for_world_location(location_slug)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/worldwide.rb#L13)
-
----
-
-## `class GdsApi::Panopticon`
-
-### `#all`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L9)
-
-### `#artefact_for_slug(slug, opts = {})`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L15)
-
-### `#create_artefact(artefact)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L20)
-
-### `#create_artefact!(artefact)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L26)
-
-### `#put_artefact(id_or_slug, artefact)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L30)
-
-### `#put_artefact!(id_or_slug, artefact)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L36)
-
-### `#update_artefact(id_or_slug, artefact)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L40)
-
-### `#delete_artefact!(id_or_slug)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L48)
-
-### `#create_tag(attributes)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L52)
-
-### `#put_tag(tag_type, tag_id, attributes)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L56)
-
-### `#publish_tag(tag_type, tag_id)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L63)
-
----
-
-## `class GdsApi::NullCache`
-
-### `#[](k)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/null_cache.rb#L3)
-
-### `#[]=(k, v)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/null_cache.rb#L7)
-
-### `#store(k, v, expiry_time=nil)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/null_cache.rb#L10)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/worldwide.rb#L12)
 
 ---
 
@@ -716,6 +536,7 @@ For example, best bets, recommended links, or contacts.
 ### `#code`
 
 Returns the value of attribute code
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/exceptions.rb#L15)
@@ -736,6 +557,7 @@ Sets the attribute code
 
 Returns the value of attribute error_details
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/exceptions.rb#L15)
 
@@ -753,6 +575,7 @@ Sets the attribute error_details
 
 ### `#initialize(code, message = nil, error_details = nil, request_body = nil)`
 
+
 **Returns**:
 
 - (`HTTPErrorResponse`) — a new instance of HTTPErrorResponse
@@ -762,9 +585,101 @@ Sets the attribute error_details
 
 ---
 
+## `class GdsApi::Panopticon`
+
+### `#all`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L8)
+
+### `#artefact_for_slug(slug, _opts = {})`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L14)
+
+### `#create_artefact(artefact)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L19)
+
+### `#create_artefact!(artefact)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L25)
+
+### `#put_artefact(id_or_slug, artefact)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L29)
+
+### `#put_artefact!(id_or_slug, artefact)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L35)
+
+### `#update_artefact(id_or_slug, artefact)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L39)
+
+### `#delete_artefact!(id_or_slug)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L47)
+
+### `#create_tag(attributes)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L51)
+
+### `#put_tag(tag_type, tag_id, attributes)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L55)
+
+### `#publish_tag(tag_type, tag_id)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon.rb#L62)
+
+---
+
+## `class GdsApi::NullCache`
+
+### `#[](_k)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/null_cache.rb#L3)
+
+### `#[]=(k, v)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/null_cache.rb#L7)
+
+### `#store(k, v, expiry_time = nil)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/null_cache.rb#L10)
+
+---
+
 ## `class GdsApi::JsonClient`
 
-### `.cache(size=DEFAULT_CACHE_SIZE, ttl=DEFAULT_CACHE_TTL)`
+### `.cache(size = DEFAULT_CACHE_SIZE, ttl = DEFAULT_CACHE_TTL)`
 
 Cache TTL will be overridden for a given request/response by the Expires
 header if it is included in the response.
@@ -772,27 +687,29 @@ header if it is included in the response.
 LRUCache doesn't respect a cache size of 0, and instead effectively
 creates a cache with a size of 1.
 
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L21)
-
-### `.cache=(c)`
-
-Set the caching implementation. Default is LRUCache. Can be Anything
-which responds to:
-
-  [](key)
-  []=(key, value)
-  store(key, value, expiry_time=nil) - or a Ruby Time object
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L32)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L19)
+
+### `.cache=(value)`
+
+Sets the attribute cache
+
+**Params**:
+
+- `value` (``) — the value to set the attribute cache to.
+  
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L31)
 
 ### `#logger`
 
 Returns the value of attribute logger
 
+
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L36)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L34)
 
 ### `#logger=(value)`
 
@@ -804,14 +721,15 @@ Sets the attribute logger
   
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L36)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L34)
 
 ### `#options`
 
 Returns the value of attribute options
 
+
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L36)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L34)
 
 ### `#options=(value)`
 
@@ -823,14 +741,15 @@ Sets the attribute options
   
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L36)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L34)
 
 ### `#cache`
 
 Returns the value of attribute cache
 
+
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L36)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L34)
 
 ### `#cache=(value)`
 
@@ -842,88 +761,89 @@ Sets the attribute cache
   
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L36)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L34)
 
 ### `#initialize(options = {})`
+
 
 **Returns**:
 
 - (`JsonClient`) — a new instance of JsonClient
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L38)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L36)
 
 ### `.default_request_headers`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L55)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L53)
 
 ### `.default_request_with_json_body_headers`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L63)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L61)
 
 ### `#get_raw!(url)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L73)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L71)
 
 ### `#get_raw(url)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L77)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L75)
 
 ### `#get_json!(url, additional_headers = {}, &create_response)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L105)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L91)
 
 ### `#post_json!(url, params = {}, additional_headers = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L109)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L95)
 
 ### `#put_json!(url, params, additional_headers = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L113)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L99)
 
 ### `#patch_json!(url, params, additional_headers = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L117)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L103)
 
 ### `#delete_json!(url, additional_headers = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L121)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L107)
 
 ### `#delete_json_with_params!(url, params, additional_headers = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L125)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L111)
 
 ### `#post_multipart(url, params)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L137)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L123)
 
 ### `#put_multipart(url, params)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L144)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L128)
 
 ---
 
@@ -1068,6 +988,7 @@ The results are ordered date descending.
    page_size: 50
  }
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/support_api.rb#L113)
 
@@ -1107,256 +1028,133 @@ that report is to be marked as spam, or false otherwise.
 
 ### `#initialize(endpoint_url, options = {})`
 
+
 **Returns**:
 
 - (`ContentApi`) — a new instance of ContentApi
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L7)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L6)
 
 ### `#sections`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L17)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L16)
 
 ### `#root_sections`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L21)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L20)
 
 ### `#sub_sections(parent_tag)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L25)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L24)
 
-### `#tags(tag_type, options={})`
+### `#tags(tag_type, options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L29)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L28)
 
 ### `#root_tags(tag_type)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L40)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L39)
 
-### `#child_tags(tag_type, parent_tag, options={})`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L44)
-
-### `#tag(tag, tag_type=nil)`
+### `#child_tags(tag_type, parent_tag, options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L54)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L43)
+
+### `#tag(tag, tag_type = nil)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L53)
 
 ### `#for_need(need_id)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L63)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L62)
 
-### `#artefact(slug, params={})`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L67)
-
-### `#artefact!(slug, params={})`
+### `#artefact(slug, params = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L71)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L66)
+
+### `#artefact!(slug, params = {})`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L70)
 
 ### `#artefacts`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L75)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L74)
 
 ### `#local_authority(snac_code)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L79)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L78)
 
 ### `#local_authorities_by_name(name)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L83)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L82)
 
 ### `#local_authorities_by_snac_code(snac_code)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L87)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L86)
 
 ### `#licences_for_ids(ids)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L91)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L90)
 
 ### `#business_support_schemes(facets)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L96)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L95)
 
 ### `#get_list!(url)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L106)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L105)
 
 ### `#get_list(url)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L112)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L111)
 
 ### `#get_json(url, &create_response)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L118)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L117)
 
 ### `#get_json!(url, &create_response)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L125)
-
----
-
-## `class GdsApi::ListResponse`
-
-### `#initialize(response, api_client, options = {})`
-
-The ListResponse is instantiated with a reference back to the API client,
-so it can make requests for the subsequent pages
-
-**Returns**:
-
-- (`ListResponse`) — a new instance of ListResponse
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/list_response.rb#L16)
-
-### `#results`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/list_response.rb#L25)
-
-### `#has_next_page?`
-
-**Returns**:
-
-- (`Boolean`) — 
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/list_response.rb#L36)
-
-### `#next_page`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/list_response.rb#L40)
-
-### `#has_previous_page?`
-
-**Returns**:
-
-- (`Boolean`) — 
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/list_response.rb#L52)
-
-### `#previous_page`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/list_response.rb#L56)
-
-### `#with_subsequent_pages`
-
-Transparently get all results across all pages. Compare this with #each
-or #results which only iterate over the current page.
-
-Example:
-
-  list_response.with_subsequent_pages.each do |result|
-    ...
-  end
-
-or:
-
-  list_response.with_subsequent_pages.count
-
-Pages of results are fetched on demand. When iterating, that means
-fetching pages as results from the current page are exhausted. If you
-invoke a method such as #count, this method will fetch all pages at that
-point. Note that the responses are stored so subsequent pages will not be
-loaded multiple times.
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/list_response.rb#L83)
-
----
-
-## `class GdsApi::Organisations`
-
-### `#organisations`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/organisations.rb#L5)
-
-### `#organisation(organisation_slug)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/organisations.rb#L9)
-
----
-
-## `class GdsApi::ContentStore`
-
-### `#content_item(base_path)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_store.rb#L12)
-
-### `#incoming_links!(base_path, params = {})`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_store.rb#L16)
-
-### `#content_item!(base_path)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_store.rb#L23)
-
----
-
-## `class GdsApi::ContentStore::ItemNotFound`
-
-### `.build_from(http_error)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_store.rb#L7)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_api.rb#L124)
 
 ---
 
@@ -1415,7 +1213,7 @@ response['content_type'] #=> "image/jpeg"
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/asset_manager.rb#L47)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/asset_manager.rb#L46)
 
 ### `#update_asset(id, asset)`
 
@@ -1460,7 +1258,7 @@ asset_manager.update_asset(uuid, file: File.new('image.jpg', 'r'))
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/asset_manager.rb#L80)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/asset_manager.rb#L79)
 
 ### `#asset(id)`
 
@@ -1477,7 +1275,7 @@ Fetches an asset given the id
 the asset cannot be found, +nil+ wil be returned.
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/asset_manager.rb#L91)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/asset_manager.rb#L90)
 
 ### `#delete_asset(id)`
 
@@ -1510,7 +1308,7 @@ asset_manager.delete_asset(uuid)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/asset_manager.rb#L114)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/asset_manager.rb#L113)
 
 ### `#restore_asset(id)`
 
@@ -1543,7 +1341,7 @@ asset_manager.restore_asset(uuid)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/asset_manager.rb#L137)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/asset_manager.rb#L136)
 
 ---
 
@@ -1569,74 +1367,146 @@ asset_manager.restore_asset(uuid)
 
 ---
 
+## `class GdsApi::ListResponse`
+
+### `#initialize(response, api_client, options = {})`
+
+The ListResponse is instantiated with a reference back to the API client,
+so it can make requests for the subsequent pages
+
+**Returns**:
+
+- (`ListResponse`) — a new instance of ListResponse
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/list_response.rb#L14)
+
+### `#results`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/list_response.rb#L23)
+
+### `#has_next_page?`
+
+
+**Returns**:
+
+- (`Boolean`) — 
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/list_response.rb#L30)
+
+### `#next_page`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/list_response.rb#L34)
+
+### `#has_previous_page?`
+
+
+**Returns**:
+
+- (`Boolean`) — 
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/list_response.rb#L44)
+
+### `#previous_page`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/list_response.rb#L48)
+
+### `#with_subsequent_pages`
+
+Transparently get all results across all pages. Compare this with #each
+or #results which only iterate over the current page.
+
+Example:
+
+  list_response.with_subsequent_pages.each do |result|
+    ...
+  end
+
+or:
+
+  list_response.with_subsequent_pages.count
+
+Pages of results are fetched on demand. When iterating, that means
+fetching pages as results from the current page are exhausted. If you
+invoke a method such as #count, this method will fetch all pages at that
+point. Note that the responses are stored so subsequent pages will not be
+loaded multiple times.
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/list_response.rb#L75)
+
+---
+
+## `class GdsApi::ContentStore`
+
+### `#content_item(base_path)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_store.rb#L11)
+
+### `#content_item!(_)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_store.rb#L17)
+
+---
+
+## `class GdsApi::ContentStore::ItemNotFound`
+
+### `.build_from(http_error)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/content_store.rb#L6)
+
+---
+
+## `class GdsApi::Organisations`
+
+### `#organisations`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/organisations.rb#L4)
+
+### `#organisation(organisation_slug)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/organisations.rb#L8)
+
+---
+
 ## `class GdsApi::PublishingApi`
-
-### `#put_draft_content_item(base_path, payload)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api.rb#L6)
-
-### `#put_content_item(base_path, payload)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api.rb#L10)
 
 ### `#put_intent(base_path, payload)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api.rb#L14)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api.rb#L5)
 
 ### `#destroy_intent(base_path)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api.rb#L18)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api.rb#L9)
 
 ### `#put_path(base_path, payload)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api.rb#L24)
-
----
-
-## `class GdsApi::GovUkDelivery`
-
-### `#initialize(endpoint_url, options={})`
-
-**Returns**:
-
-- (`GovUkDelivery`) — a new instance of GovUkDelivery
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/gov_uk_delivery.rb#L7)
-
-### `#subscribe(email, feed_urls)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/gov_uk_delivery.rb#L11)
-
-### `#topic(feed_url, title, description=nil)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/gov_uk_delivery.rb#L17)
-
-### `#signup_url(feed_url)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/gov_uk_delivery.rb#L23)
-
-### `#notify(feed_urls, subject, body)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/gov_uk_delivery.rb#L29)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api.rb#L15)
 
 ---
 
@@ -1652,7 +1522,7 @@ Get or Post subscriber list
   
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/email_alert_api.rb#L13)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/email_alert_api.rb#L12)
 
 ### `#send_alert(publication)`
 
@@ -1664,9 +1534,9 @@ Post notification
   
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/email_alert_api.rb#L36)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/email_alert_api.rb#L35)
 
-### `#notifications(start_at=nil)`
+### `#notifications(start_at = nil)`
 
 Get notifications
 
@@ -1681,7 +1551,7 @@ Get notifications
 - (`Hash`) — notifications
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/email_alert_api.rb#L45)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/email_alert_api.rb#L44)
 
 ### `#notification(id)`
 
@@ -1697,7 +1567,45 @@ Get notification
 - (`Hash`) — notification
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/email_alert_api.rb#L56)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/email_alert_api.rb#L55)
+
+---
+
+## `class GdsApi::GovUkDelivery`
+
+### `#initialize(endpoint_url, options = {})`
+
+
+**Returns**:
+
+- (`GovUkDelivery`) — a new instance of GovUkDelivery
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/gov_uk_delivery.rb#L6)
+
+### `#subscribe(email, feed_urls)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/gov_uk_delivery.rb#L10)
+
+### `#topic(feed_url, title, description = nil)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/gov_uk_delivery.rb#L16)
+
+### `#signup_url(feed_url)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/gov_uk_delivery.rb#L22)
+
+### `#notify(feed_urls, subject, body)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/gov_uk_delivery.rb#L29)
 
 ---
 
@@ -1723,30 +1631,6 @@ Put a content item
 
 Return a content item
 
-Returns nil if the content item doesn't exist.
-
-**Params**:
-
-- `content_id` (`UUID`) — 
-  
-  - `locale` (`String`) — The language, defaults to 'en' in publishing-api.
-
-- `params` (`Hash`) — 
-  
-  - `locale` (`String`) — The language, defaults to 'en' in publishing-api.
-
-**Returns**:
-
-- (`GdsApi::Response`) — a content item
-
-**See**:
-- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2contentcontent_id
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L30)
-
-### `#get_content!(content_id, params = {})`
-
-Return a content item
-
 Raises exception if the item doesn't exist.
 
 **Params**:
@@ -1765,7 +1649,7 @@ Raises exception if the item doesn't exist.
 
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2contentcontent_id
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L46)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L32)
 
 ### `#lookup_content_ids(base_paths:)`
 
@@ -1790,7 +1674,7 @@ publishing_api.lookup_content_ids(base_paths: ['/foo', '/bar'])
 
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-lookup-by-base-path
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L60)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L51)
 
 ### `#lookup_content_id(base_path:)`
 
@@ -1818,7 +1702,7 @@ publishing_api.lookup_content_id(base_path: '/foo')
 
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-lookup-by-base-path
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L80)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L71)
 
 ### `#publish(content_id, update_type, options = {})`
 
@@ -1843,7 +1727,7 @@ on the public site.
 
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-v2contentcontent_idpublish
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L96)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L87)
 
 ### `#unpublish(content_id, type:, explanation: nil, alternative_path: nil, discard_drafts: false, allow_draft: false, previous_version: nil, locale: nil, unpublished_at: nil)`
 
@@ -1880,7 +1764,7 @@ site, or update an existing unpublishing.
 
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-v2contentcontent_idunpublish
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L126)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L117)
 
 ### `#discard_draft(content_id, options = {})`
 
@@ -1897,7 +1781,7 @@ Deletes the draft content item.
 
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-v2contentcontent_iddiscard-draft
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L151)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L142)
 
 ### `#get_links(content_id)`
 
@@ -1931,7 +1815,7 @@ publishing_api.get_links("a-content-id")
 
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2linkscontent_id
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L183)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L174)
 
 ### `#get_expanded_links(content_id)`
 
@@ -1966,7 +1850,7 @@ publishing_api.get_expanded_links("8157589b-65e2-4df6-92ba-2c91d80006c0").to_h
 
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2expanded-linkscontent_id
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L211)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L202)
 
 ### `#patch_links(content_id, params)`
 
@@ -2003,7 +1887,7 @@ publishing_api.patch_links(
 
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#patch-v2linkscontent_id
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L237)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L228)
 
 ### `#get_content_items(params)`
 
@@ -2034,23 +1918,35 @@ publishing_api.get_content_items(
 
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2content
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L267)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L258)
 
 ### `#get_linkables(document_type: nil, format: nil)`
 
 FIXME: Add documentation
 
+
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2linkables
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L275)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L266)
 
 ### `#get_linked_items(content_id, params = {})`
 
 FIXME: Add documentation
 
+
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2linkedcontent_id
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L294)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L285)
+
+---
+
+## `class OpenStruct`
+
+### `#to_json`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/core-ext/openstruct.rb#L2)
 
 ---
 
@@ -2070,19 +1966,9 @@ FIXME: Add documentation
 
 ---
 
-## `class OpenStruct`
-
-### `#to_json`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/core-ext/openstruct.rb#L2)
-
----
-
 ## `class GdsApi::LocalLinksManager`
 
-### `#local_link(authority_slug, lgsl, lgil=nil)`
+### `#local_link(authority_slug, lgsl, lgil = nil)`
 
 
 **See**:
@@ -2102,13 +1988,13 @@ FIXME: Add documentation
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/business_support_api.rb#L7)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/business_support_api.rb#L6)
 
 ### `#scheme(slug)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/business_support_api.rb#L11)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/business_support_api.rb#L10)
 
 ---
 
@@ -2117,6 +2003,7 @@ FIXME: Add documentation
 ### `#logger`
 
 Returns the value of attribute logger
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon/registerer.rb#L6)
@@ -2137,6 +2024,7 @@ Sets the attribute logger
 
 Returns the value of attribute owning_app
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon/registerer.rb#L6)
 
@@ -2155,6 +2043,7 @@ Sets the attribute owning_app
 ### `#rendering_app`
 
 Returns the value of attribute rendering_app
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon/registerer.rb#L6)
@@ -2175,6 +2064,7 @@ Sets the attribute rendering_app
 
 Returns the value of attribute kind
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon/registerer.rb#L6)
 
@@ -2191,6 +2081,7 @@ Sets the attribute kind
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon/registerer.rb#L6)
 
 ### `#initialize(options)`
+
 
 **Returns**:
 
@@ -2209,18 +2100,9 @@ Sets the attribute kind
 
 record should respond to #slug and #title, or override #record_to_artefact
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon/registerer.rb#L66)
-
----
-
-## `class GdsApi::ExternalLinkTracker`
-
-### `#add_external_link(url)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/external_link_tracker.rb#L4)
 
 ---
 
@@ -2307,6 +2189,7 @@ needed.
 
 ### `#initialize(app, header_name)`
 
+
 **Returns**:
 
 - (`GovukHeaderSniffer`) — a new instance of GovukHeaderSniffer
@@ -2325,6 +2208,7 @@ needed.
 ## `class GdsApi::PublishingApi::SpecialRoutePublisher`
 
 ### `#initialize(options = {})`
+
 
 **Returns**:
 
@@ -2347,6 +2231,7 @@ needed.
 
 Returns the value of attribute slug
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api/artefact_stub.rb#L11)
 
@@ -2365,6 +2250,7 @@ Sets the attribute slug
 ### `#query_parameters`
 
 Returns the value of attribute query_parameters
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api/artefact_stub.rb#L11)
@@ -2385,6 +2271,7 @@ Sets the attribute query_parameters
 
 Returns the value of attribute response_body
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api/artefact_stub.rb#L11)
 
@@ -2404,6 +2291,7 @@ Sets the attribute response_body
 
 Returns the value of attribute response_status
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api/artefact_stub.rb#L11)
 
@@ -2420,6 +2308,7 @@ Sets the attribute response_status
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api/artefact_stub.rb#L11)
 
 ### `#initialize(slug)`
+
 
 **Returns**:
 
@@ -2450,6 +2339,7 @@ Sets the attribute response_status
 
 Nothing is stubbed until this is called
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api/artefact_stub.rb#L36)
 
@@ -2461,57 +2351,43 @@ Nothing is stubbed until this is called
 
 Returns the value of attribute response
 
+
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L20)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L19)
 
 ### `#initialize(response)`
+
 
 **Returns**:
 
 - (`Location`) — a new instance of Location
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L22)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L21)
 
 ### `#lat`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L26)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L25)
 
 ### `#lon`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L30)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L29)
 
 ### `#areas`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L34)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L33)
 
 ### `#postcode`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L38)
-
----
-
-## `module GdsApi`
-
-### `.configure`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/config.rb#L2)
-
-### `.config`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/config.rb#L6)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/mapit.rb#L37)
 
 ---
 
@@ -2521,79 +2397,73 @@ Returns the value of attribute response
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L15)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L14)
 
 ### `#business_support_api(options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L19)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L18)
 
 ### `#content_api(options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L23)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L22)
 
 ### `#content_store(options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L27)
-
-### `#publisher_api(options = {})`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L31)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L26)
 
 ### `#imminence_api(options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L35)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L30)
 
 ### `#licence_application_api(options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L39)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L34)
 
 ### `#need_api(options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L43)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L38)
 
 ### `#panopticon_api(options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L47)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L42)
 
 ### `#panopticon_api_credentials`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L51)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L46)
 
 ### `#worldwide_api(options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L55)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L50)
 
 ### `#email_alert_api(options = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L59)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/helpers.rb#L54)
 
 ---
 
 ## `module GdsApi::ExceptionHandling`
 
-### `#ignoring(exception_or_exceptions, &block)`
+### `#ignoring(exception_or_exceptions)`
 
 
 **See**:
@@ -2603,74 +2473,19 @@ Returns the value of attribute response
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/exceptions.rb#L58)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/exceptions.rb#L59)
 
 ### `#build_specific_http_error(error, url, details = nil, request_body = nil)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/exceptions.rb#L62)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/exceptions.rb#L63)
 
 ### `#error_class_for_code(code)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/exceptions.rb#L68)
-
----
-
-## `module GdsApi::PartMethods`
-
-### `#part_index(slug)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/part_methods.rb#L3)
-
-### `#find_part(slug)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/part_methods.rb#L7)
-
-### `#has_parts?(part)`
-
-**Returns**:
-
-- (`Boolean`) — 
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/part_methods.rb#L12)
-
-### `#has_previous_part?(part)`
-
-**Returns**:
-
-- (`Boolean`) — 
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/part_methods.rb#L16)
-
-### `#has_next_part?(part)`
-
-**Returns**:
-
-- (`Boolean`) — 
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/part_methods.rb#L21)
-
-### `#part_after(part)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/part_methods.rb#L26)
-
-### `#part_before(part)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/part_methods.rb#L30)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/exceptions.rb#L69)
 
 ---
 
@@ -2680,49 +2495,49 @@ Returns the value of attribute response
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/mapit.rb#L7)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/mapit.rb#L6)
 
 ### `#mapit_has_a_postcode_and_areas(postcode, coords, areas)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/mapit.rb#L20)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/mapit.rb#L19)
 
 ### `#mapit_does_not_have_a_postcode(postcode)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/mapit.rb#L45)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/mapit.rb#L44)
 
 ### `#mapit_does_not_have_a_bad_postcode(postcode)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/mapit.rb#L50)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/mapit.rb#L49)
 
 ### `#mapit_has_areas(area_type, areas)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/mapit.rb#L55)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/mapit.rb#L54)
 
 ### `#mapit_does_not_have_areas(area_type)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/mapit.rb#L60)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/mapit.rb#L59)
 
 ### `#mapit_has_area_for_code(code_type, code, area)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/mapit.rb#L65)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/mapit.rb#L64)
 
 ### `#mapit_does_not_have_area_for_code(code_type, code)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/mapit.rb#L70)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/mapit.rb#L69)
 
 ---
 
@@ -2806,64 +2621,6 @@ Returns the value of attribute response
 
 ---
 
-## `module GdsApi::TestHelpers::NeedApi`
-
-### `#need_api_has_organisations(organisations)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L11)
-
-### `#need_api_has_needs_for_organisation(organisation, needs)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L26)
-
-### `#need_api_has_needs_for_search(search_term, needs)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L35)
-
-### `#need_api_has_needs(needs)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L44)
-
-### `#need_api_has_need_ids(needs)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L53)
-
-### `#need_api_has_need(need)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L63)
-
-### `#need_api_has_raw_response_for_page(response, page = nil)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L71)
-
-### `#need_api_has_no_need(need_id)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L78)
-
-### `#stub_create_note(note_details = nil)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L91)
-
----
-
 ## `module GdsApi::TestHelpers::Rummager`
 
 ### `#stub_any_rummager_post(index: nil)`
@@ -2938,7 +2695,7 @@ Returns the value of attribute response
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/rummager.rb#L98)
 
-### `#rummager_has_specialist_sector_organisations(sub_sector)`
+### `#rummager_has_specialist_sector_organisations(_sub_sector)`
 
 
 **See**:
@@ -2958,49 +2715,130 @@ Returns the value of attribute response
 
 ---
 
-## `module GdsApi::TestHelpers::Publisher`
+## `module GdsApi::TestHelpers::NeedApi`
 
-### `#stub_all_publisher_api_requests`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publisher.rb#L10)
-
-### `#assert_publisher_received_reindex_request_for(slug)`
+### `#need_api_has_organisations(organisations)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publisher.rb#L14)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L11)
 
-### `#publication_exists(details, options = {})`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publisher.rb#L21)
-
-### `#publication_exists_for_snac(snac, details)`
+### `#need_api_has_needs_for_organisation(organisation, needs)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publisher.rb#L31)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L26)
 
-### `#publication_does_not_exist(details)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publisher.rb#L39)
-
-### `#council_exists_for_slug(input_details, output_details)`
+### `#need_api_has_needs_for_search(search_term, needs)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publisher.rb#L45)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L35)
 
-### `#no_council_for_slug(slug)`
+### `#need_api_has_needs(needs)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publisher.rb#L54)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L44)
+
+### `#need_api_has_need_ids(needs)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L53)
+
+### `#need_api_has_need(need)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L63)
+
+### `#need_api_has_content_id_for_need(need)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L71)
+
+### `#need_api_has_raw_response_for_page(response, page = nil)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L78)
+
+### `#need_api_has_no_need(need_id)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L85)
+
+### `#stub_create_note(note_details = nil)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L98)
+
+---
+
+## `module GdsApi::TestHelpers::Worldwide`
+
+### `#worldwide_api_has_locations(location_slugs)`
+
+Sets up the index endpoints for the given country slugs
+The stubs are setup to paginate in chunks of 20
+
+This also sets up the individual endpoints for each slug
+by calling worldwide_api_has_location below
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/worldwide.rb#L16)
+
+### `#worldwide_api_has_selection_of_locations`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/worldwide.rb#L51)
+
+### `#worldwide_api_has_location(location_slug, details = nil)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/worldwide.rb#L62)
+
+### `#worldwide_api_does_not_have_location(location_slug)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/worldwide.rb#L68)
+
+### `#worldwide_api_has_organisations_for_location(location_slug, json_or_hash)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/worldwide.rb#L72)
+
+### `#worldwide_api_has_no_organisations_for_location(location_slug)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/worldwide.rb#L79)
+
+### `#world_location_for_slug(slug)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/worldwide.rb#L86)
+
+### `#world_location_details_for_slug(slug)`
+
+Constructs a sample world_location
+
+if the slug contains 'delegation' or 'mission' the format will be set to 'International delegation'
+othersiwe it will be set to 'World location'
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/worldwide.rb#L94)
 
 ---
 
@@ -3029,67 +2867,6 @@ Returns the value of attribute response
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/imminence.rb#L31)
-
----
-
-## `module GdsApi::TestHelpers::Worldwide`
-
-### `#worldwide_api_has_locations(location_slugs)`
-
-Sets up the index endpoints for the given country slugs
-The stubs are setup to paginate in chunks of 20
-
-This also sets up the individual endpoints for each slug
-by calling worldwide_api_has_location below
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/worldwide.rb#L16)
-
-### `#worldwide_api_has_selection_of_locations`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/worldwide.rb#L53)
-
-### `#worldwide_api_has_location(location_slug, details=nil)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/worldwide.rb#L64)
-
-### `#worldwide_api_does_not_have_location(location_slug)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/worldwide.rb#L70)
-
-### `#worldwide_api_has_organisations_for_location(location_slug, json_or_hash)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/worldwide.rb#L74)
-
-### `#worldwide_api_has_no_organisations_for_location(location_slug)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/worldwide.rb#L81)
-
-### `#world_location_for_slug(slug)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/worldwide.rb#L88)
-
-### `#world_location_details_for_slug(slug)`
-
-Constructs a sample world_location
-
-if the slug contains 'delegation' or 'mission' the format will be set to 'International delegation'
-othersiwe it will be set to 'World location'
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/worldwide.rb#L96)
 
 ---
 
@@ -3142,236 +2919,6 @@ othersiwe it will be set to 'World location'
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/panopticon.rb#L68)
-
----
-
-## `module GdsApi::TestHelpers::ContentApi`
-
-### `#content_api_has_root_sections(slugs_or_sections)`
-
-Legacy section test helpers
-
-Use of these should be retired in favour of the other test helpers in this
-module which work with any tag type.
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L20)
-
-### `#content_api_has_section(slug_or_hash, parent_slug=nil)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L24)
-
-### `#content_api_has_subsections(parent_slug_or_hash, subsection_slugs)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L28)
-
-### `#artefact_for_slug_in_a_section(slug, section_slug)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L32)
-
-### `#artefact_for_slug_in_a_subsection(slug, subsection_slug)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L36)
-
-### `#content_api_has_root_tags(tag_type, slugs_or_tags)`
-
-Takes an array of slugs, or hashes with section details (including a slug).
-Will stub out content_api calls for tags of type section to return these sections
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L42)
-
-### `#content_api_has_tag(tag_type, slug_or_hash, parent_tag_id=nil)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L54)
-
-### `#content_api_does_not_have_tag(tag_type, slug)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L65)
-
-### `#content_api_has_draft_and_live_tags(options = {})`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L79)
-
-### `#content_api_does_not_have_tags(tag_type, slugs)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L95)
-
-### `#content_api_has_tags(tag_type, slugs_or_tags)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L107)
-
-### `#content_api_has_sorted_tags(tag_type, sort_order, slugs_or_tags)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L117)
-
-### `#content_api_has_child_tags(tag_type, parent_slug_or_hash, child_tag_ids)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L127)
-
-### `#content_api_has_sorted_child_tags(tag_type, parent_slug_or_hash, sort_order, child_tag_ids)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L139)
-
-### `#content_api_has_an_artefact(slug, body = artefact_for_slug(slug))`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L152)
-
-### `#content_api_has_unpublished_artefact(slug, edition, body = artefact_for_slug(slug))`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L156)
-
-### `#content_api_has_an_artefact_with_snac_code(slug, snac, body = artefact_for_slug(slug))`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L163)
-
-### `#content_api_does_not_have_an_artefact(slug)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L170)
-
-### `#content_api_has_an_archived_artefact(slug)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L182)
-
-### `#stub_content_api_default_artefact`
-
-Stub requests, and then dynamically generate a response based on the slug in the request
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L196)
-
-### `#artefact_for_slug(slug, options = {})`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L203)
-
-### `#artefact_for_slug_with_a_tag(tag_type, slug, tag_id)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L237)
-
-### `#artefact_for_slug_with_a_child_tag(tag_type, slug, child_tag_id)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L243)
-
-### `#artefact_for_slug_with_a_child_tags(tag_type, slug, child_tag_ids)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L247)
-
-### `#artefact_for_slug_with_related_artefacts(slug, related_artefact_slugs)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L278)
-
-### `#tag_for_slug(slug, tag_type, parent_slug=nil)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L291)
-
-### `#tag_hash(slug_or_hash, tag_type = "section")`
-
-Construct a tag hash suitable for passing into tag_result
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L300)
-
-### `#tag_result(slug_or_hash, tag_type = nil, options = {})`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L308)
-
-### `#simple_tag_type_pluralizer(s)`
-
-This is a nasty hack to get around the pluralized slugs in tag paths
-without having to require ActiveSupport
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L336)
-
-### `#setup_content_api_business_support_schemes_stubs`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L346)
-
-### `#content_api_has_business_support_scheme(scheme, facets)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L350)
-
-### `#content_api_has_default_business_support_schemes`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L354)
-
-### `#content_api_licence_hash(licence_identifier, options = {})`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L366)
-
-### `#setup_content_api_licences_stubs`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L396)
-
-### `#content_api_has_licence(details)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L415)
-
-### `#content_api_has_artefacts_for_need_id(need_id, artefacts)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L420)
 
 ---
 
@@ -3475,86 +3022,244 @@ without having to require ActiveSupport
 
 ---
 
-## `module GdsApi::TestHelpers::AssetManager`
+## `module GdsApi::TestHelpers::ContentApi`
 
-### `#asset_manager_has_an_asset(id, atts)`
+### `#content_api_has_root_sections(slugs_or_sections)`
 
+Legacy section test helpers
 
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/asset_manager.rb#L7)
-
-### `#asset_manager_does_not_have_an_asset(id)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/asset_manager.rb#L16)
-
-### `#asset_manager_receives_an_asset(response_url)`
+Use of these should be retired in favour of the other test helpers in this
+module which work with any tag type.
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/asset_manager.rb#L25)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L20)
 
-### `#asset_manager_upload_failure`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/asset_manager.rb#L29)
-
----
-
-## `module GdsApi::TestHelpers::Organisations`
-
-### `#organisations_api_has_organisations(organisation_slugs)`
+### `#content_api_has_section(slug_or_hash, parent_slug = nil)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/organisations.rb#L14)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L24)
 
-### `#organisations_api_has_organisations_with_bodies(organisation_bodies)`
-
-Sets up the index endpoints for the given organisation slugs
-The stubs are setup to paginate in chunks of 20
-
-This also sets up the individual endpoints for each slug
-by calling organisations_api_has_organisation below
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/organisations.rb#L24)
-
-### `#organisations_api_has_organisation(organisation_slug, details=nil)`
+### `#content_api_has_subsections(parent_slug_or_hash, subsection_slugs)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/organisations.rb#L66)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L28)
 
-### `#organisations_api_does_not_have_organisation(organisation_slug)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/organisations.rb#L72)
-
-### `#organisation_for_slug(slug)`
+### `#artefact_for_slug_in_a_section(slug, section_slug)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/organisations.rb#L76)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L32)
 
-### `#organisation_details_for_slug(slug, content_id=SecureRandom.uuid)`
+### `#artefact_for_slug_in_a_subsection(slug, subsection_slug)`
 
-Constructs a sample organisation
-
-if the slug contains 'ministry' the format will be set to 'Ministerial department'
-otherwise it will be set to 'Executive agency'
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/organisations.rb#L84)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L36)
+
+### `#content_api_has_root_tags(tag_type, slugs_or_tags)`
+
+Takes an array of slugs, or hashes with section details (including a slug).
+Will stub out content_api calls for tags of type section to return these sections
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L42)
+
+### `#content_api_has_tag(tag_type, slug_or_hash, parent_tag_id = nil)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L54)
+
+### `#content_api_does_not_have_tag(tag_type, slug)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L65)
+
+### `#content_api_has_draft_and_live_tags(options = {})`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L79)
+
+### `#content_api_does_not_have_tags(tag_type, _slugs)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L95)
+
+### `#content_api_has_tags(tag_type, slugs_or_tags)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L107)
+
+### `#content_api_has_sorted_tags(tag_type, sort_order, slugs_or_tags)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L117)
+
+### `#content_api_has_child_tags(tag_type, parent_slug_or_hash, child_tag_ids)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L127)
+
+### `#content_api_has_sorted_child_tags(tag_type, parent_slug_or_hash, sort_order, child_tag_ids)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L139)
+
+### `#content_api_has_an_artefact(slug, body = artefact_for_slug(slug))`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L152)
+
+### `#content_api_has_unpublished_artefact(slug, edition, body = artefact_for_slug(slug))`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L156)
+
+### `#content_api_has_an_artefact_with_snac_code(slug, snac, body = artefact_for_slug(slug))`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L163)
+
+### `#content_api_does_not_have_an_artefact(slug)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L170)
+
+### `#content_api_has_an_archived_artefact(slug)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L182)
+
+### `#stub_content_api_default_artefact`
+
+Stub requests, and then dynamically generate a response based on the slug in the request
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L196)
+
+### `#artefact_for_slug(slug, options = {})`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L203)
+
+### `#artefact_for_slug_with_a_tag(tag_type, slug, tag_id)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L237)
+
+### `#artefact_for_slug_with_a_child_tag(tag_type, slug, child_tag_id)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L243)
+
+### `#artefact_for_slug_with_a_child_tags(tag_type, slug, child_tag_ids)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L247)
+
+### `#artefact_for_slug_with_related_artefacts(slug, related_artefact_slugs)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L278)
+
+### `#tag_for_slug(slug, tag_type, parent_slug = nil)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L291)
+
+### `#tag_hash(slug_or_hash, tag_type = "section")`
+
+Construct a tag hash suitable for passing into tag_result
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L300)
+
+### `#tag_result(slug_or_hash, tag_type = nil, options = {})`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L308)
+
+### `#simple_tag_type_pluralizer(s)`
+
+This is a nasty hack to get around the pluralized slugs in tag paths
+without having to require ActiveSupport
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L336)
+
+### `#setup_content_api_business_support_schemes_stubs`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L346)
+
+### `#content_api_has_business_support_scheme(scheme, facets)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L350)
+
+### `#content_api_has_default_business_support_schemes`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L354)
+
+### `#content_api_licence_hash(licence_identifier, options = {})`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L366)
+
+### `#setup_content_api_licences_stubs`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L396)
+
+### `#content_api_has_licence(details)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L415)
+
+### `#content_api_has_artefacts_for_need_id(need_id, artefacts)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api.rb#L420)
 
 ---
 
 ## `module GdsApi::TestHelpers::ContentStore`
 
-### `#content_store_endpoint(draft=false)`
+### `#content_store_endpoint(draft = false)`
 
 Stubs a content item in the content store.
 The following options can be passed in:
@@ -3563,6 +3268,7 @@ The following options can be passed in:
   :private  if true, the Cache-Control header will include the "private" directive. By default it
             will include "public"
   :draft    will point to the draft content store if set to true
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_store.rb#L18)
@@ -3641,135 +3347,162 @@ content_store.content_store_has_gone_item('/sample-slug')
 
 ---
 
+## `module GdsApi::TestHelpers::Organisations`
+
+### `#organisations_api_has_organisations(organisation_slugs)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/organisations.rb#L14)
+
+### `#organisations_api_has_organisations_with_bodies(organisation_bodies)`
+
+Sets up the index endpoints for the given organisation slugs
+The stubs are setup to paginate in chunks of 20
+
+This also sets up the individual endpoints for each slug
+by calling organisations_api_has_organisation below
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/organisations.rb#L24)
+
+### `#organisations_api_has_organisation(organisation_slug, details = nil)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/organisations.rb#L64)
+
+### `#organisations_api_does_not_have_organisation(organisation_slug)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/organisations.rb#L70)
+
+### `#organisation_for_slug(slug)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/organisations.rb#L74)
+
+### `#organisation_details_for_slug(slug, content_id = SecureRandom.uuid)`
+
+Constructs a sample organisation
+
+if the slug contains 'ministry' the format will be set to 'Ministerial department'
+otherwise it will be set to 'Executive agency'
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/organisations.rb#L82)
+
+---
+
+## `module GdsApi::TestHelpers::AssetManager`
+
+### `#asset_manager_has_an_asset(id, atts)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/asset_manager.rb#L6)
+
+### `#asset_manager_does_not_have_an_asset(id)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/asset_manager.rb#L13)
+
+### `#asset_manager_receives_an_asset(response_url)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/asset_manager.rb#L22)
+
+### `#asset_manager_upload_failure`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/asset_manager.rb#L26)
+
+---
+
 ## `module GdsApi::TestHelpers::IntentHelpers`
 
 ### `#intent_for_base_path(base_path)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/intent_helpers.rb#L5)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/intent_helpers.rb#L4)
 
 ---
 
 ## `module GdsApi::TestHelpers::PublishingApi`
 
-### `#stub_publishing_api_put_draft_item(base_path, body = content_item_for_publishing_api(base_path))`
+### `#stub_publishing_api_put_intent(base_path, body = intent_for_publishing_api(base_path))`
 
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L14)
 
-### `#stub_publishing_api_put_item(base_path, body = content_item_for_publishing_api(base_path), resource_path = '/content')`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L18)
-
-### `#stub_publishing_api_put_intent(base_path, body = intent_for_publishing_api(base_path))`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L23)
-
 ### `#stub_publishing_api_destroy_intent(base_path)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L29)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L20)
 
-### `#stub_default_publishing_api_put()`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L34)
-
-### `#stub_default_publishing_api_put_draft()`
+### `#stub_default_publishing_api_put_intent`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L38)
-
-### `#stub_default_publishing_api_put_intent()`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L42)
-
-### `#assert_publishing_api_put_item(base_path, attributes_or_matcher = {}, times = 1)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L46)
-
-### `#assert_publishing_api_put_draft_item(base_path, attributes_or_matcher = {}, times = 1)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L51)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L25)
 
 ### `#assert_publishing_api_put_intent(base_path, attributes_or_matcher = {}, times = 1)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L56)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L29)
 
 ### `#assert_publishing_api_put(url, attributes_or_matcher = {}, times = 1)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L61)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L34)
 
 ### `#request_json_matching(required_attributes)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L75)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L48)
 
 ### `#request_json_including(required_attributes)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L82)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L55)
 
 ### `#publishing_api_isnt_available`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L89)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L62)
 
 ### `#stub_default_publishing_api_path_reservation`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L93)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L66)
 
 ### `#publishing_api_has_path_reservation_for(path, publishing_app)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L101)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L74)
 
 ### `#publishing_api_returns_path_reservation_validation_error_for(path, error_details = nil)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L118)
-
----
-
-## `module GdsApi::TestHelpers::GovUkDelivery`
-
-### `#stub_gov_uk_delivery_post_request(method, params_hash)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/gov_uk_delivery.rb#L9)
-
-### `#stub_gov_uk_delivery_get_request(method, params_hash)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/gov_uk_delivery.rb#L13)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api.rb#L89)
 
 ---
 
@@ -3829,17 +3562,33 @@ content_store.content_store_has_gone_item('/sample-slug')
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/email_alert_api.rb#L64)
 
-### `#email_alert_api_has_notifications(notifications, start_at=nil)`
+### `#email_alert_api_has_notifications(notifications, start_at = nil)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/email_alert_api.rb#L77)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/email_alert_api.rb#L75)
 
 ### `#email_alert_api_has_notification(notification)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/email_alert_api.rb#L89)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/email_alert_api.rb#L87)
+
+---
+
+## `module GdsApi::TestHelpers::GovUkDelivery`
+
+### `#stub_gov_uk_delivery_post_request(method, params_hash)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/gov_uk_delivery.rb#L8)
+
+### `#stub_gov_uk_delivery_get_request(method, params_hash)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/gov_uk_delivery.rb#L12)
 
 ---
 
@@ -3855,6 +3604,7 @@ content_store.content_store_has_gone_item('/sample-slug')
 
 expects a slug like "ministry-of-funk"
 returns an acronym like "MOF"
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/common_responses.rb#L14)
@@ -3894,6 +3644,7 @@ e.g. The following two examples are equivalent:
 
 * stub_publishing_api_put_content(my_content_id, my_request_body, { status: 201, body: {version: 33}.to_json })
 * stub_publishing_api_put_content(my_content_id, my_request_body, { status: 201, body: {version: 33} })
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api_v2.rb#L25)
@@ -4040,6 +3791,7 @@ publishing_api_has_content(
   per_page: 50
 )
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api_v2.rb#L178)
 
@@ -4047,6 +3799,7 @@ publishing_api_has_content(
 
 This method has been refactored into publishing_api_has_content (above)
 publishing_api_has_content allows for flexible passing in of arguments, please use instead
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/publishing_api_v2.rb#L213)
@@ -4239,22 +3992,6 @@ publishing_api_has_linked_items(
 
 ---
 
-## `module GdsApi::TestHelpers::WhitehallAdminApi`
-
-### `#stub_all_whitehall_admin_api_requests`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/whitehall_admin_api.rb#L6)
-
-### `#assert_whitehall_received_reindex_request_for(slug)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/whitehall_admin_api.rb#L10)
-
----
-
 ## `module GdsApi::TestHelpers::LicenceApplication`
 
 ### `#licence_exists(identifier, licence)`
@@ -4283,101 +4020,95 @@ publishing_api_has_linked_items(
 
 ---
 
+## `module GdsApi::TestHelpers::WhitehallAdminApi`
+
+### `#stub_all_whitehall_admin_api_requests`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/whitehall_admin_api.rb#L6)
+
+### `#assert_whitehall_received_reindex_request_for(slug)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/whitehall_admin_api.rb#L10)
+
+---
+
 ## `module GdsApi::TestHelpers::LocalLinksManager`
 
 ### `#local_links_manager_has_a_link(authority_slug:, lgsl:, lgil:, url:)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L9)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L8)
 
 ### `#local_links_manager_has_no_link(authority_slug:, lgsl:, lgil:)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L29)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L28)
 
 ### `#local_links_manager_has_no_link_and_no_homepage_url(authority_slug:, lgsl:, lgil:)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L44)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L43)
 
 ### `#local_links_manager_has_a_fallback_link(authority_slug:, lgsl:, lgil:, url:)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L59)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L58)
 
 ### `#local_links_manager_has_no_fallback_link(authority_slug:, lgsl:)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L79)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L78)
 
 ### `#local_links_manager_request_with_missing_parameters(authority_slug, lgsl)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L94)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L93)
 
-### `#local_links_manager_does_not_have_required_objects(authority_slug, lgsl, lgil=nil)`
+### `#local_links_manager_does_not_have_required_objects(authority_slug, lgsl, lgil = nil)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L103)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L102)
 
 ### `#local_links_manager_has_a_local_authority(authority_slug)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L112)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L111)
 
 ### `#local_links_manager_has_a_district_and_county_local_authority(district_slug, county_slug)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L128)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L127)
 
 ### `#local_links_manager_request_without_local_authority_slug`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L149)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L148)
 
 ### `#local_links_manager_does_not_have_an_authority(authority_slug)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L155)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L154)
 
 ### `#local_links_manager_has_a_local_authority_without_homepage(authority_slug)`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L161)
-
----
-
-## `module GdsApi::TestHelpers::ContentItemHelpers`
-
-### `#content_item_for_base_path(base_path)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_item_helpers.rb#L6)
-
-### `#gone_content_item_for_base_path(base_path)`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_item_helpers.rb#L21)
-
-### `#titleize_base_path(base_path, options = {})`
-
-
-**See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_item_helpers.rb#L34)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/local_links_manager.rb#L160)
 
 ---
 
@@ -4389,13 +4120,13 @@ publishing_api_has_linked_items(
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/business_support_api.rb#L12)
 
-### `#business_support_api_has_scheme(scheme, facets={})`
+### `#business_support_api_has_scheme(scheme, facets = {})`
 
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/business_support_api.rb#L16)
 
-### `#business_support_api_has_schemes(schemes, facets={})`
+### `#business_support_api_has_schemes(schemes, facets = {})`
 
 
 **See**:
@@ -4409,6 +4140,28 @@ publishing_api_has_linked_items(
 
 ---
 
+## `module GdsApi::TestHelpers::ContentItemHelpers`
+
+### `#content_item_for_base_path(base_path)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_item_helpers.rb#L5)
+
+### `#gone_content_item_for_base_path(base_path)`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_item_helpers.rb#L20)
+
+### `#titleize_base_path(base_path, options = {})`
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_item_helpers.rb#L33)
+
+---
+
 ## `module GdsApi::TestHelpers::BusinessSupportHelper`
 
 ### `#setup_business_support_stubs(endpoint, path)`
@@ -4417,11 +4170,11 @@ publishing_api_has_linked_items(
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/business_support_helper.rb#L9)
 
-### `#api_has_business_support(business_support, facets={})`
+### `#api_has_business_support(business_support, facets = {})`
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/business_support_helper.rb#L23)
+- [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/business_support_helper.rb#L22)
 
 ---
 

@@ -19,6 +19,7 @@ Finds the user in the Rack environment and creates a new user wrapper.
 
 ### `#initialize(user)`
 
+
 **Returns**:
 
 - (`User`) — a new instance of User
@@ -40,6 +41,7 @@ Finds the user in the Rack environment and creates a new user wrapper.
 
 Store the original method to use it later.
 
+
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/rake/task_ext.rb#L11)
 
@@ -49,6 +51,7 @@ A wrapper around the original +#execute+, that catches all errors and
 notifies Airbrake.
 
 rubocop:disable Lint/RescueException
+
 
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/rake/task_ext.rb#L18)
@@ -68,6 +71,7 @@ rubocop:disable Lint/RescueException
 ## `class Airbrake::Rack::Middleware`
 
 ### `#initialize(app, notifier_name = :default)`
+
 
 **Returns**:
 
@@ -111,6 +115,7 @@ exception.
 
 ### `.builders`
 
+
 **Returns**:
 
 - (`Array<Proc>`) — the list of notice builders
@@ -121,6 +126,7 @@ exception.
 ### `.add_builder(&block)`
 
 Adds user defined builders to the chain.
+
 
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/rack/notice_builder.rb#L16)
@@ -164,6 +170,7 @@ Adds context, session, params and other fields based on the Rack env.
 Makes the NAME option optional, which allows to subclass from Base, so we
 can pass arguments to the ERB template.
 
+
 **See**:
 - http://asciicasts.com/episodes/218-making-generators-in-rails-3
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/generators/airbrake_generator.rb#L19)
@@ -181,6 +188,7 @@ can pass arguments to the ERB template.
 ### `#call(_worker, context, _queue)`
 
 rubocop:disable Lint/RescueException
+
 
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/sidekiq/error_handler.rb#L7)
@@ -218,6 +226,7 @@ end
 
 rubocop:disable Metrics/AbcSize
 
+
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/capistrano/tasks.rb#L30)
 
@@ -231,6 +240,7 @@ Patches default +run_callbacks+ with our version, which is capable of
 notifying about exceptions.
 
 rubocop:disable Lint/RescueException
+
 
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/rails/active_record.rb#L20)

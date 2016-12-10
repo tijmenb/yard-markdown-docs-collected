@@ -5,10 +5,12 @@
 
 Returns the value of attribute flow
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine.rb#L8)
 
 ### `#initialize(flow, initial_state = {})`
+
 
 **Returns**:
 
@@ -49,10 +51,12 @@ Returns the value of attribute flow
 
 Returns the value of attribute scenario_sets
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/flow.rb#L13)
 
 ### `#initialize(smartdown_input, options = {})`
+
 
 **Returns**:
 
@@ -105,6 +109,7 @@ Returns the value of attribute scenario_sets
 
 ### `#draft?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -114,6 +119,7 @@ Returns the value of attribute scenario_sets
 
 ### `#transition?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -122,6 +128,7 @@ Returns the value of attribute scenario_sets
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/flow.rb#L61)
 
 ### `#published?`
+
 
 **Returns**:
 
@@ -162,12 +169,14 @@ Returns the value of attribute scenario_sets
 
 Returns the value of attribute title
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/node.rb#L5)
 
 ### `#elements`
 
 Returns the value of attribute elements
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/node.rb#L5)
@@ -176,12 +185,14 @@ Returns the value of attribute elements
 
 Returns the value of attribute front_matter
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/node.rb#L5)
 
 ### `#name`
 
 Returns the value of attribute name
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/node.rb#L5)
@@ -190,10 +201,12 @@ Returns the value of attribute name
 
 Returns the value of attribute markers
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/node.rb#L5)
 
 ### `#initialize(node)`
+
 
 **Returns**:
 
@@ -234,12 +247,14 @@ Returns the value of attribute markers
 
 Returns the value of attribute accepted_responses
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/state.rb#L7)
 
 ### `#current_node`
 
 Returns the value of attribute current_node
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/state.rb#L7)
@@ -248,10 +263,12 @@ Returns the value of attribute current_node
 
 Returns the value of attribute current_answers
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/state.rb#L7)
 
 ### `#initialize(current_node, previous_questionpage_smartdown_nodes, accepted_responses, current_answers)`
+
 
 **Returns**:
 
@@ -274,6 +291,7 @@ Returns the value of attribute current_answers
 
 ### `#started?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -282,6 +300,7 @@ Returns the value of attribute current_answers
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/state.rb#L26)
 
 ### `#finished?`
+
 
 **Returns**:
 
@@ -447,6 +466,7 @@ Returns the value of attribute outcome
 
 Returns the value of attribute name
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/flow.rb#L4)
 
@@ -454,10 +474,12 @@ Returns the value of attribute name
 
 Returns the value of attribute nodes
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/flow.rb#L4)
 
 ### `#initialize(name, nodes = [])`
+
 
 **Returns**:
 
@@ -540,6 +562,7 @@ Returns the value of attribute nodes
 
 ### `#initialize(elements)`
 
+
 **Returns**:
 
 - (`Question`) — a new instance of Question
@@ -575,6 +598,7 @@ Returns the value of attribute nodes
 
 TODO: deprecate
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/question.rb#L31)
 
@@ -583,6 +607,7 @@ TODO: deprecate
 ## `class Smartdown::Engine::State`
 
 ### `#initialize(data = {})`
+
 
 **Returns**:
 
@@ -593,6 +618,7 @@ TODO: deprecate
 
 ### `#has_key?(key)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -601,6 +627,7 @@ TODO: deprecate
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine/state.rb#L17)
 
 ### `#has_value?(key, expected_value)`
+
 
 **Returns**:
 
@@ -672,12 +699,14 @@ Returns the value of attribute elements
 
 Returns the value of attribute coversheet
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/input_set.rb#L4)
 
 ### `#questions`
 
 Returns the value of attribute questions
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/input_set.rb#L4)
@@ -686,12 +715,14 @@ Returns the value of attribute questions
 
 Returns the value of attribute outcomes
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/input_set.rb#L4)
 
 ### `#snippets`
 
 Returns the value of attribute snippets
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/input_set.rb#L4)
@@ -700,10 +731,12 @@ Returns the value of attribute snippets
 
 Returns the value of attribute scenario_sets
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/input_set.rb#L4)
 
 ### `#initialize(params = {})`
+
 
 **Returns**:
 
@@ -720,6 +753,7 @@ Returns the value of attribute scenario_sets
 
 Returns the value of attribute name
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/input_set.rb#L16)
 
@@ -727,10 +761,12 @@ Returns the value of attribute name
 
 Returns the value of attribute content
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/input_set.rb#L16)
 
 ### `#initialize(name, content)`
+
 
 **Returns**:
 
@@ -837,12 +873,14 @@ Returns the value of attribute children
 
 Returns the value of attribute state
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine/transition.rb#L6)
 
 ### `#node`
 
 Returns the value of attribute node
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine/transition.rb#L6)
@@ -851,10 +889,12 @@ Returns the value of attribute node
 
 Returns the value of attribute answers
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine/transition.rb#L6)
 
 ### `#initialize(state, node, answers, options = {})`
+
 
 **Returns**:
 
@@ -957,12 +997,14 @@ Returns the value of attribute answers
 
 Returns the value of attribute question
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/base.rb#L36)
 
 ### `#value`
 
 Returns the value of attribute value
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/base.rb#L36)
@@ -971,10 +1013,12 @@ Returns the value of attribute value
 
 Returns the value of attribute error
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/base.rb#L36)
 
 ### `#initialize(value, question=nil)`
+
 
 **Returns**:
 
@@ -985,6 +1029,7 @@ Returns the value of attribute error
 
 ### `#valid?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -993,6 +1038,7 @@ Returns the value of attribute error
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/base.rb#L44)
 
 ### `#invalid?`
+
 
 **Returns**:
 
@@ -1029,6 +1075,7 @@ Returns the value of attribute error
 
 ### `#initialize(attributes = {})`
 
+
 **Returns**:
 
 - (`FrontMatter`) — a new instance of FrontMatter
@@ -1044,6 +1091,7 @@ Returns the value of attribute error
 
 ### `#respond_to_missing?(method_name, include_private = false)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -1052,6 +1100,7 @@ Returns the value of attribute error
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/front_matter.rb#L16)
 
 ### `#has_attribute?(name)`
+
 
 **Returns**:
 
@@ -1084,6 +1133,7 @@ Returns the value of attribute error
 
 ### `#initialize(coversheet_path)`
 
+
 **Returns**:
 
 - (`DirectoryInput`) — a new instance of DirectoryInput
@@ -1099,12 +1149,14 @@ Returns the value of attribute error
 
 Returns the value of attribute period
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/salary.rb#L8)
 
 ### `#amount_per_period`
 
 Returns the value of attribute amount_per_period
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/salary.rb#L8)
@@ -1161,10 +1213,12 @@ Returns the value of attribute amount_per_period
 
 Returns the value of attribute element
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine/interpolator.rb#L26)
 
 ### `#initialize(element)`
+
 
 **Returns**:
 
@@ -1338,6 +1392,7 @@ Returns the value of attribute name
 
 Returns the value of attribute answer
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/previous_question.rb#L8)
 
@@ -1345,10 +1400,12 @@ Returns the value of attribute answer
 
 Returns the value of attribute question
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/previous_question.rb#L8)
 
 ### `#initialize(elements, response)`
+
 
 **Returns**:
 
@@ -1372,6 +1429,7 @@ Returns the value of attribute question
 ## `class Smartdown::Parser::DirectoryInput`
 
 ### `#initialize(coversheet_path)`
+
 
 **Returns**:
 
@@ -1422,6 +1480,7 @@ Returns the value of attribute question
 
 ### `#initialize(path, name=nil)`
 
+
 **Returns**:
 
 - (`InputFile`) — a new instance of InputFile
@@ -1455,12 +1514,14 @@ Returns the value of attribute question
 
 Returns the value of attribute name
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/node_interpreter.rb#L10)
 
 ### `#source`
 
 Returns the value of attribute source
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/node_interpreter.rb#L10)
@@ -1469,6 +1530,7 @@ Returns the value of attribute source
 
 Returns the value of attribute reporter
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/node_interpreter.rb#L10)
 
@@ -1476,10 +1538,12 @@ Returns the value of attribute reporter
 
 Returns the value of attribute data_module
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/node_interpreter.rb#L10)
 
 ### `#initialize(name, source, options = {})`
+
 
 **Returns**:
 
@@ -1502,6 +1566,7 @@ Returns the value of attribute data_module
 
 Returns the value of attribute filename
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/flow_interpreter.rb#L8)
 
@@ -1509,10 +1574,12 @@ Returns the value of attribute filename
 
 Returns the value of attribute parse_error
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/flow_interpreter.rb#L8)
 
 ### `#initialize(filename, parse_error)`
+
 
 **Returns**:
 
@@ -1535,6 +1602,7 @@ Returns the value of attribute parse_error
 
 Returns the value of attribute flow_input
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/flow_interpreter.rb#L25)
 
@@ -1542,10 +1610,12 @@ Returns the value of attribute flow_input
 
 Returns the value of attribute data_module
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/flow_interpreter.rb#L25)
 
 ### `#initialize(flow_input, data_module=nil)`
+
 
 **Returns**:
 
@@ -1997,10 +2067,12 @@ Returns the value of attribute false_case
 
 Returns the value of attribute input_data
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/snippet_pre_parser.rb#L8)
 
 ### `#initialize(input_data)`
+
 
 **Returns**:
 
@@ -2051,10 +2123,12 @@ Returns the value of attribute input_data
 
 Returns the value of attribute title
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/previous_question_page.rb#L7)
 
 ### `#initialize(node, responses)`
+
 
 **Returns**:
 
@@ -2948,6 +3022,7 @@ Returns the value of attribute value
 
 ### `#initialize(scenario_string)`
 
+
 **Returns**:
 
 - (`ScenarioSetInterpreter`) — a new instance of ScenarioSetInterpreter
@@ -2999,6 +3074,7 @@ Returns the value of attribute value
 
 ### `#has_markers?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -3007,6 +3083,7 @@ Returns the value of attribute value
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/scenario_set_interpreter.rb#L50)
 
 ### `#has_exact_markers?`
+
 
 **Returns**:
 
@@ -3032,6 +3109,7 @@ Returns the value of attribute value
 ## `class Smartdown::Parser::ScenarioSetsInterpreter`
 
 ### `#initialize(smartdown_input)`
+
 
 **Returns**:
 

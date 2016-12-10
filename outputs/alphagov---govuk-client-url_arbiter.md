@@ -3,6 +3,7 @@
 
 ### `#initialize(restclient_exception)`
 
+
 **Returns**:
 
 - (`HTTPError`) — a new instance of HTTPError
@@ -12,6 +13,7 @@
 
 ### `#code`
 
+
 **Returns**:
 
 - (`Integer`) — The HTTP status code associated with this exception.
@@ -20,6 +22,7 @@
 - [Source on GitHub](https://github.com/alphagov/govuk-client-url_arbiter/blob/master/lib/govuk/client/errors.rb#L47)
 
 ### `#response`
+
 
 **Returns**:
 
@@ -51,6 +54,7 @@
 
 ### `#code`
 
+
 **Returns**:
 
 - (`Integer`) — The HTTP response code
@@ -59,6 +63,7 @@
 - [Source on GitHub](https://github.com/alphagov/govuk-client-url_arbiter/blob/master/lib/govuk/client/response.rb#L28)
 
 ### `#raw_body`
+
 
 **Returns**:
 
@@ -131,6 +136,7 @@ Reserve a path
 Map rest-client exceptions onto our own exception hierarchy in order to
 insulate users from the details of the HTTP library we're using.
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-client-url_arbiter/blob/master/lib/govuk/client/errors.rb#L13)
 
@@ -144,6 +150,7 @@ Stub out some sensible default url-arbiter responses.
 
 - all +GET+ requests for paths to return a 404.
 - all +PUT+ requests to register a path return a 201 along with corresponding sample data.
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-client-url_arbiter/blob/master/lib/govuk/client/test_helpers/url_arbiter.rb#L17)

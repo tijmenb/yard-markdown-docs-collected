@@ -5,6 +5,7 @@
 
 Returns the value of attribute delivery_info
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
 
@@ -23,6 +24,7 @@ Sets the attribute delivery_info
 ### `#headers`
 
 Returns the value of attribute headers
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
@@ -43,6 +45,7 @@ Sets the attribute headers
 
 Returns the value of attribute payload
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
 
@@ -62,6 +65,7 @@ Sets the attribute payload
 
 Returns the value of attribute status
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
 
@@ -78,6 +82,7 @@ Sets the attribute status
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
 
 ### `#initialize(payload, headers, delivery_info)`
+
 
 **Returns**:
 
@@ -159,6 +164,7 @@ and should already exist and have a binding via puppet
 
 ### `#initialize(next_processor)`
 
+
 **Returns**:
 
 - (`JSONProcessor`) — a new instance of JSONProcessor
@@ -177,6 +183,7 @@ and should already exist and have a binding via puppet
 ## `class GovukMessageQueueConsumer::HeartbeatProcessor`
 
 ### `#initialize(next_processor)`
+
 
 **Returns**:
 
@@ -199,6 +206,7 @@ and should already exist and have a binding via puppet
 
 Returns the value of attribute acked
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L3)
 
@@ -206,12 +214,14 @@ Returns the value of attribute acked
 
 Returns the value of attribute retried
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L3)
 
 ### `#discarded`
 
 Returns the value of attribute discarded
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L3)
@@ -220,12 +230,14 @@ Returns the value of attribute discarded
 
 Returns the value of attribute acked
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L5)
 
 ### `#discarded`
 
 Returns the value of attribute discarded
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L6)
@@ -234,10 +246,12 @@ Returns the value of attribute discarded
 
 Returns the value of attribute retried
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L7)
 
 ### `#initialize(payload = {}, headers = {}, delivery_info = {})`
+
 
 **Returns**:
 

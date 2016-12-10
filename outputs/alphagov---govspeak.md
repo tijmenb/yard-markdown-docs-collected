@@ -5,6 +5,7 @@
 
 Returns the value of attribute images
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L27)
 
@@ -24,12 +25,14 @@ Sets the attribute images
 
 Returns the value of attribute attachments
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L28)
 
 ### `#contacts`
 
 Returns the value of attribute contacts
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L28)
@@ -38,12 +41,14 @@ Returns the value of attribute contacts
 
 Returns the value of attribute links
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L28)
 
 ### `#locale`
 
 Returns the value of attribute locale
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L28)
@@ -55,6 +60,7 @@ Returns the value of attribute locale
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L30)
 
 ### `#initialize(source, options = {})`
+
 
 **Returns**:
 
@@ -100,6 +106,7 @@ Returns the value of attribute locale
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L81)
 
 ### `#valid?(validation_options = {})`
+
 
 **Returns**:
 
@@ -163,6 +170,7 @@ out div and figcaption
 
 This issue is not considered a bug by kramdown: https://github.com/gettalong/kramdown/issues/191
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L230)
 
@@ -190,10 +198,12 @@ This issue is not considered a bug by kramdown: https://github.com/gettalong/kra
 
 Returns the value of attribute govspeak_string
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/html_validator.rb#L2)
 
 ### `#initialize(govspeak_string, sanitization_options = {})`
+
 
 **Returns**:
 
@@ -204,6 +214,7 @@ Returns the value of attribute govspeak_string
 
 ### `#invalid?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -212,6 +223,7 @@ Returns the value of attribute govspeak_string
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/html_validator.rb#L9)
 
 ### `#valid?`
+
 
 **Returns**:
 
@@ -223,6 +235,7 @@ Returns the value of attribute govspeak_string
 ### `#normalise_html(html)`
 
 Make whitespace in html tags consistent
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/html_validator.rb#L20)
@@ -238,6 +251,7 @@ Make whitespace in html tags consistent
 ## `class Govspeak::HtmlSanitizer`
 
 ### `#initialize(dirty_html, options = {})`
+
 
 **Returns**:
 
@@ -270,6 +284,7 @@ Make whitespace in html tags consistent
 
 ### `#initialize(allowed_image_hosts)`
 
+
 **Returns**:
 
 - (`ImageSourceWhitelister`) — a new instance of ImageSourceWhitelister
@@ -295,6 +310,7 @@ Make whitespace in html tags consistent
 
 ### `#invalid_style_attribute?(style)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -310,10 +326,12 @@ Make whitespace in html tags consistent
 
 Returns the value of attribute input
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/post_processor.rb#L5)
 
 ### `#initialize(html)`
+
 
 **Returns**:
 
@@ -553,6 +571,7 @@ Returns the value of attribute headers
 
 ### `#initialize(document)`
 
+
 **Returns**:
 
 - (`StructuredHeaderExtractor`) — a new instance of StructuredHeaderExtractor
@@ -598,6 +617,7 @@ Returns the value of attribute headers
 
 ### `#header_higher_than_top_level?(header)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -606,6 +626,7 @@ Returns the value of attribute headers
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L76)
 
 ### `#header_at_same_level_as_prev?(header)`
+
 
 **Returns**:
 
@@ -616,6 +637,7 @@ Returns the value of attribute headers
 
 ### `#header_one_level_lower_than_prev?(header)`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -624,6 +646,7 @@ Returns the value of attribute headers
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L84)
 
 ### `#header_at_higher_level_than_prev?(header)`
+
 
 **Returns**:
 
@@ -682,6 +705,7 @@ Returns the value of attribute headers
 
 Returns the value of attribute properties
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/h_card_presenter.rb#L28)
 
@@ -689,10 +713,12 @@ Returns the value of attribute properties
 
 Returns the value of attribute country_code
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/h_card_presenter.rb#L28)
 
 ### `#initialize(properties, country_code)`
+
 
 **Returns**:
 
@@ -721,10 +747,12 @@ Returns the value of attribute country_code
 
 Returns the value of attribute contact
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/contact_presenter.rb#L6)
 
 ### `#initialize(contact)`
+
 
 **Returns**:
 
@@ -741,6 +769,7 @@ Returns the value of attribute contact
 
 ### `#has_postal_address?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -756,10 +785,12 @@ Returns the value of attribute contact
 
 Returns the value of attribute attachment
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L7)
 
 ### `#initialize(attachment)`
+
 
 **Returns**:
 
@@ -782,6 +813,7 @@ Returns the value of attribute attachment
 
 ### `#opendocument?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -797,6 +829,7 @@ Returns the value of attribute attachment
 
 ### `#external?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -811,6 +844,7 @@ Returns the value of attribute attachment
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L37)
 
 ### `#accessible?`
+
 
 **Returns**:
 
@@ -866,6 +900,7 @@ Returns the value of attribute attachment
 FIXME: usage of image_tag will cause these to render at /images/ which seems
 very host dependent. I assume this will need links to static urls.
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L104)
 
@@ -879,10 +914,12 @@ very host dependent. I assume this will need links to static urls.
 
 FIXME this has english in it so will cause problems if the locale is not en
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L141)
 
 ### `#references?`
+
 
 **Returns**:
 
@@ -899,6 +936,7 @@ FIXME this has english in it so will cause problems if the locale is not en
 
 ### `#unnumbered_paper?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -907,6 +945,7 @@ FIXME this has english in it so will cause problems if the locale is not en
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L159)
 
 ### `#unnumbered_command_paper?`
+
 
 **Returns**:
 
@@ -947,6 +986,7 @@ FIXME this has english in it so will cause problems if the locale is not en
 
 ### `#previewable?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -967,6 +1007,7 @@ FIXME this has english in it so will cause problems if the locale is not en
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L246)
 
 ### `#hide_thumbnail?`
+
 
 **Returns**:
 
@@ -1015,6 +1056,7 @@ FIXME this has english in it so will cause problems if the locale is not en
 
 ### `#initialize(source, options)`
 
+
 **Returns**:
 
 - (`KramdownWithAutomaticExternalLinks`) — a new instance of KramdownWithAutomaticExternalLinks
@@ -1050,6 +1092,7 @@ FIXME this has english in it so will cause problems if the locale is not en
  Updating the Kramdown gem therefore also means updating this file to to
 match Kramdown's internals.
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/kramdown_overrides.rb#L9)
 
@@ -1067,6 +1110,7 @@ for example:
 
 will be formatted to:
 > test
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/blockquote_extra_quote_remover.rb#L14)

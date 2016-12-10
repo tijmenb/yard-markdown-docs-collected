@@ -5,10 +5,12 @@
 
 Returns the value of attribute test_params
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-tools-tester/blob/master/lib/vcloud/tools/tester/test_setup.rb#L7)
 
 ### `#initialize(config_file, expected_params)`
+
 
 **Returns**:
 
@@ -22,6 +24,7 @@ Returns the value of attribute test_params
 ## `class Vcloud::Tools::Tester::TestParameters`
 
 ### `#initialize(user_params, fixture_params)`
+
 
 **Returns**:
 
@@ -38,10 +41,12 @@ Returns the value of attribute test_params
 
 Returns the value of attribute user_params
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-tools-tester/blob/master/lib/vcloud/tools/tester/user_parameters.rb#L7)
 
 ### `#initialize(config_file, expected_params)`
+
 
 **Returns**:
 
@@ -58,10 +63,12 @@ Returns the value of attribute user_params
 
 Returns the value of attribute fixture_params
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-tools-tester/blob/master/lib/vcloud/tools/tester/fixture_parameters.rb#L5)
 
 ### `#initialize(user_params, expected_params)`
+
 
 **Returns**:
 

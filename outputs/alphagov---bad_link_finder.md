@@ -3,6 +3,7 @@
 
 ### `#initialize(*args)`
 
+
 **Returns**:
 
 - (`NullLogger`) — a new instance of NullLogger
@@ -22,6 +23,7 @@
 
 ### `#initialize(mirror_dir, path)`
 
+
 **Returns**:
 
 - (`Page`) — a new instance of Page
@@ -32,6 +34,7 @@
 ### `#path`
 
 Returns the value of attribute path
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/page.rb#L13)
@@ -56,12 +59,14 @@ Returns the value of attribute path
 
 Returns the value of attribute link
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/link.rb#L6)
 
 ### `#url`
 
 Returns the value of attribute url
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/link.rb#L6)
@@ -70,6 +75,7 @@ Returns the value of attribute url
 
 Returns the value of attribute error_message
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/link.rb#L6)
 
@@ -77,10 +83,12 @@ Returns the value of attribute error_message
 
 Returns the value of attribute exception
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/link.rb#L6)
 
 ### `#initialize(page_url, link, logger = BadLinkFinder::NullLogger.new)`
+
 
 **Returns**:
 
@@ -90,6 +98,7 @@ Returns the value of attribute exception
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/link.rb#L8)
 
 ### `#valid?`
+
 
 **Returns**:
 
@@ -103,6 +112,7 @@ Returns the value of attribute exception
 ## `class BadLinkFinder::Site`
 
 ### `#initialize(mirror_dir, start_from = nil)`
+
 
 **Returns**:
 
@@ -123,6 +133,7 @@ Returns the value of attribute exception
 
 ### `#initialize(csv_output_file)`
 
+
 **Returns**:
 
 - (`CSVBuilder`) — a new instance of CSVBuilder
@@ -141,6 +152,7 @@ Returns the value of attribute exception
 ## `class BadLinkFinder::SiteChecker`
 
 ### `#initialize(mirror_dir, host, csv_builder, start_from = nil, logger = BadLinkFinder::NullLogger.new)`
+
 
 **Returns**:
 
@@ -161,6 +173,7 @@ Returns the value of attribute exception
 
 ### `#initialize(host, page, result_cache, logger = BadLinkFinder::NullLogger.new)`
 
+
 **Returns**:
 
 - (`PageChecker`) — a new instance of PageChecker
@@ -171,6 +184,7 @@ Returns the value of attribute exception
 ### `#page_url`
 
 Returns the value of attribute page_url
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/page_checker.rb#L13)
@@ -186,6 +200,7 @@ Returns the value of attribute page_url
 ## `class BadLinkFinder::ResultCache`
 
 ### `#initialize`
+
 
 **Returns**:
 

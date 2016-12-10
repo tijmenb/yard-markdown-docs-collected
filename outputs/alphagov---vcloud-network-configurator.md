@@ -5,10 +5,12 @@
 
 Returns the value of attribute rules
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/nat.rb#L6)
 
 ### `#initialize`
+
 
 **Returns**:
 
@@ -61,10 +63,12 @@ Returns the value of attribute rules
 
 Returns the value of attribute rules
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/firewall.rb#L6)
 
 ### `#initialize`
+
 
 **Returns**:
 
@@ -117,6 +121,7 @@ Returns the value of attribute rules
 
 Returns the value of attribute pools
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/load_balancer.rb#L6)
 
@@ -124,10 +129,12 @@ Returns the value of attribute pools
 
 Returns the value of attribute configurations
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/load_balancer.rb#L6)
 
 ### `#initialize`
+
 
 **Returns**:
 
@@ -190,6 +197,7 @@ Returns the value of attribute configurations
 
 ### `#initialize args`
 
+
 **Returns**:
 
 - (`VcloudNetworkConfigurator`) — a new instance of VcloudNetworkConfigurator
@@ -208,6 +216,7 @@ Returns the value of attribute configurations
 ## `class EdgeGateway`
 
 ### `#initialize options`
+
 
 **Returns**:
 
@@ -228,6 +237,7 @@ Returns the value of attribute configurations
 
 ### `#initialize configure_xml`
 
+
 **Returns**:
 
 - (`ConfigureTask`) — a new instance of ConfigureTask
@@ -243,6 +253,7 @@ Returns the value of attribute configurations
 
 ### `#complete?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -251,6 +262,7 @@ Returns the value of attribute configurations
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/vcloud_network_configurator/configure_task.rb#L13)
 
 ### `#error?`
+
 
 **Returns**:
 
@@ -264,6 +276,7 @@ Returns the value of attribute configurations
 ## `class VcloudSettings`
 
 ### `#initialize options = {}`
+
 
 **Returns**:
 
@@ -296,6 +309,7 @@ Returns the value of attribute configurations
 
 ### `#initialize vcloud_settings, username, password`
 
+
 **Returns**:
 
 - (`VcloudAuthRequest`) — a new instance of VcloudAuthRequest
@@ -310,6 +324,7 @@ Returns the value of attribute configurations
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/vcloud_network_configurator/vcloud_auth_request.rb#L13)
 
 ### `#authenticated?`
+
 
 **Returns**:
 
@@ -329,6 +344,7 @@ Returns the value of attribute configurations
 ## `class VcloudConfigureRequest`
 
 ### `#initialize vcloud_settings, auth_header, component, rules_files, interfaces_files`
+
 
 **Returns**:
 
@@ -351,6 +367,7 @@ Returns the value of attribute configurations
 
 ### `#success?`
 
+
 **Returns**:
 
 - (`Boolean`) — 
@@ -369,6 +386,7 @@ Returns the value of attribute configurations
 ## `class VcloudCheckForConfigureTaskRequest`
 
 ### `#initialize auth_header, task_url`
+
 
 **Returns**:
 

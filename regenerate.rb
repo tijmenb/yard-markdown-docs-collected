@@ -6,7 +6,7 @@ repos.lines.map(&:strip).uniq.each do |repo|
     "rm -rf #{dir}",
     "git clone git@github.com:#{repo}.git #{dir} --depth=1",
     "cd #{dir}",
-    "github_repo=#{repo} ../../yard_markdown/bin/yard_markdown",
+    "../../yard_markdown/bin/yard_markdown --github_repo=#{repo}",
     "cd ..",
     "cp #{dir}/docs/readme.md outputs/#{dir}.md",
     "rm -rf #{dir}",
