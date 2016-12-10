@@ -388,6 +388,10 @@ Return the ID of the vApp which contains a particular VM
 
 - (`String`) — the vApp ID
 
+**Raises**:
+
+- `ArgumentError` 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp.rb#L41)
 
@@ -731,6 +735,10 @@ Default: {}
 
 - (`Array`) — List of results
 
+**Raises**:
+
+- `ArgumentError` 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/query_runner.rb#L23)
 
@@ -800,6 +808,7 @@ Update configuration for EdgeGateway
 
 - `config` (`Hash`) — A configuration for EdgeGateway
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway.rb#L37)
@@ -1357,6 +1366,10 @@ Return the ID of an IndependentDisk referred to by name and vDC
 
 - (`Vcloud::Core::IndependentDisk`) — An object representing the IndependentDisk
 
+**Raises**:
+
+- `DiskNotFoundException` 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/independent_disk.rb#L28)
 
@@ -1807,6 +1820,7 @@ Sets the attribute name
 - `value` (``) — the value to set the attribute name to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway_interface.rb#L5)
 
@@ -1827,6 +1841,7 @@ Sets the attribute network_href
 - `value` (``) — the value to set the attribute network_href to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway_interface.rb#L5)
 
@@ -1846,6 +1861,7 @@ Sets the attribute network_name
 
 - `value` (``) — the value to set the attribute network_name to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway_interface.rb#L5)

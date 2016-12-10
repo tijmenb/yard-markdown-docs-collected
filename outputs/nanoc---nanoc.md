@@ -90,6 +90,7 @@ Creates a new representation for the given item.
 - `rep` (`Symbol`) — The rep name to create
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/spec.rb#L59)
 
@@ -723,6 +724,7 @@ Error that is raised when attempting to call #parent or #children on an item wit
 - `input` (`String, nil`) — 
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/extra/piper.rb#L27)
 
@@ -1172,6 +1174,10 @@ Parameters passed to this filter will be passed on to Maruku.
 ### `#run`
 
 
+**Raises**:
+
+- `NotImplementedError` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/checking/check.rb#L41)
 
@@ -1474,6 +1480,10 @@ Runs the checks with the given names.
 ### `#unwrap`
 
 
+**Raises**:
+
+- `NotImplementedError` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/view.rb#L14)
 
@@ -1565,6 +1575,10 @@ number should be incremented.
 
 - (``) — The data that should be written to the disk
 
+**Raises**:
+
+- `NotImplementedError` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/store.rb#L51)
 
@@ -1578,6 +1592,10 @@ number should be incremented.
 **Returns**:
 
 - (`void`) — 
+
+**Raises**:
+
+- `NotImplementedError` 
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/store.rb#L60)
@@ -1742,6 +1760,7 @@ Sets the attribute config
 - `value` (``) — the value to set the attribute config to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L28)
 
@@ -1761,6 +1780,7 @@ Sets the attribute limit
 
 - `value` (``) — the value to set the attribute limit to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L30)
@@ -1782,6 +1802,7 @@ Sets the attribute relevant_articles
 - `value` (``) — the value to set the attribute relevant_articles to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L31)
 
@@ -1801,6 +1822,7 @@ Sets the attribute preserve_order
 
 - `value` (``) — the value to set the attribute preserve_order to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L32)
@@ -1822,6 +1844,7 @@ Sets the attribute content_proc
 - `value` (``) — the value to set the attribute content_proc to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L33)
 
@@ -1841,6 +1864,7 @@ Sets the attribute excerpt_proc
 
 - `value` (``) — the value to set the attribute excerpt_proc to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L34)
@@ -1862,6 +1886,7 @@ Sets the attribute title
 - `value` (``) — the value to set the attribute title to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L35)
 
@@ -1881,6 +1906,7 @@ Sets the attribute author_name
 
 - `value` (``) — the value to set the attribute author_name to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L36)
@@ -1902,6 +1928,7 @@ Sets the attribute author_uri
 - `value` (``) — the value to set the attribute author_uri to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L37)
 
@@ -1922,6 +1949,7 @@ Sets the attribute icon
 - `value` (``) — the value to set the attribute icon to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L38)
 
@@ -1941,6 +1969,7 @@ Sets the attribute logo
 
 - `value` (``) — the value to set the attribute logo to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/blogging.rb#L39)
@@ -2542,6 +2571,10 @@ only show what would be deployed instead actually deploying
 Performs the actual deployment.
 
 
+**Raises**:
+
+- `NotImplementedError` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/deploying/deployer.rb#L39)
 
@@ -3041,6 +3074,10 @@ use these parameters to allow modifying the filter's behaviour.
 value is undefined; if the filter outputs textual content, the return
 value will be the filtered content.
 
+**Raises**:
+
+- `NotImplementedError` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/filter.rb#L154)
 
@@ -3162,6 +3199,10 @@ Starts the listener. Subclasses should override this method and set up listener 
 **Returns**:
 
 - (`void`) — 
+
+**Raises**:
+
+- `NotImplementedError` 
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/commands/compile.rb#L44)
@@ -3782,6 +3823,10 @@ compile '/bar/', :rep => :raw do
 end
 ```
 
+**Raises**:
+
+- `ArgumentError` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/rule_dsl/compiler_dsl.rb#L71)
 
@@ -3828,6 +3873,10 @@ route '/bar/', :rep => :raw do
   '/raw' + item.identifier + 'index.txt'
 end
 ```
+
+**Raises**:
+
+- `ArgumentError` 
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/rule_dsl/compiler_dsl.rb#L111)
@@ -3908,6 +3957,10 @@ passthrough '/foo/'
 passthrough '/bar/', :rep => :raw
 ```
 
+**Raises**:
+
+- `ArgumentError` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/rule_dsl/compiler_dsl.rb#L171)
 
@@ -3941,6 +3994,10 @@ should be processed using this meta-rule
 ignore '/foo/*'
 ```
 
+**Raises**:
+
+- `ArgumentError` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/rule_dsl/compiler_dsl.rb#L212)
 
@@ -3966,6 +4023,10 @@ implied if not explicitly given
   include_rules 'rules/assets'
   include_rules 'rules/content'
 ```
+
+**Raises**:
+
+- `Nanoc::Int::Errors::NoRulesFileFound` 
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/rule_dsl/compiler_dsl.rb#L234)
@@ -4005,6 +4066,10 @@ loaded and the site is compiled.
 
 - (`Pattern`) — a new instance of Pattern
 
+**Raises**:
+
+- `NotImplementedError` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/pattern.rb#L20)
 
@@ -4015,11 +4080,19 @@ loaded and the site is compiled.
 
 - (`Boolean`) — 
 
+**Raises**:
+
+- `NotImplementedError` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/pattern.rb#L24)
 
 ### `#captures(_identifier)`
 
+
+**Raises**:
+
+- `NotImplementedError` 
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/pattern.rb#L28)
@@ -4225,6 +4298,10 @@ the given path. This is a convenience method for {#snapshot}.
 ### `#load`
 
 
+**Raises**:
+
+- `Nanoc::Int::Errors::NoRulesFileFound` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/rule_dsl/rules_loader.rb#L8)
 
@@ -4290,6 +4367,7 @@ containing the content (if this is binary content).
 content (if any)
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/content.rb#L44)
 
@@ -4299,6 +4377,10 @@ content (if any)
 **Returns**:
 
 - (`Boolean`) — 
+
+**Raises**:
+
+- `NotImplementedError` 
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/content.rb#L59)
@@ -4543,6 +4625,10 @@ YUICompressor gem.
 ### `#layout(rep, layout_identifier, extra_filter_args = nil)`
 
 
+**Raises**:
+
+- `Nanoc::Int::Errors::CannotLayoutBinaryItem` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/executor.rb#L45)
 
@@ -4567,11 +4653,19 @@ YUICompressor gem.
 ### `#find_layout(arg)`
 
 
+**Raises**:
+
+- `Nanoc::Int::Errors::UnknownLayout` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/executor.rb#L115)
 
 ### `#filter_for_filtering(rep, filter_name)`
 
+
+**Raises**:
+
+- `Nanoc::Int::Errors::UnknownFilter` 
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/executor.rb#L129)
@@ -4749,6 +4843,10 @@ YUICompressor gem.
 **Returns**:
 
 - (``) — Unique reference to this object
+
+**Raises**:
+
+- `NotImplementedError` 
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/document.rb#L71)
@@ -5038,6 +5136,7 @@ content (if it is a binary item).
 - `attributes_checksum_data` (`String, nil`) — 
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/data_source.rb#L148)
 
@@ -5065,6 +5164,7 @@ the {#layouts} method.
 
 - `attributes_checksum_data` (`String, nil`) — 
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/data_source.rb#L167)
@@ -5701,6 +5801,7 @@ or Nokogiri::XML)
 false if it is a fragment
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/filters/colorize_syntax.rb#L157)
 
@@ -6209,6 +6310,10 @@ Stores item reps (in memory).
 ### `#new_from_cwd`
 
 
+**Raises**:
+
+- `NoConfigFileFoundError` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/repos/config_loader.rb#L34)
 
@@ -6288,6 +6393,10 @@ Stores item reps (in memory).
 
 ### `#rep_names_for(item)`
 
+
+**Raises**:
+
+- `Nanoc::Int::Errors::NoMatchingCompilationRuleFound` 
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/rule_dsl/action_provider.rb#L28)
@@ -6738,6 +6847,10 @@ to determine whether a piece of data has changed.
 
 ### `.update(_obj, _digest)`
 
+
+**Raises**:
+
+- `NotImpementedError` 
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/checksummer.rb#L121)
@@ -8179,6 +8292,10 @@ Returns a cleaned version of the given string.
 
 - (`String`) — The cleaned string
 
+**Raises**:
+
+- `NotImplementedError` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/stream_cleaners/abstract.rb#L15)
 
@@ -8245,11 +8362,19 @@ the layout to set the rule memory for
 ### `#extension`
 
 
+**Raises**:
+
+- `NotImplementedError` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/checking/checks/w3c_validator.rb#L20)
 
 ### `#validator_class`
 
+
+**Raises**:
+
+- `NotImplementedError` 
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/checking/checks/w3c_validator.rb#L24)
@@ -8417,6 +8542,7 @@ Sets the value for the given attribute.
 
 - `key` (`Symbol`) — 
   
+
 
 **See**:
 - Hash#[]=
@@ -8757,11 +8883,19 @@ Removes ANSI color escape sequences.
 ### `#serialize`
 
 
+**Raises**:
+
+- `NotImplementedError` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/processing_action.rb#L3)
 
 ### `#to_s`
 
+
+**Raises**:
+
+- `NotImplementedError` 
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/processing_action.rb#L7)
@@ -8939,6 +9073,7 @@ removed.
 ### `#modified`
 
 ⚠️ **Use {#modified_reps} instead**
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/post_compile_item_view.rb#L8)
@@ -9201,6 +9336,10 @@ is no rep with the given name.
 **Returns**:
 
 - (`Nanoc::ItemRepView`) — 
+
+**Raises**:
+
+- `` if no rep was found
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/item_rep_collection_view.rb#L75)
@@ -9565,6 +9704,10 @@ layout '/foo.erb', params
 
 ### `#view_class`
 
+
+**Raises**:
+
+- `NotImplementedError` 
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/identifiable_collection_view.rb#L19)
@@ -9990,6 +10133,10 @@ Nanoc::Feature.define('environments', version: '4.3')
 ### `.enable(feature_name)`
 
 
+**Raises**:
+
+- `ArgumentError` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/feature.rb#L50)
 
@@ -10289,6 +10436,14 @@ end
 
 - (`String, nil`) — 
 
+**Raises**:
+
+- `Nanoc::Int::Errors::UnknownLayout` 
+
+- `Nanoc::Int::Errors::CannotDetermineFilter` 
+
+- `Nanoc::Int::Errors::UnknownFilter` 
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/rendering.rb#L14)
 
@@ -10309,6 +10464,10 @@ end
 **Returns**:
 
 - (`void`) — 
+
+**Raises**:
+
+- `Nanoc::Int::Errors::UnknownFilter` 
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/helpers/filtering.rb#L11)
@@ -10679,6 +10838,14 @@ fetch
 
 - (`Array<String>`) — A list of file names
 
+**Raises**:
+
+- `MaxSymlinkDepthExceededError` if too many indirections are
+encountered while resolving symlinks
+
+- `UnsupportedFileTypeError` if a file of an unsupported type is
+detected (something other than file, directory or link)
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/data_sources/filesystem/tools.rb#L54)
 
@@ -10702,6 +10869,10 @@ fetch
 
 - (`Array<String>`) — A list of files and directories
 
+**Raises**:
+
+- `GenericTrivial` when pattern can not be handled
+
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/data_sources/filesystem/tools.rb#L94)
 
@@ -10721,6 +10892,14 @@ into a symlink
 **Returns**:
 
 - (`String`) — The absolute resolved filename of the symlink target
+
+**Raises**:
+
+- `MaxSymlinkDepthExceededError` if too many indirections are
+encountered while resolving symlinks
+
+- `UnsupportedFileTypeError` if a file of an unsupported type is
+detected (something other than file, directory or link)
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/data_sources/filesystem/tools.rb#L131)
@@ -10906,6 +11085,7 @@ Sets the value for the given attribute.
 - `key` (`Symbol`) — 
   
 
+
 **See**:
 - Hash#[]=
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/mixins/mutable_document_view_mixin.rb#L21)
@@ -10918,6 +11098,7 @@ Sets the identifier to the given argument.
 
 - `arg` (`String, Nanoc::Identifier`) — 
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/mixins/mutable_document_view_mixin.rb#L38)

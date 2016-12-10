@@ -102,6 +102,7 @@ exception.
 - `env` (`Hash`) — the Rack environment
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/rack/middleware.rb#L20)
 

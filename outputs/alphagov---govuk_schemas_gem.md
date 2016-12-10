@@ -181,6 +181,10 @@ Example:
 
 - (`Hash`) — A content item
 
+**Raises**:
+
+- `GovukSchemas::InvalidContentGenerated` 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_schemas_gem/blob/master/lib/govuk_schemas/random_example.rb#L68)
 

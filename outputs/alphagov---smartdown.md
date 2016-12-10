@@ -613,6 +613,10 @@ TODO: deprecate
 
 - (`State`) — a new instance of State
 
+**Raises**:
+
+- `ArgumentError` 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine/state.rb#L8)
 

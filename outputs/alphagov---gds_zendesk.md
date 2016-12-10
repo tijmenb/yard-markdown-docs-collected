@@ -48,6 +48,7 @@ Sets the attribute config_options
 - `value` (``) — the value to set the attribute config_options to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/client.rb#L12)
 

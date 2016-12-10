@@ -1004,6 +1004,7 @@ Sets the attribute fields_to_clone
 - `value` (``) — the value to set the attribute fields_to_clone to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/travel_advice_edition.rb#L52)
 
@@ -1172,6 +1173,7 @@ Sets the attribute actor
 - `value` (``) — the value to set the attribute actor to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
 
@@ -1191,6 +1193,7 @@ Sets the attribute edition
 
 - `value` (``) — the value to set the attribute edition to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
@@ -1212,6 +1215,7 @@ Sets the attribute action_attributes
 - `value` (``) — the value to set the attribute action_attributes to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
 
@@ -1231,6 +1235,7 @@ Sets the attribute event_attributes
 
 - `value` (``) — the value to set the attribute event_attributes to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/lib/govuk_content_models/action_processors/base_processor.rb#L4)
@@ -1461,6 +1466,10 @@ Always records the action.
 
 ### `#check_can_delete_and_notify`
 
+
+**Raises**:
+
+- `CannotDeletePublishedPublication` 
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_content_models/blob/master/app/models/workflow.rb#L131)

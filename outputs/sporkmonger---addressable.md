@@ -528,6 +528,7 @@ Sets the scheme component for this URI.
 - `new_scheme` (`String, #to_str`) — The new scheme component.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L867)
 
@@ -562,6 +563,7 @@ Sets the user component for this URI.
 - `new_user` (`String, #to_str`) — The new user component.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L922)
 
@@ -595,6 +597,7 @@ Sets the password component for this URI.
 
 - `new_password` (`String, #to_str`) — The new password component.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L981)
@@ -631,6 +634,7 @@ Sets the userinfo component for this URI.
 - `new_userinfo` (`String, #to_str`) — The new userinfo component.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1051)
 
@@ -665,6 +669,7 @@ Sets the host component for this URI.
 - `new_host` (`String, #to_str`) — The new host component.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1116)
 
@@ -690,6 +695,7 @@ the argument can be a bare IPv6 address (or 'IPvFuture').
 
 - `new_hostname` (`String, #to_str`) — The new hostname for this URI.
   
+
 
 **See**:
 - Addressable::URI#host=
@@ -755,6 +761,7 @@ Sets the authority component for this URI.
 - `new_authority` (`String, #to_str`) — The new authority component.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1227)
 
@@ -780,6 +787,7 @@ component.
 
 - `new_origin` (`String, #to_str`) — The new origin component.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1286)
@@ -836,6 +844,7 @@ Sets the port component for this URI.
 
 - `new_port` (`String, Integer, #to_s`) — The new port component.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1363)
@@ -907,6 +916,7 @@ Sets the site value for this URI.
 - `new_site` (`String, #to_str`) — The new site value.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1461)
 
@@ -940,6 +950,7 @@ Sets the path component for this URI.
 
 - `new_path` (`String, #to_str`) — The new path component.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1524)
@@ -997,6 +1008,7 @@ Sets the query component for this URI.
 
 - `new_query` (`String, #to_str`) — The new query component.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1595)
@@ -1085,6 +1097,7 @@ Sets the HTTP request URI for this URI.
 - `new_request_uri` (`String, #to_str`) — The new HTTP request URI.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1738)
 
@@ -1118,6 +1131,7 @@ Sets the fragment component for this URI.
 
 - `new_fragment` (`String, #to_str`) — The new fragment component.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1791)
@@ -1510,6 +1524,10 @@ been executed.
 
 - `block` (`Proc`) — A set of operations to perform on a given URI.
   
+
+**Raises**:
+
+- `LocalJumpError` 
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2352)
@@ -1977,6 +1995,7 @@ Should only be used by rack-mount.
 
 - `options` (`Hash`) — Either a `:processor` or a `:parameterize` block.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L659)

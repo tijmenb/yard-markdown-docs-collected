@@ -108,6 +108,7 @@ Sets the attribute ssh_client
 - `value` (``) — the value to set the attribute ssh_client to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-box-spinner/blob/master/lib/vcloud_box_provisioner.rb#L23)
 

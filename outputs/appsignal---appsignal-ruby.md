@@ -18,6 +18,7 @@ Sets the attribute options
 - `value` (``) — the value to set the attribute options to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli.rb#L16)
 
@@ -114,11 +115,19 @@ Sets the attribute options
 
 - (`Boolean`) — 
 
+**Raises**:
+
+- `NotImplementedError` 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L44)
 
 ### `#install`
 
+
+**Raises**:
+
+- `NotImplementedError` 
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L48)
@@ -253,6 +262,7 @@ Sets the attribute logger
 
 - `value` (``) — the value to set the attribute logger to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/config.rb#L62)
@@ -2061,6 +2071,7 @@ Sets the attribute config
 - `value` (``) — the value to set the attribute config to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L7)
 
@@ -2080,6 +2091,7 @@ Sets the attribute agent
 
 - `value` (``) — the value to set the attribute agent to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L7)
@@ -2101,6 +2113,7 @@ Sets the attribute extension_loaded
 - `value` (``) — the value to set the attribute extension_loaded to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L7)
 
@@ -2113,6 +2126,7 @@ Sets the attribute logger
 - `value` (``) — the value to set the attribute logger to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L8)
 
@@ -2124,6 +2138,7 @@ Sets the attribute in_memory_log
 
 - `value` (``) — the value to set the attribute in_memory_log to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L8)

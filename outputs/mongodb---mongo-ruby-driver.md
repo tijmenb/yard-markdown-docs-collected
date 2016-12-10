@@ -52,6 +52,10 @@ Create the new uri from the provided string.
 URI.new('mongodb://localhost:27017')
 ```
 
+**Raises**:
+
+- `Error::InvalidURI` If the uri does not match the spec.
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/uri.rb#L194)
 
@@ -421,6 +425,10 @@ If no data is returned, an exception will be raised.
 ```ruby
 socket.read(4096)
 ```
+
+**Raises**:
+
+- `Mongo::SocketError` If not all data is returned.
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket.rb#L121)
@@ -1265,6 +1273,10 @@ server.handle_auth_failure! do
   Auth.get(user).login(self)
 end
 ```
+
+**Raises**:
+
+- `Auth::Unauthorized` If the authentication failed.
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L257)
@@ -2556,6 +2568,10 @@ Instantiate a new database object.
 Mongo::Database.new(client, :test)
 ```
 
+**Raises**:
+
+- `Mongo::Database::InvalidName` If the name is nil.
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L193)
 
@@ -3215,6 +3231,10 @@ Drop an index by its name.
 view.drop_one('name_1')
 ```
 
+**Raises**:
+
+- `Error::MultiIndexDrop` 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/index/view.rb#L81)
 
@@ -3870,6 +3890,10 @@ Instantiate a new collection.
 ```ruby
 Mongo::Collection.new(database, 'test')
 ```
+
+**Raises**:
+
+- `Error::InvalidCollectionName` 
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L87)
@@ -5135,6 +5159,10 @@ Remove a single file, identified by its id from the GridFS.
 fs.delete(id)
 ```
 
+**Raises**:
+
+- `Error::FileNotFound` If the file is not found.
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L196)
 
@@ -5224,6 +5252,12 @@ fs.open_download_stream_by_name('some-file.txt')
 fs.open_download_stream_by_name('some-file.txt', revision: 2)
 ```
 
+**Raises**:
+
+- `Error::FileNotFound` If the file is not found.
+
+- `Error::InvalidFileRevision` If the requested revision is not found for the file.
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L276)
 
@@ -5269,6 +5303,12 @@ fs.download_to_stream_by_name('some-file.txt', io)
 ```ruby
 fs.download_to_stream_by_name('some-file.txt', io, revision: 2)
 ```
+
+**Raises**:
+
+- `Error::FileNotFound` If the file is not found.
+
+- `Error::InvalidFileRevision` If the requested revision is not found for the file.
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L328)
@@ -8189,6 +8229,10 @@ stream.each do |data|
 end
 ```
 
+**Raises**:
+
+- `Error::MissingFileChunk` If a chunk is found out of sequence.
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L71)
 
@@ -8206,6 +8250,10 @@ Read all file data.
 stream.read
 ```
 
+**Raises**:
+
+- `Error::MissingFileChunk` If a chunk is found out of sequence.
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L94)
 
@@ -8222,6 +8270,10 @@ Close the read stream.
 ```ruby
 stream.close
 ```
+
+**Raises**:
+
+- `Error::ClosedStream` If the stream is already closed.
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L108)
@@ -8523,6 +8575,10 @@ be raised there, before a Result is ever created.**
 ```ruby
 result.validate!
 ```
+
+**Raises**:
+
+- `Error::OperationFailure` If an error is in the result.
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L255)
@@ -9277,6 +9333,10 @@ Close the write stream.
 stream.close
 ```
 
+**Raises**:
+
+- `Error::ClosedStream` If the stream is already closed.
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L103)
 
@@ -9491,6 +9551,10 @@ Validates the bulk write result.
 ```ruby
 result.validate!
 ```
+
+**Raises**:
+
+- `Error::BulkWriteError` If the result contains errors.
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result.rb#L182)
@@ -12769,6 +12833,11 @@ Select appropriate servers for this topology.
 ```ruby
 Unknown.servers(servers)
 ```
+
+**Raises**:
+
+- `Unknown` Cannot select servers when the topology is
+unknown.
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L145)
@@ -17248,6 +17317,10 @@ be raised there, before a Result is ever created.**
 result.validate!
 ```
 
+**Raises**:
+
+- `Error::OperationFailure` If an error is in the result.
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/map_reduce/result.rb#L106)
 
@@ -17436,6 +17509,10 @@ the error occurs.
 ```ruby
 result.validate!
 ```
+
+**Raises**:
+
+- `NoNamespace` If the ns doesn't exist.
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/commands/list_indexes/result.rb#L81)
@@ -17889,6 +17966,10 @@ Get the authorization strategy for the provided auth mechanism.
 Auth.get(user)
 ```
 
+**Raises**:
+
+- `InvalidMechanism` 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth.rb#L65)
 
@@ -18224,6 +18305,10 @@ wait for acknowledgement before raising an error.
 ```ruby
 Mongo::WriteConcern.get(:w => 1)
 ```
+
+**Raises**:
+
+- `Error::InvalidWriteConcern` If the write concern is invalid.
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern.rb#L78)
@@ -19441,6 +19526,10 @@ Validate the document.
 validatable.validate(:insert_one, { _id: 0 })
 ```
 
+**Raises**:
+
+- `InvalidBulkOperation` If not valid.
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/validatable.rb#L40)
 
@@ -20624,6 +20713,11 @@ Mongo::ServerSelector::Secondary.new(:tag_sets => [{'dc' => 'nyc'}])
 Mongo::ServerSelector::Secondary.new
 ```
 
+**Raises**:
+
+- `Error::InvalidServerPreference` If tag sets are specified
+but not allowed.
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L68)
 
@@ -20662,6 +20756,10 @@ Select a server from eligible candidates.
 ```ruby
 selector.select_server(cluster)
 ```
+
+**Raises**:
+
+- `Error::NoServerAvailable` 
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L97)

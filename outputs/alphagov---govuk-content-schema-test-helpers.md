@@ -82,6 +82,7 @@ Sets the attribute schema_type
 - `value` (``) — the value to set the attribute schema_type to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/configuration.rb#L5)
 
@@ -93,6 +94,7 @@ Sets the attribute project_root
 
 - `value` (``) — the value to set the attribute project_root to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/configuration.rb#L5)

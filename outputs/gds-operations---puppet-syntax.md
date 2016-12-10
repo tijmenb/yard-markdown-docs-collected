@@ -74,6 +74,7 @@ Sets the attribute exclude_paths
 - `value` (``) — the value to set the attribute exclude_paths to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/puppet-syntax/blob/master/lib/puppet-syntax.rb#L13)
 
@@ -93,6 +94,7 @@ Sets the attribute future_parser
 
 - `value` (``) — the value to set the attribute future_parser to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/puppet-syntax/blob/master/lib/puppet-syntax.rb#L13)
@@ -114,6 +116,7 @@ Sets the attribute hieradata_paths
 - `value` (``) — the value to set the attribute hieradata_paths to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/puppet-syntax/blob/master/lib/puppet-syntax.rb#L13)
 
@@ -134,6 +137,7 @@ Sets the attribute fail_on_deprecation_notices
 - `value` (``) — the value to set the attribute fail_on_deprecation_notices to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/puppet-syntax/blob/master/lib/puppet-syntax.rb#L13)
 
@@ -153,6 +157,7 @@ Sets the attribute epp_only
 
 - `value` (``) — the value to set the attribute epp_only to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/puppet-syntax/blob/master/lib/puppet-syntax.rb#L13)

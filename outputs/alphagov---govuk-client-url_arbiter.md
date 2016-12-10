@@ -113,6 +113,10 @@ Fetch details of a path
 
 - (`Response, nil`) — Details of the reserved path, or +nil+ if the path wasn't found.
 
+**Raises**:
+
+- `Errors::InvalidPath` when called with an invalid path.
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-client-url_arbiter/blob/master/lib/govuk/client/url_arbiter.rb#L26)
 
@@ -131,6 +135,14 @@ Reserve a path
 **Returns**:
 
 - (`Response`) — Details of the reserved path.
+
+**Raises**:
+
+- `Errors::Conflict` if the path is already reserved by another app.
+
+- `Errors::UnprocessableEntity` for any validation errors.
+
+- `Errors::InvalidPath` when called with an invalid path.
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-client-url_arbiter/blob/master/lib/govuk/client/url_arbiter.rb#L39)
@@ -185,6 +197,7 @@ for a given path.
 - `publishing_app` (`String`) — The app the path should be registered to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-client-url_arbiter/blob/master/lib/govuk/client/test_helpers/url_arbiter.rb#L36)
 
@@ -203,6 +216,7 @@ returned in the stubbed response.  If unspecified, a generic error
 message will be added.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-client-url_arbiter/blob/master/lib/govuk/client/test_helpers/url_arbiter.rb#L60)
 
@@ -217,6 +231,7 @@ Generate sample url-arbiter data for a given path.
 
 - `override_attributes` (`Hash`) — Any specific attributes to override the defaults.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-client-url_arbiter/blob/master/lib/govuk/client/test_helpers/url_arbiter.rb#L72)

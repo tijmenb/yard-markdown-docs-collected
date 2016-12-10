@@ -73,6 +73,7 @@ Sets the attribute ward
 - `value` (``) — the value to set the attribute ward to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
 
@@ -92,6 +93,7 @@ Sets the attribute council
 
 - `value` (``) — the value to set the attribute council to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
@@ -113,6 +115,7 @@ Sets the attribute nation
 - `value` (``) — the value to set the attribute nation to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
 
@@ -132,6 +135,7 @@ Sets the attribute country
 
 - `value` (``) — the value to set the attribute country to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
@@ -153,6 +157,7 @@ Sets the attribute region
 - `value` (``) — the value to set the attribute region to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
 
@@ -172,6 +177,7 @@ Sets the attribute lat
 
 - `value` (``) — the value to set the attribute lat to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
@@ -193,6 +199,7 @@ Sets the attribute lon
 - `value` (``) — the value to set the attribute lon to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
 
@@ -213,6 +220,7 @@ Sets the attribute authorities
 - `value` (``) — the value to set the attribute authorities to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
 
@@ -232,6 +240,7 @@ Sets the attribute fuzzy_point
 
 - `value` (``) — the value to set the attribute fuzzy_point to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L4)
@@ -372,6 +381,10 @@ Returns the value of attribute accuracy
 **Returns**:
 
 - (`FuzzyPoint`) — a new instance of FuzzyPoint
+
+**Raises**:
+
+- `ValueError` 
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/fuzzy_point.rb#L8)

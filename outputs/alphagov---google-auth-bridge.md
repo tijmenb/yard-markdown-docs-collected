@@ -4,6 +4,10 @@
 ### `.create_from_config_file(scope, file_name, token_file)`
 
 
+**Raises**:
+
+- `InvalidFileFormatError` 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/google-auth-bridge/blob/master/lib/google_auth_bridge.rb#L8)
 
@@ -54,11 +58,19 @@
 ### `#load_token_from_file`
 
 
+**Raises**:
+
+- `FileNotFoundError` 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/google-auth-bridge/blob/master/lib/google_auth_bridge.rb#L48)
 
 ### `#save_token_to_file(refresh_token)`
 
+
+**Raises**:
+
+- `InvalidTokenError` 
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/google-auth-bridge/blob/master/lib/google_auth_bridge.rb#L59)

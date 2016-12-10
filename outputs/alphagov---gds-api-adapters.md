@@ -30,6 +30,7 @@ Sets the attribute logger
 - `value` (``) — the value to set the attribute logger to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/base.rb#L33)
 
@@ -50,6 +51,7 @@ Sets the attribute default_options
 - `value` (``) — the value to set the attribute default_options to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/base.rb#L34)
 
@@ -65,6 +67,10 @@ Sets the attribute default_options
 **Returns**:
 
 - (`Base`) — a new instance of Base
+
+**Raises**:
+
+- `InvalidAPIURL` 
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/base.rb#L41)
@@ -228,6 +234,7 @@ Perform a search.
 - `args` (`Hash`) — A valid search query. See Rummager documentation for options.
   
 
+
 **See**:
 - https://github.com/alphagov/rummager/blob/master/docs/search-api.md
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L12)
@@ -237,6 +244,11 @@ Perform a search.
 Advanced search.
 
 ⚠️ **Only in use by Whitehall. Use the `#search` method.**
+
+
+**Raises**:
+
+- `ArgumentError` 
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L20)
@@ -277,6 +289,7 @@ and contacts, which may be deleted with `delete_document`.
 - `base_path` (``) — Base path of the page on GOV.UK.
   
 
+
 **See**:
 - https://github.com/alphagov/rummager/blob/master/docs/content-api.md
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L52)
@@ -293,6 +306,7 @@ and contacts.
 
 - `base_path` (`String`) — Base path of the page on GOV.UK.
   
+
 
 **See**:
 - https://github.com/alphagov/rummager/blob/master/docs/content-api.md
@@ -311,6 +325,7 @@ For example, best bets, recommended links, or contacts.
 
 - `id` (`String`) — The rummager/elasticsearch id. Typically the same as the `link` field.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L86)
@@ -566,6 +581,7 @@ Sets the attribute code
 - `value` (``) — the value to set the attribute code to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/exceptions.rb#L15)
 
@@ -585,6 +601,7 @@ Sets the attribute error_details
 
 - `value` (``) — the value to set the attribute error_details to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/exceptions.rb#L15)
@@ -716,6 +733,7 @@ Sets the attribute cache
 - `value` (``) — the value to set the attribute cache to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L31)
 
@@ -735,6 +753,7 @@ Sets the attribute logger
 
 - `value` (``) — the value to set the attribute logger to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L34)
@@ -756,6 +775,7 @@ Sets the attribute options
 - `value` (``) — the value to set the attribute options to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L34)
 
@@ -775,6 +795,7 @@ Sets the attribute cache
 
 - `value` (``) — the value to set the attribute cache to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/json_client.rb#L34)
@@ -921,6 +942,10 @@ support_api.create_page_improvement(
   path: 'http://gov.uk/service-manual/agile'
 ```
 
+**Raises**:
+
+- `HTTPErrorResponse` if the request returns an error
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/support_api.rb#L41)
 
@@ -1034,6 +1059,7 @@ Where there is no problem report with ID of 1.
 Reports mapped to a boolean value - true if
 that report is to be marked as spam, or false otherwise.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/support_api.rb#L139)
@@ -1228,6 +1254,10 @@ response = asset_manager.create_asset(file: params[:file])
 response['content_type'] #=> "image/jpeg"
 ```
 
+**Raises**:
+
+- `HTTPErrorResponse` if the request returns an error
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/asset_manager.rb#L46)
 
@@ -1273,6 +1303,10 @@ uuid = '594602dd-75b3-4e6f-b5d1-cacf8c4d4164'
 asset_manager.update_asset(uuid, file: File.new('image.jpg', 'r'))
 ```
 
+**Raises**:
+
+- `HTTPErrorResponse` if the request returns an error
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/asset_manager.rb#L79)
 
@@ -1289,6 +1323,10 @@ Fetches an asset given the id
 
 - (`GdsApi::Response, nil`) — A response object containing the parsed JSON response. If
 the asset cannot be found, +nil+ wil be returned.
+
+**Raises**:
+
+- `HTTPErrorResponse` if the request returns an error
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/asset_manager.rb#L90)
@@ -1323,6 +1361,10 @@ uuid = '594602dd-75b3-4e6f-b5d1-cacf8c4d4164'
 asset_manager.delete_asset(uuid)
 ```
 
+**Raises**:
+
+- `HTTPErrorResponse` if the request returns an error
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/asset_manager.rb#L113)
 
@@ -1355,6 +1397,10 @@ both as a +Hash+ and an +OpenStruct+, and responds to the following:
 uuid = '594602dd-75b3-4e6f-b5d1-cacf8c4d4164'
 asset_manager.restore_asset(uuid)
 ```
+
+**Raises**:
+
+- `HTTPErrorResponse` if the request returns an error
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/asset_manager.rb#L136)
@@ -1545,6 +1591,7 @@ Get or Post subscriber list
 - `attributes` (`Hash`) — document_type, links, tags used to search existing subscriber lists
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/email_alert_api.rb#L12)
 
@@ -1556,6 +1603,7 @@ Post notification
 
 - `publication` (`Hash`) — Valid publication attributes
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/email_alert_api.rb#L35)
@@ -1649,6 +1697,7 @@ Put a content item
 - `payload` (`Hash`) — A valid content item
   
 
+
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#put-v2contentcontent_id
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L16)
@@ -1672,6 +1721,10 @@ Raises exception if the item doesn't exist.
 **Returns**:
 
 - (`GdsApi::Response`) — a content item
+
+**Raises**:
+
+- `HTTPNotFound` when the content item is not found
 
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2contentcontent_id
@@ -1751,6 +1804,7 @@ on the public site.
   
   - `locale` (`String`) — The language, defaults to 'en' in publishing-api.
 
+
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-v2contentcontent_idpublish
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L87)
@@ -1788,6 +1842,7 @@ site, or update an existing unpublishing.
 - `unpublished_at` (`Time`) — (optional) The time the content was withdrawn. Ignored for types other than withdrawn
   
 
+
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-v2contentcontent_idunpublish
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L117)
@@ -1804,6 +1859,7 @@ Deletes the draft content item.
   
   - `locale` (`String`) — The language, defaults to 'en' in publishing-api.
   - `previous_version` (`Integer`) — used to ensure the request is discarding the latest lock version of the draft
+
 
 **See**:
 - https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-v2contentcontent_iddiscard-draft
@@ -2043,6 +2099,7 @@ Sets the attribute logger
 - `value` (``) — the value to set the attribute logger to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon/registerer.rb#L6)
 
@@ -2062,6 +2119,7 @@ Sets the attribute owning_app
 
 - `value` (``) — the value to set the attribute owning_app to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon/registerer.rb#L6)
@@ -2083,6 +2141,7 @@ Sets the attribute rendering_app
 - `value` (``) — the value to set the attribute rendering_app to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon/registerer.rb#L6)
 
@@ -2102,6 +2161,7 @@ Sets the attribute kind
 
 - `value` (``) — the value to set the attribute kind to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/panopticon/registerer.rb#L6)
@@ -2206,6 +2266,7 @@ needed.
 - `transaction_page_slug` (`String`) — The slug for which service feedback is
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/performance_platform/data_out.rb#L43)
 
@@ -2270,6 +2331,7 @@ Sets the attribute slug
 - `value` (``) — the value to set the attribute slug to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api/artefact_stub.rb#L11)
 
@@ -2289,6 +2351,7 @@ Sets the attribute query_parameters
 
 - `value` (``) — the value to set the attribute query_parameters to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api/artefact_stub.rb#L11)
@@ -2310,6 +2373,7 @@ Sets the attribute response_body
 - `value` (``) — the value to set the attribute response_body to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api/artefact_stub.rb#L11)
 
@@ -2329,6 +2393,7 @@ Sets the attribute response_status
 
 - `value` (``) — the value to set the attribute response_status to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/content_api/artefact_stub.rb#L11)
@@ -2775,6 +2840,10 @@ Returns the value of attribute response
 
 ### `#need_api_has_need(need)`
 
+
+**Raises**:
+
+- `ArgumentError` 
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/test_helpers/need_api.rb#L63)

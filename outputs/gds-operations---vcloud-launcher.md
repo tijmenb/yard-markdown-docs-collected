@@ -80,6 +80,10 @@ Returns the value of attribute script_path
 
 - (`Preamble`) — a new instance of Preamble
 
+**Raises**:
+
+- `MissingConfigurationError` 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-launcher/blob/master/lib/vcloud/launcher/preamble.rb#L11)
 

@@ -91,6 +91,7 @@ Sets the attribute git_remote
 - `value` (``) — the value to set the attribute git_remote to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/gem_publisher/publisher.rb#L8)
 
@@ -111,6 +112,7 @@ Sets the attribute builder
 - `value` (``) — the value to set the attribute builder to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/gem_publisher/publisher.rb#L8)
 
@@ -130,6 +132,7 @@ Sets the attribute pusher
 
 - `value` (``) — the value to set the attribute pusher to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/gem_publisher/publisher.rb#L8)

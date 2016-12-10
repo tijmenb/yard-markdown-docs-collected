@@ -20,6 +20,7 @@ Sets the attribute delivery_info
 - `value` (``) — the value to set the attribute delivery_info to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
 
@@ -39,6 +40,7 @@ Sets the attribute headers
 
 - `value` (``) — the value to set the attribute headers to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
@@ -60,6 +62,7 @@ Sets the attribute payload
 - `value` (``) — the value to set the attribute payload to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)
 
@@ -79,6 +82,7 @@ Sets the attribute status
 
 - `value` (``) — the value to set the attribute status to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L4)

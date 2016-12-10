@@ -18,6 +18,7 @@ Sets the attribute logger
 - `value` (``) — the value to set the attribute logger to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/app.rb#L5)
 
@@ -138,6 +139,7 @@ Sets the attribute template_cache
 - `value` (``) — the value to set the attribute template_cache to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L6)
 
@@ -157,6 +159,7 @@ Sets the attribute asset_host
 
 - `value` (``) — the value to set the attribute asset_host to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L6)
@@ -178,6 +181,7 @@ Sets the attribute logger
 - `value` (``) — the value to set the attribute logger to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L6)
 
@@ -198,6 +202,7 @@ Sets the attribute strict
 - `value` (``) — the value to set the attribute strict to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L6)
 
@@ -217,6 +222,7 @@ Sets the attribute options
 
 - `value` (``) — the value to set the attribute options to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L6)
@@ -302,6 +308,7 @@ Sets the attribute use_cache
 - `value` (``) — the value to set the attribute use_cache to.
   
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/cache.rb#L6)
 
@@ -313,6 +320,7 @@ Sets the attribute cache_ttl
 
 - `value` (``) — the value to set the attribute cache_ttl to.
   
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/cache.rb#L6)
@@ -718,6 +726,10 @@ Set the "slimmer headers" to configure the page
   - `skip` (`String`) — 
   - `template` (`String`) — 
   - `world_locations` (`String`) — 
+
+**Raises**:
+
+- `InvalidHeader` 
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/headers.rb#L77)

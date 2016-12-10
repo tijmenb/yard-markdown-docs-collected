@@ -231,6 +231,10 @@ this cache will need to be backed by something threadsafe.
 ### `.run(logger = NullLogger.new)`
 
 
+**Raises**:
+
+- `EnvironmentVariableError` 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder.rb#L7)
 
