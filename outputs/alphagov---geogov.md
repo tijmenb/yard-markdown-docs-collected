@@ -1,6 +1,9 @@
 
 ## `class Geogov::LruCache`
 
+Dead simple and inefficient LRU cache
+In no way thread-safe
+
 ### `#initialize(size = 100)`
 
 

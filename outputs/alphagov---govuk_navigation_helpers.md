@@ -59,6 +59,17 @@ Generate a related items payload
 
 ## `class GovukNavigationHelpers::RelatedItems`
 
+Generate data for the "Related Items" component
+
+http://govuk-component-guide.herokuapp.com/components/related_items
+
+The procedure to group the links is quite complicated. In short, related links
+are grouped by how related they are to the current page.
+
+The wiki page on related items has more information:
+
+https://gov-uk.atlassian.net/wiki/pages/viewpage.action?pageId=99876878
+
 ### `#initialize(content_item)`
 
 

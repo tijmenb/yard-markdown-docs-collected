@@ -1,6 +1,86 @@
 
 ## `class YARD::Config`
 
+This class maintains all system-wide configuration for YARD and handles
+the loading of plugins. To access options call {options}, and to load
+a plugin use {load_plugin}. All other public methods are used by YARD
+during load time.
+
+== User Configuration Files
+
+Persistent user configuration files can be stored in the file
++~/.yard/config+, which is read when YARD first loads. The file should
+be formatted as YAML, and should contain a map of keys and values.
+
+Although you can specify any key-value mapping in the configuration file,
+YARD defines special keys specified in {DEFAULT_CONFIG_OPTIONS}.
+
+An example of a configuration file is listed below:
+
+    !!!yaml
+    load_plugins: true # Auto-load plugins when YARD starts
+    ignored_plugins:
+      - yard-broken
+      - broken2 # yard- prefix not necessary
+    autoload_plugins:
+      - yard-rspec
+
+== Automatic Loading of Plugins
+
+YARD 0.6.2 will no longer automatically load all plugins by default. This
+option can be reset by setting 'load_plugins' to true in the configuration
+file. In addition, you can specify a set of specific plugins to load on
+load through the 'autoload_plugins' list setting. This setting is
+independent of the 'load_plugins' value and will always be processed.
+
+== Ignored Plugins File
+
+YARD 0.5 and below used a +~/.yard/ignored_plugins+ file to specify
+plugins to be ignored at load time. Ignored plugins in 0.6.2 and above
+should now be specified in the main configuration file, though YARD
+will support the +ignored_plugins+ file until 0.7.x.
+
+== Safe Mode
+
+YARD supports running in safe-mode. By doing this, it will avoid executing
+any user code such as require files or queries. Plugins will still be
+loaded with safe mode on, because plugins are properly namespaced with
+a 'yard-' prefix, must be installed as a gem, and therefore cannot be
+touched by the user. To specify safe mode, use the +safe_mode+ key.
+
+== Plugin Specific Configuration
+
+Additional settings can be defined within the configuration file
+specifically to provide configuration for a plugin. A plugin that utilizes
+the YARD configuration is strongly encouraged to utilize namespacing of
+their configuration content.
+
+    !!!yaml
+    load_plugins: true # Auto-load plugins when YARD starts
+    ignored_plugins:
+      - yard-broken
+      - broken2 # yard- prefix not necessary
+    autoload_plugins:
+      - yard-rspec
+    # Plugin Specific Configuration
+    yard-sample-plugin:
+      show-results-inline: true
+
+As the configuration is available system wide, it can be
+accessed within the plugin code.
+
+    if YARD::Config.options['yard-sample-plugin'] and
+      YARD::Config.options['yard-sample-plugin']['show-results-inline']
+      # ... perform the action that places the results inline ...
+    else
+      # ... do the default behavior of not showing the results inline ...
+    end
+
+When accessing the configuration, be aware that this file is user managed
+so configuration keys and values may not be present. Make no assumptions and
+instead ensure that you check for the existence of keys before proceeding to
+retrieve values.
+
 ### `.options`
 
 The system-wide configuration options for YARD
@@ -187,6 +267,8 @@ Temporarily loads .yardopts file into @yardopts
 
 ## `class YARD::CLI::YRI`
 
+A tool to view documentation in the console like `ri`
+
 ### `.run(*args) new.run(*args) end`
 
 Helper method to run the utility on an instance.
@@ -233,6 +315,33 @@ YRI.new.run('String#reverse')
 ---
 
 ## `class YARD::Options`
+
+Generalized options class for passing around large amounts of options between objects.
+
+The options class exists for better visibility and documentability of options being
+passed through to other objects. Because YARD has parser and template architectures
+that are heavily reliant on options, it is necessary to make these option keys easily
+visible and understood by developers. Since the options class is more than just a
+basic Hash, the subclass can provide aliasing and convenience methods to simplify
+option property access, and, if needed, support backward-compatibility for deprecated
+key names.
+
+== Hash and OpenStruct-like Access
+
+Although the options class allows for Hash-like access (<tt>opts[:key]</tt>), the recommended
+mechanism for accessing an option key will be via standard method calls on attributes
+
+The options class can also act as an open ended key value storage structure (like a
+Hash or OpenStruct), and allows for setting and getting of unregistered option keys.
+This methodology is not recommended, however, and is only supported for backward
+compatibility inside YARD. Whenever possible, developers should define all keys used
+by an options class.
+
+== Declaring Default Values
+
+Note that the options class can contain default value definitions for certain options,
+but to initialize these defaults, {#reset_defaults} must be called manually after
+initialization; the options object is always created empty until defaults are applied.
 
 ### `.default_attr(key, default)`
 
@@ -436,6 +545,9 @@ only for 1.8.6
 ---
 
 ## `class YARD::Logger`
+
+Handles console logging for info, warnings and errors.
+Uses the stdlib Logger class in Ruby for all the backend logic.
 
 ### `#io; @logdev end`
 
@@ -692,6 +804,11 @@ end
 
 ## `class YARD::CLI::I18n`
 
+CLI command to support internationalization (a.k.a. i18n).
+I18n feature is based on gettext technology.
+This command generates .pot file from docstring and extra
+documentation.
+
 ### `#initialize`
 
 
@@ -717,6 +834,8 @@ end
 ---
 
 ## `class YARD::CLI::Help`
+
+Handles help for commands
 
 ### `#description; "Retrieves help for a command" end`
 
@@ -771,6 +890,8 @@ YARD indexes for gems.
 
 ## `class YARD::CLI::List`
 
+Lists all constant and method names in the codebase. Uses {Yardoc} --list.
+
 ### `#description; 'Lists all constant and methods. Uses `yard doc --list`' end`
 
 
@@ -797,6 +918,9 @@ list of objects
 ---
 
 ## `class YARD::Tags::Tag`
+
+Represents a metadata tag value (+@tag+). Tags can have any combination of
+{#types}, {#name} and {#text}, or none of the above.
 
 ### `#tag_name`
 
@@ -969,6 +1093,9 @@ if no types are provided or parseable.
 
 ## `class YARD::CLI::Diff`
 
+CLI command to return the objects that were added/removed from 2 versions
+of a project (library, gem, working copy).
+
 ### `#initialize`
 
 
@@ -994,6 +1121,16 @@ if no types are provided or parseable.
 ---
 
 ## `class YARD::Verifier`
+
+Similar to a Proc, but runs a set of Ruby expressions using a small
+DSL to make tag lookups easier.
+
+The syntax is as follows:
+* All syntax is Ruby compatible
+* +object+ (+o+ for short) exist to access the object being verified
+* +@TAGNAME+ is translated into +object.tag('TAGNAME')+
+* +@@TAGNAME+ is translated into +object.tags('TAGNAME')+
+* +object+ can be omitted as target for method calls (it is implied)
 
 ### `#expressions`
 
@@ -1256,6 +1393,20 @@ total objects of a type.
 ---
 
 ## `class YARD::Docstring`
+
+A documentation string, or "docstring" for short, encapsulates the
+comments and metadata, or "tags", of an object. Meta-data is expressed
+in the form +@tag VALUE+, where VALUE can span over multiple lines as
+long as they are indented. The following +@example+ tag shows how tags
+can be indented:
+
+  # @example My example
+  #   a = "hello world"
+  #   a.reverse
+  # @version 1.0
+
+Tags can be nested in a documentation string, though the {Tags::Tag}
+itself is responsible for parsing the inner tags.
 
 ### `.default_parser`
 
@@ -1691,6 +1842,8 @@ explicitly. Resolving unresolved reference is done implicitly.
 
 ## `class YARD::CLI::GraphOptions`
 
+Options to pass to the {Graph} CLI.
+
 ### `#default_attr :format, :dot`
 
 
@@ -1765,6 +1918,9 @@ explicitly. Resolving unresolved reference is done implicitly.
 
 ## `class YARD::CLI::Graph`
 
+A command-line utility to generate Graphviz graphs from
+a set of objects
+
 ### `#options`
 
 The options parsed out of the commandline.
@@ -1823,6 +1979,8 @@ grapher.run('--private')
 
 ## `class YARD::I18n::Text`
 
+Provides some convenient features for translating a text.
+
 ### `#initialize(input, options = {})`
 
 Creates a text object that has translation related features for
@@ -1877,6 +2035,8 @@ Translates into +locale+.
 ---
 
 ## `class YARD::CLI::Config`
+
+CLI command to view or edit configuration options
 
 ### `#key`
 
@@ -2026,6 +2186,8 @@ If the string is nil, configuration should not occur.
 
 ## `class YARD::CLI::Server`
 
+A local documentation server
+
 ### `#options`
 
 
@@ -2172,6 +2334,8 @@ Creates a new instance of the Server command line utility
 ---
 
 ## `class YARD::CLI::YardocOptions`
+
+Default options used in +yard doc+ command.
 
 ### `#default_attr :files, lambda { [] }`
 
@@ -2368,6 +2532,95 @@ of an object's namespace (for generating links).
 ---
 
 ## `class YARD::CLI::Yardoc`
+
+Yardoc is the default YARD CLI command (+yard doc+ and historic +yardoc+
+executable) used to generate and output (mainly) HTML documentation given
+a set of source files.
+
+== Usage
+
+Main usage for this command is:
+
+  $ yardoc [options] [source_files [- extra_files]]
+
+See +yardoc --help+ for details on valid options.
+
+== Options File (+.yardopts+)
+
+If a +.yardopts+ file is found in the source directory being processed,
+YARD will use the contents of the file as arguments to the command,
+treating newlines as spaces. You can use shell-style quotations to
+group space delimited arguments, just like on the command line.
+
+A valid +.yardopts+ file might look like:
+
+  --no-private
+  --title "My Title"
+  --exclude foo --exclude bar
+  lib/**/*.erb
+  lib/**/*.rb -
+  HACKING.rdoc LEGAL COPYRIGHT
+
+Note that Yardoc also supports the legacy RDoc style +.document+ file,
+though this file can only specify source globs to parse, not options.
+
+== Queries (+--query+)
+
+Yardoc supports queries to select specific code objects for which to
+generate documentation. For example, you might want to generate
+documentation only for your public API. If you've documented your public
+methods with +@api public+, you can use the following query to select
+all of these objects:
+
+  --query '@api.text == "public"'
+
+Note that the syntax for queries is mostly Ruby with a few syntactic
+simplifications for meta-data tags. See the {Verifier} class for an
+overview of this syntax.
+
+== Adding Custom Ad-Hoc Meta-data Tags (+--tag+)
+
+YARD allows specification of {file:docs/Tags.md meta-data tags}
+programmatically via the {YARD::Tags::Library} class, but often this is not
+practical for users writing documentation. To make adding custom tags
+easier, Yardoc has a few command-line switches for creating basic tags
+and displaying them in generated HTML output.
+
+To specify a custom tag to be displayed in output, use any of the
+following:
+
+* +--tag+ TAG:TITLE
+* +--name-tag+ TAG:TITLE
+* +--type-tag+ TAG:TITLE
+* +--type-name-tag+ TAG:TITLE
+* +--title-tag+ TAG:TITLE
+
+"TAG:TITLE" is of the form: name:"Display Title", for example:
+
+  --tag overload:"Overloaded Method"
+
+See +yardoc --help+ for a description of the various options.
+
+Tags added in this way are automatically displayed in output. To add
+a meta-data tag that does not show up in output, use +--hide-tag TAG+.
+Note that you can also use this option on existing tags to hide
+builtin tags, for instance.
+
+== Processed Data Storage (+.yardoc+ directory)
+
+When Yardoc parses a source directory, it creates a +.yardoc+ directory
+(by default, override with +-b+) at the root of the project. This directory
+contains marshal dumps for all raw object data in the source, so that
+you can access it later for various commands (+stats+, +graph+, etc.).
+This directory is also used as a cache for any future calls to +yardoc+
+so as to process only the files which have changed since the last call.
+
+When Yardoc uses the cache in subsequent calls to +yardoc+, methods
+or classes that have been deleted from source since the last parsing
+will not be erased from the cache (YARD never deletes objects). In such
+a case, you should wipe the cache and do a clean parsing of the source tree.
+You can do this by deleting the +.yardoc+ directory manually, or running
+Yardoc without +--use-cache+ (+-c+).
 
 ### `#options`
 
@@ -2719,6 +2972,9 @@ which objects YARD should generate documentation for.
 
 ## `class YARD::I18n::Locale`
 
++Locale+ is a unit of translation. It has {#name} and a set of
+messages.
+
 ### `.default`
 
 
@@ -2803,6 +3059,9 @@ registered, the +message+ is returned.
 
 ## `class YARD::CLI::Command`
 
+Abstract base class for CLI utilities. Provides some helper methods for
+the option parser
+
 ### `.run(*args) new.run(*args) end`
 
 Helper method to run the utility on an instance.
@@ -2821,6 +3080,8 @@ Helper method to run the utility on an instance.
 ---
 
 ## `class YARD::CLI::Display`
+
+Display one object
 
 ### `#description; 'Displays a formatted object' end`
 
@@ -2893,6 +3154,13 @@ Parses commandline options.
 
 ## `class YARD::Parser::Base`
 
+Represents the abstract base parser class that parses source code in
+a specific way. A parser should implement {#parse}, {#tokenize} and
+{#enumerator}.
+
+== Registering a Custom Parser
+To register a parser, see {SourceParser.register_parser_type}
+
 ### `.parse(source, filename = nil)`
 
 Convenience method to create a new parser and {#parse}
@@ -2962,6 +3230,9 @@ to be post-processed
 ---
 
 ## `class YARD::I18n::Message`
+
++Message+ is a translation target message. It has message ID as
+{#id} and some properties {#locations} and {#comments}.
 
 ### `#id`
 
@@ -3062,6 +3333,52 @@ Adds a comment for the message.
 ---
 
 ## `class YARD::Tags::Library`
+
+Keeps track of all the registered meta-data tags and directives.
+Also allows for defining of custom tags and customizing the tag parsing
+syntax.
+
+== Defining Custom Meta-Data Tags
+
+To define a custom tag, use {define_tag}. You should pass the tag
+name and the factory method to use when creating the tag. If you do not
+provide a factory method to use, it will default to {DefaultFactory#parse_tag}
+
+You can also define tag objects manually by simply implementing a "tagname_tag"
+method that returns a {Tag} object, but they will not take advantage of tag factory
+parsing:
+
+  def mytag_tag(text)
+    Tag.new(:mytag, text)
+  end
+
+== Defining Custom Directives
+
+Directives can be defined by calling the {define_directive} method, taking
+the directive name, an optional tag factory parser method (to parse the
+data in the directive into a temporary {Tag} object) and a {Directive} subclass
+that performs the directive processing. For more information on creating a
+Directive subclass, see the {Directive} class documentation.
+
+Similar to tags, Directives can also be defined manually, in this case using
+the method name "mydirective_directive" and returning a new {Directive} object:
+
+  def mydirective_directive(tag, parser)
+    MyDirective.new(tag, parser)
+  end
+
+== Namespaced Tags
+
+In YARD 0.8.0+, tags can be namespaced using the '.' character. It is recommended
+to namespace project specific tags, like +@yard.tag_name+, so that tags do not
+collide with other plugins or new built-in tags.
+
+== Adding/Changing the Tag Syntax
+
+If you have specialized tag parsing needs you can substitute the {#factory}
+object with your own by setting {Library.default_factory= Library.default_factory}
+to a new class with its own parsing methods before running YARD. This is useful
+if you want to change the syntax of existing tags (@see, @since, etc.)
 
 ### `.labels`
 
@@ -3479,6 +3796,8 @@ Reads a file with binary encoding
 
 ## `class YARD::I18n::Messages`
 
+Acts as a container for {Message} objects.
+
 ### `#initialize`
 
 Creates a new container.
@@ -3553,6 +3872,23 @@ Checks if this messages list is equal to another messages list.
 ---
 
 ## `class YARD::Server::Router`
+
+A router class implements the logic used to recognize a request for a specific
+URL and run specific {Commands::Base commands}.
+
+== Subclassing Notes
+To create a custom router, subclass this class and pass it into the adapter
+options through {Adapter#initialize} or by directly modifying {Adapter#router}.
+
+The most general customization is to change the URL prefixes recognized by
+routing, which can be done by overriding {#docs_prefix}, {#list_prefix},
+{#static_prefix}, and {#search_prefix}.
+
+== Implementing Custom Caching
+By default, the Router class performs static disk-based caching on all
+requests through the +#check_static_cache+. To override this behaviour,
+or create your own caching mechanism, mixin your own custom module with
+this method implemented as per {StaticCaching#check_static_cache}.
 
 ### `#request`
 
@@ -3683,6 +4019,10 @@ will be nil if no matching library was found.
 
 ## `class YARD::Handlers::NamespaceMissingError`
 
+Raised during processing phase when a handler needs to perform
+an operation on an object's namespace but the namespace could
+not be resolved.
+
 ### `#object`
 
 The object the error occurred on
@@ -3718,6 +4058,124 @@ The object the error occurred on
 ---
 
 ## `class YARD::Handlers::Base`
+
+Handlers are pluggable semantic parsers for YARD's code generation
+phase. They allow developers to control what information gets
+generated by YARD, giving them the ability to, for instance, document
+any Ruby DSLs that a customized framework may use. A good example
+of this would be the ability to document and generate meta data for
+the 'describe' declaration of the RSpec testing framework by simply
+adding a handler for such a keyword. Similarly, any Ruby API that
+takes advantage of class level declarations could add these to the
+documentation in a very explicit format by treating them as first-
+class objects in any outputted documentation.
+
+== Overview of a Typical Handler Scenario
+
+Generally, a handler class will declare a set of statements which
+it will handle using the {handles} class declaration. It will then
+implement the {#process} method to do the work. The processing would
+usually involve the manipulation of the {#namespace}, {#owner}
+{CodeObjects::Base code objects} or the creation of new ones, in
+which case they should be registered by {#register}, a method that
+sets some basic attributes for the new objects.
+
+Handlers are usually simple and take up to a page of code to process
+and register a new object or add new attributes to the current +namespace+.
+
+== Setting up a Handler for Use
+
+A Handler is automatically registered when it is subclassed from the
+base class. The only other thing that needs to be done is to specify
+which statement the handler will process. This is done with the +handles+
+declaration, taking either a {Parser::Ruby::Legacy::RubyToken}, {String} or `Regexp`.
+Here is a simple example which processes module statements.
+
+  class MyModuleHandler < YARD::Handlers::Base
+    handles TkMODULE
+
+    def process
+      # do something
+    end
+  end
+
+== Processing Handler Data
+
+The goal of a specific handler is really up to the developer, and as
+such there is no real guideline on how to process the data. However,
+it is important to know where the data is coming from to be able to use
+it.
+
+=== +statement+ Attribute
+
+The +statement+ attribute pertains to the {Parser::Ruby::Legacy::Statement} object
+containing a set of tokens parsed in by the parser. This is the main set
+of data to be analyzed and processed. The comments attached to the statement
+can be accessed by the {Parser::Ruby::Legacy::Statement#comments} method, but generally
+the data to be processed will live in the +tokens+ attribute. This list
+can be converted to a +String+ using +#to_s+ to parse the data with
+regular expressions (or other text processing mechanisms), if needed.
+
+=== +namespace+ Attribute
+
+The +namespace+ attribute is a {CodeObjects::NamespaceObject namespace object}
+which represents the current namespace that the parser is in. For instance:
+
+  module SomeModule
+    class MyClass
+      def mymethod; end
+    end
+  end
+
+If a handler was to parse the 'class MyClass' statement, it would
+be necessary to know that it belonged inside the SomeModule module.
+This is the value that +namespace+ would return when processing such
+a statement. If the class was then entered and another handler was
+called on the method, the +namespace+ would be set to the 'MyClass'
+code object.
+
+=== +owner+ Attribute
+
+The +owner+ attribute is similar to the +namespace+ attribute in that
+it also follows the scope of the code during parsing. However, a namespace
+object is loosely defined as a module or class and YARD has the ability
+to parse beyond module and class blocks (inside methods, for instance),
+so the +owner+ attribute would not be limited to modules and classes.
+
+To put this into context, the example from above will be used. If a method
+handler was added to the mix and decided to parse inside the method body,
+the +owner+ would be set to the method object but the namespace would remain
+set to the class. This would allow the developer to process any method
+definitions set inside a method (def x; def y; 2 end end) by adding them
+to the correct namespace (the class, not the method).
+
+In summary, the distinction between +namespace+ and +owner+ can be thought
+of as the difference between first-class Ruby objects (namespaces) and
+second-class Ruby objects (methods).
+
+=== +visibility+ and +scope+ Attributes
+
+Mainly needed for parsing methods, the +visibility+ and +scope+ attributes
+refer to the public/protected/private and class/instance values (respectively)
+of the current parsing position.
+
+== Parsing Blocks in Statements
+
+In addition to parsing a statement and creating new objects, some
+handlers may wish to continue parsing the code inside the statement's
+block (if there is one). In this context, a block means the inside
+of any statement, be it class definition, module definition, if
+statement or classic 'Ruby block'.
+
+For example, a class statement would be "class MyClass" and the block
+would be a list of statements including the method definitions inside
+the class. For a class handler, the programmer would execute the
+{#parse_block} method to continue parsing code inside the block, with
+the +namespace+ now pointing to the class object the handler created.
+
+YARD has the ability to continue into any block: class, module, method,
+even if statements. For this reason, the block parsing method must be
+invoked explicitly out of efficiency sake.
 
 ### `.clear_subclasses`
 
@@ -4302,6 +4760,9 @@ methods of the {Insertion} class.
 
 ## `class YARD::I18n::POParser`
 
++Locale+ is a wrapper for gettext's PO parsing feature. It hides
+gettext API difference from YARD.
+
 ### `.available?`
 
 
@@ -4331,6 +4792,15 @@ Parses PO file.
 ---
 
 ## `class YARD::Server::Adapter`
+
+This class implements the bridge between the {Router} and the server
+backend for a specific server type. YARD implements concrete adapters
+for WEBrick and Rack respectively, though other adapters can be made
+for other server architectures.
+
+== Subclassing Notes
+To create a concrete adapter class, implement the {#start} method to
+initiate the server backend.
 
 ### `#document_root`
 
@@ -4529,6 +4999,8 @@ Implement this method to connect your adapter to your server.
 ---
 
 ## `class YARD::RegistryStore`
+
+The data store for the {Registry}.
 
 ### `#proxy_types`
 
@@ -4945,6 +5417,20 @@ Sets the attribute pair
 
 ## `class YARD::Tags::Directive`
 
+The base directive class. Subclass this class to create a custom
+directive, registering it with {Library.define_directive}. Directive
+classes are executed via the {#call} method, which perform all directive
+processing on the object.
+
+If processing occurs within a handler, the {#handler} attribute is
+available to access more information about parsing context and state.
+Handlers are only available when parsing from {Parser::SourceParser},
+not when parsing directly from {DocstringParser}. If the docstring is
+attached to an object declaration, {#object} will be set and available
+to modify the generated code object directly. Note that both of these
+attributes may be nil, and directives should test their existence
+before attempting to use them.
+
 ### `#tag`
 
 
@@ -5076,6 +5562,12 @@ to perform any cleanup after all directives perform their main task.
 
 ## `class YARD::Tags::EndGroupDirective`
 
+Ends a group listing definition. Group definition automatically end
+when class or module blocks are closed, and defining a new group overrides
+the last group definition, but occasionally you need to end the current
+group to return to the default listing. Use {tag:!group} to begin a
+group listing.
+
 ### `#call`
 
 
@@ -5085,6 +5577,12 @@ to perform any cleanup after all directives perform their main task.
 ---
 
 ## `class YARD::Tags::GroupDirective`
+
+Defines a group listing. All methods (and attributes) seen after this
+directive are placed into a group with the given description as the
+group name. The group listing is used by templates to organize methods
+and attributes into respective logical groups. To end a group listing
+use {tag:!endgroup}.
 
 **A group definition only applies to the scope it is defined in.
 If a new class or module is opened after the directive, this directive
@@ -5100,6 +5598,92 @@ will not apply to methods in that class or module.**
 
 ## `class YARD::Tags::MacroDirective`
 
+Defines a block of text to be expanded whenever the macro is called by name
+in subsequent docstrings. The macro data can be any arbitrary text data, be
+it regular documentation, meta-data tags or directives.
+
+== Defining a Macro
+
+A macro must first be defined in order to be used. Note that a macro is also
+expanded upon definition if it defined on an object (the docstring of a
+method, class, module or constant object as opposed to a free standing
+comment). To define a macro, use the "new" or "attach" identifier in the
+types specifier list. A macro will also automatically be created if an
+indented macro data block is given, so the keywords are not strictly needed.
+
+=== Anonymous Macros
+
+In addition to standard named macros, macros can be defined anonymously if
+no name is given. In this case, they can not be re-used in future docstrings,
+but they will expand in the first definition. This is useful when needing
+to take advantage of the macro expansion variables (described below).
+
+== Using a Macro
+
+To re-use a macro in another docstring after it is defined, simply use
+<tt>@!macro the_name</tt> with no indented block of macro data. The resulting
+data will be expanded in place.
+
+== Attaching a Macro to a DSL Method
+
+Macros can be defined to auto-expand on DSL-style class method calls. To
+define a macro to be auto expanded in this way, use the "attach" keyword
+in the type specifier list ("new" is implied).
+
+Attached macros can also be attached directly on the class method declaration
+that provides the DSL method to its subclasses. The syntax in either case
+is the same.
+
+== Macro Expansion Variables
+
+In the case of using macros on DSL-style method calls, a number of expansion
+variables can be used for interpolation inside of the macro data. The variables,
+similar in syntax to Ruby's global variables, are as follows:
+
+* $0 - the method name being called
+* $1, $2, $3, ... - the Nth argument in the method call
+* $& - the full source line
+
+The following example shows what the expansion variables might hold for a given
+DSL method call:
+
+  property :foo, :a, :b, :c, String
+  # $0 => "property"
+  # $1 => "foo"
+  # $2 => "a"
+  # $& => "property :foo, :a, :b, :c, String"
+
+=== Ranges
+
+Ranges are also acceptable with the syntax <tt>${N-M}</tt>. Negative values
+on either N or M are valid, and refer to indexes from the end of the list.
+Consider a DSL method that creates a method using the first argument with
+argument names following, ending with the return type of the method. This
+could be documented as:
+
+    # @!macro dsl_method
+    #   @!method $1(${2--2})
+    #   @return [${-1}] the return value of $0
+    create_method_with_args :foo, :a, :b, :c, String
+
+As described, the method is using the signature <tt>foo(a, b, c)</tt> and the return
+type from the last argument, +String+. When using ranges, tokens are joined
+with commas. Note that this includes using $0:
+
+    !!!plain
+    $0-1 # => Interpolates to "create_method_with_args, foo"
+
+If you want to separate them with spaces, use <tt>$1 $2 $3 $4 ...</tt>. Note that
+if the token cannot be expanded, it will return the empty string (not an error),
+so it would be safe to list <tt>$1 $2 ... $10</tt>, for example.
+
+=== Escaping Interpolation
+
+Interpolation can be escaped by prefixing the +$+ with +\\\+, like so:
+
+    # @!macro foo
+    #   I have \$2.00 USD.
+
 ### `#call`
 
 
@@ -5109,6 +5693,14 @@ will not apply to methods in that class or module.**
 ---
 
 ## `class YARD::Tags::MethodDirective`
+
+Defines a method object with a given method signature, using indented
+block data as the method's docstring. The signature is similar to the
+{tag:overload} tag. The comment containing this directive does not need
+to be attached to any source, but if it is, that source code will be
+used as the method's source.
+
+To define an attribute method, see {tag:!attribute}
 
 **For backwards compatibility support, you do not need to indent
 the method's docstring text. If a +@!method+ directive is seen with
@@ -5131,6 +5723,15 @@ docstring text.**
 
 ## `class YARD::Tags::AttributeDirective`
 
+Defines an attribute with a given name, using indented block data as the
+attribute's docstring. If the type specifier is supplied with "r", "w", or
+"rw", the attribute is made readonly, writeonly or readwrite respectively.
+A readwrite attribute is the default, if no type is specified. The comment
+containing this directive does not need to be attached to any source, but
+if it is, that source code will be used as the method's source.
+
+To define an regular method, see {tag:!method}
+
 **For backwards compatibility support, you do not need to indent
 the attribute's docstring text. If an +@!attribute+ directive is seen with
 no indented block, the entire docstring is used as the new attribute's
@@ -5146,6 +5747,13 @@ docstring text.**
 
 ## `class YARD::Tags::ParseDirective`
 
+Parses a block of code as if it were present in the source file at that
+location. This directive is useful if a class has dynamic meta-programmed
+behaviour that cannot be recognized by YARD.
+
+You can specify the language of the code block using the types
+specification list. By default, the code language is "ruby".
+
 ### `#call`
 
 
@@ -5156,6 +5764,11 @@ docstring text.**
 
 ## `class YARD::Tags::ScopeDirective`
 
+Modifies the current parsing scope (class or instance). If this
+directive is defined on a docstring attached to an object definition,
+it is applied only to that object. Otherwise, it applies the scope
+to all future objects in the namespace.
+
 ### `#call`
 
 
@@ -5165,6 +5778,11 @@ docstring text.**
 ---
 
 ## `class YARD::Tags::VisibilityDirective`
+
+Modifies the current parsing visibility (public, protected, or private).
+If this directive is defined on a docstring attached to an object
+definition, it is applied only to that object. Otherwise, it applies
+the visibility to all future objects in the namespace.
 
 ### `#call`
 
@@ -5290,6 +5908,8 @@ Returns the value of attribute defaults
 
 ## `class YARD::CLI::MarkupTypes`
 
+Lists all markup types
+
 ### `#description; 'Lists all available markup types and libraries' end`
 
 
@@ -5316,6 +5936,18 @@ list of markup types
 ---
 
 ## `class YARD::Serializers::Base`
+
+The abstract base serializer. Serializers allow templates to be
+rendered to various endpoints. For instance, a {FileSystemSerializer}
+would allow template contents to be written to the filesystem
+
+To implement a custom serializer, override the following methods:
+* {#serialize}
+* {#serialized_path}
+
+Optionally, a serializer can implement before and after filters:
+* {#before_serialize}
+* {#after_serialize}
 
 ### `#options`
 
@@ -5422,6 +6054,17 @@ Called after serialization.
 ---
 
 ## `class YARD::DocstringParser`
+
+Parses text and creates a {Docstring} object to represent documentation
+for a {CodeObjects::Base}. To create a new docstring, you should initialize
+the parser and call {#parse} followed by {#to_docstring}.
+
+== Subclassing Notes
+
+The DocstringParser can be subclassed and subtituted during parsing by
+setting the {Docstring.default_parser} attribute with the name of the
+subclass. This allows developers to change the way docstrings are
+parsed, allowing for completely different docstring syntaxes.
 
 ### `#text`
 
@@ -5794,6 +6437,8 @@ tag data, or add any extra tags automatically to a docstring.
 
 ## `class YARD::Rake::YardocTask`
 
+The rake task to run {CLI::Yardoc} and generate documentation.
+
 ### `#name`
 
 The name of the task
@@ -6102,6 +6747,9 @@ Sets the attribute name
 
 ## `class YARD::Templates::Section`
 
+Abstracts the structure for a section and its subsections into an ordered
+list of sections and subsections.
+
 ### `#name`
 
 
@@ -6197,6 +6845,10 @@ Sets the attribute name
 ---
 
 ## `class YARD::RegistryResolver`
+
+Handles all logic for complex lexical and inherited object resolution.
+Used by {Registry.resolve}, so there is no need to use this class
+directly.
 
 ### `#initialize(registry = Registry)`
 
@@ -6370,6 +7022,9 @@ Returns the value of attribute docstring
 
 ## `class YARD::CodeObjects::CodeObjectList`
 
+A list of code objects. This array acts like a set (no unique items)
+but also disallows any {Proxy} objects from being added.
+
 ### `#initialize(owner = Registry.root)`
 
 Creates a new object list associated with a namespace
@@ -6421,6 +7076,34 @@ Adds a new value to the list
 ---
 
 ## `class YARD::CodeObjects::Base`
+
++Base+ is the superclass of all code objects recognized by YARD. A code
+object is any entity in the Ruby language (class, method, module). A
+DSL might subclass +Base+ to create a new custom object representing
+a new entity type.
+
+== Registry Integration
+Any created object associated with a namespace is immediately registered
+with the registry. This allows the Registry to act as an identity map
+to ensure that no object is represented by more than one Ruby object
+in memory. A unique {#path} is essential for this identity map to work
+correctly.
+
+== Custom Attributes
+Code objects allow arbitrary custom attributes to be set using the
+{#[]=} assignment method.
+
+== Namespaces
+There is a special type of object called a "namespace". These are subclasses
+of the {NamespaceObject} and represent Ruby entities that can have
+objects defined within them. Classically these are modules and classes,
+though a DSL might create a custom {NamespaceObject} to describe a
+specific set of objects.
+
+== Separators
+Custom classes with different separator tokens should define their own
+separators using the {NamespaceMapper.register_separator} method. The
+standard Ruby separators have already been defined ('::', '#', '.', etc).
 
 ### `#files`
 
@@ -7125,6 +7808,9 @@ and the name (default is {NSEP})
 
 ## `class YARD::Handlers::Ruby::HandlesExtension`
 
+To implement a custom handler matcher, subclass this class and implement
+{#matches?} to return whether a node matches the handler.
+
 ### `#initialize(name) @name = name end`
 
 Creates a new extension with a specific matcher value +name+
@@ -7188,6 +7874,11 @@ Tests if the node matches the handler
 ---
 
 ## `class YARD::Handlers::Ruby::Base`
+
+This is the base handler class for the new-style (1.9) Ruby parser.
+All handlers that subclass this base class will be used when the
+new-style parser is used. For implementing legacy handlers, see
+{Legacy::Base}.
 
 ### `.method_call(name = nil)`
 
@@ -7585,6 +8276,19 @@ Sets the attribute statement
 
 ## `class YARD::Handlers::Processor`
 
+Iterates over all statements in a file and delegates them to the
+{Handlers::Base} objects that are registered to handle the statement.
+
+This class is passed to each handler and keeps overall processing state.
+For example, if the {#visibility} is set in a handler, all following
+statements will have access to this state. This allows "public",
+"protected" and "private" statements to be handled in classes and modules.
+In addition, the {#namespace} can be set during parsing to control
+where objects are being created from. You can also access extra stateful
+properties that any handler can set during the duration of the post
+processing of a file from {#extra_state}. If you need to access state
+across different files, look at {#globals}.
+
 ### `.register_handler_namespace(type, ns)`
 
 Registers a new namespace for handlers of the given type.
@@ -7876,6 +8580,12 @@ Searches for all handlers in {Base.subclasses} that match the +statement+
 
 ## `class YARD::CodeObjects::Proxy`
 
+The Proxy class is a way to lazily resolve code objects in
+cases where the object may not yet exist. A proxy simply stores
+an unresolved path until a method is called on the object, at which
+point it does a lookup using {Registry.resolve}. If the object is
+not found, a warning is raised and {ProxyMethodError} might be raised.
+
 ### `.===(other) other.is_a?(self) end`
 
 
@@ -8147,6 +8857,22 @@ This class is never a root object
 
 ## `class YARD::CLI::CommandParser`
 
+This class parses a command name out of the +yard+ CLI command and calls
+that command in the form:
+
+  $ yard command_name [options]
+
+If no command or arguments are specified, or if the arguments immediately
+begin with a +--opt+ (not +--help+), the {default_command} will be used
+(which itself defaults to +:doc+).
+
+== Adding a Command
+
+To add a custom command via plugin, create a mapping in {commands} from
+the Symbolic command name to the {Command} class that implements the
+command. To implement a command, see the documentation for the {Command}
+class.
+
 ### `.commands`
 
 
@@ -8228,6 +8954,9 @@ argument.
 
 ## `class Insertion`
 
+The Insertion class inserts a value before or after another
+value in a list.
+
 ### `#initialize(list, value)`
 
 Creates an insertion object on a list with a value to be
@@ -8304,6 +9033,49 @@ Alias for {#after} with +recursive+ set to true
 ---
 
 ## `class YARD::I18n::PotGenerator`
+
+The +PotGenerator+ generates POT format string from
+{CodeObjects::Base} and {CodeObjects::ExtraFileObject}.
+
+== POT and PO
+
+POT is an acronym for "Portable Object Template". POT is a
+template file to create PO file. The extension for POT is
+".pot". PO file is an acronym for "Portable Object". PO file has
+many parts of message ID (msgid) that is translation target
+message and message string (msgstr) that is translated message
+of message ID. If you want to tranlsate "Hello" in English into
+"Bonjour" in French, "Hello" is the msgid ID and "Bonjour" is
+msgstr. The extension for PO is ".po".
+
+== How to extract msgids
+
+The +PotGenerator+ has two parse methods:
+
+* {#parse_objects} for {CodeObjects::Base}
+* {#parse_files} for {CodeObjects::ExtraFileObject}
+
+{#parse_objects} extracts msgids from docstring and tags of
+{CodeObjects::Base} objects. The docstring of
+{CodeObjects::Base} object is parsed and a paragraph is
+extracted as a msgid. Tag name and tag text are extracted as
+msgids from a tag.
+
+{#parse_files} extracts msgids from
+{CodeObjects::ExtraFileObject} objects. The file content of
+{CodeObjects::ExtraFileObject} object is parsed and a paragraph
+is extracted as a msgid.
+
+== Usage
+
+To create a .pot file by +PotGenerator+, instantiate a
++PotGenerator+ with a relative working directory path from a
+directory path that has created .pot file, parse
+{CodeObjects::Base} objects and {CodeObjects::ExtraFileObject}
+objects, generate a POT and write the generated POT to a .pot
+file. The relative working directory path is ".." when the
+working directory path is "."  and the POT is wrote into
+"po/yard.pot".
 
 ### `#messages`
 
@@ -8397,6 +9169,9 @@ translater-comment line that is started with "# ".
 
 ## `class YARD::Server::RackMiddleware`
 
+This class wraps the {RackAdapter} into a Rack-compatible middleware.
+See {#initialize} for a list of options to pass via Rack's +#use+ method.
+
 **You must pass a +:libraries+ option to the RackMiddleware via +#use+. To
 read about how to return a list of libraries, see {LibraryVersion} or look
 at the example below.**
@@ -8440,6 +9215,8 @@ See {Adapter#server_options} for a list.
 
 ## `class YARD::Server::RackAdapter`
 
+A server adapter to respond to requests using the Rack server infrastructure.
+
 ### `#call(env)`
 
 Responds to Rack requests and builds a response with the {Router}.
@@ -8466,6 +9243,31 @@ block.
 ---
 
 ## `class YARD::Server::Commands::Base`
+
+This is the base command class used to implement custom commands for
+a server. A command will be routed to by the {Router} class and return
+a Rack-style response.
+
+== Attribute Initializers
+All attributes can be initialized via options passed into the {#initialize}
+method. When creating a custom command, the {Adapter#options} will
+automatically be mapped to attributes by the same name on your class.
+
+  class MyCommand < Base
+    attr_accessor :myattr
+  end
+
+  Adapter.new(libs, {:myattr => 'foo'}).start
+
+  # when a request comes in, cmd.myattr == 'foo'
+
+== Subclassing Notes
+To implement a custom command, override the {#run} method, not {#call}.
+In your implementation, you should set the body and status for requests.
+See details in the +#run+ method documentation.
+
+Note that if your command deals directly with libraries, you should
+consider subclassing the more specific {LibraryCommand} class instead.
 
 ### `#command_options`
 
@@ -8702,6 +9504,17 @@ end
 ---
 
 ## `class YARD::Parser::Ruby::AstNode`
+
+An AST node is characterized by a type and a list of children. It
+is most easily represented by the s-expression {#s} such as:
+  # AST for "if true; 5 end":
+  s(s(:if, s(:var_ref, s(:kw, "true")), s(s(:int, "5")), nil))
+
+The node type is not considered part of the list, only its children.
+So +ast[0]+ does not refer to the type, but rather the first child
+(or object). Items that are not +AstNode+ objects can be part of the
+list, like Strings or Symbols representing names. To return only
+the AstNode children of the node, use {#children}.
 
 ### `#docstring_hash_flag`
 
@@ -9538,6 +10351,8 @@ Resets node state in tree
 
 ## `class YARD::Parser::Ruby::CommentNode`
 
+Represents a lone comment block in source
+
 ### `#docstring; first end`
 
 
@@ -9571,6 +10386,9 @@ Resets node state in tree
 ---
 
 ## `class SymbolHash`
+
+A subclass of Hash where all keys are converted into Symbols, and
+optionally, all String values are converted into Symbols.
 
 ### `#initialize(symbolize_value = true)`
 
@@ -9891,6 +10709,8 @@ if no types are provided or parseable.
 
 ## `class YARD::CLI::YardoptsCommand`
 
+Abstract base class for command that reads .yardopts file
+
 ### `#use_yardopts_file`
 
 
@@ -9984,6 +10804,11 @@ Parses commandline arguments
 
 ## `class YARD::Parser::OrderedParser`
 
+Responsible for parsing a list of files in order. The
+{#parse} method of this class can be called from the
+{SourceParser#globals} globals state list to re-enter
+parsing for the remainder of files in the list recursively.
+
 ### `#files`
 
 
@@ -10040,6 +10865,15 @@ Parses the remainder of the {#files} list.
 ---
 
 ## `class YARD::Parser::SourceParser`
+
+Responsible for parsing a source file into the namespace. Parsing
+also invokes handlers to process the parsed statements and generate
+any code objects that may be recognized.
+
+== Custom Parsers
+SourceParser allows custom parsers to be registered and called when
+a certain filetype is recognized. To register a parser and hook it
+up to a set of file extensions, call {register_parser_type}
 
 ### `.parser_type`
 
@@ -10457,6 +11291,63 @@ Tokenizes but does not parse the block of code using the current {#parser_type}
 
 ## `class YARD::Server::LibraryVersion`
 
+A library version encapsulates a library's documentation at a specific version.
+Although the version is optional, this allows for creating multiple documentation
+points for a specific library, each representing a unique version. The term
+"library" used in other parts of the YARD::Server documentation refers to
+objects of this class unless otherwise noted.
+
+A library points to a location where a {#yardoc_file} is located so that
+its documentation may be loaded and served. Optionally, a {#source_path} is
+given to point to a location where any extra files (and {YARD::CLI::Yardoc .yardopts})
+should be loaded from. Both of these methods may not be known immediately,
+since the yardoc file may not be built until later. Resolving the yardoc
+file and source path are dependent on the specific library "source type" used.
+Source types (known as "library source") are discussed in detail below.
+
+== Using with Adapters
+A list of libraries need to be passed into adapters upon creation. In
+most cases, you will never do this manually, but if you use a {RackMiddleware},
+you will need to pass in this list yourself. To build this list of libraries,
+you should create a hash of library names mapped to an *Array* of LibraryVersion
+objects. For example:
+
+  {'mylib' => [LibraryVersion.new('mylib', '1.0', ...),
+               LibraryVersion.new('mylib', '2.0', ...)]}
+
+Note that you can also use {Adapter#add_library} for convenience.
+
+The "array" part is required, even for just one library version.
+
+== Library Sources
+The {#source} method represents the library source type, ie. where the
+library "comes from". It might come from "disk", or it might come from a
+"gem" (technically the disk, but a separate type nonetheless). In these
+two cases, the yardoc file sits somewhere on your filesystem, though
+it may also be built dynamically if it does not yet exist. This behaviour
+is controlled through the {#prepare!} method, which prepares the yardoc file
+given a specific library source. We will see how this works in detail in
+the following section.
+
+== Implementing a Custom Library Source
+YARD can be extended to support custom library sources in order to
+build or retrieve a yardoc file at runtime from many different locations.
+
+To implement this behaviour, 3 methods can be added to the +LibraryVersion+
+class, +#load_yardoc_from_SOURCE+, +#yardoc_file_for_SOURCE+, and
++#source_path_for_SOURCE+. In all cases, "SOURCE" represents the source
+type used in {#source} when creating the library object. The
++#yardoc_file_for_SOURCE+ and +#source_path_for_SOURCE+ methods are called upon
+creation and should return the location where the source code for the library
+lives. The load method is called from {#prepare!} if there is no yardoc file
+and should set {#yardoc_file}. Below is a full example for
+implementing a custom library source, +:http+, which reads packaged .yardoc
+databases from zipped archives off of an HTTP server.
+
+Note that only +#load_yardoc_from_SOURCE+ is required. The other two
+methods are optional and can be set manually (via {#source_path=} and
+{#yardoc_file=}) on the object at any time.
+
 ### `#name`
 
 
@@ -10693,6 +11584,8 @@ for :gem source types.
 
 ## `class YARD::Server::WebrickAdapter`
 
+The main adapter to initialize a WEBrick server.
+
 ### `#start`
 
 Initializes a WEBrick server. If {Adapter#server_options} contains a
@@ -10705,6 +11598,8 @@ Initializes a WEBrick server. If {Adapter#server_options} contains a
 ---
 
 ## `class YARD::Server::WebrickServlet`
+
+The main WEBrick servlet implementation, accepting only GET requests.
 
 ### `#adapter`
 
@@ -10732,6 +11627,8 @@ Initializes a WEBrick server. If {Adapter#server_options} contains a
 
 ## `class YARD::Handlers::C::InitHandler`
 
+Handles the Init_Libname() method
+
 ### `#process`
 
 Main processing callback
@@ -10746,6 +11643,8 @@ Main processing callback
 ---
 
 ## `class YARD::Parser::Ruby::RubyParser`
+
+Ruby 1.9 parser
 
 ### `#encoding_line`
 
@@ -10804,6 +11703,8 @@ Ruby 1.9 parser
 ---
 
 ## `class YARD::Parser::Ruby::RipperParser`
+
+Internal parser class
 
 ### `#ast`
 
@@ -10921,6 +11822,9 @@ Main processing callback
 
 ## `class YARD::CodeObjects::RootObject`
 
+Represents the root namespace object (the invisible Ruby module that
+holds all top level modules, class and other objects).
+
 ### `#path; @path ||= "" end`
 
 
@@ -11013,6 +11917,14 @@ Main processing callback
 ---
 
 ## `class YARD::CodeObjects::MacroObject`
+
+A MacroObject represents a docstring defined through +@!macro NAME+ and can be
+reused by specifying the tag +@!macro NAME+. You can also provide the
++attached+ type flag to the macro definition to have it attached to the
+specific DSL method so it will be implicitly reused.
+
+Macros are fully described in the {file:docs/Tags.md#macro Tags Overview}
+document.
 
 ### `.create(macro_name, data, method_object = nil)`
 
@@ -11296,6 +12208,9 @@ macro.expand(%w(property foo bar), 'property :foo, :bar', '') #=>
 
 ## `class YARD::Handlers::Ruby::Legacy::Base`
 
+This is the base handler for the legacy parser. To implement a legacy
+handler, subclass this class.
+
 ### `.handles?(stmt)`
 
 
@@ -11342,6 +12257,8 @@ duration of the block.
 
 ## `class YARD::Handlers::Ruby::DSLHandler`
 
+Handles automatic detection of dsl-style methods
+
 ### `#process`
 
 Main processing callback
@@ -11372,6 +12289,8 @@ Main processing callback
 
 ## `class YARD::Handlers::C::SymbolHandler`
 
+Keeps track of function bodies for symbol lookup during Ruby method declarations
+
 ### `#process`
 
 Main processing callback
@@ -11401,6 +12320,9 @@ Main processing callback
 ---
 
 ## `class YARD::CodeObjects::ClassObject`
+
+A ClassObject represents a Ruby class in source code. It is a {ModuleObject}
+with extra inheritance semantics through the superclass.
 
 ### `#superclass`
 
@@ -11537,6 +12459,8 @@ Sets the superclass of the object
 
 ## `class YARD::CodeObjects::ModuleObject`
 
+Represents a Ruby module.
+
 ### `#inheritance_tree(include_mods = false)`
 
 Returns the inheritance tree of mixins.
@@ -11557,6 +12481,10 @@ modules (which is likely what is wanted).
 ---
 
 ## `class YARD::Parser::Ruby::TokenResolver`
+
+Supports {#each} enumeration over a source's tokens, yielding
+the token and a possible {CodeObjects::Base} associated with the
+constant or identifier token.
 
 ### `#initialize(source, namespace = Registry.root)`
 
@@ -11615,6 +12543,8 @@ end
 ---
 
 ## `class YARD::CodeObjects::MethodObject`
+
+Represents a Ruby method in source
 
 ### `#scope`
 
@@ -11884,6 +12814,9 @@ methods.
 ---
 
 ## `class YARD::Templates::TemplateOptions`
+
+An Options class containing default options for base template rendering. For
+options specific to generation of HTML output, see {CLI::YardocOptions}.
 
 ### `#format`
 
@@ -12311,6 +13244,8 @@ Main processing callback
 
 ## `class YARD::Handlers::Ruby::AliasHandler`
 
+Handles alias and alias_method calls
+
 ### `#process`
 
 Main processing callback
@@ -12325,6 +13260,8 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::Ruby::YieldHandler`
+
+Handles 'yield' calls
 
 ### `#process`
 
@@ -12341,6 +13278,8 @@ Main processing callback
 
 ## `class YARD::Handlers::Ruby::ClassHandler`
 
+Handles class declarations
+
 ### `#process`
 
 Main processing callback
@@ -12355,6 +13294,8 @@ Main processing callback
 ---
 
 ## `class YARD::Parser::Ruby::Legacy::RubyToken::Token`
+
+Represents a token in the Ruby lexer
 
 ### `#line_no`
 
@@ -12447,6 +13388,8 @@ Chainable way to sets the text attribute
 
 ## `class YARD::Parser::Ruby::Legacy::RubyToken::TkBlockContents`
 
+Represents a block
+
 ### `#text; '...' end`
 
 
@@ -12456,6 +13399,8 @@ Chainable way to sets the text attribute
 ---
 
 ## `class YARD::Parser::Ruby::Legacy::RubyToken::TkStatementEnd`
+
+Represents an end statement
 
 ### `#text; '' end`
 
@@ -12479,6 +13424,8 @@ Returns the value of attribute node
 
 ## `class YARD::Parser::Ruby::Legacy::RubyToken::TkId`
 
+Represents a Ruby identifier
+
 ### `#initialize(line_no, char_no, name)`
 
 
@@ -12500,6 +13447,8 @@ Returns the value of attribute name
 ---
 
 ## `class YARD::Parser::Ruby::Legacy::RubyToken::TkVal`
+
+Represents a Ruby value
 
 ### `#initialize(line_no, char_no, value = nil)`
 
@@ -12569,6 +13518,8 @@ Returns the value of attribute name
 
 ## `class YARD::Handlers::Ruby::MixinHandler`
 
+Handles the 'include' statement to mixin a module in the instance scope
+
 ### `#process`
 
 Main processing callback
@@ -12584,6 +13535,8 @@ Main processing callback
 
 ## `class YARD::Server::Commands::ListCommand`
 
+Returns a list of objects of a specific type
+
 ### `#run`
 
 
@@ -12593,6 +13546,8 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::Ruby::MethodHandler`
+
+Handles a method definition
 
 ### `#process`
 
@@ -12620,6 +13575,8 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::Ruby::ModuleHandler`
+
+Handles the declaration of a module
 
 ### `#process`
 
@@ -12795,6 +13752,9 @@ Sets the attribute comments_hash_flag
 
 ## `class YARD::CodeObjects::ConstantObject`
 
+A +ConstantObject+ represents a Ruby constant (not a module or class).
+To access the constant's (source code) value, use {#value}.
+
 ### `#value`
 
 The source code representing the constant's value
@@ -12816,6 +13776,9 @@ The source code representing the constant's value
 
 ## `class YARD::Server::DocServerSerializer`
 
+A custom {Serializers::Base serializer} which returns resource URLs instead of
+static relative paths to files on disk.
+
 ### `#initialize(_command = nil)`
 
 
@@ -12835,6 +13798,8 @@ The source code representing the constant's value
 ---
 
 ## `class YARD::Handlers::Ruby::ExtendHandler`
+
+Handles 'extend' call to include modules into the class scope of another
 
 ### `#scope; :class end`
 
@@ -12893,6 +13858,8 @@ is parsed with {RubyLex}.
 ---
 
 ## `class YARD::Handlers::Ruby::CommentHandler`
+
+Handles any lone comment statement in a Ruby file
 
 ### `#process`
 
@@ -13009,6 +13976,8 @@ times.
 
 ## `class YARD::Serializers::StdoutSerializer`
 
+A serializer that writes data to standard output.
+
 ### `#initialize(wrap = nil)`
 
 Creates a serializer to print text to stdout
@@ -13037,6 +14006,10 @@ Overrides serialize behaviour to write data to standard output
 ---
 
 ## `class YARD::CodeObjects::NamespaceObject`
+
+A "namespace" is any object that can store other objects within itself.
+The two main Ruby objects that can act as namespaces are modules
+({ModuleObject}) and classes ({ClassObject}).
 
 ### `#groups`
 
@@ -13302,6 +14275,9 @@ return mixins for. If this is empty, all scopes will be returned.
 
 ## `class YARD::Server::Commands::SearchCommand`
 
+Performs a search over the objects inside of a library and returns
+the results as HTML or plaintext
+
 ### `#results`
 
 
@@ -13342,6 +14318,8 @@ return mixins for. If this is empty, all scopes will be returned.
 
 ## `class YARD::Server::Commands::FramesCommand`
 
+Displays an object wrapped in frames
+
 ### `#run`
 
 
@@ -13351,6 +14329,8 @@ return mixins for. If this is empty, all scopes will be returned.
 ---
 
 ## `class YARD::Handlers::Ruby::ConstantHandler`
+
+Handles any constant assignment
 
 ### `#process`
 
@@ -13366,6 +14346,11 @@ Main processing callback
 ---
 
 ## `class YARD::CodeObjects::ExtraFileObject`
+
+An ExtraFileObject represents an extra documentation file (README or other
+file). It is not strictly a CodeObject (does not inherit from `Base`) although
+it implements `path`, `name` and `type`, and therefore should be structurally
+compatible with most CodeObject interfaces.
 
 ### `#filename`
 
@@ -13537,6 +14522,8 @@ Returns the value of attribute name
 
 ## `class YARD::Serializers::ProcessSerializer`
 
+Serializes an object to a process (like less)
+
 ### `#initialize(cmd)`
 
 Creates a new ProcessSerializer for the shell command +cmd+
@@ -13565,6 +14552,8 @@ of the associated command
 ---
 
 ## `class YARD::Parser::Ruby::Legacy::RubyParser`
+
+Legacy Ruby parser
 
 ### `#initialize(source, _filename)`
 
@@ -13610,6 +14599,8 @@ of the associated command
 
 ## `class YARD::Handlers::Ruby::AttributeHandler`
 
+Handles +attr_*+ statements in modules/classes
+
 ### `#process`
 
 Main processing callback
@@ -13624,6 +14615,8 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::Ruby::ExceptionHandler`
+
+Handles 'raise' calls inside methods
 
 ### `#process`
 
@@ -13703,6 +14696,11 @@ Main processing callback
 ---
 
 ## `class YARD::Server::Commands::LibraryCommand`
+
+This is the base command for all commands that deal directly with libraries.
+Some commands do not, but most (like {DisplayObjectCommand}) do. If your
+command deals with libraries directly, subclass this class instead.
+See {Base} for notes on how to subclass a command.
 
 ### `#library`
 
@@ -13846,6 +14844,8 @@ library requests. Defaults to false.
 
 ## `class YARD::Handlers::Ruby::VisibilityHandler`
 
+Handles 'private', 'protected', and 'public' calls.
+
 ### `#process`
 
 Main processing callback
@@ -13860,6 +14860,8 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::Ruby::Legacy::DSLHandler`
+
+Handles automatic detection of dsl-style methods
 
 ### `#process`
 
@@ -13936,6 +14938,8 @@ Creates a new statement list
 
 ## `class YARD::Handlers::Ruby::Legacy::ClassHandler`
 
+Handles class declarations
+
 ### `#process`
 
 Main processing callback
@@ -13950,6 +14954,9 @@ Main processing callback
 ---
 
 ## `class YARD::CodeObjects::ClassVariableObject`
+
+Represents a class variable inside a namespace. The path is expressed
+in the form "A::B::@@classvariable"
 
 ### `#value`
 
@@ -13975,6 +14982,8 @@ Main processing callback
 
 ## `class YARD::Handlers::Ruby::Legacy::YieldHandler`
 
+Handles 'yield' calls
+
 ### `#process`
 
 Main processing callback
@@ -13989,6 +14998,8 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::Ruby::Legacy::MixinHandler`
+
+Handles the 'include' statement to mixin a module in the instance scope
 
 ### `#process`
 
@@ -14005,6 +15016,8 @@ Main processing callback
 
 ## `class YARD::Handlers::Ruby::Legacy::AliasHandler`
 
+Handles alias and alias_method calls
+
 ### `#process`
 
 Main processing callback
@@ -14019,6 +15032,8 @@ Main processing callback
 ---
 
 ## `class YARD::Serializers::FileSystemSerializer`
+
+Implements a serializer that reads from and writes to the filesystem.
 
 ### `#basepath`
 
@@ -14121,6 +15136,8 @@ Checks the disk for an object and returns whether it was serialized.
 
 ## `class YARD::Handlers::C::OverrideCommentHandler`
 
+Parses comments
+
 ### `#process`
 
 Main processing callback
@@ -14148,6 +15165,8 @@ Main processing callback
 
 ## `class YARD::Handlers::Ruby::Legacy::ModuleHandler`
 
+Handles the declaration of a module
+
 ### `#process`
 
 Main processing callback
@@ -14163,6 +15182,8 @@ Main processing callback
 
 ## `class YARD::Handlers::Ruby::Legacy::ExtendHandler`
 
+Handles 'extend' call to include modules into the class scope of another
+
 ### `#scope; :class end`
 
 
@@ -14172,6 +15193,9 @@ Main processing callback
 ---
 
 ## `class YARD::CodeObjects::ExtendedMethodObject`
+
+Represents an instance method of a module that was mixed into the class
+scope of another namespace.
 
 ### `#scope; :class end`
 
@@ -14214,6 +15238,8 @@ Sends all methods to the {MethodObject} assigned in {#initialize}
 
 ## `class YARD::Handlers::Ruby::Legacy::MethodHandler`
 
+Handles a method definition
+
 ### `#process`
 
 Main processing callback
@@ -14229,6 +15255,8 @@ Main processing callback
 
 ## `class YARD::Server::Commands::StaticFileCommand`
 
+Serves static content when no other router matches a request
+
 ### `#run`
 
 
@@ -14238,6 +15266,8 @@ Main processing callback
 ---
 
 ## `class YARD::Server::Commands::DisplayFileCommand`
+
+Displays a README or extra file.
 
 ### `#index`
 
@@ -14260,6 +15290,8 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::Ruby::Legacy::CommentHandler`
+
+Handles any lone comment statement in a Ruby file
 
 ### `#process`
 
@@ -14354,6 +15386,8 @@ Disable auto-link of URLs
 
 ## `class YARD::Server::Commands::RootRequestCommand`
 
+Serves requests from the root of the server
+
 ### `#run`
 
 
@@ -14363,6 +15397,8 @@ Disable auto-link of URLs
 ---
 
 ## `class YARD::Handlers::Ruby::ClassVariableHandler`
+
+Handles a class variable (@@variable)
 
 ### `#process`
 
@@ -14379,6 +15415,9 @@ Main processing callback
 
 ## `class YARD::Handlers::Ruby::ClassConditionHandler`
 
+Matches if/unless conditions inside classes and attempts to process only
+one branch (by evaluating the condition if possible).
+
 ### `#process`
 
 Main processing callback
@@ -14393,6 +15432,9 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::Ruby::ModuleFunctionHandler`
+
+Handles module_function calls to turn methods into public class methods.
+Also creates a private instance copy of the method.
 
 ### `#process`
 
@@ -14473,6 +15515,8 @@ Main processing callback
 
 ## `class YARD::Server::Commands::LibraryIndexCommand`
 
+Returns the index of libraries served by the server.
+
 ### `#options`
 
 
@@ -14495,6 +15539,8 @@ Main processing callback
 
 ## `class YARD::Handlers::Ruby::Legacy::ConstantHandler`
 
+Handles any constant assignment
+
 ### `#process`
 
 Main processing callback
@@ -14509,6 +15555,8 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::Ruby::MethodConditionHandler`
+
+Handles a conditional inside a method
 
 ### `#process`
 
@@ -14525,6 +15573,8 @@ Main processing callback
 
 ## `class YARD::Handlers::Ruby::PrivateConstantHandler`
 
+Sets visibility of a constant (class, module, const)
+
 ### `#process`
 
 Main processing callback
@@ -14539,6 +15589,8 @@ Main processing callback
 ---
 
 ## `class YARD::Server::Commands::DisplayObjectCommand`
+
+Displays documentation for a specific object identified by the path
 
 ### `#run`
 
@@ -14561,6 +15613,8 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::Ruby::Legacy::AttributeHandler`
+
+Handles +attr_*+ statements in modules/classes
 
 ### `#process`
 
@@ -14597,6 +15651,8 @@ Main processing callback
 
 ## `class YARD::Handlers::Ruby::Legacy::ExceptionHandler`
 
+Handles 'raise' calls inside methods
+
 ### `#process`
 
 Main processing callback
@@ -14611,6 +15667,8 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::Ruby::Legacy::VisibilityHandler`
+
+Handles 'private', 'protected', and 'public' calls.
 
 ### `#process`
 
@@ -14627,6 +15685,8 @@ Main processing callback
 
 ## `class YARD::Handlers::Ruby::PublicClassMethodHandler`
 
+Sets visibility of a class method to public.
+
 ### `#process`
 
 Main processing callback
@@ -14641,6 +15701,8 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::Ruby::PrivateClassMethodHandler`
+
+Sets visibility of a class method to private.
 
 ### `#process`
 
@@ -14657,6 +15719,8 @@ Main processing callback
 
 ## `class YARD::Handlers::Ruby::Legacy::ClassVariableHandler`
 
+Handles a class variable (@@variable)
+
 ### `#process`
 
 Main processing callback
@@ -14671,6 +15735,9 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::Ruby::Legacy::ClassConditionHandler`
+
+Matches if/unless conditions inside classes and attempts to process only
+one branch (by evaluating the condition if possible).
 
 ### `#process`
 
@@ -14687,6 +15754,9 @@ Main processing callback
 
 ## `class YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler`
 
+Handles module_function calls to turn methods into public class methods.
+Also creates a private instance copy of the method.
+
 ### `#process`
 
 Main processing callback
@@ -14701,6 +15771,8 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::Ruby::Legacy::PrivateConstantHandler`
+
+Sets visibility of a constant (class, module, const)
 
 ### `#process`
 
@@ -14717,6 +15789,8 @@ Main processing callback
 
 ## `class YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler`
 
+Sets visibility of a class method to private.
+
 ### `#process`
 
 Main processing callback
@@ -14731,6 +15805,8 @@ Main processing callback
 ---
 
 ## `module YARD`
+
+Backward compatability for gem specification lookup
 
 ### `.parse(*args) Parser::SourceParser.parse(*args) end`
 
@@ -14821,6 +15897,15 @@ after YARD is loaded to allow plugin support.
 
 ## `module YARD::Server`
 
+Namespace for classes and modules that handle serving documentation over HTTP
+
+== Implementing a Custom Server
+To customize the YARD server, see the {Adapter} and {Router} classes.
+
+== Rack Middleware
+If you want to use the YARD server as a Rack middleware, see the documentation
+in {RackMiddleware}.
+
 ### `.register_static_path(path)`
 
 Registers a static path to be used in static asset lookup.
@@ -14840,6 +15925,24 @@ Registers a static path to be used in static asset lookup.
 ---
 
 ## `module YARD::Registry`
+
+The +Registry+ is the centralized data store for all {CodeObjects} created
+during parsing. The storage is a key value store with the object's path
+(see {CodeObjects::Base#path}) as the key and the object itself as the value.
+Object paths must be unique to be stored in the Registry. All lookups for
+objects are done on the singleton Registry instance using the {Registry.at}
+or {Registry.resolve} methods.
+
+== Saving / Loading a Registry
+The registry is saved to a "yardoc file" (actually a directory), which can
+be loaded back to perform any lookups. See {Registry.load!} and
+{Registry.save} for information on saving and loading of a yardoc file.
+
+== Threading Notes
+The registry class is a singleton class that is accessed directly in many
+places across YARD. To mitigate threading issues, YARD (0.6.5+) makes
+the Registry thread local. This means all access to a registry for a specific
+object set must occur in the originating thread.
 
 ### `.yardoc_file_for_gem(gem, ver_require = ">= 0", for_writing = false)`
 
@@ -15349,6 +16452,8 @@ The registry singleton instance.
 
 ## `module YARD::Parser::Ruby`
 
+Ruby parsing components.
+
 ### `#s(*args)`
 
 Builds and s-expression by creating {AstNode} objects with
@@ -15407,6 +16512,13 @@ Sets the attribute owner
 ---
 
 ## `module YARD::Templates::Engine`
+
+This module manages all creation, handling and rendering of {Template}
+objects.
+
+* To create a template object at a path, use {template}.
+* To render a template, call {render}.
+* To register a template path in the lookup paths, call {register_template_path}.
 
 ### `.template_paths`
 
@@ -16045,6 +17157,8 @@ Alias for creating a {Section} with arguments
 
 ## `module YARD::Server::StaticCaching`
 
+Implements static caching for requests.
+
 ### `#check_static_cache`
 
 Called by a router to return the cached object. By default, this
@@ -16087,6 +17201,9 @@ class YARD::Server::Router; include MemoryCaching; end
 ---
 
 ## `module YARD::Server::DocServerHelper`
+
+A module that is mixed into {Templates::Template} in order to customize
+certain template methods.
 
 ### `#url_for(obj, anchor = nil, relative = false) # rubocop:disable Lint/UnusedMethodArgument`
 
@@ -16291,6 +17408,8 @@ base_path('docs') # => 'docs/foo'
 
 ## `module YARD::Templates::Helpers::UMLHelper`
 
+Helpers for UML template format
+
 ### `#uml_visibility(object)`
 
 Official UML visibility prefix syntax for an object given its visibility
@@ -16358,6 +17477,8 @@ Tidies data by formatting and indenting text
 ---
 
 ## `module YARD::Templates::Helpers::TextHelper`
+
+Helper methods for text template formats.
 
 ### `#h(text)`
 
@@ -16432,6 +17553,9 @@ Tidies data by formatting and indenting text
 ---
 
 ## `module YARD::CodeObjects::NamespaceMapper`
+
+This module controls registration and accessing of namespace separators
+for {Registry} lookup.
 
 ### `#register_separator(sep, *valid_types)`
 
@@ -16542,6 +17666,8 @@ default_separator "::"
 ---
 
 ## `module YARD::Templates::Helpers::BaseHelper`
+
+The base helper module included in all templates.
 
 ### `#object`
 
@@ -16852,6 +17978,8 @@ Indents and formats source code
 ---
 
 ## `module YARD::Templates::Helpers::HtmlHelper`
+
+The helper module for HTML templates.
 
 ### `#h(text)`
 
@@ -17465,6 +18593,8 @@ method. In Ruby 1.9 you can also modify this value by setting
 
 ## `module YARD::Templates::Helpers::FilterHelper`
 
+Helpers for various object types
+
 ### `#is_method?(object)`
 
 
@@ -17508,6 +18638,8 @@ method. In Ruby 1.9 you can also modify this value by setting
 ---
 
 ## `module YARD::Templates::Helpers::MethodHelper`
+
+Helper methods for method objects.
 
 ### `#format_args(object)`
 
@@ -17572,6 +18704,8 @@ method. In Ruby 1.9 you can also modify this value by setting
 ---
 
 ## `module YARD::Templates::Helpers::MarkupHelper`
+
+Helper methods for loading and managing markup types.
 
 ### `.clear_markup_cache`
 
@@ -17681,6 +18815,8 @@ Call {#load_markup_provider} before using this method.
 
 ## `module YARD::Templates::Helpers::ModuleHelper`
 
+Helper methods for managing module objects.
+
 ### `#prune_method_listing(list, hide_attributes = true)`
 
 Prunes the method listing by running the verifier and removing attributes/aliases
@@ -17720,6 +18856,9 @@ Prunes the method listing by running the verifier and removing attributes/aliase
 
 ## `module YARD::Server::Commands::StaticFileHelpers`
 
+Include this module to get access to {#static_template_file?}
+and {favicon?} helpers.
+
 ### `#favicon?`
 
 Serves an empty favicon.
@@ -17751,6 +18890,8 @@ Attempts to route a path to a static template file.
 ---
 
 ## `module YARD::Handlers::Ruby::StructHandlerMethods`
+
+Helper methods to parse @attr_* tags on a class.
 
 ⚠️ **The use of +@attr+ tags are deprecated since 0.8.0 in favour of
 the +@!attribute+ directive. This module should not be relied on.**
@@ -17948,6 +19089,8 @@ Creates the given member methods and attaches them to the given ClassObject.
 
 ## `module YARD::Handlers::Ruby::DecoratorHandlerMethods`
 
+Helper methods to assist with processing decorators.
+
 ### `#process_decorator(*nodes, &block)`
 
 
@@ -17957,6 +19100,8 @@ Creates the given member methods and attaches them to the given ClassObject.
 ---
 
 ## `module YARD::Templates::Helpers::HtmlSyntaxHighlightHelper`
+
+Helper methods for syntax highlighting.
 
 ### `#html_syntax_highlight_ruby(source)`
 

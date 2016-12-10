@@ -1074,6 +1074,9 @@ Returns the value of attribute env
 
 ## `class Appsignal::Transaction::NilTransaction`
 
+Stub that is returned by `Transaction.current` if there is no current transaction, so
+that it's still safe to call methods on it if there is none.
+
 ### `#method_missing(m, *args, &block)`
 
 
@@ -1263,6 +1266,16 @@ Instrument should still yield
 ---
 
 ## `class Appsignal::EventFormatter`
+
+Keeps track of formatters for types event that we can use to get
+the title and body of an event. Formatters should inherit from this class
+and implement a format(payload) method which returns an array with the title
+and body.
+
+When implementing a formatter remember that it cannot keep separate state per
+event, the same object will be called intermittently in a threaded environment.
+So only keep global configuration as state and pass the payload around as an
+argument if you need to use helper methods.
 
 ### `.formatters`
 
@@ -1652,6 +1665,11 @@ Returns the value of attribute ext
 
 ## `class Appsignal::GarbageCollectionProfiler`
 
+Appsignal::GarbageCollectionProfiler wraps Ruby's GC::Profiler to be able
+to track garbage collection time for multiple transactions, while
+constantly clearing GC::Profiler's total_time to make sure it doesn't leak
+memory by keeping garbage collection run samples in memory.
+
 ### `#initialize`
 
 
@@ -1679,6 +1697,12 @@ it's reset to make sure the result fits in a signed 32-bit integer.
 ---
 
 ## `class Appsignal::Rack::SinatraInstrumentation`
+
+Stub old middleware. Prevents Sinatra middleware being loaded twice.
+This can happen when users use the old method of including
+`use Appsignal::Rack::SinatraInstrumentation` in their modular Sinatra
+applications. This is no longer needed. Instead Appsignal now includes
+`use Appsignal::Rack::SinatraBaseInstrumentation` automatically.
 
 ### `#initialize(app, options = {})`
 
@@ -2017,6 +2041,8 @@ Transaction instance methods
 ---
 
 ## `module Appsignal`
+
+Appsignal module that tracks exceptions in Streaming rack responses.
 
 ### `.config`
 

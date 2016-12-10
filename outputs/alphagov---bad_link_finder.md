@@ -225,6 +225,9 @@ Returns the value of attribute page_url
 
 ## `module BadLinkFinder`
 
+If/when the bad link finder is converted to a set of parallel processes
+this cache will need to be backed by something threadsafe.
+
 ### `.run(logger = NullLogger.new)`
 
 

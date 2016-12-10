@@ -1,6 +1,11 @@
 
 ## `class Mongo::URI`
 
+The URI class provides a way for users to parse the MongoDB uri as
+defined in the connection string format spec.
+
+http://docs.mongodb.org/manual/reference/connection-string/
+
 ### `#options`
 
 The uri parser object options.
@@ -109,6 +114,8 @@ uri.database
 
 ## `class Symbol`
 
+Patch for allowing deprecated symbols to be used.
+
 ### `#bson_type`
 
 Overrides the default BSON type to use the symbol type instead of a
@@ -130,6 +137,8 @@ string type.
 ---
 
 ## `class Mongo::Auth::InvalidMechanism`
+
+Raised when trying to get an invalid authorization mechanism.
 
 ### `#initialize(mechanism)`
 
@@ -157,6 +166,8 @@ Mongo::Auth::InvalidMechanism.new(:test)
 
 ## `class Mongo::Auth::Unauthorized`
 
+Raised when a user is not authorized on a database.
+
 ### `#initialize(user)`
 
 Instantiate the new error.
@@ -182,6 +193,8 @@ Mongo::Auth::Unauthorized.new(user)
 ---
 
 ## `class Mongo::DBRef`
+
+Represents a DBRef document in the database.
 
 ### `#collection`
 
@@ -286,6 +299,8 @@ dbref.to_bson
 ---
 
 ## `class Mongo::Socket`
+
+Provides additional data around sockets for the driver's use.
 
 ### `#family`
 
@@ -463,6 +478,9 @@ Tests if this socket has reached EOF. Primarily used for liveness checks.
 ---
 
 ## `class Mongo::Client`
+
+The client is the entry point to the driver and is the main object that
+will be interacted with.
 
 ### `#cluster`
 
@@ -948,6 +966,9 @@ client.list_databases
 
 ## `class Mongo::Server`
 
+Represents a single server on the server side that can be standalone, part of
+a replica set, or a mongos.
+
 ### `#address`
 
 
@@ -1252,6 +1273,8 @@ end
 
 ## `class Mongo::Logger`
 
+Provides ability to log messages.
+
 ### `.logger`
 
 Get the wrapped logger. If none was set will return a default debug
@@ -1329,6 +1352,12 @@ Mongo::Logger.level == Logger::DEBUG
 ---
 
 ## `class Mongo::Cursor`
+
+Client-side representation of an iterator over a query result set on
+the server.
+
+A +Cursor+ is not created directly by a user. Rather, +CollectionView+
+creates a +Cursor+ in an Enumerable module method.
 
 **The +Cursor+ API is semipublic.**
 
@@ -1530,6 +1559,8 @@ cursor.to_return
 
 ## `class Mongo::Auth::CR`
 
+Defines behaviour for MongoDB-CR authentication.
+
 ### `#user`
 
 
@@ -1587,6 +1618,9 @@ user.login(connection)
 ---
 
 ## `class Mongo::Address`
+
+Represents an address to a server, either with an IP address or socket
+path.
 
 ### `#seed`
 
@@ -1790,6 +1824,9 @@ address.to_s
 ---
 
 ## `class Mongo::Cluster`
+
+Represents a group of servers on the server side, either as a single server, a
+replica set, or a single or multiple mongos.
 
 ### `#options`
 
@@ -2283,6 +2320,9 @@ cluster.addresses
 
 ## `class Mongo::Database`
 
+Represents a database on the db server and operations that can execute on
+it at this level.
+
 ### `#client`
 
 
@@ -2597,6 +2637,8 @@ Database.create(client)
 
 ## `class Mongo::Auth::User`
 
+Represents a user in MongoDB.
+
 ### `#auth_source`
 
 
@@ -2816,6 +2858,8 @@ user.spec
 
 ## `class Mongo::Grid::File`
 
+A representation of a file in the database.
+
 ⚠️ **Please use the 'stream' API on a FSBucket instead.
 Will be removed in driver version 3.0.**
 
@@ -2946,6 +2990,8 @@ file.inspect
 
 ## `class Mongo::Auth::LDAP`
 
+Defines behaviour for LDAP Proxy authentication.
+
 ### `#user`
 
 
@@ -3004,6 +3050,8 @@ user.login(connection)
 ---
 
 ## `class Mongo::Auth::X509`
+
+Defines behaviour for x.509 authentication.
 
 ### `#user`
 
@@ -3064,6 +3112,8 @@ user.login(connection)
 
 ## `class Mongo::Auth::SCRAM`
 
+Defines behaviour for SCRAM-SHA1 authentication.
+
 ### `#user`
 
 
@@ -3122,6 +3172,8 @@ user.login(connection)
 ---
 
 ## `class Mongo::Index::View`
+
+A class representing a view of indexes.
 
 ### `#collection`
 
@@ -3350,6 +3402,8 @@ View::Index.new(collection)
 ---
 
 ## `class Mongo::Socket::TCP`
+
+Wrapper for TCP sockets.
 
 ### `#host`
 
@@ -3582,6 +3636,8 @@ bulk_write.write_concern
 
 ## `class Mongo::Socket::SSL`
 
+Wrapper for SSL sockets.
+
 ### `#context`
 
 
@@ -3733,6 +3789,9 @@ socket.connectable?
 ---
 
 ## `class Mongo::Collection`
+
+Represents a collection in the database and operations that can directly be
+applied to one.
 
 ### `#database`
 
@@ -4670,6 +4729,8 @@ collection.namespace
 
 ## `class Mongo::Monitoring`
 
+The class defines behaviour for the performance monitoring API.
+
 ### `.next_operation_id`
 
 Used for generating unique operation ids to link events together.
@@ -4835,6 +4896,8 @@ monitoring.subscribers?(COMMAND)
 ---
 
 ## `class Mongo::Grid::FSBucket`
+
+Represents a view of the GridFS in the database.
 
 ### `#chunks_collection`
 
@@ -5349,6 +5412,8 @@ stream.write_concern
 
 ## `class Mongo::Socket::Unix`
 
+Wrapper for Unix sockets.
+
 ### `#path`
 
 
@@ -5434,6 +5499,9 @@ socket.connectable?
 ---
 
 ## `class Mongo::Address::IPv6`
+
+Sets up resolution with IPv6 support if the address is an ip
+address.
 
 ### `#host`
 
@@ -5541,6 +5609,8 @@ ipv4.socket(5, :ssl => true)
 
 ## `class Mongo::Address::Unix`
 
+Sets up socket addresses.
+
 ### `#host`
 
 
@@ -5634,6 +5704,9 @@ address.socket(5)
 
 ## `class Mongo::Error::Parser`
 
+Class for parsing the various forms that errors can come in from MongoDB
+command responses.
+
 ### `#document`
 
 
@@ -5689,6 +5762,9 @@ Parser.new({ 'errmsg' => 'failed' })
 ---
 
 ## `class Mongo::Address::IPv4`
+
+Sets up resolution with IPv4 support if the address is an ip
+address.
 
 ### `#host`
 
@@ -5796,6 +5872,8 @@ ipv4.socket(5, :ssl => true)
 
 ## `class Mongo::Database::View`
 
+A class representing a view of a database.
+
 ### `#batch_size`
 
 
@@ -5893,6 +5971,8 @@ View::Index.new(database)
 ---
 
 ## `class Mongo::Grid::File::Info`
+
+Encapsulates behaviour around GridFS files collection file document.
 
 ⚠️ **Please use the 'stream' API on a FSBucket instead.
 Will be removed in driver version 3.0.**
@@ -6170,6 +6250,18 @@ file_info.upload_date
 
 ## `class Mongo::Protocol::Query`
 
+MongoDB Wire protocol Query message.
+
+This is a client request message that is sent to the server in order
+to retrieve documents matching provided query.
+
+Users may also provide additional options such as a projection, to
+select a subset of the fields, a number to skip or a limit on the
+number of returned documents.
+
+There are a variety of flags that can be used to adjust cursor
+parameters or the desired consistancy and integrity the results.
+
 ### `#initialize(database, collection, selector, options = {})`
 
 Creates a new Query message
@@ -6280,6 +6372,9 @@ message.replyable?
 
 ## `class Mongo::Protocol::Query::Upconverter`
 
+Converts legacy query messages to the appropriare OP_COMMAND style
+message.
+
 ### `#collection`
 
 
@@ -6389,6 +6484,8 @@ upconverter.command_name
 ---
 
 ## `class Mongo::Protocol::Reply`
+
+The MongoDB wire protocol message representing a reply
 
 ### `#query_failure?`
 
@@ -6553,6 +6650,8 @@ if there are no additional results.
 
 ## `class Mongo::Protocol::Reply::Upconverter`
 
+Upconverts legacy replies to new op command replies.
+
 ### `#documents`
 
 
@@ -6631,6 +6730,9 @@ upconverter.command
 ---
 
 ## `class Mongo::Server::Monitor`
+
+This object is responsible for keeping server status up to date, running in
+a separate thread as to not disrupt other operations.
 
 ### `#connection`
 
@@ -6805,6 +6907,9 @@ monitor.restart!
 
 ## `class Mongo::Server::Context`
 
+Represents a context in which messages are sent to the server on a
+connection.
+
 ⚠️ **Will be removed in version 3.0**
 
 ### `#server`
@@ -6862,6 +6967,8 @@ end
 ---
 
 ## `class Mongo::Auth::User::View`
+
+Defines behaviour for user related operation on databases.
 
 ### `#database`
 
@@ -6993,6 +7100,18 @@ view.info('emily')
 
 ## `class Mongo::Protocol::Update`
 
+MongoDB Wire protocol Update message.
+
+This is a client request message that is sent to the server in order
+to update documents matching the provided query.
+
+The default is to update a single document. In order to update many at
+a time users should set the +:multi_update+ flag for the update.
+
+If an upsert (update or insert) is desired, users can set the +:upsert+
+flag in order to indicate they would like to insert the merged selector
+and update if no document matching the update query currently exists.
+
 ### `#initialize(database, collection, selector, update, options = {})`
 
 Creates a new Update message
@@ -7071,6 +7190,9 @@ message.payload
 ---
 
 ## `class Mongo::Protocol::Update::Upconverter`
+
+Converts legacy update messages to the appropriare OP_COMMAND style
+message.
 
 ### `#collection`
 
@@ -7169,6 +7291,20 @@ upconverter.command
 
 ## `class Mongo::Protocol::Insert`
 
+MongoDB Wire protocol Insert message.
+
+This is a client request message that is sent to the server in order
+to insert documents within a namespace.
+
+The operation only has one flag +:continue_on_error+ which the user
+can use to instruct the database server to continue processing a bulk
+insertion if one happens to fail (e.g. due to duplicate IDs). This makes
+builk insert behave similarly to a seires of single inserts, except
+lastError will be set if any insert fails, not just the last one.
+
+If multiple errors occur, only the most recent will be reported by the
+getLastError mechanism.
+
 ### `#initialize(database, collection, documents, options = {})`
 
 Creates a new Insert message
@@ -7236,6 +7372,9 @@ message.payload
 ---
 
 ## `class Mongo::Protocol::Insert::Upconverter`
+
+Converts legacy insert messages to the appropriare OP_COMMAND style
+message.
 
 ### `#collection`
 
@@ -7315,6 +7454,8 @@ upconverter.command
 ---
 
 ## `class Mongo::Grid::File::Chunk`
+
+Encapsulates behaviour around GridFS chunks of file data.
 
 ### `#document`
 
@@ -7537,6 +7678,19 @@ Chunks.split(data)
 
 ## `class Mongo::Collection::View`
 
+Representation of a query and options producing a result set of documents.
+
+A +View+ can be modified using helpers. Helpers can be chained,
+as each one returns a +View+ if arguments are provided.
+
+The query message is sent to the server when a "terminator" is called.
+For example, when #each is called on a +View+, a Cursor object is
+created, which then sends the query to the server.
+
+A +View+ is not created directly by a user. Rather, +View+
+creates a +View+ when a CRUD operation is called and returns it to
+the user to interact with.
+
 **The +View+ API is semipublic.**
 
 ### `#collection`
@@ -7740,6 +7894,8 @@ view.inspect
 
 ## `class Mongo::Event::Listeners`
 
+The queue of events getting processed in the client.
+
 ### `#initialize`
 
 Initialize the event listeners.
@@ -7808,6 +7964,15 @@ publisher.listeners_for("test")
 
 ## `class Mongo::Protocol::Delete`
 
+MongoDB Wire protocol Delete message.
+
+This is a client request message that is sent to the server in order
+to delete selected documents in the specified namespace.
+
+The operation, by default, operates on many documents. Setting
+the +:single_remove+ flag allows for a single matching document
+to be removed.
+
 ### `#initialize(database, collection, selector, options = {})`
 
 Creates a new Delete message
@@ -7871,6 +8036,9 @@ message.payload
 ---
 
 ## `class Mongo::Protocol::Delete::Upconverter`
+
+Converts legacy delete messages to the appropriare OP_COMMAND style
+message.
 
 ### `#collection`
 
@@ -7947,6 +8115,8 @@ upconverter.command
 ---
 
 ## `class Mongo::Grid::FSBucket::Stream::Read`
+
+A stream that reads files from the FSBucket.
 
 ### `#fs`
 
@@ -8110,6 +8280,8 @@ stream.file_info
 ---
 
 ## `class Mongo::Operation::Result`
+
+Result wrapper for operations.
 
 ### `#replies`
 
@@ -8393,6 +8565,10 @@ result.written_count
 
 ## `class Mongo::Protocol::Message`
 
+A base class providing functionality required by all messages in
+the MongoDB wire protocol. It provides a minimal DSL for defining typed
+fields to enable serialization and deserialization over the wire.
+
 ### `#request_id`
 
 Returns the request id for the message
@@ -8546,6 +8722,9 @@ a reply.
 
 ## `class Mongo::Options::Redacted`
 
+Class for wrapping options that could be sensitive.
+When printed, the sensitive values will be redacted.
+
 ### `#inspect`
 
 Get a string representation of the options.
@@ -8684,6 +8863,15 @@ options.select! { |k, v| k =~ /ssl/ }
 
 ## `class Mongo::Protocol::GetMore`
 
+MongoDB Wire protocol GetMore message.
+
+This is a client request message that is sent to the server in order
+to retrieve additional documents from a cursor that has already been
+instantiated.
+
+The operation requires that you specify the database and collection
+name as well as the cursor id because cursors are scoped to a namespace.
+
 ### `#initialize(database, collection, number_to_return, cursor_id)`
 
 Creates a new GetMore message
@@ -8752,6 +8940,9 @@ message.replyable?
 ---
 
 ## `class Mongo::Protocol::GetMore::Upconverter`
+
+Converts legacy getmore messages to the appropriare OP_COMMAND style
+message.
 
 ### `#collection`
 
@@ -8832,6 +9023,8 @@ upconverter.command
 ---
 
 ## `class Mongo::Server::Connection`
+
+This class models the socket connections for servers and their behavior.
 
 ### `#connect!`
 
@@ -8953,6 +9146,8 @@ connection.ping
 ---
 
 ## `class Mongo::Grid::FSBucket::Stream::Write`
+
+A stream that writes files to the FSBucket.
 
 ### `#fs`
 
@@ -9140,6 +9335,8 @@ stream.abort
 
 ## `class Mongo::BulkWrite::Result`
 
+Wraps a series of bulk write operations in a result object.
+
 ### `#deleted_count`
 
 Returns the number of documents deleted.
@@ -9302,6 +9499,9 @@ result.validate!
 
 ## `class Mongo::Error::InvalidURI`
 
+Exception that is raised when trying to parse a URI that does not match
+the specification.
+
 ### `#initialize(uri, details)`
 
 Instantiate the new exception.
@@ -9322,6 +9522,9 @@ Mongo::Error::InvalidURI.new(uri)
 ---
 
 ## `class Mongo::Server::Description`
+
+Represents a description of the server, populated by the result of the
+ismaster command.
 
 ### `#address`
 
@@ -10007,6 +10210,9 @@ description == other
 
 ## `class Mongo::Error::InvalidFile`
 
+Raised if the file md5 and server md5 do not match when acknowledging
+GridFS writes.
+
 ### `#initialize(client_md5, server_md5)`
 
 Create the new exception.
@@ -10036,6 +10242,9 @@ Mongo::Error::InvalidFile.new(file_md5, server_md5)
 
 ## `class Mongo::Error::MaxBSONSize`
 
+Exception that is raised when trying to serialize a document that
+exceeds max BSON object size.
+
 ### `#initialize(max_size = nil)`
 
 Instantiate the new exception.
@@ -10056,6 +10265,9 @@ Mongo::Error::MaxBSONSize.new(max)
 ---
 
 ## `class Mongo::Error::InvalidNonce`
+
+This exception is raised when the server nonce returned does not
+match the client nonce sent to it.
 
 ### `#nonce`
 
@@ -10106,6 +10318,8 @@ InvalidNonce.new(nonce, rnonce)
 
 ## `class Mongo::Error::ClosedStream`
 
+Raised if the Grid::FSBucket::Stream object is closed and an operation is attempted.
+
 ### `#initialize`
 
 Create the new exception.
@@ -10126,6 +10340,10 @@ Mongo::Error::ClosedStream.new
 ---
 
 ## `class Mongo::Protocol::Serializers::BitVector`
+
+Class used to define a bitvector for a MongoDB wire protocol message.
+
+Defines serialization strategy upon initialization.
 
 ### `#initialize(layout)`
 
@@ -10182,6 +10400,8 @@ Deserializes vector by decoding the symbol according to its mask
 
 ## `class Mongo::Error::FileNotFound`
 
+Raised if a file is deleted from a GridFS but it is not found.
+
 ### `#initialize(value, property)`
 
 Create the new exception.
@@ -10210,6 +10430,9 @@ Mongo::Error::FileNotFound.new(id, :id)
 ---
 
 ## `class Mongo::Auth::CR::Conversation`
+
+Defines behaviour around a single MONGODB-CR conversation between the
+client and server.
 
 ### `#reply`
 
@@ -10345,6 +10568,9 @@ Conversation.new(user, "admin")
 
 ## `class Mongo::Cluster::AppMetadata`
 
+Application metadata that is sent to the server in an ismaster command,
+  when a new connection is established.
+
 ### `#initialize(cluster)`
 
 Instantiate the new AppMetadata object.
@@ -10387,6 +10613,9 @@ metadata.ismaster_bytes
 ---
 
 ## `class Mongo::Cluster::CursorReaper`
+
+A manager that sends kill cursors operations at regular intervals to close
+cursors that have been garbage collected without being exhausted.
 
 ### `#initialize`
 
@@ -10525,6 +10754,11 @@ cursor_reaper.kill_cursors
 
 ## `class Mongo::Protocol::KillCursors`
 
+MongoDB Wire protocol KillCursors message.
+
+This is a client request message that is sent to the server in order
+to kill a number of cursors.
+
 ### `#initialize(collection, database, cursor_ids)`
 
 Creates a new KillCursors message
@@ -10573,6 +10807,9 @@ message.payload
 ---
 
 ## `class Mongo::Protocol::KillCursors::Upconverter`
+
+Converts legacy insert messages to the appropriare OP_COMMAND style
+message.
 
 ### `#collection`
 
@@ -10640,6 +10877,8 @@ upconverter.command
 
 ## `class Mongo::Event::PrimaryElected`
 
+This handles primary elected events for server descriptions.
+
 ### `#cluster`
 
 
@@ -10696,6 +10935,8 @@ primary_elected.handle(description)
 
 ## `class Mongo::Error::MultiIndexDrop`
 
+Exception raised if '*' is passed to drop_one on indexes.
+
 ### `#initialize`
 
 Instantiate the new exception.
@@ -10717,6 +10958,8 @@ Mongo::Error::MultiIndexDrop.new
 
 ## `class Mongo::Error::InvalidDocument`
 
+Exception raised if the object is not a valid document.
+
 ### `#initialize`
 
 Instantiate the new exception.
@@ -10737,6 +10980,9 @@ Mongo::Error::InvalidDocument.new
 ---
 
 ## `class Mongo::Error::MaxMessageSize`
+
+Exception that is raised when trying to send a message that exceeds max
+message size.
 
 ### `#initialize(max_size = nil)`
 
@@ -10763,6 +11009,9 @@ Mongo::Error::MaxMessageSize.new(max)
 ---
 
 ## `class Mongo::Auth::X509::Conversation`
+
+Defines behaviour around a single x.509 conversation between the
+client and server.
 
 ### `#reply`
 
@@ -10853,6 +11102,8 @@ Conversation.new(user, "admin")
 
 ## `class Mongo::Error::ExtraFileChunk`
 
+Raised if an extra chunk is found.
+
 ### `#initialize`
 
 Create the new exception.
@@ -10873,6 +11124,8 @@ Mongo::Error::ExtraFileChunk.new
 ---
 
 ## `class Mongo::Server::ConnectionPool`
+
+Represents a connection pool for server connections.
 
 ### `#options`
 
@@ -11023,6 +11276,9 @@ Mongo::Pool.get(server)
 
 ## `class Mongo::Auth::LDAP::Conversation`
 
+Defines behaviour around a single PLAIN conversation between the
+client and server.
+
 ### `#reply`
 
 
@@ -11112,6 +11368,9 @@ Conversation.new(user, "admin")
 
 ## `class Mongo::Error::BulkWriteError`
 
+Exception raised if there are write errors upon executing the bulk
+operation.
+
 ### `#result`
 
 
@@ -11148,6 +11407,9 @@ Mongo::Error::BulkWriteFailure.new(response)
 ---
 
 ## `class Mongo::ServerSelector::Nearest`
+
+Encapsulates specifications for selecting near servers given a list
+  of candidates.
 
 ### `#name`
 
@@ -11212,6 +11474,9 @@ preference.to_mongos
 ---
 
 ## `class Mongo::Auth::SCRAM::Conversation`
+
+Defines behaviour around a single SCRAM-SHA-1 conversation between the
+client and server.
 
 ### `#nonce`
 
@@ -11354,6 +11619,9 @@ Conversation.new(user)
 
 ## `class Mongo::Error::InvalidSignature`
 
+This exception is raised when the server verifier does not match the
+expected signature on the client.
+
 ### `#verifier`
 
 
@@ -11404,6 +11672,8 @@ InvalidSignature.new(verifier, server_signature)
 
 ## `class Mongo::Error::OperationFailure`
 
+Raised when an operation fails for some reason.
+
 ### `#retryable?`
 
 Can the operation that caused the error be retried?
@@ -11424,6 +11694,8 @@ error.retryable?
 ---
 
 ## `class Mongo::Event::MemberDiscovered`
+
+This handles member discovered events for server descriptions.
 
 ### `#cluster`
 
@@ -11501,6 +11773,8 @@ member_discovered.handle(previous_description, description)
 ---
 
 ## `class Mongo::Cluster::Topology::Single`
+
+Defines behaviour for when a cluster is in single topology.
 
 ### `#options`
 
@@ -11873,6 +12147,9 @@ topology.member_discovered
 
 ## `class Mongo::ServerSelector::Primary`
 
+Encapsulates specifications for selecting the primary server given a list
+  of candidates.
+
 ### `#name`
 
 Get the name of the server mode type.
@@ -11936,6 +12213,8 @@ preference.to_mongos
 ---
 
 ## `class Mongo::Cluster::Topology::Sharded`
+
+Defines behaviour for when a cluster is in sharded topology.
 
 ### `#options`
 
@@ -12298,6 +12577,8 @@ topology.member_discovered
 
 ## `class Mongo::Cluster::Topology::Unknown`
 
+Defines behaviour for when a cluster is in an unknown state.
+
 ### `#options`
 
 
@@ -12651,6 +12932,9 @@ topology.member_discovered
 
 ## `class Mongo::Error::MissingFileChunk`
 
+Raised if the next chunk when reading from a GridFSBucket does not have the
+expected sequence number (n).
+
 ### `#initialize(expected_n, chunk)`
 
 Create the new exception.
@@ -12680,6 +12964,8 @@ Mongo::Error::MissingFileChunk.new(expected_n, chunk)
 
 ## `class Mongo::Error::UnexpectedResponse`
 
+Raised if the response read from the socket does not match the latest query.
+
 ### `#initialize(expected_response_to, response_to)`
 
 Create the new exception.
@@ -12708,6 +12994,9 @@ Mongo::Error::UnexpectedResponse.new(expected_response_to, response_to)
 ---
 
 ## `class Mongo::ServerSelector::Secondary`
+
+Encapsulates specifications for selecting secondary servers given a list
+  of candidates.
 
 ### `#name`
 
@@ -12773,6 +13062,8 @@ preference.to_mongos
 
 ## `class Mongo::Error::NoServerAvailable`
 
+Raised if there are no servers available matching the preference.
+
 ### `#initialize(server_selector)`
 
 Instantiate the new exception.
@@ -12799,6 +13090,8 @@ Mongo::Error::NoServerAvailable.new(server_selector)
 ---
 
 ## `class Mongo::Event::DescriptionChanged`
+
+This handles a change in description.
 
 ### `#cluster`
 
@@ -12874,6 +13167,8 @@ server_added.handle('127.0.0.1:27018')
 ---
 
 ## `class Mongo::Server::Monitor::Connection`
+
+This class models the monitor connections and their behavior.
 
 ### `#ismaster`
 
@@ -12980,6 +13275,9 @@ connection.timeout
 ---
 
 ## `class Mongo::Collection::View::MapReduce`
+
+Provides behaviour around a map/reduce operation on the collection
+view.
 
 ### `#view`
 
@@ -13194,6 +13492,9 @@ map_reduce.verbose(false)
 
 ## `class Mongo::WriteConcern::Acknowledged`
 
+An acknowledged write concern provides a get last error command with the
+appropriate options on each write operation.
+
 ### `#get_last_error`
 
 Get the get last error command for the concern.
@@ -13231,6 +13532,8 @@ write_concern.inspect
 ---
 
 ## `class Mongo::Cursor::Builder::OpGetMore`
+
+Encapsulates behaviour around generating an OP_GET_MORE specification.
 
 ### `#cursor`
 
@@ -13285,6 +13588,16 @@ op_get_more.specification
 
 ## `class Mongo::Operation::Commands::Indexes`
 
+A MongoDB get indexes operation.
+
+Initialize the get indexes operation.
+
+Initialization:
+  param [ Hash ] spec The specifications for the insert.
+
+  option spec :db_name [ String ] The name of the database.
+  option spec :coll_name [ String ] The name of the collection.
+
 ### `#execute(server)`
 
 Execute the operation.
@@ -13311,6 +13624,16 @@ operation.execute(server)
 
 ## `class Mongo::Operation::Write::DropIndex`
 
+A MongoDB drop index operation.
+
+Initialization:
+  param [ Hash ] spec The specifications for the drop.
+
+  option spec :index [ Hash ] The index spec to create.
+  option spec :db_name [ String ] The name of the database.
+  option spec :coll_name [ String ] The name of the collection.
+  option spec :index_name [ String ] The name of the index.
+
 ### `#execute(server)`
 
 Execute the drop index operation.
@@ -13336,6 +13659,8 @@ operation.execute(server)
 ---
 
 ## `class Mongo::BulkWrite::ResultCombiner`
+
+Combines bulk write results together.
 
 ### `#count`
 
@@ -13416,6 +13741,9 @@ combinator.result
 
 ## `class Mongo::Error::UnsupportedFeatures`
 
+Raised when the driver does not support the complete set of server
+features.
+
 ### `#initialize(server_wire_versions)`
 
 Initialize the exception.
@@ -13442,6 +13770,8 @@ Unsupported.new(0..3)
 ---
 
 ## `class Mongo::Server::Description::Features`
+
+Defines behaviour around what features a specific server supports.
 
 ### `#server_wire_versions`
 
@@ -13481,6 +13811,8 @@ Features.new(0..3)
 
 ## `class Mongo::Error::InvalidWriteConcern`
 
+Raised when an invalid write concern is provided.
+
 ### `#initialize`
 
 Instantiate the new exception.
@@ -13501,6 +13833,9 @@ Mongo::Error::InvalidWriteConcern.new
 ---
 
 ## `class Mongo::Error::UnsupportedCollation`
+
+Raised if a collation is specified for an operation but the server selected does not
+support collations.
 
 ### `#initialize(message = nil)`
 
@@ -13523,6 +13858,8 @@ Mongo::Error::UnsupportedCollation.new
 
 ## `class Mongo::BulkWrite::OrderedCombiner`
 
+Combines groups of bulk write operations in order.
+
 ### `#combine`
 
 Combine the requests in order.
@@ -13543,6 +13880,8 @@ combiner.combine
 ---
 
 ## `class Mongo::Error::InvalidFileRevision`
+
+Raised if the requested file revision is not found.
 
 ### `#initialize(filename, revision)`
 
@@ -13573,6 +13912,8 @@ Mongo::Error::InvalidFileRevision.new('some-file.txt', 3)
 
 ## `class Mongo::Error::InvalidDatabaseName`
 
+Exception that is raised when trying to create a database with no name.
+
 ### `#initialize`
 
 Instantiate the new exception.
@@ -13594,6 +13935,8 @@ Mongo::Error::InvalidDatabaseName.new
 
 ## `class Mongo::Operation::Read::Query::Result`
 
+Defines custom behaviour of results for a query.
+
 ### `#successful?`
 
 Determine if the query was a success.
@@ -13614,6 +13957,8 @@ result.successful?
 ---
 
 ## `class Mongo::Collection::View::Aggregation`
+
+Provides behaviour around an aggregation pipeline on a collection view.
 
 ### `#view`
 
@@ -13708,6 +14053,8 @@ aggregation.explain
 
 ## `class Mongo::Event::StandaloneDiscovered`
 
+This handles when a standalone is discovered.
+
 ### `#cluster`
 
 
@@ -13764,6 +14111,8 @@ standalone_discovered.handle(description)
 
 ## `class Mongo::Error::InvalidBulkOperation`
 
+Exception raised if an non-existent operation type is used.
+
 ### `#initialize(type, operation)`
 
 Instantiate the new exception.
@@ -13792,6 +14141,10 @@ Mongo::Error::InvalidBulkOperation.new(name)
 ---
 
 ## `class Mongo::Server::ConnectionPool::Queue`
+
+A FIFO queue of connections to be used by the connection pool. This is
+based on mperham's connection pool, implemented with a queue instead of a
+stack.
 
 ### `#queue`
 
@@ -13985,6 +14338,9 @@ queue.wait_timeout
 
 ## `class Mongo::Server::Description::Inspector`
 
+Handles inspection of an updated server description to determine if
+events should be fired.
+
 ### `#inspectors`
 
 
@@ -14049,6 +14405,9 @@ inspector.run(description, { 'ismaster' => true })
 
 ## `class Mongo::WriteConcern::Unacknowledged`
 
+An unacknowledged write concern will provide no error on write outside of
+network and connection exceptions.
+
 ### `#get_last_error`
 
 Get the gle command for an unacknowledged write.
@@ -14086,6 +14445,8 @@ write_concern.inspect
 ---
 
 ## `class Mongo::Cluster::Topology::ReplicaSet`
+
+Defines behaviour when a cluster is in replica set topology.
 
 ### `#options`
 
@@ -14443,6 +14804,8 @@ topology.member_discovered
 
 ## `class Mongo::Operation::ObjectIdGenerator`
 
+The default generator of ids for documents.
+
 ### `#generate`
 
 Generate a nwe id.
@@ -14463,6 +14826,8 @@ object_id_generator.generate
 ---
 
 ## `class Mongo::Operation::Write::Update::Result`
+
+Defines custom behaviour of results for an update.
 
 ### `#matched_count`
 
@@ -14520,6 +14885,9 @@ result.upserted_id
 
 ## `class Mongo::Operation::Write::Update::LegacyResult`
 
+Defines custom behaviour of results for an update on server
+version <= 2.4.
+
 ### `#matched_count`
 
 Get the number of documents matched.
@@ -14576,6 +14944,8 @@ result.upserted_id
 
 ## `class Mongo::Error::InvalidCollectionName`
 
+Exception that is raised when trying to create a collection with no name.
+
 ### `#initialize`
 
 Instantiate the new exception.
@@ -14596,6 +14966,9 @@ Mongo::Collection::InvalidName.new
 ---
 
 ## `class Mongo::Error::UnexpectedChunkLength`
+
+Raised if the next chunk when reading from a GridFSBucket does not have the
+expected length.
 
 ### `#initialize(expected_len, chunk)`
 
@@ -14625,6 +14998,11 @@ Mongo::Error::UnexpectedChunkLength.new(expected_len, chunk)
 ---
 
 ## `class Mongo::Operation::Write::Insert::Result`
+
+Defines custom behaviour of results for an insert.
+
+According to the CRUD spec, reporting the inserted ids
+is optional. It can be added to this class later, if needed.
 
 ### `#inserted_ids`
 
@@ -14680,6 +15058,8 @@ result.inserted_id
 
 ## `class Mongo::Operation::Write::Delete::Result`
 
+Defines custom behaviour of results for a delete.
+
 ### `#deleted_count`
 
 Get the number of documents deleted.
@@ -14701,6 +15081,8 @@ result.deleted_count
 
 ## `class Mongo::BulkWrite::UnorderedCombiner`
 
+Combines groups of bulk write operations in no order.
+
 ### `#combine`
 
 Combine the requests in order.
@@ -14721,6 +15103,15 @@ combiner.combine
 ---
 
 ## `class Mongo::Operation::Commands::UserQuery`
+
+A MongoDB operation to get info of a particular user in a database.
+
+Initialization:
+  param [ Hash ] spec The specifications for the user query operation.
+
+  option spec :user_name [ String ] The name of the user.
+  option spec :db_name [ String ] The name of the database where the user exists.
+  option spec :options [ Hash ] Options for the operation.
 
 ### `#execute(server)`
 
@@ -14748,6 +15139,8 @@ operation.execute(server)
 
 ## `class Mongo::Error::InvalidUpdateDocument`
 
+Exception raised if the object is not a valid update document.
+
 ### `#initialize`
 
 Instantiate the new exception.
@@ -14768,6 +15161,8 @@ Mongo::Error::InvalidUpdateDocument.new
 ---
 
 ## `class Mongo::Cursor::Builder::OpKillCursors`
+
+Encapsulates behaviour around generating an OP_KILL_CURSORS specification.
 
 ### `#cursor`
 
@@ -14858,6 +15253,8 @@ OpKillCursors.cursors(spec)
 
 ## `class Mongo::Monitoring::SDAMLogSubscriber`
 
+Subscribes to SDAM events and logs them.
+
 ### `#options`
 
 
@@ -14913,6 +15310,8 @@ subscriber.succeeded(event)
 
 ## `class Mongo::Monitoring::Event::ServerClosed`
 
+Event fired when the server is closed.
+
 ### `#address`
 
 
@@ -14962,6 +15361,9 @@ ServerClosed.new(address)
 
 ## `class Mongo::Error::InvalidApplicationName`
 
+This exception is raised when the metadata document sent to the server
+  at the time of a connection handshake is invalid.
+
 ### `#initialize(app_name, max_size)`
 
 Instantiate the new exception.
@@ -14990,6 +15392,8 @@ InvalidApplicationName.new(app_name, 128)
 ---
 
 ## `class Mongo::Operation::Commands::Find::Result`
+
+Defines custom behaviour of results in find command.
 
 ### `#cursor_id`
 
@@ -15029,6 +15433,8 @@ result.documents
 
 ## `class Mongo::Error::InvalidServerPreference`
 
+Raised when an invalid server preference is provided.
+
 ### `#initialize(message)`
 
 Instantiate the new exception.
@@ -15054,6 +15460,8 @@ Mongo::Error::InvalidServerPreference.new
 ---
 
 ## `class Mongo::Cursor::Builder::GetMoreCommand`
+
+Generates a specification for a get more command.
 
 ### `#cursor`
 
@@ -15107,6 +15515,8 @@ get_more_command.specification
 ---
 
 ## `class Mongo::Monitoring::Event::CommandFailed`
+
+Event that is fired when a command operation fails.
 
 ### `#address`
 
@@ -15256,6 +15666,8 @@ CommandFailed.generate(address, 1, payload, duration)
 
 ## `class Mongo::Monitoring::Event::ServerOpening`
 
+Event fired when the server is opening.
+
 ### `#address`
 
 
@@ -15304,6 +15716,8 @@ ServerOpening.new(address)
 ---
 
 ## `class Mongo::Monitoring::Event::CommandStarted`
+
+Event that is fired when a command operation starts.
 
 ### `#address`
 
@@ -15434,6 +15848,8 @@ CommandStarted.generate(address, 1, payload)
 
 ## `class Mongo::Collection::View::Builder::OpQuery`
 
+Builds a legacy OP_QUERY specification from options.
+
 ### `#modifiers`
 
 
@@ -15476,6 +15892,8 @@ QueryBuilder.new(view)
 
 ## `class Mongo::Monitoring::Event::TopologyClosed`
 
+Event fired when the topology closes.
+
 ### `#topology`
 
 
@@ -15511,6 +15929,8 @@ TopologyClosed.new(topology)
 ---
 
 ## `class Mongo::Monitoring::Event::TopologyChanged`
+
+Event fired when the topology changes.
 
 ### `#previous_topology`
 
@@ -15561,6 +15981,8 @@ TopologyChanged.new(previous, new)
 
 ## `class Mongo::Monitoring::Event::TopologyOpening`
 
+Event fired when the topology is opening.
+
 ### `#topology`
 
 
@@ -15596,6 +16018,9 @@ TopologyOpening.new(topology)
 ---
 
 ## `class Mongo::ServerSelector::PrimaryPreferred`
+
+Encapsulates specifications for selecting servers, with the
+  primary preferred, given a list of candidates.
 
 ### `#name`
 
@@ -15661,6 +16086,8 @@ preference.to_mongos
 
 ## `class Mongo::Error::InvalidBulkOperationType`
 
+Exception raised if an non-existent operation type is used.
+
 ### `#initialize(type)`
 
 Instantiate the new exception.
@@ -15686,6 +16113,8 @@ Mongo::Error::InvalidBulkOperationType.new(type)
 ---
 
 ## `class Mongo::Monitoring::CommandLogSubscriber`
+
+Subscribes to command events and logs them.
 
 ### `#options`
 
@@ -15778,6 +16207,8 @@ subscriber.failed(event)
 
 ## `class Mongo::Operation::Commands::GetMore::Result`
 
+Defines custom behaviour of results for the get more command.
+
 ### `#cursor_id`
 
 Get the cursor id.
@@ -15815,6 +16246,8 @@ result.documents
 ---
 
 ## `class Mongo::Collection::View::Builder::MapReduce`
+
+Builds a map/reduce specification from the view and options.
 
 ### `#map`
 
@@ -15943,6 +16376,8 @@ builder.specification
 
 ## `class Mongo::Operation::Write::Bulk::Insert::Result`
 
+Defines custom behaviour of results when inserting.
+
 ### `#inserted_ids`
 
 Get the ids of the inserted documents.
@@ -16014,6 +16449,9 @@ result.inserted_id
 
 ## `class Mongo::Operation::Write::Bulk::Insert::LegacyResult`
 
+Defines custom behaviour of results when inserting.
+For server versions < 2.5.5 (that don't use write commands).
+
 ### `#inserted_ids`
 
 Get the ids of the inserted documents.
@@ -16084,6 +16522,8 @@ result.inserted_id
 ---
 
 ## `class Mongo::Monitoring::Event::CommandSucceeded`
+
+Event that is fired when a command operation succeeds.
 
 ### `#address`
 
@@ -16233,6 +16673,8 @@ CommandSucceeded.generate(address, 1, command_payload, reply_payload, 0.5)
 
 ## `class Mongo::Operation::Write::Bulk::Update::Result`
 
+Defines custom behaviour of results when updating.
+
 ### `#n_upserted`
 
 Gets the number of documents upserted.
@@ -16309,6 +16751,9 @@ result.upserted
 
 ## `class Mongo::Operation::Write::Bulk::Update::LegacyResult`
 
+Defines custom behaviour of results when updating.
+For server versions < 2.5.5 (that don't use write commands).
+
 ### `#n_upserted`
 
 Gets the number of documents upserted.
@@ -16364,6 +16809,8 @@ result.n_modified
 
 ## `class Mongo::Error::InvalidReplacementDocument`
 
+Exception raised if the object is not a valid replacement document.
+
 ### `#initialize`
 
 Instantiate the new exception.
@@ -16384,6 +16831,8 @@ Mongo::Error::InvalidReplacementDoc.new
 ---
 
 ## `class Mongo::Collection::View::Builder::Aggregation`
+
+Builds an aggregation command specification from the view and options.
 
 ### `#pipeline`
 
@@ -16464,6 +16913,8 @@ builder.specification
 
 ## `class Mongo::Operation::Commands::Aggregate::Result`
 
+Defines custom behaviour of results in an aggregation context.
+
 ### `#cursor_id`
 
 Get the cursor id for the result.
@@ -16510,6 +16961,15 @@ result.documents
 
 ## `class Mongo::Operation::Commands::CollectionsInfo`
 
+A MongoDB operation to get a list of collection names in a database.
+
+Initialization:
+  param [ Hash ] spec The specifications for the collection names operation.
+
+  option spec :db_name [ String ] The name of the database whose collection
+    names is requested.
+  option spec :options [ Hash ] Options for the operation.
+
 ### `#execute(server)`
 
 Execute the operation.
@@ -16535,6 +16995,8 @@ operation.execute(server)
 ---
 
 ## `class Mongo::Cursor::Builder::KillCursorsCommand`
+
+Generates a specification for a kill cursors command.
 
 ### `#cursor`
 
@@ -16625,6 +17087,9 @@ KillCursorsCommand.cursors(spec)
 
 ## `class Mongo::ServerSelector::SecondaryPreferred`
 
+Encapsulates specifications for selecting servers, with
+  secondaries preferred, given a list of candidates.
+
 ### `#name`
 
 Get the name of the server mode type.
@@ -16690,6 +17155,8 @@ preference.to_mongos
 ---
 
 ## `class Mongo::Operation::Commands::MapReduce::Result`
+
+Defines custom behaviour of results for a map reduce operation.
 
 ### `#counts`
 
@@ -16788,6 +17255,9 @@ result.validate!
 
 ## `class Mongo::Operation::Commands::UsersInfo::Result`
 
+Defines custom behaviour of results when using the
+usersInfo command.
+
 ### `#documents`
 
 
@@ -16797,6 +17267,8 @@ result.validate!
 ---
 
 ## `class Mongo::Collection::View::Builder::FindCommand`
+
+Builds a find command specification from options.
 
 ### `#explain_specification`
 
@@ -16859,6 +17331,9 @@ builder.specification
 
 ## `class Mongo::Error::UnchangeableCollectionOption`
 
+Raised if a new collection is created from an existing one and options other than the
+changeable ones are provided.
+
 ### `#initialize(option)`
 
 Create the new exception.
@@ -16884,6 +17359,9 @@ Mongo::Error::UnchangeableCollectionOption.new(option)
 ---
 
 ## `class Mongo::Operation::Commands::ListIndexes::Result`
+
+Defines custom behaviour of results when using the
+listIndexes command.
 
 ### `#cursor_id`
 
@@ -16966,6 +17444,8 @@ result.validate!
 
 ## `class Mongo::Operation::Commands::ParallelScan::Result`
 
+Defines custom behaviour of results in a parallel scan.
+
 ### `#cursor_ids`
 
 Get all the cursor ids from the result.
@@ -17004,6 +17484,9 @@ result.documents
 
 ## `class Mongo::Operation::Commands::CollectionsInfo::Result`
 
+Defines custom behaviour of results when query the system.namespaces
+collection.
+
 ### `#namespace`
 
 Get the namespace for the cursor.
@@ -17024,6 +17507,9 @@ result.namespace
 ---
 
 ## `class Mongo::Operation::Commands::ListCollections::Result`
+
+Defines custom behaviour of results when using the
+listCollections command.
 
 ### `#cursor_id`
 
@@ -17104,6 +17590,8 @@ result.validate!
 
 ## `class Mongo::Monitoring::Event::ServerDescriptionChanged`
 
+Event fired when a server's description changes.
+
 ### `#address`
 
 
@@ -17181,6 +17669,9 @@ ServerDescriptionChanged.new(address, topology, previous, new)
 
 ## `class Mongo::Server::Description::Inspector::PrimaryElected`
 
+Handles inspecting the result of an ismaster command to check if this
+server was elected primary.
+
 ### `#initialize(event_listeners)`
 
 Instantiate the primary elected inspection.
@@ -17227,6 +17718,9 @@ PrimaryElected.run(description, {})
 ---
 
 ## `class Mongo::Server::Description::Inspector::MemberDiscovered`
+
+Handles inspecting the result of an ismaster command to check if this
+a server is a member of a known topology.
 
 ### `#initialize(event_listeners)`
 
@@ -17275,6 +17769,9 @@ MemberDiscovered.run(description, {})
 
 ## `class Mongo::Server::Description::Inspector::DescriptionChanged`
 
+Handles inspecting the result of an ismaster command for servers
+added to the cluster.
+
 ### `#initialize(event_listeners)`
 
 Instantiate the server added inspection.
@@ -17321,6 +17818,8 @@ ServerAdded.run(description, {})
 ---
 
 ## `class Mongo::Server::Description::Inspector::StandaloneDiscovered`
+
+Handles notifying the cluster that a standalone was discovered.
 
 ### `#initialize(event_listeners)`
 
@@ -17369,6 +17868,8 @@ StandaloneDiscovered.run(description, {})
 
 ## `module Mongo::Auth`
 
+This namespace contains all authentication related behaviour.
+
 ### `#get(user)`
 
 Get the authorization strategy for the provided auth mechanism.
@@ -17415,6 +17916,8 @@ Deserialize the hash from BSON, converting to a DBRef if appropriate.
 ---
 
 ## `module Mongo::Loggable`
+
+Allows objects to easily log operations.
 
 ### `#log_debug(message)`
 
@@ -17527,6 +18030,8 @@ loggable.logger
 
 ## `module Mongo::Retryable`
 
+Defines basic behaviour around retrying operations.
+
 ### `#read_with_retry(attempt = 0, &block)`
 
 Execute a read operation with a retry.
@@ -17613,6 +18118,8 @@ end
 
 ## `module Mongo::Monitoring::Global`
 
+Provides behaviour around global subscribers.
+
 ### `#subscribe(topic, subscriber)`
 
 Subscribe a listener to an event topic.
@@ -17655,6 +18162,8 @@ Monitoring::Global.subscribers
 
 ## `module Mongo::Grid::FSBucket::Stream`
 
+A stream that reads and writes files from/to the FSBucket.
+
 ### `#get(fs, mode, options = {})`
 
 Get a stream for reading/writing files from/to the FSBucket.
@@ -17686,6 +18195,8 @@ FSBucket::Stream.get(fs, FSBucket::READ_MODE, options)
 ---
 
 ## `module Mongo::WriteConcern`
+
+Base module for all write concern specific behaviour.
 
 ### `#get(options)`
 
@@ -17720,6 +18231,8 @@ Mongo::WriteConcern.get(:w => 1)
 ---
 
 ## `module Mongo::Options::Mapper`
+
+Utility class for various options mapping behaviour.
 
 ### `#transform(options, mappings)`
 
@@ -17847,6 +18360,8 @@ Mapper.transform({ :name => 1 })
 
 ## `module Mongo::Event::Publisher`
 
+This module is included for objects that need to publish events.
+
 ### `#event_listeners`
 
 
@@ -17882,6 +18397,8 @@ publisher.publish("my_event", "payload")
 
 ## `module Mongo::ServerSelector`
 
+Functionality for getting an object able to select a server, given a preference.
+
 ### `#get(preference = {})`
 
 Create a server selector object.
@@ -17904,6 +18421,8 @@ Mongo::ServerSelector.get(:mode => :secondary, :tag_sets => [{'dc' => 'nyc'}])
 ---
 
 ## `module Mongo::Cluster::Topology`
+
+Defines behaviour for getting servers.
 
 ### `#initial(seeds, monitoring, options)`
 
@@ -17936,6 +18455,8 @@ Topology.initial(topology: :replica_set)
 ---
 
 ## `module Mongo::Event::Subscriber`
+
+Adds convenience methods for adding listeners to event publishers.
 
 ### `#event_listeners`
 
@@ -17972,6 +18493,8 @@ subscriber.subscribe_to('test', listener)
 
 ## `module Mongo::Operation::Limited`
 
+Adds behaviour for commands so ensure the limit option is always -1.
+
 ### `#options`
 
 Limited operations are commands that always require a limit of -1. In
@@ -17993,6 +18516,8 @@ limited.options
 ---
 
 ## `module Mongo::Server::Connectable`
+
+This provides common behaviour for connection objects.
 
 ### `#address`
 
@@ -18082,6 +18607,9 @@ connection.timeout
 
 ## `module Mongo::Operation::Executable`
 
+This module provides the #execute method that many operations use.
+It makes sure to instantiate the appropriate Result class for the operation's response.
+
 ### `#execute(server)`
 
 Execute the operation.
@@ -18107,6 +18635,12 @@ operation.execute(server)
 ---
 
 ## `module Mongo::Protocol::Serializers::Header`
+
+MongoDB wire protocol serialization strategy for message headers.
+
+Serializes and de-serializes four 32-bit integers consisting
+of the length of the message, the request id, the response id,
+and the op code for the operation.
 
 ### `.serialize(buffer, value, validating_keys = BSON::Config.validating_keys?)`
 
@@ -18148,6 +18682,10 @@ length, request id, response id, and op code.
 
 ## `module Mongo::Protocol::Serializers::CString`
 
+MongoDB wire protocol serialization strategy for C style strings.
+
+Serializes and de-serializes C style strings (null terminated).
+
 ### `.serialize(buffer, value, validating_keys = BSON::Config.validating_keys?)`
 
 Serializes a C style string into the buffer
@@ -18171,6 +18709,10 @@ Serializes a C style string into the buffer
 
 ## `module Mongo::Protocol::Serializers::Zero`
 
+MongoDB wire protocol serialization strategy for 32-bit Zero.
+
+Serializes and de-serializes one 32-bit Zero.
+
 ### `.serialize(buffer, value, validating_keys = BSON::Config.validating_keys?)`
 
 Serializes a 32-bit Zero into the buffer
@@ -18193,6 +18735,10 @@ Serializes a 32-bit Zero into the buffer
 ---
 
 ## `module Mongo::Protocol::Serializers::Int32`
+
+MongoDB wire protocol serialization strategy for 32-bit integers.
+
+Serializes and de-serializes one 32-bit integer.
 
 ### `.serialize(buffer, value, validating_keys = BSON::Config.validating_keys?)`
 
@@ -18233,6 +18779,10 @@ Deserializes a 32-bit Fixnum from the IO stream
 
 ## `module Mongo::Protocol::Serializers::Int64`
 
+MongoDB wire protocol serialization strategy for 64-bit integers.
+
+Serializes and de-serializes one 64-bit integer.
+
 ### `.serialize(buffer, value, validating_keys = BSON::Config.validating_keys?)`
 
 Serializes a fixnum to an 8-byte 64-bit integer
@@ -18271,6 +18821,10 @@ Deserializes a 64-bit Fixnum from the IO stream
 ---
 
 ## `module Mongo::Protocol::Serializers::Document`
+
+MongoDB wire protocol serialization strategy for a BSON Document.
+
+Serializes and de-serializes a single document.
 
 ### `.serialize(buffer, value, max_bson_size = nil, validating_keys = BSON::Config.validating_keys?)`
 
@@ -18321,6 +18875,9 @@ Whether there can be a size limit on this type after serialization.
 ---
 
 ## `module Mongo::Operation::Specifiable`
+
+This module contains common functionality for convenience methods getting
+various values from the spec.
 
 ### `#spec`
 
@@ -18860,6 +19417,8 @@ specifiable.namespace
 
 ## `module Mongo::BulkWrite::Validatable`
 
+Defines behaviour around validations.
+
 ### `#validate(name, document)`
 
 Validate the document.
@@ -18889,6 +19448,9 @@ validatable.validate(:insert_one, { _id: 0 })
 
 ## `module Mongo::Operation::Write::Idable`
 
+This module provides functionality to ensure that documents contain
+an id field. Used by insert operations (Bulk, legacy, write command inserts).
+
 ### `#id_generator`
 
 Get the id generator.
@@ -18909,6 +19471,8 @@ idable.id_generator
 ---
 
 ## `module Mongo::BulkWrite::Combineable`
+
+Defines behaviour around combiners
 
 ### `#requests`
 
@@ -18951,6 +19515,8 @@ OrderedCombiner.new([{ insert_one: { _id: 0 }}])
 ---
 
 ## `module Mongo::Monitoring::Publishable`
+
+Defines behaviour for an object that can publish monitoring events.
 
 ### `#monitoring`
 
@@ -19002,6 +19568,9 @@ end
 
 ## `module Mongo::Monitoring::Event::Secure`
 
+Provides behaviour to redact sensitive information from commands and
+replies.
+
 ### `#redacted(command_name, document)`
 
 Redact secure information from the document if it's command is in the
@@ -19031,6 +19600,8 @@ secure.redacted(command_name, document)
 ---
 
 ## `module Mongo::Collection::View::Writable`
+
+Defines write related behaviour for collection view.
 
 ### `#find_one_and_delete`
 
@@ -19261,6 +19832,8 @@ collection_view.update_one('$set' => { name: 'test' })
 ---
 
 ## `module Mongo::Collection::View::Readable`
+
+Defines read related behaviour for collection view.
 
 ### `#aggregate(pipeline, options = {})`
 
@@ -19862,6 +20435,9 @@ view.cursor_type(:tailable)
 
 ## `module Mongo::Collection::View::Iterable`
 
+Defines iteration related behaviour for collection views, including
+cursor instantiation.
+
 ### `#each`
 
 Iterate through documents returned by a query with this +View+.
@@ -19913,6 +20489,8 @@ view.close_query
 
 ## `module Mongo::Collection::View::Immutable`
 
+Defines behaviour around views being configurable and immutable.
+
 ### `#options`
 
 
@@ -19926,6 +20504,9 @@ view.close_query
 ---
 
 ## `module Mongo::WriteConcern::Normalizable`
+
+Defines default behavior for write concerns and provides a factory
+interface to get a proper object from options.
 
 ### `#options`
 
@@ -19966,6 +20547,8 @@ Mongo::WriteConcern.new(:w => 1)
 ---
 
 ## `module Mongo::ServerSelector::Selectable`
+
+Provides common behavior for filtering a list of servers by server mode or tag set.
 
 ### `#options`
 
@@ -20149,6 +20732,8 @@ selectable.candidates(cluster)
 
 ## `module Mongo::Collection::View::Explainable`
 
+Defines explain related behaviour for collection view.
+
 ### `#explain`
 
 Get the explain plan for the query.
@@ -20169,6 +20754,8 @@ view.explain
 ---
 
 ## `module Mongo::Collection::View::Builder::Flags`
+
+Provides behaviour for mapping flags.
 
 ### `#map_flags(options)`
 
@@ -20195,6 +20782,9 @@ Flags.map_flags(options)
 ---
 
 ## `module Mongo::Operation::Write::Bulk::Mergable`
+
+This module contains common functionality for merging results from
+write commands during a bulk operation. Used for server versions >= 2.6.
 
 ### `#aggregate_write_errors(count)`
 
@@ -20244,6 +20834,10 @@ result.aggregate_write_concern_errors(100)
 
 ## `module Mongo::Operation::Write::Bulk::Bulkable`
 
+Provides common behavior for bulk write operations.
+Note that #validate! is not called on operation results because they are merged
+at a higher level.
+
 ### `#execute(server)`
 
 Execute the bulk operation.
@@ -20270,6 +20864,9 @@ operation.execute(server)
 
 ## `module Mongo::Operation::Write::Command::Writable`
 
+Provides common behavior for write commands.
+Assigns an operation id when executed.
+
 ### `#execute(server)`
 
 Execute the operation.
@@ -20295,6 +20892,8 @@ operation.execute(server)
 ---
 
 ## `module Mongo::Collection::View::Builder::Modifiers`
+
+Provides behaviour for mapping modifiers.
 
 ### `.map_driver_options(modifiers)`
 
@@ -20345,6 +20944,8 @@ Modifiers.map_server_modifiers(options)
 
 ## `module Mongo::Operation::Write::Bulk::Delete::Aggregatable`
 
+Defines common r_removed aggreation behaviour.
+
 ### `#n_removed`
 
 Gets the number of documents deleted.
@@ -20365,6 +20966,9 @@ result.n_removed
 ---
 
 ## `module Mongo::Operation::Write::Bulk::LegacyMergable`
+
+This module contains common functionality for merging results from
+writes during a bulk operation. Used for server versions < 2.6.
 
 ### `#aggregate_write_errors(count)`
 
@@ -20413,6 +21017,10 @@ result.aggregate_write_concern_errors(4)
 ---
 
 ## `module Mongo::Operation::Write::WriteCommandEnabled`
+
+This module contains common functionality for operations that send either
+a write command or a specific wire protocol message, depending on server version.
+For server versions >= 2.6, a write command is sent.
 
 ### `#execute(server)`
 

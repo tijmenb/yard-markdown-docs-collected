@@ -35,6 +35,14 @@
 
 ## `class GOVUK::Client::Response`
 
+An API response.  This delegates to a hash containing the parsed
+response body.  It also has methods for accessing the response metadata.
+
+This is expected to represent a HTTP response with a JSON body, but in
+the case where the body is not JSON (eg for some error responses), this
+will delegate to an empty Hash.  The raw response can then be accessed
+via the {#raw_body} accessor.
+
 ### `#initialize(code, body_str)`
 
 **Params**:
@@ -143,6 +151,11 @@ insulate users from the details of the HTTP library we're using.
 ---
 
 ## `module GOVUK::Client::TestHelpers::URLArbiter`
+
+Some test helpers for the url-arbiter client. This module is expected
+to be mixed in to test classes.
+
+These rely on WebMock being available in the test suite.
 
 ### `#stub_default_url_arbiter_responses`
 

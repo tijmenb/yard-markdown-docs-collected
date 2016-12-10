@@ -992,6 +992,9 @@ Return the id_prefix to be used for vAppTemplates
 
 ## `class Vcloud::Core::ApiInterface`
 
+Public interface to allow direct access to the API
+if functionality does not exist in Core
+
 ### `#fog_service_interface`
 
 Private interface to Fog service layer to allow direct access to Fog
@@ -1218,6 +1221,24 @@ Delete OrgVdcNetwork
 
 ## `class Vcloud::Core::ConfigValidator`
 
+self::validate is entry point; this class method is called to
+instantiate ConfigValidator. For example:
+
+Core::ConfigValidator.validate(key, data, schema)
+
+= Recursion in this class
+
+Note that this class will recursively call itself in order to validate deep
+hash and array structures.
+
+The +data+ variable is usually either an array or hash and so will pass
+through the ConfigValidator#validate_array and
+ConfigValidator#validate_hash methods respectively.
+
+These methods then recursively instantiate this class by calling
+ConfigValidator::validate again (ConfigValidator#validate_hash calls this
+indirectly via the ConfigValidator#check_hash_parameter method).
+
 ### `#key`
 
 Returns the value of attribute key
@@ -1441,6 +1462,10 @@ Allowed suffixes are: mb, gb, mib, gib
 
 ## `class Vcloud::Core::Fog::ModelInterface`
 
+Private interface to the fog model layer.
+You should not use this directly. Expose required
+functionality in {Vcloud::Core::ApiInterface}
+
 ### `#initialize`
 
 
@@ -1478,6 +1503,10 @@ Allowed suffixes are: mb, gb, mib, gib
 ---
 
 ## `class Vcloud::Core::Fog::ServiceInterface`
+
+Private interface to the fog service layer.
+You should not use this directly. Expose required
+functionality in {Vcloud::Core::ApiInterface}
 
 ### `#initialize (fog = FogFacade.new)`
 
@@ -1528,6 +1557,8 @@ Allowed suffixes are: mb, gb, mib, gib
 ---
 
 ## `class Vcloud::Core::Fog::ServiceInterface::FogFacade`
+
+FogFacade Inner class to represent a logic free facade over our interactions with Fog
 
 ### `#initialize`
 

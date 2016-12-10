@@ -1,6 +1,10 @@
 
 ## `class Addressable::URI`
 
+This is an implementation of a URI parser based on
+<a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986</a>,
+<a href="http://www.ietf.org/rfc/rfc3987.txt">RFC 3987</a>.
+
 ### `.parse(uri)`
 
 Returns a URI object based on the parsed string.
@@ -1514,6 +1518,9 @@ been executed.
 
 ## `class Addressable::Template`
 
+This is an implementation of a URI template based on
+RFC 6570 (http://tools.ietf.org/html/rfc6570).
+
 ### `#initialize(pattern)`
 
 Creates a new <tt>Addressable::Template</tt> object.
@@ -1977,6 +1984,9 @@ Should only be used by rack-mount.
 ---
 
 ## `class Addressable::Template::MatchData`
+
+This class represents the data that is extracted when a Template
+is matched against a URI.
 
 ### `#initialize(uri, template, mapping)`
 

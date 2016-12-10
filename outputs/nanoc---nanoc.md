@@ -181,6 +181,9 @@ Creates a new representation for the given item.
 
 ## `class Nanoc::CLI::Logger`
 
+Nanoc::CLI::Logger is a singleton class responsible for generating
+feedback in the terminal.
+
 ### `#level`
 
 Returns the log level, which can be :high, :low or :off (which will log
@@ -265,6 +268,9 @@ Logs a message.
 
 ## `class Nanoc::Int::Errors::CompilationError`
 
+Error that is raised when compilation of an item rep fails. The
+underlying error is available by calling `#unwrap`.
+
 ### `#item_rep`
 
 
@@ -291,6 +297,9 @@ Logs a message.
 
 ## `class Nanoc::Int::Errors::UnknownDataSource`
 
+Error that is raised when a site is loaded that uses a data source with
+an unknown identifier.
+
 ### `#initialize(data_source_name)`
 
 **Params**:
@@ -309,6 +318,9 @@ data source could be found
 ---
 
 ## `class Nanoc::Int::Errors::UnknownLayout`
+
+Error that is raised during site compilation when an item uses a layout
+that is not present in the site.
 
 ### `#initialize(layout_identifier)`
 
@@ -329,6 +341,9 @@ layout could be found
 
 ## `class Nanoc::Int::Errors::UnknownFilter`
 
+Error that is raised during site compilation when an item uses a filter
+that is not known.
+
 ### `#initialize(filter_name)`
 
 **Params**:
@@ -347,6 +362,10 @@ be found
 ---
 
 ## `class Nanoc::Int::Errors::CannotDetermineFilter`
+
+Error that is raised during site compilation when a layout is compiled
+for which the filter cannot be determined. This is similar to the
+{UnknownFilter} error, but specific for filters for layouts.
 
 ### `#initialize(layout_identifier)`
 
@@ -367,6 +386,9 @@ which the filter could not be determined
 
 ## `class Nanoc::Int::Errors::RecursiveCompilation`
 
+Error that is raised during site compilation when an item (directly or
+indirectly) includes its own item content, leading to endless recursion.
+
 ### `#initialize(reps)`
 
 **Params**:
@@ -386,6 +408,9 @@ that mutually depend on each other
 
 ## `class Nanoc::Int::Errors::NoRulesFileFound`
 
+Error that is raised when no rules file can be found in the current
+working directory.
+
 ### `#initialize`
 
 
@@ -399,6 +424,9 @@ that mutually depend on each other
 ---
 
 ## `class Nanoc::Int::Errors::NoMatchingCompilationRuleFound`
+
+Error that is raised when no compilation rule that can be applied to the
+current item can be found.
 
 ### `#initialize(item)`
 
@@ -419,6 +447,9 @@ could be found
 
 ## `class Nanoc::Int::Errors::NoMatchingRoutingRuleFound`
 
+Error that is raised when no routing rule that can be applied to the
+current item can be found.
+
 ### `#initialize(rep)`
 
 **Params**:
@@ -437,6 +468,9 @@ routing rule could be found
 ---
 
 ## `class Nanoc::Int::Errors::UnmetDependency`
+
+Error that is raised when an rep cannot be compiled because it depends
+on other representations.
 
 ### `#rep`
 
@@ -468,6 +502,8 @@ compiled
 
 ## `class Nanoc::Int::Errors::CannotLayoutBinaryItem`
 
+Error that is raised when a binary item is attempted to be laid out.
+
 ### `#initialize(rep)`
 
 **Params**:
@@ -486,6 +522,9 @@ to be laid out
 ---
 
 ## `class Nanoc::Int::Errors::CannotUseTextualFilter`
+
+Error that is raised when a textual filter is attempted to be applied to
+a binary item representation.
 
 ### `#initialize(rep, filter_class)`
 
@@ -509,6 +548,9 @@ attempted to be filtered
 
 ## `class Nanoc::Int::Errors::CannotUseBinaryFilter`
 
+Error that is raised when a binary filter is attempted to be applied to
+a textual item representation.
+
 ### `#initialize(rep, filter_class)`
 
 **Params**:
@@ -530,6 +572,9 @@ attempted to be filtered
 ---
 
 ## `class Nanoc::Int::Errors::NoSuchSnapshot`
+
+Error that is raised when the compiled content at a non-existing snapshot
+is requested.
 
 ### `#item_rep`
 
@@ -574,6 +619,8 @@ content was requested
 
 ## `class Nanoc::Int::Errors::CannotCreateMultipleSnapshotsWithSameName`
 
+Error that is raised when a snapshot with an existing name is made.
+
 ### `#initialize(rep, snapshot)`
 
 **Params**:
@@ -597,6 +644,8 @@ be made
 
 ## `class Nanoc::Int::Errors::CannotGetCompiledContentOfBinaryItem`
 
+Error that is raised when the compiled content of a binary item is attempted to be accessed.
+
 ### `#initialize(rep)`
 
 **Params**:
@@ -615,6 +664,8 @@ be made
 
 ## `class Nanoc::Int::Errors::DuplicateIdentifier`
 
+Error that is raised when multiple items or layouts with the same identifier exist.
+
 ### `#initialize(identifier, type)`
 
 
@@ -628,6 +679,8 @@ be made
 ---
 
 ## `class Nanoc::Int::Errors::CannotGetParentOrChildrenOfNonLegacyItem`
+
+Error that is raised when attempting to call #parent or #children on an item with a legacy identifier.
 
 ### `#initialize(identifier)`
 
@@ -955,6 +1008,8 @@ This method takes no options.
 
 ## `class Nanoc::RuleDSL::Rule`
 
+Contains the processing information for a item.
+
 ### `#rep_name`
 
 
@@ -1247,6 +1302,8 @@ This method takes no options.
 
 ## `class Nanoc::Checking::Runner`
 
+Runner is reponsible for running issue checks.
+
 ### `#initialize(site)`
 
 **Params**:
@@ -1441,6 +1498,14 @@ True if the wrapped object is frozen; false otherwise.
 ---
 
 ## `class Nanoc::Int::Store`
+
+An abstract superclass for classes that need to store data to the
+filesystem, such as checksums, cached compiled content and dependency
+graphs.
+
+Each store has a version number. When attempting to load data from a store
+that has an incompatible version number, no data will be loaded, but
+{#version_mismatch_detected} will be called.
 
 ### `#filename`
 
@@ -2051,6 +2116,8 @@ Parameters passed to this filter will be passed on to Rainpress.
 
 ## `class Nanoc::CLI::ErrorHandler`
 
+Catches errors and prints nice diagnostic messages, then exits.
+
 ### `#initialize(command: nil)`
 
 **Params**:
@@ -2405,6 +2472,9 @@ This method takes no options.
 
 ## `class Nanoc::Deploying::Deployer`
 
+Represents a deployer, an object that allows uploading the compiled site
+to a specific (remote) location.
+
 ### `#source_path`
 
 
@@ -2488,6 +2558,9 @@ Performs the actual deployment.
 ---
 
 ## `class Nanoc::CLI::CommandRunner`
+
+A command runner subclass for Nanoc commands that adds Nanoc-specific
+convenience methods and error handling.
 
 ### `#call`
 
@@ -2591,6 +2664,9 @@ Asserts that the current working directory contains a site and loads the site in
 ---
 
 ## `class Nanoc::CLI::CleaningStream`
+
+An output stream that passes output through stream cleaners. This can be
+used to strip ANSI color sequences, for instance.
 
 ### `#initialize(stream)`
 
@@ -2783,8 +2859,6 @@ stream cleaner to add
 
 ### `#set_encoding(*args)`
 
-rubocop:disable Style/AccessorMethodName
-
 
 **See**:
 - ARGF.set_encoding
@@ -2819,6 +2893,17 @@ rubocop:disable Style/AccessorMethodName
 ---
 
 ## `class Nanoc::Filter`
+
+Nanoc::Filter is responsible for filtering items. It is the superclass
+for all textual filters.
+
+A filter instance should only be used once. Filters should not be reused
+since they store state.
+
+When creating a filter with a hash containing assigned variables, those
+variables will be made available in the `@assigns` instance variable and
+the {#assigns} method. The assigns itself will also be available as
+instance variables and instance methods.
 
 ### `#assigns`
 
@@ -3042,6 +3127,10 @@ to be compiled first before this items is processed.
 
 ## `class Nanoc::CLI::Commands::Compile::Listener`
 
+Listens to compilation events and reacts to them. This abstract class
+does not have a real implementation; subclasses should override {#start}
+and set up notifications to listen to.
+
 ### `#initialize(*)`
 
 
@@ -3104,6 +3193,8 @@ Stops the listener. The default implementation removes self from all notificatio
 
 ## `class Nanoc::CLI::Commands::Compile::DiffGenerator`
 
+Generates diffs for every output file written
+
 ### `.enable_for?(command_runner)`
 
 
@@ -3132,6 +3223,8 @@ Stops the listener. The default implementation removes self from all notificatio
 ---
 
 ## `class Nanoc::CLI::Commands::Compile::TimingRecorder`
+
+Records the time spent per filter and per item representation
 
 ### `.enable_for?(command_runner)`
 
@@ -3176,6 +3269,8 @@ Stops the listener. The default implementation removes self from all notificatio
 
 ## `class Nanoc::CLI::Commands::Compile::DebugPrinter`
 
+Prints debug information (compilation started/ended, filtering started/ended, …)
+
 ### `.enable_for?(command_runner)`
 
 
@@ -3197,6 +3292,8 @@ Stops the listener. The default implementation removes self from all notificatio
 ---
 
 ## `class Nanoc::CLI::Commands::Compile::FileActionPrinter`
+
+Prints file actions (created, updated, deleted, identical, skipped)
 
 ### `#initialize(reps:)`
 
@@ -3226,6 +3323,8 @@ Stops the listener. The default implementation removes self from all notificatio
 
 ## `class Nanoc::CLI::Commands::Compile::StackProfProfiler`
 
+Records a profile using StackProf
+
 ### `.enable_for?(command_runner)`
 
 
@@ -3254,6 +3353,9 @@ Stops the listener. The default implementation removes self from all notificatio
 ---
 
 ## `class Nanoc::Int::PluginRegistry`
+
+The class responsible for keeping track of all loaded plugins, such as
+filters ({Nanoc::Filter}) and data sources ({Nanoc::DataSource}).
 
 ### `.instance`
 
@@ -3488,6 +3590,9 @@ This method takes no options.
 
 ## `class Nanoc::Pruner`
 
+Responsible for finding and deleting files in the site’s output directory
+that are not managed by Nanoc.
+
 ### `#initialize(config, reps, dry_run: false, exclude: [])`
 
 **Params**:
@@ -3579,6 +3684,8 @@ Prunes all output files not managed by Nanoc.
 ---
 
 ## `class Nanoc::RuleDSL::CompilerDSL`
+
+Contains methods that will be executed by the site’s `Rules` file.
 
 ### `#rules_filename`
 
@@ -3993,6 +4100,10 @@ loaded and the site is compiled.
 
 ## `class Nanoc::RuleDSL::RuleContext`
 
+Provides a context in which compilation and routing rules can be executed.
+It provides access to the item representation that is being compiled or
+routed.
+
 ### `#initialize(rep:, site:, executor:, view_context:)`
 
 **Params**:
@@ -4127,6 +4238,12 @@ the given path. This is a convenience method for {#snapshot}.
 
 ## `class Nanoc::Int::Content`
 
+Abstract content.
+
+The filename is the full filename on the default filesystem. It can be
+nil. It is used by filters such as Sass, which look up items on the
+filesystem.
+
 ### `#filename`
 
 
@@ -4260,6 +4377,9 @@ TODO: Add contract
 
 ## `class Nanoc::Int::Context`
 
+Provides a context and a binding for use in filters such as the ERB and
+Haml ones.
+
 ### `#initialize(hash)`
 
 Creates a new context based off the contents of the hash.
@@ -4299,7 +4419,6 @@ end
 
 Returns a binding for this instance.
 
-rubocop:disable Style/AccessorMethodName
 
 **Returns**:
 
@@ -4309,8 +4428,6 @@ rubocop:disable Style/AccessorMethodName
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/entities/context.rb#L41)
 
 ### `#include(mod)`
-
-rubocop:enable Style/AccessorMethodName
 
 
 **See**:
@@ -4430,8 +4547,6 @@ YUICompressor gem.
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/executor.rb#L45)
 
 ### `#snapshot(rep, snapshot_name, final: true, path: nil) # rubocop:disable Lint/UnusedMethodArgument`
-
-rubocop:disable Lint/UnusedMethodArgument
 
 
 **See**:
@@ -4704,15 +4819,12 @@ rubocop:disable Lint/UnusedMethodArgument
 
 ### `#method_missing(*_args)`
 
-rubocop:disable Style/MethodMissing
-
 
 **See**:
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/contracts_support.rb#L10)
 
 ### `#respond_to_missing?(*_args)`
 
-rubocop:enable Style/MethodMissing
 
 **Returns**:
 
@@ -4724,6 +4836,20 @@ rubocop:enable Style/MethodMissing
 ---
 
 ## `class Nanoc::DataSource`
+
+Responsible for loading site data. It is the (abstract) superclass for all
+data sources. Subclasses must at least implement the data reading methods
+({#items} and {#layouts}).
+
+Apart from the methods for loading and storing data, there are the {#up}
+and {#down} methods for bringing up and tearing down the connection to the
+data source. These should be overridden in subclasses. The {#loading}
+method wraps {#up} and {#down}. {#loading} is a convenience method for the
+more low-level methods {#use} and {#unuse}, which respectively increment
+and decrement the reference count; when the reference count goes from 0 to
+1, the data source will be loaded ({#up} will be called) and when the
+reference count goes from 1 to 0, the data source will be unloaded
+({#down} will be called).
 
 ### `#items_root`
 
@@ -5259,6 +5385,51 @@ Returns an object that can be used for uniquely identifying objects.
 
 ## `class Nanoc::DataSources::Filesystem`
 
+The filesystem data source stores its items and layouts in nested
+directories. Items and layouts are represented by one or two files; if it
+is represented using one file, the metadata can be contained in this file.
+
+The default root directory for items is the `content` directory; for
+layouts, this is the `layouts` directory. This can be overridden
+in the data source configuration:
+
+    data_sources:
+      - type:         filesystem
+        content_dir:  items
+        layouts_dir:  layouts
+
+The metadata for items and layouts can be stored in a separate file with
+the same base name but with the `.yaml` extension. If such a file is
+found, metadata is read from that file. Alternatively, the content file
+itself can start with a metadata section: it can be stored at the top of
+the file, between `---` (three dashes) separators. For example:
+
+    ---
+    title: "Moo!"
+    ---
+    h1. Hello!
+
+The metadata section can be omitted. If the file does not start with
+three or five dashes, the entire file will be considered as content.
+
+The identifier of items and layouts is the filename itself, without the
+root directory (as determined by the `content_dir` or `layouts_dir`
+configuration attribute, for items resp. layouts). For example:
+
+    foo/bar/index.html → /foo/bar/index.html
+    foo/bar.html       → /foo/bar.html
+
+Note that each item must have an unique identifier. Nanoc will display an
+error if two items with the same identifier are found.
+
+The file extension does not determine the filters to run on items; the
+Rules file is used to specify processing instructors for each item.
+
+It is possible to set an explicit encoding that should be used when reading
+files. In the data source configuration, set `encoding` to an encoding
+understood by Ruby’s `Encoding`. If no encoding is set in the configuration,
+one will be inferred from the environment.
+
 ### `#up`
 
 See {Nanoc::DataSource#up}.
@@ -5731,6 +5902,8 @@ After:
 
 ## `class Nanoc::Deploying::Deployers::Fog`
 
+A deployer that deploys a site using [fog](https://github.com/geemus/fog).
+
 ### `#run`
 
 
@@ -5832,6 +6005,8 @@ is useful only for the `:xml` and `:xhtml` types.
 ---
 
 ## `class Nanoc::CLI::StreamCleaners::UTF8`
+
+Simplifies output by replacing UTF-8 characters with their ASCII decompositions.
 
 ### `#clean(s)`
 
@@ -5970,6 +6145,8 @@ Returns the item that this item rep belongs to.
 ---
 
 ## `class Nanoc::Int::ItemRepRepo`
+
+Stores item reps (in memory).
 
 ### `#initialize`
 
@@ -6401,6 +6578,8 @@ include the extension), false otherwise
 
 ## `class Nanoc::Int::LazyValue`
 
+Holds a value that might be generated lazily.
+
 ### `#initialize(value_or_proc)`
 
 **Params**:
@@ -6459,6 +6638,11 @@ Returns a new lazy value that will apply the given transformation when the value
 ---
 
 ## `class Nanoc::Int::Checksummer`
+
+Creates checksums for given objects.
+
+A checksum is a string, such as “mL+TaqNsEeiPkWloPgCtAofT1yg=”, that is used
+to determine whether a piece of data has changed.
 
 ### `.calc(obj, digest_class = CompactDigest)`
 
@@ -6702,6 +6886,23 @@ Returns a new lazy value that will apply the given transformation when the value
 
 ## `class Nanoc::Int::Compiler`
 
+Responsible for compiling a site’s item representations.
+
+The compilation process makes use of notifications (see
+{Nanoc::Int::NotificationCenter}) to track dependencies between items,
+layouts, etc. The following notifications are used:
+
+* `compilation_started` — indicates that the compiler has started
+  compiling this item representation. Has one argument: the item
+  representation itself. Only one item can be compiled at a given moment;
+  therefore, it is not possible to get two consecutive
+  `compilation_started` notifications without also getting a
+  `compilation_ended` notification in between them.
+
+* `compilation_ended` — indicates that the compiler has finished compiling
+  this item representation (either successfully or with failure). Has one
+  argument: the item representation itself.
+
 ### `#site`
 
 
@@ -6826,6 +7027,8 @@ operation
 ---
 
 ## `class Nanoc::RuleDSL::RulesCollection`
+
+Keeps track of the rules in a site.
 
 ### `#data`
 
@@ -7043,6 +7246,13 @@ Returns an object that can be used for uniquely identifying objects.
 
 ## `class Nanoc::Deploying::Deployers::Rsync`
 
+A deployer that deploys a site using rsync.
+
+The configuration has should include a `:dst` value, a string containing
+the destination to where rsync should upload its data. It will likely be
+in `host:path` format. It should not end with a slash. For example,
+`"example.com:/var/www/sites/mysite/html"`.
+
 ### `#run`
 
 
@@ -7063,6 +7273,9 @@ Returns an object that can be used for uniquely identifying objects.
 ---
 
 ## `class Nanoc::Int::ChecksumStore`
+
+Stores checksums for objects in order to be able to detect whether a file
+has changed since the last site compilation.
 
 ### `#initialize(site: nil)`
 
@@ -7193,6 +7406,8 @@ TODO: Add contract
 
 ## `class Nanoc::Int::CodeSnippet`
 
+Nanoc::Int::CodeSnippet represent a piece of custom code of a Nanoc site.
+
 ### `#data`
 
 A string containing the actual code in this code snippet.
@@ -7322,6 +7537,8 @@ Returns an object that can be used for uniquely identifying objects.
 ---
 
 ## `class Nanoc::Int::Configuration`
+
+Represents the site configuration.
 
 ### `#env_name`
 
@@ -7589,6 +7806,8 @@ forget all dependencies
 
 ## `class Nanoc::Int::DependencyStore::Dependency`
 
+A dependency between two items/layouts.
+
 ### `#from`
 
 
@@ -7714,6 +7933,9 @@ Returns the value of attribute rule_memory
 ---
 
 ## `class Nanoc::Int::DirectedGraph`
+
+Represents a directed graph. It is used by the dependency tracker for
+storing and querying dependencies between items.
 
 ### `#initialize(vertices)`
 
@@ -7940,6 +8162,10 @@ Returns all root vertices, i.e. vertices where no edge points to.
 
 ## `class Nanoc::CLI::StreamCleaners::Abstract`
 
+Superclass for all stream cleaners. Stream cleaners have a single method,
+{#clean}, that takes a string and returns a cleaned string. Stream cleaners
+can have state, so they can act as a FSM.
+
 ### `#clean(s) # rubocop:disable Lint/UnusedMethodArgument`
 
 Returns a cleaned version of the given string.
@@ -7959,6 +8185,9 @@ Returns a cleaned version of the given string.
 ---
 
 ## `class Nanoc::Int::RuleMemoryStore`
+
+Stores rule memories for objects that can be run through a rule (item
+representations and layouts).
 
 ### `#initialize(env_name: nil)`
 
@@ -8029,6 +8258,9 @@ the layout to set the rule memory for
 
 ## `class Nanoc::Checking::Checks::MixedContent`
 
+A check that verifies HTML files do not reference external resources with
+URLs that would trigger "mixed content" warnings.
+
 ### `#run`
 
 
@@ -8048,6 +8280,8 @@ the layout to set the rule memory for
 ---
 
 ## `class Nanoc::Int::ItemRepRouter`
+
+Assigns paths to reps.
 
 ### `#initialize(reps, action_provider, site)`
 
@@ -8111,6 +8345,8 @@ the layout to set the rule memory for
 
 ## `class Nanoc::DataSources::Filesystem::Tools::MaxSymlinkDepthExceededError`
 
+Error that is raised when too many symlink indirections are encountered.
+
 ### `#filename`
 
 
@@ -8140,6 +8376,9 @@ resolved before giving up
 ---
 
 ## `class Nanoc::DataSources::Filesystem::Tools::UnsupportedFileTypeError`
+
+Error that is raised when a file of an unknown type is encountered
+(something other than file, directory or link).
 
 ### `#filename`
 
@@ -8213,6 +8452,8 @@ Sets the value for the given attribute.
 
 ## `class Nanoc::Checking::Checks::InternalLinks`
 
+A check that verifies that all internal links point to a location that exists.
+
 ### `#run`
 
 Starts the validator. The results will be printed to stdout.
@@ -8230,6 +8471,8 @@ be skipped.
 ---
 
 ## `class Nanoc::Checking::Checks::ExternalLinks`
+
+A validator that verifies that all external links point to a location that exists.
 
 ### `#run`
 
@@ -8310,6 +8553,9 @@ be skipped.
 ---
 
 ## `class Nanoc::RuleDSL::RuleMemoryCalculator`
+
+Calculates rule memories for objects that can be run through a rule (item
+representations and layouts).
 
 ### `#rules_collection`
 
@@ -8461,6 +8707,8 @@ memory for
 
 ## `class Nanoc::Int::ItemRepSelector`
 
+Yields item reps to compile.
+
 ### `#initialize(reps)`
 
 
@@ -8492,6 +8740,8 @@ memory for
 ---
 
 ## `class Nanoc::CLI::StreamCleaners::ANSIColors`
+
+Removes ANSI color escape sequences.
 
 ### `#clean(s)`
 
@@ -8579,6 +8829,14 @@ memory for
 ---
 
 ## `class Nanoc::Int::NotificationCenter`
+
+Provides a way to send notifications between objects. It allows blocks
+associated with a certain notification name to be registered; these blocks
+will be called when the notification with the given name is posted.
+
+It is a slightly different implementation of the Observer pattern; the
+table of subscribers is not stored in the observable object itself, but in
+the notification center.
 
 ### `.on(name, id = nil, &block)`
 
@@ -8740,6 +8998,9 @@ that have extensions, returns nil.
 ---
 
 ## `class Nanoc::Int::CompiledContentCache`
+
+Represents a cache than can be used to store already compiled content,
+to prevent it from being needlessly recompiled.
 
 ### `#initialize(env_name: nil)`
 
@@ -8962,6 +9223,9 @@ is no rep with the given name.
 
 ## `class Nanoc::Int::OutdatednessReasons::Generic`
 
+A generic outdatedness reason. An outdatedness reason is basically a
+descriptive message that explains why a given object is outdated.
+
 ### `#message`
 
 
@@ -8990,6 +9254,8 @@ reason
 ---
 
 ## `class Nanoc::Int::OutdatednessChecker`
+
+Responsible for determining whether an item or a layout is outdated.
 
 ### `#checksum_store`
 
@@ -9864,6 +10130,8 @@ Nanoc.
 
 ## `module Nanoc::Int::Memoization`
 
+Adds support for memoizing functions.
+
 ### `#memoize(method_name)`
 
 Memoizes the method with the given name. The modified method will cache
@@ -10236,6 +10504,10 @@ Transforms string into an actual identifier
 
 ## `module Nanoc::Int::PluginRegistry::PluginMethods`
 
+A module that contains class methods for plugins. It provides functions
+for setting identifiers, registering plugins and finding plugins. Plugin
+classes should extend this module.
+
 ### `#identifiers(*identifiers)`
 
 
@@ -10356,6 +10628,9 @@ Returns the plugin with the given name (identifier)
 
 ## `module Nanoc::CLI::ANSIStringColorizer`
 
+A simple ANSI colorizer for strings. When given a string and a list of
+attributes, it returns a colorized string.
+
 ### `.c(s, *as)`
 
 **Params**:
@@ -10377,6 +10652,8 @@ string with
 ---
 
 ## `module Nanoc::DataSources::Filesystem::Tools`
+
+Contains useful functions for managing the filesystem.
 
 ### `.all_files_in(dir_name, extra_files, recursion_limit = 10)`
 

@@ -1,6 +1,11 @@
 
 ## `class GovukSidekiq::APIHeaders::ClientMiddleware`
 
+Client-side middleware runs before the pushing of the job to Redis and
+allows you to modify/stop the job before it gets pushed.
+
+https://github.com/mperham/sidekiq/wiki/Middleware#client-side-middleware
+
 ### `#call(worker_class, job, queue, redis_pool)`
 
 
@@ -16,6 +21,10 @@
 ---
 
 ## `class GovukSidekiq::APIHeaders::ServerMiddleware`
+
+Server-side middleware runs 'around' job processing.
+
+https://github.com/mperham/sidekiq/wiki/Middleware#server-side-middleware
 
 ### `#call(worker, message, queue)`
 

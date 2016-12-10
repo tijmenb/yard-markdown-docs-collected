@@ -49,6 +49,20 @@ TOTALLY NOT DOING THE SCOPE THING. PROBABLY SHOULD.
 
 ## `class GDS::SSO::Lint::UserTest`
 
+Provides linting for classes including `GDS::SSO::User`
+
+In your project's `test/{unit,models}/user_test.rb`:
+
+require 'gds-sso/lint/user_test'
+
+class GDS::SSO::Lint::UserTest
+  def user_class
+    ::User
+  end
+end
+
+Where `::User` is your class including `GDS::SSO::User`
+
 ### `#user_class`
 
 

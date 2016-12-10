@@ -1,6 +1,9 @@
 
 ## `class Airbrake::Rack::User`
 
+Represents an authenticated user, which can be converted to Airbrake's
+payload format. Supports Warden and Omniauth authentication frameworks.
+
 ### `.extract(rack_env)`
 
 Finds the user in the Rack environment and creates a new user wrapper.
@@ -37,6 +40,8 @@ Finds the user in the Rack environment and creates a new user wrapper.
 
 ## `class Rake::Task`
 
+Redefine +Rake::Task#execute+, so it can report errors to Airbrake.
+
 ### `#execute_without_airbrake`
 
 Store the original method to use it later.
@@ -50,8 +55,6 @@ Store the original method to use it later.
 A wrapper around the original +#execute+, that catches all errors and
 notifies Airbrake.
 
-rubocop:disable Lint/RescueException
-
 
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/rake/task_ext.rb#L18)
@@ -59,6 +62,8 @@ rubocop:disable Lint/RescueException
 ---
 
 ## `class Resque::Failure::Airbrake`
+
+Provides Resque integration with Airbrake.
 
 ### `#save`
 
@@ -69,6 +74,13 @@ rubocop:disable Lint/RescueException
 ---
 
 ## `class Airbrake::Rack::Middleware`
+
+Airbrake Rack middleware for Rails and Sinatra applications (or any other
+Rack-compliant app). Any errors raised by the upstream application will be
+delivered to Airbrake and re-raised.
+
+The middleware automatically sends information about the framework that
+uses it (name and version).
 
 ### `#initialize(app, notifier_name = :default)`
 
@@ -97,6 +109,9 @@ exception.
 
 ## `class Delayed::Backend::ActiveRecord::Job`
 
+Workaround against JRuby bug:
+https://github.com/jruby/jruby/issues/3338
+
 ### `#old_to_ary`
 
 
@@ -112,6 +127,9 @@ exception.
 ---
 
 ## `class Airbrake::Rack::NoticeBuilder`
+
+A helper class for filling notices with all sorts of useful information
+coming from the Rack environment.
 
 ### `.builders`
 
@@ -165,6 +183,8 @@ Adds context, session, params and other fields based on the Rack env.
 
 ## `class AirbrakeGenerator`
 
+Creates the Airbrake initializer file for Rails apps.
+
 ### `#argument :name, type: :string, default: 'application'`
 
 Makes the NAME option optional, which allows to subclass from Base, so we
@@ -185,9 +205,9 @@ can pass arguments to the ERB template.
 
 ## `class Airbrake::Sidekiq::ErrorHandler`
 
-### `#call(_worker, context, _queue)`
+Provides integration with Sidekiq 2 and Sidekiq 3.
 
-rubocop:disable Lint/RescueException
+### `#call(_worker, context, _queue)`
 
 
 **See**:
@@ -196,6 +216,9 @@ rubocop:disable Lint/RescueException
 ---
 
 ## `module Airbrake`
+
+We use Semantic Versioning v2.0.0
+More information: http://semver.org/
 
 ### `.add_rack_builder(&block)`
 
@@ -222,9 +245,9 @@ end
 
 ## `module Airbrake::Capistrano`
 
-### `.load_into(config)`
+The Capistrano v2 integration.
 
-rubocop:disable Metrics/AbcSize
+### `.load_into(config)`
 
 
 **See**:
@@ -234,12 +257,16 @@ rubocop:disable Metrics/AbcSize
 
 ## `module Airbrake::Rails::ActiveRecord`
 
+Rails <4.2 has a bug with regard to swallowing exceptions in the
++after_commit+ and the +after_rollback+ hooks: it doesn't bubble up
+exceptions from there.
+
+This module makes it possible to report exceptions occurring there.
+
 ### `#run_callbacks(kind, *args, &block)`
 
 Patches default +run_callbacks+ with our version, which is capable of
 notifying about exceptions.
-
-rubocop:disable Lint/RescueException
 
 
 **See**:

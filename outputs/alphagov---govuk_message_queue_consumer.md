@@ -1,6 +1,8 @@
 
 ## `class GovukMessageQueueConsumer::Message`
 
+Client code will receive an instance of this
+
 ### `#delivery_info`
 
 Returns the value of attribute delivery_info
