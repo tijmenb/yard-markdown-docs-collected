@@ -1,5 +1,5 @@
 repos = File.read("repos.txt")
-repos.lines.map(&:strip).uniq.each do |repo|
+commands = repos.lines.map(&:strip).uniq.map do |repo|
   dir = repo.gsub('/', '---')
 
   command = [
@@ -12,5 +12,7 @@ repos.lines.map(&:strip).uniq.each do |repo|
     "rm -rf #{dir}",
   ].join(' && ')
 
-  puts `(#{command}) &`
+  "(#{command})"
 end
+
+puts `#{commands.join(" & ")}`
