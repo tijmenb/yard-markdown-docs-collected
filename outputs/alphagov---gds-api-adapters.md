@@ -612,6 +612,7 @@
 
 ## `class GdsApi::Base`
 
+
 ### `#client`
 
 
@@ -707,6 +708,7 @@ Sets the attribute default_options
 
 ## `class GdsApi::Mapit`
 
+
 ### `#location_for_postcode(postcode)`
 
 
@@ -732,6 +734,7 @@ Sets the attribute default_options
 
 ## `class GdsApi::Maslow`
 
+
 ### `#need_page_url(need_id)`
 
 
@@ -742,6 +745,7 @@ Sets the attribute default_options
 ---
 
 ## `class GdsApi::Router`
+
 
 ### `#get_backend(id)`
 
@@ -812,6 +816,7 @@ Routes
 
 ## `class GdsApi::Support`
 
+
 ### `#create_foi_request(request_details)`
 
 
@@ -858,6 +863,7 @@ Routes
 
 ## `class GdsApi::Rummager`
 
+
 ### `#search(args)`
 
 Perform a search.
@@ -869,7 +875,7 @@ Perform a search.
 
 
 **See**:
-- https://github.com/alphagov/rummager/blob/master/docs/search-api.md
+- https://github.com/alphagov/rummager/blob/master/docs/search-api.md 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L12)
 
 ### `#advanced_search(args)`
@@ -907,7 +913,7 @@ Add a document to the search index.
 
 
 **See**:
-- https://github.com/alphagov/rummager/blob/master/docs/documents.md
+- https://github.com/alphagov/rummager/blob/master/docs/documents.md 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L34)
 
 ### `#delete_content(base_path)`
@@ -925,7 +931,7 @@ and contacts, which may be deleted with `delete_document`.
 
 
 **See**:
-- https://github.com/alphagov/rummager/blob/master/docs/content-api.md
+- https://github.com/alphagov/rummager/blob/master/docs/content-api.md 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L52)
 
 ### `#get_content(base_path)`
@@ -943,7 +949,7 @@ and contacts.
 
 
 **See**:
-- https://github.com/alphagov/rummager/blob/master/docs/content-api.md
+- https://github.com/alphagov/rummager/blob/master/docs/content-api.md 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/rummager.rb#L70)
 
 ### `#delete_document(type, id)`
@@ -967,6 +973,7 @@ For example, best bets, recommended links, or contacts.
 ---
 
 ## `class GdsApi::NeedApi`
+
 
 ### `#needs(options = {})`
 
@@ -1150,6 +1157,7 @@ Example:
 
 ## `class GdsApi::Imminence`
 
+
 ### `#api_url(type, params)`
 
 
@@ -1203,6 +1211,7 @@ Example:
 
 ## `class GdsApi::Worldwide`
 
+
 ### `#world_locations`
 
 
@@ -1228,6 +1237,7 @@ Example:
 
 ## `class GdsApi::NullCache`
 
+
 ### `#[](_k)`
 
 
@@ -1252,6 +1262,7 @@ Example:
 ---
 
 ## `class GdsApi::HTTPErrorResponse`
+
 
 ### `#code`
 
@@ -1309,6 +1320,7 @@ Sets the attribute error_details
 ---
 
 ## `class GdsApi::Panopticon`
+
 
 ### `#all`
 
@@ -1390,6 +1402,7 @@ Sets the attribute error_details
 ---
 
 ## `class GdsApi::SupportApi`
+
 
 ### `#create_problem_report(request_details)`
 
@@ -1584,6 +1597,7 @@ that report is to be marked as spam, or false otherwise.
 
 ## `class GdsApi::ContentApi`
 
+
 ### `#initialize(endpoint_url, options = {})`
 
 
@@ -1724,6 +1738,7 @@ that report is to be marked as spam, or false otherwise.
 ---
 
 ## `class GdsApi::JsonClient`
+
 
 ### `.cache(size = DEFAULT_CACHE_SIZE, ttl = DEFAULT_CACHE_TTL)`
 
@@ -1911,6 +1926,7 @@ Sets the attribute cache
 ---
 
 ## `class GdsApi::AssetManager`
+
 
 ### `#create_asset(asset)`
 
@@ -2119,6 +2135,7 @@ asset_manager.restore_asset(uuid)
 
 ## `class GdsApi::Organisations`
 
+
 ### `#organisations`
 
 
@@ -2228,6 +2245,7 @@ loaded multiple times.
 
 ## `class GdsApi::ContentStore`
 
+
 ### `#content_item(base_path)`
 
 
@@ -2246,6 +2264,7 @@ loaded multiple times.
 
 ## `class GdsApi::ContentStore::ItemNotFound`
 
+
 ### `.build_from(http_error)`
 
 
@@ -2256,6 +2275,7 @@ loaded multiple times.
 ---
 
 ## `class GdsApi::GovukHeaders`
+
 
 ### `.set_header(header_name, value)`
 
@@ -2282,6 +2302,7 @@ loaded multiple times.
 
 ## `class GdsApi::PublishingApi`
 
+
 ### `#put_intent(base_path, payload)`
 
 
@@ -2306,6 +2327,7 @@ loaded multiple times.
 ---
 
 ## `class GdsApi::GovUkDelivery`
+
 
 ### `#initialize(endpoint_url, options = {})`
 
@@ -2351,6 +2373,9 @@ loaded multiple times.
 ## `class GdsApi::EmailAlertApi`
 
 Adapter for the Email Alert API
+
+**See**:
+- https://github.com/alphagov/email-alert-api 
 
 ### `#find_or_create_subscriber_list(attributes)`
 
@@ -2419,6 +2444,11 @@ Get notification
 
 Adapter for the Publishing API.
 
+**See**:
+- https://github.com/alphagov/publishing-api 
+- https://github.com/alphagov/publishing-api/blob/master/doc/publishing-application-examples.md 
+- https://github.com/alphagov/publishing-api/blob/master/doc/model.md 
+
 ### `#put_content(content_id, payload)`
 
 Put a content item
@@ -2433,7 +2463,7 @@ Put a content item
 
 
 **See**:
-- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#put-v2contentcontent_id
+- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#put-v2contentcontent_id 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L16)
 
 ### `#get_content(content_id, params = {})`
@@ -2461,7 +2491,7 @@ Raises exception if the item doesn't exist.
 - `HTTPNotFound` when the content item is not found
 
 **See**:
-- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2contentcontent_id
+- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2contentcontent_id 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L32)
 
 ### `#lookup_content_ids(base_paths:)`
@@ -2486,7 +2516,7 @@ publishing_api.lookup_content_ids(base_paths: ['/foo', '/bar'])
 ```
 
 **See**:
-- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-lookup-by-base-path
+- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-lookup-by-base-path 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L51)
 
 ### `#lookup_content_id(base_path:)`
@@ -2514,7 +2544,7 @@ publishing_api.lookup_content_id(base_path: '/foo')
 ```
 
 **See**:
-- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-lookup-by-base-path
+- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-lookup-by-base-path 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L71)
 
 ### `#publish(content_id, update_type, options = {})`
@@ -2540,7 +2570,7 @@ on the public site.
 
 
 **See**:
-- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-v2contentcontent_idpublish
+- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-v2contentcontent_idpublish 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L87)
 
 ### `#unpublish(content_id, type:, explanation: nil, alternative_path: nil, discard_drafts: false, allow_draft: false, previous_version: nil, locale: nil, unpublished_at: nil)`
@@ -2578,7 +2608,7 @@ site, or update an existing unpublishing.
 
 
 **See**:
-- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-v2contentcontent_idunpublish
+- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-v2contentcontent_idunpublish 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L117)
 
 ### `#discard_draft(content_id, options = {})`
@@ -2596,7 +2626,7 @@ Deletes the draft content item.
 
 
 **See**:
-- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-v2contentcontent_iddiscard-draft
+- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#post-v2contentcontent_iddiscard-draft 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L142)
 
 ### `#get_links(content_id)`
@@ -2630,7 +2660,7 @@ publishing_api.get_links("a-content-id")
 ```
 
 **See**:
-- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2linkscontent_id
+- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2linkscontent_id 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L174)
 
 ### `#get_expanded_links(content_id)`
@@ -2665,7 +2695,7 @@ publishing_api.get_expanded_links("8157589b-65e2-4df6-92ba-2c91d80006c0").to_h
 ```
 
 **See**:
-- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2expanded-linkscontent_id
+- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2expanded-linkscontent_id 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L202)
 
 ### `#patch_links(content_id, params)`
@@ -2702,7 +2732,7 @@ publishing_api.patch_links(
 ```
 
 **See**:
-- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#patch-v2linkscontent_id
+- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#patch-v2linkscontent_id 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L228)
 
 ### `#get_content_items(params)`
@@ -2733,7 +2763,7 @@ publishing_api.get_content_items(
 ```
 
 **See**:
-- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2content
+- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2content 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L258)
 
 ### `#get_linkables(document_type: nil)`
@@ -2742,7 +2772,7 @@ FIXME: Add documentation
 
 
 **See**:
-- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2linkables
+- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2linkables 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L266)
 
 ### `#get_linked_items(content_id, params = {})`
@@ -2751,12 +2781,13 @@ FIXME: Add documentation
 
 
 **See**:
-- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2linkedcontent_id
+- https://github.com/alphagov/publishing-api/blob/master/doc/api.md#get-v2linkedcontent_id 
 - [Source on GitHub](https://github.com/alphagov/gds-api-adapters/blob/master/lib/gds_api/publishing_api_v2.rb#L277)
 
 ---
 
 ## `class GdsApi::LicenceApplication`
+
 
 ### `#all_licences`
 
@@ -2776,6 +2807,7 @@ FIXME: Add documentation
 
 ## `class GdsApi::LocalLinksManager`
 
+
 ### `#local_link(authority_slug, lgsl, lgil = nil)`
 
 
@@ -2794,6 +2826,7 @@ FIXME: Add documentation
 
 ## `class GdsApi::BusinessSupportApi`
 
+
 ### `#schemes(options = {})`
 
 
@@ -2811,6 +2844,7 @@ FIXME: Add documentation
 ---
 
 ## `class GdsApi::Panopticon::Registerer`
+
 
 ### `#logger`
 
@@ -2926,6 +2960,7 @@ record should respond to #slug and #title, or override #record_to_artefact
 
 ## `class GdsApi::PerformancePlatform::DataIn`
 
+
 ### `#submit_service_feedback_day_aggregate(slug, request_details)`
 
 
@@ -2957,6 +2992,7 @@ record should respond to #slug and #title, or override #record_to_artefact
 ---
 
 ## `class GdsApi::PerformancePlatform::DataOut`
+
 
 ### `#service_feedback(transaction_page_slug)`
 
@@ -3010,6 +3046,7 @@ needed.
 
 ## `class GdsApi::GovukHeaderSniffer`
 
+
 ### `#initialize(app, header_name)`
 
 
@@ -3031,6 +3068,7 @@ needed.
 ---
 
 ## `class GdsApi::TestHelpers::ContentApi::ArtefactStub`
+
 
 ### `#slug`
 
@@ -3160,6 +3198,7 @@ Nothing is stubbed until this is called
 
 ## `class GdsApi::PublishingApi::SpecialRoutePublisher`
 
+
 ### `#initialize(options = {})`
 
 
@@ -3181,6 +3220,7 @@ Nothing is stubbed until this is called
 ---
 
 ## `class GdsApi::Mapit::Location`
+
 
 ### `#response`
 
@@ -3232,6 +3272,7 @@ Returns the value of attribute response
 ---
 
 ## `module GdsApi::Helpers`
+
 
 ### `#asset_manager_api(options = {})`
 
@@ -3314,6 +3355,7 @@ Returns the value of attribute response
 
 ## `module GdsApi::ExceptionHandling`
 
+
 ### `#ignoring(exception_or_exceptions)`
 
 
@@ -3345,6 +3387,7 @@ Returns the value of attribute response
 ---
 
 ## `module GdsApi::TestHelpers::Mapit`
+
 
 ### `#mapit_has_a_postcode(postcode, coords)`
 
@@ -3406,6 +3449,7 @@ Returns the value of attribute response
 
 ## `module GdsApi::TestHelpers::Router`
 
+
 ### `#stub_all_router_registration`
 
 
@@ -3452,6 +3496,7 @@ Returns the value of attribute response
 
 ## `module GdsApi::TestHelpers::Support`
 
+
 ### `#stub_support_foi_request_creation(request_details = nil)`
 
 
@@ -3497,6 +3542,7 @@ Returns the value of attribute response
 ---
 
 ## `module GdsApi::TestHelpers::NeedApi`
+
 
 ### `#need_api_has_needs_for_organisation(organisation, needs)`
 
@@ -3567,6 +3613,7 @@ Returns the value of attribute response
 ---
 
 ## `module GdsApi::TestHelpers::Rummager`
+
 
 ### `#stub_any_rummager_post(index: nil)`
 
@@ -3677,6 +3724,7 @@ Returns the value of attribute response
 
 ## `module GdsApi::TestHelpers::Worldwide`
 
+
 ### `#worldwide_api_has_locations(location_slugs)`
 
 Sets up the index endpoints for the given country slugs
@@ -3746,6 +3794,7 @@ othersiwe it will be set to 'World location'
 
 ## `module GdsApi::TestHelpers::Imminence`
 
+
 ### `#imminence_has_places(latitude, longitude, details)`
 
 
@@ -3777,6 +3826,7 @@ othersiwe it will be set to 'World location'
 ---
 
 ## `module GdsApi::TestHelpers::Panopticon`
+
 
 ### `#stringify_hash_keys(input_hash)`
 
@@ -3837,6 +3887,7 @@ othersiwe it will be set to 'World location'
 ---
 
 ## `module GdsApi::TestHelpers::SupportApi`
+
 
 ### `#stub_support_api_problem_report_creation(request_details = nil)`
 
@@ -3953,6 +4004,7 @@ othersiwe it will be set to 'World location'
 ---
 
 ## `module GdsApi::TestHelpers::ContentApi`
+
 
 ### `#content_api_has_root_sections(slugs_or_sections)`
 
@@ -4220,6 +4272,7 @@ without having to require ActiveSupport
 
 ## `module GdsApi::TestHelpers::ContentStore`
 
+
 ### `#content_store_endpoint(draft = false)`
 
 Stubs a content item in the content store.
@@ -4315,6 +4368,7 @@ content_store.content_store_has_gone_item('/sample-slug')
 
 ## `module GdsApi::TestHelpers::Organisations`
 
+
 ### `#organisations_api_has_organisations(organisation_slugs)`
 
 
@@ -4370,6 +4424,7 @@ otherwise it will be set to 'Executive agency'
 
 ## `module GdsApi::TestHelpers::AssetManager`
 
+
 ### `#asset_manager_has_an_asset(id, atts)`
 
 
@@ -4402,6 +4457,7 @@ otherwise it will be set to 'Executive agency'
 
 ## `module GdsApi::TestHelpers::IntentHelpers`
 
+
 ### `#intent_for_base_path(base_path)`
 
 
@@ -4412,6 +4468,7 @@ otherwise it will be set to 'Executive agency'
 ---
 
 ## `module GdsApi::TestHelpers::PublishingApi`
+
 
 ### `#stub_publishing_api_put_intent(base_path, body = intent_for_publishing_api(base_path))`
 
@@ -4494,6 +4551,7 @@ otherwise it will be set to 'Executive agency'
 
 ## `module GdsApi::TestHelpers::GovUkDelivery`
 
+
 ### `#stub_gov_uk_delivery_post_request(method, params_hash)`
 
 
@@ -4511,6 +4569,7 @@ otherwise it will be set to 'Executive agency'
 ---
 
 ## `module GdsApi::TestHelpers::EmailAlertApi`
+
 
 ### `#email_alert_api_has_subscriber_list(attributes)`
 
@@ -4593,6 +4652,7 @@ otherwise it will be set to 'Executive agency'
 
 ## `module GdsApi::TestHelpers::CommonResponses`
 
+
 ### `#titleize_slug(slug, options = {})`
 
 
@@ -4633,6 +4693,7 @@ returns an acronym like "MOF"
 ---
 
 ## `module GdsApi::TestHelpers::PublishingApiV2`
+
 
 ### `#stub_publishing_api_put_content(content_id, body, response_hash = {})`
 
@@ -5244,6 +5305,7 @@ publishing_api_has_linked_items(
 
 ## `module GdsApi::TestHelpers::LocalLinksManager`
 
+
 ### `#local_links_manager_has_a_link(authority_slug:, lgsl:, lgil:, url:)`
 
 
@@ -5332,6 +5394,7 @@ publishing_api_has_linked_items(
 
 ## `module GdsApi::TestHelpers::WhitehallAdminApi`
 
+
 ### `#stub_all_whitehall_admin_api_requests`
 
 
@@ -5349,6 +5412,7 @@ publishing_api_has_linked_items(
 ---
 
 ## `module GdsApi::TestHelpers::LicenceApplication`
+
 
 ### `#licence_exists(identifier, licence)`
 
@@ -5382,6 +5446,7 @@ publishing_api_has_linked_items(
 
 ## `module GdsApi::TestHelpers::ContentItemHelpers`
 
+
 ### `#content_item_for_base_path(base_path)`
 
 
@@ -5406,6 +5471,7 @@ publishing_api_has_linked_items(
 ---
 
 ## `module GdsApi::TestHelpers::BusinessSupportApi`
+
 
 ### `#setup_business_support_api_schemes_stubs`
 
@@ -5439,6 +5505,7 @@ publishing_api_has_linked_items(
 
 ## `module GdsApi::TestHelpers::BusinessSupportHelper`
 
+
 ### `#setup_business_support_stubs(endpoint, path)`
 
 
@@ -5456,6 +5523,7 @@ publishing_api_has_linked_items(
 ---
 
 ## `module GdsApi::TestHelpers::PerformancePlatform::DataIn`
+
 
 ### `#stub_service_feedback_day_aggregate_submission(slug, request_body = nil)`
 
@@ -5509,6 +5577,7 @@ publishing_api_has_linked_items(
 ---
 
 ## `module GdsApi::TestHelpers::PerformancePlatform::DataOut`
+
 
 ### `#stub_service_feedback(slug, response_body = {})`
 

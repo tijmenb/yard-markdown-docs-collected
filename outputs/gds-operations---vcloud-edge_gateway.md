@@ -68,6 +68,7 @@
 
 ## `class Vcloud::EdgeGateway::Cli`
 
+
 ### `#initialize(argv_array)`
 
 
@@ -90,6 +91,7 @@
 
 ## `class Vcloud::EdgeGateway::Configure`
 
+
 ### `#initialize(config_file=nil, vars_file=nil)`
 
 
@@ -111,6 +113,7 @@
 ---
 
 ## `class Vcloud::EdgeGateway::ConfigurationDiffer`
+
 
 ### `#initialize local, remote`
 
@@ -155,6 +158,7 @@
 
 ## `class Vcloud::EdgeGateway::NatConfigurationDiffer`
 
+
 ### `#strip_fields_for_differ_to_ignore(config)`
 
 
@@ -165,6 +169,7 @@
 ---
 
 ## `class Vcloud::EdgeGateway::EdgeGatewayConfiguration`
+
 
 ### `#config`
 
@@ -208,6 +213,7 @@ Returns the value of attribute diff
 
 ## `class Vcloud::EdgeGateway::FirewallConfigurationDiffer`
 
+
 ### `#strip_fields_for_differ_to_ignore(config)`
 
 
@@ -218,6 +224,7 @@ Returns the value of attribute diff
 ---
 
 ## `class Vcloud::EdgeGateway::LoadBalancerConfigurationDiffer`
+
 
 ### `#strip_fields_for_differ_to_ignore(config)`
 
@@ -230,6 +237,7 @@ Returns the value of attribute diff
 
 ## `class Vcloud::EdgeGateway::StaticRoutingConfigurationDiffer`
 
+
 ### `#strip_fields_for_differ_to_ignore(config)`
 
 
@@ -240,6 +248,7 @@ Returns the value of attribute diff
 ---
 
 ## `class Vcloud::EdgeGateway::ConfigurationGenerator::NatService`
+
 
 ### `#initialize input_config, edge_gateway_interfaces`
 
@@ -284,6 +293,7 @@ Returns the value of attribute diff
 
 ## `class Vcloud::EdgeGateway::GatewayIpsecVpnConfigurationDiffer`
 
+
 ### `#strip_fields_for_differ_to_ignore(config)`
 
 
@@ -295,6 +305,7 @@ Returns the value of attribute diff
 
 ## `class Vcloud::EdgeGateway::ConfigurationGenerator::FirewallService`
 
+
 ### `#generate_fog_config(input_config)`
 
 
@@ -305,6 +316,7 @@ Returns the value of attribute diff
 ---
 
 ## `class Vcloud::EdgeGateway::ConfigurationGenerator::LoadBalancerService`
+
 
 ### `#initialize(edge_gateway_interfaces)`
 
@@ -327,6 +339,7 @@ Returns the value of attribute diff
 ---
 
 ## `class Vcloud::EdgeGateway::ConfigurationGenerator::StaticRoutingService`
+
 
 ### `#initialize input_config, edge_gateway_interfaces`
 
@@ -381,6 +394,7 @@ Returns the value of attribute diff
 ---
 
 ## `class Vcloud::EdgeGateway::ConfigurationGenerator::GatewayIpsecVpnService`
+
 
 ### `#initialize input_config`
 

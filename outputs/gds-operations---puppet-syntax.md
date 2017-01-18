@@ -34,6 +34,7 @@
 
 ## `class PuppetSyntax::Hiera`
 
+
 ### `#check(filelist)`
 
 
@@ -45,6 +46,7 @@
 
 ## `class PuppetSyntax::Manifests`
 
+
 ### `#check(filelist)`
 
 
@@ -55,6 +57,7 @@
 ---
 
 ## `class PuppetSyntax::Templates`
+
 
 ### `#check(filelist)`
 
@@ -80,6 +83,7 @@
 ---
 
 ## `class PuppetSyntax::RakeTask`
+
 
 ### `#filelist(paths)`
 
@@ -123,6 +127,7 @@
 ---
 
 ## `module PuppetSyntax`
+
 
 ### `.exclude_paths`
 

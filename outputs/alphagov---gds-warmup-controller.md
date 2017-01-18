@@ -1,4 +1,0 @@
-# alphagov/gds-warmup-controller
-
----
-

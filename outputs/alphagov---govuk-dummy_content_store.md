@@ -45,6 +45,7 @@
 
 ## `class Govuk::DummyContentStore::Index`
 
+
 ### `#example_repository`
 
 Returns the value of attribute example_repository
@@ -75,6 +76,7 @@ Returns the value of attribute example_repository
 
 ## `class Govuk::DummyContentStore::Index::CleanBinding`
 
+
 ### `#binding`
 
 
@@ -85,6 +87,7 @@ Returns the value of attribute example_repository
 ---
 
 ## `class Govuk::DummyContentStore::Content`
+
 
 ### `#repository`
 
@@ -132,6 +135,7 @@ Returns the value of attribute random_repository
 
 ## `class Govuk::DummyContentStore::LiveRepository`
 
+
 ### `#live_content_path`
 
 Returns the value of attribute live_content_path
@@ -162,6 +166,7 @@ Returns the value of attribute live_content_path
 
 ## `class Govuk::DummyContentStore::RandomRepository`
 
+
 ### `#schema_name`
 
 Returns the value of attribute schema_name
@@ -180,6 +185,7 @@ Returns the value of attribute schema_name
 ---
 
 ## `class Govuk::DummyContentStore::ExampleRepository`
+
 
 ### `#content_schemas_path`
 
@@ -217,6 +223,7 @@ Returns the value of attribute content_schemas_path
 ---
 
 ## `class Govuk::DummyContentStore::ExampleContentItem`
+
 
 ### `#path`
 

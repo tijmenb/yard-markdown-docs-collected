@@ -38,6 +38,7 @@
 
 ## `class Vcloud::Launcher::Cli`
 
+
 ### `#initialize(argv_array)`
 
 
@@ -59,6 +60,7 @@
 ---
 
 ## `class Vcloud::Launcher::Launch`
+
 
 ### `#config`
 
@@ -97,6 +99,7 @@ Returns the value of attribute cli_options
 ---
 
 ## `class Vcloud::Launcher::Preamble`
+
 
 ### `#preamble_vars`
 
@@ -146,6 +149,7 @@ Returns the value of attribute script_path
 
 ## `class Vcloud::Launcher::VmOrchestrator`
 
+
 ### `#initialize vcloud_vm, vapp`
 
 
@@ -168,6 +172,7 @@ Returns the value of attribute script_path
 
 ## `class Vcloud::Launcher::VappOrchestrator`
 
+
 ### `.provision(vapp_config, dry_run = false)`
 
 
@@ -185,6 +190,7 @@ Returns the value of attribute script_path
 ---
 
 ## `class Vcloud::Launcher::IndependentDiskOrchestrator`
+
 
 ### `#initialize(vm)`
 
@@ -221,6 +227,7 @@ Returns the value of attribute script_path
 ---
 
 ## `module Vcloud::Launcher`
+
 
 ### `.clone_object object`
 

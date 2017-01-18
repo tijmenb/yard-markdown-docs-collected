@@ -33,6 +33,7 @@
 
 ## `class GovukSeedCrawler::Seeder`
 
+
 ### `.seed(site_root, options = {})`
 
 
@@ -43,6 +44,7 @@
 ---
 
 ## `class GovukSeedCrawler::Indexer`
+
 
 ### `#urls`
 
@@ -67,6 +69,7 @@ Returns the value of attribute urls
 
 ## `class GovukSeedCrawler::CLIRunner`
 
+
 ### `#initialize(argv_array)`
 
 
@@ -88,6 +91,7 @@ Returns the value of attribute urls
 ---
 
 ## `class GovukSeedCrawler::CLIException`
+
 
 ### `#help`
 
@@ -111,6 +115,7 @@ Returns the value of attribute help
 ---
 
 ## `class GovukSeedCrawler::CLIParser`
+
 
 ### `#initialize(argv_array)`
 
@@ -140,6 +145,7 @@ Returns the value of attribute help
 ---
 
 ## `class GovukSeedCrawler::AmqpClient`
+
 
 ### `#channel`
 
@@ -177,6 +183,7 @@ Returns the value of attribute channel
 ---
 
 ## `module GovukSeedCrawler`
+
 
 ### `.logger`
 

@@ -137,6 +137,7 @@
 
 ## `class Slimmer::App`
 
+
 ### `#logger`
 
 Returns the value of attribute logger
@@ -262,6 +263,7 @@ Sets the attribute logger
 ---
 
 ## `class Slimmer::Skin`
+
 
 ### `#load_template(template_name)`
 
@@ -457,6 +459,7 @@ Sets the attribute options
 
 ## `class Slimmer::Cache`
 
+
 ### `#use_cache=(value)`
 
 Sets the attribute use_cache
@@ -513,6 +516,7 @@ TODO: use a real cache rather than an in memory hash
 
 ## `class Slimmer::I18nBackend`
 
+
 ### `#available_locales`
 
 
@@ -530,6 +534,7 @@ TODO: use a real cache rather than an in memory hash
 ---
 
 ## `class Slimmer::GovukRequestId`
+
 
 ### `.set?`
 
@@ -560,6 +565,7 @@ TODO: use a real cache rather than an in memory hash
 
 ## `class Slimmer::ComponentResolver`
 
+
 ### `.caching`
 
 
@@ -577,6 +583,7 @@ TODO: use a real cache rather than an in memory hash
 ---
 
 ## `class Slimmer::Processors::TagMover`
+
 
 ### `#filter(src,dest)`
 
@@ -621,6 +628,7 @@ TODO: use a real cache rather than an in memory hash
 
 ## `class Slimmer::Processors::BodyInserter`
 
+
 ### `#initialize(source_id='wrapper', destination_id='wrapper')`
 
 
@@ -643,6 +651,7 @@ TODO: use a real cache rather than an in memory hash
 
 ## `class Slimmer::Processors::FooterRemover`
 
+
 ### `#filter(src,dest)`
 
 
@@ -653,6 +662,7 @@ TODO: use a real cache rather than an in memory hash
 ---
 
 ## `class Slimmer::Processors::TitleInserter`
+
 
 ### `#filter(src,dest)`
 
@@ -671,6 +681,7 @@ TODO: use a real cache rather than an in memory hash
 ---
 
 ## `class Slimmer::Processors::SearchRemover`
+
 
 ### `#initialize(headers)`
 
@@ -693,6 +704,7 @@ TODO: use a real cache rather than an in memory hash
 ---
 
 ## `class Slimmer::Processors::NavigationMover`
+
 
 ### `#initialize(skin)`
 
@@ -723,6 +735,7 @@ TODO: use a real cache rather than an in memory hash
 
 ## `class Slimmer::Processors::MetadataInserter`
 
+
 ### `#initialize(response, app_name)`
 
 
@@ -745,6 +758,7 @@ TODO: use a real cache rather than an in memory hash
 
 ## `class Slimmer::Processors::BodyClassCopier`
 
+
 ### `#filter(src, dest)`
 
 
@@ -755,6 +769,7 @@ TODO: use a real cache rather than an in memory hash
 ---
 
 ## `class Slimmer::Processors::SearchPathSetter`
+
 
 ### `#initialize(response)`
 
@@ -785,6 +800,7 @@ TODO: use a real cache rather than an in memory hash
 
 ## `class Slimmer::Processors::InsideHeaderInserter`
 
+
 ### `#filter(src, dest)`
 
 
@@ -795,6 +811,7 @@ TODO: use a real cache rather than an in memory hash
 ---
 
 ## `class Slimmer::Processors::HeaderContextInserter`
+
 
 ### `#initialize(path='.header-context')`
 
@@ -818,6 +835,7 @@ TODO: use a real cache rather than an in memory hash
 
 ## `class Slimmer::Processors::ConditionalCommentMover`
 
+
 ### `#filter(src, dest)`
 
 
@@ -835,6 +853,7 @@ TODO: use a real cache rather than an in memory hash
 ---
 
 ## `class Slimmer::Processors::SearchParameterInserter`
+
 
 ### `#initialize(response)`
 
@@ -879,6 +898,7 @@ TODO: use a real cache rather than an in memory hash
 
 ## `class Slimmer::Processors::ReportAProblemInserter`
 
+
 ### `#initialize(skin, url, headers, wrapper_id)`
 
 
@@ -907,6 +927,7 @@ TODO: use a real cache rather than an in memory hash
 ---
 
 ## `module Slimmer::Headers`
+
 
 ### `#set_slimmer_headers(hash)`
 
@@ -941,6 +962,7 @@ Set the "slimmer headers" to configure the page
 
 ## `module Slimmer::Template`
 
+
 ### `#slimmer_template template_name`
 
 
@@ -952,6 +974,7 @@ Set the "slimmer headers" to configure the page
 
 ## `module Slimmer::Template::ClassMethods`
 
+
 ### `#slimmer_template template_name`
 
 
@@ -962,6 +985,7 @@ Set the "slimmer headers" to configure the page
 ---
 
 ## `module Slimmer::TestHelpers::GovukComponents`
+
 
 ### `#stub_shared_component_locales`
 

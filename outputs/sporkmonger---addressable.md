@@ -865,7 +865,7 @@ brackets for IPv6 (and 'IPvFuture') addresses are removed.
 
 
 **See**:
-- Addressable::URI#host
+- Addressable::URI#host 
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1138)
 
 ### `#hostname=(new_hostname)`
@@ -880,7 +880,7 @@ the argument can be a bare IPv6 address (or 'IPvFuture').
 
 
 **See**:
-- Addressable::URI#host=
+- Addressable::URI#host= 
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1150)
 
 ### `#tld`
@@ -1424,7 +1424,7 @@ Destructive form of <code>join</code>.
 
 
 **See**:
-- Addressable::URI#join
+- Addressable::URI#join 
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1948)
 
 ### `#merge(hash)`
@@ -1445,7 +1445,7 @@ original components. The path component is not treated specially.
 
 
 **See**:
-- Hash#merge
+- Hash#merge 
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1963)
 
 ### `#merge!(uri)`
@@ -1463,7 +1463,7 @@ Destructive form of <code>merge</code>.
 
 
 **See**:
-- Addressable::URI#merge
+- Addressable::URI#merge 
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2028)
 
 ### `#route_from(uri)`
@@ -1532,7 +1532,7 @@ Destructively normalizes this URI object.
 
 
 **See**:
-- Addressable::URI#normalize
+- Addressable::URI#normalize 
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2146)
 
 ### `#display_uri`
@@ -1673,7 +1673,7 @@ Destructive form of omit.
 
 
 **See**:
-- Addressable::URI#omit
+- Addressable::URI#omit 
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2280)
 
 ### `#empty?`
@@ -1853,7 +1853,7 @@ otherwise.
 
 
 **See**:
-- #==
+- #== 
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L282)
 
 ### `#extract(uri, processor=nil)`
@@ -2441,7 +2441,7 @@ Returns multiple captured values at once.
 
 
 **See**:
-- Addressable::Template::MatchData#[]
+- Addressable::Template::MatchData#[] 
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L204)
 
 ### `#inspect`
@@ -2483,6 +2483,7 @@ Dummy method for code expecting a ::MatchData instance
 ---
 
 ## `module Addressable::IDNA`
+
 
 ### `.to_ascii(value)`
 

@@ -225,6 +225,7 @@
 
 ## `class Vcloud::Core::Vm`
 
+
 ### `#id`
 
 Returns the value of attribute id
@@ -499,6 +500,7 @@ Update the storage profile of a VM
 
 ## `class Vcloud::Core::Vdc`
 
+
 ### `#id`
 
 Returns the value of attribute id
@@ -580,6 +582,7 @@ Return the href of vDC
 ---
 
 ## `class Vcloud::Core::Vapp`
+
 
 ### `#id`
 
@@ -794,6 +797,7 @@ Power on vApp
 
 ## `class Vcloud::Core::Query`
 
+
 ### `#initialize(type=nil, options={}, query_runner = Vcloud::Core::QueryRunner.new)`
 
 Initialize a new Vcloud::Core::Query object
@@ -841,6 +845,7 @@ Run the query and print to standard out
 
 ## `class Vcloud::Core::Entity`
 
+
 ### `#id_prefix;`
 
 
@@ -865,6 +870,7 @@ Run the query and print to standard out
 ---
 
 ## `class Vcloud::Core::QueryCli`
+
 
 ### `#initialize(argv_array)`
 
@@ -899,6 +905,7 @@ Run a query and print results to standard out
 
 ## `class Vcloud::Core::LoginCli`
 
+
 ### `#initialize(argv_array)`
 
 Create a new instance of the CLI, parsing the arguments supplied
@@ -932,6 +939,7 @@ Login to vCloud and print shell commands suitable for setting the vcloud_token
 
 ## `class Vcloud::Core::LogoutCli`
 
+
 ### `#initialize(argv_array)`
 
 Create a new instance of the CLI, parsing the arguments supplied
@@ -964,6 +972,7 @@ Logout an existing vCloud session.
 ---
 
 ## `class Vcloud::Core::QueryRunner`
+
 
 ### `#initialize`
 
@@ -1028,6 +1037,7 @@ List the available entity types which can be queried
 ---
 
 ## `class Vcloud::Core::EdgeGateway`
+
 
 ### `#id`
 
@@ -1174,6 +1184,7 @@ networks to be taken without inspecting the API details.
 ---
 
 ## `class Vcloud::Core::VappTemplate`
+
 
 ### `#id`
 
@@ -1396,6 +1407,7 @@ the current organization
 
 ## `class Vcloud::Core::ConfigLoader`
 
+
 ### `#load_config(config_file, schema = nil, vars_file = nil)`
 
 Loads the configuration from +config_file+, optionally rendering
@@ -1427,6 +1439,7 @@ by Mustache
 ---
 
 ## `class Vcloud::Core::OrgVdcNetwork`
+
 
 ### `#id`
 
@@ -1627,6 +1640,7 @@ Returns the value of attribute warnings
 ---
 
 ## `class Vcloud::Core::IndependentDisk`
+
 
 ### `#id`
 
@@ -2162,6 +2176,7 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 
 ## `class Vcloud::Core::EdgeGatewayInterface`
 
+
 ### `#name`
 
 Returns the value of attribute name
@@ -2258,6 +2273,7 @@ Get the ID of EdgeGatewayInterface from the @network_href
 
 ## `module Vcloud::Core`
 
+
 ### `.logger`
 
 
@@ -2268,6 +2284,7 @@ Get the ID of EdgeGatewayInterface from the @network_href
 ---
 
 ## `module Vcloud::Core::Fog`
+
 
 ### `.logout`
 
@@ -2309,6 +2326,7 @@ else nil.
 
 ## `module Vcloud::Core::Fog::Login`
 
+
 ### `.token(pass)`
 
 
@@ -2326,6 +2344,7 @@ else nil.
 ---
 
 ## `module Vcloud::Core::MetadataHelper`
+
 
 ### `.extract_metadata vcloud_metadata_entries`
 
@@ -2350,6 +2369,7 @@ to Ruby types if possible.
 ---
 
 ## `module Vcloud::Core::ComputeMetadata`
+
 
 ### `#get_metadata id`
 

@@ -1956,6 +1956,9 @@ so configuration keys and values may not be present. Make no assumptions and
 instead ensure that you check for the existence of keys before proceeding to
 retrieve values.
 
+**See**:
+- options 
+
 ### `.options`
 
 The system-wide configuration options for YARD
@@ -1966,7 +1969,7 @@ The system-wide configuration options for YARD
 
 
 **See**:
-- DEFAULT_CONFIG_OPTIONS
+- DEFAULT_CONFIG_OPTIONS 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/config.rb#L91)
 
 ### `.options=(value)`
@@ -1979,7 +1982,7 @@ The system-wide configuration options for YARD
 
 
 **See**:
-- DEFAULT_CONFIG_OPTIONS
+- DEFAULT_CONFIG_OPTIONS 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/config.rb#L91)
 
 ### `.load`
@@ -2109,7 +2112,7 @@ Loads the YAML configuration file into memory
 
 
 **See**:
-- CONFIG_FILE
+- CONFIG_FILE 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/config.rb#L236)
 
 ### `.translate_plugin_name(name)`
@@ -2160,7 +2163,7 @@ Helper method to run the utility on an instance.
 
 
 **See**:
-- #run
+- #run 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yri.rb#L29)
 
 ### `#initialize`
@@ -2339,7 +2342,7 @@ onto that object.
 
 
 **See**:
-- #update
+- #update 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/options.rb#L123)
 
 ### `#to_hash`
@@ -2781,6 +2784,7 @@ Handles help for commands
 
 ## `class YARD::CLI::Gems`
 
+
 ### `#initialize`
 
 
@@ -3017,7 +3021,7 @@ be used for tags that only specify one type.
 
 
 **See**:
-- #types
+- #types 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/tag.rb#L56)
 
 ### `#explain_types`
@@ -3183,6 +3187,7 @@ the verifier.
 ---
 
 ## `class YARD::CLI::Stats`
+
 
 ### `#parse`
 
@@ -3386,8 +3391,8 @@ text and optional meta-data from docstrings. Defaults to
 
 
 **See**:
-- DocstringParser
-- Parser::SourceParser.after_parse_list
+- DocstringParser 
+- Parser::SourceParser.after_parse_list 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L28)
 
 ### `.default_parser=(value)`
@@ -3406,8 +3411,8 @@ text and optional meta-data from docstrings. Defaults to
 
 
 **See**:
-- DocstringParser
-- Parser::SourceParser.after_parse_list
+- DocstringParser 
+- Parser::SourceParser.after_parse_list 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L28)
 
 ### `.parser(*args) default_parser.new(*args) end`
@@ -3916,6 +3921,9 @@ Options to pass to the {Graph} CLI.
 
 A command-line utility to generate Graphviz graphs from
 a set of objects
+
+**See**:
+- Graph#run 
 
 ### `#options`
 
@@ -4682,6 +4690,9 @@ a case, you should wipe the cache and do a clean parsing of the source tree.
 You can do this by deleting the +.yardoc+ directory manually, or running
 Yardoc without +--use-cache+ (+-c+).
 
+**See**:
+- Verifier 
+
 ### `#options`
 
 
@@ -4691,7 +4702,7 @@ Yardoc without +--use-cache+ (+-c+).
 
 
 **See**:
-- Templates::Engine#render
+- Templates::Engine#render 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L148)
 
 ### `#files`
@@ -5099,7 +5110,7 @@ tag format +[language[_territory][.codeset][@modifier]]+.
 
 
 **See**:
-- http://tools.ietf.org/rfc/bcp/bcp47.txtBCP 47 - Tags for Identifying Languages
+- http://tools.ietf.org/rfc/bcp/bcp47.txt BCP 47 - Tags for Identifying Languages
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/locale.rb#L29)
 
 ### `#initialize(name)`
@@ -5166,7 +5177,7 @@ Helper method to run the utility on an instance.
 
 
 **See**:
-- #run
+- #run 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/command.rb#L14)
 
 ### `#description; '' end`
@@ -5266,6 +5277,11 @@ a specific way. A parser should implement {#parse}, {#tokenize} and
 
 == Registering a Custom Parser
 To register a parser, see {SourceParser.register_parser_type}
+
+**See**:
+- #parse 
+- #tokenize 
+- #enumerator 
 
 ### `.parse(source, filename = nil)`
 
@@ -5506,6 +5522,12 @@ object with your own by setting {Library.default_factory= Library.default_factor
 to a new class with its own parsing methods before running YARD. This is useful
 if you want to change the syntax of existing tags (@see, @since, etc.)
 
+**See**:
+- DefaultFactory 
+- define_tag 
+- define_directive 
+- Directive 
+
 ### `.labels`
 
 
@@ -5557,7 +5579,7 @@ YARD::Tags::Library.default_factory = MyFactory
 ```
 
 **See**:
-- DefaultFactory
+- DefaultFactory 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L83)
 
 ### `.default_factory=(factory)`
@@ -5577,7 +5599,7 @@ YARD::Tags::Library.default_factory = MyFactory
 ```
 
 **See**:
-- DefaultFactory
+- DefaultFactory 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L83)
 
 ### `.factory_method_for(tag)`
@@ -5847,6 +5869,7 @@ object.
 
 ## `class File`
 
+
 ### `.relative_path(from, to)`
 
 Turns a path +to+ into a relative path from starting
@@ -5921,6 +5944,7 @@ Reads a file with binary encoding
 ---
 
 ## `class Hash`
+
 
 ### `.create(*args)`
 
@@ -6347,6 +6371,15 @@ YARD has the ability to continue into any block: class, module, method,
 even if statements. For this reason, the block parsing method must be
 invoked explicitly out of efficiency sake.
 
+**See**:
+- CodeObjects::Base 
+- CodeObjects::NamespaceObject 
+- handles 
+- #namespace 
+- #owner 
+- #register 
+- #parse_block 
+
 ### `.clear_subclasses`
 
 Clear all registered subclasses. Testing purposes only
@@ -6431,7 +6464,7 @@ the given statement
 
 
 **See**:
-- handles?
+- handles? 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L211)
 
 ### `.namespace_only`
@@ -6502,7 +6535,7 @@ override the +process+ method without alias chaining.
 
 
 **See**:
-- #process
+- #process 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L269)
 
 ### `#initialize(source_parser, stmt)`
@@ -6537,8 +6570,8 @@ any objects for post-processing by the register method.
 - `NotImplementedError` 
 
 **See**:
-- handles
-- #register
+- handles 
+- #register 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L297)
 
 ### `#parse_block(*)`
@@ -6956,6 +6989,7 @@ finishes processing.
 
 ## `class Array`
 
+
 ### `#place(*values) Insertion.new(self, values) end`
 
 Places values before or after another object (by value) in
@@ -6982,8 +7016,8 @@ methods of the {Insertion} class.
 ```
 
 **See**:
-- Insertion#before
-- Insertion#after
+- Insertion#before 
+- Insertion#after 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/core_ext/array.rb#L15)
 
 ---
@@ -7069,8 +7103,8 @@ To set this field on initialization, pass +:DocumentRoot+ to the
 
 
 **See**:
-- LibraryVersionLibraryVersion for information on building a list of libraries
-- #add_library
+- LibraryVersion LibraryVersion for information on building a list of libraries
+- #add_library 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/adapter.rb#L32)
 
 ### `#libraries=(value)`
@@ -7082,8 +7116,8 @@ To set this field on initialization, pass +:DocumentRoot+ to the
 
 
 **See**:
-- LibraryVersionLibraryVersion for information on building a list of libraries
-- #add_library
+- LibraryVersion LibraryVersion for information on building a list of libraries
+- #add_library 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/adapter.rb#L32)
 
 ### `#options`
@@ -7250,6 +7284,10 @@ Implement this method to connect your adapter to your server.
 ## `class YARD::RegistryStore`
 
 The data store for the {Registry}.
+
+**See**:
+- Registry 
+- Serializers::YardocSerializer 
 
 ### `#proxy_types`
 
@@ -7506,7 +7544,7 @@ automatically.
 
 
 **See**:
-- #load_all
+- #load_all 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L140)
 
 ### `#load_all`
@@ -7555,7 +7593,7 @@ times.
 
 
 **See**:
-- #locked_for_writing?
+- #locked_for_writing? 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L199)
 
 ### `#locked_for_writing?(file = nil)`
@@ -7597,6 +7635,7 @@ otherwise.
 
 ## `class Module`
 
+
 ### `#class_name`
 
 Returns the class name of a full module namespace path
@@ -7635,6 +7674,7 @@ module A::B::C; namespace_name end # => "A::B"
 
 ## `class String`
 
+
 ### `#shell_split`
 
 Splits text into tokens the way a shell would, handling quoted
@@ -7652,6 +7692,7 @@ text as a single token. Use '\"' and "\'" to escape quotes and
 ---
 
 ## `class YARD::Tags::OptionTag`
+
 
 ### `#pair`
 
@@ -7702,6 +7743,9 @@ attached to an object declaration, {#object} will be set and available
 to modify the generated code object directly. Note that both of these
 attributes may be nil, and directives should test their existence
 before attempting to use them.
+
+**See**:
+- Library.define_directive 
 
 ### `#tag`
 
@@ -7853,6 +7897,9 @@ the last group definition, but occasionally you need to end the current
 group to return to the default listing. Use {tag:!group} to begin a
 group listing.
 
+**See**:
+- tag:!group 
+
 ### `#call`
 
 
@@ -7873,6 +7920,9 @@ use {tag:!endgroup}.
 **A group definition only applies to the scope it is defined in.
 If a new class or module is opened after the directive, this directive
 will not apply to methods in that class or module.**
+
+**See**:
+- tag:!endgroup 
 
 ### `#call`
 
@@ -7998,6 +8048,9 @@ the method's docstring text. If a +@!method+ directive is seen with
 no indented block, the entire docstring is used as the new method's
 docstring text.**
 
+**See**:
+- tag:!attribute 
+
 ### `#call; end`
 
 
@@ -8029,6 +8082,9 @@ To define a regular method, see {tag:!method}
 the attribute's docstring text. If an +@!attribute+ directive is seen with
 no indented block, the entire docstring is used as the new attribute's
 docstring text.**
+
+**See**:
+- tag:!method 
 
 ### `#after_parse`
 
@@ -8090,6 +8146,7 @@ the visibility to all future objects in the namespace.
 ---
 
 ## `class YARD::Handlers::C::Base`
+
 
 ### `.handles?(statement, processor)`
 
@@ -8196,6 +8253,7 @@ the visibility to all future objects in the namespace.
 ---
 
 ## `class YARD::Tags::DefaultTag`
+
 
 ### `#defaults`
 
@@ -8386,6 +8444,9 @@ The DocstringParser can be subclassed and subtituted during parsing by
 setting the {Docstring.default_parser} attribute with the name of the
 subclass. This allows developers to change the way docstrings are
 parsed, allowing for completely different docstring syntaxes.
+
+**See**:
+- #parse_content 
 
 ### `#text`
 
@@ -8669,7 +8730,7 @@ call {#to_docstring}.
 
 
 **See**:
-- #to_docstring
+- #to_docstring 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L113)
 
 ### `#parse_content(content)`
@@ -8962,7 +9023,7 @@ excluded from documentation. This attribute can also be a lambda.
 
 
 **See**:
-- Verifier
+- Verifier 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/rake/yardoc_task.rb#L42)
 
 ### `#verifier=(value)`
@@ -8976,7 +9037,7 @@ excluded from documentation. This attribute can also be a lambda.
 
 
 **See**:
-- Verifier
+- Verifier 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/rake/yardoc_task.rb#L42)
 
 ### `#initialize(name = :yard)`
@@ -9002,6 +9063,7 @@ Creates a new task with name +name+.
 ---
 
 ## `class YARD::Tags::RefTagList`
+
 
 ### `#owner`
 
@@ -9087,6 +9149,7 @@ Sets the attribute name
 ---
 
 ## `class YARD::Parser::C::CParser`
+
 
 ### `#initialize(source, file = '(stdin)')`
 
@@ -9244,6 +9307,9 @@ Handles all logic for complex lexical and inherited object resolution.
 Used by {Registry.resolve}, so there is no need to use this class
 directly.
 
+**See**:
+- Registry.resolve 
+
 ### `#initialize(registry = Registry)`
 
 Creates a new resolver object for a registry.
@@ -9312,6 +9378,7 @@ resolver.lookup_by_math("A::B#foo", inheritance: true)
 ---
 
 ## `class YARD::Tags::OverloadTag`
+
 
 ### `#signature`
 
@@ -9513,6 +9580,13 @@ Custom classes with different separator tokens should define their own
 separators using the {NamespaceMapper.register_separator} method. The
 standard Ruby separators have already been defined ('::', '#', '.', etc).
 
+**See**:
+- Registry 
+- #path 
+- #[]= 
+- NamespaceObject 
+- NamespaceMapper.register_separator 
+
 ### `#files`
 
 The files the object was defined in. To add a file, use {#add_file}.
@@ -9523,7 +9597,7 @@ The files the object was defined in. To add a file, use {#add_file}.
 
 
 **See**:
-- #add_file
+- #add_file 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L137)
 
 ### `#namespace`
@@ -9673,7 +9747,7 @@ Is the object defined conditionally at runtime?
 
 
 **See**:
-- #dynamic
+- #dynamic 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L178)
 
 ### `#visibility`
@@ -9715,7 +9789,7 @@ Allocates a new code object
 - `ArgumentError` 
 
 **See**:
-- #initialize
+- #initialize 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L189)
 
 ### `.===(other)`
@@ -9954,7 +10028,7 @@ Accesses a custom attribute on the object
 
 
 **See**:
-- #[]=
+- #[]= 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L338)
 
 ### `#[]=(key, value)`
@@ -9975,7 +10049,7 @@ Sets a custom attribute on the object
 
 
 **See**:
-- #[]
+- #[] 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L351)
 
 ### `#method_missing(meth, *args, &block)`
@@ -10063,7 +10137,7 @@ MethodObject.new(P("A::B"), :c).path # => "A::B#c"
 ```
 
 **See**:
-- #sep
+- #sep 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L442)
 
 ### `#path`
@@ -10084,7 +10158,7 @@ MethodObject.new(P("A::B"), :c).path # => "A::B#c"
 ```
 
 **See**:
-- #sep
+- #sep 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L449)
 
 ### `#title`
@@ -10099,7 +10173,7 @@ when linking or displaying the object.**
 
 
 **See**:
-- 0.8.4
+- 0.8.4 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L457)
 
 ### `#relative_path(other)`
@@ -10145,7 +10219,7 @@ puts P('MyClass#meth').format(:format => :html, :markup => :rdoc)
 ```
 
 **See**:
-- Templates::Engine#render
+- Templates::Engine#render 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L494)
 
 ### `#inspect`
@@ -10209,7 +10283,7 @@ Gets a tag from the {#docstring}
 
 
 **See**:
-- Docstring#tag
+- Docstring#tag 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L532)
 
 ### `#tags(name = nil); docstring.tags(name) end`
@@ -10218,7 +10292,7 @@ Gets a list of tags from the {#docstring}
 
 
 **See**:
-- Docstring#tags
+- Docstring#tags 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L536)
 
 ### `#has_tag?(name); docstring.has_tag?(name) end`
@@ -10231,7 +10305,7 @@ Tests if the {#docstring} has a tag
 
 
 **See**:
-- Docstring#has_tag?
+- Docstring#has_tag? 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L540)
 
 ### `#add_tag(*tags)`
@@ -10240,7 +10314,7 @@ Add tags to the {#docstring}
 
 
 **See**:
-- Docstring#add_tag
+- Docstring#add_tag 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L545)
 
 ### `#root?; false end`
@@ -10318,6 +10392,7 @@ Tests if the node matches the handler
 
 ## `class YARD::Handlers::Ruby::MethodCallWrapper`
 
+
 ### `#matches?(node)`
 
 
@@ -10332,6 +10407,7 @@ Tests if the node matches the handler
 ---
 
 ## `class YARD::Handlers::Ruby::TestNodeWrapper`
+
 
 ### `#matches?(node) !node.send(name).is_a?(FalseClass) end`
 
@@ -10352,6 +10428,10 @@ This is the base handler class for the new-style (1.9) Ruby parser.
 All handlers that subclass this base class will be used when the
 new-style parser is used. For implementing legacy handlers, see
 {Legacy::Base}.
+
+**See**:
+- Handlers::Base 
+- Legacy::Base 
 
 ### `.method_call(name = nil)`
 
@@ -10451,6 +10531,7 @@ handled by this handler
 
 ## `class YARD::Parser::C::Statement`
 
+
 ### `#source`
 
 Returns the value of attribute source
@@ -10520,7 +10601,7 @@ Sets the attribute file
 
 
 **See**:
-- Tags::GroupDirective
+- Tags::GroupDirective 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/c/statement.rb#L12)
 
 ### `#group=(value)`
@@ -10529,7 +10610,7 @@ Sets the attribute file
 
 
 **See**:
-- Tags::GroupDirective
+- Tags::GroupDirective 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/c/statement.rb#L12)
 
 ### `#comments_hash_flag`
@@ -10596,6 +10677,7 @@ Sets the attribute comments_hash_flag
 
 ## `class YARD::Parser::C::BodyStatement`
 
+
 ### `#comments`
 
 Returns the value of attribute comments
@@ -10620,6 +10702,7 @@ Sets the attribute comments
 ---
 
 ## `class YARD::Parser::C::ToplevelStatement`
+
 
 ### `#block`
 
@@ -10687,6 +10770,7 @@ Sets the attribute comments
 ---
 
 ## `class YARD::Parser::C::Comment`
+
 
 ### `#type`
 
@@ -10785,6 +10869,9 @@ where objects are being created from. You can also access extra stateful
 properties that any handler can set during the duration of the post
 processing of a file from {#extra_state}. If you need to access state
 across different files, look at {#globals}.
+
+**See**:
+- Handlers::Base 
 
 ### `.register_handler_namespace(type, ns)`
 
@@ -10957,7 +11044,7 @@ end
 ```
 
 **See**:
-- #extra_state
+- #extra_state 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L77)
 
 ### `#globals=(value)`
@@ -10985,7 +11072,7 @@ end
 ```
 
 **See**:
-- #extra_state
+- #extra_state 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L77)
 
 ### `#extra_state`
@@ -11003,7 +11090,7 @@ you need to save state across files, see {#globals}.
 
 
 **See**:
-- #globals
+- #globals 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L88)
 
 ### `#extra_state=(value)`
@@ -11021,7 +11108,7 @@ you need to save state across files, see {#globals}.
 
 
 **See**:
-- #globals
+- #globals 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L88)
 
 ### `#initialize(parser)`
@@ -11071,7 +11158,7 @@ on the current file.
 
 
 **See**:
-- Parser::OrderedParser
+- Parser::OrderedParser 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L140)
 
 ### `#find_handlers(statement)`
@@ -11100,6 +11187,10 @@ cases where the object may not yet exist. A proxy simply stores
 an unresolved path until a method is called on the object, at which
 point it does a lookup using {Registry.resolve}. If the object is
 not found, a warning is raised and {ProxyMethodError} might be raised.
+
+**See**:
+- Registry.resolve 
+- ProxyMethodError 
 
 ### `.===(other) other.is_a?(self) end`
 
@@ -11319,7 +11410,7 @@ time of the call, it will either return the inferred proxy type
 
 
 **See**:
-- #type=
+- #type= 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L146)
 
 ### `#type=(type) @type = type ? type.to_sym : nil end`
@@ -11415,6 +11506,11 @@ To add a custom command via plugin, create a mapping in {commands} from
 the Symbolic command name to the {Command} class that implements the
 command. To implement a command, see the documentation for the {Command}
 class.
+
+**See**:
+- Command 
+- commands 
+- default_command 
 
 ### `.commands`
 
@@ -11629,6 +11725,9 @@ file. The relative working directory path is ".." when the
 working directory path is "."  and the POT is wrote into
 "po/yard.pot".
 
+**See**:
+- http://www.gnu.org/software/gettext/manual/html_node/PO-Files.html GNU gettext manual about details of PO file
+
 ### `#messages`
 
 Extracted messages.
@@ -11829,6 +11928,9 @@ See details in the +#run+ method documentation.
 
 Note that if your command deals directly with libraries, you should
 consider subclassing the more specific {LibraryCommand} class instead.
+
+**See**:
+- #run 
 
 ### `#command_options`
 
@@ -12191,7 +12293,7 @@ Sets the attribute source
 
 
 **See**:
-- Tags::GroupDirective
+- Tags::GroupDirective 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L47)
 
 ### `#group=(value)`
@@ -12200,7 +12302,7 @@ Sets the attribute source
 
 
 **See**:
-- Tags::GroupDirective
+- Tags::GroupDirective 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L47)
 
 ### `#source_range=(value)`
@@ -12686,6 +12788,7 @@ Resets node state in tree
 
 ## `class YARD::Parser::Ruby::ReferenceNode`
 
+
 ### `#ref?; true end`
 
 
@@ -12715,6 +12818,7 @@ Resets node state in tree
 
 ## `class YARD::Parser::Ruby::LiteralNode`
 
+
 ### `#literal?; true end`
 
 
@@ -12730,6 +12834,7 @@ Resets node state in tree
 
 ## `class YARD::Parser::Ruby::KeywordNode`
 
+
 ### `#kw?; true end`
 
 
@@ -12744,6 +12849,7 @@ Resets node state in tree
 ---
 
 ## `class YARD::Parser::Ruby::ParameterNode`
+
 
 ### `#unnamed_required_params`
 
@@ -12798,6 +12904,7 @@ Resets node state in tree
 
 ## `class YARD::Parser::Ruby::MethodCallNode`
 
+
 ### `#call?; true end`
 
 
@@ -12847,6 +12954,7 @@ Resets node state in tree
 ---
 
 ## `class YARD::Parser::Ruby::MethodDefinitionNode`
+
 
 ### `#kw?; true end`
 
@@ -12902,6 +13010,7 @@ Resets node state in tree
 
 ## `class YARD::Parser::Ruby::ConditionalNode`
 
+
 ### `#condition?; true end`
 
 
@@ -12938,6 +13047,7 @@ Resets node state in tree
 
 ## `class YARD::Parser::Ruby::ClassNode`
 
+
 ### `#class_name; first end`
 
 
@@ -12963,6 +13073,7 @@ Resets node state in tree
 
 ## `class YARD::Parser::Ruby::ModuleNode`
 
+
 ### `#module_name; first end`
 
 
@@ -12980,6 +13091,7 @@ Resets node state in tree
 ---
 
 ## `class YARD::Parser::Ruby::LoopNode`
+
 
 ### `#loop?; true end`
 
@@ -13221,6 +13333,7 @@ Merges the contents of another hash into a new SymbolHash object
 
 ## `class YARD::Tags::DefaultFactory`
 
+
 ### `#parse_tag(tag_name, text)`
 
 Parses tag text and creates a new tag with descriptive text
@@ -13351,6 +13464,7 @@ on the first line and descriptive text
 ---
 
 ## `class YARD::Tags::TypesExplainer`
+
 
 ### `.explain(*types)`
 
@@ -13507,6 +13621,9 @@ Responsible for parsing a list of files in order. The
 {SourceParser#globals} globals state list to re-enter
 parsing for the remainder of files in the list recursively.
 
+**See**:
+- Processor#parse_remaining_files 
+
 ### `#files`
 
 
@@ -13560,7 +13677,7 @@ Parses the remainder of the {#files} list.
 
 
 **See**:
-- Processor#parse_remaining_files
+- Processor#parse_remaining_files 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L42)
 
 ---
@@ -13575,6 +13692,11 @@ any code objects that may be recognized.
 SourceParser allows custom parsers to be registered and called when
 a certain filetype is recognized. To register a parser and hook it
 up to a set of file extensions, call {register_parser_type}
+
+**See**:
+- register_parser_type 
+- Handlers::Base 
+- CodeObjects::Base 
 
 ### `.parser_type`
 
@@ -13686,7 +13808,7 @@ SourceParser.register_parser_type :java, JavaParser, 'java'
 ```
 
 **See**:
-- Parser::Base
+- Parser::Base 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L146)
 
 ### `.parser_types=(value) @@parser_types = value end`
@@ -13766,8 +13888,8 @@ YARD.parse('bar.rb') # parses normally
 ```
 
 **See**:
-- after_parse_list
-- before_parse_file
+- after_parse_list 
+- before_parse_file 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L234)
 
 ### `.after_parse_list(&block)`
@@ -13796,8 +13918,8 @@ YARD.parse
 ```
 
 **See**:
-- before_parse_list
-- before_parse_file
+- before_parse_list 
+- before_parse_file 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L258)
 
 ### `.before_parse_file(&block)`
@@ -13839,8 +13961,8 @@ end
 ```
 
 **See**:
-- after_parse_file
-- before_parse_list
+- after_parse_file 
+- before_parse_list 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L295)
 
 ### `.after_parse_file(&block)`
@@ -13874,8 +13996,8 @@ YARD.parse('lib/**/*.rb')
 ```
 
 **See**:
-- before_parse_file
-- after_parse_list
+- before_parse_file 
+- after_parse_list 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L324)
 
 ### `.before_parse_list_callbacks`
@@ -14169,7 +14291,7 @@ to load the necessary data in order to display documentation for an object.
 
 
 **See**:
-- LibraryVersionLibraryVersion documentation for "Implementing a Custom Library Source"
+- LibraryVersion LibraryVersion documentation for "Implementing a Custom Library Source"
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L116)
 
 ### `#source=(value)`
@@ -14184,7 +14306,7 @@ to load the necessary data in order to display documentation for an object.
 
 
 **See**:
-- LibraryVersionLibraryVersion documentation for "Implementing a Custom Library Source"
+- LibraryVersion LibraryVersion documentation for "Implementing a Custom Library Source"
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L116)
 
 ### `#source_path`
@@ -14199,7 +14321,7 @@ value is filled by calling +#source_path_for_SOURCE+ on this class.
 
 
 **See**:
-- LibraryVersionLibraryVersion documentation for "Implementing a Custom Library Source"
+- LibraryVersion LibraryVersion documentation for "Implementing a Custom Library Source"
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L122)
 
 ### `#source_path=(value)`
@@ -14579,6 +14701,7 @@ Internal parser class
 
 ## `class YARD::Handlers::C::PathHandler`
 
+
 ### `#process`
 
 Main processing callback
@@ -14594,6 +14717,7 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::C::MixinHandler`
+
 
 ### `#process`
 
@@ -14668,6 +14792,7 @@ holds all top level modules, class and other objects).
 
 ## `class YARD::Handlers::C::AliasHandler`
 
+
 ### `#process`
 
 Main processing callback
@@ -14684,6 +14809,7 @@ Main processing callback
 
 ## `class YARD::Handlers::C::ClassHandler`
 
+
 ### `#process`
 
 Main processing callback
@@ -14699,6 +14825,7 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::C::ModuleHandler`
+
 
 ### `#process`
 
@@ -14879,7 +15006,7 @@ interpolating the block data as a variable.
 
 
 **See**:
-- find_or_create
+- find_or_create 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/macro_object.rb#L120)
 
 ### `.apply_macro(macro, docstring, call_params = [], full_source = '', block_source = '') # rubocop:disable Lint/UnusedMethodArgument`
@@ -15011,7 +15138,7 @@ macro.expand(%w(property foo bar), 'property :foo, :bar', '') #=>
 ```
 
 **See**:
-- expand
+- expand 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/macro_object.rb#L167)
 
 ---
@@ -15050,7 +15177,7 @@ duration of the block.
 
 
 **See**:
-- Handlers::Base#push_state#push_state
+- Handlers::Base#push_state #push_state
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/base.rb#L35)
 
 ### `#call_params`
@@ -15089,6 +15216,7 @@ Main processing callback
 
 ## `class YARD::Handlers::C::MethodHandler`
 
+
 ### `#process`
 
 Main processing callback
@@ -15122,6 +15250,7 @@ Main processing callback
 ---
 
 ## `class YARD::Handlers::C::StructHandler`
+
 
 ### `#process`
 
@@ -15164,7 +15293,7 @@ Creates a new class object in +namespace+ with +name+
 
 
 **See**:
-- Base.new
+- Base.new 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/class_object.rb#L15)
 
 ### `#is_exception?`
@@ -15670,6 +15799,9 @@ methods.
 An Options class containing default options for base template rendering. For
 options specific to generation of HTML output, see {CLI::YardocOptions}.
 
+**See**:
+- CLI::YardocOptions 
+
 ### `#format`
 
 
@@ -16117,6 +16249,7 @@ nil unless the object is a module.
 
 ## `class YARD::Handlers::C::ConstantHandler`
 
+
 ### `#process`
 
 Main processing callback
@@ -16313,6 +16446,7 @@ Represents an end statement
 
 ## `class YARD::Parser::Ruby::Legacy::RubyToken::TkNode`
 
+
 ### `#node`
 
 Returns the value of attribute node
@@ -16367,6 +16501,7 @@ Represents a Ruby value
 
 ## `class YARD::Parser::Ruby::Legacy::RubyToken::TkOp`
 
+
 ### `#name`
 
 
@@ -16377,6 +16512,7 @@ Represents a Ruby value
 ---
 
 ## `class YARD::Parser::Ruby::Legacy::RubyToken::TkOPASGN`
+
 
 ### `#initialize(line_no, char_no, op)`
 
@@ -16400,6 +16536,7 @@ Returns the value of attribute op
 ---
 
 ## `class YARD::Parser::Ruby::Legacy::RubyToken::TkUnknownChar`
+
 
 ### `#initialize(line_no, char_no, _id)`
 
@@ -16505,6 +16642,7 @@ Main processing callback
 
 ## `class YARD::Handlers::C::AttributeHandler`
 
+
 ### `#process`
 
 Main processing callback
@@ -16520,6 +16658,7 @@ Main processing callback
 ---
 
 ## `class YARD::Parser::Ruby::Legacy::Statement`
+
 
 ### `#tokens`
 
@@ -16572,7 +16711,7 @@ Sets the attribute comments_range
 
 
 **See**:
-- Tags::GroupDirective
+- Tags::GroupDirective 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/statement.rb#L10)
 
 ### `#group=(value)`
@@ -16581,7 +16720,7 @@ Sets the attribute comments_range
 
 
 **See**:
-- Tags::GroupDirective
+- Tags::GroupDirective 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/statement.rb#L10)
 
 ### `#comments_hash_flag`
@@ -16730,6 +16869,9 @@ static relative paths to files on disk.
 
 Handles 'extend' call to include modules into the class scope of another
 
+**See**:
+- MixinHandler 
+
 ### `#scope; :class end`
 
 
@@ -16740,6 +16882,7 @@ Handles 'extend' call to include modules into the class scope of another
 ---
 
 ## `class YARD::Parser::Ruby::Legacy::TokenList`
+
 
 ### `#initialize(content = nil)`
 
@@ -16811,6 +16954,7 @@ Main processing callback
 ---
 
 ## `class YARD::Serializers::YardocSerializer`
+
 
 ### `#initialize(yfile)`
 
@@ -16885,7 +17029,7 @@ times.
 
 
 **See**:
-- #locked_for_writing?
+- #locked_for_writing? 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/yardoc_serializer.rb#L54)
 
 ### `#locked_for_writing?`
@@ -17074,7 +17218,7 @@ Creates a new namespace object inside +namespace+ with +name+.
 
 
 **See**:
-- Base#initialize
+- Base#initialize 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_object.rb#L56)
 
 ### `#class_attributes`
@@ -17087,7 +17231,7 @@ Only the class attributes
 
 
 **See**:
-- #attributes
+- #attributes 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_object.rb#L69)
 
 ### `#instance_attributes`
@@ -17100,7 +17244,7 @@ Only the instance attributes
 
 
 **See**:
-- #attributes
+- #attributes 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_object.rb#L76)
 
 ### `#child(opts = {})`
@@ -17170,7 +17314,7 @@ methods in the list.
 
 
 **See**:
-- #meths
+- #meths 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_object.rb#L144)
 
 ### `#constants(opts = {})`
@@ -17630,6 +17774,7 @@ Main processing callback
 
 ## `class YARD::Server::Commands::LibraryOptions`
 
+
 ### `#adapter; @command.adapter end`
 
 
@@ -17903,6 +18048,7 @@ Main processing callback
 ---
 
 ## `class YARD::Parser::Ruby::Legacy::StatementList`
+
 
 ### `#shebang_line`
 
@@ -18231,6 +18377,9 @@ Main processing callback
 
 Handles 'extend' call to include modules into the class scope of another
 
+**See**:
+- MixinHandler 
+
 ### `#scope; :class end`
 
 
@@ -18244,6 +18393,9 @@ Handles 'extend' call to include modules into the class scope of another
 
 Represents an instance method of a module that was mixed into the class
 scope of another namespace.
+
+**See**:
+- MethodObject 
 
 ### `#scope; :class end`
 
@@ -18280,8 +18432,8 @@ Sends all methods to the {MethodObject} assigned in {#initialize}
 
 
 **See**:
-- #initialize
-- MethodObject
+- #initialize 
+- MethodObject 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/extended_method_object.rb#L22)
 
 ---
@@ -18367,6 +18519,7 @@ Main processing callback
 
 ## `class YARD::Templates::Helpers::Markup::RDocMarkup`
 
+
 ### `#from_path`
 
 Returns the value of attribute from_path
@@ -18409,6 +18562,7 @@ Sets the attribute from_path
 ---
 
 ## `class YARD::Templates::Helpers::Markup::RDocMarkupToHtml`
+
 
 ### `#from_path`
 
@@ -18518,6 +18672,7 @@ Main processing callback
 ---
 
 ## `class YARD::Server::Commands::LibraryIndexOptions`
+
 
 ### `#adapter`
 
@@ -18719,6 +18874,7 @@ Main processing callback
 
 ## `class YARD::Templates::Helpers::Markup::RDocMarkdown`
 
+
 ### `#initialize(text)`
 
 
@@ -18907,6 +19063,9 @@ Main processing callback
 
 Backward compatability for gem specification lookup
 
+**See**:
+- Gem::SourceIndex 
+
 ### `.parse(*args) Parser::SourceParser.parse(*args) end`
 
 An alias to {Parser::SourceParser}'s parsing method
@@ -18919,7 +19078,7 @@ YARD.parse('lib/**/*.rb')
 ```
 
 **See**:
-- Parser::SourceParser.parse
+- Parser::SourceParser.parse 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard.rb#L20)
 
 ### `.parse_string(*args) Parser::SourceParser.parse_string(*args) end`
@@ -18934,7 +19093,7 @@ YARD.parse_string('class Foo; end')
 ```
 
 **See**:
-- Parser::SourceParser.parse_string
+- Parser::SourceParser.parse_string 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard.rb#L27)
 
 ### `.load_plugins; YARD::Config.load_plugins end`
@@ -19088,7 +19247,7 @@ Gets/sets the yardoc filename
 
 
 **See**:
-- DEFAULT_YARDOC_FILE
+- DEFAULT_YARDOC_FILE 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L84)
 
 ### `.yardoc_file=(v)`
@@ -19101,7 +19260,7 @@ Gets/sets the yardoc filename
 
 
 **See**:
-- DEFAULT_YARDOC_FILE
+- DEFAULT_YARDOC_FILE 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L84)
 
 ### `.load(files = [], reparse = false)`
@@ -19175,8 +19334,8 @@ memory. Equivalent to calling {load_yardoc} followed by {load_all}
 
 
 **See**:
-- #load_yardoc
-- #load_all
+- #load_yardoc 
+- #load_all 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L144)
 
 ### `.load_all`
@@ -19282,7 +19441,7 @@ times.
 
 
 **See**:
-- locked_for_writing?
+- locked_for_writing? 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L209)
 
 ### `.locked_for_writing?(file = yardoc_file)`
@@ -19331,7 +19490,7 @@ Registry.all(:class, :module)
 ```
 
 **See**:
-- CodeObjects::Base#type
+- CodeObjects::Base#type 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L237)
 
 ### `.paths(reload = false)`
@@ -19477,7 +19636,7 @@ Registry.resolve(P('A::B'), 'B::D') # => #<yardoc class A::B::D>
 ```
 
 **See**:
-- P
+- P 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L303)
 
 ### `.checksums`
@@ -19604,12 +19763,13 @@ s(:command, s(:var_ref, "mymethod"))
 ```
 
 **See**:
-- AstNode#initialize
+- AstNode#initialize 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L25)
 
 ---
 
 ## `module YARD::GemIndex`
+
 
 ### `.find_all_by_name(*args)`
 
@@ -19635,6 +19795,7 @@ s(:command, s(:var_ref, "mymethod"))
 ---
 
 ## `module YARD::Tags::RefTag`
+
 
 ### `#owner`
 
@@ -19827,12 +19988,13 @@ Serializes the results of a block with a +serializer+ object.
 - (``) — a block whose result will be serialize
 
 **See**:
-- Serializers::Base
+- Serializers::Base 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/engine.rb#L115)
 
 ---
 
 ## `module YARD::Templates::Template`
+
 
 ### `#class`
 
@@ -20034,7 +20196,7 @@ end
 ```
 
 **See**:
-- #sections
+- #sections 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template.rb#L237)
 
 ### `#run(opts = nil, sects = sections, start_at = 0, break_first = false, &block)`
@@ -20132,8 +20294,8 @@ the file
 - `ArgumentError` 
 
 **See**:
-- ClassMethods#find_file
-- ClassMethods#find_nth_file
+- ClassMethods#find_file 
+- ClassMethods#find_nth_file 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template.rb#L310)
 
 ### `#superb(sect = section, &block)`
@@ -20171,6 +20333,7 @@ paths.
 ---
 
 ## `module YARD::Templates::Template::ClassMethods`
+
 
 ### `#path`
 
@@ -20260,7 +20423,7 @@ path as well as any mixed in template paths. Equivalent to calling
 
 
 **See**:
-- find_nth_file
+- find_nth_file 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template.rb#L98)
 
 ### `#find_nth_file(basename, index = 1)`
@@ -20325,12 +20488,13 @@ Alias for creating a {Section} with arguments
 
 
 **See**:
-- Section#initialize
+- Section#initialize 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template.rb#L149)
 
 ---
 
 ## `module YARD::Templates::ErbCache`
+
 
 ### `.method_for(filename)`
 
@@ -20351,6 +20515,9 @@ Alias for creating a {Section} with arguments
 ## `module YARD::Server::StaticCaching`
 
 Implements static caching for requests.
+
+**See**:
+- Router Router documentation for "Caching"
 
 ### `#check_static_cache`
 
@@ -20388,7 +20555,7 @@ class YARD::Server::Router; include MemoryCaching; end
 ```
 
 **See**:
-- Commands::Base#cache
+- Commands::Base#cache 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/static_caching.rb#L34)
 
 ---
@@ -20570,6 +20737,7 @@ base_path('docs') # => 'docs/foo'
 ---
 
 ## `module YARD::Handlers::C::HandlerMethods`
+
 
 ### `#handle_class(var_name, class_name, parent, in_module = nil)`
 
@@ -22044,7 +22212,7 @@ Newer versions of YARD use {CodeObjects::ExtraFileObject#contents}
 
 
 **See**:
-- MARKUP_EXTENSIONS
+- MARKUP_EXTENSIONS 
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/markup_helper.rb#L128)
 
 ### `#markup_file_contents(contents)`
@@ -22127,6 +22295,7 @@ Prunes the method listing by running the verifier and removing attributes/aliase
 ---
 
 ## `module YARD::Handlers::Ruby::DSLHandlerMethods`
+
 
 ### `#handle_comments`
 

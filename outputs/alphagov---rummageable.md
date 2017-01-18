@@ -13,6 +13,7 @@
 
 ## `class Rummageable::Index`
 
+
 ### `#initialize(base_url, index_name, options = {})`
 
 

@@ -43,6 +43,7 @@
 
 ## `class GovukContentSchemaTestHelpers::Examples`
 
+
 ### `#initialize`
 
 
@@ -86,6 +87,7 @@
 
 ## `class GovukContentSchemaTestHelpers::Validator`
 
+
 ### `#initialize(schema_name, variant, document)`
 
 **Params**:
@@ -122,6 +124,7 @@
 ---
 
 ## `class GovukContentSchemaTestHelpers::Configuration`
+
 
 ### `#schema_type=(value)`
 
@@ -166,6 +169,7 @@ Sets the attribute project_root
 ---
 
 ## `class GovukContentSchemaTestHelpers::ValidationErrorMessage`
+
 
 ### `#schema_name`
 
@@ -213,6 +217,7 @@ Returns the value of attribute payload
 
 ## `module GovukContentSchemaTestHelpers`
 
+
 ### `.configuration`
 
 
@@ -241,6 +246,7 @@ Returns the value of attribute payload
 
 ## `module GovukContentSchemaTestHelpers::Util`
 
+
 ### `.govuk_content_schemas_path`
 
 
@@ -266,6 +272,7 @@ Get a list of the formats defined in govuk-content-schemas
 ---
 
 ## `module GovukContentSchemaTestHelpers::TestUnit`
+
 
 ### `#assert_valid_against_schema(content_item_hash, format)`
 

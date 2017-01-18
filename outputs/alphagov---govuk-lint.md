@@ -25,6 +25,7 @@
 
 ## `class Govuk::Lint::CLI`
 
+
 ### `#run(args = ARGV)`
 
 
@@ -35,6 +36,7 @@
 ---
 
 ## `class Govuk::Lint::SassCLI`
+
 
 ### `#run(args = ARGV)`
 
@@ -47,6 +49,7 @@
 
 ## `class Govuk::Lint::ConfigFile`
 
+
 ### `#config_file_path`
 
 
@@ -57,6 +60,7 @@
 ---
 
 ## `module Govuk::Lint::Diff`
+
 
 ### `.enable!(args)`
 
@@ -90,6 +94,7 @@
 
 ## `module Govuk::Lint::Diff::EnabledLines`
 
+
 ### `#enabled_line?(line_number)`
 
 
@@ -104,6 +109,7 @@
 ---
 
 ## `module Govuk::Lint::Diff::TargetFinder`
+
 
 ### `#find(args)`
 

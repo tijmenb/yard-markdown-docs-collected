@@ -22,6 +22,7 @@
 
 ## `class GovukNavigationHelpers::NavigationHelper`
 
+
 ### `#initialize(content_item)`
 
 
@@ -43,7 +44,7 @@ Generate a breadcrumb trail
 
 
 **See**:
-- http://govuk-component-guide.herokuapp.com/components/breadcrumbs
+- http://govuk-component-guide.herokuapp.com/components/breadcrumbs 
 - [Source on GitHub](https://github.com/alphagov/govuk_navigation_helpers/blob/master/lib/govuk_navigation_helpers.rb#L16)
 
 ### `#taxon_breadcrumbs`
@@ -56,7 +57,7 @@ Generate a breadcrumb trail for a taxon, using the taxon_parent link field
 
 
 **See**:
-- http://govuk-component-guide.herokuapp.com/components/breadcrumbs
+- http://govuk-component-guide.herokuapp.com/components/breadcrumbs 
 - [Source on GitHub](https://github.com/alphagov/govuk_navigation_helpers/blob/master/lib/govuk_navigation_helpers.rb#L24)
 
 ### `#related_items`
@@ -69,12 +70,13 @@ Generate a related items payload
 
 
 **See**:
-- http://govuk-component-guide.herokuapp.com/components/related_items
+- http://govuk-component-guide.herokuapp.com/components/related_items 
 - [Source on GitHub](https://github.com/alphagov/govuk_navigation_helpers/blob/master/lib/govuk_navigation_helpers.rb#L32)
 
 ---
 
 ## `class GovukNavigationHelpers::Breadcrumbs`
+
 
 ### `#initialize(content_item)`
 
@@ -130,6 +132,7 @@ https://gov-uk.atlassian.net/wiki/pages/viewpage.action?pageId=99876878
 ---
 
 ## `class GovukNavigationHelpers::TaxonBreadcrumbs`
+
 
 ### `#initialize(content_item)`
 

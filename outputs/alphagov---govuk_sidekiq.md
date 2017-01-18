@@ -52,6 +52,7 @@ https://github.com/mperham/sidekiq/wiki/Middleware#server-side-middleware
 
 ## `module GovukSidekiq::SidekiqInitializer`
 
+
 ### `.setup_sidekiq(govuk_app_name, redis_config)`
 
 

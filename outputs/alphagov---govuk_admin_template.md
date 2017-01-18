@@ -17,6 +17,7 @@
 
 ## `class GovukAdminTemplate::StyleGuideController`
 
+
 ### `#index`
 
 
@@ -27,6 +28,7 @@
 ---
 
 ## `module GovukAdminTemplate`
+
 
 ### `.environment_style`
 
@@ -71,6 +73,7 @@ variable, so use a default based on Rails.env
 ---
 
 ## `module GovukAdminTemplate::ViewHelpers`
+
 
 ### `#display_flash_message`
 

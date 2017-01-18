@@ -20,6 +20,7 @@
 
 ## `class GovukSchemas::Schema`
 
+
 ### `.find(schema)`
 
 Find a schema by name
@@ -96,6 +97,7 @@ Return all schema names
 
 ## `class GovukSchemas::Example`
 
+
 ### `.find_all(schema_name)`
 
 Find all examples for a schema
@@ -136,6 +138,7 @@ Find an example by name
 ---
 
 ## `class GovukSchemas::RandomExample`
+
 
 ### `#initialize(schema:)`
 

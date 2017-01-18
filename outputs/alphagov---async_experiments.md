@@ -41,6 +41,7 @@
 
 ## `class AsyncExperiments::CandidateWorker`
 
+
 ### `#experiment_candidate(experiment_config)`
 
 
@@ -51,6 +52,7 @@
 ---
 
 ## `class AsyncExperiments::ExperimentResult`
+
 
 ### `#initialize(name, id, type, redis, statsd, run_output = nil, duration = nil)`
 
@@ -116,6 +118,7 @@ Returns the value of attribute duration
 
 ## `class AsyncExperiments::ExperimentErrorWorker`
 
+
 ### `#perform(experiment_name, exception_string, expiry)`
 
 
@@ -126,6 +129,7 @@ Returns the value of attribute duration
 ---
 
 ## `class AsyncExperiments::ExperimentResultControlWorker`
+
 
 ### `#perform(name, id, run_output, duration, expiry, allowed_attempts = 5, attempt = 1)`
 
@@ -138,6 +142,7 @@ Returns the value of attribute duration
 
 ## `class AsyncExperiments::ExperimentResultCandidateWorker`
 
+
 ### `#perform(name, id, run_output, duration, expiry)`
 
 
@@ -148,6 +153,7 @@ Returns the value of attribute duration
 ---
 
 ## `module AsyncExperiments`
+
 
 ### `.statsd`
 
@@ -195,6 +201,7 @@ Returns the value of attribute duration
 
 ## `module AsyncExperiments::Util`
 
+
 ### `.present?(object)`
 
 
@@ -227,6 +234,7 @@ Returns the value of attribute duration
 ---
 
 ## `module AsyncExperiments::ExperimentControl`
+
 
 ### `#experiment_control(`
 

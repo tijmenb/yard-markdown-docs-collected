@@ -122,6 +122,7 @@
 
 ## `class Vcloud::Walker::Cli`
 
+
 ### `#initialize(argv_array)`
 
 
@@ -144,6 +145,7 @@
 
 ## `class Vcloud::Walker::Resource::Vms`
 
+
 ### `#initialize fog_vms`
 
 
@@ -158,6 +160,7 @@
 ---
 
 ## `class Vcloud::Walker::Resource::Vm`
+
 
 ### `#id`
 
@@ -278,6 +281,7 @@ Returns the value of attribute metadata
 
 ## `class Vcloud::Walker::Resource::Vdcs`
 
+
 ### `#initialize fog_vdcs`
 
 
@@ -292,6 +296,7 @@ Returns the value of attribute metadata
 ---
 
 ## `class Vcloud::Walker::Resource::Vdc`
+
 
 ### `#vapps`
 
@@ -355,6 +360,7 @@ Returns the value of attribute compute_capacity
 ---
 
 ## `class Vcloud::Walker::Resource::VApp`
+
 
 ### `#id`
 
@@ -443,6 +449,7 @@ Returns the value of attribute metadata
 
 ## `class Vcloud::Walker::Resource::VApps`
 
+
 ### `#initialize ids`
 
 
@@ -457,6 +464,7 @@ Returns the value of attribute metadata
 ---
 
 ## `class Vcloud::Walker::FogInterface`
+
 
 ### `.get_catalogs`
 
@@ -506,6 +514,7 @@ service-layer
 
 ## `class Vcloud::Walker::VcloudSession`
 
+
 ### `.instance`
 
 
@@ -517,6 +526,7 @@ service-layer
 
 ## `class Vcloud::Walker::Resource::Entity`
 
+
 ### `#to_summary`
 
 
@@ -527,6 +537,7 @@ service-layer
 ---
 
 ## `class Vcloud::Walker::Resource::Catalog`
+
 
 ### `#id`
 
@@ -575,6 +586,7 @@ Returns the value of attribute items
 
 ## `class Vcloud::Walker::Resource::Catalogs`
 
+
 ### `#initialize fog_catalogs`
 
 
@@ -590,6 +602,7 @@ Returns the value of attribute items
 
 ## `class Vcloud::Walker::Resource::Networks`
 
+
 ### `#initialize fog_networks`
 
 
@@ -604,6 +617,7 @@ Returns the value of attribute items
 ---
 
 ## `class Vcloud::Walker::Resource::Network`
+
 
 ### `#id`
 
@@ -700,6 +714,7 @@ Returns the value of attribute ip_ranges
 
 ## `class Vcloud::Walker::Resource::Collection`
 
+
 ### `#to_summary`
 
 
@@ -710,6 +725,7 @@ Returns the value of attribute ip_ranges
 ---
 
 ## `class Vcloud::Walker::Resource::Organization`
+
 
 ### `.catalogs`
 
@@ -749,6 +765,7 @@ Returns the value of attribute ip_ranges
 ---
 
 ## `class Vcloud::Walker::Resource::CatalogItem`
+
 
 ### `#id`
 
@@ -797,6 +814,7 @@ Returns the value of attribute vapp_template_id
 
 ## `class Vcloud::Walker::Resource::CatalogItems`
 
+
 ### `#initialize fog_catalog_items`
 
 
@@ -811,6 +829,7 @@ Returns the value of attribute vapp_template_id
 ---
 
 ## `class Vcloud::Walker::Resource::GatewayIpsecVpnService`
+
 
 ### `#IsEnabled`
 
@@ -842,6 +861,7 @@ Returns the value of attribute Tunnels
 ---
 
 ## `module Vcloud::Walker`
+
 
 ### `.walk(resource_to_walk)`
 

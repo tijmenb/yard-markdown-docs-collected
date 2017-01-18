@@ -35,6 +35,7 @@
 
 ## `class Provisioner::CLI`
 
+
 ### `.defaults`
 
 
@@ -70,6 +71,7 @@
 ---
 
 ## `class Provisioner::Provisioner`
+
 
 ### `#initialize options`
 
@@ -114,6 +116,7 @@
 
 ## `class Fog::Vcloud::Compute::Server`
 
+
 ### `#ready?`
 
 
@@ -128,6 +131,7 @@
 ---
 
 ## `module VcloudBoxProvisioner`
+
 
 ### `.build options = {}`
 
@@ -168,6 +172,7 @@ Sets the attribute ssh_client
 
 ## `module Provisioner::ComputeAction::Create`
 
+
 ### `#wait_for_vmware_tools(server)`
 
 
@@ -199,6 +204,7 @@ Sets the attribute ssh_client
 ---
 
 ## `module Provisioner::ComputeAction::Delete`
+
 
 ### `#delete_vapp`
 

@@ -170,6 +170,7 @@
 
 ## `class Govspeak::Document`
 
+
 ### `#images`
 
 Returns the value of attribute images
@@ -371,6 +372,7 @@ This issue is not considered a bug by kramdown: https://github.com/gettalong/kra
 
 ## `class Govspeak::CLI`
 
+
 ### `#run`
 
 
@@ -381,6 +383,7 @@ This issue is not considered a bug by kramdown: https://github.com/gettalong/kra
 ---
 
 ## `class Govspeak::HtmlValidator`
+
 
 ### `#govspeak_string`
 
@@ -442,6 +445,7 @@ Make whitespace in html tags consistent
 
 ## `class Govspeak::HtmlSanitizer`
 
+
 ### `#initialize(dirty_html, options = {})`
 
 
@@ -478,6 +482,7 @@ Make whitespace in html tags consistent
 
 ## `class Govspeak::HtmlSanitizer::ImageSourceWhitelister`
 
+
 ### `#initialize(allowed_image_hosts)`
 
 
@@ -500,6 +505,7 @@ Make whitespace in html tags consistent
 
 ## `class Govspeak::HtmlSanitizer::TableCellTextAlignWhitelister`
 
+
 ### `#call(sanitize_context)`
 
 
@@ -521,6 +527,7 @@ Make whitespace in html tags consistent
 ---
 
 ## `class Govspeak::PostProcessor`
+
 
 ### `#input`
 
@@ -565,6 +572,7 @@ Returns the value of attribute input
 ---
 
 ## `class Govspeak::Header`
+
 
 ### `#text=(value)`
 
@@ -657,6 +665,7 @@ Returns the value of attribute id
 
 ## `class Govspeak::HeaderExtractor`
 
+
 ### `#convert(doc)`
 
 
@@ -667,6 +676,7 @@ Returns the value of attribute id
 ---
 
 ## `class Govspeak::StructuredHeader`
+
 
 ### `#text=(value)`
 
@@ -788,6 +798,7 @@ Returns the value of attribute headers
 
 ## `class Govspeak::StructuredHeaderExtractor`
 
+
 ### `#initialize(document)`
 
 
@@ -903,6 +914,7 @@ Returns the value of attribute headers
 
 ## `class Govspeak::HCardPresenter`
 
+
 ### `.from_contact(contact)`
 
 
@@ -983,6 +995,7 @@ Returns the value of attribute country_code
 
 ## `class Govspeak::ContactPresenter`
 
+
 ### `#contact`
 
 Returns the value of attribute contact
@@ -1023,6 +1036,7 @@ Returns the value of attribute contact
 ---
 
 ## `class Govspeak::AttachmentPresenter`
+
 
 ### `#attachment`
 
@@ -1320,6 +1334,7 @@ FIXME this has english in it so will cause problems if the locale is not en
 
 ## `class Kramdown::Options::AlwaysEqual`
 
+
 ### `#==(other)`
 
 
@@ -1330,6 +1345,7 @@ FIXME this has english in it so will cause problems if the locale is not en
 ---
 
 ## `class Kramdown::Parser::KramdownWithAutomaticExternalLinks`
+
 
 ### `#initialize(source, options)`
 
@@ -1353,6 +1369,7 @@ FIXME this has english in it so will cause problems if the locale is not en
 
 ## `module WithDeepMerge`
 
+
 ### `#deep_merge(base_object, other_object)`
 
 
@@ -1363,6 +1380,7 @@ FIXME this has english in it so will cause problems if the locale is not en
 ---
 
 ## `module Govspeak::KramdownOverrides`
+
 
 ### `.with_kramdown_ordered_lists_disabled`
 
@@ -1379,6 +1397,7 @@ match Kramdown's internals.
 ---
 
 ## `module Govspeak::BlockquoteExtraQuoteRemover`
+
 
 ### `.remove(source)`
 

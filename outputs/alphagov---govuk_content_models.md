@@ -318,6 +318,7 @@
 
 ## `class User`
 
+
 ### `.collection_name`
 
 Let an app configure the collection name to use, e.g. set a constant in an
@@ -394,6 +395,7 @@ initializer
 
 ## `class Action`
 
+
 ### `#container_class_name(edition)`
 
 
@@ -433,6 +435,7 @@ initializer
 ---
 
 ## `class Edition`
+
 
 ### `#admin_list_title`
 
@@ -751,6 +754,7 @@ system.
 
 ## `class CannotEditSlugIfEverPublished`
 
+
 ### `#validate(record)`
 
 
@@ -761,6 +765,7 @@ system.
 ---
 
 ## `class Artefact`
+
 
 ### `.default_app_for_format(format)`
 
@@ -940,6 +945,7 @@ as we are still interested to know what triggered the action.
 
 ## `class Downtime`
 
+
 ### `.for(artefact)`
 
 
@@ -961,6 +967,7 @@ as we are still interested to know what triggered the action.
 ---
 
 ## `class GuideEdition`
+
 
 ### `#has_video?`
 
@@ -988,6 +995,7 @@ as we are still interested to know what triggered the action.
 
 ## `class PlaceEdition`
 
+
 ### `#whole_body`
 
 
@@ -998,6 +1006,7 @@ as we are still interested to know what triggered the action.
 ---
 
 ## `class SafeHtml`
+
 
 ### `#validate(record)`
 
@@ -1024,6 +1033,7 @@ as we are still interested to know what triggered the action.
 
 ## `class VideoEdition`
 
+
 ### `#has_video?`
 
 
@@ -1046,6 +1056,7 @@ as we are still interested to know what triggered the action.
 
 ## `class LocalService`
 
+
 ### `.find_by_lgsl_code(lgsl_code)`
 
 
@@ -1057,6 +1068,7 @@ as we are still interested to know what triggered the action.
 
 ## `class AnswerEdition`
 
+
 ### `#whole_body`
 
 
@@ -1067,6 +1079,7 @@ as we are still interested to know what triggered the action.
 ---
 
 ## `class LicenceEdition`
+
 
 ### `#whole_body`
 
@@ -1086,6 +1099,7 @@ as we are still interested to know what triggered the action.
 
 ## `class CampaignEdition`
 
+
 ### `#whole_body`
 
 
@@ -1096,6 +1110,7 @@ as we are still interested to know what triggered the action.
 ---
 
 ## `class HelpPageEdition`
+
 
 ### `#whole_body`
 
@@ -1108,6 +1123,7 @@ as we are still interested to know what triggered the action.
 
 ## `class ProgrammeEdition`
 
+
 ### `#setup_default_parts`
 
 
@@ -1118,6 +1134,7 @@ as we are still interested to know what triggered the action.
 ---
 
 ## `class SlugValidator`
+
 
 ### `#validate_each(record, attribute, value)`
 
@@ -1130,6 +1147,7 @@ implement the method called during validation
 ---
 
 ## `class SlugValidator::InstanceValidator`
+
 
 ### `#starts_with?(expected_prefix)`
 
@@ -1200,6 +1218,7 @@ implement the method called during validation
 
 ## `class SlugValidator::DonePageValidator`
 
+
 ### `#applicable?`
 
 
@@ -1221,6 +1240,7 @@ implement the method called during validation
 ---
 
 ## `class SlugValidator::ForeignTravelAdvicePageValidator`
+
 
 ### `#applicable?`
 
@@ -1244,6 +1264,7 @@ implement the method called during validation
 
 ## `class SlugValidator::FinderEmailSignupValidator`
 
+
 ### `#applicable?`
 
 
@@ -1266,6 +1287,7 @@ implement the method called during validation
 
 ## `class SlugValidator::HelpPageValidator`
 
+
 ### `#applicable?`
 
 
@@ -1287,6 +1309,7 @@ implement the method called during validation
 ---
 
 ## `class SlugValidator::GovernmentPageValidator`
+
 
 ### `#url_parts`
 
@@ -1317,6 +1340,7 @@ implement the method called during validation
 
 ## `class SlugValidator::ManualPageValidator`
 
+
 ### `#applicable?`
 
 
@@ -1338,6 +1362,7 @@ implement the method called during validation
 ---
 
 ## `class SlugValidator::DetailedGuideValidator`
+
 
 ### `#applicable?`
 
@@ -1361,6 +1386,7 @@ implement the method called during validation
 
 ## `class SlugValidator::DefaultValidator`
 
+
 ### `#applicable?`
 
 
@@ -1383,6 +1409,7 @@ implement the method called during validation
 
 ## `class LinkValidator`
 
+
 ### `#validate(record)`
 
 
@@ -1401,6 +1428,7 @@ implement the method called during validation
 
 ## `class TransactionEdition`
 
+
 ### `#indexable_content`
 
 
@@ -1418,6 +1446,7 @@ implement the method called during validation
 ---
 
 ## `class TravelAdviceEdition`
+
 
 ### `.fields_to_clone`
 
@@ -1479,6 +1508,7 @@ Sets the attribute fields_to_clone
 
 ## `class ReviewerValidator`
 
+
 ### `#validate(record)`
 
 
@@ -1490,6 +1520,7 @@ Sets the attribute fields_to_clone
 
 ## `class BusinessSupportEdition`
 
+
 ### `#whole_body`
 
 
@@ -1500,6 +1531,7 @@ Sets the attribute fields_to_clone
 ---
 
 ## `class LocalTransactionEdition`
+
 
 ### `#valid_lgsl_code`
 
@@ -1539,6 +1571,7 @@ Sets the attribute fields_to_clone
 ---
 
 ## `class SimpleSmartAnswerEdition`
+
 
 ### `#whole_body`
 
@@ -1595,6 +1628,7 @@ to the same document.
 
 ## `class CompletedTransactionEdition`
 
+
 ### `#whole_body`
 
 
@@ -1605,6 +1639,7 @@ to the same document.
 ---
 
 ## `class GovukContentModels::ActionProcessors::BaseProcessor`
+
 
 ### `#actor`
 
@@ -1712,6 +1747,7 @@ Sets the attribute event_attributes
 
 ## `class GovukContentModels::ActionProcessors::AssignProcessor`
 
+
 ### `#process`
 
 
@@ -1722,6 +1758,7 @@ Sets the attribute event_attributes
 ---
 
 ## `class GovukContentModels::ActionProcessors::SkipReviewProcessor`
+
 
 ### `#process?`
 
@@ -1737,6 +1774,7 @@ Sets the attribute event_attributes
 ---
 
 ## `class GovukContentModels::ActionProcessors::NewVersionProcessor`
+
 
 ### `#process?`
 
@@ -1771,6 +1809,7 @@ Sets the attribute event_attributes
 
 ## `class GovukContentModels::ActionProcessors::CreateEditionProcessor`
 
+
 ### `#action_name`
 
 
@@ -1800,6 +1839,7 @@ Sets the attribute event_attributes
 
 ## `class GovukContentModels::ActionProcessors::ApproveReviewProcessor`
 
+
 ### `#process?`
 
 
@@ -1815,6 +1855,7 @@ Sets the attribute event_attributes
 
 ## `class GovukContentModels::ActionProcessors::SendFactCheckProcessor`
 
+
 ### `#process`
 
 
@@ -1825,6 +1866,7 @@ Sets the attribute event_attributes
 ---
 
 ## `class GovukContentModels::ActionProcessors::RequestAmendmentsProcessor`
+
 
 ### `#process?`
 
@@ -1840,6 +1882,7 @@ Sets the attribute event_attributes
 ---
 
 ## `class GovukContentModels::ActionProcessors::ReceiveFactCheckProcessor`
+
 
 ### `#process`
 
@@ -1864,6 +1907,7 @@ Always records the action.
 
 ## `class GovukContentModels::ActionProcessors::ScheduleForPublishingProcessor`
 
+
 ### `#process`
 
 
@@ -1874,6 +1918,7 @@ Always records the action.
 ---
 
 ## `module Parted`
+
 
 ### `#build_clone(target_class=nil)`
 
@@ -1899,6 +1944,7 @@ Always records the action.
 ---
 
 ## `module Workflow`
+
 
 ### `#fact_checked?`
 
@@ -2014,6 +2060,7 @@ Always records the action.
 
 ## `module Attachable`
 
+
 ### `.asset_api_client`
 
 
@@ -2032,6 +2079,7 @@ Always records the action.
 
 ## `module Attachable::ClassMethods`
 
+
 ### `#attaches(*fields)`
 
 
@@ -2043,6 +2091,7 @@ Always records the action.
 
 ## `module Mongoid::Dirty`
 
+
 ### `#changes`
 
 
@@ -2053,6 +2102,7 @@ Always records the action.
 ---
 
 ## `module PrerenderedEntity`
+
 
 ### `#create_or_update_by_slug!(attributes)`
 
@@ -2071,6 +2121,7 @@ Always records the action.
 ---
 
 ## `module PresentationToggles`
+
 
 ### `#promotion_choice=(value)`
 
@@ -2122,6 +2173,7 @@ Always records the action.
 
 ## `module PresentationToggles::ClassMethods`
 
+
 ### `#default_presentation_toggles`
 
 
@@ -2133,6 +2185,7 @@ Always records the action.
 
 ## `module LocalServicesHelper`
 
+
 ### `#make_service(lgsl_code, providing_tier)`
 
 
@@ -2143,6 +2196,7 @@ Always records the action.
 ---
 
 ## `module GovukContentModels::TestHelpers::ActionProcessorHelpers`
+
 
 ### `#request_review(user, edition)`
 

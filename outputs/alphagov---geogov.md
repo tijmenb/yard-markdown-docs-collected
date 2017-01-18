@@ -145,6 +145,7 @@ In no way thread-safe
 
 ## `class Geogov::SimpleCache`
 
+
 ### `#initialize(delegate)`
 
 
@@ -166,6 +167,7 @@ In no way thread-safe
 ---
 
 ## `class Geogov::GeoStack`
+
 
 ### `#ward`
 
@@ -477,6 +479,7 @@ Returns the value of attribute postcode
 
 ## `class Geogov::FuzzyPoint`
 
+
 ### `#lon`
 
 Returns the value of attribute lon
@@ -525,6 +528,7 @@ Returns the value of attribute accuracy
 ---
 
 ## `class Geogov::Mapit`
+
 
 ### `#initialize(default_url = "http://mapit.mysociety.org")`
 
@@ -603,6 +607,7 @@ pylib/mapit/areas/models.py
 
 ## `class Geogov::Mapit::Method`
 
+
 ### `#initialize(url, params = [])`
 
 
@@ -631,6 +636,7 @@ pylib/mapit/areas/models.py
 ---
 
 ## `class Geogov::Google`
+
 
 ### `#dimension(l1,l2)`
 
@@ -664,6 +670,7 @@ pylib/mapit/areas/models.py
 
 ## `class Geogov::Hostip`
 
+
 ### `#initialize`
 
 
@@ -685,6 +692,7 @@ pylib/mapit/areas/models.py
 ---
 
 ## `class Geogov::Geonames`
+
 
 ### `#initialize(username = "username", url = "http://api.geonames.org")`
 
@@ -729,6 +737,7 @@ pylib/mapit/areas/models.py
 
 ## `class Geogov::OpenStreetMap`
 
+
 ### `#initialize(url = "http://ojw.dev.openstreetmap.org")`
 
 
@@ -758,6 +767,7 @@ pylib/mapit/areas/models.py
 
 ## `class Geogov::DracosGazetteer`
 
+
 ### `#initialize(default_url = "http://gazetteer.dracos.vm.bytemark.co.uk")`
 
 
@@ -779,6 +789,7 @@ pylib/mapit/areas/models.py
 ---
 
 ## `module Geogov`
+
 
 ### `.provider_for(method, instance)`
 

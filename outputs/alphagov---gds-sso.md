@@ -61,6 +61,7 @@
 
 ## `class GDS::SSO::Engine`
 
+
 ### `.default_strategies`
 
 
@@ -71,6 +72,7 @@
 ---
 
 ## `class GDS::SSO::ApiAccess`
+
 
 ### `.api_call?(env)`
 
@@ -86,6 +88,7 @@
 ---
 
 ## `class GDS::SSO::FailureApp`
+
 
 ### `.call(env)`
 
@@ -138,6 +141,7 @@ Where `::User` is your class including `GDS::SSO::User`
 
 ## `class Api::UserController`
 
+
 ### `#update`
 
 
@@ -155,6 +159,7 @@ Where `::User` is your class including `GDS::SSO::User`
 ---
 
 ## `class AuthenticationsController`
+
 
 ### `#callback`
 
@@ -181,6 +186,7 @@ Where `::User` is your class including `GDS::SSO::User`
 
 ## `module GDS::SSO`
 
+
 ### `.config`
 
 
@@ -194,6 +200,7 @@ Where `::User` is your class including `GDS::SSO::User`
 ---
 
 ## `module GDS::SSO::User`
+
 
 ### `#has_permission?(permission)`
 
@@ -231,6 +238,7 @@ Where `::User` is your class including `GDS::SSO::User`
 
 ## `module GDS::SSO::User::ClassMethods`
 
+
 ### `#find_for_gds_oauth(auth_hash)`
 
 
@@ -241,6 +249,7 @@ Where `::User` is your class including `GDS::SSO::User`
 ---
 
 ## `module GDS::SSO::Config`
+
 
 ### `.user_klass`
 
@@ -263,6 +272,7 @@ Where `::User` is your class including `GDS::SSO::User`
 ---
 
 ## `module GDS::SSO::BearerToken`
+
 
 ### `.locate(token_string)`
 
@@ -293,6 +303,7 @@ we need to transform the response ourselves.
 
 ## `module GDS::SSO::MockBearerToken`
 
+
 ### `.locate(token_string)`
 
 
@@ -303,6 +314,7 @@ we need to transform the response ourselves.
 ---
 
 ## `module GDS::SSO::ControllerMethods`
+
 
 ### `#authorise_user!(permissions)`
 

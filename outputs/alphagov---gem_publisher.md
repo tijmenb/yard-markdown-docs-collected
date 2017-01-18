@@ -40,6 +40,7 @@
 
 ## `class Gem::Commands::PublishCommand`
 
+
 ### `#initialize`
 
 
@@ -70,6 +71,7 @@
 
 ## `class GemPublisher::Pusher`
 
+
 ### `#initialize(cli_facade = CliFacade.new)`
 
 
@@ -96,6 +98,7 @@ Supported options:
 
 ## `class GemPublisher::Builder`
 
+
 ### `#initialize(cli_facade = CliFacade.new)`
 
 
@@ -117,6 +120,7 @@ Supported options:
 ---
 
 ## `class GemPublisher::Publisher`
+
 
 ### `#git_remote`
 
@@ -228,6 +232,7 @@ Supported options:
 
 ## `class GemPublisher::CliFacade`
 
+
 ### `#execute(*arguments)`
 
 
@@ -238,6 +243,7 @@ Supported options:
 ---
 
 ## `class GemPublisher::GitRemote`
+
 
 ### `#initialize(name = "origin", cli_facade = CliFacade.new)`
 
@@ -267,6 +273,7 @@ Supported options:
 ---
 
 ## `module GemPublisher`
+
 
 ### `.publish_if_updated(gemspec, method=:rubygems, options={})`
 

@@ -467,6 +467,7 @@
 
 ## `class Appsignal::CLI`
 
+
 ### `.options`
 
 Returns the value of attribute options
@@ -513,6 +514,7 @@ Sets the attribute options
 
 ## `class Appsignal::Demo`
 
+
 ### `.transmit`
 
 
@@ -523,6 +525,7 @@ Sets the attribute options
 ---
 
 ## `class Appsignal::Hooks`
+
 
 ### `.register(name, hook)`
 
@@ -548,6 +551,7 @@ Sets the attribute options
 ---
 
 ## `class Appsignal::Hooks::Hook`
+
 
 ### `.register(name, hook=self)`
 
@@ -613,6 +617,7 @@ Sets the attribute options
 
 ## `class Appsignal::Utils::Data`
 
+
 ### `.generate(body)`
 
 
@@ -638,6 +643,7 @@ Sets the attribute options
 
 ## `class Appsignal::Utils::JSON`
 
+
 ### `.generate(body)`
 
 
@@ -649,6 +655,7 @@ Sets the attribute options
 
 ## `class Appsignal::Utils::Gzip`
 
+
 ### `.compress(body)`
 
 
@@ -659,6 +666,7 @@ Sets the attribute options
 ---
 
 ## `class Appsignal::Marker`
+
 
 ### `#marker_data`
 
@@ -697,6 +705,7 @@ Returns the value of attribute config
 ---
 
 ## `class Appsignal::Config`
+
 
 ### `#root_path`
 
@@ -816,6 +825,7 @@ Sets the attribute logger
 
 ## `class Appsignal::CLI::Demo`
 
+
 ### `.run(options = {})`
 
 
@@ -826,6 +836,7 @@ Sets the attribute logger
 ---
 
 ## `class Appsignal::Minutely`
+
 
 ### `.probes`
 
@@ -861,6 +872,7 @@ respond to call.
 
 ## `class Appsignal::Minutely::GCProbe`
 
+
 ### `#call`
 
 
@@ -871,6 +883,7 @@ respond to call.
 ---
 
 ## `class Appsignal::Extension`
+
 
 ### `.agent_config`
 
@@ -987,6 +1000,7 @@ Metrics
 
 ## `class Appsignal::Extension::Data`
 
+
 ### `#inspect`
 
 
@@ -1100,6 +1114,7 @@ Get Json content of a data
 
 ## `class Appsignal::AuthCheck`
 
+
 ### `#config`
 
 Returns the value of attribute config
@@ -1145,6 +1160,7 @@ Returns the value of attribute logger
 
 ## `class Appsignal::Hooks::PumaHook`
 
+
 ### `#dependencies_present?`
 
 
@@ -1166,6 +1182,7 @@ Returns the value of attribute logger
 ---
 
 ## `class Appsignal::Hooks::RakeHook`
+
 
 ### `#dependencies_present?`
 
@@ -1189,6 +1206,7 @@ Returns the value of attribute logger
 
 ## `class Appsignal::Hooks::RedisHook`
 
+
 ### `#dependencies_present?`
 
 
@@ -1210,6 +1228,7 @@ Returns the value of attribute logger
 ---
 
 ## `class Appsignal::CLI::Install`
+
 
 ### `.run(push_api_key)`
 
@@ -1299,6 +1318,7 @@ Returns the value of attribute logger
 
 ## `class Appsignal::Transmitter`
 
+
 ### `#config`
 
 Returns the value of attribute config
@@ -1343,6 +1363,7 @@ Returns the value of attribute action
 ---
 
 ## `class Appsignal::Transaction`
+
 
 ### `.create(id, namespace, request, options={})`
 
@@ -1624,6 +1645,7 @@ Returns the value of attribute discarded
 
 ## `class Appsignal::Transaction::GenericRequest`
 
+
 ### `#env`
 
 Returns the value of attribute env
@@ -1687,6 +1709,7 @@ Instrument should still yield
 
 ## `class Appsignal::CLI::Diagnose`
 
+
 ### `.run(options = {})`
 
 
@@ -1697,6 +1720,7 @@ Instrument should still yield
 ---
 
 ## `class Appsignal::Hooks::SequelHook`
+
 
 ### `#dependencies_present?`
 
@@ -1720,6 +1744,7 @@ Instrument should still yield
 
 ## `class Appsignal::Hooks::UnicornHook`
 
+
 ### `#dependencies_present?`
 
 
@@ -1741,6 +1766,7 @@ Instrument should still yield
 ---
 
 ## `class Appsignal::Hooks::SidekiqPlugin`
+
 
 ### `#job_keys`
 
@@ -1767,6 +1793,7 @@ Instrument should still yield
 
 ## `class Appsignal::Hooks::SidekiqHook`
 
+
 ### `#dependencies_present?`
 
 
@@ -1788,6 +1815,7 @@ Instrument should still yield
 ---
 
 ## `class Appsignal::Hooks::NetHttpHook`
+
 
 ### `#dependencies_present?`
 
@@ -1811,6 +1839,7 @@ Instrument should still yield
 
 ## `class Appsignal::Hooks::PassengerHook`
 
+
 ### `#dependencies_present?`
 
 
@@ -1833,6 +1862,7 @@ Instrument should still yield
 
 ## `class Appsignal::Hooks::ShoryukenMiddleware`
 
+
 ### `#call(worker_instance, queue, sqs_msg, body)`
 
 
@@ -1843,6 +1873,7 @@ Instrument should still yield
 ---
 
 ## `class Appsignal::Hooks::ShoryukenHook`
+
 
 ### `#dependencies_present?`
 
@@ -1933,6 +1964,7 @@ argument if you need to use helper methods.
 
 ## `class Appsignal::Hooks::CelluloidHook`
 
+
 ### `#dependencies_present?`
 
 
@@ -1954,6 +1986,7 @@ argument if you need to use helper methods.
 ---
 
 ## `class Appsignal::Hooks::WebmachineHook`
+
 
 ### `#dependencies_present?`
 
@@ -1977,6 +2010,7 @@ argument if you need to use helper methods.
 
 ## `class Appsignal::Hooks::DataMapperHook`
 
+
 ### `#dependencies_present?`
 
 
@@ -1998,6 +2032,7 @@ argument if you need to use helper methods.
 ---
 
 ## `class Appsignal::Hooks::DelayedJobHook`
+
 
 ### `#dependencies_present?`
 
@@ -2021,6 +2056,7 @@ argument if you need to use helper methods.
 
 ## `class Appsignal::Grape::Middleware`
 
+
 ### `#call(env)`
 
 
@@ -2038,6 +2074,7 @@ argument if you need to use helper methods.
 ---
 
 ## `class Object`
+
 
 ### `.appsignal_instrument_class_method(method_name, options = {})`
 
@@ -2071,6 +2108,7 @@ argument if you need to use helper methods.
 
 ## `class Appsignal::Integrations::Railtie`
 
+
 ### `.initialize_appsignal(app)`
 
 
@@ -2081,6 +2119,7 @@ argument if you need to use helper methods.
 ---
 
 ## `class Appsignal::CLI::NotifyOfDeploy`
+
 
 ### `.run(options)`
 
@@ -2093,6 +2132,7 @@ argument if you need to use helper methods.
 
 ## `class Appsignal::Utils::ParamsSanitizer`
 
+
 ### `.sanitize(params, options = {})`
 
 
@@ -2103,6 +2143,7 @@ argument if you need to use helper methods.
 ---
 
 ## `class Appsignal::Hooks::MongoRubyDriverHook`
+
 
 ### `#dependencies_present?`
 
@@ -2125,6 +2166,7 @@ argument if you need to use helper methods.
 ---
 
 ## `class Appsignal::Rack::StreamingListener`
+
 
 ### `#initialize(app, options = {})`
 
@@ -2155,6 +2197,7 @@ argument if you need to use helper methods.
 
 ## `class Appsignal::StreamWrapper`
 
+
 ### `#initialize(stream, transaction)`
 
 
@@ -2183,6 +2226,7 @@ argument if you need to use helper methods.
 ---
 
 ## `class Appsignal::JSExceptionTransaction`
+
 
 ### `#uuid`
 
@@ -2250,6 +2294,7 @@ Returns the value of attribute ext
 
 ## `class Appsignal::Rack::JSExceptionCatcher`
 
+
 ### `#initialize(app, options = {})`
 
 
@@ -2271,6 +2316,7 @@ Returns the value of attribute ext
 ---
 
 ## `class Appsignal::Rack::RailsInstrumentation`
+
 
 ### `#initialize(app, options = {})`
 
@@ -2377,6 +2423,7 @@ applications. This is no longer needed. Instead Appsignal now includes
 
 ## `class Appsignal::Rack::SinatraBaseInstrumentation`
 
+
 ### `#raise_errors_on`
 
 Returns the value of attribute raise_errors_on
@@ -2421,6 +2468,7 @@ Returns the value of attribute raise_errors_on
 
 ## `class Appsignal::Rack::GenericInstrumentation`
 
+
 ### `#initialize(app, options = {})`
 
 
@@ -2449,6 +2497,7 @@ Returns the value of attribute raise_errors_on
 ---
 
 ## `class Appsignal::Hooks::MongoMonitorSubscriber`
+
 
 ### `#started(event)`
 
@@ -2486,6 +2535,7 @@ Finishes the event in the AppSignal extension
 
 ## `class Appsignal::Hooks::DelayedJobPlugin`
 
+
 ### `.invoke_with_instrumentation(job, block)`
 
 
@@ -2496,6 +2546,7 @@ Finishes the event in the AppSignal extension
 ---
 
 ## `class Appsignal::Hooks::ActiveSupportNotificationsHook`
+
 
 ### `#dependencies_present?`
 
@@ -2519,6 +2570,7 @@ Finishes the event in the AppSignal extension
 
 ## `class Appsignal::EventFormatter::Moped::QueryFormatter`
 
+
 ### `#format(payload)`
 
 
@@ -2529,6 +2581,7 @@ Finishes the event in the AppSignal extension
 ---
 
 ## `class Appsignal::EventFormatter::Faraday::RequestFormatter`
+
 
 ### `#format(payload)`
 
@@ -2541,6 +2594,7 @@ Finishes the event in the AppSignal extension
 
 ## `class Appsignal::Capistrano`
 
+
 ### `.tasks(config)`
 
 
@@ -2552,6 +2606,7 @@ Finishes the event in the AppSignal extension
 
 ## `class Appsignal::EventFormatter::ActiveRecord::SqlFormatter`
 
+
 ### `#format(payload)`
 
 
@@ -2562,6 +2617,7 @@ Finishes the event in the AppSignal extension
 ---
 
 ## `class Appsignal::EventFormatter::ActionView::RenderFormatter`
+
 
 ### `#root_path`
 
@@ -2593,6 +2649,7 @@ Returns the value of attribute root_path
 
 ## `class Appsignal::EventFormatter::ElasticSearch::SearchFormatter`
 
+
 ### `#format(payload)`
 
 
@@ -2610,6 +2667,7 @@ Returns the value of attribute root_path
 ---
 
 ## `class Appsignal::EventFormatter::MongoRubyDriver::QueryFormatter`
+
 
 ### `.format(strategy, command)`
 
@@ -2631,6 +2689,7 @@ Applies strategy on hash values based on keys
 
 ## `class Appsignal::EventFormatter::ActiveRecord::InstantiationFormatter`
 
+
 ### `#format(payload)`
 
 
@@ -2641,6 +2700,7 @@ Applies strategy on hash values based on keys
 ---
 
 ## `class Appsignal::Extension::Transaction`
+
 
 ### `#static VALUE start_event(VALUE self, VALUE gc_duration_ms) {`
 
@@ -3077,6 +3137,7 @@ Convenience method for skipping instrumentations around a block of code.
 
 ## `module Appsignal::Hooks::Helpers`
 
+
 ### `#string_or_inspect(string_or_other)`
 
 
@@ -3109,6 +3170,7 @@ Convenience method for skipping instrumentations around a block of code.
 
 ## `module Appsignal::Utils`
 
+
 ### `.data_generate(body)`
 
 
@@ -3126,6 +3188,7 @@ Convenience method for skipping instrumentations around a block of code.
 ---
 
 ## `module Appsignal::System`
+
 
 ### `.container?`
 
@@ -3153,6 +3216,7 @@ Convenience method for skipping instrumentations around a block of code.
 
 ## `module Appsignal::System::Container`
 
+
 ### `.id`
 
 
@@ -3163,6 +3227,7 @@ Convenience method for skipping instrumentations around a block of code.
 ---
 
 ## `module Appsignal::Hooks::SequelLogExtension`
+
 
 ### `#log_yield(sql, args = nil)`
 
@@ -3176,6 +3241,7 @@ Add query instrumentation
 
 ## `module Appsignal::Hooks::SequelLogConnectionExtension`
 
+
 ### `#log_connection_yield(sql, conn, args = nil)`
 
 Add query instrumentation
@@ -3187,6 +3253,7 @@ Add query instrumentation
 ---
 
 ## `module Appsignal::Integrations::ResquePlugin`
+
 
 ### `#around_perform_resque_plugin(*args)`
 
@@ -3203,6 +3270,7 @@ see http://docs.appsignal.com/background-monitoring/custom.html
 
 ## `module Appsignal::Integrations::PadrinoPlugin`
 
+
 ### `.init`
 
 
@@ -3213,6 +3281,7 @@ see http://docs.appsignal.com/background-monitoring/custom.html
 ---
 
 ## `module Padrino::Routing::InstanceMethods`
+
 
 ### `#route_without_appsignal`
 
@@ -3239,6 +3308,7 @@ see http://docs.appsignal.com/background-monitoring/custom.html
 
 ## `module Appsignal::Integrations::WebmachinePlugin::FSM`
 
+
 ### `#run_with_appsignal`
 
 
@@ -3250,6 +3320,7 @@ see http://docs.appsignal.com/background-monitoring/custom.html
 
 ## `module Appsignal::Hooks::DataMapperLogListener`
 
+
 ### `#log(message)`
 
 
@@ -3260,6 +3331,7 @@ see http://docs.appsignal.com/background-monitoring/custom.html
 ---
 
 ## `module Appsignal::Utils::QueryParamsSanitizer::ClassMethods`
+
 
 ### `#sanitize(params, only_top_level = false, key_sanitizer = nil)`
 

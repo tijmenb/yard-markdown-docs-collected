@@ -170,6 +170,7 @@ Sets the attribute status
 
 ## `class GovukMessageQueueConsumer::Consumer`
 
+
 ### `#initialize(queue_name:, processor:, rabbitmq_connection: Consumer.default_connection_from_env, statsd_client: NullStatsd.new, logger: Logger.new(STDERR))`
 
 Create a new consumer
@@ -211,6 +212,7 @@ and should already exist and have a binding via puppet
 
 ## `class GovukMessageQueueConsumer::Consumer::NullStatsd`
 
+
 ### `#increment(_key)`
 
 
@@ -221,6 +223,7 @@ and should already exist and have a binding via puppet
 ---
 
 ## `class GovukMessageQueueConsumer::JSONProcessor`
+
 
 ### `#initialize(next_processor)`
 
@@ -244,6 +247,7 @@ and should already exist and have a binding via puppet
 
 ## `class GovukMessageQueueConsumer::HeartbeatProcessor`
 
+
 ### `#initialize(next_processor)`
 
 
@@ -265,6 +269,7 @@ and should already exist and have a binding via puppet
 ---
 
 ## `class GovukMessageQueueConsumer::MockMessage`
+
 
 ### `#acked`
 
@@ -349,6 +354,7 @@ Returns the value of attribute retried
 ---
 
 ## `module GovukMessageQueueConsumer::RabbitMQConfig`
+
 
 ### `.from_environment(env)`
 

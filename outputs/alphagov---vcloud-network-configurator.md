@@ -74,6 +74,7 @@
 
 ## `class Component::NAT`
 
+
 ### `#rules`
 
 Returns the value of attribute rules
@@ -139,6 +140,7 @@ Returns the value of attribute rules
 
 ## `class Component::Firewall`
 
+
 ### `#rules`
 
 Returns the value of attribute rules
@@ -203,6 +205,7 @@ Returns the value of attribute rules
 ---
 
 ## `class Component::LoadBalancer`
+
 
 ### `#pools`
 
@@ -291,6 +294,7 @@ Returns the value of attribute configurations
 
 ## `class VcloudNetworkConfigurator`
 
+
 ### `#initialize args`
 
 
@@ -313,6 +317,7 @@ Returns the value of attribute configurations
 
 ## `class EdgeGateway`
 
+
 ### `#initialize options`
 
 
@@ -334,6 +339,7 @@ Returns the value of attribute configurations
 ---
 
 ## `class ConfigureTask`
+
 
 ### `#initialize configure_xml`
 
@@ -379,6 +385,7 @@ Returns the value of attribute configurations
 
 ## `class VcloudSettings`
 
+
 ### `#initialize options = {}`
 
 
@@ -414,6 +421,7 @@ Returns the value of attribute configurations
 ---
 
 ## `class VcloudAuthRequest`
+
 
 ### `#initialize vcloud_settings, username, password`
 
@@ -454,6 +462,7 @@ Returns the value of attribute configurations
 ---
 
 ## `class VcloudConfigureRequest`
+
 
 ### `#initialize vcloud_settings, auth_header, component, rules_files, interfaces_files`
 
@@ -501,6 +510,7 @@ Returns the value of attribute configurations
 ---
 
 ## `class VcloudCheckForConfigureTaskRequest`
+
 
 ### `#initialize auth_header, task_url`
 

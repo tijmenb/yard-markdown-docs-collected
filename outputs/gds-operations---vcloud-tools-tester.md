@@ -19,6 +19,7 @@
 
 ## `class Vcloud::Tools::Tester::TestSetup`
 
+
 ### `#test_params`
 
 Returns the value of attribute test_params
@@ -42,6 +43,7 @@ Returns the value of attribute test_params
 
 ## `class Vcloud::Tools::Tester::TestParameters`
 
+
 ### `#initialize(user_params, fixture_params)`
 
 
@@ -56,6 +58,7 @@ Returns the value of attribute test_params
 ---
 
 ## `class Vcloud::Tools::Tester::UserParameters`
+
 
 ### `#user_params`
 
@@ -79,6 +82,7 @@ Returns the value of attribute user_params
 ---
 
 ## `class Vcloud::Tools::Tester::FixtureParameters`
+
 
 ### `#fixture_params`
 

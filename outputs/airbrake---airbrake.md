@@ -114,6 +114,9 @@ notifies Airbrake.
 
 Provides Resque integration with Airbrake.
 
+**See**:
+- https://github.com/resque/resque/wiki/Failure-Backends 
+
 ### `#save`
 
 
@@ -163,6 +166,7 @@ exception.
 
 Workaround against JRuby bug:
 https://github.com/jruby/jruby/issues/3338
+
 
 ### `#old_to_ary`
 
@@ -249,7 +253,7 @@ can pass arguments to the ERB template.
 
 
 **See**:
-- http://asciicasts.com/episodes/218-making-generators-in-rails-3
+- http://asciicasts.com/episodes/218-making-generators-in-rails-3 
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/generators/airbrake_generator.rb#L19)
 
 ### `#generate_layout`
@@ -322,6 +326,12 @@ Rails <4.2 has a bug with regard to swallowing exceptions in the
 exceptions from there.
 
 This module makes it possible to report exceptions occurring there.
+
+**See**:
+- https://github.com/rails/rails/pull/14488 Detailed description of the
+bug and the fix
+- https://goo.gl/348lor Rails 4.2+ implementation (fixed)
+- https://goo.gl/ddFNg7 Rails <4.2 implementation (bugged)
 
 ### `#run_callbacks(kind, *args, &block)`
 

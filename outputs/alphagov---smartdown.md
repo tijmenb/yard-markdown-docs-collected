@@ -479,6 +479,7 @@
 
 ## `class Smartdown::Engine`
 
+
 ### `#flow`
 
 Returns the value of attribute flow
@@ -529,6 +530,7 @@ Returns the value of attribute flow
 ---
 
 ## `class Smartdown::Api::Flow`
+
 
 ### `#scenario_sets`
 
@@ -663,6 +665,7 @@ Returns the value of attribute scenario_sets
 
 ## `class Smartdown::Api::Node`
 
+
 ### `#title`
 
 Returns the value of attribute title
@@ -746,6 +749,7 @@ Returns the value of attribute markers
 
 ## `class Smartdown::Api::State`
 
+
 ### `#accepted_responses`
 
 Returns the value of attribute accepted_responses
@@ -827,6 +831,7 @@ Returns the value of attribute current_answers
 ---
 
 ## `class Smartdown::Model::Node`
+
 
 ### `#name=(value)`
 
@@ -919,6 +924,7 @@ Returns the value of attribute front_matter
 
 ## `class Smartdown::Model::Rule`
 
+
 ### `#predicate=(value)`
 
 Sets the attribute predicate
@@ -981,6 +987,7 @@ Returns the value of attribute outcome
 
 ## `class Smartdown::Model::Flow`
 
+
 ### `#name`
 
 Returns the value of attribute name
@@ -1033,6 +1040,7 @@ Returns the value of attribute nodes
 
 ## `class Smartdown::Api::Outcome`
 
+
 ### `#next_steps`
 
 
@@ -1043,6 +1051,7 @@ Returns the value of attribute nodes
 ---
 
 ## `class Smartdown::Parser::Rules`
+
 
 ### `#indent(depth)`
 
@@ -1089,6 +1098,7 @@ Returns the value of attribute nodes
 ---
 
 ## `class Smartdown::Api::Question`
+
 
 ### `#initialize(elements)`
 
@@ -1140,6 +1150,7 @@ TODO: deprecate
 ---
 
 ## `class Smartdown::Engine::State`
+
 
 ### `#initialize(data = {})`
 
@@ -1286,6 +1297,7 @@ Returns the value of attribute elements
 
 ## `class Smartdown::Parser::InputSet`
 
+
 ### `#coversheet`
 
 Returns the value of attribute coversheet
@@ -1341,6 +1353,7 @@ Returns the value of attribute scenario_sets
 
 ## `class Smartdown::Parser::InputData`
 
+
 ### `#name`
 
 Returns the value of attribute name
@@ -1379,6 +1392,7 @@ Returns the value of attribute content
 
 ## `class Smartdown::Api::QuestionPage`
 
+
 ### `#questions`
 
 
@@ -1389,6 +1403,7 @@ Returns the value of attribute content
 ---
 
 ## `class Smartdown::Api::DateQuestion`
+
 
 ### `#start_year`
 
@@ -1407,6 +1422,7 @@ Returns the value of attribute content
 ---
 
 ## `class Smartdown::Model::NestedRule`
+
 
 ### `#predicate=(value)`
 
@@ -1470,6 +1486,7 @@ Returns the value of attribute children
 
 ## `class Smartdown::Engine::Transition`
 
+
 ### `#state`
 
 Returns the value of attribute state
@@ -1523,6 +1540,7 @@ Returns the value of attribute answers
 
 ## `class Smartdown::Model::Answer::Text`
 
+
 ### `#value_type`
 
 
@@ -1540,6 +1558,7 @@ Returns the value of attribute answers
 ---
 
 ## `class Smartdown::Model::Answer::Date`
+
 
 ### `#value_type`
 
@@ -1565,6 +1584,7 @@ Returns the value of attribute answers
 ---
 
 ## `class Smartdown::Model::Answer::Base`
+
 
 ### `#value_type`
 
@@ -1669,6 +1689,7 @@ Returns the value of attribute error
 
 ## `class Smartdown::Model::Answer::Money`
 
+
 ### `#value_type`
 
 
@@ -1693,6 +1714,7 @@ Returns the value of attribute error
 ---
 
 ## `class Smartdown::Model::FrontMatter`
+
 
 ### `#initialize(attributes = {})`
 
@@ -1759,6 +1781,7 @@ Returns the value of attribute error
 
 ## `class Smartdown::Api::DirectoryInput`
 
+
 ### `#initialize(coversheet_path)`
 
 
@@ -1773,6 +1796,7 @@ Returns the value of attribute error
 ---
 
 ## `class Smartdown::Model::Answer::Salary`
+
 
 ### `#period`
 
@@ -1815,6 +1839,7 @@ Returns the value of attribute amount_per_period
 
 ## `class Smartdown::Api::MultipleChoice`
 
+
 ### `#options`
 
 
@@ -1833,6 +1858,7 @@ Returns the value of attribute amount_per_period
 
 ## `class Smartdown::Engine::Interpolator`
 
+
 ### `#call(node, state)`
 
 
@@ -1843,6 +1869,7 @@ Returns the value of attribute amount_per_period
 ---
 
 ## `class Smartdown::Engine::Interpolator::NullElementInterpolator`
+
 
 ### `#element`
 
@@ -1874,6 +1901,7 @@ Returns the value of attribute element
 
 ## `class Smartdown::Engine::Interpolator::ElementContentInterpolator`
 
+
 ### `#call(state)`
 
 
@@ -1884,6 +1912,7 @@ Returns the value of attribute element
 ---
 
 ## `class Smartdown::Model::Answer::Country`
+
 
 ### `#value_type`
 
@@ -1902,6 +1931,7 @@ Returns the value of attribute element
 ---
 
 ## `class Smartdown::Model::Element::Marker`
+
 
 ### `#marker_name=(value)`
 
@@ -1936,6 +1966,7 @@ Returns the value of attribute marker_name
 
 ## `class Smartdown::Api::CountryQuestion`
 
+
 ### `#options`
 
 
@@ -1953,6 +1984,7 @@ Returns the value of attribute marker_name
 ---
 
 ## `class Smartdown::Model::NextNodeRules`
+
 
 ### `#rules=(value)`
 
@@ -1987,6 +2019,7 @@ Returns the value of attribute rules
 
 ## `class Smartdown::Model::Answer::Postcode`
 
+
 ### `#value_type`
 
 
@@ -2004,6 +2037,7 @@ Returns the value of attribute rules
 ---
 
 ## `class Smartdown::Model::Predicate::Named`
+
 
 ### `#name=(value)`
 
@@ -2038,6 +2072,7 @@ Returns the value of attribute name
 
 ## `class Smartdown::Api::PreviousQuestion`
 
+
 ### `#answer`
 
 Returns the value of attribute answer
@@ -2069,6 +2104,7 @@ Returns the value of attribute question
 
 ## `class Smartdown::Engine::NodePresenter`
 
+
 ### `#present(unpresented_node, state)`
 
 
@@ -2079,6 +2115,7 @@ Returns the value of attribute question
 ---
 
 ## `class Smartdown::Parser::DirectoryInput`
+
 
 ### `#initialize(coversheet_path)`
 
@@ -2137,6 +2174,7 @@ Returns the value of attribute question
 
 ## `class Smartdown::Parser::InputFile`
 
+
 ### `#initialize(path, name=nil)`
 
 
@@ -2172,6 +2210,7 @@ Returns the value of attribute question
 ---
 
 ## `class Smartdown::Parser::NodeInterpreter`
+
 
 ### `#name`
 
@@ -2227,6 +2266,7 @@ Returns the value of attribute data_module
 
 ## `class Smartdown::Parser::ParseError`
 
+
 ### `#filename`
 
 Returns the value of attribute filename
@@ -2265,6 +2305,7 @@ Returns the value of attribute parse_error
 
 ## `class Smartdown::Parser::FlowInterpreter`
 
+
 ### `#flow_input`
 
 Returns the value of attribute flow_input
@@ -2302,6 +2343,7 @@ Returns the value of attribute data_module
 ---
 
 ## `class Smartdown::Model::Scenarios::Question`
+
 
 ### `#name=(value)`
 
@@ -2364,6 +2406,7 @@ Returns the value of attribute answer
 ---
 
 ## `class Smartdown::Model::Scenarios::Scenario`
+
 
 ### `#description=(value)`
 
@@ -2514,6 +2557,7 @@ Returns the value of attribute exact_markers
 
 ## `class Smartdown::Model::Element::NextSteps`
 
+
 ### `#content=(value)`
 
 Sets the attribute content
@@ -2546,6 +2590,7 @@ Returns the value of attribute content
 ---
 
 ## `class Smartdown::Model::Predicate::Equality`
+
 
 ### `#varname=(value)`
 
@@ -2609,6 +2654,7 @@ Returns the value of attribute expected_value
 
 ## `class Smartdown::Model::Predicate::Function`
 
+
 ### `#name=(value)`
 
 Sets the attribute name
@@ -2670,6 +2716,7 @@ Returns the value of attribute arguments
 ---
 
 ## `class Smartdown::Model::Element::Conditional`
+
 
 ### `#predicate=(value)`
 
@@ -2762,6 +2809,7 @@ Returns the value of attribute false_case
 
 ## `class Smartdown::Parser::SnippetPreParser`
 
+
 ### `#input_data`
 
 Returns the value of attribute input_data
@@ -2799,6 +2847,7 @@ Returns the value of attribute input_data
 
 ## `class Smartdown::Model::Predicate::Otherwise`
 
+
 ### `#evaluate(state)`
 
 
@@ -2823,6 +2872,7 @@ Returns the value of attribute input_data
 ---
 
 ## `class Smartdown::Api::PreviousQuestionPage`
+
 
 ### `#title`
 
@@ -2861,6 +2911,7 @@ Returns the value of attribute title
 
 ## `class Smartdown::Model::Element::StartButton`
 
+
 ### `#start_node=(value)`
 
 Sets the attribute start_node
@@ -2894,6 +2945,7 @@ Returns the value of attribute start_node
 
 ## `class Smartdown::Engine::ConditionalResolver`
 
+
 ### `#call(node, state)`
 
 
@@ -2904,6 +2956,7 @@ Returns the value of attribute start_node
 ---
 
 ## `class Smartdown::Model::Element::Question::Text`
+
 
 ### `#name=(value)`
 
@@ -2974,6 +3027,7 @@ Returns the value of attribute alias
 
 ## `class Smartdown::Model::Element::MarkdownLine`
 
+
 ### `#content=(value)`
 
 Sets the attribute content
@@ -3006,6 +3060,7 @@ Returns the value of attribute content
 ---
 
 ## `class Smartdown::Model::Element::Question::Date`
+
 
 ### `#name=(value)`
 
@@ -3134,6 +3189,7 @@ Returns the value of attribute alias
 
 ## `class Smartdown::Model::Scenarios::ScenarioSet`
 
+
 ### `#name=(value)`
 
 Sets the attribute name
@@ -3196,6 +3252,7 @@ Returns the value of attribute scenarios
 
 ## `class Smartdown::Model::Answer::MultipleChoice`
 
+
 ### `#value_type`
 
 
@@ -3213,6 +3270,7 @@ Returns the value of attribute scenarios
 ---
 
 ## `class Smartdown::Model::Element::Question::Money`
+
 
 ### `#name=(value)`
 
@@ -3283,6 +3341,7 @@ Returns the value of attribute alias
 
 ## `class Smartdown::Model::Predicate::OrOperation`
 
+
 ### `#predicates=(value)`
 
 Sets the attribute predicates
@@ -3315,6 +3374,7 @@ Returns the value of attribute predicates
 ---
 
 ## `class Smartdown::Model::Element::Question::Salary`
+
 
 ### `#name=(value)`
 
@@ -3385,6 +3445,7 @@ Returns the value of attribute alias
 
 ## `class Smartdown::Model::Predicate::NotOperation`
 
+
 ### `#predicate=(value)`
 
 Sets the attribute predicate
@@ -3417,6 +3478,7 @@ Returns the value of attribute predicate
 ---
 
 ## `class Smartdown::Model::Predicate::AndOperation`
+
 
 ### `#predicates=(value)`
 
@@ -3451,6 +3513,7 @@ Returns the value of attribute predicates
 
 ## `class Smartdown::Model::Element::MarkdownHeading`
 
+
 ### `#content=(value)`
 
 Sets the attribute content
@@ -3483,6 +3546,7 @@ Returns the value of attribute content
 ---
 
 ## `class Smartdown::Model::Predicate::SetMembership`
+
 
 ### `#varname=(value)`
 
@@ -3545,6 +3609,7 @@ Returns the value of attribute values
 ---
 
 ## `class Smartdown::Model::Element::Question::Country`
+
 
 ### `#name=(value)`
 
@@ -3644,6 +3709,7 @@ Returns the value of attribute alias
 
 ## `class Smartdown::Model::Predicate::Comparison::Less`
 
+
 ### `#evaluate(state)`
 
 
@@ -3661,6 +3727,7 @@ Returns the value of attribute alias
 ---
 
 ## `class Smartdown::Model::Element::Question::Postcode`
+
 
 ### `#name=(value)`
 
@@ -3731,6 +3798,7 @@ Returns the value of attribute alias
 
 ## `class Smartdown::Model::Predicate::Comparison::Base`
 
+
 ### `#varname=(value)`
 
 Sets the attribute varname
@@ -3792,6 +3860,7 @@ Returns the value of attribute value
 ---
 
 ## `class Smartdown::Parser::ScenarioSetInterpreter`
+
 
 ### `#initialize(scenario_string)`
 
@@ -3893,6 +3962,7 @@ Returns the value of attribute value
 
 ## `class Smartdown::Parser::ScenarioSetsInterpreter`
 
+
 ### `#initialize(smartdown_input)`
 
 
@@ -3915,6 +3985,7 @@ Returns the value of attribute value
 
 ## `class Smartdown::Model::Predicate::Comparison::Greater`
 
+
 ### `#evaluate(state)`
 
 
@@ -3932,6 +4003,7 @@ Returns the value of attribute value
 ---
 
 ## `class Smartdown::Model::Element::Question::MultipleChoice`
+
 
 ### `#name=(value)`
 
@@ -4031,6 +4103,7 @@ Returns the value of attribute alias
 
 ## `class Smartdown::Model::Predicate::Comparison::LessOrEqual`
 
+
 ### `#evaluate(state)`
 
 
@@ -4048,6 +4121,7 @@ Returns the value of attribute alias
 ---
 
 ## `class Smartdown::Model::Predicate::Comparison::GreaterOrEqual`
+
 
 ### `#evaluate(state)`
 
@@ -4067,6 +4141,7 @@ Returns the value of attribute alias
 
 ## `module Smartdown`
 
+
 ### `.parse(coversheet_file)`
 
 
@@ -4078,6 +4153,7 @@ Returns the value of attribute alias
 
 ## `module Smartdown::Model::Element::Question`
 
+
 ### `.create_question_answer(elements, response=nil)`
 
 
@@ -4088,6 +4164,7 @@ Returns the value of attribute alias
 ---
 
 ## `module Smartdown::Parser::OptionPairs`
+
 
 ### `.transform(option_pairs)`
 

@@ -28,6 +28,7 @@
 
 ## `class GOVUK::Client::Errors::HTTPError`
 
+
 ### `#initialize(restclient_exception)`
 
 
@@ -117,6 +118,7 @@ via the {#raw_body} accessor.
 
 ## `class GOVUK::Client::URLArbiter`
 
+
 ### `#initialize(base_url = nil)`
 
 **Params**:
@@ -184,6 +186,7 @@ Reserve a path
 ---
 
 ## `module GOVUK::Client::Errors`
+
 
 ### `.create_for(restclient_exception)`
 

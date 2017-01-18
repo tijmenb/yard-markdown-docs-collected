@@ -1533,6 +1533,7 @@
 
 ## `class Nanoc::Spec::HelperContext`
 
+
 ### `#dependency_tracker`
 
 
@@ -1828,6 +1829,7 @@ Logs a message.
 
 ## `class Nanoc::Filters::XSL`
 
+
 ### `#run(_content, params = {})`
 
 Runs the item content through an [XSLT](http://www.w3.org/TR/xslt)
@@ -1873,6 +1875,7 @@ layout 'xsl-report', :xsl, :awesome => 'definitely'
 
 ## `class Nanoc::Extra::Piper`
 
+
 ### `#initialize(stdout: $stdout, stderr: $stderr)`
 
 **Params**:
@@ -1909,6 +1912,7 @@ layout 'xsl-report', :xsl, :awesome => 'definitely'
 
 ## `class Nanoc::Extra::Piper::Error`
 
+
 ### `#initialize(command, exit_code)`
 
 
@@ -1930,6 +1934,7 @@ layout 'xsl-report', :xsl, :awesome => 'definitely'
 ---
 
 ## `class Nanoc::Filters::ERB`
+
 
 ### `#run(content, params = {})`
 
@@ -2412,6 +2417,7 @@ Error that is raised when attempting to call #parent or #children on an item wit
 
 ## `class Nanoc::Int::Errors::UndefinedFilterForLayout`
 
+
 ### `#initialize(layout)`
 
 
@@ -2426,6 +2432,7 @@ Error that is raised when attempting to call #parent or #children on an item wit
 ---
 
 ## `class Nanoc::Filters::RDoc`
+
 
 ### `#run(content, _params = {})`
 
@@ -2448,6 +2455,7 @@ This method takes no options.
 ---
 
 ## `class Nanoc::Checking::DSL`
+
 
 ### `#deploy_checks`
 
@@ -2492,6 +2500,7 @@ This method takes no options.
 
 ## `class Nanoc::Filters::Sass`
 
+
 ### `#run(content, params = {})`
 
 Runs the content through [Sass](http://sass-lang.com/).
@@ -2528,6 +2537,7 @@ Parameters passed to this filter will be passed on to Sass.
 
 ## `class Nanoc::Filters::Slim`
 
+
 ### `#run(content, params = {})`
 
 Runs the content through [Slim](http://slim-lang.com/).
@@ -2549,6 +2559,7 @@ This method takes no options.
 ---
 
 ## `class Nanoc::Filters::Less`
+
 
 ### `#run(content, params = {})`
 
@@ -2603,6 +2614,7 @@ This method takes no options.
 ---
 
 ## `class Nanoc::Filters::Haml`
+
 
 ### `#run(content, params = {})`
 
@@ -2736,6 +2748,7 @@ Applies this rule to the given item rep.
 
 ## `class Nanoc::Checking::Issue`
 
+
 ### `#description`
 
 
@@ -2772,6 +2785,7 @@ Applies this rule to the given item rep.
 
 ## `class Nanoc::Checking::OutputDirNotFoundError`
 
+
 ### `#initialize(directory_path)`
 
 
@@ -2786,6 +2800,7 @@ Applies this rule to the given item rep.
 ---
 
 ## `class Nanoc::Checking::Check`
+
 
 ### `#issues`
 
@@ -2833,6 +2848,7 @@ Applies this rule to the given item rep.
 
 ## `class Nanoc::Filters::Erubis`
 
+
 ### `#run(content, _params = {})`
 
 Runs the content through [Erubis](http://www.kuwata-lab.com/erubis/).
@@ -2854,6 +2870,7 @@ This method takes no options.
 ---
 
 ## `class Nanoc::Filters::Pandoc`
+
 
 ### `#run(content, params = {})`
 
@@ -2898,6 +2915,7 @@ filter :pandoc, :f => :markdown, :to => :html
 
 ## `class Nanoc::Filters::Maruku`
 
+
 ### `#run(content, params = {})`
 
 Runs the content through [Maruku](https://github.com/bhollis/maruku/).
@@ -2919,6 +2937,7 @@ Parameters passed to this filter will be passed on to Maruku.
 ---
 
 ## `class Nanoc::View`
+
 
 ### `#initialize(context)`
 
@@ -2958,7 +2977,7 @@ True if the wrapped object is frozen; false otherwise.
 
 
 **See**:
-- Object#frozen?
+- Object#frozen? 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/view.rb#L23)
 
 ### `#inspect`
@@ -2971,6 +2990,7 @@ True if the wrapped object is frozen; false otherwise.
 ---
 
 ## `class Nanoc::Filters::Markaby`
+
 
 ### `#run(content, _params = {})`
 
@@ -3164,6 +3184,7 @@ Runs the checks with the given names.
 
 ## `class Nanoc::Filters::AsciiDoc`
 
+
 ### `#run(content, _params = {})`
 
 Runs the content through [AsciiDoc](http://www.methods.co.nz/asciidoc/).
@@ -3185,6 +3206,7 @@ This method takes no options.
 ---
 
 ## `class Nanoc::Int::Memoization::Wrapper`
+
 
 ### `#ref`
 
@@ -3215,6 +3237,7 @@ This method takes no options.
 
 ## `class Nanoc::Int::Memoization::Value`
 
+
 ### `#value`
 
 
@@ -3236,6 +3259,7 @@ This method takes no options.
 ---
 
 ## `class Nanoc::Filters::Mustache`
+
 
 ### `#run(content, _params = {})`
 
@@ -3259,6 +3283,7 @@ options.
 ---
 
 ## `class Nanoc::Filters::RedCloth`
+
 
 ### `#run(content, params = {})`
 
@@ -3413,6 +3438,7 @@ Stores the data contained in memory to the filesystem. This method will
 ---
 
 ## `class Nanoc::Helpers::Blogging::AtomFeedBuilder`
+
 
 ### `#config`
 
@@ -3674,6 +3700,7 @@ Sets the attribute logo
 
 ## `class Nanoc::Filters::Kramdown`
 
+
 ### `#run(content, params = {})`
 
 Runs the content through [Kramdown](http://kramdown.gettalong.org/).
@@ -3695,6 +3722,7 @@ Parameters passed to this filter will be passed on to Kramdown.
 ---
 
 ## `class Nanoc::Filters::RubyPants`
+
 
 ### `#run(content, _params = {})`
 
@@ -3867,6 +3895,7 @@ Writes a verbose representation of the error on the given stream.
 
 ## `class Nanoc::CLI::Commands::View`
 
+
 ### `#run`
 
 
@@ -3877,6 +3906,7 @@ Writes a verbose representation of the error on the given stream.
 ---
 
 ## `class Nanoc::Filters::Typogruby`
+
 
 ### `#run(content, _params = {})`
 
@@ -3899,6 +3929,7 @@ This method takes no options.
 ---
 
 ## `class Nanoc::Filters::RDiscount`
+
 
 ### `#run(content, params = {})`
 
@@ -3926,6 +3957,7 @@ Runs the content through [RDiscount](http://github.com/rtomayko/rdiscount).
 
 ## `class Nanoc::Filters::Rainpress`
 
+
 ### `#run(content, params = {})`
 
 Runs the content through [Rainpress](http://code.google.com/p/rainpress/).
@@ -3947,6 +3979,7 @@ Parameters passed to this filter will be passed on to Rainpress.
 ---
 
 ## `class Nanoc::Filters::UglifyJS`
+
 
 ### `#run(content, params = {})`
 
@@ -3975,6 +4008,7 @@ This method optionally takes options to pass directly to Uglifier.
 
 ## `class Nanoc::Filters::BlueCloth`
 
+
 ### `#run(content, _params = {})`
 
 Runs the content through [BlueCloth](http://deveiate.org/projects/BlueCloth).
@@ -3997,6 +4031,7 @@ This method takes no options.
 
 ## `class Nanoc::Filters::Redcarpet`
 
+
 ### `#run(content, params = {})`
 
 Runs the content through [Redcarpet](https://github.com/vmg/redcarpet).
@@ -4010,6 +4045,7 @@ This method optionally takes processing options to pass on to Redcarpet.
 
 ## `class Nanoc::CLI::Commands::Shell`
 
+
 ### `#run`
 
 
@@ -4020,6 +4056,7 @@ This method optionally takes processing options to pass on to Redcarpet.
 ---
 
 ## `class Nanoc::CLI::Commands::Check`
+
 
 ### `#run`
 
@@ -4044,7 +4081,7 @@ convenience methods and error handling.
 
 
 **See**:
-- http://rubydoc.info/gems/cri/Cri/CommandRunner#call-instance_method
+- http://rubydoc.info/gems/cri/Cri/CommandRunner#call-instance_method 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/command_runner.rb#L10)
 
 ### `#site`
@@ -4113,7 +4150,7 @@ Asserts that the current working directory contains a site and loads the site in
 
 
 **See**:
-- Nanoc::CLI.debug?
+- Nanoc::CLI.debug? 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/command_runner.rb#L65)
 
 ---
@@ -4206,6 +4243,7 @@ Performs the actual deployment.
 
 ## `class Nanoc::Filters::Handlebars`
 
+
 ### `#run(content, _params = {})`
 
 Runs the content through
@@ -4229,6 +4267,7 @@ This method takes no options.
 ---
 
 ## `class Nanoc::Int::Site`
+
 
 ### `#compiler`
 
@@ -4308,6 +4347,7 @@ This method takes no options.
 
 ## `class Nanoc::CLI::Commands::Prune`
 
+
 ### `#run`
 
 
@@ -4318,6 +4358,7 @@ This method takes no options.
 ---
 
 ## `class Nanoc::Int::Item`
+
 
 ### `#reference`
 
@@ -4334,6 +4375,7 @@ Returns an object that can be used for uniquely identifying objects.
 ---
 
 ## `class Nanoc::Checking::Checks::CSS`
+
 
 ### `#extension`
 
@@ -4353,6 +4395,7 @@ Returns an object that can be used for uniquely identifying objects.
 
 ## `class Nanoc::CLI::Commands::Deploy`
 
+
 ### `#run`
 
 
@@ -4363,6 +4406,7 @@ Returns an object that can be used for uniquely identifying objects.
 ---
 
 ## `class Nanoc::Int::Props`
+
 
 ### `#initialize(raw_content: false, attributes: false, compiled_content: false, path: false)`
 
@@ -4513,7 +4557,7 @@ stream cleaner to add
 
 
 **See**:
-- IO#write
+- IO#write 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L41)
 
 ### `#<<(s)`
@@ -4521,7 +4565,7 @@ stream cleaner to add
 
 
 **See**:
-- IO#<<
+- IO#<< 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L48)
 
 ### `#tty?`
@@ -4533,7 +4577,7 @@ stream cleaner to add
 
 
 **See**:
-- IO#tty?
+- IO#tty? 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L55)
 
 ### `#isatty`
@@ -4541,7 +4585,7 @@ stream cleaner to add
 
 
 **See**:
-- IO#isatty
+- IO#isatty 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L60)
 
 ### `#flush`
@@ -4549,7 +4593,7 @@ stream cleaner to add
 
 
 **See**:
-- IO#flush
+- IO#flush 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L65)
 
 ### `#tell`
@@ -4557,7 +4601,7 @@ stream cleaner to add
 
 
 **See**:
-- IO#tell
+- IO#tell 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L72)
 
 ### `#print(s)`
@@ -4565,7 +4609,7 @@ stream cleaner to add
 
 
 **See**:
-- IO#print
+- IO#print 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L77)
 
 ### `#puts(*s)`
@@ -4573,7 +4617,7 @@ stream cleaner to add
 
 
 **See**:
-- IO#puts
+- IO#puts 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L84)
 
 ### `#string`
@@ -4581,7 +4625,7 @@ stream cleaner to add
 
 
 **See**:
-- StringIO#string
+- StringIO#string 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L91)
 
 ### `#reopen(*a)`
@@ -4589,7 +4633,7 @@ stream cleaner to add
 
 
 **See**:
-- IO#reopen
+- IO#reopen 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L96)
 
 ### `#close`
@@ -4597,7 +4641,7 @@ stream cleaner to add
 
 
 **See**:
-- IO#close
+- IO#close 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L101)
 
 ### `#exist?`
@@ -4609,7 +4653,7 @@ stream cleaner to add
 
 
 **See**:
-- File#exist?
+- File#exist? 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L106)
 
 ### `#exists?`
@@ -4621,7 +4665,7 @@ stream cleaner to add
 
 
 **See**:
-- File.exists?
+- File.exists? 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L111)
 
 ### `#winsize`
@@ -4629,7 +4673,7 @@ stream cleaner to add
 
 
 **See**:
-- IO.winsize
+- IO.winsize 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L116)
 
 ### `#winsize=(arg)`
@@ -4637,7 +4681,7 @@ stream cleaner to add
 
 
 **See**:
-- IO.winsize=
+- IO.winsize= 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L121)
 
 ### `#sync`
@@ -4645,7 +4689,7 @@ stream cleaner to add
 
 
 **See**:
-- IO.sync
+- IO.sync 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L126)
 
 ### `#sync=(arg)`
@@ -4653,7 +4697,7 @@ stream cleaner to add
 
 
 **See**:
-- IO.sync=
+- IO.sync= 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L131)
 
 ### `#external_encoding`
@@ -4661,7 +4705,7 @@ stream cleaner to add
 
 
 **See**:
-- IO.sync=
+- IO.sync= 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L136)
 
 ### `#set_encoding(*args)`
@@ -4669,7 +4713,7 @@ stream cleaner to add
 
 
 **See**:
-- ARGF.set_encoding
+- ARGF.set_encoding 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/cleaning_stream.rb#L142)
 
 ---
@@ -4768,6 +4812,7 @@ Prunes all output files not managed by Nanoc.
 
 ## `class Nanoc::Extra::LinkCollector`
 
+
 ### `#initialize(filenames, mode = nil)`
 
 
@@ -4821,6 +4866,7 @@ Prunes all output files not managed by Nanoc.
 ---
 
 ## `class Nanoc::CLI::Commands::Compile`
+
 
 ### `#listener_classes`
 
@@ -4944,7 +4990,7 @@ Generates diffs for every output file written
 
 
 **See**:
-- Listener#enable_for?
+- Listener#enable_for? 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/commands/compile.rb#L57)
 
 ### `#start`
@@ -4952,7 +4998,7 @@ Generates diffs for every output file written
 
 
 **See**:
-- Listener#start
+- Listener#start 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/commands/compile.rb#L62)
 
 ### `#stop`
@@ -4960,7 +5006,7 @@ Generates diffs for every output file written
 
 
 **See**:
-- Listener#stop
+- Listener#stop 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/commands/compile.rb#L81)
 
 ---
@@ -4978,7 +5024,7 @@ Records the time spent per filter and per item representation
 
 
 **See**:
-- Listener#enable_for?
+- Listener#enable_for? 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/commands/compile.rb#L148)
 
 ### `#initialize(reps:)`
@@ -5001,7 +5047,7 @@ Records the time spent per filter and per item representation
 
 
 **See**:
-- Listener#start
+- Listener#start 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/commands/compile.rb#L164)
 
 ### `#stop`
@@ -5009,7 +5055,7 @@ Records the time spent per filter and per item representation
 
 
 **See**:
-- Listener#stop
+- Listener#stop 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/commands/compile.rb#L207)
 
 ---
@@ -5027,7 +5073,7 @@ Prints debug information (compilation started/ended, filtering started/ended, �
 
 
 **See**:
-- Listener#enable_for?
+- Listener#enable_for? 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/commands/compile.rb#L278)
 
 ### `#start`
@@ -5035,7 +5081,7 @@ Prints debug information (compilation started/ended, filtering started/ended, �
 
 
 **See**:
-- Listener#start
+- Listener#start 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/commands/compile.rb#L283)
 
 ---
@@ -5060,7 +5106,7 @@ Prints file actions (created, updated, deleted, identical, skipped)
 
 
 **See**:
-- Listener#start
+- Listener#start 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/commands/compile.rb#L319)
 
 ### `#stop`
@@ -5068,7 +5114,7 @@ Prints file actions (created, updated, deleted, identical, skipped)
 
 
 **See**:
-- Listener#stop
+- Listener#stop 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/commands/compile.rb#L348)
 
 ---
@@ -5086,7 +5132,7 @@ Records a profile using StackProf
 
 
 **See**:
-- Listener#enable_for?
+- Listener#enable_for? 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/commands/compile.rb#L374)
 
 ### `#start`
@@ -5094,7 +5140,7 @@ Records a profile using StackProf
 
 
 **See**:
-- Listener#start
+- Listener#start 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/commands/compile.rb#L379)
 
 ### `#stop`
@@ -5102,7 +5148,7 @@ Records a profile using StackProf
 
 
 **See**:
-- Listener#stop
+- Listener#stop 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/commands/compile.rb#L385)
 
 ---
@@ -5239,7 +5285,7 @@ to {#run} unchanged and returns the return value from {#run}.
 
 
 **See**:
-- #run
+- #run 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/services/filter.rb#L135)
 
 ### `#run(content_or_filename, params = {}) # rubocop:disable Lint/UnusedMethodArgument`
@@ -5325,6 +5371,7 @@ to be compiled first before this items is processed.
 
 ## `class Nanoc::Int::Layout`
 
+
 ### `#reference`
 
 
@@ -5335,6 +5382,7 @@ to be compiled first before this items is processed.
 ---
 
 ## `class Nanoc::Checking::Checks::HTML`
+
 
 ### `#extension`
 
@@ -5353,6 +5401,7 @@ to be compiled first before this items is processed.
 ---
 
 ## `class Nanoc::Filters::CoffeeScript`
+
 
 ### `#run(content, _params = {})`
 
@@ -5375,6 +5424,7 @@ This method takes no options.
 ---
 
 ## `class Nanoc::RuleDSL::RulesLoader`
+
 
 ### `#initialize(config, rules_collection)`
 
@@ -5407,6 +5457,7 @@ This method takes no options.
 ---
 
 ## `class Nanoc::Int::Pattern`
+
 
 ### `.from(obj)`
 
@@ -5457,6 +5508,7 @@ This method takes no options.
 
 ## `class Nanoc::Int::StringPattern`
 
+
 ### `#initialize(string)`
 
 
@@ -5496,6 +5548,7 @@ This method takes no options.
 ---
 
 ## `class Nanoc::Int::RegexpPattern`
+
 
 ### `#initialize(regexp)`
 
@@ -5599,6 +5652,7 @@ Returns a binding for this instance.
 
 ## `class Nanoc::Checking::Checks::Stale`
 
+
 ### `#run`
 
 
@@ -5687,6 +5741,7 @@ content (if any)
 
 ## `class Nanoc::Int::TextualContent`
 
+
 ### `#string`
 
 
@@ -5746,6 +5801,7 @@ TODO: Add contract
 ---
 
 ## `class Nanoc::Int::BinaryContent`
+
 
 ### `#binary?`
 
@@ -5811,7 +5867,7 @@ the filter's #run method
 
 
 **See**:
-- Nanoc::Int::ItemRep#filter
+- Nanoc::Int::ItemRep#filter 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/rule_dsl/rule_context.rb#L37)
 
 ### `#layout(layout_identifier, extra_filter_args = nil)`
@@ -5831,7 +5887,7 @@ should be laid out with
 
 
 **See**:
-- Nanoc::Int::ItemRep#layout
+- Nanoc::Int::ItemRep#layout 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/rule_dsl/rule_context.rb#L50)
 
 ### `#snapshot(snapshot_name, path: nil)`
@@ -5853,7 +5909,7 @@ Creates a snapshot of the current compiled item content. Calls
 
 
 **See**:
-- Nanoc::Int::ItemRep#snapshot
+- Nanoc::Int::ItemRep#snapshot 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/rule_dsl/rule_context.rb#L64)
 
 ### `#write(path)`
@@ -5872,7 +5928,7 @@ the given path. This is a convenience method for {#snapshot}.
 
 
 **See**:
-- #snapshot
+- #snapshot 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/rule_dsl/rule_context.rb#L76)
 
 ---
@@ -6477,6 +6533,7 @@ the {#layouts} method.
 
 ## `class Nanoc::CLI::Commands::ShowData`
 
+
 ### `#run`
 
 
@@ -6487,6 +6544,7 @@ the {#layouts} method.
 ---
 
 ## `class Nanoc::Int::Document`
+
 
 ### `#content`
 
@@ -6700,6 +6758,7 @@ the {#layouts} method.
 
 ## `class Nanoc::Filters::YUICompressor`
 
+
 ### `#run(content, params = {})`
 
 Compress Javascript or CSS using [YUICompressor](http://rubydoc.info/gems/yuicompressor).
@@ -6725,6 +6784,7 @@ YUICompressor gem.
 ---
 
 ## `class Nanoc::Int::SiteLoader`
+
 
 ### `#new_empty`
 
@@ -7051,6 +7111,7 @@ Provides functionality for suspending and resuming item rep compilation (using f
 
 ## `class Nanoc::Int::Compiler::Phases::Write`
 
+
 ### `#initialize(snapshot_repo:, wrapped:)`
 
 
@@ -7072,6 +7133,7 @@ Provides functionality for suspending and resuming item rep compilation (using f
 ---
 
 ## `class Nanoc::Int::Compiler::Phases::MarkDone`
+
 
 ### `#initialize(wrapped:, outdatedness_store:)`
 
@@ -7095,6 +7157,7 @@ Provides functionality for suspending and resuming item rep compilation (using f
 
 ## `class Nanoc::Int::Compiler::Stages::Preprocess`
 
+
 ### `#initialize(action_provider:, site:, dependency_store:, checksum_store:)`
 
 
@@ -7117,6 +7180,7 @@ Provides functionality for suspending and resuming item rep compilation (using f
 
 ## `class Nanoc::Int::Compiler::Stages::Prune`
 
+
 ### `#initialize(config:, reps:)`
 
 
@@ -7138,6 +7202,7 @@ Provides functionality for suspending and resuming item rep compilation (using f
 ---
 
 ## `class Nanoc::Int::Compiler::Stages::DetermineOutdatedness`
+
 
 ### `#initialize(reps:, outdatedness_checker:, outdatedness_store:)`
 
@@ -7164,6 +7229,7 @@ Provides functionality for suspending and resuming item rep compilation (using f
 
 ## `class Nanoc::Int::Compiler::Stages::CompileReps`
 
+
 ### `#initialize(outdatedness_store:, dependency_store:, action_provider:, compilation_context:, compiled_content_cache:)`
 
 
@@ -7185,6 +7251,7 @@ Provides functionality for suspending and resuming item rep compilation (using f
 ---
 
 ## `class Nanoc::ConfigView`
+
 
 ### `#initialize(config, context)`
 
@@ -7209,7 +7276,7 @@ Provides functionality for suspending and resuming item rep compilation (using f
 
 
 **See**:
-- Hash#fetch
+- Hash#fetch 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/config_view.rb#L18)
 
 ### `#key?(key)`
@@ -7221,7 +7288,7 @@ Provides functionality for suspending and resuming item rep compilation (using f
 
 
 **See**:
-- Hash#key?
+- Hash#key? 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/config_view.rb#L31)
 
 ### `#[](key)`
@@ -7229,7 +7296,7 @@ Provides functionality for suspending and resuming item rep compilation (using f
 
 
 **See**:
-- Hash#[]
+- Hash#[] 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/config_view.rb#L36)
 
 ### `#each(&block)`
@@ -7237,12 +7304,13 @@ Provides functionality for suspending and resuming item rep compilation (using f
 
 
 **See**:
-- Hash#each
+- Hash#each 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/config_view.rb#L41)
 
 ---
 
 ## `class Nanoc::Int::Executor`
+
 
 ### `#initialize(rep, compilation_context, dependency_tracker)`
 
@@ -7328,6 +7396,7 @@ Provides functionality for suspending and resuming item rep compilation (using f
 
 ## `class Nanoc::Int::Executor::OutputNotWrittenError`
 
+
 ### `#initialize(filter_name, output_filename)`
 
 
@@ -7342,6 +7411,7 @@ Provides functionality for suspending and resuming item rep compilation (using f
 ---
 
 ## `class Nanoc::Int::ItemRep`
+
 
 ### `#compiled`
 
@@ -7578,6 +7648,7 @@ Returns an object that can be used for uniquely identifying objects.
 
 ## `class Nanoc::Int::ContractsSupport::Ignorer`
 
+
 ### `#method_missing(*_args)`
 
 
@@ -7600,6 +7671,7 @@ Returns an object that can be used for uniquely identifying objects.
 
 ## `class Nanoc::Int::ContractsSupport::EnabledContracts::AbstractContract`
 
+
 ### `.[](*vals)`
 
 
@@ -7610,6 +7682,7 @@ Returns an object that can be used for uniquely identifying objects.
 ---
 
 ## `class Nanoc::Int::ContractsSupport::EnabledContracts::Named`
+
 
 ### `#initialize(name)`
 
@@ -7644,6 +7717,7 @@ Returns an object that can be used for uniquely identifying objects.
 
 ## `class Nanoc::Int::ContractsSupport::EnabledContracts::IterOf`
 
+
 ### `#initialize(contract)`
 
 
@@ -7676,6 +7750,7 @@ Returns an object that can be used for uniquely identifying objects.
 ---
 
 ## `class Nanoc::Filters::ColorizeSyntax`
+
 
 ### `#run(content, params = {})`
 
@@ -7975,12 +8050,13 @@ A deployer that deploys a site using [fog](https://github.com/geemus/fog).
 
 
 **See**:
-- Nanoc::Deploying::Deployer#run
+- Nanoc::Deploying::Deployer#run 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/deploying/deployers/fog.rb#L81)
 
 ---
 
 ## `class Nanoc::Deploying::Deployers::Fog::FogWrapper`
+
 
 ### `#initialize(directory, is_dry_run)`
 
@@ -8049,6 +8125,7 @@ A deployer that deploys a site using [Git](http://git-scm.com).
 
 ## `class Nanoc::Deploying::Deployers::Git::Errors::OutputDirDoesNotExist`
 
+
 ### `#initialize(path)`
 
 
@@ -8063,6 +8140,7 @@ A deployer that deploys a site using [Git](http://git-scm.com).
 ---
 
 ## `class Nanoc::Deploying::Deployers::Git::Errors::OutputDirIsNotAGitRepo`
+
 
 ### `#initialize(path)`
 
@@ -8079,6 +8157,7 @@ A deployer that deploys a site using [Git](http://git-scm.com).
 
 ## `class Nanoc::Deploying::Deployers::Git::Errors::RemoteDoesNotExist`
 
+
 ### `#initialize(remote)`
 
 
@@ -8094,6 +8173,7 @@ A deployer that deploys a site using [Git](http://git-scm.com).
 
 ## `class Nanoc::Deploying::Deployers::Git::Errors::BranchDoesNotExist`
 
+
 ### `#initialize(branch)`
 
 
@@ -8108,6 +8188,7 @@ A deployer that deploys a site using [Git](http://git-scm.com).
 ---
 
 ## `class Nanoc::CLI::Commands::ShowRules`
+
 
 ### `#run`
 
@@ -8229,6 +8310,7 @@ See {Nanoc::DataSource#layouts}.
 
 ## `class Nanoc::DataSources::Filesystem::ProtoDocument`
 
+
 ### `#attributes`
 
 
@@ -8293,6 +8375,7 @@ See {Nanoc::DataSource#layouts}.
 
 ## `class Nanoc::DataSources::Filesystem::ParseResult`
 
+
 ### `#content`
 
 
@@ -8328,6 +8411,7 @@ See {Nanoc::DataSource#layouts}.
 ---
 
 ## `class Nanoc::ViewContext`
+
 
 ### `#reps`
 
@@ -8379,6 +8463,7 @@ See {Nanoc::DataSource#layouts}.
 
 ## `class Nanoc::Int::ConfigLoader`
 
+
 ### `.cwd_is_nanoc_site?`
 
 
@@ -8422,6 +8507,7 @@ See {Nanoc::DataSource#layouts}.
 
 ## `class Nanoc::Int::ConfigLoader::NoConfigFileFoundError`
 
+
 ### `#initialize`
 
 
@@ -8436,6 +8522,7 @@ See {Nanoc::DataSource#layouts}.
 ---
 
 ## `class Nanoc::Int::ConfigLoader::NoParentConfigFileFoundError`
+
 
 ### `#initialize(filename)`
 
@@ -8452,6 +8539,7 @@ See {Nanoc::DataSource#layouts}.
 
 ## `class Nanoc::Int::ConfigLoader::CyclicalConfigFileError`
 
+
 ### `#initialize(filename)`
 
 
@@ -8466,6 +8554,7 @@ See {Nanoc::DataSource#layouts}.
 ---
 
 ## `class Nanoc::RuleDSL::ActionProvider`
+
 
 ### `#rules_collection`
 
@@ -8593,6 +8682,7 @@ Stores item reps (in memory).
 
 ## `class Nanoc::Int::SnapshotRepo`
 
+
 ### `#initialize`
 
 
@@ -8642,6 +8732,7 @@ Stores item reps (in memory).
 ---
 
 ## `class Nanoc::Filters::RelativizePaths`
+
 
 ### `#run(content, params = {})`
 
@@ -8694,12 +8785,13 @@ Simplifies output by replacing UTF-8 characters with their ASCII decompositions.
 
 
 **See**:
-- Nanoc::CLI::StreamCleaners::Abstract#clean
+- Nanoc::CLI::StreamCleaners::Abstract#clean 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/stream_cleaners/utf8.rb#L7)
 
 ---
 
 ## `class Nanoc::ItemRepView`
+
 
 ### `#initialize(item_rep, context)`
 
@@ -8724,7 +8816,7 @@ Simplifies output by replacing UTF-8 characters with their ASCII decompositions.
 
 
 **See**:
-- Object#==
+- Object#== 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/item_rep_view.rb#L15)
 
 ### `#eql?(other)`
@@ -8736,7 +8828,7 @@ Simplifies output by replacing UTF-8 characters with their ASCII decompositions.
 
 
 **See**:
-- Object#eql?
+- Object#eql? 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/item_rep_view.rb#L20)
 
 ### `#hash`
@@ -8744,7 +8836,7 @@ Simplifies output by replacing UTF-8 characters with their ASCII decompositions.
 
 
 **See**:
-- Object#hash
+- Object#hash 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/item_rep_view.rb#L27)
 
 ### `#name`
@@ -8897,6 +8989,7 @@ Returns a new lazy value that will apply the given transformation when the value
 ---
 
 ## `class Nanoc::Identifier`
+
 
 ### `.from(obj)`
 
@@ -9076,6 +9169,7 @@ The list of extensions, without a leading dot
 
 ## `class Nanoc::Identifier::InvalidIdentifierError`
 
+
 ### `#initialize(string)`
 
 
@@ -9090,6 +9184,7 @@ The list of extensions, without a leading dot
 ---
 
 ## `class Nanoc::Identifier::InvalidTypeError`
+
 
 ### `#initialize(type)`
 
@@ -9106,6 +9201,7 @@ The list of extensions, without a leading dot
 
 ## `class Nanoc::Identifier::InvalidPrefixError`
 
+
 ### `#initialize(string)`
 
 
@@ -9121,6 +9217,7 @@ The list of extensions, without a leading dot
 
 ## `class Nanoc::Identifier::UnsupportedLegacyOperationError`
 
+
 ### `#initialize`
 
 
@@ -9135,6 +9232,7 @@ The list of extensions, without a leading dot
 ---
 
 ## `class Nanoc::Identifier::NonCoercibleObjectError`
+
 
 ### `#initialize(obj)`
 
@@ -9195,6 +9293,7 @@ A dependency between two items/layouts.
 ---
 
 ## `class Nanoc::CLI::Commands::CreateSite`
+
 
 ### `#run`
 
@@ -9266,6 +9365,7 @@ has changed since the last site compilation.
 ---
 
 ## `class Nanoc::Int::RuleMemory`
+
 
 ### `#initialize(item_rep, actions: [])`
 
@@ -9402,6 +9502,7 @@ to determine whether a piece of data has changed.
 
 ## `class Nanoc::Int::Checksummer::VerboseDigest`
 
+
 ### `#initialize`
 
 
@@ -9430,6 +9531,7 @@ to determine whether a piece of data has changed.
 ---
 
 ## `class Nanoc::Int::Checksummer::CompactDigest`
+
 
 ### `#initialize`
 
@@ -9460,6 +9562,7 @@ to determine whether a piece of data has changed.
 
 ## `class Nanoc::Int::Checksummer::UpdateBehavior`
 
+
 ### `.update(_obj, _digest)`
 
 
@@ -9473,6 +9576,7 @@ to determine whether a piece of data has changed.
 ---
 
 ## `class Nanoc::Int::Checksummer::RuleContextUpdateBehavior`
+
 
 ### `.update(obj, digest)`
 
@@ -9488,6 +9592,7 @@ to determine whether a piece of data has changed.
 
 ## `class Nanoc::Int::Checksummer::ContextUpdateBehavior`
 
+
 ### `.update(obj, digest)`
 
 
@@ -9499,6 +9604,7 @@ to determine whether a piece of data has changed.
 
 ## `class Nanoc::Int::Checksummer::RawUpdateBehavior`
 
+
 ### `.update(obj, digest)`
 
 
@@ -9509,6 +9615,7 @@ to determine whether a piece of data has changed.
 ---
 
 ## `class Nanoc::Int::Checksummer::ToSUpdateBehavior`
+
 
 ### `.update(obj, _digest)`
 
@@ -9524,6 +9631,7 @@ to determine whether a piece of data has changed.
 
 ## `class Nanoc::Int::Checksummer::ToIToSUpdateBehavior`
 
+
 ### `.update(obj, digest)`
 
 
@@ -9534,6 +9642,7 @@ to determine whether a piece of data has changed.
 ---
 
 ## `class Nanoc::Int::Checksummer::StringUpdateBehavior`
+
 
 ### `.update(obj, _digest)`
 
@@ -9549,6 +9658,7 @@ to determine whether a piece of data has changed.
 
 ## `class Nanoc::Int::Checksummer::DataUpdateBehavior`
 
+
 ### `.update(obj, _digest)`
 
 
@@ -9563,6 +9673,7 @@ to determine whether a piece of data has changed.
 
 ## `class Nanoc::Int::Checksummer::NoUpdateBehavior`
 
+
 ### `.update(_obj, _digest); end`
 
 
@@ -9573,6 +9684,7 @@ to determine whether a piece of data has changed.
 ---
 
 ## `class Nanoc::Int::Checksummer::UnwrapUpdateBehavior`
+
 
 ### `.update(obj, _digest)`
 
@@ -9588,6 +9700,7 @@ to determine whether a piece of data has changed.
 
 ## `class Nanoc::Int::Checksummer::ArrayUpdateBehavior`
 
+
 ### `.update(obj, digest)`
 
 
@@ -9598,6 +9711,7 @@ to determine whether a piece of data has changed.
 ---
 
 ## `class Nanoc::Int::Checksummer::HashUpdateBehavior`
+
 
 ### `.update(obj, digest)`
 
@@ -9610,6 +9724,7 @@ to determine whether a piece of data has changed.
 
 ## `class Nanoc::Int::Checksummer::DocumentUpdateBehavior`
 
+
 ### `.update(obj, digest)`
 
 
@@ -9620,6 +9735,7 @@ to determine whether a piece of data has changed.
 ---
 
 ## `class Nanoc::Int::Checksummer::ItemRepUpdateBehavior`
+
 
 ### `.update(obj, digest)`
 
@@ -9635,6 +9751,7 @@ to determine whether a piece of data has changed.
 
 ## `class Nanoc::Int::Checksummer::PathnameUpdateBehavior`
 
+
 ### `.update(obj, digest)`
 
 
@@ -9645,6 +9762,7 @@ to determine whether a piece of data has changed.
 ---
 
 ## `class Nanoc::Int::Checksummer::BinaryContentUpdateBehavior`
+
 
 ### `.update(obj, _digest)`
 
@@ -9660,6 +9778,7 @@ to determine whether a piece of data has changed.
 
 ## `class Nanoc::Int::Checksummer::RescueUpdateBehavior`
 
+
 ### `.update(obj, digest)`
 
 
@@ -9670,6 +9789,7 @@ to determine whether a piece of data has changed.
 ---
 
 ## `class Nanoc::Extra::ParallelCollection`
+
 
 ### `#initialize(enum, parallelism: 2)`
 
@@ -9934,6 +10054,7 @@ Returns an object that can be used for uniquely identifying objects.
 
 ## `class Nanoc::CLI::Commands::ShowPlugins`
 
+
 ### `#run`
 
 
@@ -9957,7 +10078,7 @@ in `host:path` format. It should not end with a slash. For example,
 
 
 **See**:
-- Nanoc::Deploying::Deployer#run
+- Nanoc::Deploying::Deployer#run 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/deploying/deployers/rsync.rb#L41)
 
 ---
@@ -10046,6 +10167,7 @@ Returns an object that can be used for uniquely identifying objects.
 
 ## `class Nanoc::Int::SnapshotDef`
 
+
 ### `#name`
 
 
@@ -10067,6 +10189,7 @@ Returns an object that can be used for uniquely identifying objects.
 ---
 
 ## `class Nanoc::Extra::JRubyNokogiriWarner`
+
 
 ### `.check_and_warn`
 
@@ -10096,6 +10219,7 @@ Returns an object that can be used for uniquely identifying objects.
 ---
 
 ## `class Nanoc::RuleDSL::RecordingExecutor`
+
 
 ### `#initialize(rule_memory)`
 
@@ -10132,6 +10256,7 @@ Returns an object that can be used for uniquely identifying objects.
 ---
 
 ## `class Nanoc::Int::DependencyStore`
+
 
 ### `#objects`
 
@@ -10724,6 +10849,7 @@ the layout to set the rule memory for
 
 ## `class Nanoc::Int::ItemRepWriter`
 
+
 ### `#write(item_rep, snapshot_repo, snapshot_name)`
 
 
@@ -10780,6 +10906,7 @@ Assigns paths to reps.
 
 ## `class Nanoc::Int::ItemRepRouter::IdenticalRoutesError`
 
+
 ### `#initialize(output_path, rep_a, rep_b)`
 
 
@@ -10794,6 +10921,7 @@ Assigns paths to reps.
 ---
 
 ## `class Nanoc::Int::ItemRepRouter::RouteWithoutSlashError`
+
 
 ### `#initialize(output_path, rep)`
 
@@ -10823,6 +10951,7 @@ URLs that would trigger "mixed content" warnings.
 ---
 
 ## `class Nanoc::Checking::Checks::W3CValidator`
+
 
 ### `#run`
 
@@ -10855,6 +10984,7 @@ URLs that would trigger "mixed content" warnings.
 
 ## `class Nanoc::Int::CompilerLoader`
 
+
 ### `#load(site, action_provider: nil)`
 
 
@@ -10865,6 +10995,7 @@ URLs that would trigger "mixed content" warnings.
 ---
 
 ## `class Nanoc::Int::OutdatednessStore`
+
 
 ### `#initialize(reps:)`
 
@@ -11002,6 +11133,7 @@ be skipped.
 
 ## `class Nanoc::DataSources::Filesystem::Errors::BinaryLayout`
 
+
 ### `#initialize(content_filename)`
 
 
@@ -11016,6 +11148,7 @@ be skipped.
 ---
 
 ## `class Nanoc::DataSources::Filesystem::Errors::MultipleMetaFiles`
+
 
 ### `#initialize(meta_filenames, basename)`
 
@@ -11032,6 +11165,7 @@ be skipped.
 
 ## `class Nanoc::DataSources::Filesystem::Errors::MultipleContentFiles`
 
+
 ### `#initialize(content_filenames, basename)`
 
 
@@ -11046,6 +11180,7 @@ be skipped.
 ---
 
 ## `class Nanoc::DataSources::Filesystem::Errors::InvalidFormat`
+
 
 ### `#initialize(content_filename)`
 
@@ -11062,6 +11197,7 @@ be skipped.
 
 ## `class Nanoc::DataSources::Filesystem::Errors::UnparseableMetadata`
 
+
 ### `#initialize(filename, error)`
 
 
@@ -11076,6 +11212,7 @@ be skipped.
 ---
 
 ## `class Nanoc::DataSources::Filesystem::Errors::InvalidMetadata`
+
 
 ### `#initialize(filename, klass)`
 
@@ -11092,6 +11229,7 @@ be skipped.
 
 ## `class Nanoc::DataSources::Filesystem::Errors::InvalidEncoding`
 
+
 ### `#initialize(filename, encoding)`
 
 
@@ -11106,6 +11244,7 @@ be skipped.
 ---
 
 ## `class Nanoc::DataSources::Filesystem::Errors::FileUnreadable`
+
 
 ### `#initialize(filename, error)`
 
@@ -11122,6 +11261,7 @@ be skipped.
 
 ## `class Nanoc::MutableConfigView`
 
+
 ### `#[]=(key, value)`
 
 Sets the value for the given attribute.
@@ -11133,12 +11273,13 @@ Sets the value for the given attribute.
 
 
 **See**:
-- Hash#[]=
+- Hash#[]= 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/mutable_config_view.rb#L8)
 
 ---
 
 ## `class Nanoc::Int::ItemRepBuilder`
+
 
 ### `#reps`
 
@@ -11231,6 +11372,7 @@ A validator that verifies that all external links point to a location that exist
 ---
 
 ## `class Nanoc::Checking::Checks::ExternalLinks::Result`
+
 
 ### `#href`
 
@@ -11368,6 +11510,7 @@ FIXME: ugly
 
 ## `class Nanoc::RuleDSL::RuleMemoryCalculator::UnsupportedObjectTypeException`
 
+
 ### `#initialize(obj)`
 
 
@@ -11382,6 +11525,7 @@ FIXME: ugly
 ---
 
 ## `class Nanoc::RuleDSL::RuleMemoryCalculator::NoRuleMemoryForLayoutException`
+
 
 ### `#initialize(layout)`
 
@@ -11398,6 +11542,7 @@ FIXME: ugly
 
 ## `class Nanoc::RuleDSL::RuleMemoryCalculator::NoRuleMemoryForItemRepException`
 
+
 ### `#initialize(item)`
 
 
@@ -11412,6 +11557,7 @@ FIXME: ugly
 ---
 
 ## `class Nanoc::RuleDSL::RuleMemoryCalculator::PathWithoutInitialSlashError`
+
 
 ### `#initialize(rep, basic_path)`
 
@@ -11435,7 +11581,7 @@ Removes ANSI color escape sequences.
 
 
 **See**:
-- Nanoc::CLI::StreamCleaners::Abstract#clean
+- Nanoc::CLI::StreamCleaners::Abstract#clean 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/cli/stream_cleaners/ansi_colors.rb#L7)
 
 ---
@@ -11480,6 +11626,7 @@ Yields item reps to compile.
 
 ## `class Nanoc::Int::OutdatednessRule`
 
+
 ### `#apply(_obj, _outdatedness_checker)`
 
 
@@ -11513,6 +11660,7 @@ TODO: remove
 
 ## `class Nanoc::Int::ProcessingAction`
 
+
 ### `#serialize`
 
 
@@ -11543,6 +11691,7 @@ TODO: remove
 ---
 
 ## `class Nanoc::Int::DependencyTracker`
+
 
 ### `#initialize(dependency_store)`
 
@@ -11580,6 +11729,7 @@ TODO: remove
 
 ## `class Nanoc::Int::DependencyTracker::Null`
 
+
 ### `#enter(_obj, raw_content: false, attributes: false, compiled_content: false, path: false); end`
 
 
@@ -11605,6 +11755,7 @@ TODO: remove
 
 ## `class Nanoc::Int::OutdatednessRules::CodeSnippetsModified`
 
+
 ### `#reason`
 
 
@@ -11622,6 +11773,7 @@ TODO: remove
 ---
 
 ## `class Nanoc::Int::OutdatednessRules::ConfigurationModified`
+
 
 ### `#reason`
 
@@ -11641,6 +11793,7 @@ TODO: remove
 
 ## `class Nanoc::Int::OutdatednessRules::NotWritten`
 
+
 ### `#reason`
 
 
@@ -11658,6 +11811,7 @@ TODO: remove
 ---
 
 ## `class Nanoc::Int::OutdatednessRules::ContentModified`
+
 
 ### `#reason`
 
@@ -11677,6 +11831,7 @@ TODO: remove
 
 ## `class Nanoc::Int::OutdatednessRules::AttributesModified`
 
+
 ### `#reason`
 
 
@@ -11694,6 +11849,7 @@ TODO: remove
 ---
 
 ## `class Nanoc::Int::OutdatednessRules::RulesModified`
+
 
 ### `#reason`
 
@@ -11713,6 +11869,7 @@ TODO: remove
 
 ## `class Nanoc::Int::OutdatednessRules::PathsModified`
 
+
 ### `#reason`
 
 
@@ -11730,6 +11887,7 @@ TODO: remove
 ---
 
 ## `class Nanoc::PostCompileItemView`
+
 
 ### `#reps`
 
@@ -11854,6 +12012,7 @@ removed.
 
 ## `class Nanoc::Int::OutdatednessStatus`
 
+
 ### `#reasons`
 
 
@@ -11900,6 +12059,7 @@ removed.
 ---
 
 ## `class Nanoc::LayoutCollectionView`
+
 
 ### `#view_class`
 
@@ -11951,6 +12111,7 @@ names. and the values the compiled content at the given snapshot.
 ---
 
 ## `class Nanoc::ItemWithoutRepsView`
+
 
 ### `#children`
 
@@ -12137,6 +12298,7 @@ given object is outdated, or nil if the object is not outdated.
 
 ## `class Nanoc::Int::OutdatednessChecker::Basic`
 
+
 ### `#initialize(outdatedness_checker:, reps:)`
 
 
@@ -12158,6 +12320,7 @@ given object is outdated, or nil if the object is not outdated.
 ---
 
 ## `class Nanoc::Int::TempFilenameFactory`
+
 
 ### `#root_dir`
 
@@ -12227,6 +12390,7 @@ filenames should be deleted.
 ---
 
 ## `class Nanoc::ItemRepCollectionView`
+
 
 ### `#initialize(item_reps, context)`
 
@@ -12327,6 +12491,7 @@ is no rep with the given name.
 
 ## `class Nanoc::ItemRepCollectionView::NoSuchItemRepError`
 
+
 ### `#initialize(rep_name)`
 
 
@@ -12341,6 +12506,7 @@ is no rep with the given name.
 ---
 
 ## `class Sass::Importers::Filesystem`
+
 
 ### `#_orig_find`
 
@@ -12359,6 +12525,7 @@ is no rep with the given name.
 ---
 
 ## `class Nanoc::Int::IdentifiableCollection`
+
 
 ### `#initialize(config)`
 
@@ -12414,6 +12581,7 @@ is no rep with the given name.
 
 ## `class Nanoc::PostCompileItemRepView`
 
+
 ### `#compiled_content(snapshot: nil)`
 
 
@@ -12424,6 +12592,7 @@ is no rep with the given name.
 ---
 
 ## `class Nanoc::Int::ProcessingActions::Filter`
+
 
 ### `#filter_name`
 
@@ -12470,6 +12639,7 @@ filter :foo, params
 
 ## `class Nanoc::Int::ProcessingActions::Layout`
 
+
 ### `#layout_identifier`
 
 layout '/foo.erb'
@@ -12515,6 +12685,7 @@ layout '/foo.erb', params
 
 ## `class Nanoc::MutableItemCollectionView`
 
+
 ### `#view_class`
 
 
@@ -12557,6 +12728,7 @@ containing this content (if any)
 ---
 
 ## `class Nanoc::IdentifiableCollectionView`
+
 
 ### `#initialize(objects, context)`
 
@@ -12637,6 +12809,7 @@ Finds all objects whose identifier matches the given argument.
 
 ## `class Nanoc::Int::ProcessingActions::Snapshot`
 
+
 ### `#snapshot_name`
 
 snapshot :before_layout
@@ -12689,6 +12862,7 @@ snapshot :before_layout, path: '/about.md'
 
 ## `class Nanoc::MutableLayoutCollectionView`
 
+
 ### `#view_class`
 
 
@@ -12723,6 +12897,7 @@ Creates a new layout and adds it to the site’s collection of layouts.
 
 ## `class Nanoc::ItemCollectionWithRepsView`
 
+
 ### `#view_class`
 
 
@@ -12733,6 +12908,7 @@ Creates a new layout and adds it to the site’s collection of layouts.
 ---
 
 ## `class Nanoc::ItemCollectionWithoutRepsView`
+
 
 ### `#view_class`
 
@@ -12745,6 +12921,7 @@ Creates a new layout and adds it to the site’s collection of layouts.
 
 ## `class Nanoc::PostCompileItemCollectionView`
 
+
 ### `#view_class`
 
 
@@ -12755,6 +12932,7 @@ Creates a new layout and adds it to the site’s collection of layouts.
 ---
 
 ## `class Nanoc::MutableDocumentViewMixin::DisallowedAttributeValueError`
+
 
 ### `#value`
 
@@ -12785,6 +12963,7 @@ Creates a new layout and adds it to the site’s collection of layouts.
 
 ## `class Nanoc::MutableIdentifiableCollectionView`
 
+
 ### `#delete_if(&_block)`
 
 Deletes every object for which the block evaluates to true.
@@ -12801,6 +12980,7 @@ Deletes every object for which the block evaluates to true.
 
 ## `class Nanoc::PostCompileItemRepCollectionView`
 
+
 ### `#view_class`
 
 
@@ -12811,6 +12991,7 @@ Deletes every object for which the block evaluates to true.
 ---
 
 ## `module Nanoc`
+
 
 ### `.version_information`
 
@@ -12838,6 +13019,7 @@ and its environment (Ruby engine and version, Rubygems version if any).
 ---
 
 ## `module Nanoc::CLI`
+
 
 ### `.debug?`
 
@@ -12927,6 +13109,7 @@ Schedules the given block to be executed after the CLI has been set up.
 
 ## `module Nanoc::Spec::HelperHelper`
 
+
 ### `#ctx`
 
 
@@ -12944,6 +13127,7 @@ Schedules the given block to be executed after the CLI has been set up.
 ---
 
 ## `module Nanoc::Feature`
+
 
 ### `.define(name, version:)`
 
@@ -13037,6 +13221,9 @@ Nanoc.
 
 ## `module Nanoc::Helpers::Text`
 
+**See**:
+- http://nanoc.ws/doc/reference/helpers/#text 
+
 ### `#excerptize(string, length: 25, omission: '...')`
 
 **Params**:
@@ -13076,6 +13263,9 @@ Nanoc.
 ---
 
 ## `module Nanoc::Helpers::Tagging`
+
+**See**:
+- http://nanoc.ws/doc/reference/helpers/#tagging 
 
 ### `#tags_for(item, base_url: nil, none_text: '(none)', separator: ', ')`
 
@@ -13134,6 +13324,9 @@ Nanoc.
 ---
 
 ## `module Nanoc::Helpers::LinkTo`
+
+**See**:
+- http://nanoc.ws/doc/reference/helpers/#linkto 
 
 ### `#link_to(text, target, attributes = {})`
 
@@ -13239,6 +13432,9 @@ end
 
 ## `module Nanoc::Helpers::Blogging`
 
+**See**:
+- http://nanoc.ws/doc/reference/helpers/#blogging 
+
 ### `#articles`
 
 
@@ -13338,6 +13534,9 @@ end
 
 ## `module Nanoc::Helpers::Rendering`
 
+**See**:
+- http://nanoc.ws/doc/reference/helpers/#rendering 
+
 ### `#render(identifier, other_assigns = {}, &block)`
 
 **Params**:
@@ -13367,6 +13566,9 @@ end
 
 ## `module Nanoc::Helpers::Filtering`
 
+**See**:
+- http://nanoc.ws/doc/reference/helpers/#filtering 
+
 ### `#filter(filter_name, arguments = {}, &block)`
 
 **Params**:
@@ -13392,6 +13594,9 @@ end
 
 ## `module Nanoc::Helpers::Capturing`
 
+**See**:
+- http://nanoc.ws/doc/reference/helpers/#capturing 
+
 ### `#content_for(*args, &block)`
 
 
@@ -13413,6 +13618,7 @@ end
 ---
 
 ## `module Nanoc::HashExtensions`
+
 
 ### `#__nanoc_symbolize_keys_recursively`
 
@@ -13440,12 +13646,15 @@ that message, or #freeze if they do not.
 
 
 **See**:
-- Array#__nanoc_freeze_recursively
+- Array#__nanoc_freeze_recursively 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/core_ext/hash.rb#L25)
 
 ---
 
 ## `module Nanoc::Helpers::Breadcrumbs`
+
+**See**:
+- http://nanoc.ws/doc/reference/helpers/#breadcrumbs 
 
 ### `#breadcrumbs_trail`
 
@@ -13461,6 +13670,7 @@ that message, or #freeze if they do not.
 ---
 
 ## `module Nanoc::ArrayExtensions`
+
 
 ### `#__nanoc_symbolize_keys_recursively`
 
@@ -13488,12 +13698,15 @@ to that message, or #freeze if they do not.
 
 
 **See**:
-- Hash#__nanoc_freeze_recursively
+- Hash#__nanoc_freeze_recursively 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/core_ext/array.rb#L23)
 
 ---
 
 ## `module Nanoc::Helpers::XMLSitemap`
+
+**See**:
+- http://nanoc.ws/doc/reference/helpers/#xmlsitemap 
 
 ### `#xml_sitemap(params = {})`
 
@@ -13515,6 +13728,9 @@ to that message, or #freeze if they do not.
 ---
 
 ## `module Nanoc::Helpers::HTMLEscape`
+
+**See**:
+- http://nanoc.ws/doc/reference/helpers/#filtering 
 
 ### `#html_escape(string = nil, &block)`
 
@@ -13550,6 +13766,7 @@ to that message, or #freeze if they do not.
 
 ## `module Nanoc::Extra::TimeExtensions`
 
+
 ### `#__nanoc_to_iso8601_date`
 
 
@@ -13576,6 +13793,7 @@ to that message, or #freeze if they do not.
 
 ## `module Nanoc::StringExtensions`
 
+
 ### `#__nanoc_cleaned_identifier`
 
 Transforms string into an actual identifier
@@ -13591,6 +13809,9 @@ Transforms string into an actual identifier
 ---
 
 ## `module Nanoc::Helpers::ChildParent`
+
+**See**:
+- http://nanoc.ws/doc/reference/helpers/#childparent 
 
 ### `#parent_of(item)`
 
@@ -13610,6 +13831,7 @@ Transforms string into an actual identifier
 
 ## `module Nanoc::Int::ContractsSupport`
 
+
 ### `.setup_once`
 
 
@@ -13620,6 +13842,7 @@ Transforms string into an actual identifier
 ---
 
 ## `module Nanoc::Int::ContractsSupport::DisabledContracts`
+
 
 ### `#contract(*args); end`
 
@@ -13632,6 +13855,7 @@ Transforms string into an actual identifier
 
 ## `module Nanoc::Int::ContractsSupport::EnabledContracts`
 
+
 ### `#contract(*args)`
 
 
@@ -13642,6 +13866,7 @@ Transforms string into an actual identifier
 ---
 
 ## `module Nanoc::Extra::PathnameExtensions`
+
 
 ### `#__nanoc_components`
 
@@ -13787,6 +14012,7 @@ detected (something other than file, directory or link)
 
 ## `module Nanoc::DocumentViewMixin`
 
+
 ### `#initialize(document, context)`
 
 
@@ -13806,7 +14032,7 @@ detected (something other than file, directory or link)
 
 
 **See**:
-- Object#==
+- Object#== 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/mixins/document_view_mixin.rb#L18)
 
 ### `#eql?(other)`
@@ -13818,7 +14044,7 @@ detected (something other than file, directory or link)
 
 
 **See**:
-- Object#eql?
+- Object#eql? 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/mixins/document_view_mixin.rb#L23)
 
 ### `#hash`
@@ -13826,7 +14052,7 @@ detected (something other than file, directory or link)
 
 
 **See**:
-- Object#hash
+- Object#hash 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/mixins/document_view_mixin.rb#L28)
 
 ### `#identifier`
@@ -13845,7 +14071,7 @@ detected (something other than file, directory or link)
 
 
 **See**:
-- Hash#[]
+- Hash#[] 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/mixins/document_view_mixin.rb#L38)
 
 ### `#attributes`
@@ -13864,7 +14090,7 @@ detected (something other than file, directory or link)
 
 
 **See**:
-- Hash#fetch
+- Hash#fetch 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/mixins/document_view_mixin.rb#L50)
 
 ### `#key?(key)`
@@ -13876,7 +14102,7 @@ detected (something other than file, directory or link)
 
 
 **See**:
-- Hash#key?
+- Hash#key? 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/mixins/document_view_mixin.rb#L65)
 
 ### `#reference`
@@ -13903,6 +14129,7 @@ detected (something other than file, directory or link)
 ---
 
 ## `module Nanoc::WithRepsViewMixin`
+
 
 ### `#compiled_content(rep: :default, snapshot: nil)`
 
@@ -13971,6 +14198,7 @@ Returns the representations of this item.
 
 ## `module Nanoc::MutableDocumentViewMixin`
 
+
 ### `#[]=(key, value)`
 
 Sets the value for the given attribute.
@@ -13982,7 +14210,7 @@ Sets the value for the given attribute.
 
 
 **See**:
-- Hash#[]=
+- Hash#[]= 
 - [Source on GitHub](https://github.com/nanoc/nanoc/blob/master/lib/nanoc/base/views/mixins/mutable_document_view_mixin.rb#L21)
 
 ### `#identifier=(arg)`

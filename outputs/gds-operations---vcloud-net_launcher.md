@@ -12,6 +12,7 @@
 
 ## `class Vcloud::NetLauncher::Cli`
 
+
 ### `#initialize(argv_array)`
 
 Initiates parsing of the command-line arguments.
@@ -45,6 +46,7 @@ in +@config_file+, catching any exceptions to prevent printing a backtrace.
 ---
 
 ## `class Vcloud::NetLauncher::NetLaunch`
+
 
 ### `#initialize`
 

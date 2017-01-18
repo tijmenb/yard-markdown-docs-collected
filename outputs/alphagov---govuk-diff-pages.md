@@ -48,6 +48,7 @@
 
 ## `class Govuk::Diff::Pages::TextDiff::Differ`
 
+
 ### `#diff(left, right)`
 
 
@@ -58,6 +59,7 @@
 ---
 
 ## `class Govuk::Diff::Pages::HtmlDiff::Runner`
+
 
 ### `.results_dir`
 
@@ -95,6 +97,7 @@
 
 ## `class Govuk::Diff::Pages::TextDiff::Runner`
 
+
 ### `#initialize(`
 
 
@@ -116,6 +119,7 @@
 ---
 
 ## `class Govuk::Diff::Pages::HtmlDiff::Differ`
+
 
 ### `#differing_pages`
 
@@ -147,6 +151,7 @@ Returns the value of attribute differing_pages
 
 ## `class Govuk::Diff::Pages::TextDiff::Renderer`
 
+
 ### `#initialize(kernel = Kernel)`
 
 
@@ -168,6 +173,7 @@ Returns the value of attribute differing_pages
 ---
 
 ## `class Govuk::Diff::Pages::VisualDiff::Runner`
+
 
 ### `#initialize(paths:, kernel: Kernel)`
 
@@ -191,6 +197,7 @@ Returns the value of attribute differing_pages
 
 ## `class Govuk::Diff::Pages::TextDiff::Formatter`
 
+
 ### `#call(html)`
 
 
@@ -202,6 +209,7 @@ Returns the value of attribute differing_pages
 
 ## `class Govuk::Diff::Pages::TextDiff::Retriever`
 
+
 ### `#call(url)`
 
 
@@ -212,6 +220,7 @@ Returns the value of attribute differing_pages
 ---
 
 ## `class Govuk::Diff::Pages::VisualDiff::WraithConfig`
+
 
 ### `#location`
 
@@ -249,6 +258,7 @@ Returns the value of attribute location
 ---
 
 ## `module Govuk::Diff::Pages`
+
 
 ### `.root_dir`
 

@@ -12,6 +12,7 @@
 
 ## `class GovukSecurityAudit::CLI`
 
+
 ### `#github(user, repo, ref="master")`
 
 
@@ -36,6 +37,7 @@
 ---
 
 ## `class GovukSecurityAudit::Scanner`
+
 
 ### `#initialize(path = Dir.pwd)`
 

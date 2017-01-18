@@ -7,6 +7,7 @@
 
 ## `class Rack::Logstasher::Logger`
 
+
 ### `#initialize(app, logger, opts = {})`
 
 

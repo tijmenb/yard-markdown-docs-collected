@@ -5050,6 +5050,7 @@ socket.connectable?
 
 ## `class Mongo::BulkWrite`
 
+
 ### `#collection`
 
 
@@ -19709,6 +19710,7 @@ Auth.get(user)
 
 ## `module Mongo::DBRef::ClassMethods`
 
+
 ### `#from_bson(buffer)`
 
 Deserialize the hash from BSON, converting to a DBRef if appropriate.
@@ -19724,7 +19726,7 @@ Deserialize the hash from BSON, converting to a DBRef if appropriate.
 
 
 **See**:
-- http://bsonspec.org/#/specification
+- http://bsonspec.org/#/specification 
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/dbref.rb#L103)
 
 ---
@@ -20971,7 +20973,7 @@ Specifiable.new(spec)
 ```
 
 **See**:
-- Theindividual operations for the values they require in their
+- The individual operations for the values they require in their
 specs.
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L311)
 
