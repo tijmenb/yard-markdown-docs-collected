@@ -1,3 +1,1878 @@
+# lsegal/yard
+
+- [`Config`](#class-yardconfig)
+ - [`options`](#options)
+ - [`options=`](#optionsvalue)
+ - [`load`](#load)
+ - [`save`](#save)
+ - [`load_plugins`](#load_plugins)
+ - [`load_plugin`](#load_pluginname)
+ - [`load_gem_plugins`](#load_gem_plugins)
+ - [`load_autoload_plugins`](#load_autoload_plugins)
+ - [`load_commandline_plugins`](#load_commandline_plugins)
+ - [`load_commandline_safemode`](#load_commandline_safemode)
+ - [`load_plugin_failed`](#load_plugin_failedname-exception)
+ - [`add_ignored_plugins_file`](#add_ignored_plugins_file)
+ - [`translate_plugin_names`](#translate_plugin_names)
+ - [`read_config_file`](#read_config_file)
+ - [`translate_plugin_name`](#translate_plugin_namename)
+ - [`with_yardopts`](#with_yardopts)
+ - [`arguments`](#arguments)
+
+- [`YRI`](#class-yardcliyri)
+ - [`run`](#runargs-newrunargs-end)
+ - [`initialize`](#initialize)
+ - [`description`](#description)
+ - [`run`](#runargs)
+
+- [`Options`](#class-yardoptions)
+ - [`default_attr`](#default_attrkey-default)
+ - [`[]`](#key-sendkey-end)
+ - [`[]=`](#key-value-sendkey-value-end)
+ - [`update`](#updateopts)
+ - [`merge`](#mergeopts)
+ - [`to_hash`](#to_hash)
+ - [`each`](#each)
+ - [`inspect`](#inspect)
+ - [`==`](#other)
+ - [`method_missing`](#method_missingmeth-args-block)
+ - [`reset_defaults`](#reset_defaults)
+ - [`delete`](#deletekey)
+ - [`tap`](#tap-yieldself-self-end-unless-definedtap--only-for-186)
+
+- [`Logger`](#class-yardlogger)
+ - [`io`](#io-logdev-end)
+ - [`io=`](#iopipe-logdev--pipe-end)
+ - [`show_backtraces`](#show_backtraces-show_backtraces--level--debug-end)
+ - [`show_backtraces=`](#show_backtracesvalue)
+ - [`show_progress`](#show_progress)
+ - [`show_progress=`](#show_progressvalue)
+ - [`instance`](#instancepipe--stdout)
+ - [`initialize`](#initializepipe-args)
+ - [`debug`](#debugargs)
+ - [`capture`](#capturemsg-nontty_log--debug)
+ - [`progress`](#progressmsg-nontty_log--debug)
+ - [`clear_progress`](#clear_progress)
+ - [`puts`](#putsmsg--)
+ - [`print`](#printmsg--)
+ - [`<<`](#printmsg--)
+ - [`backtrace`](#backtraceexc-level_meth--error)
+ - [`warn_no_continuations`](#warn_no_continuations)
+ - [`enter_level`](#enter_levelnew_level--level)
+
+- [`I18n`](#class-yardclii18n)
+ - [`initialize`](#initialize)
+ - [`description`](#description)
+ - [`run`](#runargs)
+
+- [`Help`](#class-yardclihelp)
+ - [`description`](#description-retrieves-help-for-a-command-end)
+ - [`run`](#runargs)
+
+- [`Gems`](#class-yardcligems)
+ - [`initialize`](#initialize)
+ - [`description`](#description-builds-yard-index-for-gems-end)
+ - [`run`](#runargs)
+
+- [`List`](#class-yardclilist)
+ - [`description`](#description-lists-all-constant-and-methods-uses-yard-doc---list-end)
+ - [`run`](#runargs)
+
+- [`Tag`](#class-yardtagstag)
+ - [`tag_name`](#tag_name)
+ - [`tag_name=`](#tag_namevalue)
+ - [`text`](#text)
+ - [`text=`](#textvalue)
+ - [`types`](#types)
+ - [`types=`](#typesvalue)
+ - [`name`](#name)
+ - [`name=`](#namevalue)
+ - [`object`](#object)
+ - [`object=`](#objectvalue)
+ - [`initialize`](#initializetag_name-text-types--nil-name--nil)
+ - [`type`](#type)
+ - [`explain_types`](#explain_types)
+
+- [`Diff`](#class-yardclidiff)
+ - [`initialize`](#initialize)
+ - [`description`](#description)
+ - [`run`](#runargs)
+
+- [`Verifier`](#class-yardverifier)
+ - [`expressions`](#expressions)
+ - [`expressions=`](#expressionsvalue)
+ - [`initialize`](#initializeexpressions)
+ - [`add_expressions`](#add_expressionsexpressions)
+ - [`method_missing`](#method_missingsym-args-block)
+ - [`call`](#callobject)
+ - [`run`](#runlist)
+
+- [`Stats`](#class-yardclistats)
+ - [`parse`](#parse)
+ - [`parse=`](#parsevalue)
+ - [`initialize`](#initializeparse--true)
+ - [`description`](#description)
+ - [`run`](#runargs)
+ - [`print_statistics`](#print_statistics)
+ - [`print_undocumented_objects`](#print_undocumented_objects)
+ - [`all_objects`](#all_objects)
+ - [`stats_for_files`](#stats_for_files)
+ - [`stats_for_modules`](#stats_for_modules)
+ - [`stats_for_classes`](#stats_for_classes)
+ - [`stats_for_constants`](#stats_for_constants)
+ - [`stats_for_attributes`](#stats_for_attributes)
+ - [`stats_for_methods`](#stats_for_methods)
+ - [`output`](#outputname-data-undoc--nil)
+
+- [`Docstring`](#class-yarddocstring)
+ - [`default_parser`](#default_parser)
+ - [`default_parser=`](#default_parservalue)
+ - [`parser`](#parserargs-default_parsernewargs-end)
+ - [`ref_tags`](#ref_tags)
+ - [`object`](#object)
+ - [`object=`](#objectvalue)
+ - [`line_range`](#line_range)
+ - [`line_range=`](#line_rangevalue)
+ - [`all`](#all)
+ - [`hash_flag`](#hash_flag)
+ - [`hash_flag=`](#hash_flagv-hash_flag--vnil--false--v-end)
+ - [`new!`](#newtext-tags---object--nil-raw_data--nil-ref_object--nil)
+ - [`initialize`](#initializecontent---object--nil)
+ - [`+`](#other)
+ - [`to_s`](#to_s)
+ - [`replace`](#replacecontent-parse--true)
+ - [`all=`](#replacecontent-parse--true)
+ - [`dup`](#dup)
+ - [`line`](#line)
+ - [`summary`](#summary)
+ - [`to_raw`](#to_raw)
+ - [`add_tag`](#add_tagtags)
+ - [`tag`](#tagname)
+ - [`tags`](#tagsname--nil)
+ - [`has_tag?`](#has_tagname)
+ - [`delete_tags`](#delete_tagsname)
+ - [`delete_tag_if`](#delete_tag_ifblock)
+ - [`blank?`](#blankonly_visible_tags--true)
+ - [`resolve_reference`](#resolve_reference)
+
+- [`GraphOptions`](#class-yardcligraphoptions)
+ - [`format`](#default_attr-format-dot)
+ - [`full`](#full)
+ - [`full=`](#fullvalue)
+ - [`dependencies`](#dependencies)
+ - [`dependencies=`](#dependenciesvalue)
+ - [`contents`](#contents)
+ - [`contents=`](#contentsvalue)
+
+- [`Graph`](#class-yardcligraph)
+ - [`options`](#options)
+ - [`objects`](#objects)
+ - [`initialize`](#initialize)
+ - [`description`](#description)
+ - [`run`](#runargs)
+
+- [`Text`](#class-yardi18ntext)
+ - [`initialize`](#initializeinput-options--)
+ - [`extract_messages`](#extract_messages)
+ - [`translate`](#translatelocale)
+
+- [`Config`](#class-yardcliconfig)
+ - [`key`](#key)
+ - [`key=`](#keyvalue)
+ - [`values`](#values)
+ - [`values=`](#valuesvalue)
+ - [`reset`](#reset)
+ - [`reset=`](#resetvalue)
+ - [`as_list`](#as_list)
+ - [`as_list=`](#as_listvalue)
+ - [`append`](#append)
+ - [`append=`](#appendvalue)
+ - [`gem_install_cmd`](#gem_install_cmd)
+ - [`gem_install_cmd=`](#gem_install_cmdvalue)
+ - [`initialize`](#initialize)
+ - [`description`](#description)
+ - [`run`](#runargs)
+
+- [`Server`](#class-yardcliserver)
+ - [`options`](#options)
+ - [`options=`](#optionsvalue)
+ - [`server_options`](#server_options)
+ - [`server_options=`](#server_optionsvalue)
+ - [`libraries`](#libraries)
+ - [`libraries=`](#librariesvalue)
+ - [`adapter`](#adapter)
+ - [`adapter=`](#adaptervalue)
+ - [`scripts`](#scripts)
+ - [`scripts=`](#scriptsvalue)
+ - [`template_paths`](#template_paths)
+ - [`template_paths=`](#template_pathsvalue)
+ - [`initialize`](#initialize)
+ - [`description`](#description)
+ - [`run`](#runargs)
+
+- [`YardocOptions`](#class-yardcliyardocoptions)
+ - [`files`](#default_attr-files-lambda---)
+ - [`title`](#default_attr-title-documentation-by-yard-yardversion)
+ - [`verifier`](#default_attr-verifier-lambda--verifiernew-)
+ - [`serializer`](#default_attr-serializer-lambda--serializersfilesystemserializernew-)
+ - [`format`](#default_attr-format-html)
+ - [`onefile`](#default_attr-onefile-false)
+ - [`readme`](#readme)
+ - [`readme=`](#readmevalue)
+ - [`objects`](#objects)
+ - [`objects=`](#objectsvalue)
+ - [`index`](#index)
+ - [`index=`](#indexvalue)
+ - [`item`](#item)
+ - [`item=`](#itemvalue)
+ - [`file`](#file)
+ - [`file=`](#filevalue)
+ - [`locale`](#locale)
+ - [`locale=`](#localevalue)
+
+- [`Yardoc`](#class-yardcliyardoc)
+ - [`options`](#options)
+ - [`files`](#files)
+ - [`files=`](#filesvalue)
+ - [`excluded`](#excluded)
+ - [`excluded=`](#excludedvalue)
+ - [`use_cache`](#use_cache)
+ - [`use_cache=`](#use_cachevalue)
+ - [`save_yardoc`](#save_yardoc)
+ - [`save_yardoc=`](#save_yardocvalue)
+ - [`generate`](#generate)
+ - [`generate=`](#generatevalue)
+ - [`list`](#list)
+ - [`list=`](#listvalue)
+ - [`visibilities`](#visibilities)
+ - [`visibilities=`](#visibilitiesvalue)
+ - [`apis`](#apis)
+ - [`apis=`](#apisvalue)
+ - [`hidden_apis`](#hidden_apis)
+ - [`hidden_apis=`](#hidden_apisvalue)
+ - [`hidden_tags`](#hidden_tags)
+ - [`hidden_tags=`](#hidden_tagsvalue)
+ - [`statistics`](#statistics)
+ - [`statistics=`](#statisticsvalue)
+ - [`assets`](#assets)
+ - [`assets=`](#assetsvalue)
+ - [`has_markup`](#has_markup)
+ - [`has_markup=`](#has_markupvalue)
+ - [`initialize`](#initialize)
+ - [`description`](#description)
+ - [`run`](#runargs)
+ - [`parse_arguments`](#parse_argumentsargs)
+ - [`all_objects`](#all_objects)
+
+- [`Locale`](#class-yardi18nlocale)
+ - [`default`](#default)
+ - [`default=`](#defaultlocale)
+ - [`name`](#name)
+ - [`initialize`](#initializename)
+ - [`load`](#loadlocale_directory)
+ - [`translate`](#translatemessage)
+
+- [`Command`](#class-yardclicommand)
+ - [`run`](#runargs-newrunargs-end)
+ - [`description`](#description--end)
+
+- [`Display`](#class-yardclidisplay)
+ - [`description`](#description-displays-a-formatted-object-end)
+ - [`initialize`](#initializeargs)
+ - [`run`](#runargs)
+ - [`format_objects`](#format_objects)
+ - [`wrap_layout`](#wrap_layoutcontents)
+ - [`parse_arguments`](#parse_argumentsargs)
+ - [`output_options`](#output_optionsopts)
+
+- [`Base`](#class-yardparserbase)
+ - [`parse`](#parsesource-filename--nil)
+ - [`initialize`](#initializesource-filename--rubocopdisable-lintunusedmethodargument)
+ - [`parse`](#parse)
+ - [`tokenize`](#tokenize)
+ - [`enumerator`](#enumerator)
+
+- [`Message`](#class-yardi18nmessage)
+ - [`id`](#id)
+ - [`locations`](#locations)
+ - [`comments`](#comments)
+ - [`initialize`](#initializeid)
+ - [`add_location`](#add_locationpath-line)
+ - [`add_comment`](#add_commentcomment)
+ - [`==`](#other)
+
+- [`Library`](#class-yardtagslibrary)
+ - [`labels`](#labels)
+ - [`instance`](#instance)
+ - [`instance=`](#instancevalue)
+ - [`default_factory`](#default_factory)
+ - [`default_factory=`](#default_factoryfactory)
+ - [`factory_method_for`](#factory_method_fortag)
+ - [`factory_method_for_directive`](#factory_method_for_directivedirective)
+ - [`visible_tags`](#visible_tags)
+ - [`visible_tags=`](#visible_tagsvalue)
+ - [`transitive_tags`](#transitive_tags)
+ - [`transitive_tags=`](#transitive_tagsvalue)
+ - [`sorted_labels`](#sorted_labels)
+ - [`define_tag`](#define_taglabel-tag-meth--nil)
+ - [`define_directive`](#define_directivetag-tag_meth--nil-directive_class--nil)
+ - [`tag_method_name`](#tag_method_nametag_name)
+ - [`directive_method_name`](#directive_method_nametag_name)
+ - [`factory`](#factory)
+ - [`factory=`](#factoryvalue)
+ - [`initialize`](#initializefactory--librarydefault_factory)
+ - [`has_tag?`](#has_tagtag_name)
+ - [`tag_create`](#tag_createtag_name-tag_buf)
+ - [`has_directive?`](#has_directivetag_name)
+ - [`directive_create`](#directive_createtag_name-tag_buf-parser)
+
+- [`File`](#class-file)
+ - [`relative_path`](#relative_pathfrom-to)
+ - [`cleanpath`](#cleanpathpath)
+ - [`open!`](#openfile-args-block)
+ - [`read_binary`](#read_binaryfile)
+
+- [`Hash`](#class-hash)
+ - [`create`](#createargs)
+ - [`create_186`](#createargs)
+ - [`[]`](#createargs)
+
+- [`Messages`](#class-yardi18nmessages)
+ - [`initialize`](#initialize)
+ - [`each`](#eachblock)
+ - [`[]`](#id)
+ - [`register`](#registerid)
+ - [`==`](#other)
+
+- [`Router`](#class-yardserverrouter)
+ - [`request`](#request)
+ - [`request=`](#requestvalue)
+ - [`adapter`](#adapter)
+ - [`adapter=`](#adaptervalue)
+ - [`initialize`](#initializeadapter)
+ - [`call`](#callrequest)
+ - [`docs_prefix`](#docs_prefix-docs-end)
+ - [`list_prefix`](#list_prefix-list-end)
+ - [`search_prefix`](#search_prefix-search-end)
+ - [`static_prefix`](#static_prefix-static-end)
+ - [`parse_library_from_path`](#parse_library_from_pathpaths)
+
+- [`NamespaceMissingError`](#class-yardhandlersnamespacemissingerror)
+ - [`object`](#object)
+ - [`object=`](#objectvalue)
+ - [`initialize`](#initializeobject-object--object-end)
+
+- [`Base`](#class-yardhandlersbase)
+ - [`clear_subclasses`](#clear_subclasses)
+ - [`subclasses`](#subclasses)
+ - [`handles`](#handlesmatches)
+ - [`handles?`](#handlesstatement--rubocopdisable-lintunusedmethodargument)
+ - [`handlers`](#handlers)
+ - [`namespace_only`](#namespace_only)
+ - [`namespace_only?`](#namespace_only)
+ - [`in_file`](#in_filefilename)
+ - [`matches_file?`](#matches_filefilename)
+ - [`process`](#processblock)
+ - [`initialize`](#initializesource_parser-stmt)
+ - [`process`](#process)
+ - [`parse_block`](#parse_block)
+ - [`parser`](#parser)
+ - [`statement`](#statement)
+ - [`owner`](#owner)
+ - [`owner=`](#ownerv)
+ - [`namespace`](#namespace)
+ - [`namespace=`](#namespacev)
+ - [`visibility`](#visibility)
+ - [`visibility=`](#visibilityv)
+ - [`scope`](#scope)
+ - [`scope=`](#scopev)
+ - [`globals`](#globals)
+ - [`extra_state`](#extra_state)
+ - [`abort!`](#abort)
+ - [`push_state`](#push_stateopts--)
+ - [`register`](#registerobjects)
+ - [`register_ensure_loaded`](#register_ensure_loadedobject)
+ - [`register_file_info`](#register_file_infoobject-file--parserfile-line--statementline-comments--statementcomments)
+ - [`register_docstring`](#register_docstringobject-docstring--statementcomments-stmt--statement)
+ - [`register_group`](#register_groupobject-group--extra_stategroup)
+ - [`register_transitive_tags`](#register_transitive_tagsobject)
+ - [`register_source`](#register_sourceobject-source--statement-type--parserparser_type)
+ - [`register_visibility`](#register_visibilityobject-visibility--selfvisibility)
+ - [`register_module_function`](#register_module_functionobject)
+ - [`register_dynamic`](#register_dynamicobject)
+ - [`ensure_loaded!`](#ensure_loadedobject-max_retries--1)
+ - [`call_params`](#call_params)
+ - [`caller_method`](#caller_method)
+
+- [`Array`](#class-array)
+ - [`place`](#placevalues-insertionnewself-values-end)
+
+- [`POParser`](#class-yardi18npoparser)
+ - [`available?`](#available)
+ - [`parse`](#parsefile)
+
+- [`Adapter`](#class-yardserveradapter)
+ - [`document_root`](#document_root)
+ - [`document_root=`](#document_rootvalue)
+ - [`libraries`](#libraries)
+ - [`libraries=`](#librariesvalue)
+ - [`options`](#options)
+ - [`options=`](#optionsvalue)
+ - [`server_options`](#server_options)
+ - [`server_options=`](#server_optionsvalue)
+ - [`router`](#router)
+ - [`router=`](#routervalue)
+ - [`setup`](#setup)
+ - [`shutdown`](#shutdown)
+ - [`initialize`](#initializelibs-opts---server_opts--)
+ - [`add_library`](#add_librarylibrary)
+ - [`start`](#start)
+
+- [`RegistryStore`](#class-yardregistrystore)
+ - [`proxy_types`](#proxy_types)
+ - [`file`](#file)
+ - [`checksums`](#checksums)
+ - [`initialize`](#initialize)
+ - [`get`](#getkey)
+ - [`put`](#putkey-value)
+ - [`[]`](#getkey)
+ - [`[]=`](#putkey-value)
+ - [`delete`](#deletekey-storedeletekeyto_sym-end)
+ - [`keys`](#keysreload--false-load_all-if-reload-storekeys-end)
+ - [`values`](#valuesreload--false-load_all-if-reload-storevalues-end)
+ - [`paths_for_type`](#paths_for_typetype-reload--false)
+ - [`values_for_type`](#values_for_typetype-reload--false)
+ - [`root`](#root-storeroot-end)
+ - [`locale`](#localename)
+ - [`load`](#loadfile--nil)
+ - [`load!`](#loadfile--nil)
+ - [`load_all`](#load_all)
+ - [`save`](#savemerge--true-file--nil)
+ - [`lock_for_writing`](#lock_for_writingfile--nil-block)
+ - [`locked_for_writing?`](#locked_for_writingfile--nil)
+ - [`destroy`](#destroyforce--false)
+
+- [`Module`](#class-module)
+ - [`class_name`](#class_name)
+ - [`namespace_name`](#namespace_name)
+
+- [`String`](#class-string)
+ - [`shell_split`](#shell_split)
+
+- [`OptionTag`](#class-yardtagsoptiontag)
+ - [`pair`](#pair)
+ - [`pair=`](#pairvalue)
+ - [`initialize`](#initializetag_name-name-pair)
+
+- [`Directive`](#class-yardtagsdirective)
+ - [`tag`](#tag)
+ - [`tag=`](#tagvalue)
+ - [`expanded_text`](#expanded_text)
+ - [`expanded_text=`](#expanded_textvalue)
+ - [`parser=`](#parservalue)
+ - [`object`](#object)
+ - [`handler`](#handler)
+ - [`initialize`](#initializetag-parser)
+ - [`call`](#call-raise-notimplementederror-end)
+ - [`after_parse`](#after_parse-end)
+
+- [`EndGroupDirective`](#class-yardtagsendgroupdirective)
+ - [`call`](#call)
+
+- [`GroupDirective`](#class-yardtagsgroupdirective)
+ - [`call`](#call)
+
+- [`MacroDirective`](#class-yardtagsmacrodirective)
+ - [`call`](#call)
+
+- [`MethodDirective`](#class-yardtagsmethoddirective)
+ - [`call`](#call-end)
+ - [`after_parse`](#after_parse)
+
+- [`AttributeDirective`](#class-yardtagsattributedirective)
+ - [`after_parse`](#after_parse)
+
+- [`ParseDirective`](#class-yardtagsparsedirective)
+ - [`call`](#call)
+
+- [`ScopeDirective`](#class-yardtagsscopedirective)
+ - [`call`](#call)
+
+- [`VisibilityDirective`](#class-yardtagsvisibilitydirective)
+ - [`call`](#call)
+
+- [`Base`](#class-yardhandlerscbase)
+ - [`handles?`](#handlesstatement-processor)
+ - [`statement_class`](#statement_classtype--nil)
+ - [`register_docstring`](#register_docstringobject-docstring--nil-stmt--nil)
+ - [`register_file_info`](#register_file_infoobject-file--nil-line--nil-comments--nil)
+ - [`register_source`](#register_sourceobject-source--nil-type--nil)
+ - [`register_visibility`](#register_visibilityobject-visibility--nil)
+ - [`symbols`](#symbols)
+ - [`override_comments`](#override_comments)
+ - [`namespace_for_variable`](#namespace_for_variablevar)
+ - [`ensure_variable_defined!`](#ensure_variable_definedvar-max_retries--1)
+ - [`namespaces`](#namespaces)
+ - [`processed_files`](#processed_files)
+ - [`parse_block`](#parse_blockopts--)
+ - [`process_file`](#process_filefile-object)
+
+- [`DefaultTag`](#class-yardtagsdefaulttag)
+ - [`defaults`](#defaults)
+ - [`initialize`](#initializetag_name-text-types--nil-name--nil-defaults--nil)
+
+- [`MarkupTypes`](#class-yardclimarkuptypes)
+ - [`description`](#description-lists-all-available-markup-types-and-libraries-end)
+ - [`run`](#runargs--rubocopdisable-lintunusedmethodargument)
+
+- [`Base`](#class-yardserializersbase)
+ - [`options`](#options)
+ - [`initialize`](#initializeopts--)
+ - [`serialize`](#serializeobject-data-end)
+ - [`serialized_path`](#serialized_pathobject-end)
+ - [`exists?`](#existsobject--rubocopdisable-lintunusedmethodargument)
+ - [`before_serialize`](#before_serialize-end)
+ - [`after_serialize`](#after_serializedata-end)
+
+- [`DocstringParser`](#class-yarddocstringparser)
+ - [`text`](#text)
+ - [`text=`](#textvalue)
+ - [`raw_text`](#raw_text)
+ - [`raw_text=`](#raw_textvalue)
+ - [`tags`](#tags)
+ - [`tags=`](#tagsvalue)
+ - [`directives`](#directives)
+ - [`directives=`](#directivesvalue)
+ - [`state`](#state)
+ - [`state=`](#statevalue)
+ - [`object`](#object)
+ - [`object=`](#objectvalue)
+ - [`reference`](#reference)
+ - [`reference=`](#referencevalue)
+ - [`handler`](#handler)
+ - [`handler=`](#handlervalue)
+ - [`library`](#library)
+ - [`library=`](#libraryvalue)
+ - [`initialize`](#initializelibrary--tagslibraryinstance)
+ - [`to_docstring`](#to_docstring)
+ - [`parse`](#parsecontent-object--nil-handler--nil)
+ - [`parse_content`](#parse_contentcontent)
+ - [`post_process`](#post_process)
+ - [`create_tag`](#create_tagtag_name-tag_buf--)
+ - [`create_ref_tag`](#create_ref_tagtag_name-name-object_name)
+ - [`create_directive`](#create_directivetag_name-tag_buf)
+ - [`tag_is_directive?`](#tag_is_directivetag_name)
+ - [`after_parse`](#after_parseblock)
+ - [`after_parse_callbacks`](#after_parse_callbacks)
+
+- [`YardocTask`](#class-yardrakeyardoctask)
+ - [`name`](#name)
+ - [`name=`](#namevalue)
+ - [`options`](#options)
+ - [`options=`](#optionsvalue)
+ - [`stats_options`](#stats_options)
+ - [`stats_options=`](#stats_optionsvalue)
+ - [`files`](#files)
+ - [`files=`](#filesvalue)
+ - [`before`](#before)
+ - [`before=`](#beforevalue)
+ - [`after`](#after)
+ - [`after=`](#aftervalue)
+ - [`verifier`](#verifier)
+ - [`verifier=`](#verifiervalue)
+ - [`initialize`](#initializename--yard)
+
+- [`RefTagList`](#class-yardtagsreftaglist)
+ - [`owner`](#owner)
+ - [`owner=`](#ownervalue)
+ - [`tag_name`](#tag_name)
+ - [`tag_name=`](#tag_namevalue)
+ - [`name`](#name)
+ - [`name=`](#namevalue)
+ - [`initialize`](#initializetag_name-owner-name--nil)
+ - [`tags`](#tags)
+
+- [`CParser`](#class-yardparserccparser)
+ - [`initialize`](#initializesource-file--stdin)
+ - [`parse`](#parse)
+ - [`enumerator`](#enumerator)
+ - [`tokenize`](#tokenize)
+
+- [`Section`](#class-yardtemplatessection)
+ - [`name`](#name)
+ - [`name=`](#namevalue)
+ - [`initialize`](#initializename-args)
+ - [`dup`](#dup)
+ - [`[]`](#args)
+ - [`eql?`](#eqlother)
+ - [`==`](#other)
+ - [`push`](#pushargs)
+ - [`<<`](#pushargs)
+ - [`unshift`](#unshiftargs)
+ - [`inspect`](#inspect)
+ - [`place`](#placeargs)
+ - [`to_a`](#to_a)
+ - [`any`](#anyitem)
+
+- [`RegistryResolver`](#class-yardregistryresolver)
+ - [`initialize`](#initializeregistry--registry)
+ - [`lookup_by_path`](#lookup_by_pathpath-opts--)
+
+- [`OverloadTag`](#class-yardtagsoverloadtag)
+ - [`signature`](#signature)
+ - [`parameters`](#parameters)
+ - [`docstring`](#docstring)
+ - [`initialize`](#initializetag_name-text)
+ - [`tag`](#tagname-docstringtagname-end)
+ - [`tags`](#tagsname--nil-docstringtagsname-end)
+ - [`has_tag?`](#has_tagname-docstringhas_tagname-end)
+ - [`object=`](#objectvalue)
+ - [`name`](#nameprefix--false)
+ - [`method_missing`](#method_missingargs-block)
+ - [`type`](#type)
+ - [`is_a?`](#is_aother)
+ - [`kind_of?`](#is_aother)
+
+- [`CodeObjectList`](#class-yardcodeobjectscodeobjectlist)
+ - [`initialize`](#initializeowner--registryroot)
+ - [`push`](#pushvalue)
+ - [`<<`](#pushvalue)
+
+- [`Base`](#class-yardcodeobjectsbase)
+ - [`files`](#files)
+ - [`namespace`](#namespace)
+ - [`source`](#source)
+ - [`source_type`](#source_type)
+ - [`source_type=`](#source_typevalue)
+ - [`signature`](#signature)
+ - [`signature=`](#signaturevalue)
+ - [`base_docstring`](#base_docstring)
+ - [`dynamic`](#dynamic)
+ - [`dynamic=`](#dynamicvalue)
+ - [`group`](#group)
+ - [`group=`](#groupvalue)
+ - [`dynamic?`](#dynamic-dynamic-end)
+ - [`visibility`](#visibility)
+ - [`visibility=`](#visibilityv)
+ - [`new`](#newnamespace-name-args-block)
+ - [`===`](#other)
+ - [`initialize`](#initializenamespace-name-)
+ - [`copy_to`](#copy_toother)
+ - [`name`](#nameprefix--false)
+ - [`add_file`](#add_filefile-line--nil-has_comments--false)
+ - [`file`](#file)
+ - [`line`](#line)
+ - [`equal?`](#equalother)
+ - [`==`](#equalother)
+ - [`eql?`](#equalother)
+ - [`hash`](#hash-pathhash-end)
+ - [`to_ary`](#to_ary-nil-end)
+ - [`[]`](#key)
+ - [`[]=`](#key-value)
+ - [`method_missing`](#method_missingmeth-args-block)
+ - [`source=`](#sourcestatement)
+ - [`docstring`](#docstringlocale--i18nlocaledefault)
+ - [`docstring=`](#docstringcomments)
+ - [`type`](#type)
+ - [`path`](#path)
+ - [`to_s`](#path)
+ - [`title`](#title)
+ - [`relative_path`](#relative_pathother)
+ - [`format`](#formatoptions--)
+ - [`inspect`](#inspect)
+ - [`namespace=`](#namespaceobj)
+ - [`parent`](#namespace)
+ - [`parent=`](#namespaceobj)
+ - [`tag`](#tagname-docstringtagname-end)
+ - [`tags`](#tagsname--nil-docstringtagsname-end)
+ - [`has_tag?`](#has_tagname-docstringhas_tagname-end)
+ - [`add_tag`](#add_tagtags)
+ - [`root?`](#root-false-end)
+ - [`sep`](#sep-nsep-end)
+
+- [`HandlesExtension`](#class-yardhandlersrubyhandlesextension)
+ - [`initialize`](#initializename-name--name-end)
+ - [`matches?`](#matchesnode--rubocopdisable-lintunusedmethodargument)
+
+- [`MethodCallWrapper`](#class-yardhandlersrubymethodcallwrapper)
+ - [`matches?`](#matchesnode)
+
+- [`TestNodeWrapper`](#class-yardhandlersrubytestnodewrapper)
+ - [`matches?`](#matchesnode-nodesendnameis_afalseclass-end)
+
+- [`Base`](#class-yardhandlersrubybase)
+ - [`method_call`](#method_callname--nil)
+ - [`meta_type`](#meta_typetype)
+ - [`handles?`](#handlesnode)
+ - [`parse_block`](#parse_blockinner_node-opts--)
+ - [`call_params`](#call_params)
+ - [`caller_method`](#caller_method)
+
+- [`Statement`](#class-yardparsercstatement)
+ - [`source`](#source)
+ - [`source=`](#sourcevalue)
+ - [`line`](#line)
+ - [`line=`](#linevalue)
+ - [`file`](#file)
+ - [`file=`](#filevalue)
+ - [`group`](#group)
+ - [`group=`](#groupvalue)
+ - [`comments_hash_flag`](#comments_hash_flag)
+ - [`comments_hash_flag=`](#comments_hash_flagvalue)
+ - [`initialize`](#initializesource-file--nil-line--nil)
+ - [`line_range`](#line_range)
+ - [`comments_range`](#comments_range)
+ - [`first_line`](#first_line)
+ - [`show`](#show)
+
+- [`BodyStatement`](#class-yardparsercbodystatement)
+ - [`comments`](#comments)
+ - [`comments=`](#commentsvalue)
+
+- [`ToplevelStatement`](#class-yardparserctoplevelstatement)
+ - [`block`](#block)
+ - [`block=`](#blockvalue)
+ - [`declaration`](#declaration)
+ - [`declaration=`](#declarationvalue)
+ - [`comments`](#comments)
+ - [`comments=`](#commentsvalue)
+
+- [`Comment`](#class-yardparserccomment)
+ - [`type`](#type)
+ - [`type=`](#typevalue)
+ - [`overrides`](#overrides)
+ - [`overrides=`](#overridesvalue)
+ - [`statement`](#statement)
+ - [`statement=`](#statementvalue)
+ - [`initialize`](#initializesource-file--nil-line--nil)
+ - [`comments`](#comments-self-end)
+
+- [`Processor`](#class-yardhandlersprocessor)
+ - [`register_handler_namespace`](#register_handler_namespacetype-ns)
+ - [`file`](#file)
+ - [`file=`](#filevalue)
+ - [`namespace`](#namespace)
+ - [`namespace=`](#namespacevalue)
+ - [`visibility`](#visibility)
+ - [`visibility=`](#visibilityvalue)
+ - [`scope`](#scope)
+ - [`scope=`](#scopevalue)
+ - [`owner`](#owner)
+ - [`owner=`](#ownervalue)
+ - [`parser_type`](#parser_type)
+ - [`parser_type=`](#parser_typevalue)
+ - [`globals`](#globals)
+ - [`globals=`](#globalsvalue)
+ - [`extra_state`](#extra_state)
+ - [`extra_state=`](#extra_statevalue)
+ - [`initialize`](#initializeparser)
+ - [`process`](#processstatements)
+ - [`parse_remaining_files`](#parse_remaining_files)
+ - [`find_handlers`](#find_handlersstatement)
+
+- [`Proxy`](#class-yardcodeobjectsproxy)
+ - [`===`](#other-otheris_aself-end)
+ - [`namespace`](#namespace)
+ - [`parent`](#namespace)
+ - [`initialize`](#initializenamespace-name-type--nil)
+ - [`name`](#nameprefix--false)
+ - [`inspect`](#inspect)
+ - [`path`](#path)
+ - [`to_s`](#path)
+ - [`to_str`](#path)
+ - [`title`](#path)
+ - [`is_a?`](#is_aklass)
+ - [`===`](#other)
+ - [`<=>`](#other)
+ - [`equal?`](#equalother)
+ - [`==`](#equalother)
+ - [`hash`](#hash-pathhash-end)
+ - [`class`](#class)
+ - [`type`](#type)
+ - [`type=`](#typetype-type--type--typeto_sym--nil-end)
+ - [`instance_of?`](#instance_ofklass)
+ - [`kind_of?`](#kind_ofklass)
+ - [`respond_to?`](#respond_tometh-include_private--false)
+ - [`method_missing`](#method_missingmeth-args-block)
+ - [`root?`](#root-false-end)
+
+- [`CommandParser`](#class-yardclicommandparser)
+ - [`commands`](#commands)
+ - [`commands=`](#commandsvalue)
+ - [`default_command`](#default_command)
+ - [`default_command=`](#default_commandvalue)
+ - [`run`](#runargs-newrunargs-end)
+ - [`initialize`](#initialize)
+ - [`run`](#runargs)
+
+- [`Insertion`](#class-insertion)
+ - [`initialize`](#initializelist-value)
+ - [`before`](#beforeval-recursive--false-insertionval-0-recursive-end)
+ - [`after`](#afterval-recursive--false-insertionval-1-recursive-end)
+ - [`before_any`](#before_anyval-insertionval-0-true-end)
+ - [`after_any`](#after_anyval-insertionval-1-true-end)
+
+- [`PotGenerator`](#class-yardi18npotgenerator)
+ - [`messages`](#messages)
+ - [`initialize`](#initializerelative_base_path)
+ - [`parse_objects`](#parse_objectsobjects)
+ - [`parse_files`](#parse_filesfiles)
+ - [`generate`](#generate)
+
+- [`RackMiddleware`](#class-yardserverrackmiddleware)
+ - [`initialize`](#initializeapp-opts--)
+ - [`call`](#callenv)
+
+- [`RackAdapter`](#class-yardserverrackadapter)
+ - [`call`](#callenv)
+ - [`start`](#start)
+
+- [`Base`](#class-yardservercommandsbase)
+ - [`command_options`](#command_options)
+ - [`command_options=`](#command_optionsvalue)
+ - [`adapter`](#adapter)
+ - [`adapter=`](#adaptervalue)
+ - [`caching`](#caching)
+ - [`caching=`](#cachingvalue)
+ - [`request`](#request)
+ - [`request=`](#requestvalue)
+ - [`path`](#path)
+ - [`path=`](#pathvalue)
+ - [`headers`](#headers)
+ - [`headers=`](#headersvalue)
+ - [`status`](#status)
+ - [`status=`](#statusvalue)
+ - [`body`](#body)
+ - [`body=`](#bodyvalue)
+ - [`initialize`](#initializeopts--)
+ - [`call`](#callrequest)
+ - [`run`](#run)
+
+- [`AstNode`](#class-yardparserrubyastnode)
+ - [`docstring_hash_flag`](#docstring_hash_flag)
+ - [`docstring_hash_flag=`](#docstring_hash_flagvalue)
+ - [`docstring`](#docstring)
+ - [`docstring=`](#docstringvalue)
+ - [`docstring_range`](#docstring_range)
+ - [`docstring_range=`](#docstring_rangevalue)
+ - [`source`](#source)
+ - [`source=`](#sourcevalue)
+ - [`group`](#group)
+ - [`group=`](#groupvalue)
+ - [`source_range=`](#source_rangevalue)
+ - [`line_range=`](#line_rangevalue)
+ - [`file=`](#filevalue)
+ - [`full_source=`](#full_sourcevalue)
+ - [`comments`](#docstring)
+ - [`comments_range`](#docstring_range)
+ - [`comments_hash_flag`](#docstring_hash_flag)
+ - [`to_s`](#source)
+ - [`type`](#type)
+ - [`type=`](#typevalue)
+ - [`parent`](#parent)
+ - [`parent=`](#parentvalue)
+ - [`source_range`](#source_range)
+ - [`line_range`](#line_range)
+ - [`file`](#file)
+ - [`full_source`](#full_source)
+ - [`node_class_for`](#node_class_fortype)
+ - [`initialize`](#initializetype-arr-opts--)
+ - [`jump`](#jumpnode_types)
+ - [`children`](#children)
+ - [`traverse`](#traverse)
+ - [`token?`](#token)
+ - [`ref?`](#ref)
+ - [`literal?`](#literal)
+ - [`kw?`](#kw)
+ - [`call?`](#call)
+ - [`def?`](#def)
+ - [`condition?`](#condition)
+ - [`loop?`](#loop)
+ - [`block?`](#block)
+ - [`has_line?`](#has_line)
+ - [`line`](#line)
+ - [`first_line`](#first_line)
+ - [`show`](#show)
+ - [`pretty_print`](#pretty_printq)
+ - [`inspect`](#inspect)
+ - [`unfreeze`](#unfreeze)
+
+- [`ReferenceNode`](#class-yardparserrubyreferencenode)
+ - [`ref?`](#ref-true-end)
+ - [`path`](#path)
+ - [`namespace`](#namespace)
+
+- [`LiteralNode`](#class-yardparserrubyliteralnode)
+ - [`literal?`](#literal-true-end)
+
+- [`KeywordNode`](#class-yardparserrubykeywordnode)
+ - [`kw?`](#kw-true-end)
+
+- [`ParameterNode`](#class-yardparserrubyparameternode)
+ - [`unnamed_required_params`](#unnamed_required_params)
+ - [`unnamed_optional_params`](#unnamed_optional_params)
+ - [`named_params`](#named_params)
+ - [`splat_param`](#splat_param)
+ - [`unnamed_end_params`](#unnamed_end_params)
+ - [`double_splat_param`](#double_splat_param)
+ - [`block_param`](#block_param)
+
+- [`MethodCallNode`](#class-yardparserrubymethodcallnode)
+ - [`call?`](#call-true-end)
+ - [`namespace`](#namespace-first-if-index_adjust--0-end)
+ - [`method_name`](#method_namename_only--false)
+ - [`parameters`](#parametersinclude_block_param--true)
+ - [`block_param`](#block_param-parameterslast-end)
+ - [`block`](#block)
+
+- [`MethodDefinitionNode`](#class-yardparserrubymethoddefinitionnode)
+ - [`kw?`](#kw-true-end)
+ - [`def?`](#def-true-end)
+ - [`namespace`](#namespace-first-if-index_adjust--0-end)
+ - [`method_name`](#method_namename_only--false)
+ - [`parameters`](#parametersinclude_block_param--true)
+ - [`block`](#block)
+
+- [`ConditionalNode`](#class-yardparserrubyconditionalnode)
+ - [`condition?`](#condition-true-end)
+ - [`condition`](#condition-first-end)
+ - [`then_block`](#then_block-self1-end)
+ - [`else_block`](#else_block)
+
+- [`ClassNode`](#class-yardparserrubyclassnode)
+ - [`class_name`](#class_name-first-end)
+ - [`superclass`](#superclass-type--sclass--nil--self1-end)
+ - [`block`](#block-last-end)
+
+- [`ModuleNode`](#class-yardparserrubymodulenode)
+ - [`module_name`](#module_name-first-end)
+ - [`block`](#block-last-end)
+
+- [`LoopNode`](#class-yardparserrubyloopnode)
+ - [`loop?`](#loop-true-end)
+ - [`condition`](#condition-type--for--sself0-self1--first-end)
+ - [`block`](#block-last-end)
+
+- [`CommentNode`](#class-yardparserrubycommentnode)
+ - [`docstring`](#docstring-first-end)
+ - [`docstring=`](#docstringvalue-end)
+ - [`comments`](#docstring-first-end)
+ - [`source`](#source--end)
+ - [`first_line`](#first_line--end)
+
+- [`SymbolHash`](#class-symbolhash)
+ - [`initialize`](#initializesymbolize_value--true)
+ - [`[]`](#hsh)
+ - [`[]=`](#key-value)
+ - [`[]`](#key-superkeyto_sym-end)
+ - [`delete`](#deletekey-superkeyto_sym-end)
+ - [`key?`](#keykey-superkeyto_sym-end)
+ - [`has_key?`](#keykey-superkeyto_sym-end)
+ - [`update`](#updatehash-hasheach-k-v-selfk--v--self-end)
+ - [`merge!`](#updatehash-hasheach-k-v-selfk--v--self-end)
+ - [`merge`](#mergehash-dupmergehash-end)
+
+- [`DefaultFactory`](#class-yardtagsdefaultfactory)
+ - [`parse_tag`](#parse_tagtag_name-text)
+ - [`parse_tag_with_name`](#parse_tag_with_nametag_name-text)
+ - [`parse_tag_with_types`](#parse_tag_with_typestag_name-text)
+ - [`parse_tag_with_types_and_name`](#parse_tag_with_types_and_nametag_name-text)
+ - [`parse_tag_with_types_and_title`](#parse_tag_with_types_and_titletag_name-text)
+ - [`parse_tag_with_title_and_text`](#parse_tag_with_title_and_texttag_name-text)
+ - [`parse_tag_with_types_name_and_default`](#parse_tag_with_types_name_and_defaulttag_name-text)
+ - [`parse_tag_with_options`](#parse_tag_with_optionstag_name-text)
+
+- [`TypesExplainer`](#class-yardtagstypesexplainer)
+ - [`explain`](#explaintypes)
+ - [`explain!`](#explaintypes)
+
+- [`YardoptsCommand`](#class-yardcliyardoptscommand)
+ - [`use_yardopts_file`](#use_yardopts_file)
+ - [`use_yardopts_file=`](#use_yardopts_filevalue)
+ - [`use_document_file`](#use_document_file)
+ - [`use_document_file=`](#use_document_filevalue)
+ - [`options_file`](#options_file)
+ - [`options_file=`](#options_filevalue)
+ - [`initialize`](#initialize)
+ - [`parse_arguments`](#parse_argumentsargs)
+
+- [`OrderedParser`](#class-yardparserorderedparser)
+ - [`files`](#files)
+ - [`files=`](#filesvalue)
+ - [`initialize`](#initializeglobal_state-files)
+ - [`parse`](#parse)
+
+- [`SourceParser`](#class-yardparsersourceparser)
+ - [`parser_type`](#parser_type)
+ - [`parser_type=`](#parser_typevalue)
+ - [`parse`](#parsepaths--default_path_glob-excluded---level--loglevel)
+ - [`parse_string`](#parse_stringcontent-ptype--parser_type)
+ - [`tokenize`](#tokenizecontent-ptype--parser_type)
+ - [`register_parser_type`](#register_parser_typetype-parser_klass-extensions--nil)
+ - [`parser_types=`](#parser_typesvalue-parser_types--value-end)
+ - [`parser_type_extensions=`](#parser_type_extensionsvalue-parser_type_extensions--value-end)
+ - [`parser_type_for_extension`](#parser_type_for_extensionextension)
+ - [`before_parse_list`](#before_parse_listblock)
+ - [`after_parse_list`](#after_parse_listblock)
+ - [`before_parse_file`](#before_parse_fileblock)
+ - [`after_parse_file`](#after_parse_fileblock)
+ - [`before_parse_list_callbacks`](#before_parse_list_callbacks)
+ - [`after_parse_list_callbacks`](#after_parse_list_callbacks)
+ - [`before_parse_file_callbacks`](#before_parse_file_callbacks)
+ - [`after_parse_file_callbacks`](#after_parse_file_callbacks)
+ - [`file`](#file)
+ - [`file=`](#filevalue)
+ - [`parser_type`](#parser_type)
+ - [`globals`](#globals)
+ - [`contents`](#contents)
+ - [`initialize`](#initializeparser_type--sourceparserparser_type-globals1--nil-globals2--nil)
+ - [`parse`](#parsecontent--__file__)
+ - [`tokenize`](#tokenizecontent)
+
+- [`LibraryVersion`](#class-yardserverlibraryversion)
+ - [`name`](#name)
+ - [`name=`](#namevalue)
+ - [`version`](#version)
+ - [`version=`](#versionvalue)
+ - [`yardoc_file`](#yardoc_file)
+ - [`yardoc_file=`](#yardoc_filevalue)
+ - [`source`](#source)
+ - [`source=`](#sourcevalue)
+ - [`source_path`](#source_path)
+ - [`source_path=`](#source_pathvalue)
+ - [`initialize`](#initializename-version--nil-yardoc--nil-source--disk)
+ - [`to_s`](#to_surl_format--true)
+ - [`hash`](#hash-to_shash-end)
+ - [`eql?`](#eqlother)
+ - [`==`](#eqlother)
+ - [`equal?`](#eqlother)
+ - [`ready?`](#ready)
+ - [`prepare!`](#prepare)
+ - [`gemspec`](#gemspec)
+
+- [`WebrickAdapter`](#class-yardserverwebrickadapter)
+ - [`start`](#start)
+
+- [`WebrickServlet`](#class-yardserverwebrickservlet)
+ - [`adapter`](#adapter)
+ - [`adapter=`](#adaptervalue)
+ - [`initialize`](#initializeserver-adapter)
+
+- [`InitHandler`](#class-yardhandlerscinithandler)
+ - [`process`](#process)
+
+- [`RubyParser`](#class-yardparserrubyrubyparser)
+ - [`encoding_line`](#encoding_line)
+ - [`frozen_string_line`](#frozen_string_line)
+ - [`shebang_line`](#shebang_line)
+ - [`enumerator`](#enumerator)
+ - [`initialize`](#initializesource-filename)
+ - [`parse`](#parse-parserparse-end)
+ - [`tokenize`](#tokenize-parsertokens-end)
+
+- [`RipperParser`](#class-yardparserrubyripperparser)
+ - [`ast`](#ast)
+ - [`charno`](#charno)
+ - [`comments`](#comments)
+ - [`file`](#file)
+ - [`tokens`](#tokens)
+ - [`shebang_line`](#shebang_line)
+ - [`encoding_line`](#encoding_line)
+ - [`frozen_string_line`](#frozen_string_line)
+ - [`root`](#ast)
+ - [`initialize`](#initializesource-filename-args)
+ - [`parse`](#parse)
+ - [`enumerator`](#enumerator)
+ - [`file_encoding`](#file_encoding)
+
+- [`PathHandler`](#class-yardhandlerscpathhandler)
+ - [`process`](#process)
+
+- [`MixinHandler`](#class-yardhandlerscmixinhandler)
+ - [`process`](#process)
+
+- [`RootObject`](#class-yardcodeobjectsrootobject)
+ - [`path`](#path-path---end)
+ - [`inspect`](#inspect-inspect--yardoc-root-end)
+ - [`root?`](#root-true-end)
+ - [`title`](#title-top-level-namespace-end)
+ - [`equal?`](#equalother)
+ - [`hash`](#hash-roothash-end)
+
+- [`AliasHandler`](#class-yardhandlerscaliashandler)
+ - [`process`](#process)
+
+- [`ClassHandler`](#class-yardhandlerscclasshandler)
+ - [`process`](#process)
+
+- [`ModuleHandler`](#class-yardhandlerscmodulehandler)
+ - [`process`](#process)
+
+- [`MacroObject`](#class-yardcodeobjectsmacroobject)
+ - [`create`](#createmacro_name-data-method_object--nil)
+ - [`find`](#findmacro_name)
+ - [`find_or_create`](#find_or_createmacro_name-data-method_object--nil)
+ - [`create_docstring`](#find_or_createmacro_name-data-method_object--nil)
+ - [`expand`](#expandmacro_data-call_params---full_source---block_source----rubocopdisable-lintunusedmethodargument)
+ - [`apply`](#applydocstring-call_params---full_source---block_source---_method_object--nil--rubocopdisable-lintunusedmethodargument)
+ - [`apply_macro`](#apply_macromacro-docstring-call_params---full_source---block_source----rubocopdisable-lintunusedmethodargument)
+ - [`macro_data`](#macro_data)
+ - [`macro_data=`](#macro_datavalue)
+ - [`method_object`](#method_object)
+ - [`method_object=`](#method_objectvalue)
+ - [`attached?`](#attached-method_object--true--false-end)
+ - [`path`](#path-macro--nameto_s-end)
+ - [`sep`](#sep--end)
+ - [`expand`](#expandcall_params---full_source---block_source--)
+
+- [`Base`](#class-yardhandlersrubylegacybase)
+ - [`handles?`](#handlesstmt)
+ - [`parse_block`](#parse_blockopts--)
+ - [`call_params`](#call_params)
+ - [`caller_method`](#caller_method)
+
+- [`DSLHandler`](#class-yardhandlersrubydslhandler)
+ - [`process`](#process)
+
+- [`MethodHandler`](#class-yardhandlerscmethodhandler)
+ - [`process`](#process)
+
+- [`SymbolHandler`](#class-yardhandlerscsymbolhandler)
+ - [`process`](#process)
+
+- [`StructHandler`](#class-yardhandlerscstructhandler)
+ - [`process`](#process)
+
+- [`ClassObject`](#class-yardcodeobjectsclassobject)
+ - [`superclass`](#superclass)
+ - [`initialize`](#initializenamespace-name-args-block)
+ - [`is_exception?`](#is_exception)
+ - [`inheritance_tree`](#inheritance_treeinclude_mods--false)
+ - [`meths`](#methsopts--)
+ - [`inherited_meths`](#inherited_methsopts--)
+ - [`constants`](#constantsopts--)
+ - [`inherited_constants`](#inherited_constants)
+ - [`superclass=`](#superclassobject)
+
+- [`ModuleObject`](#class-yardcodeobjectsmoduleobject)
+ - [`inheritance_tree`](#inheritance_treeinclude_mods--false)
+
+- [`TokenResolver`](#class-yardparserrubytokenresolver)
+ - [`initialize`](#initializesource-namespace--registryroot)
+ - [`each`](#each)
+ - [`state_attr`](#state_attrattrs)
+
+- [`MethodObject`](#class-yardcodeobjectsmethodobject)
+ - [`scope`](#scope)
+ - [`explicit`](#explicit)
+ - [`explicit=`](#explicitvalue)
+ - [`parameters`](#parameters)
+ - [`parameters=`](#parametersvalue)
+ - [`initialize`](#initializenamespace-name-scope--instance-block)
+ - [`scope=`](#scopev)
+ - [`constructor?`](#constructor)
+ - [`module_function?`](#module_function)
+ - [`attr_info`](#attr_info)
+ - [`writer?`](#writer)
+ - [`reader?`](#reader)
+ - [`is_attribute?`](#is_attribute)
+ - [`is_alias?`](#is_alias)
+ - [`is_explicit?`](#is_explicit)
+ - [`overridden_method`](#overridden_method)
+ - [`aliases`](#aliases)
+ - [`path`](#path)
+ - [`name`](#nameprefix--false)
+ - [`sep`](#sep)
+
+- [`TemplateOptions`](#class-yardtemplatestemplateoptions)
+ - [`format`](#format)
+ - [`format=`](#formatvalue)
+ - [`template`](#template)
+ - [`template=`](#templatevalue)
+ - [`markup`](#markup)
+ - [`markup=`](#markupvalue)
+ - [`default_return`](#default_return)
+ - [`default_return=`](#default_returnvalue)
+ - [`hide_void_return`](#hide_void_return)
+ - [`hide_void_return=`](#hide_void_returnvalue)
+ - [`highlight`](#highlight)
+ - [`highlight=`](#highlightvalue)
+ - [`markup_provider`](#markup_provider)
+ - [`markup_provider=`](#markup_providervalue)
+ - [`globals`](#globals)
+ - [`globals=`](#globalsvalue)
+ - [`__globals`](#globals)
+ - [`object`](#object)
+ - [`object=`](#objectvalue)
+ - [`owner`](#owner)
+ - [`owner=`](#ownervalue)
+ - [`type`](#type)
+ - [`type=`](#typevalue)
+ - [`serialize`](#serialize)
+ - [`serialize=`](#serializevalue)
+ - [`serializer`](#serializer)
+ - [`serializer=`](#serializervalue)
+ - [`no_highlight`](#no_highlight)
+ - [`no_highlight=`](#no_highlightvalue-selfhighlight--value-end)
+ - [`page_title`](#page_title)
+ - [`page_title=`](#page_titlevalue)
+ - [`index`](#index)
+ - [`index=`](#indexvalue)
+ - [`embed_mixins`](#embed_mixins)
+ - [`embed_mixins=`](#embed_mixinsvalue)
+ - [`embed_mixins_match?`](#embed_mixins_matchmixin)
+ - [`verifier`](#verifier)
+ - [`verifier=`](#verifiervalue)
+
+- [`ConstantHandler`](#class-yardhandlerscconstanthandler)
+ - [`process`](#process)
+
+- [`AliasHandler`](#class-yardhandlersrubyaliashandler)
+ - [`process`](#process)
+
+- [`YieldHandler`](#class-yardhandlersrubyyieldhandler)
+ - [`process`](#process)
+
+- [`ClassHandler`](#class-yardhandlersrubyclasshandler)
+ - [`process`](#process)
+
+- [`Token`](#class-yardparserrubylegacyrubytokentoken)
+ - [`line_no`](#line_no)
+ - [`char_no`](#char_no)
+ - [`text`](#text)
+ - [`lex_state`](#lex_state)
+ - [`lex_state=`](#lex_statevalue)
+ - [`initialize`](#initializeline_no-char_no)
+ - [`set_text`](#set_texttext)
+
+- [`TkBlockContents`](#class-yardparserrubylegacyrubytokentkblockcontents)
+ - [`text`](#text--end)
+
+- [`TkStatementEnd`](#class-yardparserrubylegacyrubytokentkstatementend)
+ - [`text`](#text--end)
+
+- [`TkNode`](#class-yardparserrubylegacyrubytokentknode)
+ - [`node`](#node)
+
+- [`TkId`](#class-yardparserrubylegacyrubytokentkid)
+ - [`initialize`](#initializeline_no-char_no-name)
+ - [`name`](#name)
+
+- [`TkVal`](#class-yardparserrubylegacyrubytokentkval)
+ - [`initialize`](#initializeline_no-char_no-value--nil)
+
+- [`TkOp`](#class-yardparserrubylegacyrubytokentkop)
+ - [`name`](#name)
+
+- [`TkOPASGN`](#class-yardparserrubylegacyrubytokentkopasgn)
+ - [`initialize`](#initializeline_no-char_no-op)
+ - [`op`](#op)
+
+- [`TkUnknownChar`](#class-yardparserrubylegacyrubytokentkunknownchar)
+ - [`initialize`](#initializeline_no-char_no-_id)
+ - [`name`](#name)
+
+- [`MixinHandler`](#class-yardhandlersrubymixinhandler)
+ - [`process`](#process)
+
+- [`ListCommand`](#class-yardservercommandslistcommand)
+ - [`run`](#run)
+
+- [`MethodHandler`](#class-yardhandlersrubymethodhandler)
+ - [`process`](#process)
+ - [`format_args`](#format_args)
+ - [`method_signature`](#method_signature)
+
+- [`ModuleHandler`](#class-yardhandlersrubymodulehandler)
+ - [`process`](#process)
+
+- [`AttributeHandler`](#class-yardhandlerscattributehandler)
+ - [`process`](#process)
+
+- [`Statement`](#class-yardparserrubylegacystatement)
+ - [`tokens`](#tokens)
+ - [`comments`](#comments)
+ - [`block`](#block)
+ - [`comments_range`](#comments_range)
+ - [`comments_range=`](#comments_rangevalue)
+ - [`group`](#group)
+ - [`group=`](#groupvalue)
+ - [`comments_hash_flag`](#comments_hash_flag)
+ - [`comments_hash_flag=`](#comments_hash_flagvalue)
+ - [`initialize`](#initializetokens-block--nil-comments--nil)
+ - [`first_line`](#first_line)
+ - [`to_s`](#to_sinclude_block--true)
+ - [`source`](#to_sinclude_block--true)
+ - [`inspect`](#inspect)
+ - [`show`](#show)
+ - [`line`](#line)
+ - [`line_range`](#line_range)
+
+- [`ConstantObject`](#class-yardcodeobjectsconstantobject)
+ - [`value`](#value)
+ - [`value=`](#valuevalue)
+
+- [`DocServerSerializer`](#class-yardserverdocserverserializer)
+ - [`initialize`](#initialize_command--nil)
+ - [`serialized_path`](#serialized_pathobject)
+
+- [`ExtendHandler`](#class-yardhandlersrubyextendhandler)
+ - [`scope`](#scope-class-end)
+
+- [`TokenList`](#class-yardparserrubylegacytokenlist)
+ - [`initialize`](#initializecontent--nil)
+ - [`to_s`](#to_sfull_statement--false-show_block--true)
+ - [`push`](#pushtokens)
+ - [`<<`](#pushtokens)
+ - [`squeeze`](#squeezetype--tkspace)
+
+- [`CommentHandler`](#class-yardhandlersrubycommenthandler)
+ - [`process`](#process)
+
+- [`YardocSerializer`](#class-yardserializersyardocserializer)
+ - [`initialize`](#initializeyfile)
+ - [`objects_path`](#objects_path-filejoinbasepath-objects-end)
+ - [`proxy_types_path`](#proxy_types_path-filejoinbasepath-proxy_types-end)
+ - [`checksums_path`](#checksums_path-filejoinbasepath-checksums-end)
+ - [`object_types_path`](#object_types_path-filejoinbasepath-object_types-end)
+ - [`complete_lock_path`](#complete_lock_path-filejoinbasepath-complete-end)
+ - [`processing_path`](#processing_path-filejoinbasepath-processing-end)
+ - [`complete?`](#complete)
+ - [`lock_for_writing`](#lock_for_writing)
+ - [`locked_for_writing?`](#locked_for_writing)
+ - [`serialized_path`](#serialized_pathobject)
+ - [`serialize`](#serializeobject)
+ - [`deserialize`](#deserializepath-is_path--false)
+
+- [`StdoutSerializer`](#class-yardserializersstdoutserializer)
+ - [`initialize`](#initializewrap--nil)
+ - [`serialize`](#serialize_object-data)
+
+- [`NamespaceObject`](#class-yardcodeobjectsnamespaceobject)
+ - [`groups`](#groups)
+ - [`groups=`](#groupsvalue)
+ - [`children`](#children)
+ - [`attributes`](#attributes)
+ - [`aliases`](#aliases)
+ - [`class_mixins`](#class_mixins)
+ - [`instance_mixins`](#instance_mixins)
+ - [`initialize`](#initializenamespace-name-args-block)
+ - [`class_attributes`](#class_attributes)
+ - [`instance_attributes`](#instance_attributes)
+ - [`child`](#childopts--)
+ - [`meths`](#methsopts--)
+ - [`included_meths`](#included_methsopts--)
+ - [`constants`](#constantsopts--)
+ - [`included_constants`](#included_constants)
+ - [`cvars`](#cvars)
+ - [`mixins`](#mixinsscopes)
+
+- [`SearchCommand`](#class-yardservercommandssearchcommand)
+ - [`results`](#results)
+ - [`results=`](#resultsvalue)
+ - [`query`](#query)
+ - [`query=`](#queryvalue)
+ - [`run`](#run)
+ - [`visible_results`](#visible_results)
+
+- [`FramesCommand`](#class-yardservercommandsframescommand)
+ - [`run`](#run)
+
+- [`ConstantHandler`](#class-yardhandlersrubyconstanthandler)
+ - [`process`](#process)
+
+- [`ExtraFileObject`](#class-yardcodeobjectsextrafileobject)
+ - [`filename`](#filename)
+ - [`filename=`](#filenamevalue)
+ - [`attributes=`](#attributesvalue)
+ - [`name`](#name)
+ - [`name=`](#namevalue)
+ - [`locale`](#locale)
+ - [`initialize`](#initializefilename-contents--nil)
+ - [`path`](#name)
+ - [`attributes`](#attributes)
+ - [`title`](#title)
+ - [`contents`](#contents)
+ - [`contents=`](#contentscontents)
+ - [`locale=`](#localelocale)
+ - [`inspect`](#inspect)
+ - [`to_s`](#inspect)
+ - [`type`](#type-extra_file-end)
+ - [`==`](#other)
+ - [`eql?`](#other)
+ - [`equal?`](#other)
+ - [`hash`](#hash-filenamehash-end)
+
+- [`ProcessSerializer`](#class-yardserializersprocessserializer)
+ - [`initialize`](#initializecmd)
+ - [`serialize`](#serialize_object-data)
+
+- [`RubyParser`](#class-yardparserrubylegacyrubyparser)
+ - [`initialize`](#initializesource-_filename)
+ - [`parse`](#parse)
+ - [`tokenize`](#tokenize)
+ - [`enumerator`](#enumerator)
+ - [`encoding_line`](#encoding_line-parseencoding_line-end)
+ - [`shebang_line`](#shebang_line-parseshebang_line-end)
+
+- [`AttributeHandler`](#class-yardhandlersrubyattributehandler)
+ - [`process`](#process)
+
+- [`ExceptionHandler`](#class-yardhandlersrubyexceptionhandler)
+ - [`process`](#process)
+
+- [`LibraryOptions`](#class-yardservercommandslibraryoptions)
+ - [`adapter`](#adapter-commandadapter-end)
+ - [`library`](#library-commandlibrary-end)
+ - [`single_library`](#single_library-commandsingle_library-end)
+ - [`serializer`](#serializer-commandserializer-end)
+ - [`serialize`](#serialize-false-end)
+ - [`command`](#command)
+ - [`command=`](#commandvalue)
+ - [`frames`](#frames)
+ - [`frames=`](#framesvalue)
+ - [`each`](#eachblock)
+
+- [`LibraryCommand`](#class-yardservercommandslibrarycommand)
+ - [`library`](#library)
+ - [`library=`](#libraryvalue)
+ - [`options`](#options)
+ - [`options=`](#optionsvalue)
+ - [`serializer`](#serializer)
+ - [`serializer=`](#serializervalue)
+ - [`single_library`](#single_library)
+ - [`single_library=`](#single_libraryvalue)
+ - [`incremental`](#incremental)
+ - [`incremental=`](#incrementalvalue)
+ - [`use_fork`](#use_fork)
+ - [`use_fork=`](#use_forkvalue)
+ - [`initialize`](#initializeopts--)
+ - [`call`](#callrequest)
+
+- [`VisibilityHandler`](#class-yardhandlersrubyvisibilityhandler)
+ - [`process`](#process)
+
+- [`DSLHandler`](#class-yardhandlersrubylegacydslhandler)
+ - [`process`](#process)
+
+- [`StatementList`](#class-yardparserrubylegacystatementlist)
+ - [`shebang_line`](#shebang_line)
+ - [`shebang_line=`](#shebang_linevalue)
+ - [`encoding_line`](#encoding_line)
+ - [`encoding_line=`](#encoding_linevalue)
+ - [`initialize`](#initializecontent)
+
+- [`ClassHandler`](#class-yardhandlersrubylegacyclasshandler)
+ - [`process`](#process)
+
+- [`ClassVariableObject`](#class-yardcodeobjectsclassvariableobject)
+ - [`value`](#value)
+ - [`value=`](#valuevalue)
+
+- [`YieldHandler`](#class-yardhandlersrubylegacyyieldhandler)
+ - [`process`](#process)
+
+- [`MixinHandler`](#class-yardhandlersrubylegacymixinhandler)
+ - [`process`](#process)
+
+- [`AliasHandler`](#class-yardhandlersrubylegacyaliashandler)
+ - [`process`](#process)
+
+- [`FileSystemSerializer`](#class-yardserializersfilesystemserializer)
+ - [`basepath`](#basepath)
+ - [`basepath=`](#basepathvalue)
+ - [`extension`](#extension)
+ - [`extension=`](#extensionvalue)
+ - [`initialize`](#initializeopts--)
+ - [`serialize`](#serializeobject-data)
+ - [`serialized_path`](#serialized_pathobject)
+ - [`exists?`](#existsobject)
+
+- [`OverrideCommentHandler`](#class-yardhandlerscoverridecommenthandler)
+ - [`process`](#process)
+ - [`register_docstring`](#register_docstringobject-docstring--statementsource-stmt--statement)
+ - [`register_file_info`](#register_file_infoobject-file--parserfile-line--statementline-comments--statementcomments)
+
+- [`ModuleHandler`](#class-yardhandlersrubylegacymodulehandler)
+ - [`process`](#process)
+
+- [`ExtendHandler`](#class-yardhandlersrubylegacyextendhandler)
+ - [`scope`](#scope-class-end)
+
+- [`ExtendedMethodObject`](#class-yardcodeobjectsextendedmethodobject)
+ - [`scope`](#scope-class-end)
+ - [`initialize`](#initializeobj-del--obj-end)
+ - [`method_missing`](#method_missingsym-args-block-del__send__sym-args-block-end)
+
+- [`MethodHandler`](#class-yardhandlersrubylegacymethodhandler)
+ - [`process`](#process)
+
+- [`StaticFileCommand`](#class-yardservercommandsstaticfilecommand)
+ - [`run`](#run)
+
+- [`DisplayFileCommand`](#class-yardservercommandsdisplayfilecommand)
+ - [`index`](#index)
+ - [`index=`](#indexvalue)
+ - [`run`](#run)
+
+- [`CommentHandler`](#class-yardhandlersrubylegacycommenthandler)
+ - [`process`](#process)
+
+- [`RDocMarkup`](#class-yardtemplateshelpersmarkuprdocmarkup)
+ - [`from_path`](#from_path)
+ - [`from_path=`](#from_pathvalue)
+ - [`initialize`](#initializetext)
+ - [`to_html`](#to_html)
+
+- [`RDocMarkupToHtml`](#class-yardtemplateshelpersmarkuprdocmarkuptohtml)
+ - [`from_path`](#from_path)
+ - [`from_path=`](#from_pathvalue)
+ - [`handle_special_HYPERLINK`](#handle_special_hyperlinkspecial--rubocopdisable-stylemethodname)
+ - [`accept_paragraph`](#accept_paragraphargs)
+
+- [`RootRequestCommand`](#class-yardservercommandsrootrequestcommand)
+ - [`run`](#run)
+
+- [`ClassVariableHandler`](#class-yardhandlersrubyclassvariablehandler)
+ - [`process`](#process)
+
+- [`ClassConditionHandler`](#class-yardhandlersrubyclassconditionhandler)
+ - [`process`](#process)
+
+- [`ModuleFunctionHandler`](#class-yardhandlersrubymodulefunctionhandler)
+ - [`process`](#process)
+
+- [`LibraryIndexOptions`](#class-yardservercommandslibraryindexoptions)
+ - [`adapter`](#adapter)
+ - [`adapter=`](#adaptervalue)
+ - [`libraries`](#libraries)
+ - [`libraries=`](#librariesvalue)
+ - [`template`](#template)
+ - [`template=`](#templatevalue)
+ - [`type`](#type)
+ - [`type=`](#typevalue)
+ - [`serialize`](#serialize)
+ - [`serialize=`](#serializevalue)
+
+- [`LibraryIndexCommand`](#class-yardservercommandslibraryindexcommand)
+ - [`options`](#options)
+ - [`options=`](#optionsvalue)
+ - [`run`](#run)
+
+- [`ConstantHandler`](#class-yardhandlersrubylegacyconstanthandler)
+ - [`process`](#process)
+
+- [`MethodConditionHandler`](#class-yardhandlersrubymethodconditionhandler)
+ - [`process`](#process)
+
+- [`PrivateConstantHandler`](#class-yardhandlersrubyprivateconstanthandler)
+ - [`process`](#process)
+
+- [`DisplayObjectCommand`](#class-yardservercommandsdisplayobjectcommand)
+ - [`run`](#run)
+ - [`index`](#index)
+ - [`not_found`](#not_found)
+
+- [`AttributeHandler`](#class-yardhandlersrubylegacyattributehandler)
+ - [`process`](#process)
+
+- [`RDocMarkdown`](#class-yardtemplateshelpersmarkuprdocmarkdown)
+ - [`initialize`](#initializetext)
+ - [`fix_typewriter`](#fix_typewriterhtml-html-end)
+
+- [`ExceptionHandler`](#class-yardhandlersrubylegacyexceptionhandler)
+ - [`process`](#process)
+
+- [`VisibilityHandler`](#class-yardhandlersrubylegacyvisibilityhandler)
+ - [`process`](#process)
+
+- [`PublicClassMethodHandler`](#class-yardhandlersrubypublicclassmethodhandler)
+ - [`process`](#process)
+
+- [`PrivateClassMethodHandler`](#class-yardhandlersrubyprivateclassmethodhandler)
+ - [`process`](#process)
+
+- [`ClassVariableHandler`](#class-yardhandlersrubylegacyclassvariablehandler)
+ - [`process`](#process)
+
+- [`ClassConditionHandler`](#class-yardhandlersrubylegacyclassconditionhandler)
+ - [`process`](#process)
+
+- [`ModuleFunctionHandler`](#class-yardhandlersrubylegacymodulefunctionhandler)
+ - [`process`](#process)
+
+- [`PrivateConstantHandler`](#class-yardhandlersrubylegacyprivateconstanthandler)
+ - [`process`](#process)
+
+- [`PrivateClassMethodHandler`](#class-yardhandlersrubylegacyprivateclassmethodhandler)
+ - [`process`](#process)
+
+- [`YARD`](#module-yard)
+ - [`parse`](#parseargs-parsersourceparserparseargs-end)
+ - [`parse_string`](#parse_stringargs-parsersourceparserparse_stringargs-end)
+ - [`load_plugins`](#load_plugins-yardconfigload_plugins-end)
+ - [`windows?`](#windows)
+ - [`ruby18?`](#ruby18-ruby19-end)
+ - [`ruby19?`](#ruby19-ruby19--ruby_version--191-end)
+ - [`ruby2?`](#ruby2-ruby2--ruby_version--200-end)
+
+- [`Server`](#module-yardserver)
+ - [`register_static_path`](#register_static_pathpath)
+
+- [`Registry`](#module-yardregistry)
+ - [`yardoc_file_for_gem`](#yardoc_file_for_gemgem-ver_require---0-for_writing--false)
+ - [`yardoc_file`](#yardoc_file)
+ - [`yardoc_file=`](#yardoc_filev)
+ - [`load`](#loadfiles---reparse--false)
+ - [`load_yardoc`](#load_yardocfile--yardoc_file)
+ - [`load!`](#loadfile--yardoc_file)
+ - [`load_all`](#load_all)
+ - [`save`](#savemerge--false-file--yardoc_file)
+ - [`delete_from_disk`](#delete_from_disk)
+ - [`register`](#registerobject)
+ - [`delete`](#deleteobject)
+ - [`clear`](#clear)
+ - [`lock_for_writing`](#lock_for_writingfile--yardoc_file-block)
+ - [`locked_for_writing?`](#locked_for_writingfile--yardoc_file)
+ - [`each`](#eachblock)
+ - [`all`](#alltypes)
+ - [`paths`](#pathsreload--false)
+ - [`at`](#atpath-path--thread_local_storepath--nil-end)
+ - [`[]`](#atpath-path--thread_local_storepath--nil-end)
+ - [`root`](#root-thread_local_storeroot-end)
+ - [`locale`](#localename)
+ - [`resolve`](#resolvenamespace-name-inheritance--false-proxy_fallback--false-type--nil)
+ - [`checksums`](#checksums)
+ - [`checksum_for`](#checksum_fordata)
+ - [`single_object_db`](#single_object_db)
+ - [`single_object_db=`](#single_object_dbv)
+ - [`po_dir`](#po_dir)
+ - [`po_dir=`](#po_dirdir)
+ - [`instance`](#instance-self-end)
+
+- [`Ruby`](#module-yardparserruby)
+ - [`s`](#sargs)
+
+- [`GemIndex`](#module-yardgemindex)
+ - [`find_all_by_name`](#find_all_by_nameargs)
+ - [`each`](#eachblock)
+ - [`all`](#all)
+
+- [`RefTag`](#module-yardtagsreftag)
+ - [`owner`](#owner)
+ - [`owner=`](#ownervalue)
+
+- [`Engine`](#module-yardtemplatesengine)
+ - [`template_paths`](#template_paths)
+ - [`template_paths=`](#template_pathsvalue)
+ - [`register_template_path`](#register_template_pathpath)
+ - [`template`](#templatepath)
+ - [`template!`](#templatepath-full_paths--nil)
+ - [`render`](#renderoptions--)
+ - [`generate`](#generateobjects-options--)
+ - [`with_serializer`](#with_serializerobject-serializer)
+
+- [`Template`](#module-yardtemplatestemplate)
+ - [`class`](#class)
+ - [`class=`](#classvalue)
+ - [`section`](#section)
+ - [`section=`](#sectionvalue)
+ - [`options`](#options)
+ - [`extra_includes`](#extra_includes)
+ - [`extra_includes=`](#extra_includesvalue)
+ - [`include_extra`](#include_extratemplate-options)
+ - [`initialize`](#initializeopts--templateoptionsnew)
+ - [`T`](#tpath--rubocopdisable-stylemethodname)
+ - [`sections`](#sectionsargs)
+ - [`init`](#init)
+ - [`run`](#runopts--nil-sects--sections-start_at--0-break_first--false-block)
+ - [`yieldall`](#yieldallopts--nil-block)
+ - [`erb`](#erbsection-block)
+ - [`file`](#filebasename-allow_inherited--false)
+ - [`superb`](#superbsect--section-block)
+ - [`options=`](#optionsvalue)
+ - [`inspect`](#inspect)
+
+- [`ClassMethods`](#module-yardtemplatestemplateclassmethods)
+ - [`path`](#path)
+ - [`path=`](#pathvalue)
+ - [`full_path`](#full_path)
+ - [`full_path=`](#full_pathvalue)
+ - [`full_paths`](#full_paths)
+ - [`reset_full_paths`](#reset_full_paths)
+ - [`initialize`](#initializepath-full_paths)
+ - [`find_file`](#find_filebasename)
+ - [`find_nth_file`](#find_nth_filebasename-index--1)
+ - [`is_a?`](#is_aklass)
+ - [`new`](#newargs)
+ - [`run`](#runargs)
+ - [`T`](#tpath)
+ - [`S`](#sargs)
+
+- [`ErbCache`](#module-yardtemplateserbcache)
+ - [`method_for`](#method_forfilename)
+ - [`clear!`](#clear)
+
+- [`StaticCaching`](#module-yardserverstaticcaching)
+ - [`check_static_cache`](#check_static_cache)
+
+- [`DocServerHelper`](#module-yardserverdocserverhelper)
+ - [`url_for`](#url_forobj-anchor--nil-relative--false--rubocopdisable-lintunusedmethodargument)
+ - [`url_for_file`](#url_for_filefilename-anchor--nil)
+ - [`url_for_list`](#url_for_listtype)
+ - [`url_for_frameset`](#url_for_frameset)
+ - [`url_for_main`](#url_for_main)
+ - [`url_for_index`](#url_for_index)
+ - [`abs_url`](#abs_urlpath_components)
+ - [`base_path`](#base_pathpath)
+ - [`router`](#router-adapterrouter-end)
+ - [`mtime`](#mtimefile)
+ - [`mtime_url`](#mtime_urlfile)
+
+- [`HandlerMethods`](#module-yardhandlerschandlermethods)
+ - [`handle_class`](#handle_classvar_name-class_name-parent-in_module--nil)
+ - [`handle_module`](#handle_modulevar_name-module_name-in_module--nil)
+ - [`handle_method`](#handle_methodscope-var_name-name-func_name-_source_file--nil)
+ - [`handle_attribute`](#handle_attributevar_name-name-read-write)
+ - [`handle_alias`](#handle_aliasvar_name-new_name-old_name)
+ - [`handle_constants`](#handle_constantstype-var_name-const_name-value)
+
+- [`UMLHelper`](#module-yardtemplateshelpersumlhelper)
+ - [`uml_visibility`](#uml_visibilityobject)
+ - [`format_path`](#format_pathobject)
+ - [`h`](#htext)
+ - [`tidy`](#tidydata)
+
+- [`TextHelper`](#module-yardtemplateshelperstexthelper)
+ - [`h`](#htext)
+ - [`wrap`](#wraptext-col--72)
+ - [`indent`](#indenttext-len--4)
+ - [`title_align_right`](#title_align_righttext-col--72)
+ - [`align_right`](#align_righttext-spacer----col--72)
+ - [`hr`](#hrcol--72-sep---)
+ - [`signature`](#signaturemeth)
+
+- [`NamespaceMapper`](#module-yardcodeobjectsnamespacemapper)
+ - [`register_separator`](#register_separatorsep-valid_types)
+ - [`clear_separators`](#clear_separators)
+ - [`default_separator`](#default_separatorvalue--nil)
+ - [`separators`](#separators)
+ - [`separators_match`](#separators_match)
+ - [`types_for_separator`](#types_for_separatorsep)
+ - [`separators_for_type`](#separators_for_typetype)
+
+- [`BaseHelper`](#module-yardtemplateshelpersbasehelper)
+ - [`object`](#object)
+ - [`object=`](#objectvalue)
+ - [`serializer`](#serializer)
+ - [`serializer=`](#serializervalue)
+ - [`owner`](#owner)
+ - [`globals`](#globals-optionsglobals-end)
+ - [`run_verifier`](#run_verifierlist)
+ - [`h`](#htext)
+ - [`linkify`](#linkifyargs)
+ - [`link_include_object`](#link_include_objectobj)
+ - [`link_include_file`](#link_include_filefile)
+ - [`link_object`](#link_objectobj-title--nil)
+ - [`link_url`](#link_urlurl-title--nil-params--nil--rubocopdisable-lintunusedmethodargument)
+ - [`link_file`](#link_filefilename-title--nil-anchor--nil--rubocopdisable-lintunusedmethodargument)
+ - [`format_types`](#format_typeslist-brackets--true)
+ - [`format_object_type`](#format_object_typeobject)
+ - [`format_object_title`](#format_object_titleobject)
+ - [`format_source`](#format_sourcevalue)
+
+- [`HtmlHelper`](#module-yardtemplateshelpershtmlhelper)
+ - [`h`](#htext)
+ - [`urlencode`](#urlencodetext)
+ - [`htmlify`](#htmlifytext-markup--optionsmarkup)
+ - [`html_markup_markdown`](#html_markup_markdowntext)
+ - [`html_markup_asciidoc`](#html_markup_asciidoctext)
+ - [`html_markup_textile`](#html_markup_textiletext)
+ - [`html_markup_textile_strict`](#html_markup_textile_stricttext)
+ - [`html_markup_rdoc`](#html_markup_rdoctext)
+ - [`html_markup_pre`](#html_markup_pretext)
+ - [`html_markup_text`](#html_markup_texttext)
+ - [`html_markup_none`](#html_markup_nonetext)
+ - [`html_markup_html`](#html_markup_htmltext)
+ - [`html_markup_ruby`](#html_markup_rubysource)
+ - [`htmlify_line`](#htmlify_lineargs)
+ - [`html_syntax_highlight`](#html_syntax_highlightsource-type--nil)
+ - [`html_syntax_highlight_plain`](#html_syntax_highlight_plainsource)
+ - [`resolve_links`](#resolve_linkstext)
+ - [`link_file`](#link_filefilename-title--nil-anchor--nil)
+ - [`link_include_file`](#link_include_filefile)
+ - [`link_include_object`](#link_include_objectobj)
+ - [`insert_include`](#insert_includetext-markup--optionsmarkup)
+ - [`link_object`](#link_objectobj-title--nil-anchor--nil-relative--true)
+ - [`link_url`](#link_urlurl-title--nil-params--)
+ - [`anchor_for`](#anchor_forobject)
+ - [`url_for`](#url_forobj-anchor--nil-relative--true)
+ - [`mtime_url`](#url_forobj-anchor--nil-relative--true)
+ - [`mtime`](#mtime_file-nil-end)
+ - [`url_for_file`](#url_for_filefilename-anchor--nil)
+ - [`url_for_list`](#url_for_listtype)
+ - [`url_for_frameset`](#url_for_frameset)
+ - [`url_for_main`](#url_for_main)
+ - [`url_for_index`](#url_for_index)
+ - [`format_object_name_list`](#format_object_name_listobjects)
+ - [`format_types`](#format_typestypelist-brackets--true)
+ - [`signature_types`](#signature_typesmeth-link--true)
+ - [`signature`](#signaturemeth-link--true-show_extras--true-full_attr_name--true)
+ - [`charset`](#charset)
+
+- [`FilterHelper`](#module-yardtemplateshelpersfilterhelper)
+ - [`is_method?`](#is_methodobject)
+ - [`is_namespace?`](#is_namespaceobject)
+ - [`is_class?`](#is_classobject)
+ - [`is_module?`](#is_moduleobject)
+
+- [`MethodHelper`](#module-yardtemplateshelpersmethodhelper)
+ - [`format_args`](#format_argsobject)
+ - [`format_return_types`](#format_return_typesobject)
+ - [`format_block`](#format_blockobject)
+ - [`format_lines`](#format_linesobject)
+ - [`format_code`](#format_codeobject-_show_lines--false)
+ - [`format_constant`](#format_constantvalue)
+
+- [`MarkupHelper`](#module-yardtemplateshelpersmarkuphelper)
+ - [`clear_markup_cache`](#clear_markup_cache)
+ - [`load_markup_provider`](#load_markup_providertype--optionsmarkup)
+ - [`markup_for_file`](#markup_for_filecontents-filename)
+ - [`markup_file_contents`](#markup_file_contentscontents)
+ - [`markup_class`](#markup_classtype--optionsmarkup)
+ - [`markup_provider`](#markup_providertype--optionsmarkup)
+
+- [`ModuleHelper`](#module-yardtemplateshelpersmodulehelper)
+ - [`prune_method_listing`](#prune_method_listinglist-hide_attributes--true)
+
+- [`DSLHandlerMethods`](#module-yardhandlersrubydslhandlermethods)
+ - [`handle_comments`](#handle_comments)
+ - [`register_docstring`](#register_docstringobject-docstring--docstring-stmt--statement)
+
+- [`StaticFileHelpers`](#module-yardservercommandsstaticfilehelpers)
+ - [`favicon?`](#favicon)
+ - [`static_template_file?`](#static_template_file)
+ - [`find_file`](#find_fileadapter-url)
+
+- [`StructHandlerMethods`](#module-yardhandlersrubystructhandlermethods)
+ - [`member_tag_for_member`](#member_tag_for_memberklass-member-type--read)
+ - [`members_from_tags`](#members_from_tagsklass)
+ - [`create_member_method?`](#create_member_methodklass-member-type--read)
+ - [`return_type_from_tag`](#return_type_from_tagmember_tag)
+ - [`add_reader_tags`](#add_reader_tagsklass-new_method-member)
+ - [`add_writer_tags`](#add_writer_tagsklass-new_method-member)
+ - [`create_class`](#create_classclassname-superclass)
+ - [`create_writer`](#create_writerklass-member)
+ - [`create_reader`](#create_readerklass-member)
+ - [`create_attributes`](#create_attributesklass-members)
+
+- [`DecoratorHandlerMethods`](#module-yardhandlersrubydecoratorhandlermethods)
+ - [`process_decorator`](#process_decoratornodes-block)
+
+- [`HtmlSyntaxHighlightHelper`](#module-yardtemplateshelpershtmlsyntaxhighlighthelper)
+ - [`html_syntax_highlight_ruby`](#html_syntax_highlight_rubysource)
+
+---
 
 ## `class YARD::Config`
 
@@ -89,6 +1964,7 @@ The system-wide configuration options for YARD
 
 - (`SymbolHash`) — a map a key-value pair settings.
 
+
 **See**:
 - DEFAULT_CONFIG_OPTIONS
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/config.rb#L91)
@@ -100,6 +1976,7 @@ The system-wide configuration options for YARD
 **Returns**:
 
 - (`SymbolHash`) — a map a key-value pair settings.
+
 
 **See**:
 - DEFAULT_CONFIG_OPTIONS
@@ -114,6 +1991,7 @@ load time and should not be called by the user.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/config.rb#L119)
 
@@ -124,6 +2002,7 @@ Saves settings to {CONFIG_FILE}.
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/config.rb#L135)
@@ -137,6 +2016,7 @@ after YARD is loaded to allow plugin support.
 **Returns**:
 
 - (`Boolean`) — true if all plugins loaded successfully, false otherwise.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/config.rb#L146)
@@ -154,6 +2034,7 @@ Loads an individual plugin by name. It is not necessary to include the
 **Returns**:
 
 - (`Boolean`) — whether the plugin was successfully loaded
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/config.rb#L157)
@@ -198,6 +2079,7 @@ Print a warning if the plugin failed to load
 
 - (`false`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/config.rb#L214)
 
@@ -225,6 +2107,7 @@ Loads the YAML configuration file into memory
 
 - (`Hash`) — the contents of the YAML file from disk
 
+
 **See**:
 - CONFIG_FILE
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/config.rb#L236)
@@ -241,6 +2124,7 @@ Sanitizes and normalizes a plugin name to include the 'yard-' prefix.
 **Returns**:
 
 - (`String`) — the sanitized and normalized plugin name.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/config.rb#L248)
@@ -259,6 +2143,7 @@ Temporarily loads .yardopts file into @yardopts
 **Returns**:
 
 - (`Array<String>`) — arguments from commandline and yardopts file
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/config.rb#L264)
@@ -285,10 +2170,12 @@ Helper method to run the utility on an instance.
 
 - (`YRI`) — a new instance of YRI
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yri.rb#L31)
 
 ### `#description`
+
 
 
 **See**:
@@ -450,6 +2337,7 @@ onto that object.
 
 - (`Options`) — the newly created options object
 
+
 **See**:
 - #update
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/options.rb#L123)
@@ -462,6 +2350,7 @@ onto that object.
 - (`Hash`) — Converts options object to an options hash. All keys
 will be symbolized.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/options.rb#L129)
 
@@ -472,6 +2361,10 @@ Yields over every option key and value
 **Returns**:
 
 - (`void`) — 
+
+**Yields**:
+
+- (`key, value`) — every option key and value
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/options.rb#L143)
@@ -491,6 +2384,7 @@ Inspects the object
 
 - (`Boolean`) — whether another Options object equals the
 keys and values of this options object
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/options.rb#L157)
@@ -515,6 +2409,7 @@ Resets all values to their defaults.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/options.rb#L188)
 
@@ -531,16 +2426,21 @@ Deletes an option value for +key+
 
 - (`Object`) — the value that was deleted
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/options.rb#L205)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/options.rb#L207)
 
 ### `#tap; yield(self); self end unless defined?(tap) # only for 1.8.6`
 
 only for 1.8.6
 
 
+**Yields**:
+
+- (`_self`) — 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/options.rb#L213)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/options.rb#L215)
 
 ---
 
@@ -556,10 +2456,12 @@ Uses the stdlib Logger class in Ruby for all the backend logic.
 
 - (`IO`) — the IO object being logged to
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L16)
 
 ### `#io=(pipe) @logdev = pipe end`
+
 
 
 **See**:
@@ -572,6 +2474,7 @@ Uses the stdlib Logger class in Ruby for all the backend logic.
 
 - (`Boolean`) — whether backtraces should be shown (by default
 this is on).
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L21)
@@ -597,6 +2500,7 @@ Sets the attribute show_backtraces
 - (`Boolean`) — whether progress indicators should be shown when
 logging CLIs (by default this is off).
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L26)
 
@@ -621,6 +2525,7 @@ The logger instance
 
 - (`Logger`) — the logger instance
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L37)
 
@@ -632,6 +2537,7 @@ Creates a new logger
 
 - (`Logger`) — a new instance of Logger
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L42)
 
@@ -642,7 +2548,7 @@ and writes a debugging message.
 
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L55)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L56)
 
 ### `#capture(msg, nontty_log = :debug)`
 
@@ -662,8 +2568,12 @@ stream is not a TTY. Use +nil+ for no alternate logging.
 
 - (`void`) — 
 
+**Yields**:
+
+- (``) — a block of arbitrary code to benchmark
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L69)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L70)
 
 ### `#progress(msg, nontty_log = :debug)`
 
@@ -684,8 +2594,9 @@ stream is not a TTY. Use +nil+ for no alternate logging.
 
 - (`void`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L85)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L86)
 
 ### `#clear_progress`
 
@@ -695,8 +2606,9 @@ Clears the progress indicator in the TTY display.
 
 - (`void`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L107)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L108)
 
 ### `#puts(msg = '')`
 
@@ -712,8 +2624,9 @@ a newline.
 
 - (`void`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L118)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L119)
 
 ### `#print(msg = '')`
 
@@ -728,8 +2641,9 @@ Displays an unformatted line to the logger output stream.
 
 - (`void`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L129)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L130)
 
 ### `#print(msg = '')`
 
@@ -744,8 +2658,9 @@ Displays an unformatted line to the logger output stream.
 
 - (`void`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L133)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L134)
 
 ### `#backtrace(exc, level_meth = :error)`
 
@@ -763,8 +2678,9 @@ Prints the backtrace +exc+ to the logger as error data.
 
 - (`void`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L140)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L141)
 
 ### `#warn_no_continuations`
 
@@ -778,8 +2694,9 @@ per Ruby process.
 
 - (`void`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L153)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L154)
 
 ### `#enter_level(new_level = level)`
 
@@ -791,6 +2708,10 @@ Sets the logger level for the duration of the block
 values can be found in Ruby's Logger class.
   
 
+**Yields**:
+
+- (``) — the block with the logger temporarily set to +new_level+
+
 **Examples**:
 
 ```ruby
@@ -800,7 +2721,7 @@ end
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L165)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/logging.rb#L166)
 
 ---
 
@@ -818,16 +2739,19 @@ documentation.
 
 - (`I18n`) — a new instance of I18n
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/i18n.rb#L14)
 
 ### `#description`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/i18n.rb#L19)
 
 ### `#run(*args)`
+
 
 
 **See**:
@@ -842,10 +2766,12 @@ Handles help for commands
 ### `#description; "Retrieves help for a command" end`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/help.rb#L7)
 
 ### `#run(*args)`
+
 
 
 **See**:
@@ -862,10 +2788,12 @@ Handles help for commands
 
 - (`Gems`) — a new instance of Gems
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/gems.rb#L6)
 
 ### `#description; "Builds YARD index for gems" end`
+
 
 
 **See**:
@@ -885,6 +2813,7 @@ YARD indexes for gems.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/gems.rb#L18)
 
@@ -895,6 +2824,7 @@ YARD indexes for gems.
 Lists all constant and method names in the codebase. Uses {Yardoc} --list.
 
 ### `#description; 'Lists all constant and methods. Uses `yard doc --list`' end`
+
 
 
 **See**:
@@ -914,6 +2844,7 @@ list of objects
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/list.rb#L13)
 
@@ -931,6 +2862,7 @@ Represents a metadata tag value (+@tag+). Tags can have any combination of
 
 - (`String`) — the name of the tag
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/tag.rb#L15)
 
@@ -940,6 +2872,7 @@ Represents a metadata tag value (+@tag+). Tags can have any combination of
 **Returns**:
 
 - (`String`) — the name of the tag
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/tag.rb#L15)
@@ -953,6 +2886,7 @@ Represents a metadata tag value (+@tag+). Tags can have any combination of
 
 - (`nil`) — if no tag text is supplied
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/tag.rb#L19)
 
@@ -964,6 +2898,7 @@ Represents a metadata tag value (+@tag+). Tags can have any combination of
 - (`String`) — the tag text associated with the tag
 
 - (`nil`) — if no tag text is supplied
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/tag.rb#L19)
@@ -977,6 +2912,7 @@ Represents a metadata tag value (+@tag+). Tags can have any combination of
 
 - (`nil`) — if no types are associated with the tag
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/tag.rb#L23)
 
@@ -989,6 +2925,7 @@ Represents a metadata tag value (+@tag+). Tags can have any combination of
 
 - (`nil`) — if no types are associated with the tag
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/tag.rb#L23)
 
@@ -998,6 +2935,7 @@ Represents a metadata tag value (+@tag+). Tags can have any combination of
 **Returns**:
 
 - (`String`) — a name associated with the tag
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/tag.rb#L26)
@@ -1009,6 +2947,7 @@ Represents a metadata tag value (+@tag+). Tags can have any combination of
 
 - (`String`) — a name associated with the tag
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/tag.rb#L26)
 
@@ -1019,6 +2958,7 @@ Represents a metadata tag value (+@tag+). Tags can have any combination of
 
 - (`CodeObjects::Base`) — the associated object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/tag.rb#L29)
 
@@ -1028,6 +2968,7 @@ Represents a metadata tag value (+@tag+). Tags can have any combination of
 **Returns**:
 
 - (`CodeObjects::Base`) — the associated object
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/tag.rb#L29)
@@ -1061,6 +3002,7 @@ for the tag
 
 - (`Tag`) — a new instance of Tag
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/tag.rb#L44)
 
@@ -1072,6 +3014,7 @@ be used for tags that only specify one type.
 **Returns**:
 
 - (`String`) — the first of the list of specified types
+
 
 **See**:
 - #types
@@ -1087,6 +3030,7 @@ if no types are provided or parseable.
 - (`String`) — a plain English description of the associated types
 
 - (`nil`) — if no types are provided or not parseable
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/tag.rb#L65)
@@ -1105,16 +3049,19 @@ of a project (library, gem, working copy).
 
 - (`Diff`) — a new instance of Diff
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/diff.rb#L12)
 
 ### `#description`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/diff.rb#L24)
 
 ### `#run(*args)`
+
 
 
 **See**:
@@ -1141,10 +3088,12 @@ The syntax is as follows:
 
 - (`Array<String>`) — a list of all expressions the verifier checks for
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/verifier.rb#L37)
 
 ### `#expressions=(value)`
+
 
 
 **See**:
@@ -1164,6 +3113,7 @@ parse.
 
 - (`Verifier`) — a new instance of Verifier
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/verifier.rb#L48)
 
@@ -1179,6 +3129,7 @@ Adds a set of expressions and recompiles the verifier
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/verifier.rb#L58)
@@ -1206,6 +3157,7 @@ Tests the expressions on the object.
 
 - (`Boolean`) — the result of the expressions
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/verifier.rb#L76)
 
@@ -1224,6 +3176,7 @@ of verified objects.
 - (`Array<CodeObjects::Base>`) — a list of code objects that match
 the verifier.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/verifier.rb#L91)
 
@@ -1238,6 +3191,7 @@ the verifier.
 
 - (`Boolean`) — whether to parse and load registry
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/stats.rb#L15)
 
@@ -1247,6 +3201,7 @@ the verifier.
 **Returns**:
 
 - (`Boolean`) — whether to parse and load registry
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/stats.rb#L15)
@@ -1262,10 +3217,12 @@ the verifier.
 
 - (`Stats`) — a new instance of Stats
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/stats.rb#L18)
 
 ### `#description`
+
 
 
 **See**:
@@ -1284,6 +3241,7 @@ output if set.
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/stats.rb#L34)
@@ -1315,6 +3273,7 @@ Prints list of undocumented objects
 - (`Array<CodeObjects::Base>`) — all the parsed objects in the registry,
 removing any objects that are not visible (private, protected) depending
 on the arguments passed to the command.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/stats.rb#L105)
@@ -1389,6 +3348,7 @@ total objects of a type.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/stats.rb#L159)
 
@@ -1424,6 +3384,7 @@ the same process.**
 text and optional meta-data from docstrings. Defaults to
 {DocstringParser}.
 
+
 **See**:
 - DocstringParser
 - Parser::SourceParser.after_parse_list
@@ -1442,6 +3403,7 @@ the same process.**
 - (`Class<DocstringParser>`) — the parser class used to parse
 text and optional meta-data from docstrings. Defaults to
 {DocstringParser}.
+
 
 **See**:
 - DocstringParser
@@ -1466,6 +3428,7 @@ arguments.
 - (`DocstringParser`) — the parser object used to parse a
 docstring.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L38)
 
@@ -1475,6 +3438,7 @@ docstring.
 **Returns**:
 
 - (`Array<Tags::RefTag>`) — the list of reference tags
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L44)
@@ -1486,6 +3450,7 @@ docstring.
 
 - (`CodeObjects::Base`) — the object that owns the docstring.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L47)
 
@@ -1495,6 +3460,7 @@ docstring.
 **Returns**:
 
 - (`CodeObjects::Base`) — the object that owns the docstring.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L47)
@@ -1506,6 +3472,7 @@ docstring.
 
 - (`Range`) — line range in the {#object}'s file where the docstring was parsed from
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L50)
 
@@ -1515,6 +3482,7 @@ docstring.
 **Returns**:
 
 - (`Range`) — line range in the {#object}'s file where the docstring was parsed from
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L50)
@@ -1526,6 +3494,7 @@ docstring.
 
 - (`String`) — the raw documentation (including raw tag text)
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L53)
 
@@ -1536,10 +3505,12 @@ docstring.
 
 - (`Boolean`) — whether the docstring was started with "##"
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L56)
 
 ### `#hash_flag=(v) @hash_flag = v.nil? ? false : v end`
+
 
 
 **See**:
@@ -1624,10 +3595,12 @@ add.
 
 - (`Docstring`) — a new docstring with both docstrings combines
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L116)
 
 ### `#to_s`
+
 
 
 **See**:
@@ -1671,6 +3644,7 @@ affect the original tags.**
 
 - (`Docstring`) — a new copied docstring
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L153)
 
@@ -1683,6 +3657,7 @@ affect the original tags.**
 
 - (`nil`) — if there is no associated {#line_range}
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L167)
 
@@ -1693,6 +3668,7 @@ Gets the first line of a docstring to the period or the first paragraph.
 **Returns**:
 
 - (`String`) — The first line or paragraph of the docstring; always ends with a period.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L173)
@@ -1705,6 +3681,7 @@ current tag and docstring data, not the original text.
 **Returns**:
 
 - (`String`) — the updated raw formatted docstring data
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L207)
@@ -1723,6 +3700,7 @@ tag data based on the {Tags::DefaultFactory} tag factory, use
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L242)
@@ -1764,6 +3742,7 @@ Returns a list of tags specified by +name+ or all tags if +name+ is not specifie
 
 - (`Array<Tags::Tag>`) — the list of tags by the specified tag name
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L273)
 
@@ -1779,6 +3758,7 @@ Returns true if at least one tag by the name +name+ was declared
 **Returns**:
 
 - (`Boolean`) — whether or not the tag +name+ was declared
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L283)
@@ -1796,6 +3776,7 @@ Delete all tags with +name+
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L291)
 
@@ -1806,6 +3787,7 @@ Deletes all tags where the block returns true
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L300)
@@ -1824,6 +3806,7 @@ should be checked, or if all tags should be considered.
 
 - (`Boolean`) — whether or not the docstring has content
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L310)
 
@@ -1839,6 +3822,7 @@ explicitly. Resolving unresolved reference is done implicitly.
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring.rb#L328)
@@ -1856,6 +3840,7 @@ Options to pass to the {Graph} CLI.
 
 - (`:dot`) — the default output format
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/graph.rb#L7)
 
@@ -1865,6 +3850,7 @@ Options to pass to the {Graph} CLI.
 **Returns**:
 
 - (`Boolean`) — whether to list the full class diagram
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/graph.rb#L10)
@@ -1876,6 +3862,7 @@ Options to pass to the {Graph} CLI.
 
 - (`Boolean`) — whether to list the full class diagram
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/graph.rb#L10)
 
@@ -1885,6 +3872,7 @@ Options to pass to the {Graph} CLI.
 **Returns**:
 
 - (`Boolean`) — whether to show the object dependencies
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/graph.rb#L13)
@@ -1896,6 +3884,7 @@ Options to pass to the {Graph} CLI.
 
 - (`Boolean`) — whether to show the object dependencies
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/graph.rb#L13)
 
@@ -1906,6 +3895,7 @@ Options to pass to the {Graph} CLI.
 
 - (`String`) — any contents to pass to the digraph
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/graph.rb#L16)
 
@@ -1915,6 +3905,7 @@ Options to pass to the {Graph} CLI.
 **Returns**:
 
 - (`String`) — any contents to pass to the digraph
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/graph.rb#L16)
@@ -1952,10 +3943,12 @@ Creates a new instance of the command-line utility
 
 - (`Graph`) — a new instance of Graph
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/graph.rb#L34)
 
 ### `#description`
+
 
 
 **See**:
@@ -2007,6 +4000,7 @@ input text has header or not.
 
 - (`Text`) — a new instance of Text
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/text.rb#L12)
 
@@ -2017,6 +4011,18 @@ Extracts translation target messages from +@input+.
 **Returns**:
 
 - (`void`) — 
+
+**Yields**:
+
+- (`:attribute, name, value, line_no`) — the block that
+recieves extracted an attribute in header. It may called many
+times.
+
+- (`:paragraph, text, start_line_no`) — the block that
+recieves extracted a paragraph in body. Paragraph is a text
+block separated by one or more empty lines. Empty line is a
+line that contains only zero or more whitespaces. It may
+called many times.
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/text.rb#L35)
@@ -2034,6 +4040,7 @@ Translates into +locale+.
 
 - (`String`) — translated text.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/text.rb#L52)
 
@@ -2050,6 +4057,7 @@ CLI command to view or edit configuration options
 
 - (`Symbol, nil`) — the key to view/edit, if any
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/config.rb#L8)
 
@@ -2059,6 +4067,7 @@ CLI command to view or edit configuration options
 **Returns**:
 
 - (`Symbol, nil`) — the key to view/edit, if any
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/config.rb#L8)
@@ -2070,6 +4079,7 @@ CLI command to view or edit configuration options
 
 - (`Array, nil`) — the list of values to set (or single value), if modifying
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/config.rb#L11)
 
@@ -2079,6 +4089,7 @@ CLI command to view or edit configuration options
 **Returns**:
 
 - (`Array, nil`) — the list of values to set (or single value), if modifying
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/config.rb#L11)
@@ -2090,6 +4101,7 @@ CLI command to view or edit configuration options
 
 - (`Boolean`) — whether to reset the {#key}
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/config.rb#L14)
 
@@ -2099,6 +4111,7 @@ CLI command to view or edit configuration options
 **Returns**:
 
 - (`Boolean`) — whether to reset the {#key}
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/config.rb#L14)
@@ -2110,6 +4123,7 @@ CLI command to view or edit configuration options
 
 - (`Boolean`) — whether the value being set should be inside a list
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/config.rb#L17)
 
@@ -2119,6 +4133,7 @@ CLI command to view or edit configuration options
 **Returns**:
 
 - (`Boolean`) — whether the value being set should be inside a list
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/config.rb#L17)
@@ -2130,6 +4145,7 @@ CLI command to view or edit configuration options
 
 - (`Boolean`) — whether to append values to existing key
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/config.rb#L20)
 
@@ -2139,6 +4155,7 @@ CLI command to view or edit configuration options
 **Returns**:
 
 - (`Boolean`) — whether to append values to existing key
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/config.rb#L20)
@@ -2151,6 +4168,7 @@ CLI command to view or edit configuration options
 - (`String, nil`) — command to use when configuring ~/.gemrc file.
 If the string is nil, configuration should not occur.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/config.rb#L24)
 
@@ -2162,6 +4180,7 @@ If the string is nil, configuration should not occur.
 - (`String, nil`) — command to use when configuring ~/.gemrc file.
 If the string is nil, configuration should not occur.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/config.rb#L24)
 
@@ -2172,16 +4191,19 @@ If the string is nil, configuration should not occur.
 
 - (`Config`) — a new instance of Config
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/config.rb#L26)
 
 ### `#description`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/config.rb#L36)
 
 ### `#run(*args)`
+
 
 
 **See**:
@@ -2200,6 +4222,7 @@ A local documentation server
 
 - (`Hash`) — a list of options to pass to the doc server
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/server.rb#L8)
 
@@ -2209,6 +4232,7 @@ A local documentation server
 **Returns**:
 
 - (`Hash`) — a list of options to pass to the doc server
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/server.rb#L8)
@@ -2220,6 +4244,7 @@ A local documentation server
 
 - (`Hash`) — a list of options to pass to the web server
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/server.rb#L11)
 
@@ -2229,6 +4254,7 @@ A local documentation server
 **Returns**:
 
 - (`Hash`) — a list of options to pass to the web server
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/server.rb#L11)
@@ -2240,6 +4266,7 @@ A local documentation server
 
 - (`Hash`) — a list of library names and yardoc files to serve
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/server.rb#L14)
 
@@ -2249,6 +4276,7 @@ A local documentation server
 **Returns**:
 
 - (`Hash`) — a list of library names and yardoc files to serve
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/server.rb#L14)
@@ -2260,6 +4288,7 @@ A local documentation server
 
 - (`Adapter`) — the adapter to use for loading the web server
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/server.rb#L17)
 
@@ -2269,6 +4298,7 @@ A local documentation server
 **Returns**:
 
 - (`Adapter`) — the adapter to use for loading the web server
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/server.rb#L17)
@@ -2280,6 +4310,7 @@ A local documentation server
 
 - (`Array<String>`) — a list of scripts to load
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/server.rb#L21)
 
@@ -2289,6 +4320,7 @@ A local documentation server
 **Returns**:
 
 - (`Array<String>`) — a list of scripts to load
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/server.rb#L21)
@@ -2300,6 +4332,7 @@ A local documentation server
 
 - (`Array<String>`) — a list of template paths to register
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/server.rb#L25)
 
@@ -2309,6 +4342,7 @@ A local documentation server
 **Returns**:
 
 - (`Array<String>`) — a list of template paths to register
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/server.rb#L25)
@@ -2321,16 +4355,19 @@ Creates a new instance of the Server command line utility
 
 - (`Server`) — a new instance of Server
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/server.rb#L28)
 
 ### `#description`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/server.rb#L40)
 
 ### `#run(*args)`
+
 
 
 **See**:
@@ -2349,6 +4386,7 @@ Default options used in +yard doc+ command.
 
 - (`Array<CodeObjects::ExtraFileObject>`) — the list of extra files rendered along with objects
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L11)
 
@@ -2359,6 +4397,7 @@ Default options used in +yard doc+ command.
 
 - (`String`) — the default title appended to each generated page
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L14)
 
@@ -2368,6 +4407,7 @@ Default options used in +yard doc+ command.
 **Returns**:
 
 - (`Verifier`) — the default verifier object to filter queries
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L17)
@@ -2380,6 +4420,7 @@ Default options used in +yard doc+ command.
 - (`Serializers::Base`) — the default serializer for generating output
 to disk.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L21)
 
@@ -2389,6 +4430,7 @@ to disk.
 **Returns**:
 
 - (`Symbol`) — the default output format (:html).
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L24)
@@ -2401,6 +4443,7 @@ to disk.
 - (`Boolean`) — whether the data should be rendered in a single page,
 if the template supports it.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L28)
 
@@ -2411,6 +4454,7 @@ if the template supports it.
 
 - (`CodeObjects::ExtraFileObject`) — the README file object rendered
 along with objects
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L32)
@@ -2423,6 +4467,7 @@ along with objects
 - (`CodeObjects::ExtraFileObject`) — the README file object rendered
 along with objects
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L32)
 
@@ -2433,6 +4478,7 @@ along with objects
 
 - (`Array<CodeObjects::Base>`) — the list of code objects to render
 the templates with.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L36)
@@ -2445,6 +4491,7 @@ the templates with.
 - (`Array<CodeObjects::Base>`) — the list of code objects to render
 the templates with.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L36)
 
@@ -2455,6 +4502,7 @@ the templates with.
 
 - (`Numeric`) — An index value for rendering sequentially related templates
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L39)
 
@@ -2464,6 +4512,7 @@ the templates with.
 **Returns**:
 
 - (`Numeric`) — An index value for rendering sequentially related templates
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L39)
@@ -2476,6 +4525,7 @@ the templates with.
 - (`CodeObjects::Base`) — an extra item to send to a template that is not
 the main rendered object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L43)
 
@@ -2486,6 +4536,7 @@ the main rendered object
 
 - (`CodeObjects::Base`) — an extra item to send to a template that is not
 the main rendered object
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L43)
@@ -2499,6 +4550,7 @@ the main rendered object
 The +object+ key is not used so that a file may be rendered in the context
 of an object's namespace (for generating links).
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L48)
 
@@ -2511,6 +4563,7 @@ of an object's namespace (for generating links).
 The +object+ key is not used so that a file may be rendered in the context
 of an object's namespace (for generating links).
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L48)
 
@@ -2521,6 +4574,7 @@ of an object's namespace (for generating links).
 
 - (`String`) — the current locale
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L51)
 
@@ -2530,6 +4584,7 @@ of an object's namespace (for generating links).
 **Returns**:
 
 - (`String`) — the current locale
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L51)
@@ -2634,6 +4689,7 @@ Yardoc without +--use-cache+ (+-c+).
 
 - (`Hash`) — the hash of options passed to the template.
 
+
 **See**:
 - Templates::Engine#render
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L148)
@@ -2645,6 +4701,7 @@ Yardoc without +--use-cache+ (+-c+).
 
 - (`Array<String>`) — list of Ruby source files to process
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L151)
 
@@ -2654,6 +4711,7 @@ Yardoc without +--use-cache+ (+-c+).
 **Returns**:
 
 - (`Array<String>`) — list of Ruby source files to process
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L151)
@@ -2665,6 +4723,7 @@ Yardoc without +--use-cache+ (+-c+).
 
 - (`Array<String>`) — list of excluded paths (regexp matches)
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L155)
 
@@ -2674,6 +4733,7 @@ Yardoc without +--use-cache+ (+-c+).
 **Returns**:
 
 - (`Array<String>`) — list of excluded paths (regexp matches)
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L155)
@@ -2687,6 +4747,7 @@ Yardoc without +--use-cache+ (+-c+).
 .yardoc already exists. Also makes use of file checksums to
 parse only changed files.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L160)
 
@@ -2699,6 +4760,7 @@ parse only changed files.
 .yardoc already exists. Also makes use of file checksums to
 parse only changed files.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L160)
 
@@ -2708,6 +4770,7 @@ parse only changed files.
 **Returns**:
 
 - (`Boolean`) — whether objects should be serialized to .yardoc db
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L163)
@@ -2719,6 +4782,7 @@ parse only changed files.
 
 - (`Boolean`) — whether objects should be serialized to .yardoc db
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L163)
 
@@ -2728,6 +4792,7 @@ parse only changed files.
 **Returns**:
 
 - (`Boolean`) — whether to generate output
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L166)
@@ -2739,6 +4804,7 @@ parse only changed files.
 
 - (`Boolean`) — whether to generate output
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L166)
 
@@ -2749,6 +4815,7 @@ parse only changed files.
 
 - (`Boolean`) — whether to print a list of objects
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L170)
 
@@ -2758,6 +4825,7 @@ parse only changed files.
 **Returns**:
 
 - (`Boolean`) — whether to print a list of objects
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L170)
@@ -2770,6 +4838,7 @@ Keep track of which visibilities are to be shown
 
 - (`Array<Symbol>`) — a list of visibilities
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L175)
 
@@ -2780,6 +4849,7 @@ Keep track of which visibilities are to be shown
 **Returns**:
 
 - (`Array<Symbol>`) — a list of visibilities
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L175)
@@ -2792,6 +4862,7 @@ Keep track of which APIs are to be shown
 
 - (`Array<String>`) — a list of APIs
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L180)
 
@@ -2802,6 +4873,7 @@ Keep track of which APIs are to be shown
 **Returns**:
 
 - (`Array<String>`) — a list of APIs
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L180)
@@ -2814,6 +4886,7 @@ Keep track of which APIs are to be hidden
 
 - (`Array<String>`) — a list of APIs to be hidden
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L185)
 
@@ -2825,6 +4898,7 @@ Keep track of which APIs are to be hidden
 
 - (`Array<String>`) — a list of APIs to be hidden
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L185)
 
@@ -2834,6 +4908,7 @@ Keep track of which APIs are to be hidden
 **Returns**:
 
 - (`Array<Symbol>`) — a list of tags to hide from templates
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L189)
@@ -2845,6 +4920,7 @@ Keep track of which APIs are to be hidden
 
 - (`Array<Symbol>`) — a list of tags to hide from templates
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L189)
 
@@ -2854,6 +4930,7 @@ Keep track of which APIs are to be hidden
 **Returns**:
 
 - (`Boolean`) — whether to print statistics after parsing
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L193)
@@ -2865,6 +4942,7 @@ Keep track of which APIs are to be hidden
 
 - (`Boolean`) — whether to print statistics after parsing
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L193)
 
@@ -2874,6 +4952,7 @@ Keep track of which APIs are to be hidden
 **Returns**:
 
 - (`Array<String>`) — a list of assets to copy after generation
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L197)
@@ -2885,6 +4964,7 @@ Keep track of which APIs are to be hidden
 
 - (`Array<String>`) — a list of assets to copy after generation
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L197)
 
@@ -2895,6 +4975,7 @@ Keep track of which APIs are to be hidden
 
 - (`Boolean`) — whether markup option was specified
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L201)
 
@@ -2904,6 +4985,7 @@ Keep track of which APIs are to be hidden
 **Returns**:
 
 - (`Boolean`) — whether markup option was specified
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L201)
@@ -2916,14 +4998,16 @@ Creates a new instance of the commandline utility
 
 - (`Yardoc`) — a new instance of Yardoc
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L204)
 
 ### `#description`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L228)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L230)
 
 ### `#run(*args)`
 
@@ -2940,8 +5024,9 @@ contains a single nil value, skip calling of {#parse_arguments}
 
 - (`void`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L238)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L240)
 
 ### `#parse_arguments(*args)`
 
@@ -2956,8 +5041,9 @@ Parses commandline arguments
 
 - (`Boolean`) — whether or not arguments are valid
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L283)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L285)
 
 ### `#all_objects`
 
@@ -2970,8 +5056,9 @@ which objects YARD should generate documentation for.
 
 - (`Array<CodeObjects::Base>`) — a list of code objects to process
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L320)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardoc.rb#L322)
 
 ---
 
@@ -2987,6 +5074,7 @@ messages.
 
 - (`String, nil`) — the default locale name.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/locale.rb#L12)
 
@@ -2996,6 +5084,7 @@ messages.
 **Returns**:
 
 - (`String, nil`) — the default locale name.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/locale.rb#L12)
@@ -3007,6 +5096,7 @@ messages.
 
 - (`String`) — the name of the locale. It used IETF language
 tag format +[language[_territory][.codeset][@modifier]]+.
+
 
 **See**:
 - http://tools.ietf.org/rfc/bcp/bcp47.txtBCP 47 - Tags for Identifying Languages
@@ -3025,6 +5115,7 @@ Creates a locale for +name+ locale.
 
 - (`Locale`) — a new instance of Locale
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/locale.rb#L34)
 
@@ -3042,6 +5133,7 @@ Loads translation messages from +locale_directory+/{#name}.po.
 
 - (`Boolean`) — +true+ if PO file exists, +false+ otherwise.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/locale.rb#L44)
 
@@ -3056,6 +5148,7 @@ Loads translation messages from +locale_directory+/{#name}.po.
 
 - (`String`) — translated message. If tarnslation isn't
 registered, the +message+ is returned.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/locale.rb#L62)
@@ -3079,6 +5172,7 @@ Helper method to run the utility on an instance.
 ### `#description; '' end`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/command.rb#L16)
 
@@ -3091,6 +5185,7 @@ Display one object
 ### `#description; 'Displays a formatted object' end`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/display.rb#L7)
 
@@ -3100,6 +5195,7 @@ Display one object
 **Returns**:
 
 - (`Display`) — a new instance of Display
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/display.rb#L9)
@@ -3118,6 +5214,7 @@ from the {Registry}.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/display.rb#L21)
 
@@ -3128,10 +5225,12 @@ from the {Registry}.
 
 - (`String`) — the output data for all formatted objects
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/display.rb#L27)
 
 ### `#wrap_layout(contents)`
+
 
 
 **See**:
@@ -3151,6 +5250,7 @@ Parses commandline options.
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/display.rb#L46)
 
 ### `#output_options(opts)`
+
 
 
 **See**:
@@ -3242,6 +5342,7 @@ to be post-processed
 
 - (`nil`) — if no post-processing should be done
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/base.rb#L52)
 
@@ -3259,6 +5360,7 @@ to be post-processed
 
 - (`String`) — the message ID of the trnslation target message.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/message.rb#L12)
 
@@ -3270,6 +5372,7 @@ path and line number where the message is appeared.
 
 - (`Set`) — the set of locations. Location is an array of
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/message.rb#L16)
 
@@ -3279,6 +5382,7 @@ path and line number where the message is appeared.
 **Returns**:
 
 - (`Set`) — the set of comments for the messages.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/message.rb#L19)
@@ -3295,6 +5399,7 @@ Creates a trasnlate target message for message ID +id+.
 **Returns**:
 
 - (`Message`) — a new instance of Message
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/message.rb#L24)
@@ -3315,6 +5420,7 @@ Adds location information for the message.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/message.rb#L35)
 
@@ -3331,6 +5437,7 @@ Adds a comment for the message.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/message.rb#L43)
 
@@ -3344,6 +5451,7 @@ Adds a comment for the message.
 **Returns**:
 
 - (`Boolean`) — checks whether this message is equal to another.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/message.rb#L49)
@@ -3406,6 +5514,7 @@ if you want to change the syntax of existing tags (@see, @since, etc.)
 - (`SymbolHash{Symbol=>String}`) — the map of tag names and their
 respective display labels.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L63)
 
@@ -3416,6 +5525,7 @@ respective display labels.
 
 - (`Library`) — the main Library instance object.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L67)
 
@@ -3425,6 +5535,7 @@ respective display labels.
 **Returns**:
 
 - (`Library`) — the main Library instance object.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L67)
@@ -3487,6 +5598,7 @@ or the method to call on the factory class
 
 - (`nil`) — if the tag is freeform text
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L99)
 
@@ -3509,6 +5621,7 @@ the methods to call on the factory class
 
 - (`nil`) — if the tag is freeform text
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L112)
 
@@ -3526,6 +5639,7 @@ the templates at specific positions:
 **Returns**:
 
 - (`Array<Symbol>`) — a list of ordered tags
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L127)
@@ -3545,6 +5659,7 @@ the templates at specific positions:
 
 - (`Array<Symbol>`) — a list of ordered tags
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L127)
 
@@ -3558,6 +5673,7 @@ tags can be overridden by directly defining a tag on the child object.
 **Returns**:
 
 - (`Array<Symbol>`) — a list of transitive tags
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L136)
@@ -3573,6 +5689,7 @@ tags can be overridden by directly defining a tag on the child object.
 
 - (`Array<Symbol>`) — a list of transitive tags
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L136)
 
@@ -3584,6 +5701,7 @@ the tags.
 **Returns**:
 
 - (`Array<Symbol>, String`) — the sorted labels as an array of the tag name and label
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L142)
@@ -3612,20 +5730,23 @@ creating the tag or the name of the class to directly create a tag for
 ### `.define_directive(tag, tag_meth = nil, directive_class = nil)`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L195)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L196)
 
 ### `.tag_method_name(tag_name)`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L215)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L216)
 
 ### `.directive_method_name(tag_name)`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L219)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L220)
 
 ### `#factory`
 
@@ -3633,7 +5754,7 @@ A factory class to handle parsing of tags, defaults to {default_factory}
 
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L257)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L258)
 
 ### `#factory=(value)`
 
@@ -3641,7 +5762,7 @@ A factory class to handle parsing of tags, defaults to {default_factory}
 
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L257)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L258)
 
 ### `#initialize(factory = Library.default_factory)`
 
@@ -3650,8 +5771,9 @@ A factory class to handle parsing of tags, defaults to {default_factory}
 
 - (`Library`) — a new instance of Library
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L259)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L260)
 
 ### `#has_tag?(tag_name)`
 
@@ -3665,8 +5787,9 @@ A factory class to handle parsing of tags, defaults to {default_factory}
 - (`Boolean`) — whether a tag by the given name is registered in
 the library.
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L266)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L267)
 
 ### `#tag_create(tag_name, tag_buf)`
 
@@ -3676,8 +5799,9 @@ Creates a new {Tag} object with a given tag name and data
 
 - (`Tag`) — the newly created tag object
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L272)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L273)
 
 ### `#has_directive?(tag_name)`
 
@@ -3691,8 +5815,9 @@ Creates a new {Tag} object with a given tag name and data
 - (`Boolean`) — whether a directive by the given name is registered in
 the library.
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L279)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L280)
 
 ### `#directive_create(tag_name, tag_buf, parser)`
 
@@ -3714,8 +5839,9 @@ object.
 
 - (`Directive`) — the newly created directive
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L289)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/library.rb#L290)
 
 ---
 
@@ -3740,6 +5866,7 @@ ends in +File::SEPARATOR+ ('/' on UNIX filesystems).
 **Returns**:
 
 - (`String`) — the relative path from +from+ to +to+.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/core_ext/file.rb#L19)
@@ -3787,6 +5914,7 @@ Reads a file with binary encoding
 
 - (`String`) — the ascii-8bit encoded data
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/core_ext/file.rb#L63)
 
@@ -3797,16 +5925,19 @@ Reads a file with binary encoding
 ### `.create(*args)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/core_ext/hash.rb#L4)
 
 ### `.create(*args)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/core_ext/hash.rb#L13)
 
 ### `.create(*args)`
+
 
 
 **See**:
@@ -3826,6 +5957,7 @@ Creates a new container.
 
 - (`Messages`) — a new instance of Messages
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/messages.rb#L11)
 
@@ -3836,6 +5968,7 @@ Enumerates each {Message} in the container.
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/messages.rb#L20)
@@ -3851,6 +5984,7 @@ Enumerates each {Message} in the container.
 
 - (`Message, nil`) — a registered message for the given +id+,
 or nil if no message for the ID is found.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/messages.rb#L27)
@@ -3870,6 +6004,7 @@ registered object is returned.
 
 - (`Message`) — the registered +Message+.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/messages.rb#L37)
 
@@ -3885,6 +6020,7 @@ Checks if this messages list is equal to another messages list.
 **Returns**:
 
 - (`Boolean`) — whether +self+ and +other+ is equivalence or not.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/messages.rb#L45)
@@ -3917,6 +6053,7 @@ this method implemented as per {StaticCaching#check_static_cache}.
 
 - (`Adapter Dependent`) — the request data coming in with the routing
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/router.rb#L37)
 
@@ -3926,6 +6063,7 @@ this method implemented as per {StaticCaching#check_static_cache}.
 **Returns**:
 
 - (`Adapter Dependent`) — the request data coming in with the routing
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/router.rb#L37)
@@ -3937,6 +6075,7 @@ this method implemented as per {StaticCaching#check_static_cache}.
 
 - (`Adapter`) — the adapter used by the router
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/router.rb#L40)
 
@@ -3946,6 +6085,7 @@ this method implemented as per {StaticCaching#check_static_cache}.
 **Returns**:
 
 - (`Adapter`) — the adapter used by the router
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/router.rb#L40)
@@ -3962,6 +6102,7 @@ Creates a new router for a specific adapter
 **Returns**:
 
 - (`Router`) — a new instance of Router
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/router.rb#L45)
@@ -3980,6 +6121,7 @@ file through {Commands::RootRequestCommand} if no route is found.
 
 - (`Array(Numeric,Hash,Array)`) — the Rack-style server response data
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/router.rb#L54)
 
@@ -3989,6 +6131,7 @@ file through {Commands::RootRequestCommand} if no route is found.
 **Returns**:
 
 - (`String`) — the URI prefix for all object documentation requests
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/router.rb#L63)
@@ -4000,6 +6143,7 @@ file through {Commands::RootRequestCommand} if no route is found.
 
 - (`String`) — the URI prefix for all class/method/file list requests
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/router.rb#L66)
 
@@ -4010,6 +6154,7 @@ file through {Commands::RootRequestCommand} if no route is found.
 
 - (`String`) — the URI prefix for all search requests
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/router.rb#L69)
 
@@ -4019,6 +6164,7 @@ file through {Commands::RootRequestCommand} if no route is found.
 **Returns**:
 
 - (`String`) — the URI prefix for all static assets (templates)
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/router.rb#L72)
@@ -4031,6 +6177,7 @@ file through {Commands::RootRequestCommand} if no route is found.
 - (`Array(LibraryVersion, Array<String>)`) — the library followed
 by the rest of the path components in the request path. LibraryVersion
 will be nil if no matching library was found.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/router.rb#L79)
@@ -4051,6 +6198,7 @@ The object the error occurred on
 
 - (`CodeObjects::Base`) — a code object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L16)
 
@@ -4062,6 +6210,7 @@ The object the error occurred on
 
 - (`CodeObjects::Base`) — a code object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L16)
 
@@ -4071,6 +6220,7 @@ The object the error occurred on
 **Returns**:
 
 - (`NamespaceMissingError`) — a new instance of NamespaceMissingError
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L18)
@@ -4205,6 +6355,7 @@ Clear all registered subclasses. Testing purposes only
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L159)
 
@@ -4215,6 +6366,7 @@ Returns all registered handler subclasses.
 **Returns**:
 
 - (`Array<Base>`) — a list of handlers
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L165)
@@ -4277,6 +6429,7 @@ the given statement
 
 - (`Array`) — a list of matchers for the handler object.
 
+
 **See**:
 - handles?
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L211)
@@ -4290,6 +6443,7 @@ Declares that the handler should only be called when inside a
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L219)
 
@@ -4300,6 +6454,7 @@ Declares that the handler should only be called when inside a
 
 - (`Boolean`) — whether the handler should only be processed inside
 a namespace.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L225)
@@ -4318,6 +6473,7 @@ by its basename or a regex match for the full path.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L235)
 
@@ -4328,6 +6484,7 @@ by its basename or a regex match for the full path.
 
 - (`Boolean`) — whether the filename matches the declared file
 match for a handler. If no file match is specified, returns true.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L242)
@@ -4343,6 +6500,7 @@ override the +process+ method without alias chaining.
 
 - (`void`) — 
 
+
 **See**:
 - #process
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L269)
@@ -4353,6 +6511,7 @@ override the +process+ method without alias chaining.
 **Returns**:
 
 - (`Base`) — a new instance of Base
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L276)
@@ -4402,6 +6561,7 @@ Parses the semantic "block" contained in the statement node.
 - (`Processor`) — the processor object that manages all global state
 during handling.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L310)
 
@@ -4413,6 +6573,7 @@ during handling.
 - (`Object`) — the statement object currently being processed. Usually
 refers to one semantic language statement, though the strict definition
 depends on the parser used.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L315)
@@ -4545,6 +6706,9 @@ duration of the block.
   - `:scope` (`Symbol`) — the scope for the duration of the block.
   - `:owner` (`CodeObjects::Base`) — the owner object (method) for the duration of the block
 
+**Yields**:
+
+- (``) — a block to execute with the given state values.
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L370)
@@ -4566,6 +6730,7 @@ but only if they don't exist.
 
 - (`CodeObjects::Base, Array<CodeObjects::Base>`) — returns whatever is passed in, for chainability.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L407)
 
@@ -4583,6 +6748,7 @@ to the namespace.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L429)
 
@@ -4598,6 +6764,7 @@ Registers the file/line of the declaration with the object
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L441)
@@ -4615,6 +6782,7 @@ Registers any docstring found for the object and expands macros
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L450)
 
@@ -4630,6 +6798,7 @@ Registers the object as being inside a specific group
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L473)
@@ -4647,6 +6816,7 @@ Registers any transitive tags from the namespace on the object
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L487)
 
@@ -4660,6 +6830,7 @@ Registers any transitive tags from the namespace on the object
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L499)
@@ -4709,6 +6880,7 @@ a method or block (owner != namespace)
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/base.rb#L537)
@@ -4828,6 +7000,7 @@ gettext API difference from YARD.
 
 - (`Boolean`) — true if gettext is available, false otherwise.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/po_parser.rb#L37)
 
@@ -4843,6 +7016,7 @@ Parses PO file.
 **Returns**:
 
 - (`Hash<String, String>`) — parsed messages.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/po_parser.rb#L46)
@@ -4869,6 +7043,7 @@ initiate the server backend.
 To set this field on initialization, pass +:DocumentRoot+ to the
 +server_opts+ argument in {#initialize}
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/adapter.rb#L27)
 
@@ -4881,6 +7056,7 @@ To set this field on initialization, pass +:DocumentRoot+ to the
 To set this field on initialization, pass +:DocumentRoot+ to the
 +server_opts+ argument in {#initialize}
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/adapter.rb#L27)
 
@@ -4890,6 +7066,7 @@ To set this field on initialization, pass +:DocumentRoot+ to the
 **Returns**:
 
 - (`Hash{String=>Array<LibraryVersion>}`) — a map of libraries.
+
 
 **See**:
 - LibraryVersionLibraryVersion for information on building a list of libraries
@@ -4902,6 +7079,7 @@ To set this field on initialization, pass +:DocumentRoot+ to the
 **Returns**:
 
 - (`Hash{String=>Array<LibraryVersion>}`) — a map of libraries.
+
 
 **See**:
 - LibraryVersionLibraryVersion for information on building a list of libraries
@@ -4916,6 +7094,7 @@ To set this field on initialization, pass +:DocumentRoot+ to the
 - (`Hash`) — options passed and processed by adapters. The actual
 options mostly depend on the adapters themselves.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/adapter.rb#L36)
 
@@ -4926,6 +7105,7 @@ options mostly depend on the adapters themselves.
 
 - (`Hash`) — options passed and processed by adapters. The actual
 options mostly depend on the adapters themselves.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/adapter.rb#L36)
@@ -4938,6 +7118,7 @@ options mostly depend on the adapters themselves.
 - (`Hash`) — a set of options to pass to the server backend. Note
 that +:DocumentRoot+ also sets the {#document_root}.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/adapter.rb#L40)
 
@@ -4949,6 +7130,7 @@ that +:DocumentRoot+ also sets the {#document_root}.
 - (`Hash`) — a set of options to pass to the server backend. Note
 that +:DocumentRoot+ also sets the {#document_root}.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/adapter.rb#L40)
 
@@ -4959,6 +7141,7 @@ that +:DocumentRoot+ also sets the {#document_root}.
 
 - (`Router`) — the router object used to route URLs to commands
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/adapter.rb#L43)
 
@@ -4968,6 +7151,7 @@ that +:DocumentRoot+ also sets the {#document_root}.
 **Returns**:
 
 - (`Router`) — the router object used to route URLs to commands
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/adapter.rb#L43)
@@ -4982,6 +7166,7 @@ Performs any global initialization for the adapter.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/adapter.rb#L48)
 
@@ -4994,6 +7179,7 @@ Performs any global shutdown procedures for the adapter.
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/adapter.rb#L56)
@@ -5024,6 +7210,7 @@ for a single or multiple libraries (changes URL structure)
 **Returns**:
 
 - (`Adapter`) — a new instance of Adapter
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/adapter.rb#L71)
@@ -5095,6 +7282,7 @@ Returns the value of attribute checksums
 
 - (`RegistryStore`) — a new instance of RegistryStore
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L14)
 
@@ -5111,6 +7299,7 @@ If it is empty or :root, returns the {#root} object.
 **Returns**:
 
 - (`CodeObjects::Base, nil`) — a code object or nil if none is found
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L33)
@@ -5131,6 +7320,7 @@ Associates an object with a path
 
 - (`CodeObjects::Base`) — returns +value+
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L55)
 
@@ -5147,6 +7337,7 @@ If it is empty or :root, returns the {#root} object.
 **Returns**:
 
 - (`CodeObjects::Base, nil`) — a code object or nil if none is found
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L69)
@@ -5167,6 +7358,7 @@ Associates an object with a path
 
 - (`CodeObjects::Base`) — returns +value+
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L70)
 
@@ -5182,6 +7374,7 @@ Deletes an object at a given path
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L75)
@@ -5201,6 +7394,7 @@ before a lookup.
 
 - (`Array<Symbol>`) — the path names of all the code objects
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L83)
 
@@ -5219,6 +7413,7 @@ before a lookup.
 
 - (`Array<CodeObjects::Base>`) — all the code objects
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L91)
 
@@ -5233,6 +7428,7 @@ before a lookup.
 
 - (`Array<String>`) — a list of object paths with a given
 {CodeObjects::Base#type}
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L97)
@@ -5249,6 +7445,7 @@ before a lookup.
 - (`Array<CodeObjects::Base>`) — a list of objects with a given
 {CodeObjects::Base#type}
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L106)
 
@@ -5258,6 +7455,7 @@ before a lookup.
 **Returns**:
 
 - (`CodeObjects::RootObject`) — the root object
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L112)
@@ -5273,6 +7471,7 @@ before a lookup.
 
 - (`I18n::Locale`) — the locale object for +name+.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L117)
 
@@ -5286,6 +7485,7 @@ before a lookup.
 **Returns**:
 
 - (`Boolean`) — whether the database was loaded
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L123)
@@ -5304,6 +7504,7 @@ automatically.
 
 - (`Boolean`) — whether the database was loaded
 
+
 **See**:
 - #load_all
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L140)
@@ -5315,6 +7516,7 @@ Loads all cached objects into memory
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L151)
@@ -5335,6 +7537,7 @@ data on disk, otherwise the data on disk is deleted.
 **Returns**:
 
 - (`Boolean`) — whether the database was saved
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L175)
@@ -5366,6 +7569,7 @@ times.
 
 - (`Boolean`) — whether the database is currently locked for writing
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L205)
 
@@ -5384,6 +7588,7 @@ cases where the directory might have been named incorrectly.
 
 - (`Boolean`) — true if the .yardoc database was deleted, false
 otherwise.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_store.rb#L216)
@@ -5440,6 +7645,7 @@ text as a single token. Use '\"' and "\'" to escape quotes and
 
 - (`Array`) — an array representing the tokens
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/core_ext/string.rb#L8)
 
@@ -5475,6 +7681,7 @@ Sets the attribute pair
 
 - (`OptionTag`) — a new instance of OptionTag
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/option_tag.rb#L7)
 
@@ -5503,6 +7710,7 @@ before attempting to use them.
 
 - (`Tag`) — the meta-data tag containing data input to the directive
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/directives.rb#L25)
 
@@ -5512,6 +7720,7 @@ before attempting to use them.
 **Returns**:
 
 - (`Tag`) — the meta-data tag containing data input to the directive
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/directives.rb#L25)
@@ -5529,6 +7738,7 @@ of this directive definition.
 
 - (`nil`) — if no expansion should take place for this directive
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/directives.rb#L34)
 
@@ -5545,6 +7755,7 @@ of this directive definition.
 
 - (`nil`) — if no expansion should take place for this directive
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/directives.rb#L34)
 
@@ -5555,6 +7766,7 @@ of this directive definition.
 
 - (`DocstringParser`) — the parser that is parsing all tag
 information out of the docstring
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/directives.rb#L38)
@@ -5567,6 +7779,7 @@ information out of the docstring
 - (`CodeObjects::Base, nil`) — the object the parent docstring is
 attached to. May be nil.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/directives.rb#L43)
 
@@ -5578,6 +7791,7 @@ attached to. May be nil.
 - (`Handlers::Base, nil`) — the handler object the docstring parser
 might be attached to. May be nil. Only available when parsing
 through {Parser::SourceParser}.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/directives.rb#L49)
@@ -5595,6 +7809,7 @@ through {Parser::SourceParser}.
 **Returns**:
 
 - (`Directive`) — a new instance of Directive
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/directives.rb#L55)
@@ -5624,6 +7839,7 @@ to perform any cleanup after all directives perform their main task.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/directives.rb#L74)
 
@@ -5638,6 +7854,7 @@ group to return to the default listing. Use {tag:!group} to begin a
 group listing.
 
 ### `#call`
+
 
 
 **See**:
@@ -5658,6 +7875,7 @@ If a new class or module is opened after the directive, this directive
 will not apply to methods in that class or module.**
 
 ### `#call`
+
 
 
 **See**:
@@ -5783,10 +8001,12 @@ docstring text.**
 ### `#call; end`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/directives.rb#L360)
 
 ### `#after_parse`
+
 
 
 **See**:
@@ -5803,7 +8023,7 @@ A readwrite attribute is the default, if no type is specified. The comment
 containing this directive does not need to be attached to any source, but
 if it is, that source code will be used as the method's source.
 
-To define an regular method, see {tag:!method}
+To define a regular method, see {tag:!method}
 
 **For backwards compatibility support, you do not need to indent
 the attribute's docstring text. If an +@!attribute+ directive is seen with
@@ -5811,6 +8031,7 @@ no indented block, the entire docstring is used as the new attribute's
 docstring text.**
 
 ### `#after_parse`
+
 
 
 **See**:
@@ -5830,6 +8051,7 @@ specification list. By default, the code language is "ruby".
 ### `#call`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/directives.rb#L531)
 
@@ -5843,6 +8065,7 @@ it is applied only to that object. Otherwise, it applies the scope
 to all future objects in the namespace.
 
 ### `#call`
+
 
 
 **See**:
@@ -5860,6 +8083,7 @@ the visibility to all future objects in the namespace.
 ### `#call`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/directives.rb#L595)
 
@@ -5874,10 +8098,12 @@ the visibility to all future objects in the namespace.
 
 - (`Boolean`) — whether the handler handles this statement
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L10)
 
 ### `.statement_class(type = nil)`
+
 
 
 **See**:
@@ -5886,74 +8112,86 @@ the visibility to all future objects in the namespace.
 ### `#register_docstring(object, docstring = nil, stmt = nil)`
 
 
-**See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L34)
-
-### `#register_file_info(object, file = nil, line = nil, comments = nil)`
-
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L38)
 
-### `#register_source(object, source = nil, type = nil)`
+### `#register_file_info(object, file = nil, line = nil, comments = nil)`
+
 
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L42)
 
-### `#register_visibility(object, visibility = nil)`
+### `#register_source(object, source = nil, type = nil)`
+
 
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L46)
 
-### `#symbols`
+### `#register_visibility(object, visibility = nil)`
+
 
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L52)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L50)
 
-### `#override_comments`
+### `#symbols`
+
 
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L56)
 
-### `#namespace_for_variable(var)`
+### `#override_comments`
+
 
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L60)
 
+### `#namespace_for_variable(var)`
+
+
+
+**See**:
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L64)
+
 ### `#ensure_variable_defined!(var, max_retries = 1)`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L66)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L70)
 
 ### `#namespaces`
 
-
-**See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L83)
-
-### `#processed_files`
 
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L87)
 
-### `#parse_block(opts = {})`
+### `#processed_files`
+
 
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L93)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L91)
+
+### `#parse_block(opts = {})`
+
+
+
+**See**:
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L97)
 
 ### `#process_file(file, object)`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L102)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/base.rb#L106)
 
 ---
 
@@ -5974,6 +8212,7 @@ Returns the value of attribute defaults
 
 - (`DefaultTag`) — a new instance of DefaultTag
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/default_tag.rb#L7)
 
@@ -5984,6 +8223,7 @@ Returns the value of attribute defaults
 Lists all markup types
 
 ### `#description; 'Lists all available markup types and libraries' end`
+
 
 
 **See**:
@@ -6002,6 +8242,7 @@ list of markup types
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/markup_types.rb#L14)
@@ -6030,6 +8271,7 @@ All serializer options are saved so they can be passed to other serializers.
 
 - (`SymbolHash`) — the serializer options
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/base.rb#L21)
 
@@ -6045,6 +8287,7 @@ Creates a new serializer with options
 **Returns**:
 
 - (`Base`) — a new instance of Base
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/base.rb#L28)
@@ -6079,6 +8322,7 @@ The serialized path of an object
 
 - (`String`) — the serialized path of an object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/base.rb#L51)
 
@@ -6095,6 +8339,7 @@ Returns whether an object has been serialized
 
 - (`Boolean`) — whether the endpoint exists.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/base.rb#L62)
 
@@ -6105,6 +8350,7 @@ Called before serialization.
 **Returns**:
 
 - (`Boolean`) — whether or not serialization should occur
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/base.rb#L73)
@@ -6121,6 +8367,7 @@ Called after serialization.
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/base.rb#L80)
@@ -6148,6 +8395,7 @@ parsed, allowing for completely different docstring syntaxes.
 - (`String`) — the parsed text portion of the docstring,
 with tags removed.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L33)
 
@@ -6159,6 +8407,7 @@ with tags removed.
 - (`String`) — the parsed text portion of the docstring,
 with tags removed.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L33)
 
@@ -6169,6 +8418,7 @@ with tags removed.
 
 - (`String`) — the complete input string to the parser.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L36)
 
@@ -6178,6 +8428,7 @@ with tags removed.
 **Returns**:
 
 - (`String`) — the complete input string to the parser.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L36)
@@ -6190,6 +8441,7 @@ with tags removed.
 - (`Array<Tag>`) — the list of meta-data tags identified
 by the parser
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L40)
 
@@ -6200,6 +8452,7 @@ by the parser
 
 - (`Array<Tag>`) — the list of meta-data tags identified
 by the parser
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L40)
@@ -6213,6 +8466,7 @@ by the parser
 by the parser. This list will not be passed on to the
 Docstring object.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L45)
 
@@ -6224,6 +8478,7 @@ Docstring object.
 - (`Array<Directive>`) — a list of directives identified
 by the parser. This list will not be passed on to the
 Docstring object.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L45)
@@ -6238,6 +8493,7 @@ tags during parsing. Mainly used by directives to coordinate
 behaviour (so that directives can be aware of other directives
 used in a docstring).
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L51)
 
@@ -6251,6 +8507,7 @@ tags during parsing. Mainly used by directives to coordinate
 behaviour (so that directives can be aware of other directives
 used in a docstring).
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L51)
 
@@ -6262,6 +8519,7 @@ used in a docstring).
 - (`CodeObjects::Base, nil`) — the object associated with
 the docstring being parsed. May be nil if the docstring is
 not attached to any object.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L56)
@@ -6275,6 +8533,7 @@ not attached to any object.
 the docstring being parsed. May be nil if the docstring is
 not attached to any object.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L56)
 
@@ -6286,6 +8545,7 @@ not attached to any object.
 - (`CodeObjects::Base, nil`) — the object referenced by
 the docstring being parsed. May be nil if the docstring doesn't
 refer to any object.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L61)
@@ -6299,6 +8559,7 @@ refer to any object.
 the docstring being parsed. May be nil if the docstring doesn't
 refer to any object.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L61)
 
@@ -6310,6 +8571,7 @@ refer to any object.
 - (`Handlers::Base, nil`) — the handler parsing this
 docstring. May be nil if this docstring parser is not
 initialized through
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L66)
@@ -6323,6 +8585,7 @@ initialized through
 docstring. May be nil if this docstring parser is not
 initialized through
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L66)
 
@@ -6334,6 +8597,7 @@ initialized through
 - (`Tags::Library`) — the tag library being used to
 identify registered tags in the docstring.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L70)
 
@@ -6344,6 +8608,7 @@ identify registered tags in the docstring.
 
 - (`Tags::Library`) — the tag library being used to
 identify registered tags in the docstring.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L70)
@@ -6362,6 +8627,7 @@ tags.
 
 - (`DocstringParser`) — a new instance of DocstringParser
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L81)
 
@@ -6372,6 +8638,7 @@ tags.
 
 - (`Docstring`) — translates parsed text into
 a Docstring object.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L95)
@@ -6399,6 +8666,7 @@ called from a {Parser::SourceParser} context.
 
 - (`self`) — the parser object. To get the docstring,
 call {#to_docstring}.
+
 
 **See**:
 - #to_docstring
@@ -6430,6 +8698,7 @@ manually configuring a {Docstring} object.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L197)
 
@@ -6451,6 +8720,7 @@ To add an already created tag object, append it to {#tags}.
 
 - (`Tags::Tag, Tags::RefTag`) — a tag
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L210)
 
@@ -6470,6 +8740,7 @@ Creates a new directive using the registered {#library}
 
 - (`Directive`) — the directive object that is created
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L233)
 
@@ -6481,6 +8752,7 @@ as directives in 0.8 and onward.
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L253)
@@ -6495,6 +8767,10 @@ tag data, or add any extra tags automatically to a docstring.
 
 - (`void`) — 
 
+**Yields**:
+
+- (`parser`) — a block to be called after a docstring is parsed
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L267)
 
@@ -6504,6 +8780,7 @@ tag data, or add any extra tags automatically to a docstring.
 **Returns**:
 
 - (`Array<Proc>`) — the {after_parse} callback proc objects
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/docstring_parser.rb#L272)
@@ -6522,6 +8799,7 @@ The name of the task
 
 - (`String`) — the task name
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/rake/yardoc_task.rb#L11)
 
@@ -6532,6 +8810,7 @@ The name of the task
 **Returns**:
 
 - (`String`) — the task name
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/rake/yardoc_task.rb#L11)
@@ -6544,6 +8823,7 @@ Options to pass to {CLI::Yardoc}
 
 - (`Array<String>`) — the options passed to the commandline utility
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/rake/yardoc_task.rb#L15)
 
@@ -6554,6 +8834,7 @@ Options to pass to {CLI::Yardoc}
 **Returns**:
 
 - (`Array<String>`) — the options passed to the commandline utility
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/rake/yardoc_task.rb#L15)
@@ -6566,6 +8847,7 @@ Options to pass to {CLI::Stats}
 
 - (`Array<String>`) — the options passed to the stats utility
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/rake/yardoc_task.rb#L19)
 
@@ -6576,6 +8858,7 @@ Options to pass to {CLI::Stats}
 **Returns**:
 
 - (`Array<String>`) — the options passed to the stats utility
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/rake/yardoc_task.rb#L19)
@@ -6628,6 +8911,7 @@ Runs a +Proc+ before the task
 
 - (`Proc`) — a proc to call before running the task
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/rake/yardoc_task.rb#L32)
 
@@ -6638,6 +8922,7 @@ Runs a +Proc+ before the task
 **Returns**:
 
 - (`Proc`) — a proc to call before running the task
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/rake/yardoc_task.rb#L32)
@@ -6650,6 +8935,7 @@ Runs a +Proc+ after the task
 
 - (`Proc`) — a proc to call after running the task
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/rake/yardoc_task.rb#L36)
 
@@ -6660,6 +8946,7 @@ Runs a +Proc+ after the task
 **Returns**:
 
 - (`Proc`) — a proc to call after running the task
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/rake/yardoc_task.rb#L36)
@@ -6673,6 +8960,7 @@ Runs a +Proc+ after the task
 being generated. Any object that the verifier returns false for will be
 excluded from documentation. This attribute can also be a lambda.
 
+
 **See**:
 - Verifier
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/rake/yardoc_task.rb#L42)
@@ -6685,6 +8973,7 @@ excluded from documentation. This attribute can also be a lambda.
 - (`Verifier, Proc`) — an optional {Verifier} to run against all objects
 being generated. Any object that the verifier returns false for will be
 excluded from documentation. This attribute can also be a lambda.
+
 
 **See**:
 - Verifier
@@ -6702,6 +8991,10 @@ Creates a new task with name +name+.
 **Returns**:
 
 - (`YardocTask`) — a new instance of YardocTask
+
+**Yields**:
+
+- (``) — a block to allow any options to be modified on the task
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/rake/yardoc_task.rb#L50)
@@ -6780,10 +9073,12 @@ Sets the attribute name
 
 - (`RefTagList`) — a new instance of RefTagList
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/ref_tag_list.rb#L7)
 
 ### `#tags`
+
 
 
 **See**:
@@ -6800,16 +9095,19 @@ Sets the attribute name
 
 - (`CParser`) — a new instance of CParser
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/c/c_parser.rb#L6)
 
 ### `#parse`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/c/c_parser.rb#L19)
 
 ### `#enumerator`
+
 
 
 **See**:
@@ -6835,10 +9133,12 @@ list of sections and subsections.
 ### `#name`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/section.rb#L8)
 
 ### `#name=(value)`
+
 
 
 **See**:
@@ -6851,16 +9151,19 @@ list of sections and subsections.
 
 - (`Section`) — a new instance of Section
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/section.rb#L10)
 
 ### `#dup`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/section.rb#L15)
 
 ### `#[](*args)`
+
 
 
 **See**:
@@ -6873,10 +9176,12 @@ list of sections and subsections.
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/section.rb#L32)
 
 ### `#==(other)`
+
 
 
 **See**:
@@ -6885,10 +9190,12 @@ list of sections and subsections.
 ### `#push(*args)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/section.rb#L47)
 
 ### `#push(*args)`
+
 
 
 **See**:
@@ -6897,10 +9204,12 @@ list of sections and subsections.
 ### `#unshift(*args)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/section.rb#L52)
 
 ### `#inspect`
+
 
 
 **See**:
@@ -6909,16 +9218,19 @@ list of sections and subsections.
 ### `#place(*args)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/section.rb#L62)
 
 ### `#to_a`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/section.rb#L66)
 
 ### `#any(item)`
+
 
 
 **See**:
@@ -6945,6 +9257,7 @@ object
 **Returns**:
 
 - (`RegistryResolver`) — a new instance of RegistryResolver
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_resolver.rb#L16)
@@ -6994,7 +9307,7 @@ resolver.lookup_by_math("A::B#foo", inheritance: true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_resolver.rb#L46)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry_resolver.rb#L47)
 
 ---
 
@@ -7031,16 +9344,19 @@ Returns the value of attribute docstring
 
 - (`OverloadTag`) — a new instance of OverloadTag
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/overload_tag.rb#L7)
 
 ### `#tag(name) docstring.tag(name) end`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/overload_tag.rb#L13)
 
 ### `#tags(name = nil) docstring.tags(name) end`
+
 
 
 **See**:
@@ -7053,10 +9369,12 @@ Returns the value of attribute docstring
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/overload_tag.rb#L15)
 
 ### `#object=(value)`
+
 
 
 **See**:
@@ -7065,16 +9383,19 @@ Returns the value of attribute docstring
 ### `#name(prefix = false)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/overload_tag.rb#L23)
 
 ### `#method_missing(*args, &block)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/overload_tag.rb#L28)
 
 ### `#type`
+
 
 
 **See**:
@@ -7087,6 +9408,7 @@ Returns the value of attribute docstring
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/overload_tag.rb#L36)
 
@@ -7096,6 +9418,7 @@ Returns the value of attribute docstring
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/overload_tag.rb#L39)
@@ -7120,6 +9443,7 @@ Creates a new object list associated with a namespace
 
 - (`CodeObjectList`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L11)
 
@@ -7136,6 +9460,7 @@ Adds a new value to the list
 
 - (`CodeObjectList`) — self
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L19)
 
@@ -7151,6 +9476,7 @@ Adds a new value to the list
 **Returns**:
 
 - (`CodeObjectList`) — self
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L28)
@@ -7195,6 +9521,7 @@ The files the object was defined in. To add a file, use {#add_file}.
 
 - (`Array<String>`) — a list of files
 
+
 **See**:
 - #add_file
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L137)
@@ -7208,6 +9535,7 @@ top level namespace, this is {Registry.root}
 
 - (`NamespaceObject`) — the namespace object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L142)
 
@@ -7218,6 +9546,7 @@ The source code associated with the object
 **Returns**:
 
 - (`String, nil`) — source, if present, or nil
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L146)
@@ -7231,6 +9560,7 @@ Language of the source code associated with the object. Defaults to
 
 - (`Symbol`) — the language type
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L152)
 
@@ -7242,6 +9572,7 @@ Language of the source code associated with the object. Defaults to
 **Returns**:
 
 - (`Symbol`) — the language type
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L152)
@@ -7256,6 +9587,7 @@ source line.
 
 - (`String`) — a line of source
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L159)
 
@@ -7269,6 +9601,7 @@ source line.
 
 - (`String`) — a line of source
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L159)
 
@@ -7279,6 +9612,7 @@ The non-localized documentation string associated with the object
 **Returns**:
 
 - (`Docstring`) — the documentation string
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L164)
@@ -7291,6 +9625,7 @@ Marks whether or not the method is conditionally defined at runtime
 
 - (`Boolean`) — true if the method is conditionally defined at runtime
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L170)
 
@@ -7302,6 +9637,7 @@ Marks whether or not the method is conditionally defined at runtime
 
 - (`Boolean`) — true if the method is conditionally defined at runtime
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L170)
 
@@ -7312,6 +9648,7 @@ Marks whether or not the method is conditionally defined at runtime
 
 - (`String`) — the group this object is associated with
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L174)
 
@@ -7321,6 +9658,7 @@ Marks whether or not the method is conditionally defined at runtime
 **Returns**:
 
 - (`String`) — the group this object is associated with
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L174)
@@ -7333,6 +9671,7 @@ Is the object defined conditionally at runtime?
 
 - (`Boolean`) — 
 
+
 **See**:
 - #dynamic
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L178)
@@ -7344,6 +9683,7 @@ Is the object defined conditionally at runtime?
 
 - (`Symbol`) — the visibility of an object (:public, :private, :protected)
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L181)
 
@@ -7353,6 +9693,7 @@ Is the object defined conditionally at runtime?
 **Returns**:
 
 - (`Symbol`) — the visibility of an object (:public, :private, :protected)
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L181)
@@ -7364,6 +9705,10 @@ Allocates a new code object
 **Returns**:
 
 - (`Base`) — 
+
+**Yields**:
+
+- (`obj`) — 
 
 **Raises**:
 
@@ -7386,6 +9731,7 @@ Compares the class with subclasses
 
 - (`Boolean`) — true if other is a subclass of self
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L215)
 
@@ -7406,6 +9752,10 @@ the top level namespace.
 **Returns**:
 
 - (`Base`) — the newly created object
+
+**Yields**:
+
+- (`self`) — a block to perform any extra initialization on the object
 
 **Examples**:
 
@@ -7435,6 +9785,7 @@ uniquely identifying information (path, namespace, name, scope).
 
 - (`Base`) — the other object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L259)
 
@@ -7454,6 +9805,7 @@ this in a subclass to define how the prefix is showed.
 
 - (`String`) — if prefix is true, prefix + the name as a String.
 This must be implemented by the subclass.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L274)
@@ -7476,6 +9828,7 @@ will allow {#file} to return the definition where the comments were made instead
 of any empty definitions that might have been parsed before (module namespaces for instance).
   
 
+
 **Raises**:
 
 - `ArgumentError` 
@@ -7492,6 +9845,7 @@ definitions with docstrings first.
 
 - (`String`) — a filename
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L302)
 
@@ -7504,6 +9858,7 @@ Returns the line the object was first parsed at (or nil)
 - (`Fixnum`) — the line where the object was first defined.
 
 - (`nil`) — if there is no line associated with the object
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L310)
@@ -7522,6 +9877,7 @@ the paths are equal
 
 - (`Boolean`) — whether or not the objects are considered the same
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L318)
 
@@ -7538,6 +9894,7 @@ the paths are equal
 **Returns**:
 
 - (`Boolean`) — whether or not the objects are considered the same
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L325)
@@ -7556,6 +9913,7 @@ the paths are equal
 
 - (`Boolean`) — whether or not the objects are considered the same
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L326)
 
@@ -7566,6 +9924,7 @@ the paths are equal
 
 - (`Integer`) — the object's hash value (for equality checking)
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L329)
 
@@ -7575,6 +9934,7 @@ the paths are equal
 **Returns**:
 
 - (`nil`) — this object does not turn into an array
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L332)
@@ -7591,6 +9951,7 @@ Accesses a custom attribute on the object
 **Returns**:
 
 - (`Object, nil`) — the custom attribute or nil if not found.
+
 
 **See**:
 - #[]=
@@ -7612,11 +9973,13 @@ Sets a custom attribute on the object
 
 - (`void`) — 
 
+
 **See**:
 - #[]
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L351)
 
 ### `#method_missing(meth, *args, &block)`
+
 
 
 **See**:
@@ -7650,6 +10013,7 @@ the locale of the documentation string.
 
 - (`Docstring`) — the documentation string
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L397)
 
@@ -7676,6 +10040,7 @@ Override this method to provide a custom object type
 **Returns**:
 
 - (`Symbol`) — the type of code object this represents
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L429)
@@ -7732,6 +10097,7 @@ when linking or displaying the object.**
 
 - (`String`) — the display title for an object
 
+
 **See**:
 - 0.8.4
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L457)
@@ -7746,6 +10112,7 @@ when linking or displaying the object.**
 **Returns**:
 
 - (`String`) — the shortest relative path from this object to +other+
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L464)
@@ -7789,6 +10156,7 @@ Inspects the object, returning the type and path
 
 - (`String`) — a string describing the object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L502)
 
@@ -7815,6 +10183,7 @@ top level namespace, this is {Registry.root}
 **Returns**:
 
 - (`NamespaceObject`) — the namespace object
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L527)
@@ -7860,6 +10229,7 @@ Tests if the {#docstring} has a tag
 
 - (`Boolean`) — 
 
+
 **See**:
 - Docstring#has_tag?
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L540)
@@ -7880,6 +10250,7 @@ Add tags to the {#docstring}
 
 - (`Boolean`) — whether or not this object is a RootObject
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L551)
 
@@ -7894,6 +10265,7 @@ value to generate the full path in the form: namespace.path + sep + name
 
 - (`String`) — the component that separates the namespace path
 and the name (default is {NSEP})
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/base.rb#L560)
@@ -7917,6 +10289,7 @@ Creates a new extension with a specific matcher value +name+
 **Returns**:
 
 - (`HandlesExtension`) — a new instance of HandlesExtension
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/base.rb#L22)
@@ -7952,6 +10325,7 @@ Tests if the node matches the handler
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/base.rb#L38)
 
@@ -7965,6 +10339,7 @@ Tests if the node matches the handler
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/base.rb#L54)
@@ -8047,10 +10422,12 @@ handles meta_type(:condition)
 - (`Boolean`) — whether or not an {AstNode} object should be
 handled by this handler
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/base.rb#L113)
 
 ### `#parse_block(inner_node, opts = {})`
+
 
 
 **See**:
@@ -8059,10 +10436,12 @@ handled by this handler
 ### `#call_params`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/base.rb#L144)
 
 ### `#caller_method`
+
 
 
 **See**:
@@ -8181,10 +10560,12 @@ Sets the attribute comments_hash_flag
 
 - (`Statement`) — a new instance of Statement
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/c/statement.rb#L16)
 
 ### `#line_range`
+
 
 
 **See**:
@@ -8193,16 +10574,19 @@ Sets the attribute comments_hash_flag
 ### `#comments_range`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/c/statement.rb#L26)
 
 ### `#first_line`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/c/statement.rb#L30)
 
 ### `#show`
+
 
 
 **See**:
@@ -8374,10 +10758,12 @@ Sets the attribute statement
 
 - (`Comment`) — a new instance of Comment
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/c/statement.rb#L56)
 
 ### `#comments; self end`
+
 
 
 **See**:
@@ -8415,6 +10801,7 @@ Registers a new namespace for handlers of the given type.
 
 - (`String`) — the filename
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L41)
 
@@ -8424,6 +10811,7 @@ Registers a new namespace for handlers of the given type.
 **Returns**:
 
 - (`String`) — the filename
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L41)
@@ -8435,6 +10823,7 @@ Registers a new namespace for handlers of the given type.
 
 - (`CodeObjects::NamespaceObject`) — the current namespace
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L44)
 
@@ -8444,6 +10833,7 @@ Registers a new namespace for handlers of the given type.
 **Returns**:
 
 - (`CodeObjects::NamespaceObject`) — the current namespace
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L44)
@@ -8455,6 +10845,7 @@ Registers a new namespace for handlers of the given type.
 
 - (`Symbol`) — the current visibility (public, private, protected)
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L47)
 
@@ -8464,6 +10855,7 @@ Registers a new namespace for handlers of the given type.
 **Returns**:
 
 - (`Symbol`) — the current visibility (public, private, protected)
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L47)
@@ -8475,6 +10867,7 @@ Registers a new namespace for handlers of the given type.
 
 - (`Symbol`) — the current scope (class, instance)
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L50)
 
@@ -8484,6 +10877,7 @@ Registers a new namespace for handlers of the given type.
 **Returns**:
 
 - (`Symbol`) — the current scope (class, instance)
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L50)
@@ -8498,6 +10892,7 @@ is a non-namespace object that should be stored between statements.
 For instance, when parsing a method body, the {CodeObjects::MethodObject}
 is set as the owner, in case any extra method information is processed.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L56)
 
@@ -8511,6 +10906,7 @@ is a non-namespace object that should be stored between statements.
 For instance, when parsing a method body, the {CodeObjects::MethodObject}
 is set as the owner, in case any extra method information is processed.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L56)
 
@@ -8521,6 +10917,7 @@ is set as the owner, in case any extra method information is processed.
 
 - (`Symbol`) — the parser type (:ruby, :ruby18, :c)
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L59)
 
@@ -8530,6 +10927,7 @@ is set as the owner, in case any extra method information is processed.
 **Returns**:
 
 - (`Symbol`) — the parser type (:ruby, :ruby18, :c)
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L59)
@@ -8603,6 +11001,7 @@ you need to save state across files, see {#globals}.
 
 - (`OpenStruct`) — an open structure that can store arbitrary data
 
+
 **See**:
 - #globals
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L88)
@@ -8619,6 +11018,7 @@ you need to save state across files, see {#globals}.
 **Returns**:
 
 - (`OpenStruct`) — an open structure that can store arbitrary data
+
 
 **See**:
 - #globals
@@ -8637,6 +11037,7 @@ Creates a new Processor for a +file+.
 
 - (`Processor`) — a new instance of Processor
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L92)
 
@@ -8654,6 +11055,7 @@ one.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L110)
 
@@ -8666,6 +11068,7 @@ on the current file.
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - Parser::OrderedParser
@@ -8684,6 +11087,7 @@ Searches for all handlers in {Base.subclasses} that match the +statement+
 
 - (`Array<Base>`) — a list of handlers to process the statement with.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/processor.rb#L151)
 
@@ -8700,8 +11104,9 @@ not found, a warning is raised and {ProxyMethodError} might be raised.
 ### `.===(other) other.is_a?(self) end`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L20)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L25)
 
 ### `#namespace`
 
@@ -8709,7 +11114,7 @@ Returns the value of attribute namespace
 
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L22)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L27)
 
 ### `#namespace`
 
@@ -8717,7 +11122,7 @@ Returns the value of attribute namespace
 
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L23)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L28)
 
 ### `#initialize(namespace, name, type = nil)`
 
@@ -8732,7 +11137,7 @@ Creates a new Proxy
 - `ArgumentError` if namespace is not a NamespaceObject
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L29)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L34)
 
 ### `#name(prefix = false)`
 
@@ -8751,8 +11156,9 @@ this in a subclass to define how the prefix is showed.
 - (`String`) — if prefix is true, prefix + the name as a String.
 This must be implemented by the subclass.
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L75)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L80)
 
 ### `#inspect`
 
@@ -8762,8 +11168,9 @@ Returns a text representation of the Proxy
 
 - (`String`) — the object's #inspect method or P(OBJECTPATH)
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L81)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L86)
 
 ### `#path`
 
@@ -8775,47 +11182,51 @@ guesses at the correct path using the original namespace and name.
 - (`String`) — the assumed path of the proxy (or the real path
 of the resolved object)
 
-**See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L90)
-
-### `#path`
-
-If the proxy resolves to an object, returns its path, otherwise
-guesses at the correct path using the original namespace and name.
-
-**Returns**:
-
-- (`String`) — the assumed path of the proxy (or the real path
-of the resolved object)
-
-**See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L93)
-
-### `#path`
-
-If the proxy resolves to an object, returns its path, otherwise
-guesses at the correct path using the original namespace and name.
-
-**Returns**:
-
-- (`String`) — the assumed path of the proxy (or the real path
-of the resolved object)
-
-**See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L94)
-
-### `#path`
-
-If the proxy resolves to an object, returns its path, otherwise
-guesses at the correct path using the original namespace and name.
-
-**Returns**:
-
-- (`String`) — the assumed path of the proxy (or the real path
-of the resolved object)
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L95)
+
+### `#path`
+
+If the proxy resolves to an object, returns its path, otherwise
+guesses at the correct path using the original namespace and name.
+
+**Returns**:
+
+- (`String`) — the assumed path of the proxy (or the real path
+of the resolved object)
+
+
+**See**:
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L98)
+
+### `#path`
+
+If the proxy resolves to an object, returns its path, otherwise
+guesses at the correct path using the original namespace and name.
+
+**Returns**:
+
+- (`String`) — the assumed path of the proxy (or the real path
+of the resolved object)
+
+
+**See**:
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L99)
+
+### `#path`
+
+If the proxy resolves to an object, returns its path, otherwise
+guesses at the correct path using the original namespace and name.
+
+**Returns**:
+
+- (`String`) — the assumed path of the proxy (or the real path
+of the resolved object)
+
+
+**See**:
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L100)
 
 ### `#is_a?(klass)`
 
@@ -8824,8 +11235,9 @@ of the resolved object)
 
 - (`Boolean`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L98)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L103)
 
 ### `#===(other)`
 
@@ -8834,8 +11246,9 @@ of the resolved object)
 
 - (`Boolean`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L103)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L108)
 
 ### `#<=>(other)`
 
@@ -8844,8 +11257,9 @@ of the resolved object)
 
 - (`Boolean`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L108)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L113)
 
 ### `#equal?(other)`
 
@@ -8854,8 +11268,9 @@ of the resolved object)
 
 - (`Boolean`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L117)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L122)
 
 ### `#equal?(other)`
 
@@ -8864,8 +11279,9 @@ of the resolved object)
 
 - (`Boolean`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L124)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L129)
 
 ### `#hash; path.hash end`
 
@@ -8874,8 +11290,9 @@ of the resolved object)
 
 - (`Integer`) — the object's hash value (for equality checking)
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L127)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L132)
 
 ### `#class`
 
@@ -8886,8 +11303,9 @@ resolved. Otherwise returns +Proxy+.
 
 - (`Class`) — the resolved object's class or +Proxy+
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L132)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L137)
 
 ### `#type`
 
@@ -8899,9 +11317,10 @@ time of the call, it will either return the inferred proxy type
 
 - (`Symbol`) — the Proxy's type
 
+
 **See**:
 - #type=
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L141)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L146)
 
 ### `#type=(type) @type = type ? type.to_sym : nil end`
 
@@ -8916,8 +11335,9 @@ Allows a parser to infer the type of the proxy by its path.
 
 - (`void`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L148)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L153)
 
 ### `#instance_of?(klass)`
 
@@ -8926,8 +11346,9 @@ Allows a parser to infer the type of the proxy by its path.
 
 - (`Boolean`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L151)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L156)
 
 ### `#kind_of?(klass)`
 
@@ -8936,8 +11357,9 @@ Allows a parser to infer the type of the proxy by its path.
 
 - (`Boolean`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L156)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L161)
 
 ### `#respond_to?(meth, include_private = false)`
 
@@ -8946,8 +11368,9 @@ Allows a parser to infer the type of the proxy by its path.
 
 - (`Boolean`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L161)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L166)
 
 ### `#method_missing(meth, *args, &block)`
 
@@ -8959,7 +11382,7 @@ Dispatches the method to the resolved object.
 - `ProxyMethodError` if the proxy cannot find the real object
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L168)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L173)
 
 ### `#root?; false end`
 
@@ -8969,8 +11392,9 @@ This class is never a root object
 
 - (`Boolean`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L190)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/proxy.rb#L195)
 
 ---
 
@@ -9000,6 +11424,7 @@ class.
 - (`Hash{Symbol => Command}`) — the mapping of command names to
 command classes to parse the user command.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/command_parser.rb#L27)
 
@@ -9010,6 +11435,7 @@ command classes to parse the user command.
 
 - (`Hash{Symbol => Command}`) — the mapping of command names to
 command classes to parse the user command.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/command_parser.rb#L27)
@@ -9022,6 +11448,7 @@ command classes to parse the user command.
 - (`Symbol`) — the default command name to use when no options
 are specified or
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/command_parser.rb#L31)
 
@@ -9032,6 +11459,7 @@ are specified or
 
 - (`Symbol`) — the default command name to use when no options
 are specified or
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/command_parser.rb#L31)
@@ -9044,6 +11472,7 @@ Convenience method to create a new CommandParser and call {#run}
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/command_parser.rb#L54)
 
@@ -9053,6 +11482,7 @@ Convenience method to create a new CommandParser and call {#run}
 **Returns**:
 
 - (`CommandParser`) — a new instance of CommandParser
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/command_parser.rb#L56)
@@ -9065,6 +11495,7 @@ argument.
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/command_parser.rb#L63)
@@ -9093,6 +11524,7 @@ inserted. To finalize the insertion, call {#before} or
 **Returns**:
 
 - (`Insertion`) — a new instance of Insertion
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/core_ext/insertion.rb#L14)
@@ -9205,6 +11637,7 @@ Extracted messages.
 
 - (`Messages`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/pot_generator.rb#L70)
 
@@ -9225,6 +11658,7 @@ file.
 
 - (`PotGenerator`) — a new instance of PotGenerator
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/pot_generator.rb#L79)
 
@@ -9243,6 +11677,7 @@ into {#messages}
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/pot_generator.rb#L91)
 
@@ -9260,6 +11695,7 @@ of {CodeObjects::ExtraFileObject} objects to be parsed.
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/pot_generator.rb#L103)
@@ -9281,6 +11717,7 @@ translater-comment line that is started with "# ".
 **Returns**:
 
 - (`String`) — POT format string
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/i18n/pot_generator.rb#L122)
@@ -9322,10 +11759,12 @@ See {Adapter#server_options} for a list.
 
 - (`RackMiddleware`) — a new instance of RackMiddleware
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/rack_adapter.rb#L27)
 
 ### `#call(env)`
+
 
 
 **See**:
@@ -9345,6 +11784,7 @@ Responds to Rack requests and builds a response with the {Router}.
 
 - (`Array(Numeric,Hash,Array)`) — the Rack-style response
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/rack_adapter.rb#L49)
 
@@ -9356,6 +11796,7 @@ block.
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/rack_adapter.rb#L62)
@@ -9396,6 +11837,7 @@ consider subclassing the more specific {LibraryCommand} class instead.
 
 - (`Hash`) — the options passed to the command's constructor
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L38)
 
@@ -9405,6 +11847,7 @@ consider subclassing the more specific {LibraryCommand} class instead.
 **Returns**:
 
 - (`Hash`) — the options passed to the command's constructor
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L38)
@@ -9416,6 +11859,7 @@ consider subclassing the more specific {LibraryCommand} class instead.
 
 - (`Adapter`) — the server adapter
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L41)
 
@@ -9425,6 +11869,7 @@ consider subclassing the more specific {LibraryCommand} class instead.
 **Returns**:
 
 - (`Adapter`) — the server adapter
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L41)
@@ -9436,6 +11881,7 @@ consider subclassing the more specific {LibraryCommand} class instead.
 
 - (`Boolean`) — whether to cache
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L44)
 
@@ -9445,6 +11891,7 @@ consider subclassing the more specific {LibraryCommand} class instead.
 **Returns**:
 
 - (`Boolean`) — whether to cache
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L44)
@@ -9456,6 +11903,7 @@ consider subclassing the more specific {LibraryCommand} class instead.
 
 - (`Request`) — request object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L49)
 
@@ -9465,6 +11913,7 @@ consider subclassing the more specific {LibraryCommand} class instead.
 **Returns**:
 
 - (`Request`) — request object
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L49)
@@ -9476,6 +11925,7 @@ consider subclassing the more specific {LibraryCommand} class instead.
 
 - (`String`) — the path after the command base URI
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L52)
 
@@ -9485,6 +11935,7 @@ consider subclassing the more specific {LibraryCommand} class instead.
 **Returns**:
 
 - (`String`) — the path after the command base URI
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L52)
@@ -9496,6 +11947,7 @@ consider subclassing the more specific {LibraryCommand} class instead.
 
 - (`Hash{String => String}`) — response headers
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L55)
 
@@ -9505,6 +11957,7 @@ consider subclassing the more specific {LibraryCommand} class instead.
 **Returns**:
 
 - (`Hash{String => String}`) — response headers
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L55)
@@ -9516,6 +11969,7 @@ consider subclassing the more specific {LibraryCommand} class instead.
 
 - (`Numeric`) — status code. Defaults to 200 per request
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L58)
 
@@ -9525,6 +11979,7 @@ consider subclassing the more specific {LibraryCommand} class instead.
 **Returns**:
 
 - (`Numeric`) — status code. Defaults to 200 per request
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L58)
@@ -9536,6 +11991,7 @@ consider subclassing the more specific {LibraryCommand} class instead.
 
 - (`String`) — the response body. Defaults to empty string.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L61)
 
@@ -9545,6 +12001,7 @@ consider subclassing the more specific {LibraryCommand} class instead.
 **Returns**:
 
 - (`String`) — the response body. Defaults to empty string.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L61)
@@ -9592,6 +12049,7 @@ the callback method {#run} instead.**
 
 - (`Array(Numeric,Hash,Array<String>)`) — a Rack-style response
 of status, headers, and body wrapped in an array.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/base.rb#L89)
@@ -9709,6 +12167,7 @@ Sets the attribute docstring_range
 **Returns**:
 
 - (`String`) — the parse of {#full_source} that the node represents
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L89)
@@ -9835,6 +12294,7 @@ Returns the value of attribute source
 
 - (`Symbol`) — the node's unique symbolic type
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L56)
 
@@ -9844,6 +12304,7 @@ Returns the value of attribute source
 **Returns**:
 
 - (`Symbol`) — the node's unique symbolic type
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L56)
@@ -9855,6 +12316,7 @@ Returns the value of attribute source
 
 - (`AstNode, nil`) — the node's parent or nil if it is a root node.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L59)
 
@@ -9864,6 +12326,7 @@ Returns the value of attribute source
 **Returns**:
 
 - (`AstNode, nil`) — the node's parent or nil if it is a root node.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L59)
@@ -9876,6 +12339,7 @@ Returns the value of attribute source
 - (`Range`) — the character range in {#full_source} represented
 by the node
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L63)
 
@@ -9887,6 +12351,7 @@ by the node
 - (`Range`) — the line range in {#full_source} represented
 by the node
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L70)
 
@@ -9897,6 +12362,7 @@ by the node
 
 - (`String`) — the filename the node was parsed from
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L76)
 
@@ -9906,6 +12372,7 @@ by the node
 **Returns**:
 
 - (`String`) — the full source that the node was parsed from
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L82)
@@ -9923,6 +12390,7 @@ node type
 **Returns**:
 
 - (`Class`) — a subclass of AstNode to instantiate the node with.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L111)
@@ -9970,6 +12438,7 @@ list nodes
 
 - (`AstNode`) — a new instance of AstNode
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L153)
 
@@ -10011,7 +12480,7 @@ ast.jump(:def)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L192)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L193)
 
 ### `#children`
 
@@ -10020,8 +12489,9 @@ ast.jump(:def)
 
 - (`Array<AstNode>`) — the {AstNode} children inside the node
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L198)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L199)
 
 ### `#traverse`
 
@@ -10031,8 +12501,12 @@ Traverses the object and yields each node (including descendants) in order.
 
 - (`void`) — 
 
+**Yields**:
+
+- (``) — each descendant node in order
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L207)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L208)
 
 ### `#token?`
 
@@ -10041,8 +12515,9 @@ Traverses the object and yields each node (including descendants) in order.
 
 - (`Boolean`) — whether the node is a token
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L218)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L219)
 
 ### `#ref?`
 
@@ -10052,8 +12527,9 @@ Traverses the object and yields each node (including descendants) in order.
 - (`Boolean`) — whether the node is a reference (variable,
 constant name)
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L224)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L225)
 
 ### `#literal?`
 
@@ -10062,8 +12538,9 @@ constant name)
 
 - (`Boolean`) — whether the node is a literal value
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L229)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L230)
 
 ### `#kw?`
 
@@ -10072,8 +12549,9 @@ constant name)
 
 - (`Boolean`) — whether the node is a keyword
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L234)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L235)
 
 ### `#call?`
 
@@ -10082,8 +12560,9 @@ constant name)
 
 - (`Boolean`) — whether the node is a method call
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L239)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L240)
 
 ### `#def?`
 
@@ -10092,8 +12571,9 @@ constant name)
 
 - (`Boolean`) — whether the node is a method definition
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L244)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L245)
 
 ### `#condition?`
 
@@ -10102,8 +12582,9 @@ constant name)
 
 - (`Boolean`) — whether the node is a if/elsif/else condition
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L249)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L250)
 
 ### `#loop?`
 
@@ -10112,8 +12593,9 @@ constant name)
 
 - (`Boolean`) — whether the node is a loop
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L254)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L255)
 
 ### `#block?`
 
@@ -10122,8 +12604,9 @@ constant name)
 
 - (`Boolean`) — whether the node has a block
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L259)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L260)
 
 ### `#has_line?`
 
@@ -10132,8 +12615,9 @@ constant name)
 
 - (`Boolean`) — whether the node has a {#line_range} set
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L266)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L267)
 
 ### `#line`
 
@@ -10142,8 +12626,9 @@ constant name)
 
 - (`Fixnum`) — the starting line number of the node
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L271)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L272)
 
 ### `#first_line`
 
@@ -10152,8 +12637,9 @@ constant name)
 
 - (`String`) — the first line of source represented by the node.
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L276)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L277)
 
 ### `#show`
 
@@ -10162,8 +12648,9 @@ constant name)
 
 - (`String`) — the first line of source the node represents
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L283)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L284)
 
 ### `#pretty_print(q)`
 
@@ -10172,8 +12659,9 @@ constant name)
 
 - (`nil`) — pretty prints the node
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L288)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L289)
 
 ### `#inspect`
 
@@ -10182,8 +12670,9 @@ constant name)
 
 - (`String`) — inspects the object
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L321)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L322)
 
 ### `#unfreeze`
 
@@ -10191,7 +12680,7 @@ Resets node state in tree
 
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L329)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L330)
 
 ---
 
@@ -10204,20 +12693,23 @@ Resets node state in tree
 
 - (`Boolean`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L359)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L360)
 
 ### `#path`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L361)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L362)
 
 ### `#namespace`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L365)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L366)
 
 ---
 
@@ -10230,8 +12722,9 @@ Resets node state in tree
 
 - (`Boolean`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L371)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L372)
 
 ---
 
@@ -10244,8 +12737,9 @@ Resets node state in tree
 
 - (`Boolean`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L375)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L376)
 
 ---
 
@@ -10254,44 +12748,51 @@ Resets node state in tree
 ### `#unnamed_required_params`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L379)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L380)
 
 ### `#unnamed_optional_params`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L383)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L384)
 
 ### `#named_params`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L394)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L395)
 
 ### `#splat_param`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L404)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L405)
 
 ### `#unnamed_end_params`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L408)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L409)
 
 ### `#double_splat_param`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L412)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L413)
 
 ### `#block_param`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L417)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L418)
 
 ---
 
@@ -10304,38 +12805,44 @@ Resets node state in tree
 
 - (`Boolean`) — 
 
-**See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L423)
-
-### `#namespace; first if index_adjust > 0 end`
-
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L424)
 
-### `#method_name(name_only = false)`
+### `#namespace; first if index_adjust > 0 end`
+
 
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L426)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L425)
+
+### `#method_name(name_only = false)`
+
+
+
+**See**:
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L427)
 
 ### `#parameters(include_block_param = true)`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L437)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L438)
 
 ### `#block_param; parameters.last end`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L446)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L447)
 
 ### `#block`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L448)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L449)
 
 ---
 
@@ -10348,8 +12855,9 @@ Resets node state in tree
 
 - (`Boolean`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L464)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L465)
 
 ### `#def?; true end`
 
@@ -10358,32 +12866,37 @@ Resets node state in tree
 
 - (`Boolean`) — 
 
-**See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L465)
-
-### `#namespace; first if index_adjust > 0 end`
-
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L466)
 
-### `#method_name(name_only = false)`
+### `#namespace; first if index_adjust > 0 end`
+
 
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L468)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L467)
+
+### `#method_name(name_only = false)`
+
+
+
+**See**:
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L469)
 
 ### `#parameters(include_block_param = true)`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L473)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L474)
 
 ### `#block`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L479)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L480)
 
 ---
 
@@ -10396,26 +12909,30 @@ Resets node state in tree
 
 - (`Boolean`) — 
 
-**See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L489)
-
-### `#condition; first end`
-
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L490)
 
-### `#then_block; self[1] end`
+### `#condition; first end`
+
 
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L491)
 
-### `#else_block`
+### `#then_block; self[1] end`
+
 
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L493)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L492)
+
+### `#else_block`
+
+
+
+**See**:
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L494)
 
 ---
 
@@ -10424,20 +12941,23 @@ Resets node state in tree
 ### `#class_name; first end`
 
 
-**See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L504)
-
-### `#superclass; type == :sclass ? nil : self[1] end`
-
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L505)
 
-### `#block; last end`
+### `#superclass; type == :sclass ? nil : self[1] end`
+
 
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L506)
+
+### `#block; last end`
+
+
+
+**See**:
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L507)
 
 ---
 
@@ -10446,14 +12966,16 @@ Resets node state in tree
 ### `#module_name; first end`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L510)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L511)
 
 ### `#block; last end`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L511)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L512)
 
 ---
 
@@ -10466,20 +12988,23 @@ Resets node state in tree
 
 - (`Boolean`) — 
 
-**See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L515)
-
-### `#condition; type == :for ? s(self[0], self[1]) : first end`
-
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L516)
 
-### `#block; last end`
+### `#condition; type == :for ? s(self[0], self[1]) : first end`
+
 
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L517)
+
+### `#block; last end`
+
+
+
+**See**:
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L518)
 
 ---
 
@@ -10490,32 +13015,37 @@ Represents a lone comment block in source
 ### `#docstring; first end`
 
 
-**See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L522)
-
-### `#docstring=(value) end`
-
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L523)
 
-### `#docstring; first end`
+### `#docstring=(value) end`
+
 
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L524)
 
-### `#source; "" end`
+### `#docstring; first end`
+
 
 
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L526)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L525)
 
-### `#first_line; "" end`
+### `#source; "" end`
+
 
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L527)
+
+### `#first_line; "" end`
+
+
+
+**See**:
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ast_node.rb#L528)
 
 ---
 
@@ -10538,10 +13068,12 @@ if this is set to +true+.
 
 - (`SymbolHash`) — a new instance of SymbolHash
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/core_ext/symbol_hash.rb#L9)
 
 ### `.[](*hsh)`
+
 
 
 **See**:
@@ -10577,6 +13109,7 @@ Accessed a symbolized key
 
 - (`Object`) — the value associated with the key
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/core_ext/symbol_hash.rb#L49)
 
@@ -10592,6 +13125,7 @@ Deleted a key and value associated with it
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/core_ext/symbol_hash.rb#L54)
@@ -10609,6 +13143,7 @@ Tests if a symbolized key exists
 
 - (`Boolean`) — whether the key exists
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/core_ext/symbol_hash.rb#L59)
 
@@ -10624,6 +13159,7 @@ Tests if a symbolized key exists
 **Returns**:
 
 - (`Boolean`) — whether the key exists
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/core_ext/symbol_hash.rb#L60)
@@ -10642,6 +13178,7 @@ This method modifies the original SymbolHash object
 
 - (`SymbolHash`) — self
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/core_ext/symbol_hash.rb#L67)
 
@@ -10659,6 +13196,7 @@ This method modifies the original SymbolHash object
 
 - (`SymbolHash`) — self
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/core_ext/symbol_hash.rb#L68)
 
@@ -10674,6 +13212,7 @@ Merges the contents of another hash into a new SymbolHash object
 **Returns**:
 
 - (`SymbolHash`) — a new SymbolHash containing the merged data
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/core_ext/symbol_hash.rb#L74)
@@ -10698,6 +13237,7 @@ Parses tag text and creates a new tag with descriptive text
 
 - (`Tag`) — a tag object with the tag_name and text values filled
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/default_factory.rb#L13)
 
@@ -10716,6 +13256,7 @@ Parses tag text and creates a new tag with a key name and descriptive text
 **Returns**:
 
 - (`Tag`) — a tag object with the tag_name, name and text values filled
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/default_factory.rb#L22)
@@ -10761,6 +13302,7 @@ name and descriptive text
 
 - (`Tag`) — a tag object with the tag_name, name, types and text values filled
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/default_factory.rb#L45)
 
@@ -10781,10 +13323,12 @@ on the first line and descriptive text
 
 - (`Tag`) — a tag object with the tag_name, name, types and text values filled
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/default_factory.rb#L57)
 
 ### `#parse_tag_with_title_and_text(tag_name, text)`
+
 
 
 **See**:
@@ -10793,10 +13337,12 @@ on the first line and descriptive text
 ### `#parse_tag_with_types_name_and_default(tag_name, text)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/default_factory.rb#L75)
 
 ### `#parse_tag_with_options(tag_name, text)`
+
 
 
 **See**:
@@ -10821,6 +13367,7 @@ if no types are provided or parseable.
 - (`String`) — a plain English description of the associated types
 
 - (`nil`) — if no types are provided or not parseable
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/tags/types_explainer.rb#L9)
@@ -10861,6 +13408,7 @@ Abstract base class for command that reads .yardopts file
 
 - (`Boolean`) — whether to parse options from .yardopts
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardopts_command.rb#L15)
 
@@ -10870,6 +13418,7 @@ Abstract base class for command that reads .yardopts file
 **Returns**:
 
 - (`Boolean`) — whether to parse options from .yardopts
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardopts_command.rb#L15)
@@ -10881,6 +13430,7 @@ Abstract base class for command that reads .yardopts file
 
 - (`Boolean`) — whether to parse options from .document
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardopts_command.rb#L18)
 
@@ -10890,6 +13440,7 @@ Abstract base class for command that reads .yardopts file
 **Returns**:
 
 - (`Boolean`) — whether to parse options from .document
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardopts_command.rb#L18)
@@ -10902,6 +13453,7 @@ The options file name (defaults to {DEFAULT_YARDOPTS_FILE})
 
 - (`String`) — the filename to load extra options from
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardopts_command.rb#L22)
 
@@ -10913,6 +13465,7 @@ The options file name (defaults to {DEFAULT_YARDOPTS_FILE})
 
 - (`String`) — the filename to load extra options from
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardopts_command.rb#L22)
 
@@ -10923,6 +13476,7 @@ Creates a new command that reads .yardopts
 **Returns**:
 
 - (`YardoptsCommand`) — a new instance of YardoptsCommand
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardopts_command.rb#L25)
@@ -10939,6 +13493,7 @@ Parses commandline arguments
 **Returns**:
 
 - (`Boolean`) — whether or not arguments are valid
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/cli/yardopts_command.rb#L36)
@@ -10959,6 +13514,7 @@ parsing for the remainder of files in the list recursively.
 
 - (`Array<String>`) — the list of remaining files to parse
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L23)
 
@@ -10968,6 +13524,7 @@ parsing for the remainder of files in the list recursively.
 **Returns**:
 
 - (`Array<String>`) — the list of remaining files to parse
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L23)
@@ -10992,6 +13549,7 @@ state during parsing
 **Returns**:
 
 - (`OrderedParser`) — a new instance of OrderedParser
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L33)
@@ -11025,10 +13583,12 @@ up to a set of file extensions, call {register_parser_type}
 
 - (`Symbol`) — the default parser type (defaults to :ruby)
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L86)
 
 ### `.parser_type=(value)`
+
 
 
 **See**:
@@ -11055,6 +13615,7 @@ parse
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L100)
 
@@ -11074,6 +13635,7 @@ Parses a string +content+
 
 - (``) — the parser object that was used to parse +content+
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L123)
 
@@ -11092,6 +13654,7 @@ Tokenizes but does not parse the block of code
 **Returns**:
 
 - (`Array`) — a list of tokens
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L132)
@@ -11129,10 +13692,12 @@ SourceParser.register_parser_type :java, JavaParser, 'java'
 ### `.parser_types=(value) @@parser_types = value end`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L158)
 
 ### `.parser_type_extensions=(value) @@parser_type_extensions = value end`
+
 
 
 **See**:
@@ -11147,6 +13712,7 @@ type is found, the default Ruby type is returned.
 
 - (`Symbol`) — the parser type to be used for the extension
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L171)
 
@@ -11159,6 +13725,11 @@ subsequent parse calls.
 **Returns**:
 
 - (`Proc`) — the yielded block
+
+**Yields**:
+
+- (`files, globals`) — the yielded block is called once before
+parsing all files
 
 **Examples**:
 
@@ -11209,6 +13780,11 @@ subsequent parse calls.
 
 - (`Proc`) — the yielded block
 
+**Yields**:
+
+- (`files, globals`) — the yielded block is called once before
+parsing all files
+
 **Examples**:
 
 ```ruby
@@ -11236,6 +13812,12 @@ is processed, see {before_parse_list}.
 **Returns**:
 
 - (`Proc`) — the yielded block
+
+**Yields**:
+
+- (`parser`) — the yielded block is called once before each
+file that is parsed. This might happen many times for a single
+codebase.
 
 **Examples**:
 
@@ -11274,6 +13856,11 @@ is processed, see {after_parse_list}.
 
 - (`Proc`) — the yielded block
 
+**Yields**:
+
+- (`parser`) — the yielded block is called once after each file
+that is parsed. This might happen many times for a single codebase.
+
 **Examples**:
 
 ```ruby
@@ -11299,6 +13886,7 @@ YARD.parse('lib/**/*.rb')
 - (`Array<Proc>`) — the list of callbacks to be called before
 parsing a list of files. Should only be used for testing.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L331)
 
@@ -11309,6 +13897,7 @@ parsing a list of files. Should only be used for testing.
 
 - (`Array<Proc>`) — the list of callbacks to be called after
 parsing a list of files. Should only be used for testing.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L338)
@@ -11321,6 +13910,7 @@ parsing a list of files. Should only be used for testing.
 - (`Array<Proc>`) — the list of callbacks to be called before
 parsing a file. Should only be used for testing.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L345)
 
@@ -11332,6 +13922,7 @@ parsing a file. Should only be used for testing.
 - (`Array<Proc>`) — the list of callbacks to be called after
 parsing a file. Should only be used for testing.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L352)
 
@@ -11342,6 +13933,7 @@ parsing a file. Should only be used for testing.
 
 - (`String`) — the filename being parsed by the parser.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L386)
 
@@ -11351,6 +13943,7 @@ parsing a file. Should only be used for testing.
 **Returns**:
 
 - (`String`) — the filename being parsed by the parser.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L386)
@@ -11363,6 +13956,7 @@ parsing a file. Should only be used for testing.
 - (`Symbol`) — the parser type associated with the parser instance.
 This should be set by the {#initialize constructor}.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L390)
 
@@ -11374,6 +13968,7 @@ This should be set by the {#initialize constructor}.
 - (`OpenStruct`) — an open struct containing arbitrary global state
 shared between files and handlers.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L395)
 
@@ -11384,6 +13979,7 @@ shared between files and handlers.
 
 - (`String`) — the contents of the file to be parsed
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L399)
 
@@ -11393,6 +13989,7 @@ shared between files and handlers.
 **Returns**:
 
 - (`SourceParser`) — a new instance of SourceParser
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L406)
@@ -11411,6 +14008,7 @@ use the class methods {parse} and {parse_string}.
 
 - (`Object, nil`) — the parser object used to parse the source
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L418)
 
@@ -11426,6 +14024,7 @@ Tokenizes but does not parse the block of code using the current {#parser_type}
 **Returns**:
 
 - (`Array`) — a list of tokens
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/source_parser.rb#L462)
@@ -11498,6 +14097,7 @@ methods are optional and can be set manually (via {#source_path=} and
 
 - (`String`) — the name of the library
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L96)
 
@@ -11507,6 +14107,7 @@ methods are optional and can be set manually (via {#source_path=} and
 **Returns**:
 
 - (`String`) — the name of the library
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L96)
@@ -11518,6 +14119,7 @@ methods are optional and can be set manually (via {#source_path=} and
 
 - (`String`) — the version of the specific library
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L99)
 
@@ -11527,6 +14129,7 @@ methods are optional and can be set manually (via {#source_path=} and
 **Returns**:
 
 - (`String`) — the version of the specific library
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L99)
@@ -11543,10 +14146,12 @@ information from.
 - (`nil`) — if no yardoc file exists yet. In this case, {#prepare!} will
 be called on this library to build the yardoc file.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L106)
 
 ### `#yardoc_file=(value)`
+
 
 
 **See**:
@@ -11562,6 +14167,7 @@ loaded from. Defaults are +:disk+ and +:gem+, though custom sources
 may be implemented. This value is used to inform {#prepare!} about how
 to load the necessary data in order to display documentation for an object.
 
+
 **See**:
 - LibraryVersionLibraryVersion documentation for "Implementing a Custom Library Source"
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L116)
@@ -11575,6 +14181,7 @@ to load the necessary data in order to display documentation for an object.
 loaded from. Defaults are +:disk+ and +:gem+, though custom sources
 may be implemented. This value is used to inform {#prepare!} about how
 to load the necessary data in order to display documentation for an object.
+
 
 **See**:
 - LibraryVersionLibraryVersion documentation for "Implementing a Custom Library Source"
@@ -11590,11 +14197,13 @@ value is filled by calling +#source_path_for_SOURCE+ on this class.
 
 - (`nil`) — if there is no source code
 
+
 **See**:
 - LibraryVersionLibraryVersion documentation for "Implementing a Custom Library Source"
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L122)
 
 ### `#source_path=(value)`
+
 
 
 **See**:
@@ -11623,6 +14232,7 @@ Builtin source types are +:disk+ or +:gem+.
 
 - (`LibraryVersion`) — a new instance of LibraryVersion
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L134)
 
@@ -11639,6 +14249,7 @@ readable format.
 
 - (`String`) — the string representation of the library.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L145)
 
@@ -11648,6 +14259,7 @@ readable format.
 **Returns**:
 
 - (`Fixnum`) — used for Hash mapping.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L150)
@@ -11659,6 +14271,7 @@ readable format.
 
 - (`Boolean`) — whether another LibraryVersion is equal to this one
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L153)
 
@@ -11668,6 +14281,7 @@ readable format.
 **Returns**:
 
 - (`Boolean`) — whether another LibraryVersion is equal to this one
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L157)
@@ -11679,6 +14293,7 @@ readable format.
 
 - (`Boolean`) — whether another LibraryVersion is equal to this one
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L158)
 
@@ -11689,6 +14304,7 @@ readable format.
 
 - (`Boolean`) — whether the library has been completely processed
 and is ready to be served
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L162)
@@ -11727,6 +14343,7 @@ for :gem source types.
 
 - (`nil`) — if there is no installed gem for the library
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/library_version.rb#L191)
 
@@ -11754,10 +14371,12 @@ The main WEBrick servlet implementation, accepting only GET requests.
 ### `#adapter`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/webrick_adapter.rb#L21)
 
 ### `#adapter=(value)`
+
 
 
 **See**:
@@ -11769,6 +14388,7 @@ The main WEBrick servlet implementation, accepting only GET requests.
 **Returns**:
 
 - (`WebrickServlet`) — a new instance of WebrickServlet
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/webrick_adapter.rb#L23)
@@ -11786,6 +14406,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/init_handler.rb#L8)
@@ -11835,16 +14456,19 @@ Ruby 1.9 parser
 
 - (`RubyParser`) — a new instance of RubyParser
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ruby_parser.rb#L13)
 
 ### `#parse; @parser.parse end`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ruby_parser.rb#L17)
 
 ### `#tokenize; @parser.tokens end`
+
 
 
 **See**:
@@ -11859,10 +14483,12 @@ Internal parser class
 ### `#ast`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ruby_parser.rb#L28)
 
 ### `#charno`
+
 
 
 **See**:
@@ -11871,10 +14497,12 @@ Internal parser class
 ### `#comments`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ruby_parser.rb#L28)
 
 ### `#file`
+
 
 
 **See**:
@@ -11883,10 +14511,12 @@ Internal parser class
 ### `#tokens`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ruby_parser.rb#L28)
 
 ### `#shebang_line`
+
 
 
 **See**:
@@ -11895,16 +14525,19 @@ Internal parser class
 ### `#encoding_line`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ruby_parser.rb#L29)
 
 ### `#frozen_string_line`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ruby_parser.rb#L29)
 
 ### `#ast`
+
 
 
 **See**:
@@ -11917,26 +14550,30 @@ Internal parser class
 
 - (`RipperParser`) — a new instance of RipperParser
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ruby_parser.rb#L32)
 
 ### `#parse`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ruby_parser.rb#L54)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ruby_parser.rb#L55)
 
 ### `#enumerator`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ruby_parser.rb#L63)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ruby_parser.rb#L64)
 
 ### `#file_encoding`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ruby_parser.rb#L67)
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/ruby_parser.rb#L68)
 
 ---
 
@@ -11949,6 +14586,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/path_handler.rb#L6)
@@ -11965,6 +14603,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/mixin_handler.rb#L7)
 
@@ -11978,10 +14617,12 @@ holds all top level modules, class and other objects).
 ### `#path; @path ||= "" end`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/root_object.rb#L7)
 
 ### `#inspect; @inspect ||= "#<yardoc root>" end`
+
 
 
 **See**:
@@ -11994,10 +14635,12 @@ holds all top level modules, class and other objects).
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/root_object.rb#L9)
 
 ### `#title; 'Top Level Namespace' end`
+
 
 
 **See**:
@@ -12010,10 +14653,12 @@ holds all top level modules, class and other objects).
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/root_object.rb#L12)
 
 ### `#hash; :root.hash end`
+
 
 
 **See**:
@@ -12031,6 +14676,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/alias_handler.rb#L10)
 
@@ -12046,6 +14692,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/class_handler.rb#L19)
 
@@ -12060,6 +14707,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/module_handler.rb#L9)
@@ -12096,6 +14744,7 @@ macro to. If supplied, {#attached?} will be true
 
 - (`MacroObject`) — the newly created object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/macro_object.rb#L40)
 
@@ -12113,6 +14762,7 @@ Finds a macro using +macro_name+
 - (`MacroObject`) — if a macro is found
 
 - (`nil`) — if there is no registered macro by that name
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/macro_object.rb#L51)
@@ -12145,6 +14795,7 @@ on whether the @!macro tag was a new tag or not.
 - (`nil`) — if the +data+ has no macro tag or if the macro is
 not new and no macro by the macro name is found.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/macro_object.rb#L71)
 
@@ -12175,6 +14826,7 @@ on whether the @!macro tag was a new tag or not.
 
 - (`nil`) — if the +data+ has no macro tag or if the macro is
 not new and no macro by the macro name is found.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/macro_object.rb#L74)
@@ -12225,6 +14877,7 @@ interpolating the block data as a variable.
 
 - (`String`) — the expanded macro data
 
+
 **See**:
 - find_or_create
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/macro_object.rb#L120)
@@ -12256,6 +14909,7 @@ interpolating the block data as a variable.
 
 - (`String`) — the expanded macro data
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/macro_object.rb#L136)
 
@@ -12266,6 +14920,7 @@ interpolating the block data as a variable.
 
 - (`String`) — the macro data stored on the object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/macro_object.rb#L142)
 
@@ -12275,6 +14930,7 @@ interpolating the block data as a variable.
 **Returns**:
 
 - (`String`) — the macro data stored on the object
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/macro_object.rb#L142)
@@ -12287,6 +14943,7 @@ interpolating the block data as a variable.
 - (`CodeObjects::Base`) — the method object that this macro is
 attached to.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/macro_object.rb#L146)
 
@@ -12298,6 +14955,7 @@ attached to.
 - (`CodeObjects::Base`) — the method object that this macro is
 attached to.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/macro_object.rb#L146)
 
@@ -12307,6 +14965,7 @@ attached to.
 **Returns**:
 
 - (`Boolean`) — whether this macro is attached to a method
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/macro_object.rb#L149)
@@ -12370,6 +15029,7 @@ handler, subclass this class.
 - (`Boolean`) — whether or not a {Parser::Ruby::Legacy::Statement} object should be handled
 by this handler.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/base.rb#L15)
 
@@ -12396,10 +15056,12 @@ duration of the block.
 ### `#call_params`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/base.rb#L44)
 
 ### `#caller_method`
+
 
 
 **See**:
@@ -12419,6 +15081,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/dsl_handler.rb#L11)
 
@@ -12433,6 +15096,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/method_handler.rb#L22)
@@ -12451,6 +15115,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/symbol_handler.rb#L7)
 
@@ -12465,6 +15130,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/struct_handler.rb#L8)
@@ -12484,6 +15150,7 @@ The {ClassObject} that this class object inherits from in Ruby source.
 
 - (`ClassObject`) — a class object that is the superclass of this one
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/class_object.rb#L10)
 
@@ -12494,6 +15161,7 @@ Creates a new class object in +namespace+ with +name+
 **Returns**:
 
 - (`ClassObject`) — a new instance of ClassObject
+
 
 **See**:
 - Base.new
@@ -12506,6 +15174,7 @@ Whether or not the class is a Ruby Exception
 **Returns**:
 
 - (`Boolean`) — whether the object represents a Ruby exception
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/class_object.rb#L35)
@@ -12524,6 +15193,7 @@ inheritance tree.
 
 - (`Array<NamespaceObject>`) — the list of code objects that make up
 the inheritance tree.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/class_object.rb#L45)
@@ -12546,6 +15216,7 @@ included in the list
 
 - (`Array<MethodObject>`) — the list of methods that matched
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/class_object.rb#L66)
 
@@ -12556,6 +15227,7 @@ Returns only the methods that were inherited.
 **Returns**:
 
 - (`Array<MethodObject>`) — the list of inherited method objects
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/class_object.rb#L79)
@@ -12577,6 +15249,7 @@ included in the list
 
 - (`Array<ConstantObject>`) — the list of constant that matched
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/class_object.rb#L101)
 
@@ -12587,6 +15260,7 @@ Returns only the constants that were inherited.
 **Returns**:
 
 - (`Array<ConstantObject>`) — the list of inherited constant objects
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/class_object.rb#L109)
@@ -12603,6 +15277,7 @@ Sets the superclass of the object
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/class_object.rb#L125)
@@ -12626,6 +15301,7 @@ modules (which is likely what is wanted).
 **Returns**:
 
 - (`Array<NamespaceObject>`) — a list of namespace objects
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/module_object.rb#L12)
@@ -12693,6 +15369,7 @@ end
 ### `.state_attr(*attrs)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/token_resolver.rb#L91)
 
@@ -12710,6 +15387,7 @@ The scope of the method (+:class+ or +:instance+)
 
 - (`Symbol`) — the scope
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L11)
 
@@ -12722,6 +15400,7 @@ inferred and therefore not explicitly defined in source.
 **Returns**:
 
 - (`Boolean`) — whether the object is explicitly defined in source.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L18)
@@ -12736,6 +15415,7 @@ inferred and therefore not explicitly defined in source.
 
 - (`Boolean`) — whether the object is explicitly defined in source.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L18)
 
@@ -12749,6 +15429,7 @@ with their default values.
 - (`Array<Array(String, String)>`) — a list of parameter names followed
 by their default values (or nil)
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L25)
 
@@ -12761,6 +15442,7 @@ with their default values.
 
 - (`Array<Array(String, String)>`) — a list of parameter names followed
 by their default values (or nil)
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L25)
@@ -12789,6 +15471,7 @@ as a private +:instance+ method on the same class or module.
 
 - (`MethodObject`) — a new instance of MethodObject
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L37)
 
@@ -12812,6 +15495,7 @@ Changes the scope of an object from :instance or :class
 
 - (`Boolean`) — whether or not the method is the #initialize constructor method
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L78)
 
@@ -12822,6 +15506,7 @@ Changes the scope of an object from :instance or :class
 
 - (`Boolean`) — whether or not this method was created as a module
 function
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L85)
@@ -12836,6 +15521,7 @@ Returns the read/writer info for the attribute if it is one
 
 - (`nil`) — if the method is not an attribute
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L93)
 
@@ -12846,6 +15532,7 @@ Returns the read/writer info for the attribute if it is one
 
 - (`Boolean`) — whether the method is a writer attribute
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L100)
 
@@ -12855,6 +15542,7 @@ Returns the read/writer info for the attribute if it is one
 **Returns**:
 
 - (`Boolean`) — whether the method is a reader attribute
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L107)
@@ -12867,6 +15555,7 @@ Tests if the object is defined as an attribute in the namespace
 
 - (`Boolean`) — whether the object is an attribute
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L114)
 
@@ -12878,6 +15567,7 @@ Tests if the object is defined as an alias of another method
 
 - (`Boolean`) — whether the object is an alias
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L126)
 
@@ -12888,6 +15578,7 @@ Tests boolean {#explicit} value.
 **Returns**:
 
 - (`Boolean`) — whether the method is explicitly defined in source
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L134)
@@ -12901,6 +15592,7 @@ Tests boolean {#explicit} value.
 
 - (`nil`) — if it does not override a method
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L141)
 
@@ -12911,6 +15603,7 @@ Returns all alias names of the object
 **Returns**:
 
 - (`Array<Symbol>`) — the alias names
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L149)
@@ -12923,6 +15616,7 @@ Override path handling for instance methods in the root namespace
 **Returns**:
 
 - (`String`) — the path of a method
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L161)
@@ -12965,6 +15659,7 @@ methods.
 
 - (`String`) — "#" for an instance method, "." for class
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/method_object.rb#L182)
 
@@ -12982,6 +15677,7 @@ options specific to generation of HTML output, see {CLI::YardocOptions}.
 
 - (`Symbol`) — the template output format
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L12)
 
@@ -12991,6 +15687,7 @@ options specific to generation of HTML output, see {CLI::YardocOptions}.
 **Returns**:
 
 - (`Symbol`) — the template output format
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L12)
@@ -13002,6 +15699,7 @@ options specific to generation of HTML output, see {CLI::YardocOptions}.
 
 - (`Symbol`) — the template name used to render output
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L15)
 
@@ -13011,6 +15709,7 @@ options specific to generation of HTML output, see {CLI::YardocOptions}.
 **Returns**:
 
 - (`Symbol`) — the template name used to render output
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L15)
@@ -13022,6 +15721,7 @@ options specific to generation of HTML output, see {CLI::YardocOptions}.
 
 - (`Symbol`) — the markup format to use when parsing docstrings
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L18)
 
@@ -13031,6 +15731,7 @@ options specific to generation of HTML output, see {CLI::YardocOptions}.
 **Returns**:
 
 - (`Symbol`) — the markup format to use when parsing docstrings
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L18)
@@ -13042,6 +15743,7 @@ options specific to generation of HTML output, see {CLI::YardocOptions}.
 
 - (`String`) — the default return type for a method with no return tags
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L21)
 
@@ -13051,6 +15753,7 @@ options specific to generation of HTML output, see {CLI::YardocOptions}.
 **Returns**:
 
 - (`String`) — the default return type for a method with no return tags
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L21)
@@ -13062,6 +15765,7 @@ options specific to generation of HTML output, see {CLI::YardocOptions}.
 
 - (`Boolean`) — whether void methods should show "void" in their signature
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L24)
 
@@ -13071,6 +15775,7 @@ options specific to generation of HTML output, see {CLI::YardocOptions}.
 **Returns**:
 
 - (`Boolean`) — whether void methods should show "void" in their signature
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L24)
@@ -13082,6 +15787,7 @@ options specific to generation of HTML output, see {CLI::YardocOptions}.
 
 - (`Boolean`) — whether code blocks should be syntax highlighted
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L27)
 
@@ -13091,6 +15797,7 @@ options specific to generation of HTML output, see {CLI::YardocOptions}.
 **Returns**:
 
 - (`Boolean`) — whether code blocks should be syntax highlighted
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L27)
@@ -13102,6 +15809,7 @@ options specific to generation of HTML output, see {CLI::YardocOptions}.
 
 - (`Class`) — the markup provider class for the markup format
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L30)
 
@@ -13111,6 +15819,7 @@ options specific to generation of HTML output, see {CLI::YardocOptions}.
 **Returns**:
 
 - (`Class`) — the markup provider class for the markup format
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L30)
@@ -13122,6 +15831,7 @@ options specific to generation of HTML output, see {CLI::YardocOptions}.
 
 - (`OpenStruct`) — an open struct containing any global state across all
 generated objects in a template.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L34)
@@ -13134,6 +15844,7 @@ generated objects in a template.
 - (`OpenStruct`) — an open struct containing any global state across all
 generated objects in a template.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L34)
 
@@ -13145,6 +15856,7 @@ generated objects in a template.
 - (`OpenStruct`) — an open struct containing any global state across all
 generated objects in a template.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L35)
 
@@ -13154,6 +15866,7 @@ generated objects in a template.
 **Returns**:
 
 - (`CodeObjects::Base`) — the main object being generated in the template
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L38)
@@ -13165,6 +15878,7 @@ generated objects in a template.
 
 - (`CodeObjects::Base`) — the main object being generated in the template
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L38)
 
@@ -13174,6 +15888,7 @@ generated objects in a template.
 **Returns**:
 
 - (`CodeObjects::Base`) — the owner of the generated object
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L41)
@@ -13185,6 +15900,7 @@ generated objects in a template.
 
 - (`CodeObjects::Base`) — the owner of the generated object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L41)
 
@@ -13194,6 +15910,7 @@ generated objects in a template.
 **Returns**:
 
 - (`Symbol`) — the template type used to generate output
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L44)
@@ -13205,6 +15922,7 @@ generated objects in a template.
 
 - (`Symbol`) — the template type used to generate output
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L44)
 
@@ -13215,6 +15933,7 @@ generated objects in a template.
 
 - (`Boolean`) — whether serialization should be performed
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L47)
 
@@ -13224,6 +15943,7 @@ generated objects in a template.
 **Returns**:
 
 - (`Boolean`) — whether serialization should be performed
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L47)
@@ -13236,6 +15956,7 @@ generated objects in a template.
 - (`Serializers::Base`) — the serializer used to generate links and serialize
 output. Serialization output only occurs if {#serialize} is +true+.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L51)
 
@@ -13246,6 +15967,7 @@ output. Serialization output only occurs if {#serialize} is +true+.
 
 - (`Serializers::Base`) — the serializer used to generate links and serialize
 output. Serialization output only occurs if {#serialize} is +true+.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L51)
@@ -13258,10 +15980,12 @@ output. Serialization output only occurs if {#serialize} is +true+.
 
 - (`Boolean`) — whether highlighting should be ignored
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L55)
 
 ### `#no_highlight=(value) self.highlight = !value end`
+
 
 
 **See**:
@@ -13274,6 +15998,7 @@ output. Serialization output only occurs if {#serialize} is +true+.
 
 - (`String`) — the title of a given page
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L61)
 
@@ -13283,6 +16008,7 @@ output. Serialization output only occurs if {#serialize} is +true+.
 **Returns**:
 
 - (`String`) — the title of a given page
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L61)
@@ -13294,6 +16020,7 @@ output. Serialization output only occurs if {#serialize} is +true+.
 
 - (`Boolean`) — whether the page is the "index"
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L64)
 
@@ -13303,6 +16030,7 @@ output. Serialization output only occurs if {#serialize} is +true+.
 **Returns**:
 
 - (`Boolean`) — whether the page is the "index"
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L64)
@@ -13359,6 +16087,7 @@ nil unless the object is a module.
 
 - (`nil`) — if the mixin is not a module object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L78)
 
@@ -13369,6 +16098,7 @@ nil unless the object is a module.
 
 - (`Verifier`) — the verifier object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L89)
 
@@ -13378,6 +16108,7 @@ nil unless the object is a module.
 **Returns**:
 
 - (`Verifier`) — the verifier object
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template_options.rb#L89)
@@ -13393,6 +16124,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/constant_handler.rb#L8)
@@ -13411,6 +16143,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/alias_handler.rb#L7)
 
@@ -13427,6 +16160,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/yield_handler.rb#L6)
@@ -13445,6 +16179,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/class_handler.rb#L8)
 
@@ -13462,6 +16197,7 @@ Represents a token in the Ruby lexer
 - (`Integer`) — the line number in the file/stream the token is
 located.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/ruby_lex.rb#L20)
 
@@ -13473,6 +16209,7 @@ located.
 - (`Integer`) — the character number in the file/stream the token
 is located.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/ruby_lex.rb#L24)
 
@@ -13482,6 +16219,7 @@ is located.
 **Returns**:
 
 - (`String`) — the token text value
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/ruby_lex.rb#L27)
@@ -13493,6 +16231,7 @@ is located.
 
 - (`Symbol`) — the lexical state at the token
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/ruby_lex.rb#L30)
 
@@ -13502,6 +16241,7 @@ is located.
 **Returns**:
 
 - (`Symbol`) — the lexical state at the token
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/ruby_lex.rb#L30)
@@ -13522,6 +16262,7 @@ Creates a new Token object
 
 - (`Token`) — a new instance of Token
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/ruby_lex.rb#L38)
 
@@ -13538,6 +16279,7 @@ Chainable way to sets the text attribute
 
 - (`Token`) — this token object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/ruby_lex.rb#L48)
 
@@ -13550,6 +16292,7 @@ Represents a block
 ### `#text; '...' end`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/ruby_lex.rb#L56)
 
@@ -13560,6 +16303,7 @@ Represents a block
 Represents an end statement
 
 ### `#text; '' end`
+
 
 
 **See**:
@@ -13590,6 +16334,7 @@ Represents a Ruby identifier
 
 - (`TkId`) — a new instance of TkId
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/ruby_lex.rb#L74)
 
@@ -13614,6 +16359,7 @@ Represents a Ruby value
 
 - (`TkVal`) — a new instance of TkVal
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/ruby_lex.rb#L87)
 
@@ -13622,6 +16368,7 @@ Represents a Ruby value
 ## `class YARD::Parser::Ruby::Legacy::RubyToken::TkOp`
 
 ### `#name`
+
 
 
 **See**:
@@ -13637,6 +16384,7 @@ Represents a Ruby value
 **Returns**:
 
 - (`TkOPASGN`) — a new instance of TkOPASGN
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/ruby_lex.rb#L100)
@@ -13659,6 +16407,7 @@ Returns the value of attribute op
 **Returns**:
 
 - (`TkUnknownChar`) — a new instance of TkUnknownChar
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/ruby_lex.rb#L109)
@@ -13685,6 +16434,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/mixin_handler.rb#L7)
 
@@ -13695,6 +16445,7 @@ Main processing callback
 Returns a list of objects of a specific type
 
 ### `#run`
+
 
 
 **See**:
@@ -13714,16 +16465,19 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/method_handler.rb#L6)
 
 ### `#format_args`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/method_handler.rb#L74)
 
 ### `#method_signature`
+
 
 
 **See**:
@@ -13743,6 +16497,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/module_handler.rb#L7)
 
@@ -13757,6 +16512,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/attribute_handler.rb#L6)
@@ -13856,10 +16612,12 @@ Sets the attribute comments_hash_flag
 
 - (`Statement`) — a new instance of Statement
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/statement.rb#L14)
 
 ### `#first_line`
+
 
 
 **See**:
@@ -13868,10 +16626,12 @@ Sets the attribute comments_hash_flag
 ### `#to_s(include_block = true)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/statement.rb#L25)
 
 ### `#to_s(include_block = true)`
+
 
 
 **See**:
@@ -13880,10 +16640,12 @@ Sets the attribute comments_hash_flag
 ### `#inspect`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/statement.rb#L32)
 
 ### `#show`
+
 
 
 **See**:
@@ -13896,6 +16658,7 @@ Sets the attribute comments_hash_flag
 
 - (`Fixnum`) — the first line of Ruby source
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/statement.rb#L44)
 
@@ -13905,6 +16668,7 @@ Sets the attribute comments_hash_flag
 **Returns**:
 
 - (`Range<Fixnum>`) — the first to last lines of Ruby source
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/statement.rb#L50)
@@ -13924,10 +16688,12 @@ The source code representing the constant's value
 
 - (`String`) — the value the constant is set to
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/constant_object.rb#L10)
 
 ### `#value=(value)`
+
 
 
 **See**:
@@ -13947,10 +16713,12 @@ static relative paths to files on disk.
 
 - (`DocServerSerializer`) — a new instance of DocServerSerializer
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/doc_server_serializer.rb#L7)
 
 ### `#serialized_path(object)`
+
 
 
 **See**:
@@ -13963,6 +16731,7 @@ static relative paths to files on disk.
 Handles 'extend' call to include modules into the class scope of another
 
 ### `#scope; :class end`
+
 
 
 **See**:
@@ -13979,10 +16748,12 @@ Handles 'extend' call to include modules into the class scope of another
 
 - (`TokenList`) — a new instance of TokenList
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/token_list.rb#L7)
 
 ### `#to_s(full_statement = false, show_block = true)`
+
 
 
 **See**:
@@ -14015,6 +16786,7 @@ is parsed with {RubyLex}.
 ### `#squeeze(type = TkSPACE)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/token_list.rb#L37)
 
@@ -14032,6 +16804,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/comment_handler.rb#L7)
 
@@ -14046,10 +16819,12 @@ Main processing callback
 
 - (`YardocSerializer`) — a new instance of YardocSerializer
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/yardoc_serializer.rb#L33)
 
 ### `#objects_path; File.join(basepath, 'objects') end`
+
 
 
 **See**:
@@ -14066,10 +16841,12 @@ Main processing callback
 ### `#checksums_path; File.join(basepath, 'checksums') end`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/yardoc_serializer.rb#L40)
 
 ### `#object_types_path; File.join(basepath, 'object_types') end`
+
 
 
 **See**:
@@ -14078,10 +16855,12 @@ Main processing callback
 ### `#complete_lock_path; File.join(basepath, 'complete') end`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/yardoc_serializer.rb#L42)
 
 ### `#processing_path; File.join(basepath, 'processing') end`
+
 
 
 **See**:
@@ -14093,6 +16872,7 @@ Main processing callback
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/yardoc_serializer.rb#L45)
@@ -14115,10 +16895,12 @@ times.
 
 - (`Boolean`) — whether the database is currently locked for writing
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/yardoc_serializer.rb#L62)
 
 ### `#serialized_path(object)`
+
 
 
 **See**:
@@ -14127,10 +16909,12 @@ times.
 ### `#serialize(object)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/yardoc_serializer.rb#L93)
 
 ### `#deserialize(path, is_path = false)`
+
 
 
 **See**:
@@ -14155,6 +16939,7 @@ columns, otherwise no wrapping is done.
 **Returns**:
 
 - (`StdoutSerializer`) — a new instance of StdoutSerializer
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/stdout_serializer.rb#L10)
@@ -14182,6 +16967,7 @@ The two main Ruby objects that can act as namespaces are modules
 
 - (`Array<String>`) — a list of ordered group names inside the namespace
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_object.rb#L12)
 
@@ -14191,6 +16977,7 @@ The two main Ruby objects that can act as namespaces are modules
 **Returns**:
 
 - (`Array<String>`) — a list of ordered group names inside the namespace
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_object.rb#L12)
@@ -14202,6 +16989,7 @@ The list of objects defined in this namespace
 **Returns**:
 
 - (`Array<Base>`) — a list of objects
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_object.rb#L16)
@@ -14248,6 +17036,7 @@ a hash of objects and their alias names.
 
 - (`Hash`) — a list of methods
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_object.rb#L44)
 
@@ -14258,6 +17047,7 @@ Class mixins
 **Returns**:
 
 - (`Array<ModuleObject>`) — a list of mixins
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_object.rb#L48)
@@ -14270,6 +17060,7 @@ Instance mixins
 
 - (`Array<ModuleObject>`) — a list of mixins
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_object.rb#L52)
 
@@ -14280,6 +17071,7 @@ Creates a new namespace object inside +namespace+ with +name+.
 **Returns**:
 
 - (`NamespaceObject`) — a new instance of NamespaceObject
+
 
 **See**:
 - Base#initialize
@@ -14293,6 +17085,7 @@ Only the class attributes
 
 - (`Hash`) — a list of method names and their read/write objects
 
+
 **See**:
 - #attributes
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_object.rb#L69)
@@ -14304,6 +17097,7 @@ Only the instance attributes
 **Returns**:
 
 - (`Hash`) — a list of method names and their read/write objects
+
 
 **See**:
 - #attributes
@@ -14394,6 +17188,7 @@ mixed in constants in list
 
 - (`Array<ConstantObject>`) — a list of constant objects
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_object.rb#L164)
 
@@ -14405,6 +17200,7 @@ Returns constants included from any mixins
 
 - (`Array<ConstantObject>`) — a list of constant objects
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_object.rb#L172)
 
@@ -14415,6 +17211,7 @@ Returns class variables defined in this namespace.
 **Returns**:
 
 - (`Array<ClassVariableObject>`) — a list of class variable objects
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_object.rb#L186)
@@ -14433,6 +17230,7 @@ return mixins for. If this is empty, all scopes will be returned.
 
 - (`Array<ModuleObject>`) — a list of mixins
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_object.rb#L194)
 
@@ -14446,10 +17244,12 @@ the results as HTML or plaintext
 ### `#results`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/search_command.rb#L12)
 
 ### `#results=(value)`
+
 
 
 **See**:
@@ -14458,10 +17258,12 @@ the results as HTML or plaintext
 ### `#query`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/search_command.rb#L12)
 
 ### `#query=(value)`
+
 
 
 **See**:
@@ -14470,10 +17272,12 @@ the results as HTML or plaintext
 ### `#run`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/search_command.rb#L14)
 
 ### `#visible_results`
+
 
 
 **See**:
@@ -14486,6 +17290,7 @@ the results as HTML or plaintext
 Displays an object wrapped in frames
 
 ### `#run`
+
 
 
 **See**:
@@ -14504,6 +17309,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/constant_handler.rb#L8)
@@ -14575,6 +17381,7 @@ Sets the attribute name
 ### `#locale`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/extra_file_object.rb#L12)
 
@@ -14595,6 +17402,7 @@ will be read from disk using the +filename+.
 
 - (`ExtraFileObject`) — a new instance of ExtraFileObject
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/extra_file_object.rb#L18)
 
@@ -14609,10 +17417,12 @@ Returns the value of attribute name
 ### `#attributes`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/extra_file_object.rb#L30)
 
 ### `#title`
+
 
 
 **See**:
@@ -14621,10 +17431,12 @@ Returns the value of attribute name
 ### `#contents`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/extra_file_object.rb#L39)
 
 ### `#contents=(contents)`
+
 
 
 **See**:
@@ -14641,10 +17453,12 @@ Returns the value of attribute name
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/extra_file_object.rb#L52)
 
 ### `#inspect`
+
 
 
 **See**:
@@ -14653,10 +17467,12 @@ Returns the value of attribute name
 ### `#inspect`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/extra_file_object.rb#L60)
 
 ### `#type; :extra_file end`
+
 
 
 **See**:
@@ -14665,10 +17481,12 @@ Returns the value of attribute name
 ### `#==(other)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/extra_file_object.rb#L64)
 
 ### `#==(other)`
+
 
 
 **See**:
@@ -14677,10 +17495,12 @@ Returns the value of attribute name
 ### `#==(other)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/extra_file_object.rb#L69)
 
 ### `#hash; filename.hash end`
+
 
 
 **See**:
@@ -14704,6 +17524,7 @@ Creates a new ProcessSerializer for the shell command +cmd+
 **Returns**:
 
 - (`ProcessSerializer`) — a new instance of ProcessSerializer
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/process_serializer.rb#L13)
@@ -14730,10 +17551,12 @@ Legacy Ruby parser
 
 - (`RubyParser`) — a new instance of RubyParser
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/ruby_parser.rb#L9)
 
 ### `#parse`
+
 
 
 **See**:
@@ -14742,10 +17565,12 @@ Legacy Ruby parser
 ### `#tokenize`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/ruby_parser.rb#L18)
 
 ### `#enumerator`
+
 
 
 **See**:
@@ -14754,10 +17579,12 @@ Legacy Ruby parser
 ### `#encoding_line; @parse.encoding_line end`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/ruby_parser.rb#L26)
 
 ### `#shebang_line; @parse.shebang_line end`
+
 
 
 **See**:
@@ -14777,6 +17604,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/attribute_handler.rb#L10)
 
@@ -14794,6 +17622,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/exception_handler.rb#L6)
 
@@ -14804,10 +17633,12 @@ Main processing callback
 ### `#adapter; @command.adapter end`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L8)
 
 ### `#library; @command.library end`
+
 
 
 **See**:
@@ -14816,10 +17647,12 @@ Main processing callback
 ### `#single_library; @command.single_library end`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L10)
 
 ### `#serializer; @command.serializer end`
+
 
 
 **See**:
@@ -14828,10 +17661,12 @@ Main processing callback
 ### `#serialize; false end`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L12)
 
 ### `#command`
+
 
 
 **See**:
@@ -14840,10 +17675,12 @@ Main processing callback
 ### `#command=(value)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L14)
 
 ### `#frames`
+
 
 
 **See**:
@@ -14852,11 +17689,16 @@ Main processing callback
 ### `#frames=(value)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L15)
 
 ### `#each(&block)`
 
+
+**Yields**:
+
+- (`:adapter, adapter`) — 
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L17)
@@ -14877,6 +17719,7 @@ See {Base} for notes on how to subclass a command.
 
 - (`LibraryVersion`) — the object containing library information
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L41)
 
@@ -14886,6 +17729,7 @@ See {Base} for notes on how to subclass a command.
 **Returns**:
 
 - (`LibraryVersion`) — the object containing library information
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L41)
@@ -14897,6 +17741,7 @@ See {Base} for notes on how to subclass a command.
 
 - (`LibraryOptions`) — default options for the library
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L44)
 
@@ -14906,6 +17751,7 @@ See {Base} for notes on how to subclass a command.
 **Returns**:
 
 - (`LibraryOptions`) — default options for the library
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L44)
@@ -14917,6 +17763,7 @@ See {Base} for notes on how to subclass a command.
 
 - (`Serializers::Base`) — the serializer used to perform file linking
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L47)
 
@@ -14926,6 +17773,7 @@ See {Base} for notes on how to subclass a command.
 **Returns**:
 
 - (`Serializers::Base`) — the serializer used to perform file linking
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L47)
@@ -14937,6 +17785,7 @@ See {Base} for notes on how to subclass a command.
 
 - (`Boolean`) — whether router should route for multiple libraries
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L50)
 
@@ -14946,6 +17795,7 @@ See {Base} for notes on how to subclass a command.
 **Returns**:
 
 - (`Boolean`) — whether router should route for multiple libraries
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L50)
@@ -14957,6 +17807,7 @@ See {Base} for notes on how to subclass a command.
 
 - (`Boolean`) — whether to reparse data
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L53)
 
@@ -14966,6 +17817,7 @@ See {Base} for notes on how to subclass a command.
 **Returns**:
 
 - (`Boolean`) — whether to reparse data
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L53)
@@ -14978,6 +17830,7 @@ See {Base} for notes on how to subclass a command.
 - (`Boolean`) — whether or not this adapter calls +fork+ when serving
 library requests. Defaults to false.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L57)
 
@@ -14989,6 +17842,7 @@ library requests. Defaults to false.
 - (`Boolean`) — whether or not this adapter calls +fork+ when serving
 library requests. Defaults to false.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L57)
 
@@ -14999,10 +17853,12 @@ library requests. Defaults to false.
 
 - (`LibraryCommand`) — a new instance of LibraryCommand
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_command.rb#L63)
 
 ### `#call(request)`
+
 
 
 **See**:
@@ -15022,6 +17878,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/visibility_handler.rb#L11)
 
@@ -15038,6 +17895,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/dsl_handler.rb#L12)
@@ -15101,6 +17959,7 @@ Creates a new statement list
 
 - (`StatementList`) — a new instance of StatementList
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/parser/ruby/legacy/statement_list.rb#L17)
 
@@ -15117,6 +17976,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/class_handler.rb#L8)
@@ -15135,6 +17995,7 @@ in the form "A::B::@@classvariable"
 
 - (`String`) — the class variable's value
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/class_variable_object.rb#L9)
 
@@ -15144,6 +18005,7 @@ in the form "A::B::@@classvariable"
 **Returns**:
 
 - (`String`) — the class variable's value
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/class_variable_object.rb#L9)
@@ -15162,6 +18024,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/yield_handler.rb#L6)
 
@@ -15178,6 +18041,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/mixin_handler.rb#L7)
@@ -15196,6 +18060,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/alias_handler.rb#L7)
 
@@ -15213,10 +18078,12 @@ The base path to write data to.
 
 - (`String`) — a base path
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/file_system_serializer.rb#L8)
 
 ### `#basepath=(value)`
+
 
 
 **See**:
@@ -15230,10 +18097,12 @@ The extension of the filename (defaults to +html+)
 
 - (`String`) — the extension of the file. Empty string for no extension.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/file_system_serializer.rb#L17)
 
 ### `#extension=(value)`
+
 
 
 **See**:
@@ -15255,6 +18124,7 @@ path filename. If this is set to the empty string, no extension is used.
 
 - (`FileSystemSerializer`) — a new instance of FileSystemSerializer
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/file_system_serializer.rb#L28)
 
@@ -15265,6 +18135,7 @@ Serializes object with data to its serialized path (prefixed by the +#basepath+)
 **Returns**:
 
 - (`String`) — the written data (for chaining)
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/file_system_serializer.rb#L38)
@@ -15283,6 +18154,7 @@ Implements the serialized path of a code object.
 - (`String`) — if object is a String, returns
 object, otherwise the path on disk (without the basepath).
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/file_system_serializer.rb#L50)
 
@@ -15298,6 +18170,7 @@ Checks the disk for an object and returns whether it was serialized.
 **Returns**:
 
 - (`Boolean`) — whether an object has been serialized to disk
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/serializers/file_system_serializer.rb#L71)
@@ -15316,16 +18189,19 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/override_comment_handler.rb#L7)
 
 ### `#register_docstring(object, docstring = statement.source, stmt = statement)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/override_comment_handler.rb#L24)
 
 ### `#register_file_info(object, file = parser.file, line = statement.line, comments = statement.comments)`
+
 
 
 **See**:
@@ -15345,6 +18221,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/module_handler.rb#L7)
 
@@ -15355,6 +18232,7 @@ Main processing callback
 Handles 'extend' call to include modules into the class scope of another
 
 ### `#scope; :class end`
+
 
 
 **See**:
@@ -15374,6 +18252,7 @@ scope of another namespace.
 
 - (`Symbol`) — always +:class+
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/extended_method_object.rb#L11)
 
@@ -15390,6 +18269,7 @@ class method on another namespace.
 **Returns**:
 
 - (`ExtendedMethodObject`) — a new instance of ExtendedMethodObject
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/extended_method_object.rb#L17)
@@ -15418,6 +18298,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/method_handler.rb#L6)
 
@@ -15428,6 +18309,7 @@ Main processing callback
 Serves static content when no other router matches a request
 
 ### `#run`
+
 
 
 **See**:
@@ -15442,10 +18324,12 @@ Displays a README or extra file.
 ### `#index`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/display_file_command.rb#L9)
 
 ### `#index=(value)`
+
 
 
 **See**:
@@ -15474,6 +18358,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/comment_handler.rb#L7)
@@ -15510,10 +18395,12 @@ Sets the attribute from_path
 
 - (`RDocMarkup`) — a new instance of RDocMarkup
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/markup/rdoc_markup.rb#L41)
 
 ### `#to_html`
+
 
 
 **See**:
@@ -15555,6 +18442,7 @@ Disable auto-link of URLs
 ### `#accept_paragraph(*args)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/markup/rdoc_markup.rb#L99)
 
@@ -15565,6 +18453,7 @@ Disable auto-link of URLs
 Serves requests from the root of the server
 
 ### `#run`
+
 
 
 **See**:
@@ -15584,6 +18473,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/class_variable_handler.rb#L7)
 
@@ -15601,6 +18491,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/class_condition_handler.rb#L16)
@@ -15620,6 +18511,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/module_function_handler.rb#L8)
 
@@ -15630,10 +18522,12 @@ Main processing callback
 ### `#adapter`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_index_command.rb#L6)
 
 ### `#adapter=(value)`
+
 
 
 **See**:
@@ -15642,10 +18536,12 @@ Main processing callback
 ### `#libraries`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_index_command.rb#L6)
 
 ### `#libraries=(value)`
+
 
 
 **See**:
@@ -15654,10 +18550,12 @@ Main processing callback
 ### `#template`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_index_command.rb#L7)
 
 ### `#template=(value)`
+
 
 
 **See**:
@@ -15666,10 +18564,12 @@ Main processing callback
 ### `#type`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_index_command.rb#L8)
 
 ### `#type=(value)`
+
 
 
 **See**:
@@ -15678,10 +18578,12 @@ Main processing callback
 ### `#serialize`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_index_command.rb#L9)
 
 ### `#serialize=(value)`
+
 
 
 **See**:
@@ -15696,16 +18598,19 @@ Returns the index of libraries served by the server.
 ### `#options`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_index_command.rb#L14)
 
 ### `#options=(value)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/library_index_command.rb#L14)
 
 ### `#run`
+
 
 
 **See**:
@@ -15725,6 +18630,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/constant_handler.rb#L9)
 
@@ -15741,6 +18647,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/method_condition_handler.rb#L6)
@@ -15759,6 +18666,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/private_constant_handler.rb#L10)
 
@@ -15771,16 +18679,19 @@ Displays documentation for a specific object identified by the path
 ### `#run`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/display_object_command.rb#L9)
 
 ### `#index`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/display_object_command.rb#L36)
 
 ### `#not_found`
+
 
 
 **See**:
@@ -15800,6 +18711,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/attribute_handler.rb#L7)
 
@@ -15814,10 +18726,12 @@ Main processing callback
 
 - (`RDocMarkdown`) — a new instance of RDocMarkdown
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/markup/rdoc_markdown.rb#L14)
 
 ### `#fix_typewriter(html) html end`
+
 
 
 **See**:
@@ -15837,6 +18751,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/exception_handler.rb#L6)
 
@@ -15853,6 +18768,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/visibility_handler.rb#L7)
@@ -15871,6 +18787,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/public_class_method_handler.rb#L9)
 
@@ -15888,6 +18805,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/private_class_method_handler.rb#L9)
 
@@ -15904,6 +18822,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/class_variable_handler.rb#L8)
@@ -15923,6 +18842,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/class_condition_handler.rb#L8)
 
@@ -15941,6 +18861,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/module_function_handler.rb#L7)
 
@@ -15958,6 +18879,7 @@ Main processing callback
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/private_constant_handler.rb#L7)
 
@@ -15974,6 +18896,7 @@ Main processing callback
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/legacy/private_class_method_handler.rb#L7)
@@ -16026,6 +18949,7 @@ after YARD is loaded to allow plugin support.
 
 - (`Boolean`) — true if all plugins loaded successfully, false otherwise.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard.rb#L31)
 
@@ -16035,6 +18959,7 @@ after YARD is loaded to allow plugin support.
 **Returns**:
 
 - (`Boolean`) — whether YARD is being run inside of Windows
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard.rb#L34)
@@ -16046,6 +18971,7 @@ after YARD is loaded to allow plugin support.
 
 - (`Boolean`) — whether YARD is being run in Ruby 1.8 mode
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard.rb#L44)
 
@@ -16056,6 +18982,7 @@ after YARD is loaded to allow plugin support.
 
 - (`Boolean`) — whether YARD is being run in Ruby 1.9 mode
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard.rb#L47)
 
@@ -16065,6 +18992,7 @@ after YARD is loaded to allow plugin support.
 **Returns**:
 
 - (`Boolean`) — whether YARD is being run in Ruby 2.0
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard.rb#L50)
@@ -16094,6 +19022,7 @@ Registers a static path to be used in static asset lookup.
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server.rb#L8)
@@ -16145,6 +19074,7 @@ existing location associated with the gem's .yardoc file.
 - (`nil`) — if +for_writing+ is set to false and no yardoc file
 is found, returns nil.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L53)
 
@@ -16155,6 +19085,7 @@ Gets/sets the yardoc filename
 **Returns**:
 
 - (`String`) — the yardoc filename
+
 
 **See**:
 - DEFAULT_YARDOC_FILE
@@ -16167,6 +19098,7 @@ Gets/sets the yardoc filename
 **Returns**:
 
 - (`String`) — the yardoc filename
+
 
 **See**:
 - DEFAULT_YARDOC_FILE
@@ -16223,6 +19155,7 @@ Loads a yardoc file directly
 
 - (`Registry`) — the registry object (for chaining)
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L130)
 
@@ -16239,6 +19172,7 @@ memory. Equivalent to calling {load_yardoc} followed by {load_all}
 **Returns**:
 
 - (`Registry`) — the registry object (for chaining)
+
 
 **See**:
 - #load_yardoc
@@ -16278,6 +19212,7 @@ Saves the registry to +file+
 
 - (`Boolean`) — true if the file was saved
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L170)
 
@@ -16288,6 +19223,7 @@ Deletes the yardoc file from disk
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L176)
@@ -16305,6 +19241,7 @@ Registers a new object with the registry
 
 - (`CodeObjects::Base`) — the registered object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L186)
 
@@ -16321,6 +19258,7 @@ Deletes an object from the registry
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L194)
 
@@ -16331,6 +19269,7 @@ Clears the registry
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L200)
@@ -16352,6 +19291,7 @@ times.
 **Returns**:
 
 - (`Boolean`) — whether the database is currently locked for writing
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L214)
@@ -16407,6 +19347,7 @@ Returns the paths of all of the objects in the registry.
 
 - (`Array<String>`) — all of the paths in the registry.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L252)
 
@@ -16425,6 +19366,7 @@ returns the {root} object.
 - (`CodeObjects::Base`) — the object at path
 
 - (`nil`) — if no object is found
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L261)
@@ -16445,6 +19387,7 @@ returns the {root} object.
 
 - (`nil`) — if no object is found
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L262)
 
@@ -16455,6 +19398,7 @@ The root namespace object.
 **Returns**:
 
 - (`CodeObjects::RootObject`) — the root object in the namespace
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L266)
@@ -16469,6 +19413,7 @@ The root namespace object.
 **Returns**:
 
 - (`I18n::Locale`) — the locale object for +name+.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L271)
@@ -16542,6 +19487,7 @@ Registry.resolve(P('A::B'), 'B::D') # => #<yardoc class A::B::D>
 
 - (`Hash{String => String}`) — a set of checksums for files
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L312)
 
@@ -16555,6 +19501,7 @@ Registry.resolve(P('A::B'), 'B::D') # => #<yardoc class A::B::D>
 **Returns**:
 
 - (`String`) — the SHA1 checksum for data
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L318)
@@ -16573,6 +19520,7 @@ the {RegistryStore storage adapter}.**
 - (`Boolean, nil`) — if this value is set to nil, the storage
 adapter will decide how to store the data.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L332)
 
@@ -16590,6 +19538,7 @@ the {RegistryStore storage adapter}.**
 - (`Boolean, nil`) — if this value is set to nil, the storage
 adapter will decide how to store the data.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L332)
 
@@ -16601,6 +19550,7 @@ Gets/sets the directory that has LANG.po files
 
 - (`String`) — the directory that has .po files
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L349)
 
@@ -16611,6 +19561,7 @@ Gets/sets the directory that has LANG.po files
 **Returns**:
 
 - (`String`) — the directory that has .po files
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L349)
@@ -16624,6 +19575,7 @@ The registry singleton instance.
 **Returns**:
 
 - (`Registry`) — returns the registry instance
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/registry.rb#L363)
@@ -16662,8 +19614,23 @@ s(:command, s(:var_ref, "mymethod"))
 ### `.find_all_by_name(*args)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/gem_index.rb#L9)
+
+### `.each(&block)`
+
+
+
+**See**:
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/gem_index.rb#L17)
+
+### `.all`
+
+
+
+**See**:
+- [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/gem_index.rb#L25)
 
 ---
 
@@ -16708,6 +19675,7 @@ objects.
 
 - (`Array<String>`) — the list of registered template paths
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/engine.rb#L15)
 
@@ -16717,6 +19685,7 @@ objects.
 **Returns**:
 
 - (`Array<String>`) — the list of registered template paths
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/engine.rb#L15)
@@ -16733,6 +19702,7 @@ Registers a new template path in {template_paths}
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/engine.rb#L21)
@@ -16777,6 +19747,7 @@ Forces creation of a template at +path+ within a +full_path+.
 **Returns**:
 
 - (`Template`) — the template module representing the +path+
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/engine.rb#L53)
@@ -16835,6 +19806,7 @@ objects to pass to the template
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/engine.rb#L101)
 
@@ -16850,6 +19822,9 @@ Serializes the results of a block with a +serializer+ object.
 - `serializer` (`Serializers::Base`) — the serializer object
   
 
+**Yields**:
+
+- (``) — a block whose result will be serialize
 
 **See**:
 - Serializers::Base
@@ -16981,10 +19956,12 @@ Includes the {extra_includes} modules into the template object.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template.rb#L38)
 
 ### `#initialize(opts = TemplateOptions.new)`
+
 
 
 **See**:
@@ -17004,6 +19981,7 @@ to the path respectively.
 **Returns**:
 
 - (`Template`) — the loaded template module
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template.rb#L202)
@@ -17082,6 +20060,10 @@ not be called directly. Instead, call the class method {ClassMethods#run}
 
 - (`String`) — the rendered sections joined together
 
+**Yields**:
+
+- (`opts`) — calls for the subsections to be rendered
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template.rb#L250)
 
@@ -17108,6 +20090,10 @@ Yields all subsections with any extra options
 **Returns**:
 
 - (`String`) — the contents of the ERB rendered section
+
+**Yields**:
+
+- (``) — calls subsections to be rendered
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template.rb#L283)
@@ -17164,16 +20150,19 @@ Calls the ERB file from the last inherited template with {#section}.erb
 - (`String`) — the rendered ERB file in any of the inherited template
 paths.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template.rb#L328)
 
 ### `#options=(value)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template.rb#L335)
 
 ### `#inspect`
+
 
 
 **See**:
@@ -17234,6 +20223,7 @@ after this method is called; call {#reset_full_paths} to reset cache.**
 
 - (`Array<String>`) — a list of full paths
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template.rb#L65)
 
@@ -17246,6 +20236,7 @@ Resets cache for {#full_paths}
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template.rb#L77)
 
 ### `#initialize(path, full_paths)`
+
 
 
 **See**:
@@ -17266,6 +20257,7 @@ path as well as any mixed in template paths. Equivalent to calling
 
 - (`String`) — the full path of a file on disk with filename
 +basename+ in one of the template's paths.
+
 
 **See**:
 - find_nth_file
@@ -17289,6 +20281,7 @@ by basename in the template's path and any mixed in template paths.
 - (`String`) — the full path of the nth file on disk with
 filename +basename+ in one of the template paths
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template.rb#L109)
 
@@ -17298,6 +20291,7 @@ filename +basename+ in one of the template paths
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template.rb#L122)
@@ -17311,6 +20305,7 @@ Creates a new template object to be rendered with {Template#run}
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/template.rb#L128)
 
 ### `#run(*args)`
+
 
 
 **See**:
@@ -17340,10 +20335,12 @@ Alias for creating a {Section} with arguments
 ### `.method_for(filename)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/erb_cache.rb#L6)
 
 ### `.clear!`
+
 
 
 **See**:
@@ -17421,6 +20418,7 @@ of a disk location.
 
 - (`String`) — the URL location of the object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/doc_server_helper.rb#L11)
 
@@ -17441,6 +20439,7 @@ of a disk location.
 
 - (`String`) — the URL pointing to the file
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/doc_server_helper.rb#L24)
 
@@ -17458,6 +20457,7 @@ based on the list prefix instead of a HTML filename.
 
 - (`String`) — the URL pointing to the list
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/doc_server_helper.rb#L37)
 
@@ -17468,6 +20468,7 @@ Returns the frames URL for the page
 **Returns**:
 
 - (`String`) — the URL pointing to the frames page
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/doc_server_helper.rb#L43)
@@ -17481,6 +20482,7 @@ Returns the main URL, first checking a readme and then linking to the index
 - (`String`) — the URL pointing to the first main page the
 user should see.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/doc_server_helper.rb#L49)
 
@@ -17492,6 +20494,7 @@ Returns the URL for the alphabetic index page
 
 - (`String`) — the URL pointing to the first main page the
 user should see.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/doc_server_helper.rb#L55)
@@ -17506,6 +20509,7 @@ user should see.
 **Returns**:
 
 - (`String`) — the absolute path from any mounted base URI.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/doc_server_helper.rb#L61)
@@ -17537,6 +20541,7 @@ base_path('docs') # => 'docs/foo'
 
 - (`Router`) — convenience method for accessing the router
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/doc_server_helper.rb#L75)
 
@@ -17546,6 +20551,7 @@ base_path('docs') # => 'docs/foo'
 **Returns**:
 
 - (`String`) — a timestamp for a given file
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/doc_server_helper.rb#L78)
@@ -17557,6 +20563,7 @@ base_path('docs') # => 'docs/foo'
 
 - (`String`) — a URL for a file with a timestamp
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/doc_server_helper.rb#L84)
 
@@ -17567,10 +20574,12 @@ base_path('docs') # => 'docs/foo'
 ### `#handle_class(var_name, class_name, parent, in_module = nil)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/handler_methods.rb#L9)
 
 ### `#handle_module(var_name, module_name, in_module = nil)`
+
 
 
 **See**:
@@ -17579,10 +20588,12 @@ base_path('docs') # => 'docs/foo'
 ### `#handle_method(scope, var_name, name, func_name, _source_file = nil)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/handler_methods.rb#L45)
 
 ### `#handle_attribute(var_name, name, read, write)`
+
 
 
 **See**:
@@ -17591,10 +20602,12 @@ base_path('docs') # => 'docs/foo'
 ### `#handle_alias(var_name, new_name, old_name)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/c/handler_methods.rb#L85)
 
 ### `#handle_constants(type, var_name, const_name, value)`
+
 
 
 **See**:
@@ -17619,6 +20632,7 @@ Official UML visibility prefix syntax for an object given its visibility
 
 - (`String`) — the UML visibility prefix
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/uml_helper.rb#L9)
 
@@ -17634,6 +20648,7 @@ Formats the path of an object for Graphviz syntax
 **Returns**:
 
 - (`String`) — the encoded path
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/uml_helper.rb#L20)
@@ -17651,6 +20666,7 @@ Encodes text in escaped Graphviz syntax
 
 - (`String`) — the encoded text
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/uml_helper.rb#L27)
 
@@ -17666,6 +20682,7 @@ Tidies data by formatting and indenting text
 **Returns**:
 
 - (`String`) — tidied text.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/uml_helper.rb#L34)
@@ -17683,6 +20700,7 @@ Helper methods for text template formats.
 
 - (`String`) — escapes text
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/text_helper.rb#L8)
 
@@ -17692,6 +20710,7 @@ Helper methods for text template formats.
 **Returns**:
 
 - (`String`) — wraps text at +col+ columns.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/text_helper.rb#L24)
@@ -17703,6 +20722,7 @@ Helper methods for text template formats.
 
 - (`String`) — indents +text+ by +len+ characters.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/text_helper.rb#L29)
 
@@ -17712,6 +20732,7 @@ Helper methods for text template formats.
 **Returns**:
 
 - (`String`) — aligns a title to the right
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/text_helper.rb#L34)
@@ -17723,6 +20744,7 @@ Helper methods for text template formats.
 
 - (`String`) — aligns text to the right
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/text_helper.rb#L39)
 
@@ -17733,6 +20755,7 @@ Helper methods for text template formats.
 
 - (`String`) — returns a horizontal rule for output
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/text_helper.rb#L45)
 
@@ -17742,6 +20765,7 @@ Helper methods for text template formats.
 **Returns**:
 
 - (`String`) — the formatted signature for a method
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/text_helper.rb#L50)
@@ -17788,6 +20812,7 @@ Clears the map of separators.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_mapper.rb#L38)
 
@@ -17818,6 +20843,7 @@ default_separator "::"
 
 - (`Array<String>`) — all of the registered separators
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_mapper.rb#L62)
 
@@ -17827,6 +20853,7 @@ default_separator "::"
 **Returns**:
 
 - (`Regexp`) — the regexp match of all separators
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_mapper.rb#L67)
@@ -17842,6 +20869,7 @@ default_separator "::"
 
 - (`Array<Symbol>`) — a list of types registered to a separator
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_mapper.rb#L73)
 
@@ -17855,6 +20883,7 @@ default_separator "::"
 **Returns**:
 
 - (`Array<Symbol>`) — a list of separators registered to a type
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/code_objects/namespace_mapper.rb#L79)
@@ -17915,6 +20944,7 @@ Sets the attribute serializer
 - (`CodeObjects::Base`) — the object representing the current generated
 page. Might not be the current {#object} when inside sub-templates.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/base_helper.rb#L9)
 
@@ -17926,6 +20956,7 @@ rendering process (including any sub-templates).
 **Returns**:
 
 - (`OpenStruct`) — a struct object that stores state
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/base_helper.rb#L20)
@@ -17944,6 +20975,7 @@ template and returns the subset of verified objects.
 
 - (`Array<CodeObjects::Base>`) — a list of code objects that match
 the verifier. If no verifier is supplied, all objects are returned.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/base_helper.rb#L30)
@@ -17997,6 +21029,7 @@ Includes an object's docstring into output.
 
 - (`String`) — the object's docstring (no tags)
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/base_helper.rb#L105)
 
@@ -18012,6 +21045,7 @@ Include a file as a docstring in output
 **Returns**:
 
 - (`String`) — the file's contents
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/base_helper.rb#L113)
@@ -18031,6 +21065,7 @@ Links to an object with an optional title
 **Returns**:
 
 - (`String`) — the linked object
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/base_helper.rb#L122)
@@ -18054,6 +21089,7 @@ Links to a URL
 
 - (`String`) — the linked URL
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/base_helper.rb#L141)
 
@@ -18075,6 +21111,7 @@ Links to an extra file
 **Returns**:
 
 - (`String`) — the link to the file
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/base_helper.rb#L152)
@@ -18170,6 +21207,7 @@ Indents and formats source code
 
 - (`String`) — formatted source code
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/base_helper.rb#L209)
 
@@ -18192,6 +21230,7 @@ Escapes HTML entities
 
 - (`String`) — the HTML with escaped entities
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L20)
 
@@ -18207,6 +21246,7 @@ Escapes a URL
 **Returns**:
 
 - (`String`) — the escaped URL
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L28)
@@ -18228,6 +21268,7 @@ To add a custom markup type, see {MarkupHelper}
 
 - (`String`) — the HTML
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L54)
 
@@ -18243,6 +21284,7 @@ Converts Markdown to HTML
 **Returns**:
 
 - (`String`) — output HTML
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L75)
@@ -18260,6 +21302,7 @@ Converts Asciidoc to HTML
 
 - (`String`) — output HTML
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L92)
 
@@ -18275,6 +21318,7 @@ Converts Textile to HTML
 **Returns**:
 
 - (`String`) — output HTML
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L100)
@@ -18292,6 +21336,7 @@ Converts plaintext to strict Textile (hard breaks)
 
 - (`String`) — the output HTML
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L110)
 
@@ -18307,6 +21352,7 @@ Converts RDoc formatting (SimpleMarkup) to HTML
 **Returns**:
 
 - (`String`) — output HTML
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L118)
@@ -18324,6 +21370,7 @@ Converts plaintext to pre-formatted HTML
 
 - (`String`) — the output HTML
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L128)
 
@@ -18340,6 +21387,7 @@ Converts plaintext to regular HTML
 
 - (`String`) — the output HTML
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L136)
 
@@ -18349,6 +21397,7 @@ Converts plaintext to regular HTML
 **Returns**:
 
 - (`String`) — the same text with no markup
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L142)
@@ -18365,6 +21414,7 @@ Converts HTML to HTML
 **Returns**:
 
 - (`String`) — output HTML
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L150)
@@ -18384,6 +21434,7 @@ set to "ruby".
 
 - (`String`) — the highlighted HTML
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L161)
 
@@ -18393,6 +21444,7 @@ set to "ruby".
 **Returns**:
 
 - (`String`) — HTMLified text as a single line (paragraphs removed)
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L166)
@@ -18417,6 +21469,7 @@ Syntax highlights +source+ in language +type+.
 
 - (`String`) — the highlighted source
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L181)
 
@@ -18426,6 +21479,7 @@ Syntax highlights +source+ in language +type+.
 **Returns**:
 
 - (`String`) — unhighlighted source
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L192)
@@ -18476,6 +21530,7 @@ Links to an extra file
 
 - (`String`) — the link to the file
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L252)
 
@@ -18492,6 +21547,7 @@ Include a file as a docstring in output
 
 - (`String`) — the file's contents
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L264)
 
@@ -18507,6 +21563,7 @@ Includes an object's docstring into output.
 **Returns**:
 
 - (`String`) — the object's docstring (no tags)
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L273)
@@ -18535,6 +21592,7 @@ Links to an object with an optional title
 
 - (`String`) — the linked object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L283)
 
@@ -18557,6 +21615,7 @@ Links to a URL
 
 - (`String`) — the linked URL
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L311)
 
@@ -18570,6 +21629,7 @@ Links to a URL
 **Returns**:
 
 - (`String`) — the anchor for a specific object
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L326)
@@ -18593,6 +21653,7 @@ Returns the URL for an object.
 
 - (`String`) — the URL location of the object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L347)
 
@@ -18615,10 +21676,12 @@ Returns the URL for an object.
 
 - (`String`) — the URL location of the object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L378)
 
 ### `#mtime(_file) nil end`
+
 
 
 **See**:
@@ -18640,6 +21703,7 @@ Returns the URL for a specific file
 
 - (`String`) — the URL pointing to the file
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L386)
 
@@ -18656,6 +21720,7 @@ Returns the URL for a list type
 
 - (`String`) — the URL pointing to the list
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L405)
 
@@ -18666,6 +21731,7 @@ Returns the URL for the frameset page
 **Returns**:
 
 - (`String`) — the URL pointing to the frames page
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L413)
@@ -18679,6 +21745,7 @@ Returns the URL for the main page (README or alphabetic index)
 - (`String`) — the URL pointing to the first main page the
 user should see.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L421)
 
@@ -18691,6 +21758,7 @@ Returns the URL for the alphabetic index page
 - (`String`) — the URL pointing to the first main page the
 user should see.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L429)
 
@@ -18701,6 +21769,7 @@ Formats a list of objects and links them
 **Returns**:
 
 - (`String`) — a formatted list of objects
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L437)
@@ -18724,6 +21793,7 @@ brackets if +brackets+ is set to +false+.
 as [Type1, Type2, ...] with the types linked
 to their respective descriptions.
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L455)
 
@@ -18742,6 +21812,7 @@ Get the return types for a method signature.
 **Returns**:
 
 - (`String`) — the signature types
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L471)
@@ -18770,6 +21841,7 @@ the signature of
 
 - (`String`) — the formatted method signature
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L508)
 
@@ -18783,6 +21855,7 @@ method. In Ruby 1.9 you can also modify this value by setting
 **Returns**:
 
 - (`String`) — the current character set
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_helper.rb#L553)
@@ -18800,6 +21873,7 @@ Helpers for various object types
 
 - (`Boolean`) — whether an object is a method
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/filter_helper.rb#L7)
 
@@ -18809,6 +21883,7 @@ Helpers for various object types
 **Returns**:
 
 - (`Boolean`) — whether an object is a namespace
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/filter_helper.rb#L12)
@@ -18820,6 +21895,7 @@ Helpers for various object types
 
 - (`Boolean`) — whether an object is a class
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/filter_helper.rb#L17)
 
@@ -18829,6 +21905,7 @@ Helpers for various object types
 **Returns**:
 
 - (`Boolean`) — whether an object is a module
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/filter_helper.rb#L22)
@@ -18846,6 +21923,7 @@ Helper methods for method objects.
 
 - (`String`) — formatted arguments for a method
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/method_helper.rb#L7)
 
@@ -18855,6 +21933,7 @@ Helper methods for method objects.
 **Returns**:
 
 - (`String`) — formatted and linked return types for a method
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/method_helper.rb#L28)
@@ -18866,6 +21945,7 @@ Helper methods for method objects.
 
 - (`String`) — formatted block if one exists
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/method_helper.rb#L35)
 
@@ -18875,6 +21955,7 @@ Helper methods for method objects.
 **Returns**:
 
 - (`String`) — formats line numbers for source code of an object
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/method_helper.rb#L50)
@@ -18886,6 +21967,7 @@ Helper methods for method objects.
 
 - (`String`) — formats source of an object
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/method_helper.rb#L57)
 
@@ -18895,6 +21977,7 @@ Helper methods for method objects.
 **Returns**:
 
 - (`String`) — formats source code of a constant value
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/method_helper.rb#L68)
@@ -18912,6 +21995,7 @@ Clears the markup provider cache information. Mainly used for testing.
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/markup_helper.rb#L11)
@@ -18931,6 +22015,7 @@ found and exit the program.
 **Returns**:
 
 - (`Boolean`) — whether the markup provider was successfully loaded.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/markup_helper.rb#L82)
@@ -18957,6 +22042,7 @@ Newer versions of YARD use {CodeObjects::ExtraFileObject#contents}
 
 - (`Symbol`) — the markup type recognized for the file
 
+
 **See**:
 - MARKUP_EXTENSIONS
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/markup_helper.rb#L128)
@@ -18971,6 +22057,7 @@ markup or preprocessing data.
 **Returns**:
 
 - (`String`) — the file contents minus any preprocessing tags
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/markup_helper.rb#L144)
@@ -18989,6 +22076,7 @@ Call {#load_markup_provider} before using this method.
 
 - (`Class`) — the markup class
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/markup_helper.rb#L153)
 
@@ -19005,6 +22093,7 @@ Call {#load_markup_provider} before using this method.
 **Returns**:
 
 - (`Symbol`) — the markup provider name (usually the gem name of the library)
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/markup_helper.rb#L163)
@@ -19031,6 +22120,7 @@ Prunes the method listing by running the verifier and removing attributes/aliase
 
 - (`Array<CodeObjects::Base>`) — a pruned list of methods
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/module_helper.rb#L11)
 
@@ -19041,10 +22131,12 @@ Prunes the method listing by running the verifier and removing attributes/aliase
 ### `#handle_comments`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/dsl_handler_methods.rb#L13)
 
 ### `#register_docstring(object, docstring = @docstring, stmt = statement)`
+
 
 
 **See**:
@@ -19091,6 +22183,7 @@ Attempts to route a path to a static template file.
 ### `.find_file(adapter, url)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/server/commands/static_file_helpers.rb#L43)
 
@@ -19123,6 +22216,7 @@ nil if the user did not define a @member tag for this struct entry.
 
 - (`Tags::Tag, nil`) — the tag matching the request, or nil if not found
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/struct_handler_methods.rb#L17)
 
@@ -19138,6 +22232,7 @@ Retrieves all members defined in @attr* tags
 **Returns**:
 
 - (`Array<String>`) — the list of members defined as attributes on the class
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/struct_handler_methods.rb#L26)
@@ -19162,6 +22257,7 @@ tags.
 
 - (`Boolean`) — should the attribute be created?
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/struct_handler_methods.rb#L38)
 
@@ -19179,6 +22275,7 @@ to be injected into auto-generated docstrings.
 
 - (`String`) — the user-declared type of the struct member, or [Object] if
 the user did not define a type for this member.
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/struct_handler_methods.rb#L51)
@@ -19201,6 +22298,7 @@ of an attribute defined using attr_accessor.
 
 - (`String`) — a docstring to be attached to the getter method for this member
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/struct_handler_methods.rb#L62)
 
@@ -19222,6 +22320,7 @@ of an attribute defined using attr_accessor.
 
 - (`String`) — a docstring to be attached to the setter method for this member
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/struct_handler_methods.rb#L77)
 
@@ -19241,6 +22340,7 @@ Returns it for further use.
 **Returns**:
 
 - (`ClassObject`) — the class object for further processing/method attaching
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/struct_handler_methods.rb#L92)
@@ -19304,6 +22404,7 @@ Helper methods to assist with processing decorators.
 ### `#process_decorator(*nodes, &block)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/handlers/ruby/decorator_handler_methods.rb#L43)
 
@@ -19325,6 +22426,7 @@ Highlights Ruby source
 **Returns**:
 
 - (`String`) — the highlighted Ruby source
+
 
 **See**:
 - [Source on GitHub](https://github.com/lsegal/yard/blob/master/lib/yard/templates/helpers/html_syntax_highlight_helper.rb#L12)

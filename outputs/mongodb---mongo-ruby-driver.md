@@ -1,3 +1,1475 @@
+# mongodb/mongo-ruby-driver
+
+- [`URI`](#class-mongouri)
+ - [`options`](#options)
+ - [`uri_options`](#uri_options)
+ - [`servers`](#servers)
+ - [`initialize`](#initializestring-options--)
+ - [`client_options`](#client_options)
+ - [`credentials`](#credentials)
+ - [`database`](#database)
+
+- [`Symbol`](#class-symbol)
+ - [`bson_type`](#bson_type)
+
+- [`InvalidMechanism`](#class-mongoauthinvalidmechanism)
+ - [`initialize`](#initializemechanism)
+
+- [`Unauthorized`](#class-mongoauthunauthorized)
+ - [`initialize`](#initializeuser)
+
+- [`DBRef`](#class-mongodbref)
+ - [`collection`](#collection)
+ - [`id`](#id)
+ - [`database`](#database)
+ - [`as_json`](#as_jsonargs)
+ - [`initialize`](#initializecollection-id-database--nil)
+ - [`to_bson`](#to_bsonbuffer--bsonbytebuffernew-validating_keys--bsonconfigvalidating_keys)
+
+- [`Socket`](#class-mongosocket)
+ - [`family`](#family)
+ - [`socket`](#socket)
+ - [`alive?`](#alive)
+ - [`close`](#close)
+ - [`gets`](#getsargs)
+ - [`initialize`](#initializefamily)
+ - [`read`](#readlength)
+ - [`readbyte`](#readbyte)
+ - [`write`](#writeargs)
+ - [`eof?`](#eof)
+
+- [`Client`](#class-mongoclient)
+ - [`cluster`](#cluster)
+ - [`database`](#database)
+ - [`options`](#options)
+ - [`==`](#other)
+ - [`eql?`](#other)
+ - [`[]`](#collection_name-options--)
+ - [`hash`](#hash)
+ - [`initialize`](#initializeaddresses_or_uri-options--optionsredactednew)
+ - [`inspect`](#inspect)
+ - [`read_preference`](#read_preference)
+ - [`use`](#usename)
+ - [`with`](#withnew_options--optionsredactednew)
+ - [`write_concern`](#write_concern)
+ - [`close`](#close)
+ - [`reconnect`](#reconnect)
+ - [`database_names`](#database_names)
+ - [`list_databases`](#list_databases)
+
+- [`Server`](#class-mongoserver)
+ - [`address`](#address)
+ - [`cluster`](#cluster)
+ - [`monitor`](#monitor)
+ - [`options`](#options)
+ - [`monitoring`](#monitoring)
+ - [`heartbeat_frequency_seconds`](#heartbeat_frequency_seconds)
+ - [`==`](#other)
+ - [`context`](#context)
+ - [`connectable?`](#connectable)
+ - [`disconnect!`](#disconnect)
+ - [`finalize`](#finalizemonitor)
+ - [`initialize`](#initializeaddress-cluster-monitoring-event_listeners-options--)
+ - [`inspect`](#inspect)
+ - [`pool`](#pool)
+ - [`matches_tag_set?`](#matches_tag_settag_set)
+ - [`reconnect!`](#reconnect)
+ - [`with_connection`](#with_connectionblock)
+ - [`handle_auth_failure!`](#handle_auth_failure)
+
+- [`Logger`](#class-mongologger)
+ - [`logger`](#logger)
+ - [`logger=`](#loggerother)
+ - [`level`](#level)
+ - [`level=`](#levellevel)
+
+- [`Cursor`](#class-mongocursor)
+ - [`view`](#view)
+ - [`initialize`](#initializeview-result-server)
+ - [`finalize`](#finalizecursor_id-cluster-op_spec-server)
+ - [`inspect`](#inspect)
+ - [`each`](#each)
+ - [`batch_size`](#batch_size)
+ - [`closed?`](#closed)
+ - [`collection_name`](#collection_name)
+ - [`id`](#id)
+ - [`to_return`](#to_return)
+
+- [`CR`](#class-mongoauthcr)
+ - [`user`](#user)
+ - [`initialize`](#initializeuser)
+ - [`login`](#loginconnection)
+
+- [`Address`](#class-mongoaddress)
+ - [`seed`](#seed)
+ - [`host`](#host)
+ - [`port`](#port)
+ - [`==`](#other)
+ - [`eql?`](#eqlother)
+ - [`hash`](#hash)
+ - [`initialize`](#initializeseed-options--)
+ - [`inspect`](#inspect)
+ - [`socket`](#sockettimeout-ssl_options--)
+ - [`to_s`](#to_s)
+
+- [`Cluster`](#class-mongocluster)
+ - [`options`](#options)
+ - [`monitoring`](#monitoring)
+ - [`topology`](#topology)
+ - [`app_metadata`](#app_metadata)
+ - [`==`](#other)
+ - [`add`](#addhost)
+ - [`has_readable_server?`](#has_readable_serverserver_selector--nil)
+ - [`has_writable_server?`](#has_writable_server)
+ - [`initialize`](#initializeseeds-monitoring-options--optionsredactednew)
+ - [`finalize`](#finalizepools)
+ - [`inspect`](#inspect)
+ - [`next_primary`](#next_primaryping--true)
+ - [`elect_primary!`](#elect_primarydescription)
+ - [`max_read_retries`](#max_read_retries)
+ - [`pool`](#poolserver)
+ - [`read_retry_interval`](#read_retry_interval)
+ - [`standalone_discovered`](#standalone_discovered)
+ - [`remove`](#removehost)
+ - [`scan!`](#scan)
+ - [`servers`](#servers)
+ - [`disconnect!`](#disconnect)
+ - [`reconnect!`](#reconnect)
+ - [`add_hosts`](#add_hostsdescription)
+ - [`remove_hosts`](#remove_hostsdescription)
+ - [`create`](#createclient)
+ - [`addresses`](#addresses)
+
+- [`Database`](#class-mongodatabase)
+ - [`client`](#client)
+ - [`name`](#name)
+ - [`options`](#options)
+ - [`cluster`](#def_delegators-cluster)
+ - [`==`](#other)
+ - [`[]`](#collection_name-options--)
+ - [`collection`](#collection_name-options--)
+ - [`collection_names`](#collection_namesoptions--)
+ - [`list_collections`](#list_collections)
+ - [`collections`](#collections)
+ - [`command`](#commandoperation-opts--)
+ - [`drop`](#drop)
+ - [`initialize`](#initializeclient-name-options--)
+ - [`inspect`](#inspect)
+ - [`fs`](#fsoptions--)
+ - [`users`](#users)
+ - [`create`](#createclient)
+
+- [`User`](#class-mongoauthuser)
+ - [`auth_source`](#auth_source)
+ - [`database`](#database)
+ - [`auth_mech_properties`](#auth_mech_properties)
+ - [`mechanism`](#mechanism)
+ - [`name`](#name)
+ - [`password`](#password)
+ - [`roles`](#roles)
+ - [`==`](#other)
+ - [`auth_key`](#auth_keynonce)
+ - [`encoded_name`](#encoded_name)
+ - [`hash`](#hash)
+ - [`hashed_password`](#hashed_password)
+ - [`initialize`](#initializeoptions)
+ - [`spec`](#spec)
+
+- [`File`](#class-mongogridfile)
+ - [`chunks`](#chunks)
+ - [`info`](#info)
+ - [`==`](#other)
+ - [`initialize`](#initializedata-options--)
+ - [`data`](#data)
+ - [`inspect`](#inspect)
+
+- [`LDAP`](#class-mongoauthldap)
+ - [`user`](#user)
+ - [`initialize`](#initializeuser)
+ - [`login`](#loginconnection)
+
+- [`X509`](#class-mongoauthx509)
+ - [`user`](#user)
+ - [`initialize`](#initializeuser)
+ - [`login`](#loginconnection)
+
+- [`SCRAM`](#class-mongoauthscram)
+ - [`user`](#user)
+ - [`initialize`](#initializeuser)
+ - [`login`](#loginconnection)
+
+- [`View`](#class-mongoindexview)
+ - [`collection`](#collection)
+ - [`batch_size`](#batch_size)
+ - [`drop_one`](#drop_onename)
+ - [`drop_all`](#drop_all)
+ - [`create_one`](#create_onekeys-options--)
+ - [`create_many`](#create_manymodels)
+ - [`get`](#getkeys_or_name)
+ - [`each`](#eachblock)
+ - [`initialize`](#initializecollection-options--)
+
+- [`TCP`](#class-mongosockettcp)
+ - [`host`](#host)
+ - [`port`](#port)
+ - [`timeout`](#timeout)
+ - [`connect!`](#connect)
+ - [`initialize`](#initializehost-port-timeout-family)
+ - [`connectable?`](#connectable)
+
+- [`BulkWrite`](#class-mongobulkwrite)
+ - [`collection`](#collection)
+ - [`requests`](#requests)
+ - [`options`](#options)
+ - [`execute`](#execute)
+ - [`initialize`](#initializecollection-requests-options--)
+ - [`ordered?`](#ordered)
+ - [`write_concern`](#write_concern)
+
+- [`SSL`](#class-mongosocketssl)
+ - [`context`](#context)
+ - [`host`](#host)
+ - [`host_name`](#host_name)
+ - [`options`](#options)
+ - [`port`](#port)
+ - [`timeout`](#timeout)
+ - [`connect!`](#connect)
+ - [`initialize`](#initializehost-port-host_name-timeout-family-options--)
+ - [`readbyte`](#readbyte)
+ - [`connectable?`](#connectable)
+
+- [`Collection`](#class-mongocollection)
+ - [`database`](#database)
+ - [`name`](#name)
+ - [`options`](#options)
+ - [`==`](#other)
+ - [`initialize`](#initializedatabase-name-options--)
+ - [`read_concern`](#read_concern)
+ - [`read_preference`](#read_preference)
+ - [`write_concern`](#write_concern)
+ - [`with`](#withnew_options)
+ - [`capped?`](#capped)
+ - [`create`](#create)
+ - [`drop`](#drop)
+ - [`find`](#findfilter--nil-options--)
+ - [`aggregate`](#aggregatepipeline-options--)
+ - [`count`](#countfilter--nil-options--)
+ - [`distinct`](#distinctfield_name-filter--nil-options--)
+ - [`indexes`](#indexesoptions--)
+ - [`inspect`](#inspect)
+ - [`insert_one`](#insert_onedocument-options--)
+ - [`insert_many`](#insert_manydocuments-options--)
+ - [`bulk_write`](#bulk_writerequests-options--)
+ - [`delete_one`](#delete_onefilter--nil-options--)
+ - [`delete_many`](#delete_manyfilter--nil-options--)
+ - [`parallel_scan`](#parallel_scancursor_count-options--)
+ - [`replace_one`](#replace_onefilter-replacement-options--)
+ - [`update_many`](#update_manyfilter-update-options--)
+ - [`update_one`](#update_onefilter-update-options--)
+ - [`find_one_and_delete`](#find_one_and_deletefilter-options--)
+ - [`find_one_and_update`](#find_one_and_updatefilter-update-options--)
+ - [`find_one_and_replace`](#find_one_and_replacefilter-replacement-options--)
+ - [`namespace`](#namespace)
+
+- [`Monitoring`](#class-mongomonitoring)
+ - [`next_operation_id`](#next_operation_id)
+ - [`initialize`](#initializeoptions--)
+ - [`started`](#startedtopic-event)
+ - [`succeeded`](#succeededtopic-event)
+ - [`failed`](#failedtopic-event)
+ - [`subscribe`](#subscribetopic-subscriber)
+ - [`subscribers`](#subscribers)
+ - [`subscribers?`](#subscriberstopic)
+
+- [`FSBucket`](#class-mongogridfsbucket)
+ - [`chunks_collection`](#chunks_collection)
+ - [`database`](#database)
+ - [`files_collection`](#files_collection)
+ - [`options`](#options)
+ - [`find`](#findselector--nil-options--)
+ - [`find_one`](#find_oneselector--nil)
+ - [`insert_one`](#insert_onefile)
+ - [`initialize`](#initializedatabase-options--)
+ - [`prefix`](#prefix)
+ - [`delete_one`](#delete_onefile)
+ - [`delete`](#deleteid)
+ - [`open_download_stream`](#open_download_streamid)
+ - [`download_to_stream`](#download_to_streamid-io)
+ - [`open_download_stream_by_name`](#open_download_stream_by_namefilename-opts---block)
+ - [`download_to_stream_by_name`](#download_to_stream_by_namefilename-io-opts--)
+ - [`open_upload_stream`](#open_upload_streamfilename-opts--)
+ - [`upload_from_stream`](#upload_from_streamfilename-io-opts--)
+ - [`read_preference`](#read_preference)
+ - [`write_concern`](#write_concern)
+
+- [`Unix`](#class-mongosocketunix)
+ - [`path`](#path)
+ - [`timeout`](#timeout)
+ - [`connect!`](#connect)
+ - [`initialize`](#initializepath-timeout)
+ - [`connectable?`](#connectable)
+
+- [`IPv6`](#class-mongoaddressipv6)
+ - [`host`](#host)
+ - [`host_name`](#host_name)
+ - [`port`](#port)
+ - [`parse`](#parseaddress)
+ - [`initialize`](#initializehost-port-host_namenil)
+ - [`socket`](#sockettimeout-ssl_options--)
+
+- [`Unix`](#class-mongoaddressunix)
+ - [`host`](#host)
+ - [`port`](#port)
+ - [`parse`](#parseaddress)
+ - [`initialize`](#initializehost-portnil-host_namenil)
+ - [`socket`](#sockettimeout-ssl_options--)
+
+- [`Parser`](#class-mongoerrorparser)
+ - [`document`](#document)
+ - [`message`](#message)
+ - [`replies`](#replies)
+ - [`initialize`](#initializedocument-replies--nil)
+
+- [`IPv4`](#class-mongoaddressipv4)
+ - [`host`](#host)
+ - [`host_name`](#host_name)
+ - [`port`](#port)
+ - [`parse`](#parseaddress)
+ - [`initialize`](#initializehost-port-host_namenil)
+ - [`socket`](#sockettimeout-ssl_options--)
+
+- [`View`](#class-mongodatabaseview)
+ - [`batch_size`](#batch_size)
+ - [`limit`](#limit)
+ - [`collection`](#collection)
+ - [`collection_names`](#collection_namesoptions--)
+ - [`list_collections`](#list_collections)
+ - [`initialize`](#initializedatabase)
+
+- [`Info`](#class-mongogridfileinfo)
+ - [`document`](#document)
+ - [`==`](#other)
+ - [`bson_type`](#bson_type)
+ - [`chunk_size`](#chunk_size)
+ - [`content_type`](#content_type)
+ - [`filename`](#filename)
+ - [`id`](#id)
+ - [`initialize`](#initializedocument)
+ - [`inspect`](#inspect)
+ - [`length`](#length)
+ - [`size`](#length)
+ - [`metadata`](#metadata)
+ - [`md5`](#md5)
+ - [`to_bson`](#to_bsonbuffer--bsonbytebuffernew-validating_keys--bsonconfigvalidating_keys)
+ - [`upload_date`](#upload_date)
+
+- [`Query`](#class-mongoprotocolquery)
+ - [`initialize`](#initializedatabase-collection-selector-options--)
+ - [`payload`](#payload)
+ - [`replyable?`](#replyable)
+
+- [`Upconverter`](#class-mongoprotocolqueryupconverter)
+ - [`collection`](#collection)
+ - [`filter`](#filter)
+ - [`options`](#options)
+ - [`flags`](#flags)
+ - [`initialize`](#initializecollection-filter-options-flags)
+ - [`command`](#command)
+ - [`command_name`](#command_name)
+
+- [`Reply`](#class-mongoprotocolreply)
+ - [`query_failure?`](#query_failure)
+ - [`cursor_not_found?`](#cursor_not_found)
+ - [`payload`](#payload)
+ - [`flags`](#flags)
+ - [`flags=`](#flagsvalue)
+ - [`cursor_id`](#cursor_id)
+ - [`cursor_id=`](#cursor_idvalue)
+ - [`starting_from`](#starting_from)
+ - [`starting_from=`](#starting_fromvalue)
+ - [`number_returned`](#number_returned)
+ - [`number_returned=`](#number_returnedvalue)
+ - [`documents`](#documents)
+ - [`documents=`](#documentsvalue)
+
+- [`Upconverter`](#class-mongoprotocolreplyupconverter)
+ - [`documents`](#documents)
+ - [`cursor_id`](#cursor_id)
+ - [`starting_from`](#starting_from)
+ - [`initialize`](#initializedocuments-cursor_id-starting_from)
+ - [`command`](#command)
+
+- [`Monitor`](#class-mongoservermonitor)
+ - [`connection`](#connection)
+ - [`description`](#description)
+ - [`inspector`](#inspector)
+ - [`options`](#options)
+ - [`last_scan`](#last_scan)
+ - [`scan!`](#scan)
+ - [`heartbeat_frequency`](#heartbeat_frequency)
+ - [`initialize`](#initializeaddress-listeners-options--)
+ - [`run!`](#run)
+ - [`stop!`](#stop)
+ - [`restart!`](#restart)
+
+- [`Context`](#class-mongoservercontext)
+ - [`server`](#server)
+ - [`initialize`](#initializeserver)
+ - [`with_connection`](#with_connectionblock)
+
+- [`View`](#class-mongoauthuserview)
+ - [`database`](#database)
+ - [`create`](#createuser_or_name-options--)
+ - [`initialize`](#initializedatabase)
+ - [`remove`](#removename)
+ - [`update`](#updateuser_or_name-options--)
+ - [`info`](#infoname)
+
+- [`Update`](#class-mongoprotocolupdate)
+ - [`initialize`](#initializedatabase-collection-selector-update-options--)
+ - [`payload`](#payload)
+
+- [`Upconverter`](#class-mongoprotocolupdateupconverter)
+ - [`collection`](#collection)
+ - [`filter`](#filter)
+ - [`update`](#update)
+ - [`flags`](#flags)
+ - [`initialize`](#initializecollection-filter-update-flags)
+ - [`command`](#command)
+
+- [`Insert`](#class-mongoprotocolinsert)
+ - [`initialize`](#initializedatabase-collection-documents-options--)
+ - [`payload`](#payload)
+
+- [`Upconverter`](#class-mongoprotocolinsertupconverter)
+ - [`collection`](#collection)
+ - [`documents`](#documents)
+ - [`options`](#options)
+ - [`initialize`](#initializecollection-documents-options)
+ - [`command`](#command)
+
+- [`Chunk`](#class-mongogridfilechunk)
+ - [`document`](#document)
+ - [`==`](#other)
+ - [`bson_type`](#bson_type)
+ - [`data`](#data)
+ - [`id`](#id)
+ - [`files_id`](#files_id)
+ - [`n`](#n)
+ - [`initialize`](#initializedocument)
+ - [`to_bson`](#to_bsonbuffer--bsonbytebuffernew-validating_keys--bsonconfigvalidating_keys)
+ - [`assemble`](#assemblechunks)
+ - [`split`](#splitio-file_info-offset--0)
+
+- [`View`](#class-mongocollectionview)
+ - [`collection`](#collection)
+ - [`filter`](#filter)
+ - [`selector`](#filter)
+ - [`==`](#other)
+ - [`eql?`](#other)
+ - [`hash`](#hash)
+ - [`initialize`](#initializecollection-filter---options--)
+ - [`inspect`](#inspect)
+
+- [`Listeners`](#class-mongoeventlisteners)
+ - [`initialize`](#initialize)
+ - [`add_listener`](#add_listenerevent-listener)
+ - [`listeners_for`](#listeners_forevent)
+
+- [`Delete`](#class-mongoprotocoldelete)
+ - [`initialize`](#initializedatabase-collection-selector-options--)
+ - [`payload`](#payload)
+
+- [`Upconverter`](#class-mongoprotocoldeleteupconverter)
+ - [`collection`](#collection)
+ - [`filter`](#filter)
+ - [`options`](#options)
+ - [`initialize`](#initializecollection-filter-options)
+ - [`command`](#command)
+
+- [`Read`](#class-mongogridfsbucketstreamread)
+ - [`fs`](#fs)
+ - [`options`](#options)
+ - [`file_id`](#file_id)
+ - [`initialize`](#initializefs-options)
+ - [`each`](#each)
+ - [`read`](#read)
+ - [`close`](#close)
+ - [`closed?`](#closed)
+ - [`read_preference`](#read_preference)
+ - [`file_info`](#file_info)
+
+- [`Result`](#class-mongooperationresult)
+ - [`replies`](#replies)
+ - [`acknowledged?`](#acknowledged)
+ - [`multiple?`](#multiple)
+ - [`cursor_id`](#cursor_id)
+ - [`namespace`](#namespace)
+ - [`documents`](#documents)
+ - [`each`](#eachblock)
+ - [`initialize`](#initializereplies)
+ - [`inspect`](#inspect)
+ - [`reply`](#reply)
+ - [`returned_count`](#returned_count)
+ - [`successful?`](#successful)
+ - [`ok?`](#ok)
+ - [`validate!`](#validate)
+ - [`written_count`](#written_count)
+ - [`n`](#written_count)
+
+- [`Message`](#class-mongoprotocolmessage)
+ - [`request_id`](#request_id)
+ - [`initialize`](#initializeargs--nodoc)
+ - [`replyable?`](#replyable)
+ - [`serialize`](#serializebuffer--bsonbytebuffernew-max_bson_size--nil)
+ - [`to_s`](#serializebuffer--bsonbytebuffernew-max_bson_size--nil)
+ - [`deserialize`](#deserializeio-max_message_size--max_message_size-expected_response_to--nil)
+ - [`==`](#other)
+ - [`eql?`](#other)
+ - [`hash`](#hash)
+ - [`set_request_id`](#set_request_id)
+
+- [`Redacted`](#class-mongooptionsredacted)
+ - [`inspect`](#inspect)
+ - [`to_s`](#to_s)
+ - [`has_key?`](#has_keykey)
+ - [`key?`](#has_keykey)
+ - [`reject`](#rejectblock)
+ - [`reject!`](#reject)
+ - [`select`](#selectblock)
+ - [`select!`](#select)
+
+- [`GetMore`](#class-mongoprotocolgetmore)
+ - [`initialize`](#initializedatabase-collection-number_to_return-cursor_id)
+ - [`payload`](#payload)
+ - [`replyable?`](#replyable)
+
+- [`Upconverter`](#class-mongoprotocolgetmoreupconverter)
+ - [`collection`](#collection)
+ - [`cursor_id`](#cursor_id)
+ - [`number_to_return`](#number_to_return)
+ - [`initialize`](#initializecollection-cursor_id-number_to_return)
+ - [`command`](#command)
+
+- [`Connection`](#class-mongoserverconnection)
+ - [`connect!`](#connect)
+ - [`disconnect!`](#disconnect)
+ - [`dispatch`](#dispatchmessages-operation_id--nil)
+ - [`initialize`](#initializeserver-options--)
+ - [`ping`](#ping)
+
+- [`Write`](#class-mongogridfsbucketstreamwrite)
+ - [`fs`](#fs)
+ - [`file_id`](#file_id)
+ - [`filename`](#filename)
+ - [`options`](#options)
+ - [`initialize`](#initializefs-options)
+ - [`write`](#writeio)
+ - [`close`](#close)
+ - [`write_concern`](#write_concern)
+ - [`closed?`](#closed)
+ - [`abort`](#abort)
+
+- [`Result`](#class-mongobulkwriteresult)
+ - [`deleted_count`](#deleted_count)
+ - [`initialize`](#initializeresults)
+ - [`inserted_count`](#inserted_count)
+ - [`inserted_ids`](#inserted_ids)
+ - [`matched_count`](#matched_count)
+ - [`modified_count`](#modified_count)
+ - [`upserted_count`](#upserted_count)
+ - [`upserted_ids`](#upserted_ids)
+ - [`validate!`](#validate)
+
+- [`InvalidURI`](#class-mongoerrorinvaliduri)
+ - [`initialize`](#initializeuri-details)
+
+- [`Description`](#class-mongoserverdescription)
+ - [`address`](#address)
+ - [`config`](#config)
+ - [`features`](#features)
+ - [`average_round_trip_time`](#average_round_trip_time)
+ - [`arbiter?`](#arbiter)
+ - [`arbiters`](#arbiters)
+ - [`ghost?`](#ghost)
+ - [`hidden?`](#hidden)
+ - [`hosts`](#hosts)
+ - [`initialize`](#initializeaddress-config---average_round_trip_time--0)
+ - [`inspect`](#inspect)
+ - [`max_bson_object_size`](#max_bson_object_size)
+ - [`max_message_size`](#max_message_size)
+ - [`max_write_batch_size`](#max_write_batch_size)
+ - [`max_wire_version`](#max_wire_version)
+ - [`min_wire_version`](#min_wire_version)
+ - [`me`](#me)
+ - [`tags`](#tags)
+ - [`election_id`](#election_id)
+ - [`set_version`](#set_version)
+ - [`last_write_date`](#last_write_date)
+ - [`mongos?`](#mongos)
+ - [`other?`](#other)
+ - [`passive?`](#passive)
+ - [`passives`](#passives)
+ - [`primary?`](#primary)
+ - [`replica_set_name`](#replica_set_name)
+ - [`servers`](#servers)
+ - [`secondary?`](#secondary)
+ - [`server_type`](#server_type)
+ - [`standalone?`](#standalone)
+ - [`unknown?`](#unknown)
+ - [`unknown!`](#unknown)
+ - [`wire_versions`](#wire_versions)
+ - [`is_server?`](#is_serverserver)
+ - [`lists_server?`](#lists_serverserver)
+ - [`replica_set_member?`](#replica_set_member)
+ - [`me_mismatch?`](#me_mismatch)
+ - [`==`](#other)
+ - [`eql?`](#other)
+
+- [`InvalidFile`](#class-mongoerrorinvalidfile)
+ - [`initialize`](#initializeclient_md5-server_md5)
+
+- [`MaxBSONSize`](#class-mongoerrormaxbsonsize)
+ - [`initialize`](#initializemax_size--nil)
+
+- [`InvalidNonce`](#class-mongoerrorinvalidnonce)
+ - [`nonce`](#nonce)
+ - [`rnonce`](#rnonce)
+ - [`initialize`](#initializenonce-rnonce)
+
+- [`ClosedStream`](#class-mongoerrorclosedstream)
+ - [`initialize`](#initialize)
+
+- [`BitVector`](#class-mongoprotocolserializersbitvector)
+ - [`initialize`](#initializelayout)
+ - [`serialize`](#serializebuffer-value-validating_keys--bsonconfigvalidating_keys)
+ - [`deserialize`](#deserializebuffer)
+
+- [`FileNotFound`](#class-mongoerrorfilenotfound)
+ - [`initialize`](#initializevalue-property)
+
+- [`Conversation`](#class-mongoauthcrconversation)
+ - [`reply`](#reply)
+ - [`database`](#database)
+ - [`nonce`](#nonce)
+ - [`user`](#user)
+ - [`continue`](#continuereply)
+ - [`finalize`](#finalizereply)
+ - [`start`](#start)
+ - [`initialize`](#initializeuser)
+
+- [`AppMetadata`](#class-mongoclusterappmetadata)
+ - [`initialize`](#initializecluster)
+ - [`ismaster_bytes`](#ismaster_bytes)
+
+- [`CursorReaper`](#class-mongoclustercursorreaper)
+ - [`initialize`](#initialize)
+ - [`run!`](#run)
+ - [`restart!`](#run)
+ - [`schedule_kill_cursor`](#schedule_kill_cursorid-op_spec-server)
+ - [`register_cursor`](#register_cursorid)
+ - [`unregister_cursor`](#unregister_cursorid)
+ - [`stop!`](#stop)
+ - [`kill_cursors`](#kill_cursors)
+
+- [`KillCursors`](#class-mongoprotocolkillcursors)
+ - [`initialize`](#initializecollection-database-cursor_ids)
+ - [`payload`](#payload)
+
+- [`Upconverter`](#class-mongoprotocolkillcursorsupconverter)
+ - [`collection`](#collection)
+ - [`cursor_ids`](#cursor_ids)
+ - [`initialize`](#initializecollection-cursor_ids)
+ - [`command`](#command)
+
+- [`PrimaryElected`](#class-mongoeventprimaryelected)
+ - [`cluster`](#cluster)
+ - [`initialize`](#initializecluster)
+ - [`handle`](#handledescription)
+
+- [`MultiIndexDrop`](#class-mongoerrormultiindexdrop)
+ - [`initialize`](#initialize)
+
+- [`InvalidDocument`](#class-mongoerrorinvaliddocument)
+ - [`initialize`](#initialize)
+
+- [`MaxMessageSize`](#class-mongoerrormaxmessagesize)
+ - [`initialize`](#initializemax_size--nil)
+
+- [`Conversation`](#class-mongoauthx509conversation)
+ - [`reply`](#reply)
+ - [`user`](#user)
+ - [`finalize`](#finalizereply)
+ - [`start`](#start)
+ - [`initialize`](#initializeuser)
+
+- [`ExtraFileChunk`](#class-mongoerrorextrafilechunk)
+ - [`initialize`](#initialize)
+
+- [`ConnectionPool`](#class-mongoserverconnectionpool)
+ - [`options`](#options)
+ - [`checkin`](#checkinconnection)
+ - [`checkout`](#checkout)
+ - [`disconnect!`](#disconnect)
+ - [`initialize`](#initializeoptions---block)
+ - [`inspect`](#inspect)
+ - [`with_connection`](#with_connection)
+ - [`get`](#getserver)
+
+- [`Conversation`](#class-mongoauthldapconversation)
+ - [`reply`](#reply)
+ - [`user`](#user)
+ - [`finalize`](#finalizereply)
+ - [`start`](#start)
+ - [`initialize`](#initializeuser)
+
+- [`BulkWriteError`](#class-mongoerrorbulkwriteerror)
+ - [`result`](#result)
+ - [`initialize`](#initializeresult)
+
+- [`Nearest`](#class-mongoserverselectornearest)
+ - [`name`](#name)
+ - [`slave_ok?`](#slave_ok)
+ - [`tags_allowed?`](#tags_allowed)
+ - [`to_mongos`](#to_mongos)
+
+- [`Conversation`](#class-mongoauthscramconversation)
+ - [`nonce`](#nonce)
+ - [`reply`](#reply)
+ - [`user`](#user)
+ - [`continue`](#continuereply)
+ - [`finalize`](#finalizereply)
+ - [`start`](#start)
+ - [`id`](#id)
+ - [`initialize`](#initializeuser)
+
+- [`InvalidSignature`](#class-mongoerrorinvalidsignature)
+ - [`verifier`](#verifier)
+ - [`server_signature`](#server_signature)
+ - [`initialize`](#initializeverifier-server_signature)
+
+- [`OperationFailure`](#class-mongoerroroperationfailure)
+ - [`retryable?`](#retryable)
+
+- [`MemberDiscovered`](#class-mongoeventmemberdiscovered)
+ - [`cluster`](#cluster)
+ - [`options`](#options)
+ - [`monitoring`](#monitoring)
+ - [`initialize`](#initializecluster)
+ - [`handle`](#handleprevious-updated)
+
+- [`Single`](#class-mongoclustertopologysingle)
+ - [`options`](#options)
+ - [`seed`](#seed)
+ - [`monitoring`](#monitoring)
+ - [`display_name`](#display_name)
+ - [`elect_primary`](#elect_primarydescription-servers-self-end)
+ - [`has_readable_server?`](#has_readable_servercluster-server_selector--nil-true-end)
+ - [`has_writable_server?`](#has_writable_servercluster-true-end)
+ - [`initialize`](#initializeoptions-monitoring-seeds--)
+ - [`replica_set?`](#replica_set-false-end)
+ - [`replica_set_name`](#replica_set_name-nil-end)
+ - [`servers`](#serversservers-name--nil)
+ - [`add_hosts?`](#add_hostsdescription-servers-false-end)
+ - [`remove_hosts?`](#remove_hostsdescription-false-end)
+ - [`remove_server?`](#remove_serverdescription-server-false-end)
+ - [`sharded?`](#sharded-false-end)
+ - [`single?`](#single-true-end)
+ - [`unknown?`](#unknown-false-end)
+ - [`standalone_discovered`](#standalone_discovered-self-end)
+ - [`member_discovered`](#member_discovered)
+
+- [`Primary`](#class-mongoserverselectorprimary)
+ - [`name`](#name)
+ - [`slave_ok?`](#slave_ok)
+ - [`tags_allowed?`](#tags_allowed)
+ - [`to_mongos`](#to_mongos)
+
+- [`Sharded`](#class-mongoclustertopologysharded)
+ - [`options`](#options)
+ - [`monitoring`](#monitoring)
+ - [`display_name`](#display_name)
+ - [`elect_primary`](#elect_primarydescription-servers-self-end)
+ - [`has_readable_server?`](#has_readable_servercluster-server_selector--nil-true-end)
+ - [`has_writable_server?`](#has_writable_servercluster-true-end)
+ - [`initialize`](#initializeoptions-monitoring-seeds--)
+ - [`replica_set?`](#replica_set-false-end)
+ - [`replica_set_name`](#replica_set_name-nil-end)
+ - [`servers`](#serversservers)
+ - [`add_hosts?`](#add_hostsdescription-servers-false-end)
+ - [`remove_hosts?`](#remove_hostsdescription-true-end)
+ - [`remove_server?`](#remove_serverdescription-server)
+ - [`sharded?`](#sharded-true-end)
+ - [`single?`](#single-false-end)
+ - [`unknown?`](#unknown-false-end)
+ - [`standalone_discovered`](#standalone_discovered-self-end)
+ - [`member_discovered`](#member_discovered-end)
+
+- [`Unknown`](#class-mongoclustertopologyunknown)
+ - [`options`](#options)
+ - [`monitoring`](#monitoring)
+ - [`display_name`](#display_name)
+ - [`elect_primary`](#elect_primarydescription-servers)
+ - [`has_readable_server?`](#has_readable_servercluster-server_selector--nil-false-end)
+ - [`has_writable_server?`](#has_writable_servercluster-false-end)
+ - [`initialize`](#initializeoptions-monitoring-seeds--)
+ - [`replica_set?`](#replica_set-false-end)
+ - [`replica_set_name`](#replica_set_name-nil-end)
+ - [`servers`](#serversservers)
+ - [`sharded?`](#sharded-false-end)
+ - [`single?`](#single-false-end)
+ - [`unknown?`](#unknown-true-end)
+ - [`add_hosts?`](#add_hostsdescription-servers)
+ - [`remove_hosts?`](#remove_hostsdescription)
+ - [`remove_server?`](#remove_serverdescription-server)
+ - [`standalone_discovered`](#standalone_discovered)
+ - [`member_discovered`](#member_discovered)
+
+- [`MissingFileChunk`](#class-mongoerrormissingfilechunk)
+ - [`initialize`](#initializeexpected_n-chunk)
+
+- [`UnexpectedResponse`](#class-mongoerrorunexpectedresponse)
+ - [`initialize`](#initializeexpected_response_to-response_to)
+
+- [`Secondary`](#class-mongoserverselectorsecondary)
+ - [`name`](#name)
+ - [`slave_ok?`](#slave_ok)
+ - [`tags_allowed?`](#tags_allowed)
+ - [`to_mongos`](#to_mongos)
+
+- [`NoServerAvailable`](#class-mongoerrornoserveravailable)
+ - [`initialize`](#initializeserver_selector)
+
+- [`DescriptionChanged`](#class-mongoeventdescriptionchanged)
+ - [`cluster`](#cluster)
+ - [`options`](#options)
+ - [`monitoring`](#monitoring)
+ - [`initialize`](#initializecluster)
+ - [`handle`](#handleprevious-updated)
+
+- [`Connection`](#class-mongoservermonitorconnection)
+ - [`ismaster`](#ismaster)
+ - [`connect!`](#connect)
+ - [`disconnect!`](#disconnect)
+ - [`initialize`](#initializeaddress-options--)
+ - [`timeout`](#timeout)
+
+- [`MapReduce`](#class-mongocollectionviewmapreduce)
+ - [`view`](#view)
+ - [`map`](#map)
+ - [`reduce`](#reduce)
+ - [`each`](#each)
+ - [`finalize`](#finalizefunction--nil)
+ - [`initialize`](#initializeview-map-reduce-options--)
+ - [`js_mode`](#js_modevalue--nil)
+ - [`out`](#outlocation--nil)
+ - [`scope`](#scopeobject--nil)
+ - [`verbose`](#verbosevalue--nil)
+
+- [`Acknowledged`](#class-mongowriteconcernacknowledged)
+ - [`get_last_error`](#get_last_error)
+ - [`inspect`](#inspect)
+
+- [`OpGetMore`](#class-mongocursorbuilderopgetmore)
+ - [`cursor`](#cursor)
+ - [`initialize`](#initializecursor)
+ - [`specification`](#specification)
+
+- [`Indexes`](#class-mongooperationcommandsindexes)
+ - [`execute`](#executeserver)
+
+- [`DropIndex`](#class-mongooperationwritedropindex)
+ - [`execute`](#executeserver)
+
+- [`ResultCombiner`](#class-mongobulkwriteresultcombiner)
+ - [`count`](#count)
+ - [`results`](#results)
+ - [`initialize`](#initialize)
+ - [`combine!`](#combineresult-count)
+ - [`result`](#result)
+
+- [`UnsupportedFeatures`](#class-mongoerrorunsupportedfeatures)
+ - [`initialize`](#initializeserver_wire_versions)
+
+- [`Features`](#class-mongoserverdescriptionfeatures)
+ - [`server_wire_versions`](#server_wire_versions)
+ - [`initialize`](#initializeserver_wire_versions)
+
+- [`InvalidWriteConcern`](#class-mongoerrorinvalidwriteconcern)
+ - [`initialize`](#initialize)
+
+- [`UnsupportedCollation`](#class-mongoerrorunsupportedcollation)
+ - [`initialize`](#initializemessage--nil)
+
+- [`OrderedCombiner`](#class-mongobulkwriteorderedcombiner)
+ - [`combine`](#combine)
+
+- [`InvalidFileRevision`](#class-mongoerrorinvalidfilerevision)
+ - [`initialize`](#initializefilename-revision)
+
+- [`InvalidDatabaseName`](#class-mongoerrorinvaliddatabasename)
+ - [`initialize`](#initialize)
+
+- [`Result`](#class-mongooperationreadqueryresult)
+ - [`successful?`](#successful)
+
+- [`Aggregation`](#class-mongocollectionviewaggregation)
+ - [`view`](#view)
+ - [`pipeline`](#pipeline)
+ - [`allow_disk_use`](#allow_disk_usevalue--nil)
+ - [`initialize`](#initializeview-pipeline-options--)
+ - [`explain`](#explain)
+
+- [`StandaloneDiscovered`](#class-mongoeventstandalonediscovered)
+ - [`cluster`](#cluster)
+ - [`initialize`](#initializecluster)
+ - [`handle`](#handledescription)
+
+- [`InvalidBulkOperation`](#class-mongoerrorinvalidbulkoperation)
+ - [`initialize`](#initializetype-operation)
+
+- [`Queue`](#class-mongoserverconnectionpoolqueue)
+ - [`queue`](#queue)
+ - [`mutex`](#mutex)
+ - [`options`](#options)
+ - [`resource`](#resource)
+ - [`dequeue`](#dequeue)
+ - [`disconnect!`](#disconnect)
+ - [`enqueue`](#enqueueconnection)
+ - [`initialize`](#initializeoptions---block)
+ - [`inspect`](#inspect)
+ - [`max_size`](#max_size)
+ - [`min_size`](#min_size)
+ - [`wait_timeout`](#wait_timeout)
+
+- [`Inspector`](#class-mongoserverdescriptioninspector)
+ - [`inspectors`](#inspectors)
+ - [`initialize`](#initializelisteners)
+ - [`run`](#rundescription-ismaster-average_round_trip_time)
+
+- [`Unacknowledged`](#class-mongowriteconcernunacknowledged)
+ - [`get_last_error`](#get_last_error)
+ - [`inspect`](#inspect)
+
+- [`ReplicaSet`](#class-mongoclustertopologyreplicaset)
+ - [`options`](#options)
+ - [`monitoring`](#monitoring)
+ - [`display_name`](#display_name)
+ - [`elect_primary`](#elect_primarydescription-servers)
+ - [`has_readable_server?`](#has_readable_servercluster-server_selector--nil)
+ - [`has_writable_server?`](#has_writable_servercluster)
+ - [`initialize`](#initializeoptions-monitoring-seeds--)
+ - [`replica_set?`](#replica_set-true-end)
+ - [`replica_set_name`](#replica_set_name)
+ - [`servers`](#serversservers)
+ - [`add_hosts?`](#add_hostsdescription-servers)
+ - [`remove_hosts?`](#remove_hostsdescription)
+ - [`remove_server?`](#remove_serverdescription-server)
+ - [`sharded?`](#sharded-false-end)
+ - [`single?`](#single-false-end)
+ - [`unknown?`](#unknown-false-end)
+ - [`standalone_discovered`](#standalone_discovered-self-end)
+ - [`member_discovered`](#member_discovered-end)
+
+- [`ObjectIdGenerator`](#class-mongooperationobjectidgenerator)
+ - [`generate`](#generate)
+
+- [`Result`](#class-mongooperationwriteupdateresult)
+ - [`matched_count`](#matched_count)
+ - [`modified_count`](#modified_count)
+ - [`upserted_id`](#upserted_id)
+
+- [`LegacyResult`](#class-mongooperationwriteupdatelegacyresult)
+ - [`matched_count`](#matched_count)
+ - [`modified_count`](#modified_count)
+ - [`upserted_id`](#upserted_id)
+
+- [`InvalidCollectionName`](#class-mongoerrorinvalidcollectionname)
+ - [`initialize`](#initialize)
+
+- [`UnexpectedChunkLength`](#class-mongoerrorunexpectedchunklength)
+ - [`initialize`](#initializeexpected_len-chunk)
+
+- [`Result`](#class-mongooperationwriteinsertresult)
+ - [`inserted_ids`](#inserted_ids)
+ - [`initialize`](#initializereplies-ids)
+ - [`inserted_id`](#inserted_id)
+
+- [`Result`](#class-mongooperationwritedeleteresult)
+ - [`deleted_count`](#deleted_count)
+
+- [`UnorderedCombiner`](#class-mongobulkwriteunorderedcombiner)
+ - [`combine`](#combine)
+
+- [`UserQuery`](#class-mongooperationcommandsuserquery)
+ - [`execute`](#executeserver)
+
+- [`InvalidUpdateDocument`](#class-mongoerrorinvalidupdatedocument)
+ - [`initialize`](#initialize)
+
+- [`OpKillCursors`](#class-mongocursorbuilderopkillcursors)
+ - [`cursor`](#cursor)
+ - [`initialize`](#initializecursor)
+ - [`specification`](#specification)
+ - [`update_cursors`](#update_cursorsspec-ids)
+ - [`get_cursors_list`](#get_cursors_listspec)
+
+- [`SDAMLogSubscriber`](#class-mongomonitoringsdamlogsubscriber)
+ - [`options`](#options)
+ - [`initialize`](#initializeoptions--)
+ - [`succeeded`](#succeededevent)
+
+- [`ServerClosed`](#class-mongomonitoringeventserverclosed)
+ - [`address`](#address)
+ - [`topology`](#topology)
+ - [`initialize`](#initializeaddress-topology)
+
+- [`InvalidApplicationName`](#class-mongoerrorinvalidapplicationname)
+ - [`initialize`](#initializeapp_name-max_size)
+
+- [`Result`](#class-mongooperationcommandsfindresult)
+ - [`cursor_id`](#cursor_id)
+ - [`documents`](#documents)
+
+- [`InvalidServerPreference`](#class-mongoerrorinvalidserverpreference)
+ - [`initialize`](#initializemessage)
+
+- [`GetMoreCommand`](#class-mongocursorbuildergetmorecommand)
+ - [`cursor`](#cursor)
+ - [`initialize`](#initializecursor)
+ - [`specification`](#specification)
+
+- [`CommandFailed`](#class-mongomonitoringeventcommandfailed)
+ - [`address`](#address)
+ - [`command_name`](#command_name)
+ - [`database_name`](#database_name)
+ - [`duration`](#duration)
+ - [`message`](#message)
+ - [`operation_id`](#operation_id)
+ - [`request_id`](#request_id)
+ - [`initialize`](#initializecommand_name-database_name-address-request_id-operation_id-message-duration)
+ - [`generate`](#generateaddress-operation_id-payload-message-duration)
+
+- [`ServerOpening`](#class-mongomonitoringeventserveropening)
+ - [`address`](#address)
+ - [`topology`](#topology)
+ - [`initialize`](#initializeaddress-topology)
+
+- [`CommandStarted`](#class-mongomonitoringeventcommandstarted)
+ - [`address`](#address)
+ - [`command`](#command)
+ - [`command_name`](#command_name)
+ - [`database_name`](#database_name)
+ - [`operation_id`](#operation_id)
+ - [`request_id`](#request_id)
+ - [`initialize`](#initializecommand_name-database_name-address-request_id-operation_id-command)
+ - [`generate`](#generateaddress-operation_id-payload)
+
+- [`OpQuery`](#class-mongocollectionviewbuilderopquery)
+ - [`modifiers`](#modifiers)
+ - [`initialize`](#initializeview)
+ - [`specification`](#specification)
+
+- [`TopologyClosed`](#class-mongomonitoringeventtopologyclosed)
+ - [`topology`](#topology)
+ - [`initialize`](#initializetopology)
+
+- [`TopologyChanged`](#class-mongomonitoringeventtopologychanged)
+ - [`previous_topology`](#previous_topology)
+ - [`new_topology`](#new_topology)
+ - [`initialize`](#initializeprevious_topology-new_topology)
+
+- [`TopologyOpening`](#class-mongomonitoringeventtopologyopening)
+ - [`topology`](#topology)
+ - [`initialize`](#initializetopology)
+
+- [`PrimaryPreferred`](#class-mongoserverselectorprimarypreferred)
+ - [`name`](#name)
+ - [`slave_ok?`](#slave_ok)
+ - [`tags_allowed?`](#tags_allowed)
+ - [`to_mongos`](#to_mongos)
+
+- [`InvalidBulkOperationType`](#class-mongoerrorinvalidbulkoperationtype)
+ - [`initialize`](#initializetype)
+
+- [`CommandLogSubscriber`](#class-mongomonitoringcommandlogsubscriber)
+ - [`options`](#options)
+ - [`initialize`](#initializeoptions--)
+ - [`started`](#startedevent)
+ - [`succeeded`](#succeededevent)
+ - [`failed`](#failedevent)
+
+- [`Result`](#class-mongooperationcommandsgetmoreresult)
+ - [`cursor_id`](#cursor_id)
+ - [`documents`](#documents)
+
+- [`MapReduce`](#class-mongocollectionviewbuildermapreduce)
+ - [`map`](#map)
+ - [`reduce`](#reduce)
+ - [`view`](#view)
+ - [`options`](#options)
+ - [`initialize`](#initializemap-reduce-view-options)
+ - [`command_specification`](#command_specification)
+ - [`query_specification`](#query_specification)
+ - [`specification`](#specification)
+
+- [`Result`](#class-mongooperationwritebulkinsertresult)
+ - [`inserted_ids`](#inserted_ids)
+ - [`initialize`](#initializereplies-ids)
+ - [`n_inserted`](#n_inserted)
+ - [`inserted_id`](#inserted_id)
+
+- [`LegacyResult`](#class-mongooperationwritebulkinsertlegacyresult)
+ - [`inserted_ids`](#inserted_ids)
+ - [`initialize`](#initializereplies-ids)
+ - [`n_inserted`](#n_inserted)
+ - [`inserted_id`](#inserted_id)
+
+- [`CommandSucceeded`](#class-mongomonitoringeventcommandsucceeded)
+ - [`address`](#address)
+ - [`command_name`](#command_name)
+ - [`reply`](#reply)
+ - [`database_name`](#database_name)
+ - [`duration`](#duration)
+ - [`operation_id`](#operation_id)
+ - [`request_id`](#request_id)
+ - [`initialize`](#initializecommand_name-database_name-address-request_id-operation_id-reply-duration)
+ - [`generate`](#generateaddress-operation_id-command_payload-reply_payload-duration)
+
+- [`Result`](#class-mongooperationwritebulkupdateresult)
+ - [`n_upserted`](#n_upserted)
+ - [`n_matched`](#n_matched)
+ - [`n_modified`](#n_modified)
+ - [`upserted`](#upserted)
+
+- [`LegacyResult`](#class-mongooperationwritebulkupdatelegacyresult)
+ - [`n_upserted`](#n_upserted)
+ - [`n_matched`](#n_matched)
+ - [`n_modified`](#n_modified)
+
+- [`InvalidReplacementDocument`](#class-mongoerrorinvalidreplacementdocument)
+ - [`initialize`](#initialize)
+
+- [`Aggregation`](#class-mongocollectionviewbuilderaggregation)
+ - [`pipeline`](#pipeline)
+ - [`view`](#view)
+ - [`options`](#options)
+ - [`initialize`](#initializepipeline-view-options)
+ - [`specification`](#specification)
+
+- [`Result`](#class-mongooperationcommandsaggregateresult)
+ - [`cursor_id`](#cursor_id)
+ - [`documents`](#documents)
+
+- [`CollectionsInfo`](#class-mongooperationcommandscollectionsinfo)
+ - [`execute`](#executeserver)
+
+- [`KillCursorsCommand`](#class-mongocursorbuilderkillcursorscommand)
+ - [`cursor`](#cursor)
+ - [`initialize`](#initializecursor)
+ - [`specification`](#specification)
+ - [`update_cursors`](#update_cursorsspec-ids)
+ - [`get_cursors_list`](#get_cursors_listspec)
+
+- [`SecondaryPreferred`](#class-mongoserverselectorsecondarypreferred)
+ - [`name`](#name)
+ - [`slave_ok?`](#slave_ok)
+ - [`tags_allowed?`](#tags_allowed)
+ - [`to_mongos`](#to_mongos)
+
+- [`Result`](#class-mongooperationcommandsmapreduceresult)
+ - [`counts`](#counts)
+ - [`documents`](#documents)
+ - [`successful?`](#successful)
+ - [`time`](#time)
+ - [`validate!`](#validate)
+
+- [`Result`](#class-mongooperationcommandsusersinforesult)
+ - [`documents`](#documents)
+
+- [`FindCommand`](#class-mongocollectionviewbuilderfindcommand)
+ - [`explain_specification`](#explain_specification)
+ - [`initialize`](#initializeview)
+ - [`specification`](#specification)
+
+- [`UnchangeableCollectionOption`](#class-mongoerrorunchangeablecollectionoption)
+ - [`initialize`](#initializeoption)
+
+- [`Result`](#class-mongooperationcommandslistindexesresult)
+ - [`cursor_id`](#cursor_id)
+ - [`namespace`](#namespace)
+ - [`documents`](#documents)
+ - [`validate!`](#validate)
+
+- [`Result`](#class-mongooperationcommandsparallelscanresult)
+ - [`cursor_ids`](#cursor_ids)
+ - [`documents`](#documents)
+
+- [`Result`](#class-mongooperationcommandscollectionsinforesult)
+ - [`namespace`](#namespace)
+
+- [`Result`](#class-mongooperationcommandslistcollectionsresult)
+ - [`cursor_id`](#cursor_id)
+ - [`namespace`](#namespace)
+ - [`documents`](#documents)
+ - [`validate!`](#validate)
+
+- [`ServerDescriptionChanged`](#class-mongomonitoringeventserverdescriptionchanged)
+ - [`address`](#address)
+ - [`topology`](#topology)
+ - [`previous_description`](#previous_description)
+ - [`new_description`](#new_description)
+ - [`initialize`](#initializeaddress-topology-previous_description-new_description)
+
+- [`PrimaryElected`](#class-mongoserverdescriptioninspectorprimaryelected)
+ - [`initialize`](#initializeevent_listeners)
+ - [`run`](#rundescription-updated)
+
+- [`MemberDiscovered`](#class-mongoserverdescriptioninspectormemberdiscovered)
+ - [`initialize`](#initializeevent_listeners)
+ - [`run`](#rundescription-updated)
+
+- [`DescriptionChanged`](#class-mongoserverdescriptioninspectordescriptionchanged)
+ - [`initialize`](#initializeevent_listeners)
+ - [`run`](#rundescription-updated)
+
+- [`StandaloneDiscovered`](#class-mongoserverdescriptioninspectorstandalonediscovered)
+ - [`initialize`](#initializeevent_listeners)
+ - [`run`](#rundescription-updated)
+
+- [`Auth`](#module-mongoauth)
+ - [`get`](#getuser)
+
+- [`ClassMethods`](#module-mongodbrefclassmethods)
+ - [`from_bson`](#from_bsonbuffer)
+
+- [`Loggable`](#module-mongologgable)
+ - [`log_debug`](#log_debugmessage)
+ - [`log_error`](#log_errormessage)
+ - [`log_fatal`](#log_fatalmessage)
+ - [`log_info`](#log_infomessage)
+ - [`log_warn`](#log_warnmessage)
+ - [`logger`](#logger)
+
+- [`Retryable`](#module-mongoretryable)
+ - [`read_with_retry`](#read_with_retryattempt--0-block)
+ - [`read_with_one_retry`](#read_with_one_retryblock)
+ - [`write_with_retry`](#write_with_retryblock)
+
+- [`Global`](#module-mongomonitoringglobal)
+ - [`subscribe`](#subscribetopic-subscriber)
+ - [`subscribers`](#subscribers)
+
+- [`Stream`](#module-mongogridfsbucketstream)
+ - [`get`](#getfs-mode-options--)
+
+- [`WriteConcern`](#module-mongowriteconcern)
+ - [`get`](#getoptions)
+
+- [`Mapper`](#module-mongooptionsmapper)
+ - [`transform`](#transformoptions-mappings)
+ - [`transform_documents`](#transform_documentsoptions-mappings-document--bsondocumentnew)
+ - [`transform_keys_to_strings`](#transform_keys_to_stringsoptions)
+ - [`transform_keys_to_symbols`](#transform_keys_to_symbolsoptions)
+ - [`transform_values_to_strings`](#transform_values_to_stringsoptions)
+
+- [`Publisher`](#module-mongoeventpublisher)
+ - [`event_listeners`](#event_listeners)
+ - [`publish`](#publishevent-args)
+
+- [`ServerSelector`](#module-mongoserverselector)
+ - [`get`](#getpreference--)
+
+- [`Topology`](#module-mongoclustertopology)
+ - [`initial`](#initialseeds-monitoring-options)
+
+- [`Subscriber`](#module-mongoeventsubscriber)
+ - [`event_listeners`](#event_listeners)
+ - [`subscribe_to`](#subscribe_toevent-listener)
+
+- [`Limited`](#module-mongooperationlimited)
+ - [`options`](#options)
+
+- [`Connectable`](#module-mongoserverconnectable)
+ - [`address`](#address)
+ - [`options`](#options)
+ - [`pid`](#pid)
+ - [`connectable?`](#connectable)
+ - [`connected?`](#connected)
+ - [`timeout`](#timeout)
+
+- [`Executable`](#module-mongooperationexecutable)
+ - [`execute`](#executeserver)
+
+- [`Header`](#module-mongoprotocolserializersheader)
+ - [`serialize`](#serializebuffer-value-validating_keys--bsonconfigvalidating_keys)
+ - [`deserialize`](#deserializebuffer)
+
+- [`CString`](#module-mongoprotocolserializerscstring)
+ - [`serialize`](#serializebuffer-value-validating_keys--bsonconfigvalidating_keys)
+
+- [`Zero`](#module-mongoprotocolserializerszero)
+ - [`serialize`](#serializebuffer-value-validating_keys--bsonconfigvalidating_keys)
+
+- [`Int32`](#module-mongoprotocolserializersint32)
+ - [`serialize`](#serializebuffer-value-validating_keys--bsonconfigvalidating_keys)
+ - [`deserialize`](#deserializebuffer)
+
+- [`Int64`](#module-mongoprotocolserializersint64)
+ - [`serialize`](#serializebuffer-value-validating_keys--bsonconfigvalidating_keys)
+ - [`deserialize`](#deserializebuffer)
+
+- [`Document`](#module-mongoprotocolserializersdocument)
+ - [`serialize`](#serializebuffer-value-max_bson_size--nil-validating_keys--bsonconfigvalidating_keys)
+ - [`deserialize`](#deserializebuffer)
+ - [`size_limited?`](#size_limited)
+
+- [`Specifiable`](#module-mongooperationspecifiable)
+ - [`spec`](#spec)
+ - [`==`](#other)
+ - [`eql?`](#other)
+ - [`cursor_count`](#cursor_count)
+ - [`db_name`](#db_name)
+ - [`deletes`](#deletes)
+ - [`delete`](#delete)
+ - [`documents`](#documents)
+ - [`coll_name`](#coll_name)
+ - [`cursor_id`](#cursor_id)
+ - [`cursor_ids`](#cursor_ids)
+ - [`index`](#index)
+ - [`index_name`](#index_name)
+ - [`indexes`](#indexes)
+ - [`initialize`](#initializespec)
+ - [`operation_id`](#operation_id)
+ - [`options`](#options)
+ - [`read_concern`](#read_concern)
+ - [`max_time_ms`](#max_time_ms)
+ - [`bypass_document_validation`](#bypass_document_validation)
+ - [`collation`](#collation)
+ - [`selector`](#selector)
+ - [`to_return`](#to_return)
+ - [`updates`](#updates)
+ - [`update`](#update)
+ - [`user`](#user)
+ - [`user_name`](#user_name)
+ - [`write_concern`](#write_concern)
+ - [`read`](#read)
+ - [`ordered?`](#ordered)
+ - [`namespace`](#namespace)
+
+- [`Validatable`](#module-mongobulkwritevalidatable)
+ - [`validate`](#validatename-document)
+
+- [`Idable`](#module-mongooperationwriteidable)
+ - [`id_generator`](#id_generator)
+
+- [`Combineable`](#module-mongobulkwritecombineable)
+ - [`requests`](#requests)
+ - [`has_collation`](#has_collation)
+ - [`initialize`](#initializerequests)
+
+- [`Publishable`](#module-mongomonitoringpublishable)
+ - [`monitoring`](#monitoring)
+ - [`publish_command`](#publish_commandmessages-operation_id--monitoringnext_operation_id)
+ - [`publish_event`](#publish_eventtopic-event)
+ - [`publish_sdam_event`](#publish_sdam_eventtopic-event)
+
+- [`Secure`](#module-mongomonitoringeventsecure)
+ - [`redacted`](#redactedcommand_name-document)
+
+- [`Writable`](#module-mongocollectionviewwritable)
+ - [`find_one_and_delete`](#find_one_and_deleteopts--)
+ - [`find_one_and_replace`](#find_one_and_replacereplacement-opts--)
+ - [`find_one_and_update`](#find_one_and_updatedocument-opts--)
+ - [`delete_many`](#delete_manyopts--)
+ - [`delete_one`](#delete_oneopts--)
+ - [`replace_one`](#replace_onereplacement-opts--)
+ - [`update_many`](#update_manyspec-opts--)
+ - [`update_one`](#update_onespec-opts--)
+
+- [`Readable`](#module-mongocollectionviewreadable)
+ - [`aggregate`](#aggregatepipeline-options--)
+ - [`allow_partial_results`](#allow_partial_results)
+ - [`await_data`](#await_data)
+ - [`batch_size`](#batch_sizebatch_size--nil)
+ - [`comment`](#commentcomment--nil)
+ - [`count`](#countopts--)
+ - [`distinct`](#distinctfield_name-opts--)
+ - [`hint`](#hinthint--nil)
+ - [`limit`](#limitlimit--nil)
+ - [`map_reduce`](#map_reducemap-reduce-options--)
+ - [`max_scan`](#max_scanvalue--nil)
+ - [`max_value`](#max_valuevalue--nil)
+ - [`min_value`](#min_valuevalue--nil)
+ - [`no_cursor_timeout`](#no_cursor_timeout)
+ - [`projection`](#projectiondocument--nil)
+ - [`read`](#readvalue--nil)
+ - [`return_key`](#return_keyvalue--nil)
+ - [`show_disk_loc`](#show_disk_locvalue--nil)
+ - [`show_record_id`](#show_disk_locvalue--nil)
+ - [`skip`](#skipnumber--nil)
+ - [`snapshot`](#snapshotvalue--nil)
+ - [`sort`](#sortspec--nil)
+ - [`modifiers`](#modifiersdoc--nil)
+ - [`max_await_time_ms`](#max_await_time_msmax--nil)
+ - [`max_time_ms`](#max_time_msmax--nil)
+ - [`cursor_type`](#cursor_typetype--nil)
+
+- [`Iterable`](#module-mongocollectionviewiterable)
+ - [`each`](#each)
+ - [`close_query`](#close_query)
+ - [`kill_cursors`](#close_query)
+
+- [`Immutable`](#module-mongocollectionviewimmutable)
+ - [`options`](#options)
+
+- [`Normalizable`](#module-mongowriteconcernnormalizable)
+ - [`options`](#options)
+ - [`initialize`](#initializeoptions)
+
+- [`Selectable`](#module-mongoserverselectorselectable)
+ - [`options`](#options)
+ - [`tag_sets`](#tag_sets)
+ - [`max_staleness`](#max_staleness)
+ - [`==`](#other)
+ - [`initialize`](#initializeoptions--)
+ - [`inspect`](#inspect)
+ - [`select_server`](#select_servercluster-ping--true)
+ - [`server_selection_timeout`](#server_selection_timeout)
+ - [`local_threshold`](#local_threshold)
+ - [`candidates`](#candidatescluster)
+
+- [`Explainable`](#module-mongocollectionviewexplainable)
+ - [`explain`](#explain)
+
+- [`Flags`](#module-mongocollectionviewbuilderflags)
+ - [`map_flags`](#map_flagsoptions)
+
+- [`Mergable`](#module-mongooperationwritebulkmergable)
+ - [`aggregate_write_errors`](#aggregate_write_errorscount)
+ - [`aggregate_write_concern_errors`](#aggregate_write_concern_errorscount)
+
+- [`Bulkable`](#module-mongooperationwritebulkbulkable)
+ - [`execute`](#executeserver)
+
+- [`Writable`](#module-mongooperationwritecommandwritable)
+ - [`execute`](#executeserver)
+
+- [`Modifiers`](#module-mongocollectionviewbuildermodifiers)
+ - [`map_driver_options`](#map_driver_optionsmodifiers)
+ - [`map_server_modifiers`](#map_server_modifiersoptions)
+
+- [`Aggregatable`](#module-mongooperationwritebulkdeleteaggregatable)
+ - [`n_removed`](#n_removed)
+
+- [`LegacyMergable`](#module-mongooperationwritebulklegacymergable)
+ - [`aggregate_write_errors`](#aggregate_write_errorscount)
+ - [`aggregate_write_concern_errors`](#aggregate_write_concern_errorscount)
+
+- [`WriteCommandEnabled`](#module-mongooperationwritewritecommandenabled)
+ - [`execute`](#executeserver)
+
+---
 
 ## `class Mongo::URI`
 
@@ -207,6 +1679,7 @@ Represents a DBRef document in the database.
 
 - (`String`) — collection The collection name.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/dbref.rb#L39)
 
@@ -217,6 +1690,7 @@ Represents a DBRef document in the database.
 
 - (`BSON::ObjectId`) — id The referenced document id.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/dbref.rb#L42)
 
@@ -226,6 +1700,7 @@ Represents a DBRef document in the database.
 **Returns**:
 
 - (`String`) — database The database name.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/dbref.rb#L45)
@@ -313,6 +1788,7 @@ Provides additional data around sockets for the driver's use.
 
 - (`Integer`) — family The type of host family.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket.rb#L45)
 
@@ -322,6 +1798,7 @@ Provides additional data around sockets for the driver's use.
 **Returns**:
 
 - (`Socket`) — socket The wrapped socket.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket.rb#L48)
@@ -480,6 +1957,7 @@ Tests if this socket has reached EOF. Primarily used for liveness checks.
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket.rb#L163)
 
@@ -497,6 +1975,7 @@ will be interacted with.
 
 - (`Mongo::Cluster`) — cluster The cluster of servers for the client.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L76)
 
@@ -507,6 +1986,7 @@ will be interacted with.
 
 - (`Mongo::Database`) — database The database the client is operating on.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L79)
 
@@ -516,6 +1996,7 @@ will be interacted with.
 **Returns**:
 
 - (`Hash`) — options The configuration options.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/client.rb#L82)
@@ -789,6 +2270,10 @@ metadata printed to the mongod logs upon establishing a connection in server ver
 
 - (`Client`) — a new instance of Client
 
+**Yields**:
+
+- (`_self`) — 
+
 **Examples**:
 
 ```ruby
@@ -984,6 +2469,7 @@ a replica set, or a mongos.
 
 - (`String`) — The configured address for the server.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L33)
 
@@ -993,6 +2479,7 @@ a replica set, or a mongos.
 **Returns**:
 
 - (`Cluster`) — cluster The server cluster.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L36)
@@ -1004,6 +2491,7 @@ a replica set, or a mongos.
 
 - (`Monitor`) — monitor The server monitor.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L39)
 
@@ -1013,6 +2501,7 @@ a replica set, or a mongos.
 **Returns**:
 
 - (`Hash`) — The options hash.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L42)
@@ -1024,10 +2513,12 @@ a replica set, or a mongos.
 
 - (`Monitoring`) — monitoring The monitoring.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server.rb#L45)
 
 ### `#heartbeat_frequency_seconds`
+
 
 
 **See**:
@@ -1380,6 +2871,7 @@ creates a +Cursor+ in an Enumerable module method.
 
 - (`Collection::View`) — view The collection view.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor.rb#L43)
 
@@ -1580,6 +3072,7 @@ Defines behaviour for MongoDB-CR authentication.
 
 - (`Mongo::Auth::User`) — The user to authenticate.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr.rb#L31)
 
@@ -1641,6 +3134,7 @@ path.
 
 - (`String`) — seed The seed address.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address.rb#L43)
 
@@ -1651,6 +3145,7 @@ path.
 
 - (`String`) — host The original host name.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address.rb#L46)
 
@@ -1660,6 +3155,7 @@ path.
 **Returns**:
 
 - (`Integer`) — port The port.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address.rb#L49)
@@ -1847,6 +3343,7 @@ replica set, or a single or multiple mongos.
 
 - (`Hash`) — The options hash.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L47)
 
@@ -1856,6 +3353,7 @@ replica set, or a single or multiple mongos.
 **Returns**:
 
 - (`Monitoring`) — monitoring The monitoring.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L50)
@@ -1867,6 +3365,7 @@ replica set, or a single or multiple mongos.
 
 - (`Object`) — The cluster topology.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L53)
 
@@ -1877,6 +3376,7 @@ replica set, or a single or multiple mongos.
 
 - (`Mongo::Cluster::AppMetadata`) — The application metadata, used for connection
 handshakes.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster.rb#L59)
@@ -2342,6 +3842,7 @@ it at this level.
 
 - (`Client`) — client The database client.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L57)
 
@@ -2351,6 +3852,7 @@ it at this level.
 **Returns**:
 
 - (`String`) — name The name of the database.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L60)
@@ -2362,6 +3864,7 @@ it at this level.
 
 - (`Hash`) — options The options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L63)
 
@@ -2371,6 +3874,7 @@ it at this level.
 **Returns**:
 
 - (`Mongo::Server`) — Get the primary server from the cluster.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database.rb#L72)
@@ -2663,6 +4167,7 @@ Represents a user in MongoDB.
 - (`String`) — The authorization source, either a database or
 external name.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L32)
 
@@ -2672,6 +4177,7 @@ external name.
 **Returns**:
 
 - (`String`) — The database the user is created in.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L35)
@@ -2683,6 +4189,7 @@ external name.
 
 - (`Hash`) — The authentication mechanism properties.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L38)
 
@@ -2692,6 +4199,7 @@ external name.
 **Returns**:
 
 - (`Symbol`) — The authorization mechanism.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L41)
@@ -2703,6 +4211,7 @@ external name.
 
 - (`String`) — The username.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L44)
 
@@ -2713,6 +4222,7 @@ external name.
 
 - (`String`) — The cleartext password.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L47)
 
@@ -2722,6 +4232,7 @@ external name.
 **Returns**:
 
 - (`Array<String>`) — roles The user roles.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user.rb#L50)
@@ -2886,6 +4397,7 @@ Will be removed in driver version 3.0.**
 
 - (`Array<Chunk>`) — chunks The file chunks.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L34)
 
@@ -2895,6 +4407,7 @@ Will be removed in driver version 3.0.**
 **Returns**:
 
 - (`File::Info`) — info The file information.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L37)
@@ -2982,6 +4495,7 @@ Joins chunks into a string.
 
 - (`String`) — The raw data for the file.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file.rb#L84)
 
@@ -3014,6 +4528,7 @@ Defines behaviour for LDAP Proxy authentication.
 **Returns**:
 
 - (`Mongo::Auth::User`) — The user to authenticate.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap.rb#L31)
@@ -3076,6 +4591,7 @@ Defines behaviour for x.509 authentication.
 
 - (`Mongo::Auth::User`) — The user to authenticate.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509.rb#L31)
 
@@ -3136,6 +4652,7 @@ Defines behaviour for SCRAM-SHA1 authentication.
 **Returns**:
 
 - (`Mongo::Auth::User`) — The user to authenticate.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/scram.rb#L31)
@@ -3198,6 +4715,7 @@ A class representing a view of indexes.
 
 - (`Collection`) — collection The indexes collection.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/index/view.rb#L26)
 
@@ -3208,6 +4726,7 @@ A class representing a view of indexes.
 
 - (`Integer`) — batch_size The size of the batch of results
 when sending the listIndexes command.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/index/view.rb#L30)
@@ -3432,6 +4951,7 @@ Wrapper for TCP sockets.
 
 - (`String`) — host The host to connect to.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/tcp.rb#L24)
 
@@ -3442,6 +4962,7 @@ Wrapper for TCP sockets.
 
 - (`Integer`) — port The port to connect to.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/tcp.rb#L27)
 
@@ -3451,6 +4972,7 @@ Wrapper for TCP sockets.
 **Returns**:
 
 - (`Float`) — timeout The connection timeout.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/tcp.rb#L30)
@@ -3535,6 +5057,7 @@ socket.connectable?
 
 - (`Mongo::Collection`) — collection The collection.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write.rb#L29)
 
@@ -3545,6 +5068,7 @@ socket.connectable?
 
 - (`Array<Hash, BSON::Document>`) — requests The requests.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write.rb#L32)
 
@@ -3554,6 +5078,7 @@ socket.connectable?
 **Returns**:
 
 - (`Hash, BSON::Document`) — options The options.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write.rb#L35)
@@ -3665,6 +5190,7 @@ Wrapper for SSL sockets.
 
 - (`SSLContext`) — context The ssl context.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L27)
 
@@ -3674,6 +5200,7 @@ Wrapper for SSL sockets.
 **Returns**:
 
 - (`String`) — host The host to connect to.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L30)
@@ -3685,6 +5212,7 @@ Wrapper for SSL sockets.
 
 - (`String`) — host_name The original host name.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L33)
 
@@ -3694,6 +5222,7 @@ Wrapper for SSL sockets.
 **Returns**:
 
 - (`Hash`) — The ssl options.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L36)
@@ -3705,6 +5234,7 @@ Wrapper for SSL sockets.
 
 - (`Integer`) — port The port to connect to.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L39)
 
@@ -3714,6 +5244,7 @@ Wrapper for SSL sockets.
 **Returns**:
 
 - (`Float`) — timeout The connection timeout.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/ssl.rb#L42)
@@ -3820,6 +5351,7 @@ applied to one.
 
 - (`Mongo::Database`) — The database the collection resides in.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L39)
 
@@ -3830,6 +5362,7 @@ applied to one.
 
 - (`String`) — The name of the collection.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L42)
 
@@ -3839,6 +5372,7 @@ applied to one.
 **Returns**:
 
 - (`Hash`) — The collection options.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L45)
@@ -3959,6 +5493,7 @@ collection.write_concern
 **Returns**:
 
 - (`Mongo::Collection`) — A new collection instance.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection.rb#L144)
@@ -4930,6 +6465,7 @@ Represents a view of the GridFS in the database.
 
 - (`Collection`) — chunks_collection The chunks collection.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L42)
 
@@ -4939,6 +6475,7 @@ Represents a view of the GridFS in the database.
 **Returns**:
 
 - (`Database`) — database The database.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L47)
@@ -4950,6 +6487,7 @@ Represents a view of the GridFS in the database.
 
 - (`Collection`) — files_collection The files collection.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L52)
 
@@ -4959,6 +6497,7 @@ Represents a view of the GridFS in the database.
 **Returns**:
 
 - (`Hash`) — options The FSBucket options.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/fs_bucket.rb#L57)
@@ -5461,6 +7000,7 @@ Wrapper for Unix sockets.
 
 - (`String`) — path The path to connect to.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/unix.rb#L24)
 
@@ -5470,6 +7010,7 @@ Wrapper for Unix sockets.
 **Returns**:
 
 - (`Float`) — timeout The connection timeout.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/socket/unix.rb#L27)
@@ -5550,6 +7091,7 @@ address.
 
 - (`String`) — host The host.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv6.rb#L25)
 
@@ -5560,6 +7102,7 @@ address.
 
 - (`String`) — host_name The original host name.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv6.rb#L28)
 
@@ -5569,6 +7112,7 @@ address.
 **Returns**:
 
 - (`Integer`) — port The port.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv6.rb#L31)
@@ -5658,6 +7202,7 @@ Sets up socket addresses.
 
 - (`String`) — host The host.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/unix.rb#L24)
 
@@ -5667,6 +7212,7 @@ Sets up socket addresses.
 **Returns**:
 
 - (`nil`) — port Will always be nil.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/unix.rb#L27)
@@ -5754,6 +7300,7 @@ command responses.
 
 - (`BSON::Document`) — document The returned document.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/parser.rb#L25)
 
@@ -5764,6 +7311,7 @@ command responses.
 
 - (`String`) — message The error message parsed from the document.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/parser.rb#L28)
 
@@ -5773,6 +7321,7 @@ command responses.
 **Returns**:
 
 - (`Array<Protocol::Reply>`) — replies The message replies.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/parser.rb#L31)
@@ -5813,6 +7362,7 @@ address.
 
 - (`String`) — host The host.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv4.rb#L25)
 
@@ -5823,6 +7373,7 @@ address.
 
 - (`String`) — host_name The original host name.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv4.rb#L28)
 
@@ -5832,6 +7383,7 @@ address.
 **Returns**:
 
 - (`Integer`) — port The port.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/address/ipv4.rb#L31)
@@ -5922,6 +7474,7 @@ A class representing a view of a database.
 - (`Integer`) — batch_size The size of the batch of results
 when sending the listCollections command.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database/view.rb#L30)
 
@@ -5932,6 +7485,7 @@ when sending the listCollections command.
 
 - (`Integer`) — limit The limit when sending a command.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database/view.rb#L33)
 
@@ -5941,6 +7495,7 @@ when sending the listCollections command.
 **Returns**:
 
 - (`Collection`) — collection The command collection.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/database/view.rb#L36)
@@ -6023,6 +7578,7 @@ Will be removed in driver version 3.0.**
 **Returns**:
 
 - (`BSON::Document`) — document The files collection document.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/info.rb#L53)
@@ -6422,6 +7978,7 @@ message.
 
 - (`String`) — collection The name of the collection.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/query.rb#L207)
 
@@ -6431,6 +7988,7 @@ message.
 **Returns**:
 
 - (`BSON::Document, Hash`) — filter The query filter or command.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/query.rb#L210)
@@ -6442,6 +8000,7 @@ message.
 
 - (`BSON::Document, Hash`) — options The options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/query.rb#L213)
 
@@ -6451,6 +8010,7 @@ message.
 **Returns**:
 
 - (`Array<Symbol>`) — flags The flags.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/query.rb#L216)
@@ -6588,6 +8148,7 @@ message.payload
 Supported flags: +:cursor_not_found+, +:query_failure+,
 +:shard_config_stale+, +:await_capable+
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L92)
 
@@ -6601,6 +8162,7 @@ Supported flags: +:cursor_not_found+, +:query_failure+,
 Supported flags: +:cursor_not_found+, +:query_failure+,
 +:shard_config_stale+, +:await_capable+
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L92)
 
@@ -6611,6 +8173,7 @@ Supported flags: +:cursor_not_found+, +:query_failure+,
 
 - (`Fixnum`) — The cursor id for this response. Will be zero
 if there are no additional results.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L97)
@@ -6623,6 +8186,7 @@ if there are no additional results.
 - (`Fixnum`) — The cursor id for this response. Will be zero
 if there are no additional results.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L97)
 
@@ -6632,6 +8196,7 @@ if there are no additional results.
 **Returns**:
 
 - (`Fixnum`) — The starting position of the cursor for this Reply.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L101)
@@ -6643,6 +8208,7 @@ if there are no additional results.
 
 - (`Fixnum`) — The starting position of the cursor for this Reply.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L101)
 
@@ -6652,6 +8218,7 @@ if there are no additional results.
 **Returns**:
 
 - (`Fixnum`) — Number of documents in this Reply.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L105)
@@ -6663,6 +8230,7 @@ if there are no additional results.
 
 - (`Fixnum`) — Number of documents in this Reply.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L105)
 
@@ -6673,6 +8241,7 @@ if there are no additional results.
 
 - (`Array<Hash>`) — The documents in this Reply.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L109)
 
@@ -6682,6 +8251,7 @@ if there are no additional results.
 **Returns**:
 
 - (`Array<Hash>`) — The documents in this Reply.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L109)
@@ -6699,6 +8269,7 @@ Upconverts legacy replies to new op command replies.
 
 - (`Array<BSON::Document>`) — documents The documents.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L137)
 
@@ -6709,6 +8280,7 @@ Upconverts legacy replies to new op command replies.
 
 - (`Integer`) — cursor_id The cursor id.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L140)
 
@@ -6718,6 +8290,7 @@ Upconverts legacy replies to new op command replies.
 **Returns**:
 
 - (`Integer`) — starting_from The starting point in the cursor.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/reply.rb#L143)
@@ -6781,6 +8354,7 @@ a separate thread as to not disrupt other operations.
 
 - (`Mongo::Connection`) — connection The connection to use.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L44)
 
@@ -6792,6 +8366,7 @@ a separate thread as to not disrupt other operations.
 - (`Server::Description`) — description The server
 description the monitor refreshes.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L48)
 
@@ -6801,6 +8376,7 @@ description the monitor refreshes.
 **Returns**:
 
 - (`Description::Inspector`) — inspector The description inspector.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L51)
@@ -6812,6 +8388,7 @@ description the monitor refreshes.
 
 - (`Hash`) — options The server options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L54)
 
@@ -6821,6 +8398,7 @@ description the monitor refreshes.
 **Returns**:
 
 - (`Time`) — last_scan The time of the last server scan.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/monitor.rb#L59)
@@ -6959,6 +8537,7 @@ connection.
 
 - (`Mongo::Server`) — server The server the context is for.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/context.rb#L28)
 
@@ -7016,6 +8595,7 @@ Defines behaviour for user related operation on databases.
 **Returns**:
 
 - (`Database`) — database The view's database.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/user/view.rb#L26)
@@ -7241,6 +8821,7 @@ message.
 
 - (`String`) — collection The name of the collection.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L148)
 
@@ -7250,6 +8831,7 @@ message.
 **Returns**:
 
 - (`Hash`) — filter The filter.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L151)
@@ -7261,6 +8843,7 @@ message.
 
 - (`Hash`) — update The update.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L154)
 
@@ -7270,6 +8853,7 @@ message.
 **Returns**:
 
 - (`Array<Symbol>`) — flags The flags.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/update.rb#L157)
@@ -7423,6 +9007,7 @@ message.
 
 - (`String`) — collection The name of the collection.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/insert.rb#L131)
 
@@ -7433,6 +9018,7 @@ message.
 
 - (`Array<BSON::Document>`) — documents The documents to insert.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/insert.rb#L134)
 
@@ -7442,6 +9028,7 @@ message.
 **Returns**:
 
 - (`Hash`) — options The options.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/insert.rb#L137)
@@ -7504,6 +9091,7 @@ Encapsulates behaviour around GridFS chunks of file data.
 
 - (`BSON::Document`) — document The document to store for the
 chunk.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/file/chunk.rb#L38)
@@ -7740,6 +9328,7 @@ the user to interact with.
 
 - (`Collection`) — The +Collection+ to query.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L53)
 
@@ -7750,6 +9339,7 @@ the user to interact with.
 
 - (`Hash`) — The query filter.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L56)
 
@@ -7759,6 +9349,7 @@ the user to interact with.
 **Returns**:
 
 - (`Hash`) — The query filter.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view.rb#L69)
@@ -8087,6 +9678,7 @@ message.
 
 - (`String`) — collection The name of the collection.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L116)
 
@@ -8097,6 +9689,7 @@ message.
 
 - (`BSON::Document, Hash`) — filter The query filter or command.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L119)
 
@@ -8106,6 +9699,7 @@ message.
 **Returns**:
 
 - (`Hash`) — options The options.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/delete.rb#L122)
@@ -8165,6 +9759,7 @@ A stream that reads files from the FSBucket.
 
 - (`FSBucket`) — fs The fs bucket from which this stream reads.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L29)
 
@@ -8175,6 +9770,7 @@ A stream that reads files from the FSBucket.
 
 - (`Hash`) — options The stream options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L34)
 
@@ -8184,6 +9780,7 @@ A stream that reads files from the FSBucket.
 **Returns**:
 
 - (`BSON::ObjectId, Object`) — file_id The id of the file being read.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/read.rb#L39)
@@ -8342,6 +9939,7 @@ Result wrapper for operations.
 
 - (`Array<Protocol::Reply>`) — replies The wrapped wire protocol replies.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L66)
 
@@ -8358,6 +9956,7 @@ return true here since a replies is always provided.**
 **Returns**:
 
 - (`true, false`) — If the result is acknowledged.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L79)
@@ -8407,6 +10006,7 @@ result classes where 'ns' is in the server response.
 **Returns**:
 
 - (`Nil`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb#L116)
@@ -8633,6 +10233,7 @@ Returns the request id for the message
 
 - (`Fixnum`) — The request id for this message
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L78)
 
@@ -8643,6 +10244,7 @@ Returns the request id for the message
 **Returns**:
 
 - (`Message`) — a new instance of Message
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L80)
@@ -8678,6 +10280,7 @@ Serializes message into bytes that can be sent on the wire
 
 - (`String`) — buffer containing the serialized message
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L101)
 
@@ -8693,6 +10296,7 @@ Serializes message into bytes that can be sent on the wire
 **Returns**:
 
 - (`String`) — buffer containing the serialized message
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L108)
@@ -8713,6 +10317,7 @@ Deserializes messages from an IO stream
 
 - (`Message`) — Instance of a Message class
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L116)
 
@@ -8729,6 +10334,7 @@ by comparing class and field values.
 **Returns**:
 
 - (`true, false`) — The equality of the messages.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L149)
@@ -8747,6 +10353,7 @@ by comparing class and field values.
 
 - (`true, false`) — The equality of the messages.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L157)
 
@@ -8757,6 +10364,7 @@ Creates a hash from the values of the fields of a message.
 **Returns**:
 
 - (`Fixnum`) — The hash code for the message.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L162)
@@ -8770,6 +10378,7 @@ Generates a request id for a message
 - (`Fixnum`) — a request id used for sending a message to the
 server. The server will put this id in the response_to field of
 a reply.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/message.rb#L171)
@@ -8789,6 +10398,7 @@ Get a string representation of the options.
 
 - (`String`) — The string representation of the options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L40)
 
@@ -8799,6 +10409,7 @@ Get a string representation of the options.
 **Returns**:
 
 - (`String`) — The string representation of the options.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/options/redacted.rb#L49)
@@ -9007,6 +10618,7 @@ message.
 
 - (`String`) — collection The name of the collection.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L116)
 
@@ -9017,6 +10629,7 @@ message.
 
 - (`Integer`) — cursor_id The cursor id.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L119)
 
@@ -9026,6 +10639,7 @@ message.
 **Returns**:
 
 - (`Integer`) — number_to_return The number of docs to return.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/get_more.rb#L122)
@@ -9212,6 +10826,7 @@ A stream that writes files to the FSBucket.
 
 - (`FSBucket`) — fs The fs bucket to which this stream writes.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L28)
 
@@ -9221,6 +10836,7 @@ A stream that writes files to the FSBucket.
 **Returns**:
 
 - (`Object`) — file_id The id of the file being uploaded.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L33)
@@ -9232,6 +10848,7 @@ A stream that writes files to the FSBucket.
 
 - (`String`) — filename The name of the file being uploaded.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L38)
 
@@ -9241,6 +10858,7 @@ A stream that writes files to the FSBucket.
 **Returns**:
 
 - (`Hash`) — options The write stream options.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/grid/stream/write.rb#L43)
@@ -9597,6 +11215,7 @@ ismaster command.
 
 - (`Address`) — address The server's address.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L163)
 
@@ -9606,6 +11225,7 @@ ismaster command.
 **Returns**:
 
 - (`Hash`) — The actual result from the ismaster command.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L166)
@@ -9617,6 +11237,7 @@ ismaster command.
 
 - (`Features`) — features The features for the server.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L169)
 
@@ -9626,6 +11247,7 @@ ismaster command.
 **Returns**:
 
 - (`Float`) — The moving average time the ismaster call took to complete.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description.rb#L172)
@@ -10340,6 +11962,7 @@ match the client nonce sent to it.
 
 - (`String`) — nonce The client nonce.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_nonce.rb#L25)
 
@@ -10349,6 +11972,7 @@ match the client nonce sent to it.
 **Returns**:
 
 - (`String`) — rnonce The server nonce.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_nonce.rb#L28)
@@ -10422,6 +12046,7 @@ Initializes a BitVector with a layout
 
 - (`BitVector`) — a new instance of BitVector
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/bit_vector.rb#L28)
 
@@ -10441,6 +12066,7 @@ Serializes vector by encoding each symbol according to its mask
 
 - (`String`) — Buffer that received the serialized vector
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/bit_vector.rb#L41)
 
@@ -10456,6 +12082,7 @@ Deserializes vector by decoding the symbol according to its mask
 **Returns**:
 
 - (`Array<Symbol>`) — Flags contained in the vector
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/bit_vector.rb#L52)
@@ -10506,6 +12133,7 @@ client and server.
 - (`Protocol::Reply`) — reply The current reply in the
 conversation.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr/conversation.rb#L32)
 
@@ -10515,6 +12143,7 @@ conversation.
 **Returns**:
 
 - (`String`) — database The database to authenticate against.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr/conversation.rb#L35)
@@ -10526,6 +12155,7 @@ conversation.
 
 - (`String`) — nonce The initial auth nonce.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr/conversation.rb#L38)
 
@@ -10535,6 +12165,7 @@ conversation.
 **Returns**:
 
 - (`User`) — user The user for the conversation.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/cr/conversation.rb#L41)
@@ -10882,6 +12513,7 @@ message.
 
 - (`String`) — collection The name of the collection.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L99)
 
@@ -10891,6 +12523,7 @@ message.
 **Returns**:
 
 - (`Array<Integer>`) — cursor_ids The cursor ids.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/kill_cursors.rb#L102)
@@ -10949,6 +12582,7 @@ This handles primary elected events for server descriptions.
 **Returns**:
 
 - (`Mongo::Cluster`) — cluster The cluster.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/primary_elected.rb#L26)
@@ -11085,6 +12719,7 @@ client and server.
 - (`Protocol::Reply`) — reply The current reply in the
 conversation.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509/conversation.rb#L32)
 
@@ -11094,6 +12729,7 @@ conversation.
 **Returns**:
 
 - (`User`) — user The user for the conversation.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/x509/conversation.rb#L35)
@@ -11197,6 +12833,7 @@ Represents a connection pool for server connections.
 **Returns**:
 
 - (`Hash`) — options The pool options.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool.rb#L27)
@@ -11351,6 +12988,7 @@ client and server.
 - (`Protocol::Reply`) — reply The current reply in the
 conversation.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap/conversation.rb#L32)
 
@@ -11360,6 +12998,7 @@ conversation.
 **Returns**:
 
 - (`User`) — user The user for the conversation.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/ldap/conversation.rb#L35)
@@ -11442,6 +13081,7 @@ operation.
 
 - (`BSON::Document`) — result The error result.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/bulk_write_error.rb#L25)
 
@@ -11501,6 +13141,7 @@ Whether the slaveOk bit should be set on wire protocol messages.
 
 - (`true`) — true
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/nearest.rb#L43)
 
@@ -11511,6 +13152,7 @@ Whether tag sets are allowed to be defined for this server preference.
 **Returns**:
 
 - (`true`) — true
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/nearest.rb#L52)
@@ -11549,6 +13191,7 @@ client and server.
 
 - (`String`) — nonce The initial user nonce.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/scram/conversation.rb#L89)
 
@@ -11560,6 +13203,7 @@ client and server.
 - (`Protocol::Reply`) — reply The current reply in the
 conversation.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/scram/conversation.rb#L93)
 
@@ -11569,6 +13213,7 @@ conversation.
 **Returns**:
 
 - (`User`) — user The user for the conversation.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/auth/scram/conversation.rb#L96)
@@ -11693,6 +13338,7 @@ expected signature on the client.
 
 - (`String`) — verifier The server verifier string.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_signature.rb#L25)
 
@@ -11702,6 +13348,7 @@ expected signature on the client.
 **Returns**:
 
 - (`String`) — server_signature The expected server signature.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/error/invalid_signature.rb#L28)
@@ -11768,6 +13415,7 @@ This handles member discovered events for server descriptions.
 
 - (`Mongo::Cluster`) — cluster The cluster.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/member_discovered.rb#L25)
 
@@ -11778,6 +13426,7 @@ This handles member discovered events for server descriptions.
 
 - (`Hash`) — options The options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/member_discovered.rb#L28)
 
@@ -11787,6 +13436,7 @@ This handles member discovered events for server descriptions.
 **Returns**:
 
 - (`Monitoring`) — monitoring The monitoring.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/member_discovered.rb#L31)
@@ -11847,6 +13497,7 @@ Defines behaviour for when a cluster is in single topology.
 
 - (`Hash`) — options The options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L31)
 
@@ -11857,6 +13508,7 @@ Defines behaviour for when a cluster is in single topology.
 
 - (`String`) — seed The seed address.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L34)
 
@@ -11866,6 +13518,7 @@ Defines behaviour for when a cluster is in single topology.
 **Returns**:
 
 - (`monitoring`) — monitoring the monitoring.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/single.rb#L37)
@@ -12240,6 +13893,7 @@ Whether the slaveOk bit should be set on wire protocol messages.
 
 - (`false`) — false
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary.rb#L44)
 
@@ -12250,6 +13904,7 @@ Whether tag sets are allowed to be defined for this server preference.
 **Returns**:
 
 - (`false`) — false
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary.rb#L53)
@@ -12287,6 +13942,7 @@ Defines behaviour for when a cluster is in sharded topology.
 
 - (`Hash`) — options The options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L31)
 
@@ -12296,6 +13952,7 @@ Defines behaviour for when a cluster is in sharded topology.
 **Returns**:
 
 - (`Monitoring`) — monitoring The monitoring.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/sharded.rb#L34)
@@ -12650,6 +14307,7 @@ Defines behaviour for when a cluster is in an unknown state.
 
 - (`Hash`) — options The options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L32)
 
@@ -12659,6 +14317,7 @@ Defines behaviour for when a cluster is in an unknown state.
 **Returns**:
 
 - (`Monitoring`) — monitoring The monitoring.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/unknown.rb#L35)
@@ -13093,6 +14752,7 @@ Whether the slaveOk bit should be set on wire protocol messages.
 
 - (`true`) — true
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/secondary.rb#L44)
 
@@ -13103,6 +14763,7 @@ Whether tag sets are allowed to be defined for this server preference.
 **Returns**:
 
 - (`true`) — true
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/secondary.rb#L53)
@@ -13169,6 +14830,7 @@ This handles a change in description.
 
 - (`Mongo::Cluster`) — cluster The cluster.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/description_changed.rb#L26)
 
@@ -13179,6 +14841,7 @@ This handles a change in description.
 
 - (`Hash`) — options The options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/description_changed.rb#L29)
 
@@ -13188,6 +14851,7 @@ This handles a change in description.
 **Returns**:
 
 - (`Monitoring`) — monitoring The monitoring.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/description_changed.rb#L32)
@@ -13355,6 +15019,7 @@ view.
 
 - (`View`) — view The collection view.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/map_reduce.rb#L41)
 
@@ -13365,6 +15030,7 @@ view.
 
 - (`String`) — map The map function.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/map_reduce.rb#L44)
 
@@ -13374,6 +15040,7 @@ view.
 **Returns**:
 
 - (`String`) — reduce The reduce function.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/map_reduce.rb#L47)
@@ -13611,6 +15278,7 @@ Encapsulates behaviour around generating an OP_GET_MORE specification.
 
 - (`Cursor`) — cursor The cursor.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/op_get_more.rb#L26)
 
@@ -13738,6 +15406,7 @@ Combines bulk write results together.
 
 - (`Integer`) — count The count of documents in the entire batch.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L26)
 
@@ -13747,6 +15416,7 @@ Combines bulk write results together.
 **Returns**:
 
 - (`Hash`) — results The results hash.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/result_combiner.rb#L29)
@@ -13849,6 +15519,7 @@ Defines behaviour around what features a specific server supports.
 
 - (`Range`) — server_wire_versions The server's supported wire
 versions.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/features.rb#L63)
@@ -14036,6 +15707,7 @@ Provides behaviour around an aggregation pipeline on a collection view.
 
 - (`View`) — view The collection view.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/aggregation.rb#L32)
 
@@ -14045,6 +15717,7 @@ Provides behaviour around an aggregation pipeline on a collection view.
 **Returns**:
 
 - (`Array<Hash>`) — pipeline The aggregation pipeline.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/aggregation.rb#L34)
@@ -14130,6 +15803,7 @@ This handles when a standalone is discovered.
 **Returns**:
 
 - (`Mongo::Cluster`) — cluster The cluster.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/standalone_discovered.rb#L24)
@@ -14222,6 +15896,7 @@ stack.
 
 - (`Array`) — queue The underlying array of connections.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L40)
 
@@ -14231,6 +15906,7 @@ stack.
 **Returns**:
 
 - (`Mutex`) — mutex The mutex used for synchronization.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L43)
@@ -14242,6 +15918,7 @@ stack.
 
 - (`Hash`) — options The options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L46)
 
@@ -14251,6 +15928,7 @@ stack.
 **Returns**:
 
 - (`ConditionVariable`) — resource The resource.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connection_pool/queue.rb#L49)
@@ -14417,6 +16095,7 @@ events should be fired.
 
 - (`Array`) — inspectors The description inspectors.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/description/inspector.rb#L43)
 
@@ -14524,6 +16203,7 @@ Defines behaviour when a cluster is in replica set topology.
 
 - (`Hash`) — options The options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L32)
 
@@ -14533,6 +16213,7 @@ Defines behaviour when a cluster is in replica set topology.
 **Returns**:
 
 - (`Monitoring`) — monitoring The monitoring.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cluster/topology/replica_set.rb#L35)
@@ -15240,6 +16921,7 @@ Encapsulates behaviour around generating an OP_KILL_CURSORS specification.
 
 - (`Cursor`) — cursor The cursor.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/op_kill_cursors.rb#L26)
 
@@ -15331,6 +17013,7 @@ Subscribes to SDAM events and logs them.
 
 - (`Hash`) — options The options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/sdam_log_subscriber.rb#L25)
 
@@ -15388,6 +17071,7 @@ Event fired when the server is closed.
 
 - (`Address`) — address The server address.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_closed.rb#L25)
 
@@ -15397,6 +17081,7 @@ Event fired when the server is closed.
 **Returns**:
 
 - (`Topology`) — topology The topology.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_closed.rb#L28)
@@ -15539,6 +17224,7 @@ Generates a specification for a get more command.
 
 - (`Cursor`) — cursor The cursor.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/get_more_command.rb#L26)
 
@@ -15594,6 +17280,7 @@ Event that is fired when a command operation fails.
 
 - (`Server::Address`) — address The server address.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L25)
 
@@ -15603,6 +17290,7 @@ Event that is fired when a command operation fails.
 **Returns**:
 
 - (`String`) — command_name The name of the command.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L28)
@@ -15614,6 +17302,7 @@ Event that is fired when a command operation fails.
 
 - (`String`) — database_name The name of the database_name.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L31)
 
@@ -15623,6 +17312,7 @@ Event that is fired when a command operation fails.
 **Returns**:
 
 - (`Float`) — duration The duration of the command in seconds.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L34)
@@ -15634,6 +17324,7 @@ Event that is fired when a command operation fails.
 
 - (`String`) — message The error message.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L37)
 
@@ -15644,6 +17335,7 @@ Event that is fired when a command operation fails.
 
 - (`Integer`) — operation_id The operation id.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L40)
 
@@ -15653,6 +17345,7 @@ Event that is fired when a command operation fails.
 **Returns**:
 
 - (`Integer`) — request_id The request id.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_failed.rb#L43)
@@ -15744,6 +17437,7 @@ Event fired when the server is opening.
 
 - (`Address`) — address The server address.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_opening.rb#L25)
 
@@ -15753,6 +17447,7 @@ Event fired when the server is opening.
 **Returns**:
 
 - (`Topology`) — topology The topology.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_opening.rb#L28)
@@ -15795,6 +17490,7 @@ Event that is fired when a command operation starts.
 
 - (`Server::Address`) — address The server address.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_started.rb#L26)
 
@@ -15804,6 +17500,7 @@ Event that is fired when a command operation starts.
 **Returns**:
 
 - (`BSON::Document`) — command The command arguments.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_started.rb#L29)
@@ -15815,6 +17512,7 @@ Event that is fired when a command operation starts.
 
 - (`String`) — command_name The name of the command.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_started.rb#L32)
 
@@ -15824,6 +17522,7 @@ Event that is fired when a command operation starts.
 **Returns**:
 
 - (`String`) — database_name The name of the database_name.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_started.rb#L35)
@@ -15835,6 +17534,7 @@ Event that is fired when a command operation starts.
 
 - (`Integer`) — operation_id The operation id.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_started.rb#L38)
 
@@ -15844,6 +17544,7 @@ Event that is fired when a command operation starts.
 **Returns**:
 
 - (`Integer`) — request_id The request id.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_started.rb#L41)
@@ -15926,6 +17627,7 @@ Builds a legacy OP_QUERY specification from options.
 
 - (`BSON::Document`) — modifiers The server modifiers.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/op_query.rb#L29)
 
@@ -15954,6 +17656,7 @@ QueryBuilder.new(view)
 ### `#specification`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/op_query.rb#L44)
 
@@ -15969,6 +17672,7 @@ Event fired when the topology closes.
 **Returns**:
 
 - (`Topology`) — topology The topology.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/topology_closed.rb#L25)
@@ -16008,6 +17712,7 @@ Event fired when the topology changes.
 
 - (`Cluster::Topology`) — previous_topology The previous topology.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/topology_changed.rb#L25)
 
@@ -16017,6 +17722,7 @@ Event fired when the topology changes.
 **Returns**:
 
 - (`Cluster::Topology`) — new_topology The new topology.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/topology_changed.rb#L28)
@@ -16058,6 +17764,7 @@ Event fired when the topology is opening.
 **Returns**:
 
 - (`Topology`) — topology The topology.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/topology_opening.rb#L25)
@@ -16117,6 +17824,7 @@ Whether the slaveOk bit should be set on wire protocol messages.
 
 - (`true`) — true
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary_preferred.rb#L44)
 
@@ -16127,6 +17835,7 @@ Whether tag sets are allowed to be defined for this server preference.
 **Returns**:
 
 - (`true`) — true
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/primary_preferred.rb#L53)
@@ -16191,6 +17900,7 @@ Subscribes to command events and logs them.
 **Returns**:
 
 - (`Hash`) — options The options.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/command_log_subscriber.rb#L25)
@@ -16325,6 +18035,7 @@ Builds a map/reduce specification from the view and options.
 
 - (`String`) — map The map function.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L42)
 
@@ -16334,6 +18045,7 @@ Builds a map/reduce specification from the view and options.
 **Returns**:
 
 - (`String`) — reduce The reduce function.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L45)
@@ -16345,6 +18057,7 @@ Builds a map/reduce specification from the view and options.
 
 - (`Collection::View`) — view The collection view.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L48)
 
@@ -16354,6 +18067,7 @@ Builds a map/reduce specification from the view and options.
 **Returns**:
 
 - (`Hash`) — options The map/reduce specific options.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/map_reduce.rb#L51)
@@ -16601,6 +18315,7 @@ Event that is fired when a command operation succeeds.
 
 - (`Server::Address`) — address The server address.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L26)
 
@@ -16610,6 +18325,7 @@ Event that is fired when a command operation succeeds.
 **Returns**:
 
 - (`String`) — command_name The name of the command.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L29)
@@ -16621,6 +18337,7 @@ Event that is fired when a command operation succeeds.
 
 - (`BSON::Document`) — reply The command reply.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L32)
 
@@ -16630,6 +18347,7 @@ Event that is fired when a command operation succeeds.
 **Returns**:
 
 - (`String`) — database_name The name of the database.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L35)
@@ -16641,6 +18359,7 @@ Event that is fired when a command operation succeeds.
 
 - (`Float`) — duration The duration of the event.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L38)
 
@@ -16651,6 +18370,7 @@ Event that is fired when a command operation succeeds.
 
 - (`Integer`) — operation_id The operation id.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L41)
 
@@ -16660,6 +18380,7 @@ Event that is fired when a command operation succeeds.
 **Returns**:
 
 - (`Integer`) — request_id The request id.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/command_succeeded.rb#L44)
@@ -16910,6 +18631,7 @@ Builds an aggregation command specification from the view and options.
 
 - (`Array<Hash>`) — pipeline The pipeline.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L40)
 
@@ -16920,6 +18642,7 @@ Builds an aggregation command specification from the view and options.
 
 - (`Collection::View`) — view The collection view.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L43)
 
@@ -16929,6 +18652,7 @@ Builds an aggregation command specification from the view and options.
 **Returns**:
 
 - (`Hash`) — options The map/reduce specific options.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/builder/aggregation.rb#L46)
@@ -17074,6 +18798,7 @@ Generates a specification for a kill cursors command.
 
 - (`Cursor`) — cursor The cursor.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/cursor/builder/kill_cursors_command.rb#L26)
 
@@ -17185,6 +18910,7 @@ Whether the slaveOk bit should be set on wire protocol messages.
 
 - (`true`) — true
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/secondary_preferred.rb#L44)
 
@@ -17195,6 +18921,7 @@ Whether tag sets are allowed to be defined for this server preference.
 **Returns**:
 
 - (`true`) — true
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/secondary_preferred.rb#L53)
@@ -17332,6 +19059,7 @@ Defines custom behaviour of results when using the
 usersInfo command.
 
 ### `#documents`
+
 
 
 **See**:
@@ -17676,6 +19404,7 @@ Event fired when a server's description changes.
 
 - (`Address`) — address The server address.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_description_changed.rb#L25)
 
@@ -17685,6 +19414,7 @@ Event fired when a server's description changes.
 **Returns**:
 
 - (`Topology`) — topology The topology.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_description_changed.rb#L28)
@@ -17697,6 +19427,7 @@ Event fired when a server's description changes.
 - (`Server::Description`) — previous_description The previous server
 description.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_description_changed.rb#L32)
 
@@ -17707,6 +19438,7 @@ description.
 
 - (`Server::Description`) — new_description The new server
 description.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/event/server_description_changed.rb#L36)
@@ -17989,6 +19721,7 @@ Deserialize the hash from BSON, converting to a DBRef if appropriate.
 **Returns**:
 
 - (`Hash, DBRef`) — The decoded hash or DBRef.
+
 
 **See**:
 - http://bsonspec.org/#/specification
@@ -18454,6 +20187,7 @@ This module is included for objects that need to publish events.
 
 - (`Event::Listeners`) — event_listeners The listeners.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/publisher.rb#L24)
 
@@ -18550,6 +20284,7 @@ Adds convenience methods for adding listeners to event publishers.
 
 - (`Event::Listeners`) — event_listeners The listeners.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/event/subscriber.rb#L24)
 
@@ -18611,6 +20346,7 @@ This provides common behaviour for connection objects.
 
 - (`Mongo::Address`) — address The address to connect to.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connectable.rb#L38)
 
@@ -18621,6 +20357,7 @@ This provides common behaviour for connection objects.
 
 - (`Hash`) — options The passed in options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connectable.rb#L41)
 
@@ -18630,6 +20367,7 @@ This provides common behaviour for connection objects.
 **Returns**:
 
 - (`Integer`) — pid The process id when the connection was created.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server/connectable.rb#L44)
@@ -18743,6 +20481,7 @@ Serializes the header value into the buffer
 
 - (`String`) — Buffer with serialized value.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L53)
 
@@ -18759,6 +20498,7 @@ Deserializes the header value from the IO stream
 
 - (`Array<Fixnum>`) — Array consisting of the deserialized
 length, request id, response id, and op code.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L63)
@@ -18787,6 +20527,7 @@ Serializes a C style string into the buffer
 
 - (`String`) — Buffer with serialized value.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L79)
 
@@ -18813,6 +20554,7 @@ Serializes a 32-bit Zero into the buffer
 **Returns**:
 
 - (`String`) — Buffer with serialized value.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L95)
@@ -18841,6 +20583,7 @@ Serializes a fixnum to a 4-byte 32-bit integer
 
 - (`String`) — Buffer with serialized value.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L111)
 
@@ -18856,6 +20599,7 @@ Deserializes a 32-bit Fixnum from the IO stream
 **Returns**:
 
 - (`Fixnum`) — Deserialized Int32
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L120)
@@ -18884,6 +20628,7 @@ Serializes a fixnum to an 8-byte 64-bit integer
 
 - (`String`) — Buffer with serialized value.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L136)
 
@@ -18899,6 +20644,7 @@ Deserializes a 64-bit Fixnum from the IO stream
 **Returns**:
 
 - (`Fixnum`) — Deserialized Int64.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L145)
@@ -18927,6 +20673,7 @@ Serializes a document into the buffer
 
 - (`String`) — Buffer with serialized value.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L161)
 
@@ -18943,6 +20690,7 @@ Deserializes a document from the IO stream
 
 - (`Hash`) — The decoded BSON document.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L174)
 
@@ -18953,6 +20701,7 @@ Whether there can be a size limit on this type after serialization.
 **Returns**:
 
 - (`true`) — Documents can be size limited upon serialization.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/protocol/serializers.rb#L183)
@@ -18970,6 +20719,7 @@ various values from the spec.
 **Returns**:
 
 - (`Hash`) — spec The specification for the operation.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/specifiable.rb#L150)
@@ -19570,6 +21320,7 @@ Defines behaviour around combiners
 
 - (`Array<Hash, BSON::Document>`) — requests The provided requests.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/combineable.rb#L26)
 
@@ -19579,6 +21330,7 @@ Defines behaviour around combiners
 **Returns**:
 
 - (`true, false`) — has_collation Whether one or more operations has a collation defined.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/bulk_write/combineable.rb#L29)
@@ -19614,6 +21366,7 @@ Defines behaviour for an object that can publish monitoring events.
 
 - (`Monitoring`) — monitoring The monitoring.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/publishable.rb#L24)
 
@@ -19644,10 +21397,12 @@ end
 ### `#publish_event(topic, event)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/monitoring/publishable.rb#L58)
 
 ### `#publish_sdam_event(topic, event)`
+
 
 
 **See**:
@@ -19692,10 +21447,16 @@ secure.redacted(command_name, document)
 
 Defines write related behaviour for collection view.
 
-### `#find_one_and_delete`
+### `#find_one_and_delete(opts = {})`
 
 Finds a single document in the database via findAndModify and deletes
 it, returning the original document.
+
+**Params**:
+
+- `opts` (`Hash`) — The options.
+  
+  - `:collation` (`Hash`) — The collation to use.
 
 **Returns**:
 
@@ -19708,7 +21469,7 @@ view.find_one_and_delete
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L33)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L37)
 
 ### `#find_one_and_replace(replacement, opts = {})`
 
@@ -19724,6 +21485,7 @@ Finds a single document and replaces it.
 not to skip document level validation.
   - `:write_concern` (`Hash`) — The write concern options.
 Defaults to the collection's write concern.
+  - `:collation` (`Hash`) — The collation to use.
 
 - `opts` (`Hash`) — The options.
   
@@ -19733,6 +21495,7 @@ Defaults to the collection's write concern.
 not to skip document level validation.
   - `:write_concern` (`Hash`) — The write concern options.
 Defaults to the collection's write concern.
+  - `:collation` (`Hash`) — The collation to use.
 
 - `options` (`Hash`) — a customizable set of options
   
@@ -19742,6 +21505,7 @@ Defaults to the collection's write concern.
 not to skip document level validation.
   - `:write_concern` (`Hash`) — The write concern options.
 Defaults to the collection's write concern.
+  - `:collation` (`Hash`) — The collation to use.
 
 **Returns**:
 
@@ -19758,7 +21522,7 @@ view.find_one_and_replace({ name: 'test' }, :return_document => :after)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L72)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L77)
 
 ### `#find_one_and_update(document, opts = {})`
 
@@ -19774,6 +21538,7 @@ Finds a single document and updates it.
 not to skip document level validation.
   - `:write_concern` (`Hash`) — The write concern options.
 Defaults to the collection's write concern.
+  - `:collation` (`Hash`) — The collation to use.
 
 - `opts` (`Hash`) — The options.
   
@@ -19783,6 +21548,7 @@ Defaults to the collection's write concern.
 not to skip document level validation.
   - `:write_concern` (`Hash`) — The write concern options.
 Defaults to the collection's write concern.
+  - `:collation` (`Hash`) — The collation to use.
 
 **Returns**:
 
@@ -19795,11 +21561,17 @@ view.find_one_and_update({ "$set" => { name: 'test' }}, :return_document => :bef
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L94)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L100)
 
-### `#delete_many`
+### `#delete_many(opts = {})`
 
 Remove documents from the collection.
+
+**Params**:
+
+- `opts` (`Hash`) — The options.
+  
+  - `:collation` (`Hash`) — The collation to use.
 
 **Returns**:
 
@@ -19812,11 +21584,17 @@ collection_view.delete_many
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L125)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L135)
 
-### `#delete_one`
+### `#delete_one(opts = {})`
 
 Remove a document from the collection.
+
+**Params**:
+
+- `opts` (`Hash`) — The options.
+  
+  - `:collation` (`Hash`) — The collation to use.
 
 **Returns**:
 
@@ -19829,7 +21607,7 @@ collection_view.delete_one
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L137)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L151)
 
 ### `#replace_one(replacement, opts = {})`
 
@@ -19841,11 +21619,13 @@ Replaces a single document in the database with the new document.
   
   - `:upsert` (`true`) — Whether to upsert if the
 document doesn't exist.
+  - `:collation` (`Hash`) — The collation to use.
 
 - `opts` (`Hash`) — The options.
   
   - `:upsert` (`true`) — Whether to upsert if the
 document doesn't exist.
+  - `:collation` (`Hash`) — The collation to use.
 
 **Returns**:
 
@@ -19858,7 +21638,7 @@ collection_view.replace_one({ name: 'test' })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L155)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L170)
 
 ### `#update_many(spec, opts = {})`
 
@@ -19870,11 +21650,13 @@ Update documents in the collection.
   
   - `:upsert` (`true`) — Whether to upsert if the
 document doesn't exist.
+  - `:collation` (`Hash`) — The collation to use.
 
 - `opts` (`Hash`) — The options.
   
   - `:upsert` (`true`) — Whether to upsert if the
 document doesn't exist.
+  - `:collation` (`Hash`) — The collation to use.
 
 **Returns**:
 
@@ -19887,7 +21669,7 @@ collection_view.update_many('$set' => { name: 'test' })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L173)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L189)
 
 ### `#update_one(spec, opts = {})`
 
@@ -19899,11 +21681,13 @@ Update a single document in the collection.
   
   - `:upsert` (`true`) — Whether to upsert if the
 document doesn't exist.
+  - `:collation` (`Hash`) — The collation to use.
 
 - `opts` (`Hash`) — The options.
   
   - `:upsert` (`true`) — Whether to upsert if the
 document doesn't exist.
+  - `:collation` (`Hash`) — The collation to use.
 
 **Returns**:
 
@@ -19916,7 +21700,7 @@ collection_view.update_one('$set' => { name: 'test' })
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L191)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/writable.rb#L208)
 
 ---
 
@@ -20051,6 +21835,8 @@ MongoDB to use a specific index for the query.
   - `:limit` (`Integer`) — Max number of docs to return.
   - `:max_time_ms` (`Integer`) — The maximum amount of time to allow the
 command to run.
+  - `:read` (`Hash`) — The read preference options.
+  - `:collation` (`Hash`) — The collation to use.
 
 **Returns**:
 
@@ -20063,7 +21849,7 @@ collection_view.count
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L127)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L129)
 
 ### `#distinct(field_name, opts = {})`
 
@@ -20075,11 +21861,15 @@ Get a list of distinct values for a specific field.
   
   - `:max_time_ms` (`Integer`) — The maximum amount of time to allow the
 command to run.
+  - `:read` (`Hash`) — The read preference options.
+  - `:collation` (`Hash`) — The collation to use.
 
 - `opts` (`Hash`) — Options for the distinct command.
   
   - `:max_time_ms` (`Integer`) — The maximum amount of time to allow the
 command to run.
+  - `:read` (`Hash`) — The read preference options.
+  - `:collation` (`Hash`) — The collation to use.
 
 **Returns**:
 
@@ -20092,7 +21882,7 @@ collection_view.distinct('name')
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L162)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L166)
 
 ### `#hint(hint = nil)`
 
@@ -20114,7 +21904,7 @@ view.hint(name: 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L192)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L196)
 
 ### `#limit(limit = nil)`
 
@@ -20136,7 +21926,7 @@ view.limit(5)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L206)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L210)
 
 ### `#map_reduce(map, reduce, options = {})`
 
@@ -20164,7 +21954,7 @@ view.map_reduce(map, reduce)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L222)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L226)
 
 ### `#max_scan(value = nil)`
 
@@ -20186,7 +21976,7 @@ view.max_scan(1000)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L236)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L240)
 
 ### `#max_value(value = nil)`
 
@@ -20208,7 +21998,7 @@ view.max_value(_id: 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L250)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L254)
 
 ### `#min_value(value = nil)`
 
@@ -20230,7 +22020,7 @@ view.min_value(_id: 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L264)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L268)
 
 ### `#no_cursor_timeout`
 
@@ -20248,7 +22038,7 @@ view.no_cursor_timeout
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L277)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L281)
 
 ### `#projection(document = nil)`
 
@@ -20274,7 +22064,7 @@ view.projection(name: 1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L295)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L299)
 
 ### `#read(value = nil)`
 
@@ -20293,8 +22083,9 @@ collection will be used.**
 - (`Symbol, View`) — Either the read preference or a
 new +View+.
 
+
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L311)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L315)
 
 ### `#return_key(value = nil)`
 
@@ -20316,7 +22107,7 @@ view.return_key(true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L327)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L331)
 
 ### `#show_disk_loc(value = nil)`
 
@@ -20339,7 +22130,7 @@ view.show_disk_loc(true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L342)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L346)
 
 ### `#show_disk_loc(value = nil)`
 
@@ -20362,7 +22153,7 @@ view.show_disk_loc(true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L345)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L349)
 
 ### `#skip(number = nil)`
 
@@ -20385,7 +22176,7 @@ view.skip(10)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L358)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L362)
 
 ### `#snapshot(value = nil)`
 
@@ -20406,7 +22197,7 @@ view.snapshot(true)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L373)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L377)
 
 ### `#sort(spec = nil)`
 
@@ -20429,7 +22220,7 @@ view.sort(name: -1)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L388)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L392)
 
 ### `#modifiers(doc = nil)`
 
@@ -20451,7 +22242,7 @@ view.modifiers(:$orderby => Mongo::Index::ASCENDING)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L402)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L406)
 
 ### `#max_await_time_ms(max = nil)`
 
@@ -20474,7 +22265,7 @@ view.max_await_time_ms(500)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L418)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L422)
 
 ### `#max_time_ms(max = nil)`
 
@@ -20496,7 +22287,7 @@ view.max_time_ms(500)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L432)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L436)
 
 ### `#cursor_type(type = nil)`
 
@@ -20518,7 +22309,7 @@ view.cursor_type(:tailable)
 ```
 
 **See**:
-- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L446)
+- [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/readable.rb#L450)
 
 ---
 
@@ -20587,6 +22378,7 @@ Defines behaviour around views being configurable and immutable.
 
 - (`Hash`) — options The additional query options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/collection/view/immutable.rb#L25)
 
@@ -20603,6 +22395,7 @@ interface to get a proper object from options.
 **Returns**:
 
 - (`Hash`) — The write concern options.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/write_concern/normalizable.rb#L25)
@@ -20646,6 +22439,7 @@ Provides common behavior for filtering a list of servers by server mode or tag s
 
 - (`Hash`) — options The options.
 
+
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L24)
 
@@ -20655,6 +22449,7 @@ Provides common behavior for filtering a list of servers by server mode or tag s
 **Returns**:
 
 - (`Array`) — tag_sets The tag sets used to select servers.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L27)
@@ -20666,6 +22461,7 @@ Provides common behavior for filtering a list of servers by server mode or tag s
 
 - (`Integer`) — max_staleness The maximum replication lag, in seconds, that a
 secondary can suffer and still be eligible for a read.
+
 
 **See**:
 - [Source on GitHub](https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/server_selector/selectable.rb#L33)

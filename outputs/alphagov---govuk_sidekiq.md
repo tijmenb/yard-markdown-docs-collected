@@ -1,3 +1,16 @@
+# alphagov/govuk_sidekiq
+
+- [`ClientMiddleware`](#class-govuksidekiqapiheadersclientmiddleware)
+ - [`call`](#callworker_class-job-queue-redis_pool)
+ - [`header_arguments`](#header_arguments)
+
+- [`ServerMiddleware`](#class-govuksidekiqapiheadersservermiddleware)
+ - [`call`](#callworker-message-queue)
+
+- [`SidekiqInitializer`](#module-govuksidekiqsidekiqinitializer)
+ - [`setup_sidekiq`](#setup_sidekiqgovuk_app_name-redis_config)
+
+---
 
 ## `class GovukSidekiq::APIHeaders::ClientMiddleware`
 
@@ -9,10 +22,12 @@ https://github.com/mperham/sidekiq/wiki/Middleware#client-side-middleware
 ### `#call(worker_class, job, queue, redis_pool)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_sidekiq/blob/master/lib/govuk_sidekiq/api_headers.rb#L10)
 
 ### `#header_arguments`
+
 
 
 **See**:
@@ -29,6 +44,7 @@ https://github.com/mperham/sidekiq/wiki/Middleware#server-side-middleware
 ### `#call(worker, message, queue)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_sidekiq/blob/master/lib/govuk_sidekiq/api_headers.rb#L27)
 
@@ -36,7 +52,8 @@ https://github.com/mperham/sidekiq/wiki/Middleware#server-side-middleware
 
 ## `module GovukSidekiq::SidekiqInitializer`
 
-### `.setup_sidekiq(govuk_app_name, redis_host, redis_port)`
+### `.setup_sidekiq(govuk_app_name, redis_config)`
+
 
 
 **See**:

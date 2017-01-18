@@ -1,3 +1,45 @@
+# alphagov/govuk-content-schema-test-helpers
+
+- [`Examples`](#class-govukcontentschematesthelpersexamples)
+ - [`initialize`](#initialize)
+ - [`get`](#getformat-example_name)
+ - [`get_all_for_format`](#get_all_for_formatschema_name)
+ - [`get_all_for_formats`](#get_all_for_formatsschema_names)
+ - [`check_example_file_exists!`](#check_example_file_existspath)
+
+- [`Validator`](#class-govukcontentschematesthelpersvalidator)
+ - [`initialize`](#initializeschema_name-variant-document)
+ - [`valid?`](#valid)
+ - [`errors`](#errors)
+
+- [`Configuration`](#class-govukcontentschematesthelpersconfiguration)
+ - [`schema_type=`](#schema_typevalue)
+ - [`project_root=`](#project_rootvalue)
+ - [`schema_type`](#schema_type)
+ - [`project_root`](#project_root)
+
+- [`ValidationErrorMessage`](#class-govukcontentschematesthelpersvalidationerrormessage)
+ - [`schema_name`](#schema_name)
+ - [`type`](#type)
+ - [`payload`](#payload)
+ - [`initialize`](#initializeschema_name-type-payload)
+ - [`message`](#message)
+
+- [`GovukContentSchemaTestHelpers`](#module-govukcontentschematesthelpers)
+ - [`configuration`](#configuration)
+ - [`configuration=`](#configurationconfig)
+ - [`configure`](#configure)
+
+- [`Util`](#module-govukcontentschematesthelpersutil)
+ - [`govuk_content_schemas_path`](#govuk_content_schemas_path)
+ - [`check_govuk_content_schemas_path!`](#check_govuk_content_schemas_path)
+ - [`formats`](#formats)
+
+- [`TestUnit`](#module-govukcontentschematesthelperstestunit)
+ - [`assert_valid_against_schema`](#assert_valid_against_schemacontent_item_hash-format)
+ - [`assert_valid_against_links_schema`](#assert_valid_against_links_schemacontent_item_hash-format)
+
+---
 
 ## `class GovukContentSchemaTestHelpers::Examples`
 
@@ -8,10 +50,12 @@
 
 - (`Examples`) — a new instance of Examples
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/examples.rb#L3)
 
 ### `#get(format, example_name)`
+
 
 
 **See**:
@@ -20,16 +64,19 @@
 ### `#get_all_for_format(schema_name)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/examples.rb#L13)
 
 ### `#get_all_for_formats(schema_names)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/examples.rb#L26)
 
 ### `#check_example_file_exists!(path)`
+
 
 
 **See**:
@@ -50,6 +97,7 @@
 
 - (`Validator`) — a new instance of Validator
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/validator.rb#L6)
 
@@ -60,10 +108,12 @@
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/validator.rb#L14)
 
 ### `#errors`
+
 
 
 **See**:
@@ -102,10 +152,12 @@ Sets the attribute project_root
 ### `#schema_type`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/configuration.rb#L7)
 
 ### `#project_root`
+
 
 
 **See**:
@@ -146,10 +198,12 @@ Returns the value of attribute payload
 
 - (`ValidationErrorMessage`) — a new instance of ValidationErrorMessage
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/rspec_matchers.rb#L45)
 
 ### `#message`
+
 
 
 **See**:
@@ -162,10 +216,12 @@ Returns the value of attribute payload
 ### `.configuration`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/configuration.rb#L16)
 
 ### `.configuration=(config)`
+
 
 
 **See**:
@@ -173,6 +229,10 @@ Returns the value of attribute payload
 
 ### `.configure`
 
+
+**Yields**:
+
+- (`configuration`) — 
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/configuration.rb#L24)
@@ -184,10 +244,12 @@ Returns the value of attribute payload
 ### `.govuk_content_schemas_path`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/util.rb#L3)
 
 ### `.check_govuk_content_schemas_path!`
+
 
 
 **See**:
@@ -208,10 +270,12 @@ Get a list of the formats defined in govuk-content-schemas
 ### `#assert_valid_against_schema(content_item_hash, format)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-content-schema-test-helpers/blob/master/lib/govuk-content-schema-test-helpers/test_unit.rb#L3)
 
 ### `#assert_valid_against_links_schema(content_item_hash, format)`
+
 
 
 **See**:

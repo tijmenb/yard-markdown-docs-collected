@@ -1,3 +1,24 @@
+# alphagov/govuk_navigation_helpers
+
+- [`NavigationHelper`](#class-govuknavigationhelpersnavigationhelper)
+ - [`initialize`](#initializecontent_item)
+ - [`breadcrumbs`](#breadcrumbs)
+ - [`taxon_breadcrumbs`](#taxon_breadcrumbs)
+ - [`related_items`](#related_items)
+
+- [`Breadcrumbs`](#class-govuknavigationhelpersbreadcrumbs)
+ - [`initialize`](#initializecontent_item)
+ - [`breadcrumbs`](#breadcrumbs)
+
+- [`RelatedItems`](#class-govuknavigationhelpersrelateditems)
+ - [`initialize`](#initializecontent_item)
+ - [`related_items`](#related_items)
+
+- [`TaxonBreadcrumbs`](#class-govuknavigationhelperstaxonbreadcrumbs)
+ - [`initialize`](#initializecontent_item)
+ - [`breadcrumbs`](#breadcrumbs)
+
+---
 
 ## `class GovukNavigationHelpers::NavigationHelper`
 
@@ -8,20 +29,35 @@
 
 - (`NavigationHelper`) — a new instance of NavigationHelper
 
+
 **See**:
-- [Source on GitHub](https://github.com/alphagov/govuk_navigation_helpers/blob/master/lib/govuk_navigation_helpers.rb#L7)
+- [Source on GitHub](https://github.com/alphagov/govuk_navigation_helpers/blob/master/lib/govuk_navigation_helpers.rb#L8)
 
 ### `#breadcrumbs`
 
-Generate a breacrumb trail
+Generate a breadcrumb trail
 
 **Returns**:
 
 - (`Hash`) — Payload for the GOV.UK breadcrumbs component
 
+
 **See**:
 - http://govuk-component-guide.herokuapp.com/components/breadcrumbs
-- [Source on GitHub](https://github.com/alphagov/govuk_navigation_helpers/blob/master/lib/govuk_navigation_helpers.rb#L15)
+- [Source on GitHub](https://github.com/alphagov/govuk_navigation_helpers/blob/master/lib/govuk_navigation_helpers.rb#L16)
+
+### `#taxon_breadcrumbs`
+
+Generate a breadcrumb trail for a taxon, using the taxon_parent link field
+
+**Returns**:
+
+- (`Hash`) — Payload for the GOV.UK breadcrumbs component
+
+
+**See**:
+- http://govuk-component-guide.herokuapp.com/components/breadcrumbs
+- [Source on GitHub](https://github.com/alphagov/govuk_navigation_helpers/blob/master/lib/govuk_navigation_helpers.rb#L24)
 
 ### `#related_items`
 
@@ -31,9 +67,10 @@ Generate a related items payload
 
 - (`Hash`) — Payload for the GOV.UK Component
 
+
 **See**:
 - http://govuk-component-guide.herokuapp.com/components/related_items
-- [Source on GitHub](https://github.com/alphagov/govuk_navigation_helpers/blob/master/lib/govuk_navigation_helpers.rb#L23)
+- [Source on GitHub](https://github.com/alphagov/govuk_navigation_helpers/blob/master/lib/govuk_navigation_helpers.rb#L32)
 
 ---
 
@@ -46,10 +83,12 @@ Generate a related items payload
 
 - (`Breadcrumbs`) — a new instance of Breadcrumbs
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_navigation_helpers/blob/master/lib/govuk_navigation_helpers/breadcrumbs.rb#L3)
 
 ### `#breadcrumbs`
+
 
 
 **See**:
@@ -77,14 +116,38 @@ https://gov-uk.atlassian.net/wiki/pages/viewpage.action?pageId=99876878
 
 - (`RelatedItems`) — a new instance of RelatedItems
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_navigation_helpers/blob/master/lib/govuk_navigation_helpers/related_items.rb#L16)
 
 ### `#related_items`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_navigation_helpers/blob/master/lib/govuk_navigation_helpers/related_items.rb#L20)
+
+---
+
+## `class GovukNavigationHelpers::TaxonBreadcrumbs`
+
+### `#initialize(content_item)`
+
+
+**Returns**:
+
+- (`TaxonBreadcrumbs`) — a new instance of TaxonBreadcrumbs
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/govuk_navigation_helpers/blob/master/lib/govuk_navigation_helpers/taxon_breadcrumbs.rb#L3)
+
+### `#breadcrumbs`
+
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/govuk_navigation_helpers/blob/master/lib/govuk_navigation_helpers/taxon_breadcrumbs.rb#L7)
 
 ---
 

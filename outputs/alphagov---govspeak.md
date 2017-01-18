@@ -1,3 +1,172 @@
+# alphagov/govspeak
+
+- [`Document`](#class-govspeakdocument)
+ - [`images`](#images)
+ - [`images=`](#imagesvalue)
+ - [`attachments`](#attachments)
+ - [`contacts`](#contacts)
+ - [`links`](#links)
+ - [`locale`](#locale)
+ - [`to_html`](#to_htmlsource-options--)
+ - [`initialize`](#initializesource-options--)
+ - [`to_html`](#to_html)
+ - [`to_liquid`](#to_liquid)
+ - [`t`](#targs)
+ - [`to_sanitized_html`](#to_sanitized_html)
+ - [`to_sanitized_html_without_images`](#to_sanitized_html_without_images)
+ - [`to_text`](#to_text)
+ - [`valid?`](#validvalidation_options--)
+ - [`headers`](#headers)
+ - [`structured_headers`](#structured_headers)
+ - [`preprocess`](#preprocesssource)
+ - [`extension`](#extensiontitle-regexp--nil-block)
+ - [`surrounded_by`](#surrounded_byopen-closenil)
+ - [`wrap_with_div`](#wrap_with_divclass_name-character-parserkramdowndocument)
+ - [`insert_strong_inside_p`](#insert_strong_inside_pbody-parsergovspeakdocument)
+ - [`render_image`](#render_imageurl-alt_text-caption--nil-id--nil)
+ - [`devolved_options`](#devolved_options)
+
+- [`CLI`](#class-govspeakcli)
+ - [`run`](#run)
+
+- [`HtmlValidator`](#class-govspeakhtmlvalidator)
+ - [`govspeak_string`](#govspeak_string)
+ - [`initialize`](#initializegovspeak_string-sanitization_options--)
+ - [`invalid?`](#invalid)
+ - [`valid?`](#valid)
+ - [`normalise_html`](#normalise_htmlhtml)
+ - [`govspeak_to_html`](#govspeak_to_html)
+
+- [`HtmlSanitizer`](#class-govspeakhtmlsanitizer)
+ - [`initialize`](#initializedirty_html-options--)
+ - [`sanitize`](#sanitize)
+ - [`sanitize_without_images`](#sanitize_without_images)
+ - [`sanitize_config`](#sanitize_config)
+
+- [`ImageSourceWhitelister`](#class-govspeakhtmlsanitizerimagesourcewhitelister)
+ - [`initialize`](#initializeallowed_image_hosts)
+ - [`call`](#callsanitize_context)
+
+- [`TableCellTextAlignWhitelister`](#class-govspeakhtmlsanitizertablecelltextalignwhitelister)
+ - [`call`](#callsanitize_context)
+ - [`invalid_style_attribute?`](#invalid_style_attributestyle)
+
+- [`PostProcessor`](#class-govspeakpostprocessor)
+ - [`input`](#input)
+ - [`initialize`](#initializehtml)
+ - [`process`](#processhtml)
+ - [`extension`](#extensiontitle-block)
+ - [`output`](#output)
+
+- [`Header`](#class-govspeakheader)
+ - [`text=`](#textvalue)
+ - [`text`](#text)
+ - [`level=`](#levelvalue)
+ - [`level`](#level)
+ - [`id=`](#idvalue)
+ - [`id`](#id)
+
+- [`HeaderExtractor`](#class-govspeakheaderextractor)
+ - [`convert`](#convertdoc)
+
+- [`StructuredHeader`](#class-govspeakstructuredheader)
+ - [`text=`](#textvalue)
+ - [`text`](#text)
+ - [`level=`](#levelvalue)
+ - [`level`](#level)
+ - [`id=`](#idvalue)
+ - [`id`](#id)
+ - [`headers=`](#headersvalue)
+ - [`headers`](#headers)
+
+- [`StructuredHeaderExtractor`](#class-govspeakstructuredheaderextractor)
+ - [`initialize`](#initializedocument)
+ - [`call`](#call)
+ - [`headers_list`](#headers_list)
+ - [`add_top_level`](#add_top_levelheader)
+ - [`add_sibling`](#add_siblingheader)
+ - [`add_child`](#add_childheader)
+ - [`add_uncle_or_aunt`](#add_uncle_or_auntheader)
+ - [`header_higher_than_top_level?`](#header_higher_than_top_levelheader)
+ - [`header_at_same_level_as_prev?`](#header_at_same_level_as_prevheader)
+ - [`header_one_level_lower_than_prev?`](#header_one_level_lower_than_prevheader)
+ - [`header_at_higher_level_than_prev?`](#header_at_higher_level_than_prevheader)
+ - [`pop_stack_to_level`](#pop_stack_to_levelheader)
+ - [`reset_stack`](#reset_stack)
+
+- [`HCardPresenter`](#class-govspeakhcardpresenter)
+ - [`from_contact`](#from_contactcontact)
+ - [`contact_properties`](#contact_propertiescontact)
+ - [`country_name`](#country_namecontact)
+ - [`property_keys`](#property_keys)
+ - [`address_formats`](#address_formats)
+ - [`properties`](#properties)
+ - [`country_code`](#country_code)
+ - [`initialize`](#initializeproperties-country_code)
+ - [`render`](#render)
+ - [`interpolate_address_property`](#interpolate_address_propertyproperty_name)
+
+- [`ContactPresenter`](#class-govspeakcontactpresenter)
+ - [`contact`](#contact)
+ - [`initialize`](#initializecontact)
+ - [`contact_numbers`](#contact_numbers)
+ - [`has_postal_address?`](#has_postal_address)
+
+- [`AttachmentPresenter`](#class-govspeakattachmentpresenter)
+ - [`attachment`](#attachment)
+ - [`initialize`](#initializeattachment)
+ - [`id`](#id)
+ - [`order_url`](#order_url)
+ - [`opendocument?`](#opendocument)
+ - [`url`](#url)
+ - [`external?`](#external)
+ - [`price`](#price)
+ - [`accessible?`](#accessible)
+ - [`thumbnail_link`](#thumbnail_link)
+ - [`help_block_toggle_id`](#help_block_toggle_id)
+ - [`section_class`](#section_class)
+ - [`mail_to`](#mail_toemail_address-name-options--)
+ - [`alternative_format_order_link`](#alternative_format_order_link)
+ - [`body_for_mail`](#body_for_mailattachment_info)
+ - [`alternative_format_contact_email`](#alternative_format_contact_email)
+ - [`attachment_thumbnail`](#attachment_thumbnail)
+ - [`reference`](#reference)
+ - [`references_for_title`](#references_for_title)
+ - [`references?`](#references)
+ - [`attachment_class`](#attachment_class)
+ - [`unnumbered_paper?`](#unnumbered_paper)
+ - [`unnumbered_command_paper?`](#unnumbered_command_paper)
+ - [`download_link`](#download_link)
+ - [`attachment_attributes`](#attachment_attributes)
+ - [`preview_url`](#preview_url)
+ - [`file_abbr_tag`](#file_abbr_tagabbr-title)
+ - [`humanized_content_type`](#humanized_content_typefile_extension)
+ - [`previewable?`](#previewable)
+ - [`title`](#title)
+ - [`file_extension`](#file_extension)
+ - [`hide_thumbnail?`](#hide_thumbnail)
+ - [`attachment_details`](#attachment_details)
+ - [`title_link_options`](#title_link_options)
+ - [`help_block_id`](#help_block_id)
+ - [`link`](#linkbody-url-options--)
+
+- [`AlwaysEqual`](#class-kramdownoptionsalwaysequal)
+ - [`==`](#other)
+
+- [`KramdownWithAutomaticExternalLinks`](#class-kramdownparserkramdownwithautomaticexternallinks)
+ - [`initialize`](#initializesource-options)
+ - [`add_link`](#add_linkel-href-title-alt_text--nil-ial--nil)
+
+- [`WithDeepMerge`](#module-withdeepmerge)
+ - [`deep_merge`](#deep_mergebase_object-other_object)
+
+- [`KramdownOverrides`](#module-govspeakkramdownoverrides)
+ - [`with_kramdown_ordered_lists_disabled`](#with_kramdown_ordered_lists_disabled)
+
+- [`BlockquoteExtraQuoteRemover`](#module-govspeakblockquoteextraquoteremover)
+ - [`remove`](#removesource)
+
+---
 
 ## `class Govspeak::Document`
 
@@ -57,6 +226,7 @@ Returns the value of attribute locale
 ### `.to_html(source, options = {})`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L30)
 
@@ -67,10 +237,12 @@ Returns the value of attribute locale
 
 - (`Document`) — a new instance of Document
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L34)
 
 ### `#to_html`
+
 
 
 **See**:
@@ -79,10 +251,12 @@ Returns the value of attribute locale
 ### `#to_liquid`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L63)
 
 ### `#t(*args)`
+
 
 
 **See**:
@@ -91,16 +265,19 @@ Returns the value of attribute locale
 ### `#to_sanitized_html`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L73)
 
 ### `#to_sanitized_html_without_images`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L77)
 
 ### `#to_text`
+
 
 
 **See**:
@@ -113,10 +290,12 @@ Returns the value of attribute locale
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L85)
 
 ### `#headers`
+
 
 
 **See**:
@@ -125,10 +304,12 @@ Returns the value of attribute locale
 ### `#structured_headers`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L93)
 
 ### `#preprocess(source)`
+
 
 
 **See**:
@@ -137,10 +318,12 @@ Returns the value of attribute locale
 ### `.extension(title, regexp = nil, &block)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L112)
 
 ### `.surrounded_by(open, close=nil)`
+
 
 
 **See**:
@@ -149,10 +332,12 @@ Returns the value of attribute locale
 ### `.wrap_with_div(class_name, character, parser=Kramdown::Document)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L127)
 
 ### `#insert_strong_inside_p(body, parser=Govspeak::Document)`
+
 
 
 **See**:
@@ -178,6 +363,7 @@ This issue is not considered a bug by kramdown: https://github.com/gettalong/kra
 ### `.devolved_options`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak.rb#L271)
 
@@ -186,6 +372,7 @@ This issue is not considered a bug by kramdown: https://github.com/gettalong/kra
 ## `class Govspeak::CLI`
 
 ### `#run`
+
 
 
 **See**:
@@ -210,6 +397,7 @@ Returns the value of attribute govspeak_string
 
 - (`HtmlValidator`) — a new instance of HtmlValidator
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/html_validator.rb#L4)
 
@@ -220,6 +408,7 @@ Returns the value of attribute govspeak_string
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/html_validator.rb#L9)
 
@@ -229,6 +418,7 @@ Returns the value of attribute govspeak_string
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/html_validator.rb#L13)
@@ -242,6 +432,7 @@ Make whitespace in html tags consistent
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/html_validator.rb#L20)
 
 ### `#govspeak_to_html`
+
 
 
 **See**:
@@ -258,10 +449,12 @@ Make whitespace in html tags consistent
 
 - (`HtmlSanitizer`) — a new instance of HtmlSanitizer
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/html_sanitizer.rb#L41)
 
 ### `#sanitize`
+
 
 
 **See**:
@@ -270,10 +463,12 @@ Make whitespace in html tags consistent
 ### `#sanitize_without_images`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/html_sanitizer.rb#L54)
 
 ### `#sanitize_config`
+
 
 
 **See**:
@@ -290,10 +485,12 @@ Make whitespace in html tags consistent
 
 - (`ImageSourceWhitelister`) — a new instance of ImageSourceWhitelister
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/html_sanitizer.rb#L9)
 
 ### `#call(sanitize_context)`
+
 
 
 **See**:
@@ -306,6 +503,7 @@ Make whitespace in html tags consistent
 ### `#call(sanitize_context)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/html_sanitizer.rb#L25)
 
@@ -315,6 +513,7 @@ Make whitespace in html tags consistent
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/html_sanitizer.rb#L36)
@@ -338,10 +537,12 @@ Returns the value of attribute input
 
 - (`PostProcessor`) — a new instance of PostProcessor
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/post_processor.rb#L9)
 
 ### `.process(html)`
+
 
 
 **See**:
@@ -350,10 +551,12 @@ Returns the value of attribute input
 ### `.extension(title, &block)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/post_processor.rb#L24)
 
 ### `#output`
+
 
 
 **See**:
@@ -376,6 +579,7 @@ Sets the attribute text
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/header_extractor.rb#L2)
 
@@ -386,6 +590,7 @@ Returns the value of attribute text
 **Returns**:
 
 - (`Object`) — the current value of text
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/header_extractor.rb#L2)
@@ -403,6 +608,7 @@ Sets the attribute level
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/header_extractor.rb#L2)
 
@@ -413,6 +619,7 @@ Returns the value of attribute level
 **Returns**:
 
 - (`Object`) — the current value of level
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/header_extractor.rb#L2)
@@ -430,6 +637,7 @@ Sets the attribute id
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/header_extractor.rb#L2)
 
@@ -441,6 +649,7 @@ Returns the value of attribute id
 
 - (`Object`) — the current value of id
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/header_extractor.rb#L2)
 
@@ -449,6 +658,7 @@ Returns the value of attribute id
 ## `class Govspeak::HeaderExtractor`
 
 ### `#convert(doc)`
+
 
 
 **See**:
@@ -471,6 +681,7 @@ Sets the attribute text
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L3)
 
@@ -481,6 +692,7 @@ Returns the value of attribute text
 **Returns**:
 
 - (`Object`) — the current value of text
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L3)
@@ -498,6 +710,7 @@ Sets the attribute level
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L3)
 
@@ -508,6 +721,7 @@ Returns the value of attribute level
 **Returns**:
 
 - (`Object`) — the current value of level
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L3)
@@ -525,6 +739,7 @@ Sets the attribute id
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L3)
 
@@ -535,6 +750,7 @@ Returns the value of attribute id
 **Returns**:
 
 - (`Object`) — the current value of id
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L3)
@@ -552,6 +768,7 @@ Sets the attribute headers
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L3)
 
@@ -562,6 +779,7 @@ Returns the value of attribute headers
 **Returns**:
 
 - (`Object`) — the current value of headers
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L3)
@@ -577,10 +795,12 @@ Returns the value of attribute headers
 
 - (`StructuredHeaderExtractor`) — a new instance of StructuredHeaderExtractor
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L20)
 
 ### `#call`
+
 
 
 **See**:
@@ -589,10 +809,12 @@ Returns the value of attribute headers
 ### `#headers_list`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L51)
 
 ### `#add_top_level(header)`
+
 
 
 **See**:
@@ -601,16 +823,19 @@ Returns the value of attribute headers
 ### `#add_sibling(header)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L62)
 
 ### `#add_child(header)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L67)
 
 ### `#add_uncle_or_aunt(header)`
+
 
 
 **See**:
@@ -623,6 +848,7 @@ Returns the value of attribute headers
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L76)
 
@@ -632,6 +858,7 @@ Returns the value of attribute headers
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L80)
@@ -643,6 +870,7 @@ Returns the value of attribute headers
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L84)
 
@@ -653,16 +881,19 @@ Returns the value of attribute headers
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L89)
 
 ### `#pop_stack_to_level(header)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/structured_header_extractor.rb#L94)
 
 ### `#reset_stack`
+
 
 
 **See**:
@@ -675,10 +906,12 @@ Returns the value of attribute headers
 ### `.from_contact(contact)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/h_card_presenter.rb#L3)
 
 ### `.contact_properties(contact)`
+
 
 
 **See**:
@@ -687,16 +920,19 @@ Returns the value of attribute headers
 ### `.country_name(contact)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/h_card_presenter.rb#L16)
 
 ### `.property_keys`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/h_card_presenter.rb#L20)
 
 ### `.address_formats`
+
 
 
 **See**:
@@ -725,16 +961,19 @@ Returns the value of attribute country_code
 
 - (`HCardPresenter`) — a new instance of HCardPresenter
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/h_card_presenter.rb#L30)
 
 ### `#render`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/h_card_presenter.rb#L35)
 
 ### `#interpolate_address_property(property_name)`
+
 
 
 **See**:
@@ -759,10 +998,12 @@ Returns the value of attribute contact
 
 - (`ContactPresenter`) — a new instance of ContactPresenter
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/contact_presenter.rb#L11)
 
 ### `#contact_numbers`
+
 
 
 **See**:
@@ -774,6 +1015,7 @@ Returns the value of attribute contact
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/contact_presenter.rb#L19)
@@ -797,16 +1039,19 @@ Returns the value of attribute attachment
 
 - (`AttachmentPresenter`) — a new instance of AttachmentPresenter
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L13)
 
 ### `#id`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L17)
 
 ### `#order_url`
+
 
 
 **See**:
@@ -819,10 +1064,12 @@ Returns the value of attribute attachment
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L25)
 
 ### `#url`
+
 
 
 **See**:
@@ -835,10 +1082,12 @@ Returns the value of attribute attachment
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L33)
 
 ### `#price`
+
 
 
 **See**:
@@ -851,10 +1100,12 @@ Returns the value of attribute attachment
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L42)
 
 ### `#thumbnail_link`
+
 
 
 **See**:
@@ -863,10 +1114,12 @@ Returns the value of attribute attachment
 ### `#help_block_toggle_id`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L52)
 
 ### `#section_class`
+
 
 
 **See**:
@@ -875,10 +1128,12 @@ Returns the value of attribute attachment
 ### `#mail_to(email_address, name, options = {})`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L60)
 
 ### `#alternative_format_order_link`
+
 
 
 **See**:
@@ -887,10 +1142,12 @@ Returns the value of attribute attachment
 ### `#body_for_mail(attachment_info)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L85)
 
 ### `#alternative_format_contact_email`
+
 
 
 **See**:
@@ -906,6 +1163,7 @@ very host dependent. I assume this will need links to static urls.
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L104)
 
 ### `#reference`
+
 
 
 **See**:
@@ -926,10 +1184,12 @@ FIXME this has english in it so will cause problems if the locale is not en
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L151)
 
 ### `#attachment_class`
+
 
 
 **See**:
@@ -942,6 +1202,7 @@ FIXME this has english in it so will cause problems if the locale is not en
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L159)
 
@@ -952,10 +1213,12 @@ FIXME this has english in it so will cause problems if the locale is not en
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L163)
 
 ### `#download_link`
+
 
 
 **See**:
@@ -964,10 +1227,12 @@ FIXME this has english in it so will cause problems if the locale is not en
 ### `#attachment_attributes`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L173)
 
 ### `#preview_url`
+
 
 
 **See**:
@@ -976,10 +1241,12 @@ FIXME this has english in it so will cause problems if the locale is not en
 ### `#file_abbr_tag(abbr, title)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L195)
 
 ### `#humanized_content_type(file_extension)`
+
 
 
 **See**:
@@ -992,16 +1259,19 @@ FIXME this has english in it so will cause problems if the locale is not en
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L238)
 
 ### `#title`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L242)
 
 ### `#file_extension`
+
 
 
 **See**:
@@ -1014,10 +1284,12 @@ FIXME this has english in it so will cause problems if the locale is not en
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L253)
 
 ### `#attachment_details`
+
 
 
 **See**:
@@ -1026,16 +1298,19 @@ FIXME this has english in it so will cause problems if the locale is not en
 ### `#title_link_options`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L262)
 
 ### `#help_block_id`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/govspeak/presenters/attachment_presenter.rb#L269)
 
 ### `#link(body, url, options = {})`
+
 
 
 **See**:
@@ -1046,6 +1321,7 @@ FIXME this has english in it so will cause problems if the locale is not en
 ## `class Kramdown::Options::AlwaysEqual`
 
 ### `#==(other)`
+
 
 
 **See**:
@@ -1062,10 +1338,12 @@ FIXME this has english in it so will cause problems if the locale is not en
 
 - (`KramdownWithAutomaticExternalLinks`) — a new instance of KramdownWithAutomaticExternalLinks
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govspeak/blob/master/lib/kramdown/parser/kramdown_with_automatic_external_links.rb#L24)
 
 ### `#add_link(el, href, title, alt_text = nil, ial = nil)`
+
 
 
 **See**:
@@ -1076,6 +1354,7 @@ FIXME this has english in it so will cause problems if the locale is not en
 ## `module WithDeepMerge`
 
 ### `#deep_merge(base_object, other_object)`
+
 
 
 **See**:

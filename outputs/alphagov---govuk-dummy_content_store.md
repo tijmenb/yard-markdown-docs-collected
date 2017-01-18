@@ -1,3 +1,47 @@
+# alphagov/govuk-dummy_content_store
+
+- [`Index`](#class-govukdummycontentstoreindex)
+ - [`example_repository`](#example_repository)
+ - [`initialize`](#initializeexample_repository)
+ - [`call`](#callenv)
+
+- [`CleanBinding`](#class-govukdummycontentstoreindexcleanbinding)
+ - [`binding`](#binding)
+
+- [`Content`](#class-govukdummycontentstorecontent)
+ - [`repository`](#repository)
+ - [`live_repository`](#live_repository)
+ - [`random_repository`](#random_repository)
+ - [`initialize`](#initializerepository-random_repository-live_repository--nil)
+ - [`call`](#callenv)
+
+- [`LiveRepository`](#class-govukdummycontentstoreliverepository)
+ - [`live_content_path`](#live_content_path)
+ - [`initialize`](#initializelive_content_path)
+ - [`find_by_base_path`](#find_by_base_pathbase_path)
+
+- [`RandomRepository`](#class-govukdummycontentstorerandomrepository)
+ - [`schema_name`](#schema_name)
+ - [`generate`](#generateschema_name)
+
+- [`ExampleRepository`](#class-govukdummycontentstoreexamplerepository)
+ - [`content_schemas_path`](#content_schemas_path)
+ - [`initialize`](#initializecontent_schemas_path)
+ - [`find_by_base_path`](#find_by_base_pathbase_path)
+ - [`all`](#all)
+
+- [`ExampleContentItem`](#class-govukdummycontentstoreexamplecontentitem)
+ - [`path`](#path)
+ - [`initialize`](#initializepath)
+ - [`filename`](#filename)
+ - [`base_path`](#base_path)
+ - [`schema_name`](#schema_name)
+ - [`title`](#title)
+ - [`view_url`](#view_url)
+ - [`data`](#data)
+ - [`raw_data`](#raw_data)
+
+---
 
 ## `class Govuk::DummyContentStore::Index`
 
@@ -16,10 +60,12 @@ Returns the value of attribute example_repository
 
 - (`Index`) — a new instance of Index
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/index.rb#L10)
 
 ### `#call(env)`
+
 
 
 **See**:
@@ -30,6 +76,7 @@ Returns the value of attribute example_repository
 ## `class Govuk::DummyContentStore::Index::CleanBinding`
 
 ### `#binding`
+
 
 
 **See**:
@@ -45,7 +92,7 @@ Returns the value of attribute repository
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/content.rb#L9)
+- [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/content.rb#L13)
 
 ### `#live_repository`
 
@@ -53,23 +100,33 @@ Returns the value of attribute live_repository
 
 
 **See**:
-- [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/content.rb#L10)
+- [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/content.rb#L14)
 
-### `#initialize(repository, live_repository = nil)`
+### `#random_repository`
+
+Returns the value of attribute random_repository
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/content.rb#L15)
+
+### `#initialize(repository, random_repository, live_repository = nil)`
 
 
 **Returns**:
 
 - (`Content`) — a new instance of Content
 
+
 **See**:
-- [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/content.rb#L12)
+- [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/content.rb#L17)
 
 ### `#call(env)`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/content.rb#L17)
+- [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/content.rb#L23)
 
 ---
 
@@ -90,14 +147,35 @@ Returns the value of attribute live_content_path
 
 - (`LiveRepository`) — a new instance of LiveRepository
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/live_repository.rb#L6)
 
 ### `#find_by_base_path(base_path)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/live_repository.rb#L10)
+
+---
+
+## `class Govuk::DummyContentStore::RandomRepository`
+
+### `#schema_name`
+
+Returns the value of attribute schema_name
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/random_repository.rb#L4)
+
+### `#generate(schema_name)`
+
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/random_repository.rb#L6)
 
 ---
 
@@ -118,16 +196,19 @@ Returns the value of attribute content_schemas_path
 
 - (`ExampleRepository`) — a new instance of ExampleRepository
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/example_repository.rb#L9)
 
 ### `#find_by_base_path(base_path)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/example_repository.rb#L13)
 
 ### `#all`
+
 
 
 **See**:
@@ -152,10 +233,12 @@ Returns the value of attribute path
 
 - (`ExampleContentItem`) — a new instance of ExampleContentItem
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/example_content_item.rb#L8)
 
 ### `#filename`
+
 
 
 **See**:
@@ -164,10 +247,12 @@ Returns the value of attribute path
 ### `#base_path`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/example_content_item.rb#L16)
 
-### `#format`
+### `#schema_name`
+
 
 
 **See**:
@@ -176,10 +261,12 @@ Returns the value of attribute path
 ### `#title`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/example_content_item.rb#L24)
 
 ### `#view_url`
+
 
 
 **See**:
@@ -188,10 +275,12 @@ Returns the value of attribute path
 ### `#data`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-dummy_content_store/blob/master/lib/govuk/dummy_content_store/example_content_item.rb#L32)
 
 ### `#raw_data`
+
 
 
 **See**:

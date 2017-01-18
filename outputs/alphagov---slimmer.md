@@ -1,3 +1,139 @@
+# alphagov/slimmer
+
+- [`App`](#class-slimmerapp)
+ - [`logger`](#logger)
+ - [`logger=`](#loggervalue)
+ - [`initialize`](#initializeapp-args-block)
+ - [`call`](#callenv)
+ - [`response_can_be_rewritten?`](#response_can_be_rewrittenstatus-headers)
+ - [`skip_slimmer?`](#skip_slimmerenv-response)
+ - [`in_development?`](#in_development)
+ - [`skip_slimmer_param?`](#skip_slimmer_paramenv)
+ - [`skip_slimmer_header?`](#skip_slimmer_headerresponse)
+ - [`s`](#sbody)
+ - [`content_length`](#content_lengthrewritten_body)
+ - [`rewrite_response`](#rewrite_responseenv-response)
+ - [`strip_slimmer_headers`](#strip_slimmer_headersheaders)
+
+- [`Skin`](#class-slimmerskin)
+ - [`load_template`](#load_templatetemplate_name)
+ - [`template_cache`](#template_cache)
+ - [`template_cache=`](#template_cachevalue)
+ - [`asset_host`](#asset_host)
+ - [`asset_host=`](#asset_hostvalue)
+ - [`logger`](#logger)
+ - [`logger=`](#loggervalue)
+ - [`strict`](#strict)
+ - [`strict=`](#strictvalue)
+ - [`options`](#options)
+ - [`options=`](#optionsvalue)
+ - [`initialize`](#initialize-options--)
+ - [`template`](#templatetemplate_name)
+ - [`template_url`](#template_urltemplate_name)
+ - [`report_parse_errors_if_strict!`](#report_parse_errors_if_strictnokogiri_doc-description_for_error_message)
+ - [`parse_html`](#parse_htmlhtml-description_for_error_message)
+ - [`context`](#contexthtml-error)
+ - [`ignorable?`](#ignorableerror)
+ - [`process`](#processprocessorsbodytemplate-rack_env)
+ - [`success`](#successsource_request-response-body)
+ - [`error`](#errortemplate_name-body-rack_env)
+
+- [`Cache`](#class-slimmercache)
+ - [`use_cache=`](#use_cachevalue)
+ - [`cache_ttl=`](#cache_ttlvalue)
+ - [`initialize`](#initialize)
+ - [`clear`](#clear)
+ - [`fetch`](#fetchkey)
+
+- [`I18nBackend`](#class-slimmeri18nbackend)
+ - [`available_locales`](#available_locales)
+ - [`lookup`](#lookuplocale-key-scope---options--)
+
+- [`GovukRequestId`](#class-slimmergovukrequestid)
+ - [`set?`](#set)
+ - [`value`](#value)
+ - [`value=`](#valuenew_id)
+
+- [`ComponentResolver`](#class-slimmercomponentresolver)
+ - [`caching`](#caching)
+ - [`find_templates`](#find_templatesname-prefix-partial-details-outside_app_allowed--false)
+
+- [`TagMover`](#class-slimmerprocessorstagmover)
+ - [`filter`](#filtersrcdest)
+ - [`include_tag?`](#include_tagnode-min_attrs)
+ - [`tag_fingerprint`](#tag_fingerprintnode-attrs)
+ - [`wrap_node`](#wrap_nodesrc-node)
+ - [`move_tags`](#move_tagssrc-dest-type-opts)
+
+- [`BodyInserter`](#class-slimmerprocessorsbodyinserter)
+ - [`initialize`](#initializesource_idwrapper-destination_idwrapper)
+ - [`filter`](#filtersrcdest)
+
+- [`FooterRemover`](#class-slimmerprocessorsfooterremover)
+ - [`filter`](#filtersrcdest)
+
+- [`TitleInserter`](#class-slimmerprocessorstitleinserter)
+ - [`filter`](#filtersrcdest)
+ - [`insert_title`](#insert_titletitle-head)
+
+- [`SearchRemover`](#class-slimmerprocessorssearchremover)
+ - [`initialize`](#initializeheaders)
+ - [`filter`](#filtersrcdest)
+
+- [`NavigationMover`](#class-slimmerprocessorsnavigationmover)
+ - [`initialize`](#initializeskin)
+ - [`filter`](#filtersrc-dest)
+ - [`proposition_header_block`](#proposition_header_block)
+
+- [`MetadataInserter`](#class-slimmerprocessorsmetadatainserter)
+ - [`initialize`](#initializeresponse-app_name)
+ - [`filter`](#filtersrc-dest)
+
+- [`BodyClassCopier`](#class-slimmerprocessorsbodyclasscopier)
+ - [`filter`](#filtersrc-dest)
+
+- [`SearchPathSetter`](#class-slimmerprocessorssearchpathsetter)
+ - [`initialize`](#initializeresponse)
+ - [`filter`](#filtercontent_document-page_template)
+ - [`search_scope`](#search_scope)
+
+- [`InsideHeaderInserter`](#class-slimmerprocessorsinsideheaderinserter)
+ - [`filter`](#filtersrc-dest)
+
+- [`HeaderContextInserter`](#class-slimmerprocessorsheadercontextinserter)
+ - [`initialize`](#initializepathheader-context)
+ - [`filter`](#filtersrcdest)
+
+- [`ConditionalCommentMover`](#class-slimmerprocessorsconditionalcommentmover)
+ - [`filter`](#filtersrc-dest)
+ - [`match_conditional_comments`](#match_conditional_commentsstr)
+
+- [`SearchParameterInserter`](#class-slimmerprocessorssearchparameterinserter)
+ - [`initialize`](#initializeresponse)
+ - [`filter`](#filtercontent_document-page_template)
+ - [`add_hidden_input`](#add_hidden_inputsearch_form-name-value)
+ - [`search_parameters`](#search_parameters)
+ - [`parse_search_parameters`](#parse_search_parameters)
+
+- [`ReportAProblemInserter`](#class-slimmerprocessorsreportaprobleminserter)
+ - [`initialize`](#initializeskin-url-headers-wrapper_id)
+ - [`filter`](#filtercontent_document-page_template)
+ - [`report_a_problem_block`](#report_a_problem_block)
+
+- [`Headers`](#module-slimmerheaders)
+ - [`set_slimmer_headers`](#set_slimmer_headershash)
+
+- [`Template`](#module-slimmertemplate)
+ - [`slimmer_template`](#slimmer_template-template_name)
+
+- [`ClassMethods`](#module-slimmertemplateclassmethods)
+ - [`slimmer_template`](#slimmer_template-template_name)
+
+- [`GovukComponents`](#module-slimmertesthelpersgovukcomponents)
+ - [`stub_shared_component_locales`](#stub_shared_component_locales)
+ - [`shared_component_selector`](#shared_component_selectorname)
+
+---
 
 ## `class Slimmer::App`
 
@@ -29,10 +165,12 @@ Sets the attribute logger
 
 - (`App`) — a new instance of App
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/app.rb#L7)
 
 ### `#call(env)`
+
 
 
 **See**:
@@ -45,6 +183,7 @@ Sets the attribute logger
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/app.rb#L52)
 
@@ -54,6 +193,7 @@ Sets the attribute logger
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/app.rb#L56)
@@ -65,6 +205,7 @@ Sets the attribute logger
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/app.rb#L60)
 
@@ -74,6 +215,7 @@ Sets the attribute logger
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/app.rb#L64)
@@ -85,10 +227,12 @@ Sets the attribute logger
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/app.rb#L69)
 
 ### `#s(body)`
+
 
 
 **See**:
@@ -97,16 +241,19 @@ Sets the attribute logger
 ### `#content_length(rewritten_body)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/app.rb#L80)
 
 ### `#rewrite_response(env, response)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/app.rb#L86)
 
 ### `#strip_slimmer_headers(headers)`
+
 
 
 **See**:
@@ -117,6 +264,7 @@ Sets the attribute logger
 ## `class Slimmer::Skin`
 
 ### `#load_template(template_name)`
+
 
 
 **See**:
@@ -234,10 +382,12 @@ Sets the attribute options
 
 - (`Skin`) — a new instance of Skin
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L8)
 
 ### `#template(template_name)`
+
 
 
 **See**:
@@ -246,10 +396,12 @@ Sets the attribute options
 ### `#template_url(template_name)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L35)
 
 ### `#report_parse_errors_if_strict!(nokogiri_doc, description_for_error_message)`
+
 
 
 **See**:
@@ -258,10 +410,12 @@ Sets the attribute options
 ### `#parse_html(html, description_for_error_message)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L45)
 
 ### `#context(html, error)`
+
 
 
 **See**:
@@ -274,10 +428,12 @@ Sets the attribute options
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L72)
 
 ### `#process(processors,body,template, rack_env)`
+
 
 
 **See**:
@@ -286,10 +442,12 @@ Sets the attribute options
 ### `#success(source_request, response, body)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/skin.rb#L106)
 
 ### `#error(template_name, body, rack_env)`
+
 
 
 **See**:
@@ -333,16 +491,19 @@ TODO: use a real cache rather than an in memory hash
 
 - (`Cache`) — a new instance of Cache
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/cache.rb#L9)
 
 ### `#clear`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/cache.rb#L18)
 
 ### `#fetch(key)`
+
 
 
 **See**:
@@ -355,10 +516,12 @@ TODO: use a real cache rather than an in memory hash
 ### `#available_locales`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/i18n_backend.rb#L7)
 
 ### `#lookup(locale, key, scope = [], options = {})`
+
 
 
 **See**:
@@ -375,16 +538,19 @@ TODO: use a real cache rather than an in memory hash
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/govuk_request_id.rb#L4)
 
 ### `.value`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/govuk_request_id.rb#L8)
 
 ### `.value=(new_id)`
+
 
 
 **See**:
@@ -397,10 +563,12 @@ TODO: use a real cache rather than an in memory hash
 ### `.caching`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/component_resolver.rb#L8)
 
 ### `#find_templates(name, prefix, partial, details, outside_app_allowed = false)`
+
 
 
 **See**:
@@ -413,6 +581,7 @@ TODO: use a real cache rather than an in memory hash
 ### `#filter(src,dest)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/tag_mover.rb#L3)
 
@@ -423,10 +592,12 @@ TODO: use a real cache rather than an in memory hash
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/tag_mover.rb#L10)
 
 ### `#tag_fingerprint(node, attrs)`
+
 
 
 **See**:
@@ -435,10 +606,12 @@ TODO: use a real cache rather than an in memory hash
 ### `#wrap_node(src, node)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/tag_mover.rb#L24)
 
 ### `#move_tags(src, dest, type, opts)`
+
 
 
 **See**:
@@ -455,10 +628,12 @@ TODO: use a real cache rather than an in memory hash
 
 - (`BodyInserter`) — a new instance of BodyInserter
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/body_inserter.rb#L3)
 
 ### `#filter(src,dest)`
+
 
 
 **See**:
@@ -471,6 +646,7 @@ TODO: use a real cache rather than an in memory hash
 ### `#filter(src,dest)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/footer_remover.rb#L3)
 
@@ -481,10 +657,12 @@ TODO: use a real cache rather than an in memory hash
 ### `#filter(src,dest)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/title_inserter.rb#L3)
 
 ### `#insert_title(title, head)`
+
 
 
 **See**:
@@ -501,10 +679,12 @@ TODO: use a real cache rather than an in memory hash
 
 - (`SearchRemover`) — a new instance of SearchRemover
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/search_remover.rb#L3)
 
 ### `#filter(src,dest)`
+
 
 
 **See**:
@@ -521,16 +701,19 @@ TODO: use a real cache rather than an in memory hash
 
 - (`NavigationMover`) — a new instance of NavigationMover
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/navigation_mover.rb#L3)
 
 ### `#filter(src, dest)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/navigation_mover.rb#L7)
 
 ### `#proposition_header_block`
+
 
 
 **See**:
@@ -547,10 +730,12 @@ TODO: use a real cache rather than an in memory hash
 
 - (`MetadataInserter`) — a new instance of MetadataInserter
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/metadata_inserter.rb#L3)
 
 ### `#filter(src, dest)`
+
 
 
 **See**:
@@ -561,6 +746,7 @@ TODO: use a real cache rather than an in memory hash
 ## `class Slimmer::Processors::BodyClassCopier`
 
 ### `#filter(src, dest)`
+
 
 
 **See**:
@@ -577,16 +763,19 @@ TODO: use a real cache rather than an in memory hash
 
 - (`SearchPathSetter`) — a new instance of SearchPathSetter
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/search_path_setter.rb#L3)
 
 ### `#filter(content_document, page_template)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/search_path_setter.rb#L7)
 
 ### `#search_scope`
+
 
 
 **See**:
@@ -597,6 +786,7 @@ TODO: use a real cache rather than an in memory hash
 ## `class Slimmer::Processors::InsideHeaderInserter`
 
 ### `#filter(src, dest)`
+
 
 
 **See**:
@@ -613,10 +803,12 @@ TODO: use a real cache rather than an in memory hash
 
 - (`HeaderContextInserter`) — a new instance of HeaderContextInserter
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/header_context_inserter.rb#L3)
 
 ### `#filter(src,dest)`
+
 
 
 **See**:
@@ -629,10 +821,12 @@ TODO: use a real cache rather than an in memory hash
 ### `#filter(src, dest)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/conditional_comment_mover.rb#L3)
 
 ### `#match_conditional_comments(str)`
+
 
 
 **See**:
@@ -649,10 +843,12 @@ TODO: use a real cache rather than an in memory hash
 
 - (`SearchParameterInserter`) — a new instance of SearchParameterInserter
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/search_parameter_inserter.rb#L5)
 
 ### `#filter(content_document, page_template)`
+
 
 
 **See**:
@@ -661,16 +857,19 @@ TODO: use a real cache rather than an in memory hash
 ### `#add_hidden_input(search_form, name, value)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/search_parameter_inserter.rb#L26)
 
 ### `#search_parameters`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/search_parameter_inserter.rb#L34)
 
 ### `#parse_search_parameters`
+
 
 
 **See**:
@@ -687,16 +886,19 @@ TODO: use a real cache rather than an in memory hash
 
 - (`ReportAProblemInserter`) — a new instance of ReportAProblemInserter
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/report_a_problem_inserter.rb#L5)
 
 ### `#filter(content_document, page_template)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/report_a_problem_inserter.rb#L12)
 
 ### `#report_a_problem_block`
+
 
 
 **See**:
@@ -727,6 +929,7 @@ Set the "slimmer headers" to configure the page
   - `template` (`String`) — 
   - `world_locations` (`String`) — 
 
+
 **Raises**:
 
 - `InvalidHeader` 
@@ -741,6 +944,7 @@ Set the "slimmer headers" to configure the page
 ### `#slimmer_template template_name`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/template.rb#L7)
 
@@ -749,6 +953,7 @@ Set the "slimmer headers" to configure the page
 ## `module Slimmer::Template::ClassMethods`
 
 ### `#slimmer_template template_name`
+
 
 
 **See**:
@@ -761,10 +966,12 @@ Set the "slimmer headers" to configure the page
 ### `#stub_shared_component_locales`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/slimmer/blob/master/lib/slimmer/test_helpers/govuk_components.rb#L6)
 
 ### `#shared_component_selector(name)`
+
 
 
 **See**:

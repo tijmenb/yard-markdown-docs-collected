@@ -1,3 +1,76 @@
+# alphagov/vcloud-network-configurator
+
+- [`NAT`](#class-componentnat)
+ - [`rules`](#rules)
+ - [`initialize`](#initialize)
+ - [`dnat`](#dnatoptions)
+ - [`snat`](#snatoptions)
+ - [`rule`](#ruleoptions)
+ - [`reset`](#reset)
+ - [`instance`](#instance)
+ - [`generate_xml`](#generate_xml-interfaces)
+
+- [`Firewall`](#class-componentfirewall)
+ - [`rules`](#rules)
+ - [`initialize`](#initialize)
+ - [`rule`](#ruledescription-options---block)
+ - [`source`](#sourceoptions)
+ - [`destination`](#destinationoptions)
+ - [`reset`](#reset)
+ - [`instance`](#instance)
+ - [`generate_xml`](#generate_xml-interfaces)
+
+- [`LoadBalancer`](#class-componentloadbalancer)
+ - [`pools`](#pools)
+ - [`configurations`](#configurations)
+ - [`initialize`](#initialize)
+ - [`configure`](#configurename-block)
+ - [`virtual_server`](#virtual_serveroptions--)
+ - [`pool`](#poolnodes-block)
+ - [`http`](#httpoptions--)
+ - [`https`](#httpsoptions--)
+ - [`load_balances`](#load_balancesport-options--)
+ - [`instance`](#instance)
+ - [`generate_xml`](#generate_xml-interfaces)
+
+- [`VcloudNetworkConfigurator`](#class-vcloudnetworkconfigurator)
+ - [`initialize`](#initialize-args)
+ - [`execute`](#execute)
+
+- [`EdgeGateway`](#class-edgegateway)
+ - [`initialize`](#initialize-options)
+ - [`apply_configuration`](#apply_configuration)
+
+- [`ConfigureTask`](#class-configuretask)
+ - [`initialize`](#initialize-configure_xml)
+ - [`url`](#url)
+ - [`complete?`](#complete)
+ - [`error?`](#error)
+
+- [`VcloudSettings`](#class-vcloudsettings)
+ - [`initialize`](#initialize-options--)
+ - [`sessions_url`](#sessions_url)
+ - [`edge_gateway_config_url`](#edge_gateway_config_url)
+ - [`request_headers`](#request_headers)
+
+- [`VcloudAuthRequest`](#class-vcloudauthrequest)
+ - [`initialize`](#initialize-vcloud_settings-username-password)
+ - [`submit`](#submit)
+ - [`authenticated?`](#authenticated)
+ - [`auth_response`](#auth_response)
+
+- [`VcloudConfigureRequest`](#class-vcloudconfigurerequest)
+ - [`initialize`](#initialize-vcloud_settings-auth_header-component-rules_files-interfaces_files)
+ - [`components`](#components)
+ - [`submit`](#submit)
+ - [`success?`](#success)
+ - [`response_body`](#response_body)
+
+- [`VcloudCheckForConfigureTaskRequest`](#class-vcloudcheckforconfiguretaskrequest)
+ - [`initialize`](#initialize-auth_header-task_url)
+ - [`submit`](#submit)
+
+---
 
 ## `class Component::NAT`
 
@@ -16,10 +89,12 @@ Returns the value of attribute rules
 
 - (`NAT`) — a new instance of NAT
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/nat.rb#L8)
 
 ### `#dnat(options)`
+
 
 
 **See**:
@@ -28,10 +103,12 @@ Returns the value of attribute rules
 ### `#snat(options)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/nat.rb#L17)
 
 ### `#rule(options)`
+
 
 
 **See**:
@@ -40,16 +117,19 @@ Returns the value of attribute rules
 ### `.reset`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/nat.rb#L28)
 
 ### `.instance`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/nat.rb#L32)
 
 ### `.generate_xml interfaces`
+
 
 
 **See**:
@@ -74,10 +154,12 @@ Returns the value of attribute rules
 
 - (`Firewall`) — a new instance of Firewall
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/firewall.rb#L8)
 
 ### `#rule(description, options = {}, &block)`
+
 
 
 **See**:
@@ -86,10 +168,12 @@ Returns the value of attribute rules
 ### `#source(options)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/firewall.rb#L22)
 
 ### `#destination(options)`
+
 
 
 **See**:
@@ -98,16 +182,19 @@ Returns the value of attribute rules
 ### `.reset`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/firewall.rb#L30)
 
 ### `.instance`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/firewall.rb#L34)
 
 ### `.generate_xml interfaces`
+
 
 
 **See**:
@@ -140,10 +227,12 @@ Returns the value of attribute configurations
 
 - (`LoadBalancer`) — a new instance of LoadBalancer
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/load_balancer.rb#L8)
 
 ### `#configure(name, &block)`
+
 
 
 **See**:
@@ -152,10 +241,12 @@ Returns the value of attribute configurations
 ### `#virtual_server(options = {})`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/load_balancer.rb#L21)
 
 ### `#pool(nodes, &block)`
+
 
 
 **See**:
@@ -164,10 +255,12 @@ Returns the value of attribute configurations
 ### `#http(options = {})`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/load_balancer.rb#L34)
 
 ### `#https(options = {})`
+
 
 
 **See**:
@@ -176,16 +269,19 @@ Returns the value of attribute configurations
 ### `#load_balances(port, options = {})`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/load_balancer.rb#L51)
 
 ### `.instance`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/component/load_balancer.rb#L58)
 
 ### `.generate_xml interfaces`
+
 
 
 **See**:
@@ -202,10 +298,12 @@ Returns the value of attribute configurations
 
 - (`VcloudNetworkConfigurator`) — a new instance of VcloudNetworkConfigurator
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/vcloud_network_configurator.rb#L8)
 
 ### `#execute`
+
 
 
 **See**:
@@ -222,10 +320,12 @@ Returns the value of attribute configurations
 
 - (`EdgeGateway`) — a new instance of EdgeGateway
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/vcloud_network_configurator/edge_gateway.rb#L7)
 
 ### `#apply_configuration`
+
 
 
 **See**:
@@ -242,10 +342,12 @@ Returns the value of attribute configurations
 
 - (`ConfigureTask`) — a new instance of ConfigureTask
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/vcloud_network_configurator/configure_task.rb#L4)
 
 ### `#url`
+
 
 
 **See**:
@@ -258,6 +360,7 @@ Returns the value of attribute configurations
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/vcloud_network_configurator/configure_task.rb#L13)
 
@@ -267,6 +370,7 @@ Returns the value of attribute configurations
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/vcloud_network_configurator/configure_task.rb#L17)
@@ -282,10 +386,12 @@ Returns the value of attribute configurations
 
 - (`VcloudSettings`) — a new instance of VcloudSettings
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/vcloud_network_configurator/vcloud_settings.rb#L3)
 
 ### `#sessions_url`
+
 
 
 **See**:
@@ -294,10 +400,12 @@ Returns the value of attribute configurations
 ### `#edge_gateway_config_url`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/vcloud_network_configurator/vcloud_settings.rb#L12)
 
 ### `.request_headers`
+
 
 
 **See**:
@@ -314,10 +422,12 @@ Returns the value of attribute configurations
 
 - (`VcloudAuthRequest`) — a new instance of VcloudAuthRequest
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/vcloud_network_configurator/vcloud_auth_request.rb#L6)
 
 ### `#submit`
+
 
 
 **See**:
@@ -330,10 +440,12 @@ Returns the value of attribute configurations
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/vcloud_network_configurator/vcloud_auth_request.rb#L30)
 
 ### `#auth_response`
+
 
 
 **See**:
@@ -350,16 +462,19 @@ Returns the value of attribute configurations
 
 - (`VcloudConfigureRequest`) — a new instance of VcloudConfigureRequest
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/vcloud_network_configurator/vcloud_configure_request.rb#L5)
 
 ### `#components`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/vcloud_network_configurator/vcloud_configure_request.rb#L23)
 
 ### `#submit`
+
 
 
 **See**:
@@ -372,10 +487,12 @@ Returns the value of attribute configurations
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/vcloud_network_configurator/vcloud_configure_request.rb#L54)
 
 ### `#response_body`
+
 
 
 **See**:
@@ -392,10 +509,12 @@ Returns the value of attribute configurations
 
 - (`VcloudCheckForConfigureTaskRequest`) — a new instance of VcloudCheckForConfigureTaskRequest
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-network-configurator/blob/master/lib/vcloud_network_configurator/vcloud_check_for_configure_task_request.rb#L5)
 
 ### `#submit`
+
 
 
 **See**:

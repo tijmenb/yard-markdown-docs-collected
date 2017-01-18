@@ -1,7 +1,19 @@
+# alphagov/govuk_security_audit
+
+- [`CLI`](#class-govuksecurityauditcli)
+ - [`github`](#githubuser-repo-refmaster)
+ - [`check`](#checkpath--dirpwd)
+ - [`update`](#update)
+
+- [`Scanner`](#class-govuksecurityauditscanner)
+ - [`initialize`](#initializepath--dirpwd)
+
+---
 
 ## `class GovukSecurityAudit::CLI`
 
 ### `#github(user, repo, ref="master")`
+
 
 
 **See**:
@@ -10,10 +22,12 @@
 ### `#check(path = Dir.pwd)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_security_audit/blob/master/lib/govuk_security_audit/cli.rb#L34)
 
 ### `#update`
+
 
 
 **See**:
@@ -29,6 +43,7 @@
 **Returns**:
 
 - (`Scanner`) — a new instance of Scanner
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_security_audit/blob/master/lib/govuk_security_audit/scanner.rb#L7)

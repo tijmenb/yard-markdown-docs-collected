@@ -1,3 +1,108 @@
+# alphagov/geogov
+
+- [`LruCache`](#class-geogovlrucache)
+ - [`initialize`](#initializesize--100)
+ - [`[]=`](#keyobj)
+ - [`[]`](#key)
+ - [`swizzle`](#swizzle)
+
+- [`SimpleCache`](#class-geogovsimplecache)
+ - [`initialize`](#initializedelegate)
+ - [`method_missing`](#method_missingm-args)
+
+- [`GeoStack`](#class-geogovgeostack)
+ - [`ward`](#ward)
+ - [`ward=`](#wardvalue)
+ - [`council`](#council)
+ - [`council=`](#councilvalue)
+ - [`nation`](#nation)
+ - [`nation=`](#nationvalue)
+ - [`country`](#country)
+ - [`country=`](#countryvalue)
+ - [`region`](#region)
+ - [`region=`](#regionvalue)
+ - [`lat`](#lat)
+ - [`lat=`](#latvalue)
+ - [`lon`](#lon)
+ - [`lon=`](#lonvalue)
+ - [`authorities`](#authorities)
+ - [`authorities=`](#authoritiesvalue)
+ - [`fuzzy_point`](#fuzzy_point)
+ - [`fuzzy_point=`](#fuzzy_pointpoint)
+ - [`postcode`](#postcode)
+ - [`initialize`](#initializeblock)
+ - [`calculate_fuzzy_point`](#calculate_fuzzy_point)
+ - [`new_from_ip`](#new_from_ipip_address)
+ - [`new_from_hash`](#new_from_hashhash)
+ - [`to_hash`](#to_hash)
+ - [`update`](#updatehash)
+ - [`friendly_name`](#friendly_name)
+ - [`get_authority`](#get_authoritytype)
+ - [`formatted_authority_name`](#formatted_authority_nametype)
+ - [`build_locality`](#build_locality)
+ - [`has_valid_lat_lon`](#has_valid_lat_lonhash)
+ - [`fetch_missing_fields_for_postcode`](#fetch_missing_fields_for_postcodepostcode)
+ - [`fetch_missing_fields_for_coords`](#fetch_missing_fields_for_coordslat-lon)
+ - [`set_fields`](#set_fieldshash)
+ - [`postcode=`](#postcodepostcode)
+
+- [`FuzzyPoint`](#class-geogovfuzzypoint)
+ - [`lon`](#lon)
+ - [`lat`](#lat)
+ - [`accuracy`](#accuracy)
+ - [`initialize`](#initializelatlonaccuracy)
+ - [`to_hash`](#to_hash)
+
+- [`Mapit`](#class-geogovmapit)
+ - [`initialize`](#initializedefault_url--httpmapitmysocietyorg)
+ - [`valid_mapit_methods`](#valid_mapit_methods)
+ - [`respond_to?`](#respond_tosym)
+ - [`lat_lon_from_postcode`](#lat_lon_from_postcodepostcode)
+ - [`translate_area_type_to_shortcut`](#translate_area_type_to_shortcutarea_type)
+ - [`areas_for_stack_from_coords`](#areas_for_stack_from_coordslat-lon)
+ - [`areas_for_stack_from_postcode`](#areas_for_stack_from_postcodepostcode)
+ - [`centre_of_district`](#centre_of_districtdistrict_postcode)
+ - [`method_missing`](#method_missingmethod-args-block)
+
+- [`Method`](#class-geogovmapitmethod)
+ - [`initialize`](#initializeurl-params--)
+ - [`to_url`](#to_urlbase_url)
+ - [`call`](#callbase_url)
+
+- [`Google`](#class-geogovgoogle)
+ - [`dimension`](#dimensionl1l2)
+ - [`location`](#locationl1l2)
+ - [`map_img`](#map_imglatlonoptions-)
+ - [`map_href`](#map_hreflatlonoptions--)
+
+- [`Hostip`](#class-geogovhostip)
+ - [`initialize`](#initialize)
+ - [`remote_location`](#remote_locationip_address)
+
+- [`Geonames`](#class-geogovgeonames)
+ - [`initialize`](#initializeusername--username-url--httpapigeonamesorg)
+ - [`query`](#querymethodparams)
+ - [`nearest_place_name`](#nearest_place_namelatlon)
+ - [`centre_of_country`](#centre_of_countrycountry_code)
+ - [`lat_lon_to_country`](#lat_lon_to_countrylatlon)
+
+- [`OpenStreetMap`](#class-geogovopenstreetmap)
+ - [`initialize`](#initializeurl--httpojwdevopenstreetmaporg)
+ - [`map_img`](#map_imglatlongoptions--)
+ - [`map_href`](#map_hreflatlongoptions--)
+
+- [`DracosGazetteer`](#class-geogovdracosgazetteer)
+ - [`initialize`](#initializedefault_url--httpgazetteerdracosvmbytemarkcouk)
+ - [`nearest_place_name`](#nearest_place_namelatlon)
+
+- [`Geogov`](#module-geogov)
+ - [`provider_for`](#provider_formethod-instance)
+ - [`configure`](#configure)
+ - [`get`](#geturl)
+ - [`get_json`](#get_jsonurl)
+ - [`hash_to_params`](#hash_to_paramshash)
+
+---
 
 ## `class Geogov::LruCache`
 
@@ -11,10 +116,12 @@ In no way thread-safe
 
 - (`LruCache`) — a new instance of LruCache
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/utils.rb#L33)
 
 ### `#[]=(key,obj)`
+
 
 
 **See**:
@@ -23,10 +130,12 @@ In no way thread-safe
 ### `#[](key)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/utils.rb#L50)
 
 ### `#swizzle`
+
 
 
 **See**:
@@ -43,10 +152,12 @@ In no way thread-safe
 
 - (`SimpleCache`) — a new instance of SimpleCache
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/utils.rb#L68)
 
 ### `#method_missing(m, *args)`
+
 
 
 **See**:
@@ -260,10 +371,12 @@ Returns the value of attribute postcode
 
 - (`GeoStack`) — a new instance of GeoStack
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L7)
 
 ### `#calculate_fuzzy_point`
+
 
 
 **See**:
@@ -272,10 +385,12 @@ Returns the value of attribute postcode
 ### `.new_from_ip(ip_address)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L39)
 
 ### `.new_from_hash(hash)`
+
 
 
 **See**:
@@ -284,10 +399,12 @@ Returns the value of attribute postcode
 ### `#to_hash`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L51)
 
 ### `#update(hash)`
+
 
 
 **See**:
@@ -296,10 +413,12 @@ Returns the value of attribute postcode
 ### `#friendly_name`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L75)
 
 ### `#get_authority(type)`
+
 
 
 **See**:
@@ -308,10 +427,12 @@ Returns the value of attribute postcode
 ### `#formatted_authority_name(type)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L83)
 
 ### `#build_locality`
+
 
 
 **See**:
@@ -320,10 +441,12 @@ Returns the value of attribute postcode
 ### `#has_valid_lat_lon(hash)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L140)
 
 ### `#fetch_missing_fields_for_postcode(postcode)`
+
 
 
 **See**:
@@ -332,16 +455,19 @@ Returns the value of attribute postcode
 ### `#fetch_missing_fields_for_coords(lat, lon)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L157)
 
 ### `#set_fields(hash)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/geo_stack.rb#L165)
 
 ### `#postcode=(postcode)`
+
 
 
 **See**:
@@ -392,6 +518,7 @@ Returns the value of attribute accuracy
 ### `#to_hash`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/fuzzy_point.rb#L18)
 
@@ -406,10 +533,12 @@ Returns the value of attribute accuracy
 
 - (`Mapit`) — a new instance of Mapit
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/mapit.rb#L32)
 
 ### `#valid_mapit_methods`
+
 
 
 **See**:
@@ -422,10 +551,12 @@ Returns the value of attribute accuracy
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/mapit.rb#L40)
 
 ### `#lat_lon_from_postcode(postcode)`
+
 
 
 **See**:
@@ -443,10 +574,12 @@ pylib/mapit/areas/models.py
 ### `#areas_for_stack_from_coords(lat, lon)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/mapit.rb#L63)
 
 ### `#areas_for_stack_from_postcode(postcode)`
+
 
 
 **See**:
@@ -455,10 +588,12 @@ pylib/mapit/areas/models.py
 ### `#centre_of_district(district_postcode)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/mapit.rb#L121)
 
 ### `#method_missing(method, *args, &block)`
+
 
 
 **See**:
@@ -475,16 +610,19 @@ pylib/mapit/areas/models.py
 
 - (`Method`) — a new instance of Method
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/mapit.rb#L9)
 
 ### `#to_url(base_url)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/mapit.rb#L14)
 
 ### `#call(base_url)`
+
 
 
 **See**:
@@ -497,10 +635,12 @@ pylib/mapit/areas/models.py
 ### `#dimension(l1,l2)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/google.rb#L5)
 
 ### `#location(l1,l2)`
+
 
 
 **See**:
@@ -509,10 +649,12 @@ pylib/mapit/areas/models.py
 ### `#map_img(lat,lon,options= {})`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/google.rb#L13)
 
 ### `#map_href(lat,lon,options = {})`
+
 
 
 **See**:
@@ -529,10 +671,12 @@ pylib/mapit/areas/models.py
 
 - (`Hostip`) — a new instance of Hostip
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/hostip.rb#L6)
 
 ### `#remote_location(ip_address)`
+
 
 
 **See**:
@@ -549,10 +693,12 @@ pylib/mapit/areas/models.py
 
 - (`Geonames`) — a new instance of Geonames
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/geonames.rb#L3)
 
 ### `#query(method,params)`
+
 
 
 **See**:
@@ -561,16 +707,19 @@ pylib/mapit/areas/models.py
 ### `#nearest_place_name(lat,lon)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/geonames.rb#L13)
 
 ### `#centre_of_country(country_code)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/geonames.rb#L23)
 
 ### `#lat_lon_to_country(lat,lon)`
+
 
 
 **See**:
@@ -587,16 +736,19 @@ pylib/mapit/areas/models.py
 
 - (`OpenStreetMap`) — a new instance of OpenStreetMap
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/open_street_map.rb#L5)
 
 ### `#map_img(lat,long,options = {})`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/open_street_map.rb#L9)
 
 ### `#map_href(lat,long,options = {})`
+
 
 
 **See**:
@@ -613,10 +765,12 @@ pylib/mapit/areas/models.py
 
 - (`DracosGazetteer`) — a new instance of DracosGazetteer
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/providers/dracos_gazetteer.rb#L3)
 
 ### `#nearest_place_name(lat,lon)`
+
 
 
 **See**:
@@ -629,16 +783,22 @@ pylib/mapit/areas/models.py
 ### `.provider_for(method, instance)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov.rb#L18)
 
 ### `.configure`
 
 
+**Yields**:
+
+- (`_self`) — 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov.rb#L37)
 
 ### `#get(url)`
+
 
 
 **See**:
@@ -647,10 +807,12 @@ pylib/mapit/areas/models.py
 ### `#get_json(url)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/geogov/blob/master/lib/geogov/utils.rb#L16)
 
 ### `#hash_to_params(hash)`
+
 
 
 **See**:

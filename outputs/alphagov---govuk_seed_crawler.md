@@ -1,7 +1,40 @@
+# alphagov/govuk_seed_crawler
+
+- [`Seeder`](#class-govukseedcrawlerseeder)
+ - [`seed`](#seedsite_root-options--)
+
+- [`Indexer`](#class-govukseedcrawlerindexer)
+ - [`urls`](#urls)
+ - [`initialize`](#initializesite_root)
+
+- [`CLIRunner`](#class-govukseedcrawlerclirunner)
+ - [`initialize`](#initializeargv_array)
+ - [`run`](#run)
+
+- [`CLIException`](#class-govukseedcrawlercliexception)
+ - [`help`](#help)
+ - [`initialize`](#initializemessage-help)
+
+- [`CLIParser`](#class-govukseedcrawlercliparser)
+ - [`initialize`](#initializeargv_array)
+ - [`options`](#options)
+ - [`parse`](#parse)
+
+- [`AmqpClient`](#class-govukseedcrawleramqpclient)
+ - [`channel`](#channel)
+ - [`initialize`](#initializeconnection_options--)
+ - [`close`](#close)
+ - [`publish`](#publishexchange-topic-body)
+
+- [`GovukSeedCrawler`](#module-govukseedcrawler)
+ - [`logger`](#logger)
+
+---
 
 ## `class GovukSeedCrawler::Seeder`
 
 ### `.seed(site_root, options = {})`
+
 
 
 **See**:
@@ -26,6 +59,7 @@ Returns the value of attribute urls
 
 - (`Indexer`) — a new instance of Indexer
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_seed_crawler/blob/master/lib/govuk_seed_crawler/indexer.rb#L7)
 
@@ -40,10 +74,12 @@ Returns the value of attribute urls
 
 - (`CLIRunner`) — a new instance of CLIRunner
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_seed_crawler/blob/master/lib/govuk_seed_crawler/cli_runner.rb#L3)
 
 ### `#run`
+
 
 
 **See**:
@@ -68,6 +104,7 @@ Returns the value of attribute help
 
 - (`CLIException`) — a new instance of CLIException
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_seed_crawler/blob/master/lib/govuk_seed_crawler/cli_parser.rb#L7)
 
@@ -82,16 +119,19 @@ Returns the value of attribute help
 
 - (`CLIParser`) — a new instance of CLIParser
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_seed_crawler/blob/master/lib/govuk_seed_crawler/cli_parser.rb#L30)
 
 ### `#options`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_seed_crawler/blob/master/lib/govuk_seed_crawler/cli_parser.rb#L34)
 
 ### `#parse`
+
 
 
 **See**:
@@ -116,16 +156,19 @@ Returns the value of attribute channel
 
 - (`AmqpClient`) — a new instance of AmqpClient
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_seed_crawler/blob/master/lib/govuk_seed_crawler/amqp_client.rb#L7)
 
 ### `#close`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_seed_crawler/blob/master/lib/govuk_seed_crawler/amqp_client.rb#L13)
 
 ### `#publish(exchange, topic, body)`
+
 
 
 **See**:
@@ -136,6 +179,7 @@ Returns the value of attribute channel
 ## `module GovukSeedCrawler`
 
 ### `.logger`
+
 
 
 **See**:

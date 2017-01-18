@@ -1,3 +1,48 @@
+# airbrake/airbrake
+
+- [`User`](#class-airbrakerackuser)
+ - [`extract`](#extractrack_env)
+ - [`initialize`](#initializeuser)
+ - [`as_json`](#as_json)
+
+- [`Task`](#class-raketask)
+ - [`execute_without_airbrake`](#execute_without_airbrake)
+ - [`execute`](#executeargs--nil)
+
+- [`Airbrake`](#class-resquefailureairbrake)
+ - [`save`](#save)
+
+- [`Middleware`](#class-airbrakerackmiddleware)
+ - [`initialize`](#initializeapp-notifier_name--default)
+ - [`call`](#callenv)
+
+- [`Job`](#class-delayedbackendactiverecordjob)
+ - [`old_to_ary`](#old_to_ary)
+ - [`to_ary`](#to_ary)
+
+- [`NoticeBuilder`](#class-airbrakeracknoticebuilder)
+ - [`builders`](#builders)
+ - [`add_builder`](#add_builderblock)
+ - [`initialize`](#initializerack_env-notifier_name--default)
+ - [`build_notice`](#build_noticeexception)
+
+- [`AirbrakeGenerator`](#class-airbrakegenerator)
+ - [`name`](#argument-name-type-string-default-application)
+ - [`generate_layout`](#generate_layout)
+
+- [`ErrorHandler`](#class-airbrakesidekiqerrorhandler)
+ - [`call`](#call_worker-context-_queue)
+
+- [`Airbrake`](#module-airbrake)
+ - [`add_rack_builder`](#add_rack_builderblock)
+
+- [`Capistrano`](#module-airbrakecapistrano)
+ - [`load_into`](#load_intoconfig)
+
+- [`ActiveRecord`](#module-airbrakerailsactiverecord)
+ - [`run_callbacks`](#run_callbackskind-args-block)
+
+---
 
 ## `class Airbrake::Rack::User`
 
@@ -17,6 +62,7 @@ Finds the user in the Rack environment and creates a new user wrapper.
 
 - (`Airbrake::Rack::User, nil`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/rack/user.rb#L11)
 
@@ -27,14 +73,16 @@ Finds the user in the Rack environment and creates a new user wrapper.
 
 - (`User`) — a new instance of User
 
+
 **See**:
-- [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/rack/user.rb#L32)
+- [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/rack/user.rb#L34)
 
 ### `#as_json`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/rack/user.rb#L36)
+- [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/rack/user.rb#L38)
 
 ---
 
@@ -56,6 +104,7 @@ A wrapper around the original +#execute+, that catches all errors and
 notifies Airbrake.
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/rake/task_ext.rb#L18)
 
@@ -66,6 +115,7 @@ notifies Airbrake.
 Provides Resque integration with Airbrake.
 
 ### `#save`
+
 
 
 **See**:
@@ -88,6 +138,7 @@ uses it (name and version).
 **Returns**:
 
 - (`Middleware`) — a new instance of Middleware
+
 
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/rack/middleware.rb#L11)
@@ -116,10 +167,12 @@ https://github.com/jruby/jruby/issues/3338
 ### `#old_to_ary`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/delayed_job/plugin.rb#L39)
 
 ### `#to_ary`
+
 
 
 **See**:
@@ -138,6 +191,7 @@ coming from the Rack environment.
 **Returns**:
 
 - (`Array<Proc>`) — the list of notice builders
+
 
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/rack/notice_builder.rb#L12)
@@ -161,6 +215,7 @@ Adds user defined builders to the chain.
 
 - (`NoticeBuilder`) — a new instance of NoticeBuilder
 
+
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/rack/notice_builder.rb#L32)
 
@@ -176,6 +231,7 @@ Adds context, session, params and other fields based on the Rack env.
 **Returns**:
 
 - (`Airbrake::Notice`) — the notice with extra information
+
 
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/rack/notice_builder.rb#L43)
@@ -199,6 +255,7 @@ can pass arguments to the ERB template.
 ### `#generate_layout`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/generators/airbrake_generator.rb#L22)
 
@@ -209,6 +266,7 @@ can pass arguments to the ERB template.
 Provides integration with Sidekiq 2 and Sidekiq 3.
 
 ### `#call(_worker, context, _queue)`
+
 
 
 **See**:
@@ -251,6 +309,7 @@ The Capistrano v2 integration.
 ### `.load_into(config)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/airbrake/airbrake/blob/master/lib/airbrake/capistrano/tasks.rb#L30)
 
@@ -268,6 +327,7 @@ This module makes it possible to report exceptions occurring there.
 
 Patches default +run_callbacks+ with our version, which is capable of
 notifying about exceptions.
+
 
 
 **See**:

@@ -1,3 +1,227 @@
+# gds-operations/vcloud-core
+
+- [`Vm`](#class-vcloudcorevm)
+ - [`id`](#id)
+ - [`initialize`](#initializeid-vapp)
+ - [`vcloud_attributes`](#vcloud_attributes)
+ - [`update_memory_size_in_mb`](#update_memory_size_in_mbnew_memory)
+ - [`memory`](#memory)
+ - [`cpu`](#cpu)
+ - [`name`](#name)
+ - [`href`](#href)
+ - [`update_name`](#update_namenew_name)
+ - [`vapp_name`](#vapp_name)
+ - [`update_cpu_count`](#update_cpu_countnew_cpu_count)
+ - [`update_metadata`](#update_metadatametadata)
+ - [`attach_independent_disks`](#attach_independent_disksdisk_list)
+ - [`detach_independent_disks`](#detach_independent_disksdisk_list)
+ - [`add_extra_disks`](#add_extra_disksextra_disks)
+ - [`configure_network_interfaces`](#configure_network_interfacesnetworks_config)
+ - [`configure_guest_customization_section`](#configure_guest_customization_sectionpreamble)
+ - [`update_storage_profile`](#update_storage_profile-storage_profile)
+
+- [`Vdc`](#class-vcloudcorevdc)
+ - [`id`](#id)
+ - [`initialize`](#initializeid)
+ - [`get_by_name`](#get_by_namename)
+ - [`vcloud_attributes`](#vcloud_attributes)
+ - [`name`](#name)
+ - [`href`](#href)
+
+- [`Vapp`](#class-vcloudcorevapp)
+ - [`id`](#id)
+ - [`initialize`](#initializeid)
+ - [`get_by_name`](#get_by_namename)
+ - [`get_by_child_vm_id`](#get_by_child_vm_idvm_id)
+ - [`vcloud_attributes`](#vcloud_attributes)
+ - [`name`](#name)
+ - [`href`](#href)
+ - [`vdc_id`](#vdc_id)
+ - [`vms`](#vms)
+ - [`networks`](#networks)
+ - [`get_by_name_and_vdc_name`](#get_by_name_and_vdc_namename-vdc_name)
+ - [`instantiate`](#instantiatename-network_names-template_id-vdc_name)
+ - [`update_custom_fields`](#update_custom_fieldscustom_fields)
+ - [`power_on`](#power_on)
+
+- [`Query`](#class-vcloudcorequery)
+ - [`initialize`](#initializetypenil-options-query_runner--vcloudcorequeryrunnernew)
+ - [`run`](#run)
+ - [`get_all_results`](#get_all_results)
+
+- [`Entity`](#class-vcloudcoreentity)
+ - [`id_prefix`](#id_prefix)
+ - [`id`](#id)
+ - [`name`](#name)
+
+- [`QueryCli`](#class-vcloudcorequerycli)
+ - [`initialize`](#initializeargv_array)
+ - [`run`](#run)
+
+- [`LoginCli`](#class-vcloudcorelogincli)
+ - [`initialize`](#initializeargv_array)
+ - [`run`](#run)
+
+- [`LogoutCli`](#class-vcloudcorelogoutcli)
+ - [`initialize`](#initializeargv_array)
+ - [`run`](#run)
+
+- [`QueryRunner`](#class-vcloudcorequeryrunner)
+ - [`initialize`](#initialize)
+ - [`run`](#runtypenil-options)
+ - [`available_query_types`](#available_query_types)
+
+- [`EdgeGateway`](#class-vcloudcoreedgegateway)
+ - [`id`](#id)
+ - [`initialize`](#initializeid)
+ - [`get_ids_by_name`](#get_ids_by_namename)
+ - [`update_configuration`](#update_configurationconfig)
+ - [`vcloud_gateway_interface_by_id`](#vcloud_gateway_interface_by_id-gateway_interface_id)
+ - [`get_by_name`](#get_by_namename)
+ - [`vcloud_attributes`](#vcloud_attributes)
+ - [`href`](#href)
+ - [`name`](#name)
+ - [`interfaces`](#interfaces)
+
+- [`VappTemplate`](#class-vcloudcorevapptemplate)
+ - [`id`](#id)
+ - [`initialize`](#initializeid)
+ - [`vcloud_attributes`](#vcloud_attributes)
+ - [`href`](#href)
+ - [`name`](#name)
+ - [`get_ids_by_name_and_catalog`](#get_ids_by_name_and_catalog-name-catalog_name)
+ - [`get`](#get-vapp_template_name-catalog_name)
+ - [`id_prefix`](#id_prefix)
+
+- [`ApiInterface`](#class-vcloudcoreapiinterface)
+ - [`fog_service_interface`](#fog_service_interface)
+ - [`fog_model_interface`](#fog_model_interface)
+ - [`get_vapp_by_name_and_vdc_name`](#get_vapp_by_name_and_vdc_namename-vdc_name)
+ - [`get_vapp`](#get_vappid)
+ - [`delete_vapp`](#delete_vappid)
+ - [`delete_network`](#delete_networkid)
+ - [`current_organization`](#current_organization)
+
+- [`ConfigLoader`](#class-vcloudcoreconfigloader)
+ - [`load_config`](#load_configconfig_file-schema--nil-vars_file--nil)
+
+- [`OrgVdcNetwork`](#class-vcloudcoreorgvdcnetwork)
+ - [`id`](#id)
+ - [`initialize`](#initializeid)
+ - [`provision`](#provisionconfig)
+ - [`vcloud_attributes`](#vcloud_attributes)
+ - [`name`](#name)
+ - [`href`](#href)
+ - [`delete`](#delete)
+ - [`construct_network_options`](#construct_network_optionsconfig)
+
+- [`ConfigValidator`](#class-vcloudcoreconfigvalidator)
+ - [`key`](#key)
+ - [`data`](#data)
+ - [`schema`](#schema)
+ - [`type`](#type)
+ - [`errors`](#errors)
+ - [`warnings`](#warnings)
+ - [`validate`](#validatekey-data-schema)
+ - [`initialize`](#initializekey-data-schema)
+ - [`valid?`](#valid)
+
+- [`IndependentDisk`](#class-vcloudcoreindependentdisk)
+ - [`id`](#id)
+ - [`initialize`](#initializeid)
+ - [`get_by_name_and_vdc_name`](#get_by_name_and_vdc_namename-vdc_name)
+ - [`create`](#createvdc-name-size)
+ - [`vcloud_attributes`](#vcloud_attributes)
+ - [`name`](#name)
+ - [`href`](#href)
+ - [`attached_vms`](#attached_vms)
+ - [`destroy`](#destroy)
+ - [`convert_size_to_bytes`](#convert_size_to_bytessize)
+
+- [`ModelInterface`](#class-vcloudcorefogmodelinterface)
+ - [`initialize`](#initialize)
+ - [`org_name`](#org_name)
+ - [`current_organization`](#current_organization)
+ - [`current_vdc`](#current_vdc-vdc_id)
+ - [`get_vm_by_href`](#get_vm_by_href-href)
+
+- [`ServiceInterface`](#class-vcloudcorefogserviceinterface)
+ - [`initialize`](#initialize-fog--fogfacadenew)
+ - [`org`](#org)
+ - [`get_vapp_by_name_and_vdc_name`](#get_vapp_by_name_and_vdc_name-name-vdc_name)
+ - [`vdc`](#vdcname)
+ - [`put_network_connection_system_section_vapp`](#put_network_connection_system_section_vappvm_id-section)
+ - [`find_networks`](#find_networksnetwork_names-vdc_name)
+ - [`put_guest_customization_section`](#put_guest_customization_sectionvm_id-vm_name-script)
+
+- [`FogFacade`](#class-vcloudcorefogserviceinterfacefogfacade)
+ - [`initialize`](#initialize)
+ - [`get_vdc`](#get_vdcid)
+ - [`get_organization`](#get_organization-id)
+ - [`session`](#session)
+ - [`logout`](#logout)
+ - [`get_vapps_in_lease_from_query`](#get_vapps_in_lease_from_queryoptions)
+ - [`post_instantiate_vapp_template`](#post_instantiate_vapp_templatevdc-template-name-params)
+ - [`put_memory`](#put_memoryvm_id-memory)
+ - [`get_vapp`](#get_vappid)
+ - [`put_network_connection_system_section_vapp`](#put_network_connection_system_section_vappvm_id-section)
+ - [`put_cpu`](#put_cpuvm_id-cpu)
+ - [`put_vm`](#put_vmid-name-options)
+ - [`vcloud_token`](#vcloud_token)
+ - [`end_point`](#end_point)
+ - [`put_guest_customization_section_vapp`](#put_guest_customization_section_vappvm_id-customization_req)
+ - [`get_execute_query`](#get_execute_querytypenil-options)
+ - [`get_vapp_metadata`](#get_vapp_metadataid)
+ - [`organizations`](#organizations)
+ - [`org_name`](#org_name)
+ - [`post_undeploy_vapp`](#post_undeploy_vappvapp_id)
+ - [`delete_vapp`](#delete_vappvapp_id)
+ - [`get_network_complete`](#get_network_completeid)
+ - [`delete_network`](#delete_networkid)
+ - [`get_disk`](#get_diskid)
+ - [`delete_disk`](#delete_diskid)
+ - [`post_create_disk`](#post_create_diskvdc_id-disk_id-size_in_bytes-options--)
+ - [`post_attach_disk`](#post_attach_diskvm_id-disk_id-options--)
+ - [`post_detach_disk`](#post_detach_diskvm_id-disk_id)
+ - [`get_vms_disk_attached_to`](#get_vms_disk_attached_todisk_id)
+ - [`post_create_org_vdc_network`](#post_create_org_vdc_networkvdc_id-name-options)
+ - [`post_configure_edge_gateway_services`](#post_configure_edge_gateway_servicesedgegw_id-config)
+ - [`power_off_vapp`](#power_off_vappvapp_id)
+ - [`power_on_vapp`](#power_on_vappvapp_id)
+ - [`shutdown_vapp`](#shutdown_vappvapp_id)
+ - [`put_vapp_metadata_value`](#put_vapp_metadata_valueid-k-v)
+ - [`get_edge_gateway`](#get_edge_gatewayid)
+ - [`put_product_sections`](#put_product_sectionsid-items)
+
+- [`EdgeGatewayInterface`](#class-vcloudcoreedgegatewayinterface)
+ - [`name`](#name)
+ - [`name=`](#namevalue)
+ - [`network_href`](#network_href)
+ - [`network_href=`](#network_hrefvalue)
+ - [`network_name`](#network_name)
+ - [`network_name=`](#network_namevalue)
+ - [`initialize`](#initializegateway_interface_hash)
+ - [`network_id`](#network_id)
+
+- [`Core`](#module-vcloudcore)
+ - [`logger`](#logger)
+
+- [`Fog`](#module-vcloudcorefog)
+ - [`logout`](#logout)
+ - [`check_credentials`](#check_credentials)
+ - [`fog_credentials_pass`](#fog_credentials_pass)
+
+- [`Login`](#module-vcloudcorefoglogin)
+ - [`token`](#tokenpass)
+ - [`token_export`](#token_exportargs)
+
+- [`MetadataHelper`](#module-vcloudcoremetadatahelper)
+ - [`extract_metadata`](#extract_metadata-vcloud_metadata_entries)
+
+- [`ComputeMetadata`](#module-vcloudcorecomputemetadata)
+ - [`get_metadata`](#get_metadata-id)
+
+---
 
 ## `class Vcloud::Core::Vm`
 
@@ -25,6 +249,7 @@ Initialize a Vcloud::Core::Vm within a vApp
 
 - (`Vcloud::Core::Vm`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L13)
 
@@ -35,6 +260,7 @@ Return the vCloud data associated with VM
 **Returns**:
 
 - (`Hash`) — the complete vCloud data for VM
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L24)
@@ -52,6 +278,7 @@ Set the amount of memory in VM which can't be nil or less than 64 (mb)
 
 - (`Boolean`) — return true or throws an error
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L32)
 
@@ -62,6 +289,7 @@ Return the amount of memory allocated to VM
 **Returns**:
 
 - (`Integer`) — amount of memory in megabytes
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L43)
@@ -74,6 +302,7 @@ Return the number of CPUs allocated to the VM
 
 - (`Integer`) — number of virtual CPUs
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L51)
 
@@ -85,6 +314,7 @@ Return the name of VM
 
 - (`String`) — the name of instance
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L59)
 
@@ -95,6 +325,7 @@ Return the href of VM
 **Returns**:
 
 - (`String`) — the href of instance
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L66)
@@ -112,6 +343,7 @@ Update the name of VM
 
 - (`Boolean`) — return true or throw an error
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L74)
 
@@ -122,6 +354,7 @@ Return the name of the vApp containing VM
 **Returns**:
 
 - (`String`) — the name of the vApp
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L82)
@@ -139,6 +372,7 @@ Update the number of CPUs in VM
 
 - (`Boolean`) — return true or throw an error
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L90)
 
@@ -154,6 +388,7 @@ Update the metadata for VM
 **Returns**:
 
 - (`Boolean`) — return true or throw an error
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L102)
@@ -171,6 +406,7 @@ Attach independent disk(s) to VM
 
 - (`Boolean`) — return true or throw an error
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L115)
 
@@ -186,6 +422,7 @@ Detach independent disk(s) from VM
 **Returns**:
 
 - (`Boolean`) — return true or throw an error
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L126)
@@ -203,6 +440,7 @@ Add extra disks to VM
 
 - (`Boolean`) — return true or throw an error
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L137)
 
@@ -218,6 +456,7 @@ Configure VM network interfaces
 **Returns**:
 
 - (`Boolean`) — return true or throw an error
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L151)
@@ -235,6 +474,7 @@ Configure guest customisation script
 
 - (`Boolean`) — return true or throw an error
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L180)
 
@@ -250,6 +490,7 @@ Update the storage profile of a VM
 **Returns**:
 
 - (`Boolean`) — return true or throw an error
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vm.rb#L188)
@@ -279,6 +520,7 @@ Initialize a Vcloud::Core::Vdc
 
 - (`Vcloud::Core::Vdc`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vdc.rb#L11)
 
@@ -295,6 +537,7 @@ Get the ID of a named vDC
 
 - (`String`) — The ID of the vDC
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vdc.rb#L22)
 
@@ -305,6 +548,7 @@ Return the vCloud data associated with vDC
 **Returns**:
 
 - (`Hash`) — the complete vCloud data for vDC
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vdc.rb#L33)
@@ -317,6 +561,7 @@ Return the name of vDC
 
 - (`String`) — the name of instance
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vdc.rb#L40)
 
@@ -327,6 +572,7 @@ Return the href of vDC
 **Returns**:
 
 - (`String`) — the href of instance
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vdc.rb#L47)
@@ -356,6 +602,7 @@ Initialize a Vcloud::Core::Vapp
 
 - (`Vcloud::Core::Vapp`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp.rb#L12)
 
@@ -371,6 +618,7 @@ Return the ID of a named vApp
 **Returns**:
 
 - (`String`) — the vApp ID
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp.rb#L23)
@@ -403,6 +651,7 @@ Return the vCloud data associated with vApp
 
 - (`Hash`) — the complete vCloud data for vApp
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp.rb#L56)
 
@@ -413,6 +662,7 @@ Return the name of vApp
 **Returns**:
 
 - (`String`) — the name of instance
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp.rb#L68)
@@ -425,6 +675,7 @@ Return the href of vApp
 
 - (`String`) — the href of instance
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp.rb#L75)
 
@@ -435,6 +686,7 @@ Return the ID of the vDC containing vApp
 **Returns**:
 
 - (`String`) — the ID of the vDC containing vApp
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp.rb#L82)
@@ -447,6 +699,7 @@ Return the VMs within vApp
 
 - (`Hash`) — the VMs contained in the vApp
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp.rb#L90)
 
@@ -457,6 +710,7 @@ Return the networks connected to vApp
 **Returns**:
 
 - (`Hash`) — a hash describing the networks
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp.rb#L97)
@@ -476,6 +730,7 @@ Find a vApp by name and vDC
 **Returns**:
 
 - (`String`) — the ID of the instance
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp.rb#L106)
@@ -502,6 +757,7 @@ Instantiate a vApp
 
 - (`String`) — the id of the created vApp
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp.rb#L119)
 
@@ -518,6 +774,7 @@ Update custom_fields for vApp
 
 - (`Boolean`) — return true or throws error
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp.rb#L137)
 
@@ -528,6 +785,7 @@ Power on vApp
 **Returns**:
 
 - (`Boolean`) — Returns true if the VM is running, false otherwise
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp.rb#L160)
@@ -555,6 +813,7 @@ Initialize a new Vcloud::Core::Query object
 
 - (`Vcloud::Core::Query`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/query.rb#L13)
 
@@ -565,6 +824,7 @@ Run the query and print to standard out
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/query.rb#L23)
@@ -584,16 +844,19 @@ Run the query and print to standard out
 ### `#id_prefix;`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/entity.rb#L5)
 
 ### `#id`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/entity.rb#L9)
 
 ### `#name`
+
 
 
 **See**:
@@ -616,6 +879,7 @@ Create a new instance of the CLI, parsing the arguments supplied
 
 - (`Vcloud::Core::QueryCLI`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/query_cli.rb#L11)
 
@@ -626,6 +890,7 @@ Run a query and print results to standard out
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/query_cli.rb#L22)
@@ -647,6 +912,7 @@ Create a new instance of the CLI, parsing the arguments supplied
 
 - (`Vcloud::Core::LoginCLI`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/login_cli.rb#L12)
 
@@ -657,6 +923,7 @@ Login to vCloud and print shell commands suitable for setting the vcloud_token
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/login_cli.rb#L21)
@@ -678,6 +945,7 @@ Create a new instance of the CLI, parsing the arguments supplied
 
 - (`Vcloud::Core::LogoutCLI`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/logout_cli.rb#L11)
 
@@ -688,6 +956,7 @@ Logout an existing vCloud session.
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/logout_cli.rb#L20)
@@ -703,6 +972,7 @@ Create a new instance of the ServiceInterface as the @fsi global
 **Returns**:
 
 - (`QueryRunner`) — a new instance of QueryRunner
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/query_runner.rb#L6)
@@ -751,6 +1021,7 @@ List the available entity types which can be queried
 
 - (`Array`) — list of valid types
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/query_runner.rb#L37)
 
@@ -781,6 +1052,7 @@ hexadecimal characters or hyphens)
 
 - (`Vcloud::Core::EdgeGateway`) — an instance of an EdgeGateway
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway.rb#L13)
 
@@ -796,6 +1068,7 @@ Find a list of EdgeGateway IDs that match a name
 **Returns**:
 
 - (`Array`) — An array of IDs found.
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway.rb#L24)
@@ -826,6 +1099,7 @@ Return the Vcloud::Core::EdgeGatewayInterface of EdgeGateway which matches an ID
 
 - (`Vcloud::Core::EdgeGatewayInterface`) — the EdgeGatewayInterface instance
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway.rb#L47)
 
@@ -843,6 +1117,7 @@ supplied name.
 
 - (`Vcloud::Core::EdgeGateway`) — the EdgeGateway instance
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway.rb#L61)
 
@@ -853,6 +1128,7 @@ Get the vCloud attributes for EdgeGateway
 **Returns**:
 
 - (`String`) — Excon::Response#body from vCloud for EdgeGateway
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway.rb#L71)
@@ -865,6 +1141,7 @@ Return the +href+ of EdgeGateway
 
 - (`String`) — href of EdgeGateway
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway.rb#L79)
 
@@ -875,6 +1152,7 @@ Return the +name+ of EdgeGateway
 **Returns**:
 
 - (`String`) — name of EdgeGateway
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway.rb#L86)
@@ -888,6 +1166,7 @@ networks to be taken without inspecting the API details.
 **Returns**:
 
 - (`Array`) — An array of Vcloud::Core::EdgeGatewayInterface objects
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway.rb#L95)
@@ -912,6 +1191,7 @@ Return the vCloud data associated with vApp
 
 - (`Hash`) — the complete vCloud data for vApp
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp_template.rb#L10)
 
@@ -922,6 +1202,7 @@ Return the vCloud data associated with vAppTemplate
 **Returns**:
 
 - (`Hash`) — the complete vCloud data for vAppTemplate
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp_template.rb#L20)
@@ -934,6 +1215,7 @@ Return the name of vAppTemplate
 
 - (`String`) — the name of instance
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp_template.rb#L27)
 
@@ -944,6 +1226,7 @@ Return the name of vAppTemplate
 **Returns**:
 
 - (`String`) — the name of instance
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp_template.rb#L34)
@@ -964,6 +1247,7 @@ Get a list of templates with a particular name in a catalog
 
 - (`Array`) — an array of IDs of matching templates
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp_template.rb#L43)
 
@@ -983,6 +1267,7 @@ Get a template by name and catalog
 
 - (`String`) — the ID of the template
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp_template.rb#L58)
 
@@ -993,6 +1278,7 @@ Return the id_prefix to be used for vAppTemplates
 **Returns**:
 
 - (`String`) — returns 'vappTemplate' as an id_prefix
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/vapp_template.rb#L70)
@@ -1038,6 +1324,7 @@ Get a vApp by name and vdc_name
 
 - (`String`) — Response body describing the vApp
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/api_interface.rb#L29)
 
@@ -1053,6 +1340,7 @@ Get a vApp by id
 **Returns**:
 
 - (`String`) — Response body describing the vApp
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/api_interface.rb#L37)
@@ -1070,6 +1358,7 @@ Delete a vApp by id
 
 - (`Boolean`) — return true or throw error
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/api_interface.rb#L45)
 
@@ -1086,6 +1375,7 @@ Delete a network by id
 
 - (`Boolean`) — return true or throw error
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/api_interface.rb#L53)
 
@@ -1097,6 +1387,7 @@ the current organization
 **Returns**:
 
 - (`Fog::Compute::VcloudDirector::Organization`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/api_interface.rb#L61)
@@ -1129,6 +1420,7 @@ by Mustache
 
 - (`Hash`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/config_loader.rb#L19)
 
@@ -1157,6 +1449,7 @@ Return an object referring to a particular OrgVdcNetwork
 
 - (`Vcloud::Core::OrgVdcNetwork`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/org_vdc_network.rb#L11)
 
@@ -1173,6 +1466,7 @@ Configure OrgVdcNetwork
 
 - (`Vcloud::Core::OrgVdcNetwork`) — an object referring to network
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/org_vdc_network.rb#L22)
 
@@ -1183,6 +1477,7 @@ Return all the vcloud attributes of OrgVdcNetwork
 **Returns**:
 
 - (`Hash`) — a hash describing all the attributes of OrgVdcNetwork
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/org_vdc_network.rb#L59)
@@ -1195,6 +1490,7 @@ Return the name of OrgVdcNetwork
 
 - (`String`) — the name of instance
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/org_vdc_network.rb#L66)
 
@@ -1205,6 +1501,7 @@ Return the href of OrgVdcNetwork
 **Returns**:
 
 - (`String`) — the href of instance
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/org_vdc_network.rb#L73)
@@ -1217,10 +1514,12 @@ Delete OrgVdcNetwork
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/org_vdc_network.rb#L80)
 
 ### `.construct_network_options(config)`
+
 
 
 **See**:
@@ -1299,6 +1598,7 @@ Returns the value of attribute warnings
 ### `.validate(key, data, schema)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/config_validator.rb#L30)
 
@@ -1309,6 +1609,7 @@ Returns the value of attribute warnings
 
 - (`ConfigValidator`) — a new instance of ConfigValidator
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/config_validator.rb#L34)
 
@@ -1318,6 +1619,7 @@ Returns the value of attribute warnings
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/config_validator.rb#L46)
@@ -1346,6 +1648,7 @@ Return an object referring to a particular IndependentDisk
 **Returns**:
 
 - (`Vcloud::Core::IndependentDisk`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/independent_disk.rb#L16)
@@ -1395,6 +1698,7 @@ integer with units
 - (`Vcloud::Core::IndependentDisk`) — An object representing
 the new disk
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/independent_disk.rb#L54)
 
@@ -1405,6 +1709,7 @@ Return all the vcloud attributes of IndependentDisk
 **Returns**:
 
 - (`Hash`) — a hash describing all the attributes of disk
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/independent_disk.rb#L76)
@@ -1417,6 +1722,7 @@ Return the name of IndependentDisk
 
 - (`String`) — the name of instance
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/independent_disk.rb#L83)
 
@@ -1427,6 +1733,7 @@ Return the href of IndependentDisk
 **Returns**:
 
 - (`String`) — the href of instance
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/independent_disk.rb#L90)
@@ -1440,6 +1747,7 @@ independent disk
 
 - (`Array`) — an array of Vcloud::Core::Vm
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/independent_disk.rb#L98)
 
@@ -1450,6 +1758,7 @@ Delete the IndependentDisk entity referred to by this object.
 **Returns**:
 
 - (`Boolean`) — Returns true if disk was deleted. Raises an exception otherwise.
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/independent_disk.rb#L111)
@@ -1467,6 +1776,7 @@ Allowed suffixes are: mb, gb, mib, gib
 **Returns**:
 
 - (`Integer`) — the disk size in bytes
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/independent_disk.rb#L120)
@@ -1486,10 +1796,12 @@ functionality in {Vcloud::Core::ApiInterface}
 
 - (`ModelInterface`) — a new instance of ModelInterface
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/model_interface.rb#L11)
 
 ### `#org_name`
+
 
 
 **See**:
@@ -1498,16 +1810,19 @@ functionality in {Vcloud::Core::ApiInterface}
 ### `#current_organization`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/model_interface.rb#L19)
 
 ### `#current_vdc vdc_id`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/model_interface.rb#L23)
 
 ### `#get_vm_by_href href`
+
 
 
 **See**:
@@ -1528,10 +1843,12 @@ functionality in {Vcloud::Core::ApiInterface}
 
 - (`ServiceInterface`) — a new instance of ServiceInterface
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L226)
 
 ### `#org`
+
 
 
 **See**:
@@ -1540,10 +1857,12 @@ functionality in {Vcloud::Core::ApiInterface}
 ### `#get_vapp_by_name_and_vdc_name name, vdc_name`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L237)
 
 ### `#vdc(name)`
+
 
 
 **See**:
@@ -1552,16 +1871,19 @@ functionality in {Vcloud::Core::ApiInterface}
 ### `#put_network_connection_system_section_vapp(vm_id, section)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L251)
 
 ### `#find_networks(network_names, vdc_name)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L262)
 
 ### `#put_guest_customization_section(vm_id, vm_name, script)`
+
 
 
 **See**:
@@ -1580,10 +1902,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 
 - (`FogFacade`) — a new instance of FogFacade
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L28)
 
 ### `#get_vdc(id)`
+
 
 
 **See**:
@@ -1592,10 +1916,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#get_organization (id)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L36)
 
 ### `#session`
+
 
 
 **See**:
@@ -1604,10 +1930,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#logout`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L44)
 
 ### `#get_vapps_in_lease_from_query(options)`
+
 
 
 **See**:
@@ -1616,10 +1944,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#post_instantiate_vapp_template(vdc, template, name, params)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L52)
 
 ### `#put_memory(vm_id, memory)`
+
 
 
 **See**:
@@ -1628,10 +1958,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#get_vapp(id)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L65)
 
 ### `#put_network_connection_system_section_vapp(vm_id, section)`
+
 
 
 **See**:
@@ -1640,10 +1972,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#put_cpu(vm_id, cpu)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L74)
 
 ### `#put_vm(id, name, options={})`
+
 
 
 **See**:
@@ -1652,10 +1986,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#vcloud_token`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L86)
 
 ### `#end_point`
+
 
 
 **See**:
@@ -1664,10 +2000,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#put_guest_customization_section_vapp(vm_id, customization_req)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L94)
 
 ### `#get_execute_query(type=nil, options={})`
+
 
 
 **See**:
@@ -1676,10 +2014,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#get_vapp_metadata(id)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L103)
 
 ### `#organizations`
+
 
 
 **See**:
@@ -1688,10 +2028,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#org_name`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L112)
 
 ### `#post_undeploy_vapp(vapp_id)`
+
 
 
 **See**:
@@ -1700,10 +2042,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#delete_vapp(vapp_id)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L121)
 
 ### `#get_network_complete(id)`
+
 
 
 **See**:
@@ -1712,10 +2056,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#delete_network(id)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L130)
 
 ### `#get_disk(id)`
+
 
 
 **See**:
@@ -1724,10 +2070,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#delete_disk(id)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L139)
 
 ### `#post_create_disk(vdc_id, disk_id, size_in_bytes, options = {})`
+
 
 
 **See**:
@@ -1736,10 +2084,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#post_attach_disk(vm_id, disk_id, options = {})`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L152)
 
 ### `#post_detach_disk(vm_id, disk_id)`
+
 
 
 **See**:
@@ -1748,10 +2098,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#get_vms_disk_attached_to(disk_id)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L162)
 
 ### `#post_create_org_vdc_network(vdc_id, name, options)`
+
 
 
 **See**:
@@ -1760,10 +2112,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#post_configure_edge_gateway_services(edgegw_id, config)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L173)
 
 ### `#power_off_vapp(vapp_id)`
+
 
 
 **See**:
@@ -1772,10 +2126,12 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#power_on_vapp(vapp_id)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L189)
 
 ### `#shutdown_vapp(vapp_id)`
+
 
 
 **See**:
@@ -1784,16 +2140,19 @@ FogFacade Inner class to represent a logic free facade over our interactions wit
 ### `#put_vapp_metadata_value(id, k, v)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L200)
 
 ### `#get_edge_gateway(id)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/service_interface.rb#L207)
 
 ### `#put_product_sections(id, items)`
+
 
 
 **See**:
@@ -1879,6 +2238,7 @@ Return a new instance of an EdgeGatewayInterface
 
 - (`Vcloud::Core::EdgeGatewayInterface`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway_interface.rb#L11)
 
@@ -1890,6 +2250,7 @@ Get the ID of EdgeGatewayInterface from the @network_href
 
 - (`String`) — The ID of EdgeGatewayInterface
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/edge_gateway_interface.rb#L27)
 
@@ -1898,6 +2259,7 @@ Get the ID of EdgeGatewayInterface from the @network_href
 ## `module Vcloud::Core`
 
 ### `.logger`
+
 
 
 **See**:
@@ -1915,6 +2277,7 @@ Requires a FOG_VCLOUD_TOKEN environment variable to be set.
 **Returns**:
 
 - (`Boolean`) — return true or raise an exception
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog.rb#L17)
@@ -1938,6 +2301,7 @@ Attempt to load the password from the fog credentials file
 - (`String, nil`) — The password if it could be loaded, 
 else nil.
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog.rb#L40)
 
@@ -1948,10 +2312,12 @@ else nil.
 ### `.token(pass)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/fog/login.rb#L8)
 
 ### `.token_export(*args)`
+
 
 
 **See**:
@@ -1977,6 +2343,7 @@ to Ruby types if possible.
 
 - (`Hash`) — a hash of only the metadata using Ruby types
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/metadata_helper.rb#L12)
 
@@ -1996,6 +2363,7 @@ Returns the metadata for a compute resource
 **Returns**:
 
 - (`Hash`) — Metadata keys/values
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-core/blob/master/lib/vcloud/core/compute_metadata.rb#L9)

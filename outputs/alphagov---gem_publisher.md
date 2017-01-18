@@ -1,3 +1,42 @@
+# alphagov/gem_publisher
+
+- [`PublishCommand`](#class-gemcommandspublishcommand)
+ - [`initialize`](#initialize)
+ - [`usage`](#usage--nodoc)
+ - [`execute`](#execute)
+
+- [`Pusher`](#class-gempublisherpusher)
+ - [`initialize`](#initializecli_facade--clifacadenew)
+ - [`push`](#pushgem-method-options--)
+
+- [`Builder`](#class-gempublisherbuilder)
+ - [`initialize`](#initializecli_facade--clifacadenew)
+ - [`build`](#buildgemspec)
+
+- [`Publisher`](#class-gempublisherpublisher)
+ - [`git_remote`](#git_remote)
+ - [`git_remote=`](#git_remotevalue)
+ - [`builder`](#builder)
+ - [`builder=`](#buildervalue)
+ - [`pusher`](#pusher)
+ - [`pusher=`](#pushervalue)
+ - [`version`](#version)
+ - [`initialize`](#initializegemspec-options--)
+ - [`publish_if_updated`](#publish_if_updatedmethod-options--)
+ - [`version_released?`](#version_released)
+
+- [`CliFacade`](#class-gempublisherclifacade)
+ - [`execute`](#executearguments)
+
+- [`GitRemote`](#class-gempublishergitremote)
+ - [`initialize`](#initializename--origin-cli_facade--clifacadenew)
+ - [`tags`](#tags)
+ - [`add_tag`](#add_tagtag_name-commit_ish--head)
+
+- [`GemPublisher`](#module-gempublisher)
+ - [`publish_if_updated`](#publish_if_updatedgemspec-methodrubygems-options)
+
+---
 
 ## `class Gem::Commands::PublishCommand`
 
@@ -7,6 +46,7 @@
 **Returns**:
 
 - (`PublishCommand`) — a new instance of PublishCommand
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/rubygems_plugin.rb#L6)
@@ -22,6 +62,7 @@
 ### `#execute`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/rubygems_plugin.rb#L30)
 
@@ -35,6 +76,7 @@
 **Returns**:
 
 - (`Pusher`) — a new instance of Pusher
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/gem_publisher/pusher.rb#L5)
@@ -61,10 +103,12 @@ Supported options:
 
 - (`Builder`) — a new instance of Builder
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/gem_publisher/builder.rb#L5)
 
 ### `#build(gemspec)`
+
 
 
 **See**:
@@ -154,6 +198,7 @@ Supported options:
 
 - (`Publisher`) — a new instance of Publisher
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/gem_publisher/publisher.rb#L13)
 
@@ -175,6 +220,7 @@ Supported options:
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/gem_publisher/publisher.rb#L37)
 
@@ -183,6 +229,7 @@ Supported options:
 ## `class GemPublisher::CliFacade`
 
 ### `#execute(*arguments)`
+
 
 
 **See**:
@@ -199,16 +246,19 @@ Supported options:
 
 - (`GitRemote`) — a new instance of GitRemote
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/gem_publisher/git_remote.rb#L5)
 
 ### `#tags`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gem_publisher/blob/master/lib/gem_publisher/git_remote.rb#L10)
 
 ### `#add_tag(tag_name, commit_ish = "HEAD")`
+
 
 
 **See**:

@@ -1,3 +1,14 @@
+# gds-operations/vcloud-net_launcher
+
+- [`Cli`](#class-vcloudnetlaunchercli)
+ - [`initialize`](#initializeargv_array)
+ - [`run`](#run)
+
+- [`NetLaunch`](#class-vcloudnetlaunchernetlaunch)
+ - [`initialize`](#initialize)
+ - [`run`](#runconfig_file--nil)
+
+---
 
 ## `class Vcloud::NetLauncher::Cli`
 
@@ -14,6 +25,7 @@ Initiates parsing of the command-line arguments.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-net_launcher/blob/master/lib/vcloud/net_launcher/cli.rb#L11)
 
@@ -25,6 +37,7 @@ in +@config_file+, catching any exceptions to prevent printing a backtrace.
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-net_launcher/blob/master/lib/vcloud/net_launcher/cli.rb#L22)
@@ -41,6 +54,7 @@ Initializes instance variables.
 
 - (`void`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-net_launcher/blob/master/lib/vcloud/net_launcher/net_launch.rb#L8)
 
@@ -56,6 +70,7 @@ Parses a configuration file and provisions the networks it defines.
 **Returns**:
 
 - (`void`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-net_launcher/blob/master/lib/vcloud/net_launcher/net_launch.rb#L16)

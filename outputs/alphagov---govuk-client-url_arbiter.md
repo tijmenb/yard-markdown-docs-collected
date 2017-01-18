@@ -1,3 +1,30 @@
+# alphagov/govuk-client-url_arbiter
+
+- [`HTTPError`](#class-govukclienterrorshttperror)
+ - [`initialize`](#initializerestclient_exception)
+ - [`code`](#code)
+ - [`response`](#response)
+
+- [`Response`](#class-govukclientresponse)
+ - [`initialize`](#initializecode-body_str)
+ - [`code`](#code)
+ - [`raw_body`](#raw_body)
+
+- [`URLArbiter`](#class-govukclienturlarbiter)
+ - [`initialize`](#initializebase_url--nil)
+ - [`path`](#pathpath)
+ - [`reserve_path`](#reserve_pathpath-details)
+
+- [`Errors`](#module-govukclienterrors)
+ - [`create_for`](#create_forrestclient_exception)
+
+- [`URLArbiter`](#module-govukclienttesthelpersurlarbiter)
+ - [`stub_default_url_arbiter_responses`](#stub_default_url_arbiter_responses)
+ - [`url_arbiter_has_registration_for`](#url_arbiter_has_registration_forpath-publishing_app)
+ - [`url_arbiter_returns_validation_error_for`](#url_arbiter_returns_validation_error_forpath-error_details--nil)
+ - [`url_arbiter_data_for`](#url_arbiter_data_forpath-override_attributes--)
+
+---
 
 ## `class GOVUK::Client::Errors::HTTPError`
 
@@ -7,6 +34,7 @@
 **Returns**:
 
 - (`HTTPError`) — a new instance of HTTPError
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-client-url_arbiter/blob/master/lib/govuk/client/errors.rb#L41)
@@ -18,6 +46,7 @@
 
 - (`Integer`) — The HTTP status code associated with this exception.
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-client-url_arbiter/blob/master/lib/govuk/client/errors.rb#L47)
 
@@ -27,6 +56,7 @@
 **Returns**:
 
 - (`Response`) — The response that triggered this exception.
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-client-url_arbiter/blob/master/lib/govuk/client/errors.rb#L52)
@@ -57,6 +87,7 @@ via the {#raw_body} accessor.
 
 - (`Response`) — a new instance of Response
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-client-url_arbiter/blob/master/lib/govuk/client/response.rb#L18)
 
@@ -67,6 +98,7 @@ via the {#raw_body} accessor.
 
 - (`Integer`) — The HTTP response code
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-client-url_arbiter/blob/master/lib/govuk/client/response.rb#L28)
 
@@ -76,6 +108,7 @@ via the {#raw_body} accessor.
 **Returns**:
 
 - (`String`) — The raw HTTP response body
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-client-url_arbiter/blob/master/lib/govuk/client/response.rb#L31)
@@ -96,6 +129,7 @@ looked up with {https://github.com/alphagov/plek Plek}.
 **Returns**:
 
 - (`URLArbiter`) — a new instance of URLArbiter
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-client-url_arbiter/blob/master/lib/govuk/client/url_arbiter.rb#L16)

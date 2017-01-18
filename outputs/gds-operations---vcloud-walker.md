@@ -1,3 +1,124 @@
+# gds-operations/vcloud-walker
+
+- [`Cli`](#class-vcloudwalkercli)
+ - [`initialize`](#initializeargv_array)
+ - [`run`](#run)
+
+- [`Vms`](#class-vcloudwalkerresourcevms)
+ - [`initialize`](#initialize-fog_vms)
+
+- [`Vm`](#class-vcloudwalkerresourcevm)
+ - [`id`](#id)
+ - [`status`](#status)
+ - [`cpu`](#cpu)
+ - [`memory`](#memory)
+ - [`operating_system`](#operating_system)
+ - [`disks`](#disks)
+ - [`primary_network_connection_index`](#primary_network_connection_index)
+ - [`vmware_tools`](#vmware_tools)
+ - [`virtual_system_type`](#virtual_system_type)
+ - [`network_connections`](#network_connections)
+ - [`storage_profile`](#storage_profile)
+ - [`network_cards`](#network_cards)
+ - [`metadata`](#metadata)
+ - [`initialize`](#initialize-fog_vm)
+
+- [`Vdcs`](#class-vcloudwalkerresourcevdcs)
+ - [`initialize`](#initialize-fog_vdcs)
+
+- [`Vdc`](#class-vcloudwalkerresourcevdc)
+ - [`vapps`](#vapps)
+ - [`id`](#id)
+ - [`name`](#name)
+ - [`description`](#description)
+ - [`quotas`](#quotas)
+ - [`compute_capacity`](#compute_capacity)
+ - [`initialize`](#initializefog_vdc)
+
+- [`VApp`](#class-vcloudwalkerresourcevapp)
+ - [`id`](#id)
+ - [`name`](#name)
+ - [`status`](#status)
+ - [`description`](#description)
+ - [`network_config`](#network_config)
+ - [`vms`](#vms)
+ - [`deployed`](#deployed)
+ - [`network_section`](#network_section)
+ - [`metadata`](#metadata)
+ - [`initialize`](#initialize-fog_vapp)
+
+- [`VApps`](#class-vcloudwalkerresourcevapps)
+ - [`initialize`](#initialize-ids)
+
+- [`FogInterface`](#class-vcloudwalkerfoginterface)
+ - [`get_catalogs`](#get_catalogs)
+ - [`get_vdcs`](#get_vdcs)
+ - [`get_networks`](#get_networks)
+ - [`get_edge_gateways`](#get_edge_gateways)
+ - [`get_vapp`](#get_vapp-vapp_id)
+ - [`get_org`](#get_org)
+
+- [`VcloudSession`](#class-vcloudwalkervcloudsession)
+ - [`instance`](#instance)
+
+- [`Entity`](#class-vcloudwalkerresourceentity)
+ - [`to_summary`](#to_summary)
+
+- [`Catalog`](#class-vcloudwalkerresourcecatalog)
+ - [`id`](#id)
+ - [`name`](#name)
+ - [`description`](#description)
+ - [`items`](#items)
+ - [`initialize`](#initializefog_catalog)
+
+- [`Catalogs`](#class-vcloudwalkerresourcecatalogs)
+ - [`initialize`](#initialize-fog_catalogs)
+
+- [`Networks`](#class-vcloudwalkerresourcenetworks)
+ - [`initialize`](#initialize-fog_networks)
+
+- [`Network`](#class-vcloudwalkerresourcenetwork)
+ - [`id`](#id)
+ - [`name`](#name)
+ - [`description`](#description)
+ - [`is_inherited`](#is_inherited)
+ - [`gateway`](#gateway)
+ - [`netmask`](#netmask)
+ - [`dns1`](#dns1)
+ - [`dns2`](#dns2)
+ - [`dns_suffix`](#dns_suffix)
+ - [`ip_ranges`](#ip_ranges)
+ - [`initialize`](#initialize-org_network)
+
+- [`Collection`](#class-vcloudwalkerresourcecollection)
+ - [`to_summary`](#to_summary)
+
+- [`Organization`](#class-vcloudwalkerresourceorganization)
+ - [`catalogs`](#catalogs)
+ - [`vdcs`](#vdcs)
+ - [`edgegateways`](#edgegateways)
+ - [`networks`](#networks)
+ - [`organization`](#organization)
+
+- [`CatalogItem`](#class-vcloudwalkerresourcecatalogitem)
+ - [`id`](#id)
+ - [`name`](#name)
+ - [`description`](#description)
+ - [`vapp_template_id`](#vapp_template_id)
+ - [`initialize`](#initialize-fog_catalog_item)
+
+- [`CatalogItems`](#class-vcloudwalkerresourcecatalogitems)
+ - [`initialize`](#initialize-fog_catalog_items)
+
+- [`GatewayIpsecVpnService`](#class-vcloudwalkerresourcegatewayipsecvpnservice)
+ - [`IsEnabled`](#isenabled)
+ - [`Tunnels`](#tunnels)
+ - [`initialize`](#initialize-fog_vpn_service)
+
+- [`Walker`](#module-vcloudwalker)
+ - [`walk`](#walkresource_to_walk)
+
+---
 
 ## `class Vcloud::Walker::Cli`
 
@@ -8,10 +129,12 @@
 
 - (`Cli`) — a new instance of Cli
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/cli.rb#L7)
 
 ### `#run`
+
 
 
 **See**:
@@ -27,6 +150,7 @@
 **Returns**:
 
 - (`Vms`) — a new instance of Vms
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vm.rb#L5)
@@ -146,6 +270,7 @@ Returns the value of attribute metadata
 
 - (`Vm`) — a new instance of Vm
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vm.rb#L28)
 
@@ -159,6 +284,7 @@ Returns the value of attribute metadata
 **Returns**:
 
 - (`Vdcs`) — a new instance of Vdcs
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vdc.rb#L6)
@@ -221,6 +347,7 @@ Returns the value of attribute compute_capacity
 **Returns**:
 
 - (`Vdc`) — a new instance of Vdc
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vdc.rb#L18)
@@ -308,6 +435,7 @@ Returns the value of attribute metadata
 
 - (`VApp`) — a new instance of VApp
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vapp.rb#L7)
 
@@ -322,6 +450,7 @@ Returns the value of attribute metadata
 
 - (`VApps`) — a new instance of VApps
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/vapp.rb#L46)
 
@@ -332,16 +461,19 @@ Returns the value of attribute metadata
 ### `.get_catalogs`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/fog_interface.rb#L5)
 
 ### `.get_vdcs`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/fog_interface.rb#L10)
 
 ### `.get_networks`
+
 
 
 **See**:
@@ -366,6 +498,7 @@ service-layer
 ### `.get_org`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/fog_interface.rb#L39)
 
@@ -376,6 +509,7 @@ service-layer
 ### `.instance`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/vcloud_session.rb#L5)
 
@@ -384,6 +518,7 @@ service-layer
 ## `class Vcloud::Walker::Resource::Entity`
 
 ### `#to_summary`
+
 
 
 **See**:
@@ -432,6 +567,7 @@ Returns the value of attribute items
 
 - (`Catalog`) — a new instance of Catalog
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/catalog.rb#L7)
 
@@ -446,6 +582,7 @@ Returns the value of attribute items
 
 - (`Catalogs`) — a new instance of Catalogs
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/catalog.rb#L18)
 
@@ -459,6 +596,7 @@ Returns the value of attribute items
 **Returns**:
 
 - (`Networks`) — a new instance of Networks
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/network.rb#L8)
@@ -554,6 +692,7 @@ Returns the value of attribute ip_ranges
 
 - (`Network`) — a new instance of Network
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/network.rb#L20)
 
@@ -562,6 +701,7 @@ Returns the value of attribute ip_ranges
 ## `class Vcloud::Walker::Resource::Collection`
 
 ### `#to_summary`
+
 
 
 **See**:
@@ -574,10 +714,12 @@ Returns the value of attribute ip_ranges
 ### `.catalogs`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/organization.rb#L5)
 
 ### `.vdcs`
+
 
 
 **See**:
@@ -586,16 +728,19 @@ Returns the value of attribute ip_ranges
 ### `.edgegateways`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/organization.rb#L15)
 
 ### `.networks`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/organization.rb#L27)
 
 ### `.organization`
+
 
 
 **See**:
@@ -644,6 +789,7 @@ Returns the value of attribute vapp_template_id
 
 - (`CatalogItem`) — a new instance of CatalogItem
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/catalog_item.rb#L7)
 
@@ -657,6 +803,7 @@ Returns the value of attribute vapp_template_id
 **Returns**:
 
 - (`CatalogItems`) — a new instance of CatalogItems
+
 
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/catalog_item.rb#L16)
@@ -688,6 +835,7 @@ Returns the value of attribute Tunnels
 
 - (`GatewayIpsecVpnService`) — a new instance of GatewayIpsecVpnService
 
+
 **See**:
 - [Source on GitHub](https://github.com/gds-operations/vcloud-walker/blob/master/lib/vcloud/walker/resource/gateway_ipsec_vpn_service.rb#L7)
 
@@ -696,6 +844,7 @@ Returns the value of attribute Tunnels
 ## `module Vcloud::Walker`
 
 ### `.walk(resource_to_walk)`
+
 
 
 **See**:

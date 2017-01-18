@@ -1,3 +1,50 @@
+# alphagov/govuk_message_queue_consumer
+
+- [`Message`](#class-govukmessagequeueconsumermessage)
+ - [`delivery_info`](#delivery_info)
+ - [`delivery_info=`](#delivery_infovalue)
+ - [`headers`](#headers)
+ - [`headers=`](#headersvalue)
+ - [`payload`](#payload)
+ - [`payload=`](#payloadvalue)
+ - [`status`](#status)
+ - [`status=`](#statusvalue)
+ - [`initialize`](#initializepayload-headers-delivery_info)
+ - [`ack`](#ack)
+ - [`retry`](#retry)
+ - [`discard`](#discard)
+
+- [`Consumer`](#class-govukmessagequeueconsumerconsumer)
+ - [`initialize`](#initializequeue_name-processor-rabbitmq_connection-consumerdefault_connection_from_env-statsd_client-nullstatsdnew-logger-loggernewstderr)
+ - [`run`](#run)
+
+- [`NullStatsd`](#class-govukmessagequeueconsumerconsumernullstatsd)
+ - [`increment`](#increment_key)
+
+- [`JSONProcessor`](#class-govukmessagequeueconsumerjsonprocessor)
+ - [`initialize`](#initializenext_processor)
+ - [`process`](#processmessage)
+
+- [`HeartbeatProcessor`](#class-govukmessagequeueconsumerheartbeatprocessor)
+ - [`initialize`](#initializenext_processor)
+ - [`process`](#processmessage)
+
+- [`MockMessage`](#class-govukmessagequeueconsumermockmessage)
+ - [`acked`](#acked)
+ - [`retried`](#retried)
+ - [`discarded`](#discarded)
+ - [`acked?`](#acked)
+ - [`discarded?`](#discarded)
+ - [`retried?`](#retried)
+ - [`initialize`](#initializepayload---headers---delivery_info--)
+ - [`ack`](#ack)
+ - [`retry`](#retry)
+ - [`discard`](#discard)
+
+- [`RabbitMQConfig`](#module-govukmessagequeueconsumerrabbitmqconfig)
+ - [`from_environment`](#from_environmentenv)
+
+---
 
 ## `class GovukMessageQueueConsumer::Message`
 
@@ -94,10 +141,12 @@ Sets the attribute status
 
 - (`Message`) — a new instance of Message
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L6)
 
 ### `#ack`
+
 
 
 **See**:
@@ -106,10 +155,12 @@ Sets the attribute status
 ### `#retry`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/message.rb#L18)
 
 ### `#discard`
+
 
 
 **See**:
@@ -145,10 +196,12 @@ and should already exist and have a binding via puppet
 
 - (`Consumer`) — a new instance of Consumer
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/consumer.rb#L20)
 
 ### `#run`
+
 
 
 **See**:
@@ -159,6 +212,7 @@ and should already exist and have a binding via puppet
 ## `class GovukMessageQueueConsumer::Consumer::NullStatsd`
 
 ### `#increment(_key)`
+
 
 
 **See**:
@@ -175,10 +229,12 @@ and should already exist and have a binding via puppet
 
 - (`JSONProcessor`) — a new instance of JSONProcessor
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/json_processor.rb#L5)
 
 ### `#process(message)`
+
 
 
 **See**:
@@ -195,10 +251,12 @@ and should already exist and have a binding via puppet
 
 - (`HeartbeatProcessor`) — a new instance of HeartbeatProcessor
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/heartbeat_processor.rb#L3)
 
 ### `#process(message)`
+
 
 
 **See**:
@@ -263,10 +321,12 @@ Returns the value of attribute retried
 
 - (`MockMessage`) — a new instance of MockMessage
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L9)
 
 ### `#ack`
+
 
 
 **See**:
@@ -275,10 +335,12 @@ Returns the value of attribute retried
 ### `#retry`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_message_queue_consumer/blob/master/lib/govuk_message_queue_consumer/test_helpers/mock_message.rb#L19)
 
 ### `#discard`
+
 
 
 **See**:
@@ -289,6 +351,7 @@ Returns the value of attribute retried
 ## `module GovukMessageQueueConsumer::RabbitMQConfig`
 
 ### `.from_environment(env)`
+
 
 
 **See**:

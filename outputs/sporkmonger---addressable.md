@@ -1,3 +1,161 @@
+# sporkmonger/addressable
+
+- [`URI`](#class-addressableuri)
+ - [`parse`](#parseuri)
+ - [`heuristic_parse`](#heuristic_parseuri-hints)
+ - [`convert_path`](#convert_pathpath)
+ - [`join`](#joinuris)
+ - [`encode_component`](#encode_componentcomponent-character_class)
+ - [`unencode`](#unencodeuri-return_typestring-leave_encoded)
+ - [`unescape`](#unencodeuri-return_typestring-leave_encoded)
+ - [`unencode_component`](#unencodeuri-return_typestring-leave_encoded)
+ - [`unescape_component`](#unencodeuri-return_typestring-leave_encoded)
+ - [`normalize_component`](#normalize_componentcomponent-character_class)
+ - [`encode`](#encodeuri-return_typestring)
+ - [`escape`](#encodeuri-return_typestring)
+ - [`normalized_encode`](#normalized_encodeuri-return_typestring)
+ - [`form_encode`](#form_encodeform_values-sortfalse)
+ - [`form_unencode`](#form_unencodeencoded_value)
+ - [`initialize`](#initializeoptions)
+ - [`freeze`](#freeze)
+ - [`scheme`](#scheme)
+ - [`normalized_scheme`](#normalized_scheme)
+ - [`scheme=`](#schemenew_scheme)
+ - [`user`](#user)
+ - [`normalized_user`](#normalized_user)
+ - [`user=`](#usernew_user)
+ - [`password`](#password)
+ - [`normalized_password`](#normalized_password)
+ - [`password=`](#passwordnew_password)
+ - [`userinfo`](#userinfo)
+ - [`normalized_userinfo`](#normalized_userinfo)
+ - [`userinfo=`](#userinfonew_userinfo)
+ - [`host`](#host)
+ - [`normalized_host`](#normalized_host)
+ - [`host=`](#hostnew_host)
+ - [`hostname`](#hostname)
+ - [`hostname=`](#hostnamenew_hostname)
+ - [`tld`](#tld)
+ - [`domain`](#domain)
+ - [`authority`](#authority)
+ - [`normalized_authority`](#normalized_authority)
+ - [`authority=`](#authoritynew_authority)
+ - [`origin`](#origin)
+ - [`origin=`](#originnew_origin)
+ - [`ip_based_schemes`](#ip_based_schemes)
+ - [`port_mapping`](#port_mapping)
+ - [`port`](#port)
+ - [`normalized_port`](#normalized_port)
+ - [`port=`](#portnew_port)
+ - [`inferred_port`](#inferred_port)
+ - [`default_port`](#default_port)
+ - [`site`](#site)
+ - [`normalized_site`](#normalized_site)
+ - [`site=`](#sitenew_site)
+ - [`path`](#path)
+ - [`normalized_path`](#normalized_path)
+ - [`path=`](#pathnew_path)
+ - [`basename`](#basename)
+ - [`extname`](#extname)
+ - [`query`](#query)
+ - [`normalized_query`](#normalized_queryflags)
+ - [`query=`](#querynew_query)
+ - [`query_values`](#query_valuesreturn_typehash)
+ - [`query_values=`](#query_valuesnew_query_values)
+ - [`request_uri`](#request_uri)
+ - [`request_uri=`](#request_urinew_request_uri)
+ - [`fragment`](#fragment)
+ - [`normalized_fragment`](#normalized_fragment)
+ - [`fragment=`](#fragmentnew_fragment)
+ - [`ip_based?`](#ip_based)
+ - [`relative?`](#relative)
+ - [`absolute?`](#absolute)
+ - [`join`](#joinuri)
+ - [`+`](#joinuri)
+ - [`join!`](#joinuri)
+ - [`merge`](#mergehash)
+ - [`merge!`](#mergeuri)
+ - [`route_from`](#route_fromuri)
+ - [`route_to`](#route_touri)
+ - [`normalize`](#normalize)
+ - [`normalize!`](#normalize)
+ - [`display_uri`](#display_uri)
+ - [`===`](#uri)
+ - [`==`](#uri)
+ - [`eql?`](#eqluri)
+ - [`hash`](#hash)
+ - [`dup`](#dup)
+ - [`omit`](#omitcomponents)
+ - [`omit!`](#omitcomponents)
+ - [`empty?`](#empty)
+ - [`to_s`](#to_s)
+ - [`to_str`](#to_s)
+ - [`to_hash`](#to_hash)
+ - [`inspect`](#inspect)
+ - [`defer_validation`](#defer_validationblock)
+
+- [`Template`](#class-addressabletemplate)
+ - [`initialize`](#initializepattern)
+ - [`freeze`](#freeze)
+ - [`pattern`](#pattern)
+ - [`inspect`](#inspect)
+ - [`==`](#template)
+ - [`eql?`](#template)
+ - [`extract`](#extracturi-processornil)
+ - [`match`](#matchuri-processornil)
+ - [`partial_expand`](#partial_expandmapping-processornil)
+ - [`expand`](#expandmapping-processornil)
+ - [`variables`](#variables)
+ - [`keys`](#variables)
+ - [`names`](#variables)
+ - [`variable_defaults`](#variable_defaults)
+ - [`to_regexp`](#to_regexp)
+ - [`source`](#source)
+ - [`named_captures`](#named_captures)
+ - [`generate`](#generateparams-recall-options)
+
+- [`MatchData`](#class-addressabletemplatematchdata)
+ - [`initialize`](#initializeuri-template-mapping)
+ - [`uri`](#uri)
+ - [`template`](#template)
+ - [`mapping`](#mapping)
+ - [`variables`](#variables)
+ - [`keys`](#variables)
+ - [`names`](#variables)
+ - [`values`](#values)
+ - [`captures`](#values)
+ - [`[]`](#key-len--nil)
+ - [`to_a`](#to_a)
+ - [`to_s`](#to_s)
+ - [`string`](#to_s)
+ - [`values_at`](#values_atindexes)
+ - [`inspect`](#inspect)
+ - [`pre_match`](#pre_match)
+ - [`post_match`](#pre_match)
+
+- [`IDNA`](#module-addressableidna)
+ - [`to_ascii`](#to_asciivalue)
+ - [`to_unicode`](#to_unicodevalue)
+ - [`unicode_normalize_kc`](#unicode_normalize_kcvalue)
+ - [`unicode_downcase`](#unicode_downcaseinput)
+ - [`unicode_compose`](#unicode_composeunpacked)
+ - [`unicode_compose_pair`](#unicode_compose_pairch_one-ch_two)
+ - [`unicode_sort_canonical`](#unicode_sort_canonicalunpacked)
+ - [`unicode_decompose`](#unicode_decomposeunpacked)
+ - [`unicode_decompose_hangul`](#unicode_decompose_hangulcodepoint)
+ - [`lookup_unicode_combining_class`](#lookup_unicode_combining_classcodepoint)
+ - [`lookup_unicode_compatibility`](#lookup_unicode_compatibilitycodepoint)
+ - [`lookup_unicode_lowercase`](#lookup_unicode_lowercasecodepoint)
+ - [`lookup_unicode_composition`](#lookup_unicode_compositionunpacked)
+ - [`punycode_encode`](#punycode_encodevalue)
+ - [`punycode_decode`](#punycode_decodevalue)
+ - [`punycode_basic?`](#punycode_basiccodepoint)
+ - [`punycode_delimiter?`](#punycode_delimitercodepoint)
+ - [`punycode_encode_digit`](#punycode_encode_digitd)
+ - [`punycode_decode_digit`](#punycode_decode_digitcodepoint)
+ - [`punycode_adapt`](#punycode_adaptdelta-numpoints-firsttime)
+
+---
 
 ## `class Addressable::URI`
 
@@ -19,6 +177,7 @@ No parsing is performed if the object is already an
 **Returns**:
 
 - (`Addressable::URI`) — The parsed URI.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L85)
@@ -43,6 +202,7 @@ Defaults to <code>{:scheme => "http"}</code>.
 **Returns**:
 
 - (`Addressable::URI`) — The parsed URI.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L162)
@@ -189,6 +349,7 @@ in this list is encountered then it will remain percent encoded.
 The return type is determined by the <code>return_type</code>
 parameter.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L423)
 
@@ -219,6 +380,7 @@ in this list is encountered then it will remain percent encoded.
 - (`String, Addressable::URI`) — The unencoded component or URI.
 The return type is determined by the <code>return_type</code>
 parameter.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L454)
@@ -251,6 +413,7 @@ in this list is encountered then it will remain percent encoded.
 The return type is determined by the <code>return_type</code>
 parameter.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L455)
 
@@ -281,6 +444,7 @@ in this list is encountered then it will remain percent encoded.
 - (`String, Addressable::URI`) — The unencoded component or URI.
 The return type is determined by the <code>return_type</code>
 parameter.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L456)
@@ -364,6 +528,7 @@ to <code>String</code>.
 The return type is determined by the <code>return_type</code>
 parameter.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L566)
 
@@ -387,6 +552,7 @@ to <code>String</code>.
 - (`String, Addressable::URI`) — The encoded URI.
 The return type is determined by the <code>return_type</code>
 parameter.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L601)
@@ -413,6 +579,7 @@ to <code>String</code>.
 The return type is determined by the <code>return_type</code>
 parameter.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L621)
 
@@ -434,6 +601,7 @@ Defaults to <code>false</code>.
 
 - (`String`) — The encoded value.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L691)
 
@@ -452,6 +620,7 @@ Decodes a <code>String</code> according to the rules for the
 - (`Array`) — The decoded values.
 This is not a <code>Hash</code> because of the possibility for
 duplicate keys.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L744)
@@ -483,6 +652,7 @@ userinfo, host, and port components must be omitted.
 
 - (`Addressable::URI`) — The constructed URI object.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L781)
 
@@ -493,6 +663,7 @@ Freeze URI, initializing instance variables.
 **Returns**:
 
 - (`Addressable::URI`) — The frozen URI object.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L818)
@@ -505,6 +676,7 @@ The scheme component for this URI.
 
 - (`String`) — The scheme component.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L838)
 
@@ -515,6 +687,7 @@ The scheme component for this URI, normalized.
 **Returns**:
 
 - (`String`) — The scheme component, normalized.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L846)
@@ -540,6 +713,7 @@ The user component for this URI.
 
 - (`String`) — The user component.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L891)
 
@@ -550,6 +724,7 @@ The user component for this URI, normalized.
 **Returns**:
 
 - (`String`) — The user component, normalized.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L899)
@@ -575,6 +750,7 @@ The password component for this URI.
 
 - (`String`) — The password component.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L948)
 
@@ -585,6 +761,7 @@ The password component for this URI, normalized.
 **Returns**:
 
 - (`String`) — The password component, normalized.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L956)
@@ -611,6 +788,7 @@ Combines the user and password components.
 
 - (`String`) — The userinfo component.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1010)
 
@@ -621,6 +799,7 @@ The userinfo component for this URI, normalized.
 **Returns**:
 
 - (`String`) — The userinfo component, normalized.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1026)
@@ -646,6 +825,7 @@ The host component for this URI.
 
 - (`String`) — The host component.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1080)
 
@@ -656,6 +836,7 @@ The host component for this URI, normalized.
 **Returns**:
 
 - (`String`) — The host component, normalized.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1088)
@@ -681,6 +862,7 @@ brackets for IPv6 (and 'IPvFuture') addresses are removed.
 **Returns**:
 
 - (`String`) — The hostname for this URI.
+
 
 **See**:
 - Addressable::URI#host
@@ -738,6 +920,7 @@ Combines the user, password, host, and port components.
 
 - (`String`) — The authority component.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1185)
 
@@ -748,6 +931,7 @@ The authority component for this URI, normalized.
 **Returns**:
 
 - (`String`) — The authority component, normalized.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1203)
@@ -773,6 +957,7 @@ RFC 6454, section 6.2.
 **Returns**:
 
 - (`String`) — The serialized origin.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1267)
@@ -822,6 +1007,7 @@ infer port numbers from default values.
 
 - (`Integer`) — The port component.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1339)
 
@@ -832,6 +1018,7 @@ The port component for this URI, normalized.
 **Returns**:
 
 - (`Integer`) — The port component, normalized.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1347)
@@ -859,6 +1046,7 @@ the port isn't explicitly specified in the URI.
 
 - (`Integer`) — The inferred port component.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1395)
 
@@ -871,6 +1059,7 @@ regardless of the presence of an explicit port in the URI.
 **Returns**:
 
 - (`Integer`) — The default port.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1409)
@@ -888,6 +1077,7 @@ For example, <code>"http://example.com/path?query"</code> would have a
 
 - (`String`) — The components that identify a site.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1422)
 
@@ -903,6 +1093,7 @@ For example, <code>"http://example.com/path?query"</code> would have a
 **Returns**:
 
 - (`String`) — The normalized components that identify a site.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1440)
@@ -928,6 +1119,7 @@ The path component for this URI.
 
 - (`String`) — The path component.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1483)
 
@@ -938,6 +1130,7 @@ The path component for this URI, normalized.
 **Returns**:
 
 - (`String`) — The path component, normalized.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1492)
@@ -963,6 +1156,7 @@ The basename, if any, of the file in the path component.
 
 - (`String`) — The path's basename.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1545)
 
@@ -975,6 +1169,7 @@ Empty string if there is no extension.
 
 - (`String`) — The path's extname.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1555)
 
@@ -986,6 +1181,7 @@ The query component for this URI.
 
 - (`String`) — The query component.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1564)
 
@@ -996,6 +1192,7 @@ The query component for this URI, normalized.
 **Returns**:
 
 - (`String`) — The query component, normalized.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1572)
@@ -1085,6 +1282,7 @@ query string.
 
 - (`String`) — The request URI required for an HTTP request.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1726)
 
@@ -1109,6 +1307,7 @@ The fragment component for this URI.
 
 - (`String`) — The fragment component.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1762)
 
@@ -1119,6 +1318,7 @@ The fragment component for this URI, normalized.
 **Returns**:
 
 - (`String`) — The fragment component, normalized.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1770)
@@ -1145,6 +1345,7 @@ Determines if the scheme indicates an IP-based protocol.
 - (`TrueClass, FalseClass`) — <code>true</code> if the scheme indicates an IP-based protocol.
 <code>false</code> otherwise.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1811)
 
@@ -1157,6 +1358,7 @@ Determines if the URI is relative.
 - (`TrueClass, FalseClass`) — <code>true</code> if the URI is relative. <code>false</code>
 otherwise.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1825)
 
@@ -1168,6 +1370,7 @@ Determines if the URI is absolute.
 
 - (`TrueClass, FalseClass`) — <code>true</code> if the URI is absolute. <code>false</code>
 otherwise.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1835)
@@ -1185,6 +1388,7 @@ Joins two URIs together.
 
 - (`Addressable::URI`) — The joined URI.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1845)
 
@@ -1201,6 +1405,7 @@ Joins two URIs together.
 
 - (`Addressable::URI`) — The joined URI.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1938)
 
@@ -1216,6 +1421,7 @@ Destructive form of <code>join</code>.
 **Returns**:
 
 - (`Addressable::URI`) — The joined URI.
+
 
 **See**:
 - Addressable::URI#join
@@ -1237,6 +1443,7 @@ original components. The path component is not treated specially.
 
 - (`Addressable::URI`) — The merged URI.
 
+
 **See**:
 - Hash#merge
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L1963)
@@ -1253,6 +1460,7 @@ Destructive form of <code>merge</code>.
 **Returns**:
 
 - (`Addressable::URI`) — The merged URI.
+
 
 **See**:
 - Addressable::URI#merge
@@ -1273,6 +1481,7 @@ necessary. This is effectively the opposite of <code>route_to</code>.
 
 - (`Addressable::URI`) — The normalized relative URI that is equivalent to the original URI.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2041)
 
@@ -1291,6 +1500,7 @@ necessary. This is effectively the opposite of <code>route_from</code>.
 
 - (`Addressable::URI`) — The normalized relative URI that is equivalent to the supplied URI.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2106)
 
@@ -1308,6 +1518,7 @@ cached multiple times.
 
 - (`Addressable::URI`) — The normalized URI.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2120)
 
@@ -1318,6 +1529,7 @@ Destructively normalizes this URI object.
 **Returns**:
 
 - (`Addressable::URI`) — The normalized URI.
+
 
 **See**:
 - Addressable::URI#normalize
@@ -1333,6 +1545,7 @@ section 7.6 for more information.
 **Returns**:
 
 - (`Addressable::URI`) — A URI suitable for display purposes.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2157)
@@ -1353,6 +1566,7 @@ against <code>Strings</code>.
 - (`TrueClass, FalseClass`) — <code>true</code> if the URIs are equivalent, <code>false</code>
 otherwise.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2173)
 
@@ -1370,6 +1584,7 @@ normalizes both URIs before doing the comparison.
 
 - (`TrueClass, FalseClass`) — <code>true</code> if the URIs are equivalent, <code>false</code>
 otherwise.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2195)
@@ -1389,6 +1604,7 @@ does NOT normalize either URI before doing the comparison.
 - (`TrueClass, FalseClass`) — <code>true</code> if the URIs are equivalent, <code>false</code>
 otherwise.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2209)
 
@@ -1401,6 +1617,7 @@ form.
 
 - (`Integer`) — A hash of the URI.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2219)
 
@@ -1411,6 +1628,7 @@ Clones the URI object.
 **Returns**:
 
 - (`Addressable::URI`) — The cloned URI.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2227)
@@ -1453,6 +1671,7 @@ Destructive form of omit.
 
 - (`Addressable::URI`) — The URI with components omitted.
 
+
 **See**:
 - Addressable::URI#omit
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2280)
@@ -1465,6 +1684,7 @@ Determines if the URI is an empty string.
 
 - (`TrueClass, FalseClass`) — Returns <code>true</code> if empty, <code>false</code> otherwise.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2289)
 
@@ -1475,6 +1695,7 @@ Converts the URI to a <code>String</code>.
 **Returns**:
 
 - (`String`) — The URI's <code>String</code> representation.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2297)
@@ -1488,6 +1709,7 @@ URI's are glorified <code>Strings</code>. Allow implicit conversion.
 
 - (`String`) — The URI's <code>String</code> representation.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2317)
 
@@ -1499,6 +1721,7 @@ Returns a Hash of the URI components.
 
 - (`Hash`) — The URI as a <code>Hash</code> of components.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2323)
 
@@ -1509,6 +1732,7 @@ Returns a <code>String</code> representation of the URI object's state.
 **Returns**:
 
 - (`String`) — The URI object's state, as a <code>String</code>.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb#L2340)
@@ -1524,6 +1748,7 @@ been executed.
 
 - `block` (`Proc`) — A set of operations to perform on a given URI.
   
+
 
 **Raises**:
 
@@ -1552,6 +1777,7 @@ Creates a new <tt>Addressable::Template</tt> object.
 
 - (`Addressable::Template`) — The initialized Template object.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L233)
 
@@ -1563,6 +1789,7 @@ Freeze URI, initializing instance variables.
 
 - (`Addressable::URI`) — The frozen URI object.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L244)
 
@@ -1572,6 +1799,7 @@ Freeze URI, initializing instance variables.
 **Returns**:
 
 - (`String`) — The Template object's pattern.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L253)
@@ -1583,6 +1811,7 @@ Returns a <tt>String</tt> representation of the Template object's state.
 **Returns**:
 
 - (`String`) — The Template object's state, as a <tt>String</tt>.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L259)
@@ -1602,6 +1831,7 @@ does NOT normalize either Template before doing the comparison.
 - (`TrueClass, FalseClass`) — <code>true</code> if the Templates are equivalent, <code>false</code>
 otherwise.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L273)
 
@@ -1620,6 +1850,7 @@ Addressable::Template makes no distinction between `==` and `eql?`.
 
 - (`TrueClass, FalseClass`) — <code>true</code> if the Templates are equivalent, <code>false</code>
 otherwise.
+
 
 **See**:
 - #==
@@ -1901,6 +2132,7 @@ not represented in this Array.
 
 - (`Array`) — The variables present in the template's pattern.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L602)
 
@@ -1914,6 +2146,7 @@ not represented in this Array.
 **Returns**:
 
 - (`Array`) — The variables present in the template's pattern.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L605)
@@ -1929,6 +2162,7 @@ not represented in this Array.
 
 - (`Array`) — The variables present in the template's pattern.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L606)
 
@@ -1940,6 +2174,7 @@ in the template. Variables without defaults are not returned.
 **Returns**:
 
 - (`Hash`) — Mapping of template variables to their defaults
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L613)
@@ -1955,6 +2190,7 @@ extract to an `Array`.
 
 - (`Regexp`) — A regular expression which should match the template.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L625)
 
@@ -1966,6 +2202,7 @@ Returns the source of the coerced `Regexp`.
 
 - (`String`) — The source of the `Regexp` given by {#to_regexp}.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L636)
 
@@ -1976,6 +2213,7 @@ Returns the named captures of the coerced `Regexp`.
 **Returns**:
 
 - (`Hash`) — The named captures of the `Regexp` given by {#to_regexp}.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L646)
@@ -2021,6 +2259,7 @@ MatchData objects should never be instantiated directly.
 
 - (`MatchData`) — a new instance of MatchData
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L102)
 
@@ -2031,6 +2270,7 @@ MatchData objects should never be instantiated directly.
 
 - (`Addressable::URI`) — The URI that the Template was matched against.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L111)
 
@@ -2040,6 +2280,7 @@ MatchData objects should never be instantiated directly.
 **Returns**:
 
 - (`Addressable::Template`) — The Template used for the match.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L116)
@@ -2054,6 +2295,7 @@ Note that this mapping does not include keys or values for
 variables that appear in the Template, but are not present
 in the URI.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L124)
 
@@ -2065,6 +2307,7 @@ in the URI.
 - (`Array`) — The list of variables that were present in the Template.
 Note that this list will include variables which do not appear
 in the mapping because they were not present in URI.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L131)
@@ -2078,6 +2321,7 @@ in the mapping because they were not present in URI.
 Note that this list will include variables which do not appear
 in the mapping because they were not present in URI.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L134)
 
@@ -2089,6 +2333,7 @@ in the mapping because they were not present in URI.
 - (`Array`) — The list of variables that were present in the Template.
 Note that this list will include variables which do not appear
 in the mapping because they were not present in URI.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L135)
@@ -2102,6 +2347,7 @@ in the mapping because they were not present in URI.
 Note that this list will include nils for any variables which
 were in the Template, but did not appear in the URI.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L142)
 
@@ -2113,6 +2359,7 @@ were in the Template, but did not appear in the URI.
 - (`Array`) — The list of values that were captured by the Template.
 Note that this list will include nils for any variables which
 were in the Template, but did not appear in the URI.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L148)
@@ -2141,6 +2388,7 @@ returned.
 If the second parameter is provided, an array of that length will
 be returned instead.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L169)
 
@@ -2152,6 +2400,7 @@ be returned instead.
 - (`Array`) — Array with the matched URI as first element followed by the captured
 values.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L183)
 
@@ -2162,6 +2411,7 @@ values.
 
 - (`String`) — The matched URI as String.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L190)
 
@@ -2171,6 +2421,7 @@ values.
 **Returns**:
 
 - (`String`) — The matched URI as String.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L193)
@@ -2188,6 +2439,7 @@ Returns multiple captured values at once.
 
 - (`Array`) — Values corresponding to given indices.
 
+
 **See**:
 - Addressable::Template::MatchData#[]
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L204)
@@ -2200,6 +2452,7 @@ Returns a <tt>String</tt> representation of the MatchData's state.
 
 - (`String`) — The MatchData's state, as a <tt>String</tt>.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L212)
 
@@ -2211,6 +2464,7 @@ Dummy method for code expecting a ::MatchData instance
 
 - (`String`) — An empty string.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L221)
 
@@ -2221,6 +2475,7 @@ Dummy method for code expecting a ::MatchData instance
 **Returns**:
 
 - (`String`) — An empty string.
+
 
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/template.rb#L224)
@@ -2268,10 +2523,12 @@ Unicode aware downcase method.
 
 - (`String`) — The downcased result.
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/idna/pure.rb#L130)
 
 ### `.unicode_compose(unpacked)`
+
 
 
 **See**:
@@ -2280,10 +2537,12 @@ Unicode aware downcase method.
 ### `.unicode_compose_pair(ch_one, ch_two)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/idna/pure.rb#L166)
 
 ### `.unicode_sort_canonical(unpacked)`
+
 
 
 **See**:
@@ -2292,10 +2551,12 @@ Unicode aware downcase method.
 ### `.unicode_decompose(unpacked)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/idna/pure.rb#L244)
 
 ### `.unicode_decompose_hangul(codepoint)`
+
 
 
 **See**:
@@ -2304,10 +2565,12 @@ Unicode aware downcase method.
 ### `.lookup_unicode_combining_class(codepoint)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/idna/pure.rb#L282)
 
 ### `.lookup_unicode_compatibility(codepoint)`
+
 
 
 **See**:
@@ -2316,10 +2579,12 @@ Unicode aware downcase method.
 ### `.lookup_unicode_lowercase(codepoint)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/idna/pure.rb#L297)
 
 ### `.lookup_unicode_composition(unpacked)`
+
 
 
 **See**:
@@ -2328,10 +2593,12 @@ Unicode aware downcase method.
 ### `.punycode_encode(value)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/idna/pure.rb#L385)
 
 ### `.punycode_decode(value)`
+
 
 
 **See**:
@@ -2344,6 +2611,7 @@ Unicode aware downcase method.
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/idna/pure.rb#L628)
 
@@ -2354,10 +2622,12 @@ Unicode aware downcase method.
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/sporkmonger/addressable/blob/master/lib/addressable/idna/pure.rb#L633)
 
 ### `.punycode_encode_digit(d)`
+
 
 
 **See**:

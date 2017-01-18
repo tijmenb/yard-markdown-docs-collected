@@ -1,13 +1,49 @@
+# alphagov/vcloud-box-spinner
+
+- [`CLI`](#class-provisionercli)
+ - [`defaults`](#defaults)
+ - [`process`](#processoptions--)
+ - [`initialize`](#initialize-args-)
+ - [`execute`](#execute)
+
+- [`Provisioner`](#class-provisionerprovisioner)
+ - [`initialize`](#initialize-options)
+ - [`execute`](#executeaction)
+ - [`ssh`](#ssh)
+ - [`ssh_to`](#ssh_to-hostname-blk)
+ - [`delete_vapp`](#delete_vapp)
+
+- [`Server`](#class-fogvcloudcomputeserver)
+ - [`ready?`](#ready)
+
+- [`VcloudBoxProvisioner`](#module-vcloudboxprovisioner)
+ - [`build`](#build-options--)
+ - [`ssh_client`](#ssh_client)
+ - [`ssh_client=`](#ssh_clientvalue)
+ - [`default_logger`](#default_logger-options)
+
+- [`Create`](#module-provisionercomputeactioncreate)
+ - [`wait_for_vmware_tools`](#wait_for_vmware_toolsserver)
+ - [`launch_server`](#launch_server-name)
+ - [`launch_servers`](#launch_servers)
+ - [`prepare_run`](#prepare_run)
+
+- [`Delete`](#module-provisionercomputeactiondelete)
+ - [`delete_vapp`](#delete_vapp)
+
+---
 
 ## `class Provisioner::CLI`
 
 ### `.defaults`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-box-spinner/blob/master/lib/provisioner/cli.rb#L9)
 
 ### `.process(options = {})`
+
 
 
 **See**:
@@ -20,10 +56,12 @@
 
 - (`CLI`) — a new instance of CLI
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-box-spinner/blob/master/lib/provisioner/cli.rb#L57)
 
 ### `#execute`
+
 
 
 **See**:
@@ -40,10 +78,12 @@
 
 - (`Provisioner`) — a new instance of Provisioner
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-box-spinner/blob/master/lib/provisioner/provisioner.rb#L8)
 
 ### `#execute(action)`
+
 
 
 **See**:
@@ -52,16 +92,19 @@
 ### `#ssh`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-box-spinner/blob/master/lib/provisioner/provisioner.rb#L66)
 
 ### `#ssh_to hostname, &blk`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-box-spinner/blob/master/lib/provisioner/provisioner.rb#L74)
 
 ### `#delete_vapp`
+
 
 
 **See**:
@@ -78,6 +121,7 @@
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-box-spinner/blob/master/lib/fog/vcloud/compute/server_ready.rb#L6)
 
@@ -86,6 +130,7 @@
 ## `module VcloudBoxProvisioner`
 
 ### `.build options = {}`
+
 
 
 **See**:
@@ -115,6 +160,7 @@ Sets the attribute ssh_client
 ### `.default_logger options`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-box-spinner/blob/master/lib/vcloud_box_provisioner.rb#L27)
 
@@ -125,10 +171,12 @@ Sets the attribute ssh_client
 ### `#wait_for_vmware_tools(server)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-box-spinner/blob/master/lib/provisioner/compute_action/create.rb#L146)
 
 ### `#launch_server name`
+
 
 
 **See**:
@@ -137,10 +185,12 @@ Sets the attribute ssh_client
 ### `#launch_servers`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/vcloud-box-spinner/blob/master/lib/provisioner/compute_action/create.rb#L174)
 
 ### `#prepare_run`
+
 
 
 **See**:
@@ -151,6 +201,7 @@ Sets the attribute ssh_client
 ## `module Provisioner::ComputeAction::Delete`
 
 ### `#delete_vapp`
+
 
 
 **See**:

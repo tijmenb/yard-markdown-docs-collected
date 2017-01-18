@@ -1,3 +1,49 @@
+# alphagov/bad_link_finder
+
+- [`NullLogger`](#class-badlinkfindernulllogger)
+ - [`initialize`](#initializeargs)
+ - [`add`](#addargs-block)
+
+- [`Page`](#class-badlinkfinderpage)
+ - [`initialize`](#initializemirror_dir-path)
+ - [`path`](#path)
+ - [`links`](#links)
+ - [`id`](#id)
+
+- [`Link`](#class-badlinkfinderlink)
+ - [`link`](#link)
+ - [`url`](#url)
+ - [`error_message`](#error_message)
+ - [`exception`](#exception)
+ - [`initialize`](#initializepage_url-link-logger--badlinkfindernullloggernew)
+ - [`valid?`](#valid)
+
+- [`Site`](#class-badlinkfindersite)
+ - [`initialize`](#initializemirror_dir-start_from--nil)
+ - [`each`](#each)
+
+- [`CSVBuilder`](#class-badlinkfindercsvbuilder)
+ - [`initialize`](#initializecsv_output_file)
+ - [`<<`](#csv_data)
+
+- [`SiteChecker`](#class-badlinkfindersitechecker)
+ - [`initialize`](#initializemirror_dir-host-csv_builder-start_from--nil-logger--badlinkfindernullloggernew)
+ - [`run`](#run)
+
+- [`PageChecker`](#class-badlinkfinderpagechecker)
+ - [`initialize`](#initializehost-page-result_cache-logger--badlinkfindernullloggernew)
+ - [`page_url`](#page_url)
+ - [`bad_links`](#bad_links)
+
+- [`ResultCache`](#class-badlinkfinderresultcache)
+ - [`initialize`](#initialize)
+ - [`store`](#storekey-link)
+ - [`fetch`](#fetchkey)
+
+- [`BadLinkFinder`](#module-badlinkfinder)
+ - [`run`](#runlogger--nullloggernew)
+
+---
 
 ## `class BadLinkFinder::NullLogger`
 
@@ -8,10 +54,12 @@
 
 - (`NullLogger`) — a new instance of NullLogger
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder.rb#L30)
 
 ### `#add(*args, &block)`
+
 
 
 **See**:
@@ -28,6 +76,7 @@
 
 - (`Page`) — a new instance of Page
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/page.rb#L5)
 
@@ -42,10 +91,12 @@ Returns the value of attribute path
 ### `#links`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/page.rb#L15)
 
 ### `#id`
+
 
 
 **See**:
@@ -94,6 +145,7 @@ Returns the value of attribute exception
 
 - (`Link`) — a new instance of Link
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/link.rb#L8)
 
@@ -103,6 +155,7 @@ Returns the value of attribute exception
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/link.rb#L42)
@@ -118,10 +171,12 @@ Returns the value of attribute exception
 
 - (`Site`) — a new instance of Site
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/site.rb#L8)
 
 ### `#each`
+
 
 
 **See**:
@@ -138,10 +193,12 @@ Returns the value of attribute exception
 
 - (`CSVBuilder`) — a new instance of CSVBuilder
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/csv_builder.rb#L5)
 
 ### `#<<(csv_data)`
+
 
 
 **See**:
@@ -158,10 +215,12 @@ Returns the value of attribute exception
 
 - (`SiteChecker`) — a new instance of SiteChecker
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/site_checker.rb#L7)
 
 ### `#run`
+
 
 
 **See**:
@@ -178,6 +237,7 @@ Returns the value of attribute exception
 
 - (`PageChecker`) — a new instance of PageChecker
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/page_checker.rb#L5)
 
@@ -190,6 +250,7 @@ Returns the value of attribute page_url
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/page_checker.rb#L13)
 
 ### `#bad_links`
+
 
 
 **See**:
@@ -206,16 +267,19 @@ Returns the value of attribute page_url
 
 - (`ResultCache`) — a new instance of ResultCache
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/result_cache.rb#L6)
 
 ### `#store(key, link)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/bad_link_finder/blob/master/lib/bad_link_finder/result_cache.rb#L10)
 
 ### `#fetch(key)`
+
 
 
 **See**:

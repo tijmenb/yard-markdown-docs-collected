@@ -1,3 +1,53 @@
+# alphagov/gds_zendesk
+
+- [`Users`](#class-gdszendeskusers)
+ - [`initialize`](#initializeclient)
+ - [`create_or_update_user`](#create_or_update_userrequested_user)
+ - [`suspended?`](#suspendeduser_email)
+
+- [`Client`](#class-gdszendeskclient)
+ - [`config_options`](#config_options)
+ - [`config_options=`](#config_optionsvalue)
+ - [`initialize`](#initializeconfig_options)
+ - [`users`](#users)
+ - [`build`](#build)
+
+- [`DummyClient`](#class-gdszendeskdummyclient)
+ - [`ticket`](#ticket)
+ - [`users`](#users)
+ - [`initialize`](#initializeoptions)
+
+- [`DummyTicket`](#class-gdszendeskdummyticket)
+ - [`options`](#options)
+ - [`initialize`](#initializelogger)
+ - [`create!`](#createoptions)
+
+- [`DummyUsers`](#class-gdszendeskdummyusers)
+ - [`initialize`](#initializelogger)
+ - [`search`](#searchattributes)
+ - [`suspended?`](#suspendeduser_email)
+ - [`create_or_update_user`](#create_or_update_usernew_attributes)
+
+- [`InstallGenerator`](#class-gdszendeskinstallgenerator)
+ - [`create_initializer_file`](#create_initializer_file)
+
+- [`TestHelpers`](#module-gdszendesktesthelpers)
+ - [`zendesk_has_no_user_with_email`](#zendesk_has_no_user_with_emailemail)
+ - [`zendesk_has_user`](#zendesk_has_useruser_details)
+ - [`stub_zendesk_user_creation`](#stub_zendesk_user_creationuser_properties--nil)
+ - [`stub_zendesk_ticket_creation`](#stub_zendesk_ticket_creationticket_properties--nil)
+ - [`stub_zendesk_ticket_creation_with_body`](#stub_zendesk_ticket_creation_with_bodybody)
+ - [`stub_zendesk_user_update`](#stub_zendesk_user_updateuser_id-user_properties)
+ - [`zendesk_is_unavailable`](#zendesk_is_unavailable)
+ - [`zendesk_returns_conflict`](#zendesk_returns_conflict)
+ - [`zendesk_returns_redirect`](#zendesk_returns_redirect)
+ - [`zendesk_endpoint`](#zendesk_endpoint)
+ - [`valid_zendesk_credentials=`](#valid_zendesk_credentialscredentials)
+ - [`valid_zendesk_credentials`](#valid_zendesk_credentials)
+ - [`assert_created_ticket_has`](#assert_created_ticket_hasticket_options)
+ - [`assert_created_ticket_has_requester`](#assert_created_ticket_has_requesterrequester_options)
+
+---
 
 ## `class GDSZendesk::Users`
 
@@ -8,10 +58,12 @@
 
 - (`Users`) — a new instance of Users
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/users.rb#L3)
 
 ### `#create_or_update_user(requested_user)`
+
 
 
 **See**:
@@ -23,6 +75,7 @@
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/users.rb#L17)
@@ -59,16 +112,19 @@ Sets the attribute config_options
 
 - (`Client`) — a new instance of Client
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/client.rb#L14)
 
 ### `#users`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/client.rb#L19)
 
 ### `#build`
+
 
 
 **See**:
@@ -101,6 +157,7 @@ Returns the value of attribute users
 
 - (`DummyClient`) — a new instance of DummyClient
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/dummy_client.rb#L8)
 
@@ -123,10 +180,12 @@ Returns the value of attribute options
 
 - (`DummyTicket`) — a new instance of DummyTicket
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/dummy_client.rb#L18)
 
 ### `#create!(options)`
+
 
 
 **See**:
@@ -143,10 +202,12 @@ Returns the value of attribute options
 
 - (`DummyUsers`) — a new instance of DummyUsers
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/dummy_client.rb#L47)
 
 ### `#search(attributes)`
+
 
 
 **See**:
@@ -159,10 +220,12 @@ Returns the value of attribute options
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/dummy_client.rb#L55)
 
 ### `#create_or_update_user(new_attributes)`
+
 
 
 **See**:
@@ -175,6 +238,7 @@ Returns the value of attribute options
 ### `#create_initializer_file`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/generators/gds_zendesk/install/install_generator.rb#L20)
 
@@ -185,10 +249,12 @@ Returns the value of attribute options
 ### `#zendesk_has_no_user_with_email(email)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/test_helpers.rb#L5)
 
 ### `#zendesk_has_user(user_details)`
+
 
 
 **See**:
@@ -197,10 +263,12 @@ Returns the value of attribute options
 ### `#stub_zendesk_user_creation(user_properties = nil)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/test_helpers.rb#L17)
 
 ### `#stub_zendesk_ticket_creation(ticket_properties = nil)`
+
 
 
 **See**:
@@ -209,10 +277,12 @@ Returns the value of attribute options
 ### `#stub_zendesk_ticket_creation_with_body(body)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/test_helpers.rb#L31)
 
 ### `#stub_zendesk_user_update(user_id, user_properties)`
+
 
 
 **See**:
@@ -221,10 +291,12 @@ Returns the value of attribute options
 ### `#zendesk_is_unavailable`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/test_helpers.rb#L45)
 
 ### `#zendesk_returns_conflict`
+
 
 
 **See**:
@@ -233,10 +305,12 @@ Returns the value of attribute options
 ### `#zendesk_returns_redirect`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/test_helpers.rb#L53)
 
 ### `#zendesk_endpoint`
+
 
 
 **See**:
@@ -245,10 +319,12 @@ Returns the value of attribute options
 ### `#valid_zendesk_credentials=(credentials)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/test_helpers.rb#L61)
 
 ### `#valid_zendesk_credentials`
+
 
 
 **See**:
@@ -257,10 +333,12 @@ Returns the value of attribute options
 ### `#assert_created_ticket_has(ticket_options)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/gds_zendesk/blob/master/lib/gds_zendesk/test_helpers.rb#L69)
 
 ### `#assert_created_ticket_has_requester(requester_options)`
+
 
 
 **See**:

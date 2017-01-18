@@ -1,7 +1,55 @@
+# alphagov/govuk-diff-pages
+
+- [`Differ`](#class-govukdiffpagestextdiffdiffer)
+ - [`diff`](#diffleft-right)
+
+- [`Runner`](#class-govukdiffpageshtmldiffrunner)
+ - [`results_dir`](#results_dir)
+ - [`assets_dir`](#assets_dir)
+ - [`initialize`](#initializepaths)
+ - [`run`](#run)
+
+- [`Runner`](#class-govukdiffpagestextdiffrunner)
+ - [`initialize`](#initialize)
+ - [`run`](#run)
+
+- [`Differ`](#class-govukdiffpageshtmldiffdiffer)
+ - [`differing_pages`](#differing_pages)
+ - [`initialize`](#initialize)
+ - [`diff`](#diffbase_path)
+
+- [`Renderer`](#class-govukdiffpagestextdiffrenderer)
+ - [`initialize`](#initializekernel--kernel)
+ - [`call`](#callresponses)
+
+- [`Runner`](#class-govukdiffpagesvisualdiffrunner)
+ - [`initialize`](#initializepaths-kernel-kernel)
+ - [`run`](#run)
+
+- [`Formatter`](#class-govukdiffpagestextdiffformatter)
+ - [`call`](#callhtml)
+
+- [`Retriever`](#class-govukdiffpagestextdiffretriever)
+ - [`call`](#callurl)
+
+- [`WraithConfig`](#class-govukdiffpagesvisualdiffwraithconfig)
+ - [`location`](#location)
+ - [`initialize`](#initializepaths)
+ - [`write`](#write)
+ - [`delete`](#delete)
+
+- [`Pages`](#module-govukdiffpages)
+ - [`root_dir`](#root_dir)
+ - [`results_dir`](#results_dir)
+ - [`wraith_config_template`](#wraith_config_template)
+ - [`config_file`](#config_filefilename)
+
+---
 
 ## `class Govuk::Diff::Pages::TextDiff::Differ`
 
 ### `#diff(left, right)`
+
 
 
 **See**:
@@ -14,10 +62,12 @@
 ### `.results_dir`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-diff-pages/blob/master/lib/govuk/diff/pages/html_diff/runner.rb#L6)
 
 ### `.assets_dir`
+
 
 
 **See**:
@@ -30,10 +80,12 @@
 
 - (`Runner`) — a new instance of Runner
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-diff-pages/blob/master/lib/govuk/diff/pages/html_diff/runner.rb#L14)
 
 ### `#run`
+
 
 
 **See**:
@@ -50,10 +102,12 @@
 
 - (`Runner`) — a new instance of Runner
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-diff-pages/blob/master/lib/govuk/diff/pages/text_diff/runner.rb#L6)
 
 ### `#run`
+
 
 
 **See**:
@@ -78,10 +132,12 @@ Returns the value of attribute differing_pages
 
 - (`Differ`) — a new instance of Differ
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-diff-pages/blob/master/lib/govuk/diff/pages/html_diff/differ.rb#L18)
 
 ### `#diff(base_path)`
+
 
 
 **See**:
@@ -98,10 +154,12 @@ Returns the value of attribute differing_pages
 
 - (`Renderer`) — a new instance of Renderer
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-diff-pages/blob/master/lib/govuk/diff/pages/text_diff/renderer.rb#L8)
 
 ### `#call(responses)`
+
 
 
 **See**:
@@ -118,10 +176,12 @@ Returns the value of attribute differing_pages
 
 - (`Runner`) — a new instance of Runner
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-diff-pages/blob/master/lib/govuk/diff/pages/visual_diff/runner.rb#L6)
 
 ### `#run`
+
 
 
 **See**:
@@ -134,6 +194,7 @@ Returns the value of attribute differing_pages
 ### `#call(html)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-diff-pages/blob/master/lib/govuk/diff/pages/text_diff/formatter.rb#L8)
 
@@ -142,6 +203,7 @@ Returns the value of attribute differing_pages
 ## `class Govuk::Diff::Pages::TextDiff::Retriever`
 
 ### `#call(url)`
+
 
 
 **See**:
@@ -166,16 +228,19 @@ Returns the value of attribute location
 
 - (`WraithConfig`) — a new instance of WraithConfig
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-diff-pages/blob/master/lib/govuk/diff/pages/visual_diff/wraith_config.rb#L11)
 
 ### `#write`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-diff-pages/blob/master/lib/govuk/diff/pages/visual_diff/wraith_config.rb#L16)
 
 ### `#delete`
+
 
 
 **See**:
@@ -188,10 +253,12 @@ Returns the value of attribute location
 ### `.root_dir`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-diff-pages/blob/master/lib/govuk/diff/pages.rb#L8)
 
 ### `.results_dir`
+
 
 
 **See**:
@@ -200,10 +267,12 @@ Returns the value of attribute location
 ### `.wraith_config_template`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk-diff-pages/blob/master/lib/govuk/diff/pages.rb#L16)
 
 ### `.config_file(filename)`
+
 
 
 **See**:

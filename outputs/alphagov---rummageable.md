@@ -1,3 +1,15 @@
+# alphagov/rummageable
+
+- [`Index`](#class-rummageableindex)
+ - [`initialize`](#initializebase_url-index_name-options--)
+ - [`add`](#addentry)
+ - [`add_batch`](#add_batchentries)
+ - [`amend`](#amendlink-changes)
+ - [`delete`](#deleteid-options--)
+ - [`delete_all`](#delete_all)
+ - [`commit`](#commit)
+
+---
 
 ## `class Rummageable::Index`
 
@@ -8,10 +20,12 @@
 
 - (`Index`) — a new instance of Index
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/rummageable/blob/master/lib/rummageable.rb#L11)
 
 ### `#add(entry)`
+
 
 
 **See**:
@@ -20,10 +34,12 @@
 ### `#add_batch(entries)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/rummageable/blob/master/lib/rummageable.rb#L25)
 
 ### `#amend(link, changes)`
+
 
 
 **See**:
@@ -32,16 +48,19 @@
 ### `#delete(id, options = {})`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/rummageable/blob/master/lib/rummageable.rb#L39)
 
 ### `#delete_all`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/rummageable/blob/master/lib/rummageable.rb#L46)
 
 ### `#commit`
+
 
 
 **See**:

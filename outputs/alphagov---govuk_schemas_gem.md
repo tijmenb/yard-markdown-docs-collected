@@ -1,3 +1,22 @@
+# alphagov/govuk_schemas_gem
+
+- [`Schema`](#class-govukschemasschema)
+ - [`find`](#findschema)
+ - [`all`](#allschema_type-)
+ - [`random_schema`](#random_schemaschema_type)
+ - [`schema_names`](#schema_names)
+
+- [`Example`](#class-govukschemasexample)
+ - [`find_all`](#find_allschema_name)
+ - [`find`](#findschema_name-example_name)
+
+- [`RandomExample`](#class-govukschemasrandomexample)
+ - [`initialize`](#initializeschema)
+ - [`for_schema`](#for_schemaschema_key_value)
+ - [`payload`](#payload)
+ - [`merge_and_validate`](#merge_and_validateuser_defined_values)
+
+---
 
 ## `class GovukSchemas::Schema`
 
@@ -40,6 +59,7 @@ Return all schemas in a hash, keyed by schema name
 
 - (`Array<Hash>`) — List of JSON schemas as hashes
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_schemas_gem/blob/master/lib/govuk_schemas/schema.rb#L22)
 
@@ -56,8 +76,21 @@ Return a random schema of a certain type
 
 - (`Hash`) — a JSON schema as a hash
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_schemas_gem/blob/master/lib/govuk_schemas/schema.rb#L34)
+
+### `.schema_names`
+
+Return all schema names
+
+**Returns**:
+
+- (`Array`) — all the schema names
+
+
+**See**:
+- [Source on GitHub](https://github.com/alphagov/govuk_schemas_gem/blob/master/lib/govuk_schemas/schema.rb#L41)
 
 ---
 
@@ -75,6 +108,7 @@ Find all examples for a schema
 **Returns**:
 
 - (`Array`) — array of example content items
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_schemas_gem/blob/master/lib/govuk_schemas/example.rb#L7)
@@ -94,6 +128,7 @@ Find an example by name
 **Returns**:
 
 - (`Hash`) — the example content item
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_schemas_gem/blob/master/lib/govuk_schemas/example.rb#L19)
@@ -120,6 +155,7 @@ For example:
 
 - (`GovukSchemas::RandomExample`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_schemas_gem/blob/master/lib/govuk_schemas/random_example.rb#L17)
 
@@ -142,6 +178,7 @@ For example:
 
 - (`GovukSchemas::RandomExample`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_schemas_gem/blob/master/lib/govuk_schemas/random_example.rb#L32)
 
@@ -158,10 +195,11 @@ Example:
 
 - (`Hash`) — A content item
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/govuk_schemas_gem/blob/master/lib/govuk_schemas/random_example.rb#L45)
 
-### `#merge_and_validate(hash)`
+### `#merge_and_validate(user_defined_values)`
 
 Return a content item merged with a hash. If the resulting content item
 isn't valid against the schema an error will be raised.

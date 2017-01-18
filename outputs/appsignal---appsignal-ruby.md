@@ -1,3 +1,469 @@
+# appsignal/appsignal-ruby
+
+- [`CLI`](#class-appsignalcli)
+ - [`options`](#options)
+ - [`options=`](#optionsvalue)
+ - [`run`](#runargvargv)
+ - [`global_option_parser`](#global_option_parser)
+ - [`command_option_parser`](#command_option_parser)
+
+- [`Demo`](#class-appsignaldemo)
+ - [`transmit`](#transmit)
+
+- [`Hooks`](#class-appsignalhooks)
+ - [`register`](#registername-hook)
+ - [`load_hooks`](#load_hooks)
+ - [`hooks`](#hooks)
+
+- [`Hook`](#class-appsignalhookshook)
+ - [`register`](#registername-hookself)
+ - [`initialize`](#initialize)
+ - [`try_to_install`](#try_to_installname)
+ - [`installed?`](#installed)
+ - [`dependencies_present?`](#dependencies_present)
+ - [`install`](#install)
+
+- [`Data`](#class-appsignalutilsdata)
+ - [`generate`](#generatebody)
+ - [`map_hash`](#map_hashhash_value)
+ - [`map_array`](#map_arrayarray_value)
+
+- [`JSON`](#class-appsignalutilsjson)
+ - [`generate`](#generatebody)
+
+- [`Gzip`](#class-appsignalutilsgzip)
+ - [`compress`](#compressbody)
+
+- [`Marker`](#class-appsignalmarker)
+ - [`marker_data`](#marker_data)
+ - [`config`](#config)
+ - [`initialize`](#initializemarker_data-config)
+ - [`transmit`](#transmit)
+
+- [`Config`](#class-appsignalconfig)
+ - [`root_path`](#root_path)
+ - [`env`](#env)
+ - [`initial_config`](#initial_config)
+ - [`config_hash`](#config_hash)
+ - [`logger`](#logger)
+ - [`logger=`](#loggervalue)
+ - [`initialize`](#initializeroot_path-env-initial_config-loggerappsignallogger)
+ - [`[]`](#key)
+ - [`[]=`](#key-value)
+ - [`log_file_path`](#log_file_path)
+ - [`valid?`](#valid)
+ - [`active?`](#active)
+ - [`write_to_environment`](#write_to_environment)
+
+- [`Demo`](#class-appsignalclidemo)
+ - [`run`](#runoptions--)
+
+- [`Minutely`](#class-appsignalminutely)
+ - [`probes`](#probes)
+ - [`start`](#start)
+ - [`wait_time`](#wait_time)
+ - [`add_gc_probe`](#add_gc_probe)
+
+- [`GCProbe`](#class-appsignalminutelygcprobe)
+ - [`call`](#call)
+
+- [`Extension`](#class-appsignalextension)
+ - [`agent_config`](#agent_config)
+ - [`agent_version`](#agent_version)
+ - [`method_missing`](#method_missingm-args-block)
+ - [`start`](#static-value-startvalue-self-)
+ - [`stop`](#static-value-stopvalue-self-)
+ - [`get_server_state`](#static-value-get_server_statevalue-self-value-key-)
+ - [`start_transaction`](#static-value-start_transactionvalue-self-value-transaction_id-value-namespace-value-gc_duration_ms-)
+ - [`data_map_new`](#static-value-data_map_newvalue-self-)
+ - [`data_array_new`](#static-value-data_array_newvalue-self-)
+ - [`install_allocation_event_hook`](#static-value-install_allocation_event_hook-)
+ - [`set_gauge`](#static-value-set_gaugevalue-self-value-key-value-value-)
+ - [`set_host_gauge`](#static-value-set_host_gaugevalue-self-value-key-value-value-)
+ - [`set_process_gauge`](#static-value-set_process_gaugevalue-self-value-key-value-value-)
+ - [`increment_counter`](#static-value-increment_countervalue-self-value-key-value-count-)
+ - [`add_distribution_value`](#static-value-add_distribution_valuevalue-self-value-key-value-value-)
+
+- [`Data`](#class-appsignalextensiondata)
+ - [`inspect`](#inspect)
+ - [`set_string`](#static-value-data_set_stringvalue-self-value-key-value-value-)
+ - [`set_fixnum`](#static-value-data_set_fixnumvalue-self-value-key-value-value-)
+ - [`set_float`](#static-value-data_set_floatvalue-self-value-key-value-value-)
+ - [`set_boolean`](#static-value-data_set_booleanvalue-self-value-key-value-value-)
+ - [`set_nil`](#static-value-data_set_nilvalue-self-value-key-)
+ - [`set_data`](#static-value-data_set_datavalue-self-value-key-value-value-)
+ - [`append_string`](#static-value-data_append_stringvalue-self-value-value-)
+ - [`append_fixnum`](#static-value-data_append_fixnumvalue-self-value-value-)
+ - [`append_float`](#static-value-data_append_floatvalue-self-value-value-)
+ - [`append_boolean`](#static-value-data_append_booleanvalue-self-value-value-)
+ - [`append_nil`](#static-value-data_append_nilvalue-self-value-value-)
+ - [`append_data`](#static-value-data_append_datavalue-self-value-value-)
+ - [`==`](#static-value-data_equalvalue-self-value-other-)
+ - [`to_s`](#static-value-data_to_svalue-self-)
+
+- [`AuthCheck`](#class-appsignalauthcheck)
+ - [`config`](#config)
+ - [`logger`](#logger)
+ - [`initialize`](#initializeconfig-loggerappsignallogger)
+ - [`perform`](#perform)
+ - [`perform_with_result`](#perform_with_result)
+
+- [`PumaHook`](#class-appsignalhookspumahook)
+ - [`dependencies_present?`](#dependencies_present)
+ - [`install`](#install)
+
+- [`RakeHook`](#class-appsignalhooksrakehook)
+ - [`dependencies_present?`](#dependencies_present)
+ - [`install`](#install)
+
+- [`RedisHook`](#class-appsignalhooksredishook)
+ - [`dependencies_present?`](#dependencies_present)
+ - [`install`](#install)
+
+- [`Install`](#class-appsignalcliinstall)
+ - [`run`](#runpush_api_key)
+ - [`install_for_rails`](#install_for_railsconfig)
+ - [`install_for_sinatra`](#install_for_sinatraconfig)
+ - [`install_for_padrino`](#install_for_padrinoconfig)
+ - [`install_for_grape`](#install_for_grapeconfig)
+ - [`install_for_capistrano`](#install_for_capistrano)
+ - [`configure`](#configureconfig-environments-name_overwritten)
+ - [`done_notice`](#done_notice)
+ - [`installed_frameworks`](#installed_frameworks)
+ - [`rails_environments`](#rails_environments)
+ - [`write_config_file`](#write_config_filedata)
+ - [`new_config`](#new_config)
+
+- [`Transmitter`](#class-appsignaltransmitter)
+ - [`config`](#config)
+ - [`action`](#action)
+ - [`initialize`](#initializeaction-configappsignalconfig)
+ - [`uri`](#uri)
+ - [`transmit`](#transmitpayload)
+
+- [`Transaction`](#class-appsignaltransaction)
+ - [`create`](#createid-namespace-request-options)
+ - [`current`](#current)
+ - [`complete_current!`](#complete_current)
+ - [`garbage_collection_profiler`](#garbage_collection_profiler)
+ - [`ext`](#ext)
+ - [`transaction_id`](#transaction_id)
+ - [`namespace`](#namespace)
+ - [`request`](#request)
+ - [`paused`](#paused)
+ - [`tags`](#tags)
+ - [`options`](#options)
+ - [`discarded`](#discarded)
+ - [`initialize`](#initializetransaction_id-namespace-request-options)
+ - [`nil_transaction?`](#nil_transaction)
+ - [`complete`](#complete)
+ - [`pause!`](#pause)
+ - [`resume!`](#resume)
+ - [`paused?`](#paused)
+ - [`discard!`](#discard)
+ - [`restore!`](#restore)
+ - [`discarded?`](#discarded)
+ - [`store`](#storekey)
+ - [`set_tags`](#set_tagsgiven_tags)
+ - [`set_action`](#set_actionaction)
+ - [`set_http_or_background_action`](#set_http_or_background_actionfromrequestparams)
+ - [`set_queue_start`](#set_queue_startstart)
+ - [`set_http_or_background_queue_start`](#set_http_or_background_queue_start)
+ - [`set_metadata`](#set_metadatakey-value)
+ - [`set_sample_data`](#set_sample_datakey-data)
+ - [`sample_data`](#sample_data)
+ - [`set_error`](#set_errorerror)
+ - [`add_exception`](#set_errorerror)
+ - [`start_event`](#start_event)
+ - [`finish_event`](#finish_eventname-title-body-body_formatappsignaleventformatterdefault)
+ - [`record_event`](#record_eventname-title-body-duration-body_formatappsignaleventformatterdefault)
+ - [`instrument`](#instrumentname-titlenil-bodynil-body_formatappsignaleventformatterdefault)
+
+- [`GenericRequest`](#class-appsignaltransactiongenericrequest)
+ - [`env`](#env)
+ - [`initialize`](#initializeenv)
+ - [`params`](#params)
+
+- [`NilTransaction`](#class-appsignaltransactionniltransaction)
+ - [`method_missing`](#method_missingm-args-block)
+ - [`instrument`](#instrumentargs)
+ - [`nil_transaction?`](#nil_transaction)
+
+- [`Diagnose`](#class-appsignalclidiagnose)
+ - [`run`](#runoptions--)
+
+- [`SequelHook`](#class-appsignalhookssequelhook)
+ - [`dependencies_present?`](#dependencies_present)
+ - [`install`](#install)
+
+- [`UnicornHook`](#class-appsignalhooksunicornhook)
+ - [`dependencies_present?`](#dependencies_present)
+ - [`install`](#install)
+
+- [`SidekiqPlugin`](#class-appsignalhookssidekiqplugin)
+ - [`job_keys`](#job_keys)
+ - [`call`](#callworker-item-queue)
+ - [`formatted_metadata`](#formatted_metadataitem)
+
+- [`SidekiqHook`](#class-appsignalhookssidekiqhook)
+ - [`dependencies_present?`](#dependencies_present)
+ - [`install`](#install)
+
+- [`NetHttpHook`](#class-appsignalhooksnethttphook)
+ - [`dependencies_present?`](#dependencies_present)
+ - [`install`](#install)
+
+- [`PassengerHook`](#class-appsignalhookspassengerhook)
+ - [`dependencies_present?`](#dependencies_present)
+ - [`install`](#install)
+
+- [`ShoryukenMiddleware`](#class-appsignalhooksshoryukenmiddleware)
+ - [`call`](#callworker_instance-queue-sqs_msg-body)
+
+- [`ShoryukenHook`](#class-appsignalhooksshoryukenhook)
+ - [`dependencies_present?`](#dependencies_present)
+ - [`install`](#install)
+
+- [`EventFormatter`](#class-appsignaleventformatter)
+ - [`formatters`](#formatters)
+ - [`formatter_classes`](#formatter_classes)
+ - [`register`](#registername-formatterself)
+ - [`unregister`](#unregistername-formatterself)
+ - [`registered?`](#registeredname-klassnil)
+ - [`initialize_formatters`](#initialize_formatters)
+ - [`format`](#formatname-payload)
+
+- [`CelluloidHook`](#class-appsignalhookscelluloidhook)
+ - [`dependencies_present?`](#dependencies_present)
+ - [`install`](#install)
+
+- [`WebmachineHook`](#class-appsignalhookswebmachinehook)
+ - [`dependencies_present?`](#dependencies_present)
+ - [`install`](#install)
+
+- [`DataMapperHook`](#class-appsignalhooksdatamapperhook)
+ - [`dependencies_present?`](#dependencies_present)
+ - [`install`](#install)
+
+- [`DelayedJobHook`](#class-appsignalhooksdelayedjobhook)
+ - [`dependencies_present?`](#dependencies_present)
+ - [`install`](#install)
+
+- [`Middleware`](#class-appsignalgrapemiddleware)
+ - [`call`](#callenv)
+ - [`call_with_appsignal_monitoring`](#call_with_appsignal_monitoringenv)
+
+- [`Object`](#class-object)
+ - [`appsignal_instrument_class_method`](#appsignal_instrument_class_methodmethod_name-options--)
+ - [`appsignal_instrument_method`](#appsignal_instrument_methodmethod_name-options--)
+ - [`appsignal_reverse_class_name`](#appsignal_reverse_class_name)
+ - [`appsignal_reverse_class_name`](#appsignal_reverse_class_name)
+
+- [`Railtie`](#class-appsignalintegrationsrailtie)
+ - [`initialize_appsignal`](#initialize_appsignalapp)
+
+- [`NotifyOfDeploy`](#class-appsignalclinotifyofdeploy)
+ - [`run`](#runoptions)
+
+- [`ParamsSanitizer`](#class-appsignalutilsparamssanitizer)
+ - [`sanitize`](#sanitizeparams-options--)
+
+- [`MongoRubyDriverHook`](#class-appsignalhooksmongorubydriverhook)
+ - [`dependencies_present?`](#dependencies_present)
+ - [`install`](#install)
+
+- [`StreamingListener`](#class-appsignalrackstreaminglistener)
+ - [`initialize`](#initializeapp-options--)
+ - [`call`](#callenv)
+ - [`call_with_appsignal_monitoring`](#call_with_appsignal_monitoringenv)
+
+- [`StreamWrapper`](#class-appsignalstreamwrapper)
+ - [`initialize`](#initializestream-transaction)
+ - [`each`](#each)
+ - [`close`](#close)
+
+- [`JSExceptionTransaction`](#class-appsignaljsexceptiontransaction)
+ - [`uuid`](#uuid)
+ - [`ext`](#ext)
+ - [`initialize`](#initializedata)
+ - [`set_action`](#set_action)
+ - [`set_metadata`](#set_metadata)
+ - [`set_error`](#set_error)
+ - [`set_sample_data`](#set_sample_data)
+ - [`complete!`](#complete)
+
+- [`JSExceptionCatcher`](#class-appsignalrackjsexceptioncatcher)
+ - [`initialize`](#initializeapp-options--)
+ - [`call`](#callenv)
+
+- [`RailsInstrumentation`](#class-appsignalrackrailsinstrumentation)
+ - [`initialize`](#initializeapp-options--)
+ - [`call`](#callenv)
+ - [`call_with_appsignal_monitoring`](#call_with_appsignal_monitoringenv)
+ - [`request_id`](#request_idenv)
+
+- [`GarbageCollectionProfiler`](#class-appsignalgarbagecollectionprofiler)
+ - [`initialize`](#initialize)
+ - [`total_time`](#total_time)
+
+- [`SinatraInstrumentation`](#class-appsignalracksinatrainstrumentation)
+ - [`initialize`](#initializeapp-options--)
+ - [`call`](#callenv)
+ - [`settings`](#settings)
+
+- [`SinatraBaseInstrumentation`](#class-appsignalracksinatrabaseinstrumentation)
+ - [`raise_errors_on`](#raise_errors_on)
+ - [`initialize`](#initializeapp-options--)
+ - [`call`](#callenv)
+ - [`call_with_appsignal_monitoring`](#call_with_appsignal_monitoringenv)
+ - [`action_name`](#action_nameenv)
+
+- [`GenericInstrumentation`](#class-appsignalrackgenericinstrumentation)
+ - [`initialize`](#initializeapp-options--)
+ - [`call`](#callenv)
+ - [`call_with_appsignal_monitoring`](#call_with_appsignal_monitoringenv)
+
+- [`MongoMonitorSubscriber`](#class-appsignalhooksmongomonitorsubscriber)
+ - [`started`](#startedevent)
+ - [`succeeded`](#succeededevent)
+ - [`failed`](#failedevent)
+ - [`finish`](#finishresult-event)
+
+- [`DelayedJobPlugin`](#class-appsignalhooksdelayedjobplugin)
+ - [`invoke_with_instrumentation`](#invoke_with_instrumentationjob-block)
+
+- [`ActiveSupportNotificationsHook`](#class-appsignalhooksactivesupportnotificationshook)
+ - [`dependencies_present?`](#dependencies_present)
+ - [`install`](#install)
+
+- [`QueryFormatter`](#class-appsignaleventformattermopedqueryformatter)
+ - [`format`](#formatpayload)
+
+- [`RequestFormatter`](#class-appsignaleventformatterfaradayrequestformatter)
+ - [`format`](#formatpayload)
+
+- [`Capistrano`](#class-appsignalcapistrano)
+ - [`tasks`](#tasksconfig)
+
+- [`SqlFormatter`](#class-appsignaleventformatteractiverecordsqlformatter)
+ - [`format`](#formatpayload)
+
+- [`RenderFormatter`](#class-appsignaleventformatteractionviewrenderformatter)
+ - [`root_path`](#root_path)
+ - [`initialize`](#initialize)
+ - [`format`](#formatpayload)
+
+- [`SearchFormatter`](#class-appsignaleventformatterelasticsearchsearchformatter)
+ - [`format`](#formatpayload)
+ - [`sanitized_search`](#sanitized_searchsearch)
+
+- [`QueryFormatter`](#class-appsignaleventformattermongorubydriverqueryformatter)
+ - [`format`](#formatstrategy-command)
+ - [`apply_strategy`](#apply_strategystrategy-val)
+
+- [`InstantiationFormatter`](#class-appsignaleventformatteractiverecordinstantiationformatter)
+ - [`format`](#formatpayload)
+
+- [`Transaction`](#class-appsignalextensiontransaction)
+ - [`start_event`](#static-value-start_eventvalue-self-value-gc_duration_ms-)
+ - [`finish_event`](#static-value-finish_eventvalue-self-value-name-value-title-value-body-value-body_format-value-gc_duration_ms-)
+ - [`record_event`](#static-value-record_eventvalue-self-value-name-value-title-value-body-value-duration-value-body_format-value-gc_duration_ms-)
+ - [`set_error`](#static-value-set_transaction_errorvalue-self-value-name-value-message-value-backtrace-)
+ - [`set_sample_data`](#static-value-set_transaction_sample_datavalue-self-value-key-value-payload-)
+ - [`set_action`](#static-value-set_transaction_actionvalue-self-value-action-)
+ - [`set_queue_start`](#static-value-set_transaction_queue_startvalue-self-value-queue_start-)
+ - [`set_metadata`](#static-value-set_transaction_metadatavalue-self-value-key-value-value-)
+ - [`finish`](#static-value-finish_transactionvalue-self-value-gc_duration_ms-)
+ - [`complete`](#static-value-complete_transactionvalue-self-)
+
+- [`Appsignal`](#module-appsignal)
+ - [`config`](#config)
+ - [`config=`](#configvalue)
+ - [`agent`](#agent)
+ - [`agent=`](#agentvalue)
+ - [`extension_loaded`](#extension_loaded)
+ - [`extension_loaded=`](#extension_loadedvalue)
+ - [`logger=`](#loggervalue)
+ - [`in_memory_log=`](#in_memory_logvalue)
+ - [`extensions`](#extensions)
+ - [`initialize_extensions`](#initialize_extensions)
+ - [`start`](#start)
+ - [`in_memory_log`](#in_memory_log)
+ - [`stop`](#stopcalled_bynil)
+ - [`forked`](#forked)
+ - [`get_server_state`](#get_server_statekey)
+ - [`monitor_transaction`](#monitor_transactionname-env)
+ - [`monitor_single_transaction`](#monitor_single_transactionname-env-block)
+ - [`listen_for_error`](#listen_for_errorblock)
+ - [`listen_for_exception`](#listen_for_errorblock)
+ - [`send_error`](#send_errorerror-tagsnil-namespaceappsignaltransactionhttp_request)
+ - [`send_exception`](#send_errorerror-tagsnil-namespaceappsignaltransactionhttp_request)
+ - [`set_error`](#set_errorexception)
+ - [`set_exception`](#set_errorexception)
+ - [`add_exception`](#set_errorexception)
+ - [`tag_request`](#tag_requestparams)
+ - [`tag_job`](#tag_requestparams)
+ - [`instrument`](#instrumentname-titlenil-bodynil-body_formatappsignaleventformatterdefault)
+ - [`instrument_sql`](#instrument_sqlname-titlenil-bodynil-block)
+ - [`set_gauge`](#set_gaugekey-value)
+ - [`set_host_gauge`](#set_host_gaugekey-value)
+ - [`set_process_gauge`](#set_process_gaugekey-value)
+ - [`increment_counter`](#increment_counterkey-value1)
+ - [`add_distribution_value`](#add_distribution_valuekey-value)
+ - [`logger`](#logger)
+ - [`log_formatter`](#log_formatterprefix--nil)
+ - [`start_logger`](#start_loggerpath_arg--nil)
+ - [`extension_loaded?`](#extension_loaded)
+ - [`active?`](#active)
+ - [`is_ignored_error?`](#is_ignored_errorerror)
+ - [`is_ignored_exception?`](#is_ignored_errorerror)
+ - [`is_ignored_action?`](#is_ignored_actionaction)
+ - [`without_instrumentation`](#without_instrumentation)
+
+- [`Helpers`](#module-appsignalhookshelpers)
+ - [`string_or_inspect`](#string_or_inspectstring_or_other)
+ - [`truncate`](#truncatetext)
+ - [`extract_value`](#extract_valueobject_or_hash-field-default_valuenil-convert_to_sfalse)
+ - [`format_args`](#format_argsargs)
+
+- [`Utils`](#module-appsignalutils)
+ - [`data_generate`](#data_generatebody)
+ - [`json_generate`](#json_generatebody)
+
+- [`System`](#module-appsignalsystem)
+ - [`container?`](#container)
+ - [`heroku?`](#heroku)
+
+- [`Container`](#module-appsignalsystemcontainer)
+ - [`id`](#id)
+
+- [`SequelLogExtension`](#module-appsignalhookssequellogextension)
+ - [`log_yield`](#log_yieldsql-args--nil)
+
+- [`SequelLogConnectionExtension`](#module-appsignalhookssequellogconnectionextension)
+ - [`log_connection_yield`](#log_connection_yieldsql-conn-args--nil)
+
+- [`ResquePlugin`](#module-appsignalintegrationsresqueplugin)
+ - [`around_perform_resque_plugin`](#around_perform_resque_pluginargs)
+
+- [`PadrinoPlugin`](#module-appsignalintegrationspadrinoplugin)
+ - [`init`](#init)
+
+- [`InstanceMethods`](#module-padrinoroutinginstancemethods)
+ - [`route_without_appsignal`](#route_without_appsignal)
+ - [`route!`](#routebasesettings-pass_blocknil)
+ - [`get_payload_action`](#get_payload_actionrequest)
+
+- [`FSM`](#module-appsignalintegrationswebmachinepluginfsm)
+ - [`run_with_appsignal`](#run_with_appsignal)
+
+- [`DataMapperLogListener`](#module-appsignalhooksdatamapperloglistener)
+ - [`log`](#logmessage)
+
+- [`ClassMethods`](#module-appsignalutilsqueryparamssanitizerclassmethods)
+ - [`sanitize`](#sanitizeparams-only_top_level--false-key_sanitizer--nil)
+
+---
 
 ## `class Appsignal::CLI`
 
@@ -25,16 +491,19 @@ Sets the attribute options
 ### `.run(argv=ARGV)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli.rb#L18)
 
 ### `.global_option_parser`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli.rb#L49)
 
 ### `.command_option_parser`
+
 
 
 **See**:
@@ -47,6 +516,7 @@ Sets the attribute options
 ### `.transmit`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/demo.rb#L8)
 
@@ -57,16 +527,19 @@ Sets the attribute options
 ### `.register(name, hook)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L4)
 
 ### `.load_hooks`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L8)
 
 ### `.hooks`
+
 
 
 **See**:
@@ -79,6 +552,7 @@ Sets the attribute options
 ### `.register(name, hook=self)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L20)
 
@@ -89,10 +563,12 @@ Sets the attribute options
 
 - (`Hook`) — a new instance of Hook
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L24)
 
 ### `#try_to_install(name)`
+
 
 
 **See**:
@@ -104,6 +580,7 @@ Sets the attribute options
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L40)
@@ -139,16 +616,19 @@ Sets the attribute options
 ### `.generate(body)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/utils.rb#L12)
 
 ### `.map_hash(hash_value)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/utils.rb#L22)
 
 ### `.map_array(array_value)`
+
 
 
 **See**:
@@ -161,6 +641,7 @@ Sets the attribute options
 ### `.generate(body)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/utils.rb#L81)
 
@@ -169,6 +650,7 @@ Sets the attribute options
 ## `class Appsignal::Utils::Gzip`
 
 ### `.compress(body)`
+
 
 
 **See**:
@@ -201,10 +683,12 @@ Returns the value of attribute config
 
 - (`Marker`) — a new instance of Marker
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/marker.rb#L6)
 
 ### `#transmit`
+
 
 
 **See**:
@@ -274,10 +758,12 @@ Sets the attribute logger
 
 - (`Config`) — a new instance of Config
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/config.rb#L64)
 
 ### `#[](key)`
+
 
 
 **See**:
@@ -286,10 +772,12 @@ Sets the attribute logger
 ### `#[]=(key, value)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/config.rb#L88)
 
 ### `#log_file_path`
+
 
 
 **See**:
@@ -302,6 +790,7 @@ Sets the attribute logger
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/config.rb#L110)
 
@@ -312,10 +801,12 @@ Sets the attribute logger
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/config.rb#L114)
 
 ### `#write_to_environment`
+
 
 
 **See**:
@@ -326,6 +817,7 @@ Sets the attribute logger
 ## `class Appsignal::CLI::Demo`
 
 ### `.run(options = {})`
+
 
 
 **See**:
@@ -347,16 +839,19 @@ respond to call.
 ### `.start`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/minutely.rb#L10)
 
 ### `.wait_time`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/minutely.rb#L24)
 
 ### `.add_gc_probe`
+
 
 
 **See**:
@@ -369,6 +864,7 @@ respond to call.
 ### `#call`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/minutely.rb#L34)
 
@@ -379,16 +875,19 @@ respond to call.
 ### `.agent_config`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/extension.rb#L17)
 
 ### `.agent_version`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/extension.rb#L23)
 
 ### `.method_missing(m, *args, &block)`
+
 
 
 **See**:
@@ -403,6 +902,7 @@ Starting and stopping
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L23)
 
 ### `.static VALUE stop(VALUE self) {`
+
 
 
 **See**:
@@ -435,6 +935,7 @@ Create a data map or array
 ### `.static VALUE data_array_new(VALUE self) {`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L279)
 
@@ -457,10 +958,12 @@ Metrics
 ### `.static VALUE set_host_gauge(VALUE self, VALUE key, VALUE value) {`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L521)
 
 ### `.static VALUE set_process_gauge(VALUE self, VALUE key, VALUE value) {`
+
 
 
 **See**:
@@ -469,10 +972,12 @@ Metrics
 ### `.static VALUE increment_counter(VALUE self, VALUE key, VALUE count) {`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L543)
 
 ### `.static VALUE add_distribution_value(VALUE self, VALUE key, VALUE value) {`
+
 
 
 **See**:
@@ -483,6 +988,7 @@ Metrics
 ## `class Appsignal::Extension::Data`
 
 ### `#inspect`
+
 
 
 **See**:
@@ -499,10 +1005,12 @@ Add content to a data map
 ### `#static VALUE data_set_fixnum(VALUE self, VALUE key, VALUE value) {`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L308)
 
 ### `#static VALUE data_set_float(VALUE self, VALUE key, VALUE value) {`
+
 
 
 **See**:
@@ -511,16 +1019,19 @@ Add content to a data map
 ### `#static VALUE data_set_boolean(VALUE self, VALUE key, VALUE value) {`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L342)
 
 ### `#static VALUE data_set_nil(VALUE self, VALUE key) {`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L358)
 
 ### `#static VALUE data_set_data(VALUE self, VALUE key, VALUE value) {`
+
 
 
 **See**:
@@ -537,10 +1048,12 @@ Add content to a data array
 ### `#static VALUE data_append_fixnum(VALUE self, VALUE value) {`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L407)
 
 ### `#static VALUE data_append_float(VALUE self, VALUE value) {`
+
 
 
 **See**:
@@ -549,16 +1062,19 @@ Add content to a data array
 ### `#static VALUE data_append_boolean(VALUE self, VALUE value) {`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L437)
 
 ### `#static VALUE data_append_nil(VALUE self, VALUE value) {`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L450)
 
 ### `#static VALUE data_append_data(VALUE self, VALUE value) {`
+
 
 
 **See**:
@@ -607,16 +1123,19 @@ Returns the value of attribute logger
 
 - (`AuthCheck`) — a new instance of AuthCheck
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/auth_check.rb#L7)
 
 ### `#perform`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/auth_check.rb#L12)
 
 ### `#perform_with_result`
+
 
 
 **See**:
@@ -633,10 +1152,12 @@ Returns the value of attribute logger
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/puma.rb#L6)
 
 ### `#install`
+
 
 
 **See**:
@@ -653,10 +1174,12 @@ Returns the value of attribute logger
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/rake.rb#L6)
 
 ### `#install`
+
 
 
 **See**:
@@ -673,10 +1196,12 @@ Returns the value of attribute logger
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/redis.rb#L6)
 
 ### `#install`
+
 
 
 **See**:
@@ -689,10 +1214,12 @@ Returns the value of attribute logger
 ### `.run(push_api_key)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L14)
 
 ### `.install_for_rails(config)`
+
 
 
 **See**:
@@ -701,10 +1228,12 @@ Returns the value of attribute logger
 ### `.install_for_sinatra(config)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L84)
 
 ### `.install_for_padrino(config)`
+
 
 
 **See**:
@@ -713,10 +1242,12 @@ Returns the value of attribute logger
 ### `.install_for_grape(config)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L120)
 
 ### `.install_for_capistrano`
+
 
 
 **See**:
@@ -725,10 +1256,12 @@ Returns the value of attribute logger
 ### `.configure(config, environments, name_overwritten)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L150)
 
 ### `.done_notice`
+
 
 
 **See**:
@@ -737,10 +1270,12 @@ Returns the value of attribute logger
 ### `.installed_frameworks`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L217)
 
 ### `.rails_environments`
+
 
 
 **See**:
@@ -749,10 +1284,12 @@ Returns the value of attribute logger
 ### `.write_config_file(data)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/install.rb#L248)
 
 ### `.new_config`
+
 
 
 **See**:
@@ -785,16 +1322,19 @@ Returns the value of attribute action
 
 - (`Transmitter`) — a new instance of Transmitter
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transmitter.rb#L26)
 
 ### `#uri`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transmitter.rb#L31)
 
 ### `#transmit(payload)`
+
 
 
 **See**:
@@ -807,10 +1347,12 @@ Returns the value of attribute action
 ### `.create(id, namespace, request, options={})`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L23)
 
 ### `.current`
+
 
 
 **See**:
@@ -819,10 +1361,12 @@ Returns the value of attribute action
 ### `.complete_current!`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L46)
 
 ### `.garbage_collection_profiler`
+
 
 
 **See**:
@@ -899,6 +1443,7 @@ Returns the value of attribute discarded
 
 - (`Transaction`) — a new instance of Transaction
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L61)
 
@@ -909,10 +1454,12 @@ Returns the value of attribute discarded
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L79)
 
 ### `#complete`
+
 
 
 **See**:
@@ -921,10 +1468,12 @@ Returns the value of attribute discarded
 ### `#pause!`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L94)
 
 ### `#resume!`
+
 
 
 **See**:
@@ -937,16 +1486,19 @@ Returns the value of attribute discarded
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L102)
 
 ### `#discard!`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L106)
 
 ### `#restore!`
+
 
 
 **See**:
@@ -959,10 +1511,12 @@ Returns the value of attribute discarded
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L114)
 
 ### `#store(key)`
+
 
 
 **See**:
@@ -971,10 +1525,12 @@ Returns the value of attribute discarded
 ### `#set_tags(given_tags={})`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L122)
 
 ### `#set_action(action)`
+
 
 
 **See**:
@@ -983,10 +1539,12 @@ Returns the value of attribute discarded
 ### `#set_http_or_background_action(from=request.params)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L131)
 
 ### `#set_queue_start(start)`
+
 
 
 **See**:
@@ -995,10 +1553,12 @@ Returns the value of attribute discarded
 ### `#set_http_or_background_queue_start`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L147)
 
 ### `#set_metadata(key, value)`
+
 
 
 **See**:
@@ -1007,10 +1567,12 @@ Returns the value of attribute discarded
 ### `#set_sample_data(key, data)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L160)
 
 ### `#sample_data`
+
 
 
 **See**:
@@ -1019,10 +1581,12 @@ Returns the value of attribute discarded
 ### `#set_error(error)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L182)
 
 ### `#set_error(error)`
+
 
 
 **See**:
@@ -1031,10 +1595,12 @@ Returns the value of attribute discarded
 ### `#start_event`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L196)
 
 ### `#finish_event(name, title, body, body_format=Appsignal::EventFormatter::DEFAULT)`
+
 
 
 **See**:
@@ -1043,10 +1609,12 @@ Returns the value of attribute discarded
 ### `#record_event(name, title, body, duration, body_format=Appsignal::EventFormatter::DEFAULT)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L210)
 
 ### `#instrument(name, title=nil, body=nil, body_format=Appsignal::EventFormatter::DEFAULT)`
+
 
 
 **See**:
@@ -1071,10 +1639,12 @@ Returns the value of attribute env
 
 - (`GenericRequest`) — a new instance of GenericRequest
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L230)
 
 ### `#params`
+
 
 
 **See**:
@@ -1090,8 +1660,9 @@ that it's still safe to call methods on it if there is none.
 ### `#method_missing(m, *args, &block)`
 
 
+
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L328)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L383)
 
 ### `#instrument(*args)`
 
@@ -1099,7 +1670,7 @@ Instrument should still yield
 
 
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L332)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L387)
 
 ### `#nil_transaction?`
 
@@ -1108,14 +1679,16 @@ Instrument should still yield
 
 - (`Boolean`) — 
 
+
 **See**:
-- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L336)
+- [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/transaction.rb#L391)
 
 ---
 
 ## `class Appsignal::CLI::Diagnose`
 
 ### `.run(options = {})`
+
 
 
 **See**:
@@ -1132,10 +1705,12 @@ Instrument should still yield
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/sequel.rb#L34)
 
 ### `#install`
+
 
 
 **See**:
@@ -1152,10 +1727,12 @@ Instrument should still yield
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/unicorn.rb#L6)
 
 ### `#install`
+
 
 
 **See**:
@@ -1168,16 +1745,19 @@ Instrument should still yield
 ### `#job_keys`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/sidekiq.rb#L6)
 
 ### `#call(worker, item, queue)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/sidekiq.rb#L15)
 
 ### `#formatted_metadata(item)`
+
 
 
 **See**:
@@ -1194,10 +1774,12 @@ Instrument should still yield
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/sidekiq.rb#L47)
 
 ### `#install`
+
 
 
 **See**:
@@ -1214,10 +1796,12 @@ Instrument should still yield
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/net_http.rb#L8)
 
 ### `#install`
+
 
 
 **See**:
@@ -1234,10 +1818,12 @@ Instrument should still yield
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/passenger.rb#L6)
 
 ### `#install`
+
 
 
 **See**:
@@ -1248,6 +1834,7 @@ Instrument should still yield
 ## `class Appsignal::Hooks::ShoryukenMiddleware`
 
 ### `#call(worker_instance, queue, sqs_msg, body)`
+
 
 
 **See**:
@@ -1264,10 +1851,12 @@ Instrument should still yield
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/shoryuken.rb#L29)
 
 ### `#install`
+
 
 
 **See**:
@@ -1290,10 +1879,12 @@ argument if you need to use helper methods.
 ### `.formatters`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/event_formatter.rb#L13)
 
 ### `.formatter_classes`
+
 
 
 **See**:
@@ -1302,10 +1893,12 @@ argument if you need to use helper methods.
 ### `.register(name, formatter=self)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/event_formatter.rb#L21)
 
 ### `.unregister(name, formatter=self)`
+
 
 
 **See**:
@@ -1318,16 +1911,19 @@ argument if you need to use helper methods.
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/event_formatter.rb#L32)
 
 ### `.initialize_formatters`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/event_formatter.rb#L40)
 
 ### `.format(name, payload)`
+
 
 
 **See**:
@@ -1344,10 +1940,12 @@ argument if you need to use helper methods.
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/celluloid.rb#L6)
 
 ### `#install`
+
 
 
 **See**:
@@ -1364,10 +1962,12 @@ argument if you need to use helper methods.
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/webmachine.rb#L6)
 
 ### `#install`
+
 
 
 **See**:
@@ -1384,10 +1984,12 @@ argument if you need to use helper methods.
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/data_mapper.rb#L6)
 
 ### `#install`
+
 
 
 **See**:
@@ -1404,10 +2006,12 @@ argument if you need to use helper methods.
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/delayed_job.rb#L6)
 
 ### `#install`
+
 
 
 **See**:
@@ -1420,10 +2024,12 @@ argument if you need to use helper methods.
 ### `#call(env)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/grape.rb#L4)
 
 ### `#call_with_appsignal_monitoring(env)`
+
 
 
 **See**:
@@ -1436,10 +2042,12 @@ argument if you need to use helper methods.
 ### `.appsignal_instrument_class_method(method_name, options = {})`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/object.rb#L2)
 
 ### `.appsignal_instrument_method(method_name, options = {})`
+
 
 
 **See**:
@@ -1448,10 +2056,12 @@ argument if you need to use helper methods.
 ### `.appsignal_reverse_class_name`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/object.rb#L27)
 
 ### `#appsignal_reverse_class_name`
+
 
 
 **See**:
@@ -1464,6 +2074,7 @@ argument if you need to use helper methods.
 ### `.initialize_appsignal(app)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/railtie.rb#L12)
 
@@ -1474,6 +2085,7 @@ argument if you need to use helper methods.
 ### `.run(options)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/cli/notify_of_deploy.rb#L5)
 
@@ -1482,6 +2094,7 @@ argument if you need to use helper methods.
 ## `class Appsignal::Utils::ParamsSanitizer`
 
 ### `.sanitize(params, options = {})`
+
 
 
 **See**:
@@ -1498,10 +2111,12 @@ argument if you need to use helper methods.
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/mongo_ruby_driver.rb#L6)
 
 ### `#install`
+
 
 
 **See**:
@@ -1518,16 +2133,19 @@ argument if you need to use helper methods.
 
 - (`StreamingListener`) — a new instance of StreamingListener
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/rack/streaming_listener.rb#L5)
 
 ### `#call(env)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/rack/streaming_listener.rb#L10)
 
 ### `#call_with_appsignal_monitoring(env)`
+
 
 
 **See**:
@@ -1544,16 +2162,19 @@ argument if you need to use helper methods.
 
 - (`StreamWrapper`) — a new instance of StreamWrapper
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/rack/streaming_listener.rb#L49)
 
 ### `#each`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/rack/streaming_listener.rb#L54)
 
 ### `#close`
+
 
 
 **See**:
@@ -1586,10 +2207,12 @@ Returns the value of attribute ext
 
 - (`JSExceptionTransaction`) — a new instance of JSExceptionTransaction
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/js_exception_transaction.rb#L5)
 
 ### `#set_action`
+
 
 
 **See**:
@@ -1598,10 +2221,12 @@ Returns the value of attribute ext
 ### `#set_metadata`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/js_exception_transaction.rb#L20)
 
 ### `#set_error`
+
 
 
 **See**:
@@ -1610,10 +2235,12 @@ Returns the value of attribute ext
 ### `#set_sample_data`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/js_exception_transaction.rb#L34)
 
 ### `#complete!`
+
 
 
 **See**:
@@ -1630,10 +2257,12 @@ Returns the value of attribute ext
 
 - (`JSExceptionCatcher`) — a new instance of JSExceptionCatcher
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/rack/js_exception_catcher.rb#L4)
 
 ### `#call(env)`
+
 
 
 **See**:
@@ -1650,10 +2279,12 @@ Returns the value of attribute ext
 
 - (`RailsInstrumentation`) — a new instance of RailsInstrumentation
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/rack/rails_instrumentation.rb#L6)
 
 ### `#call(env)`
+
 
 
 **See**:
@@ -1662,10 +2293,12 @@ Returns the value of attribute ext
 ### `#call_with_appsignal_monitoring(env)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/rack/rails_instrumentation.rb#L19)
 
 ### `#request_id(env)`
+
 
 
 **See**:
@@ -1686,6 +2319,7 @@ memory by keeping garbage collection run samples in memory.
 **Returns**:
 
 - (`GarbageCollectionProfiler`) — a new instance of GarbageCollectionProfiler
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/garbage_collection_profiler.rb#L8)
@@ -1721,16 +2355,19 @@ applications. This is no longer needed. Instead Appsignal now includes
 
 - (`SinatraInstrumentation`) — a new instance of SinatraInstrumentation
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/rack/sinatra_instrumentation.rb#L11)
 
 ### `#call(env)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/rack/sinatra_instrumentation.rb#L17)
 
 ### `#settings`
+
 
 
 **See**:
@@ -1755,10 +2392,12 @@ Returns the value of attribute raise_errors_on
 
 - (`SinatraBaseInstrumentation`) — a new instance of SinatraBaseInstrumentation
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/rack/sinatra_instrumentation.rb#L29)
 
 ### `#call(env)`
+
 
 
 **See**:
@@ -1767,10 +2406,12 @@ Returns the value of attribute raise_errors_on
 ### `#call_with_appsignal_monitoring(env)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/rack/sinatra_instrumentation.rb#L43)
 
 ### `#action_name(env)`
+
 
 
 **See**:
@@ -1787,16 +2428,19 @@ Returns the value of attribute raise_errors_on
 
 - (`GenericInstrumentation`) — a new instance of GenericInstrumentation
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/rack/generic_instrumentation.rb#L6)
 
 ### `#call(env)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/rack/generic_instrumentation.rb#L11)
 
 ### `#call_with_appsignal_monitoring(env)`
+
 
 
 **See**:
@@ -1845,6 +2489,7 @@ Finishes the event in the AppSignal extension
 ### `.invoke_with_instrumentation(job, block)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/delayed_job_plugin.rb#L16)
 
@@ -1859,10 +2504,12 @@ Finishes the event in the AppSignal extension
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks/active_support_notifications.rb#L8)
 
 ### `#install`
+
 
 
 **See**:
@@ -1875,6 +2522,7 @@ Finishes the event in the AppSignal extension
 ### `#format(payload)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/event_formatter/moped/query_formatter.rb#L7)
 
@@ -1883,6 +2531,7 @@ Finishes the event in the AppSignal extension
 ## `class Appsignal::EventFormatter::Faraday::RequestFormatter`
 
 ### `#format(payload)`
+
 
 
 **See**:
@@ -1895,6 +2544,7 @@ Finishes the event in the AppSignal extension
 ### `.tasks(config)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/capistrano/capistrano_2_tasks.rb#L3)
 
@@ -1903,6 +2553,7 @@ Finishes the event in the AppSignal extension
 ## `class Appsignal::EventFormatter::ActiveRecord::SqlFormatter`
 
 ### `#format(payload)`
+
 
 
 **See**:
@@ -1927,10 +2578,12 @@ Returns the value of attribute root_path
 
 - (`RenderFormatter`) — a new instance of RenderFormatter
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/event_formatter/action_view/render_formatter.rb#L12)
 
 ### `#format(payload)`
+
 
 
 **See**:
@@ -1943,10 +2596,12 @@ Returns the value of attribute root_path
 ### `#format(payload)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/event_formatter/elastic_search/search_formatter.rb#L7)
 
 ### `#sanitized_search(search)`
+
 
 
 **See**:
@@ -1979,6 +2634,7 @@ Applies strategy on hash values based on keys
 ### `#format(payload)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/event_formatter/active_record/instantiation_formatter.rb#L7)
 
@@ -1997,10 +2653,12 @@ Transaction instance methods
 ### `#static VALUE finish_event(VALUE self, VALUE name, VALUE title, VALUE body, VALUE body_format, VALUE gc_duration_ms) {`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L80)
 
 ### `#static VALUE record_event(VALUE self, VALUE name, VALUE title, VALUE body, VALUE duration, VALUE body_format, VALUE gc_duration_ms) {`
+
 
 
 **See**:
@@ -2009,10 +2667,12 @@ Transaction instance methods
 ### `#static VALUE set_transaction_error(VALUE self, VALUE name, VALUE message, VALUE backtrace) {`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L163)
 
 ### `#static VALUE set_transaction_sample_data(VALUE self, VALUE key, VALUE payload) {`
+
 
 
 **See**:
@@ -2021,10 +2681,12 @@ Transaction instance methods
 ### `#static VALUE set_transaction_action(VALUE self, VALUE action) {`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L201)
 
 ### `#static VALUE set_transaction_queue_start(VALUE self, VALUE queue_start) {`
+
 
 
 **See**:
@@ -2033,16 +2695,19 @@ Transaction instance methods
 ### `#static VALUE set_transaction_metadata(VALUE self, VALUE key, VALUE value) {`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L232)
 
 ### `#static VALUE finish_transaction(VALUE self, VALUE gc_duration_ms) {`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/ext/appsignal_extension.c#L247)
 
 ### `#static VALUE complete_transaction(VALUE self) {`
+
 
 
 **See**:
@@ -2146,10 +2811,12 @@ Sets the attribute in_memory_log
 ### `.extensions`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L10)
 
 ### `.initialize_extensions`
+
 
 
 **See**:
@@ -2158,10 +2825,12 @@ Sets the attribute in_memory_log
 ### `.start`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L22)
 
 ### `.in_memory_log`
+
 
 
 **See**:
@@ -2170,16 +2839,19 @@ Sets the attribute in_memory_log
 ### `.stop(called_by=nil)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L77)
 
 ### `.forked`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L86)
 
 ### `.get_server_state(key)`
+
 
 
 **See**:
@@ -2208,10 +2880,12 @@ forked and immediately exits after the transaction finishes.
 ### `.listen_for_error(&block)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L142)
 
 ### `.listen_for_error(&block)`
+
 
 
 **See**:
@@ -2220,10 +2894,12 @@ forked and immediately exits after the transaction finishes.
 ### `.send_error(error, tags=nil, namespace=Appsignal::Transaction::HTTP_REQUEST)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L150)
 
 ### `.send_error(error, tags=nil, namespace=Appsignal::Transaction::HTTP_REQUEST)`
+
 
 
 **See**:
@@ -2232,10 +2908,12 @@ forked and immediately exits after the transaction finishes.
 ### `.set_error(exception)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L167)
 
 ### `.set_error(exception)`
+
 
 
 **See**:
@@ -2244,10 +2922,12 @@ forked and immediately exits after the transaction finishes.
 ### `.set_error(exception)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L175)
 
 ### `.tag_request(params={})`
+
 
 
 **See**:
@@ -2256,10 +2936,12 @@ forked and immediately exits after the transaction finishes.
 ### `.tag_request(params={})`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L183)
 
 ### `.instrument(name, title=nil, body=nil, body_format=Appsignal::EventFormatter::DEFAULT)`
+
 
 
 **See**:
@@ -2268,10 +2950,12 @@ forked and immediately exits after the transaction finishes.
 ### `.instrument_sql(name, title=nil, body=nil, &block)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L192)
 
 ### `.set_gauge(key, value)`
+
 
 
 **See**:
@@ -2280,10 +2964,12 @@ forked and immediately exits after the transaction finishes.
 ### `.set_host_gauge(key, value)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L202)
 
 ### `.set_process_gauge(key, value)`
+
 
 
 **See**:
@@ -2292,10 +2978,12 @@ forked and immediately exits after the transaction finishes.
 ### `.increment_counter(key, value=1)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L214)
 
 ### `.add_distribution_value(key, value)`
+
 
 
 **See**:
@@ -2304,16 +2992,19 @@ forked and immediately exits after the transaction finishes.
 ### `.logger`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L226)
 
 ### `.log_formatter(prefix = nil)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L233)
 
 ### `.start_logger(path_arg = nil)`
+
 
 
 **See**:
@@ -2326,6 +3017,7 @@ forked and immediately exits after the transaction finishes.
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L263)
 
@@ -2335,6 +3027,7 @@ forked and immediately exits after the transaction finishes.
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L267)
@@ -2346,6 +3039,7 @@ forked and immediately exits after the transaction finishes.
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L271)
 
@@ -2356,6 +3050,7 @@ forked and immediately exits after the transaction finishes.
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L274)
 
@@ -2365,6 +3060,7 @@ forked and immediately exits after the transaction finishes.
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal.rb#L276)
@@ -2384,10 +3080,12 @@ Convenience method for skipping instrumentations around a block of code.
 ### `#string_or_inspect(string_or_other)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L54)
 
 ### `#truncate(text)`
+
 
 
 **See**:
@@ -2396,10 +3094,12 @@ Convenience method for skipping instrumentations around a block of code.
 ### `#extract_value(object_or_hash, field, default_value=nil, convert_to_s=false)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/hooks.rb#L66)
 
 ### `#format_args(args)`
+
 
 
 **See**:
@@ -2412,10 +3112,12 @@ Convenience method for skipping instrumentations around a block of code.
 ### `.data_generate(body)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/utils.rb#L6)
 
 ### `.json_generate(body)`
+
 
 
 **See**:
@@ -2432,6 +3134,7 @@ Convenience method for skipping instrumentations around a block of code.
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/system.rb#L3)
 
@@ -2442,6 +3145,7 @@ Convenience method for skipping instrumentations around a block of code.
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/system.rb#L7)
 
@@ -2450,6 +3154,7 @@ Convenience method for skipping instrumentations around a block of code.
 ## `module Appsignal::System::Container`
 
 ### `.id`
+
 
 
 **See**:
@@ -2501,6 +3206,7 @@ see http://docs.appsignal.com/background-monitoring/custom.html
 ### `.init`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/padrino.rb#L5)
 
@@ -2511,16 +3217,19 @@ see http://docs.appsignal.com/background-monitoring/custom.html
 ### `#route_without_appsignal`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/padrino.rb#L22)
 
 ### `#route!(base=settings, pass_block=nil)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/padrino.rb#L24)
 
 ### `#get_payload_action(request)`
+
 
 
 **See**:
@@ -2533,6 +3242,7 @@ see http://docs.appsignal.com/background-monitoring/custom.html
 ### `#run_with_appsignal`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/webmachine.rb#L5)
 
@@ -2543,6 +3253,7 @@ see http://docs.appsignal.com/background-monitoring/custom.html
 ### `#log(message)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/appsignal/appsignal-ruby/blob/master/lib/appsignal/integrations/data_mapper.rb#L11)
 
@@ -2551,6 +3262,7 @@ see http://docs.appsignal.com/background-monitoring/custom.html
 ## `module Appsignal::Utils::QueryParamsSanitizer::ClassMethods`
 
 ### `#sanitize(params, only_top_level = false, key_sanitizer = nil)`
+
 
 
 **See**:

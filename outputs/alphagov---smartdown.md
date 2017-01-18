@@ -1,3 +1,481 @@
+# alphagov/smartdown
+
+- [`Engine`](#class-smartdownengine)
+ - [`flow`](#flow)
+ - [`initialize`](#initializeflow-initial_state--)
+ - [`build_start_state`](#build_start_state)
+ - [`default_predicates`](#default_predicates)
+ - [`process`](#processunprocessed_responses-test_start_state--nil)
+ - [`evaluate_node`](#evaluate_nodestate)
+
+- [`Flow`](#class-smartdownapiflow)
+ - [`scenario_sets`](#scenario_sets)
+ - [`initialize`](#initializesmartdown_input-options--)
+ - [`state`](#statestarted-responses)
+ - [`name`](#name)
+ - [`title`](#title)
+ - [`meta_description`](#meta_description)
+ - [`need_id`](#need_id)
+ - [`content_id`](#content_id)
+ - [`status`](#status)
+ - [`draft?`](#draft)
+ - [`transition?`](#transition)
+ - [`published?`](#published)
+ - [`nodes`](#nodes)
+ - [`question_pages`](#question_pages)
+ - [`outcomes`](#outcomes)
+ - [`coversheet`](#coversheet)
+
+- [`Node`](#class-smartdownapinode)
+ - [`title`](#title)
+ - [`elements`](#elements)
+ - [`front_matter`](#front_matter)
+ - [`name`](#name)
+ - [`markers`](#markers)
+ - [`initialize`](#initializenode)
+ - [`body`](#body)
+ - [`post_body`](#post_body)
+ - [`next_nodes`](#next_nodes)
+ - [`permitted_next_nodes`](#permitted_next_nodes)
+
+- [`State`](#class-smartdownapistate)
+ - [`accepted_responses`](#accepted_responses)
+ - [`current_node`](#current_node)
+ - [`current_answers`](#current_answers)
+ - [`initialize`](#initializecurrent_node-previous_questionpage_smartdown_nodes-accepted_responses-current_answers)
+ - [`previous_answers`](#previous_answers)
+ - [`previous_question_pages`](#previous_question_pages)
+ - [`started?`](#started)
+ - [`finished?`](#finished)
+ - [`current_question_number`](#current_question_number)
+
+- [`Node`](#class-smartdownmodelnode)
+ - [`name=`](#namevalue)
+ - [`name`](#name)
+ - [`elements=`](#elementsvalue)
+ - [`elements`](#elements)
+ - [`front_matter=`](#front_mattervalue)
+ - [`front_matter`](#front_matter)
+
+- [`Rule`](#class-smartdownmodelrule)
+ - [`predicate=`](#predicatevalue)
+ - [`predicate`](#predicate)
+ - [`outcome=`](#outcomevalue)
+ - [`outcome`](#outcome)
+
+- [`Flow`](#class-smartdownmodelflow)
+ - [`name`](#name)
+ - [`nodes`](#nodes)
+ - [`initialize`](#initializename-nodes--)
+ - [`coversheet`](#coversheet)
+ - [`node`](#nodenode_name)
+ - [`==`](#other)
+
+- [`Outcome`](#class-smartdownapioutcome)
+ - [`next_steps`](#next_steps)
+
+- [`Rules`](#class-smartdownparserrules)
+ - [`indent`](#indentdepth)
+ - [`conditional_line`](#conditional_linedepth)
+ - [`children`](#children)
+ - [`condition_with_children`](#condition_with_childrendepth)
+ - [`rule`](#ruledepth)
+ - [`condition_with_children_or_rule`](#condition_with_children_or_ruledepth)
+
+- [`Question`](#class-smartdownapiquestion)
+ - [`initialize`](#initializeelements)
+ - [`title`](#title)
+ - [`name`](#name)
+ - [`body`](#body)
+ - [`post_body`](#post_body)
+ - [`hint`](#hint)
+
+- [`State`](#class-smartdownenginestate)
+ - [`initialize`](#initializedata--)
+ - [`has_key?`](#has_keykey)
+ - [`has_value?`](#has_valuekey-expected_value)
+ - [`get`](#getkey)
+ - [`put`](#putname-value)
+ - [`keys`](#keys)
+ - [`==`](#other)
+
+- [`Elements`](#class-smartdownmodelelements)
+ - [`elements=`](#elementsvalue)
+ - [`elements`](#elements)
+
+- [`InputSet`](#class-smartdownparserinputset)
+ - [`coversheet`](#coversheet)
+ - [`questions`](#questions)
+ - [`outcomes`](#outcomes)
+ - [`snippets`](#snippets)
+ - [`scenario_sets`](#scenario_sets)
+ - [`initialize`](#initializeparams--)
+
+- [`InputData`](#class-smartdownparserinputdata)
+ - [`name`](#name)
+ - [`content`](#content)
+ - [`initialize`](#initializename-content)
+ - [`read`](#read)
+
+- [`QuestionPage`](#class-smartdownapiquestionpage)
+ - [`questions`](#questions)
+
+- [`DateQuestion`](#class-smartdownapidatequestion)
+ - [`start_year`](#start_year)
+ - [`end_year`](#end_year)
+
+- [`NestedRule`](#class-smartdownmodelnestedrule)
+ - [`predicate=`](#predicatevalue)
+ - [`predicate`](#predicate)
+ - [`children=`](#childrenvalue)
+ - [`children`](#children)
+
+- [`Transition`](#class-smartdownenginetransition)
+ - [`state`](#state)
+ - [`node`](#node)
+ - [`answers`](#answers)
+ - [`initialize`](#initializestate-node-answers-options--)
+ - [`next_node`](#next_node)
+ - [`next_state`](#next_state)
+
+- [`Text`](#class-smartdownmodelanswertext)
+ - [`value_type`](#value_type)
+ - [`humanize`](#humanize)
+
+- [`Date`](#class-smartdownmodelanswerdate)
+ - [`value_type`](#value_type)
+ - [`to_s`](#to_s)
+ - [`humanize`](#humanize)
+
+- [`Base`](#class-smartdownmodelanswerbase)
+ - [`value_type`](#value_type)
+ - [`-`](#-other)
+ - [`+`](#other)
+ - [`*`](#other)
+ - [`/`](#other)
+ - [`<=>`](#other)
+ - [`question`](#question)
+ - [`value`](#value)
+ - [`error`](#error)
+ - [`initialize`](#initializevalue-questionnil)
+ - [`valid?`](#valid)
+ - [`invalid?`](#invalid)
+
+- [`Money`](#class-smartdownmodelanswermoney)
+ - [`value_type`](#value_type)
+ - [`to_s`](#to_s)
+ - [`humanize`](#humanize)
+
+- [`FrontMatter`](#class-smartdownmodelfrontmatter)
+ - [`initialize`](#initializeattributes--)
+ - [`method_missing`](#method_missingmethod_name-args-block)
+ - [`respond_to_missing?`](#respond_to_missingmethod_name-include_private--false)
+ - [`has_attribute?`](#has_attributename)
+ - [`fetch`](#fetchname-args)
+ - [`to_hash`](#to_hash)
+ - [`==`](#other)
+
+- [`DirectoryInput`](#class-smartdownapidirectoryinput)
+ - [`initialize`](#initializecoversheet_path)
+
+- [`Salary`](#class-smartdownmodelanswersalary)
+ - [`period`](#period)
+ - [`amount_per_period`](#amount_per_period)
+ - [`value_type`](#value_type)
+ - [`to_s`](#to_s)
+ - [`humanize`](#humanize)
+
+- [`MultipleChoice`](#class-smartdownapimultiplechoice)
+ - [`options`](#options)
+ - [`name`](#name)
+
+- [`Interpolator`](#class-smartdownengineinterpolator)
+ - [`call`](#callnode-state)
+
+- [`NullElementInterpolator`](#class-smartdownengineinterpolatornullelementinterpolator)
+ - [`element`](#element)
+ - [`initialize`](#initializeelement)
+ - [`call`](#callstate)
+
+- [`ElementContentInterpolator`](#class-smartdownengineinterpolatorelementcontentinterpolator)
+ - [`call`](#callstate)
+
+- [`Country`](#class-smartdownmodelanswercountry)
+ - [`value_type`](#value_type)
+ - [`humanize`](#humanize)
+
+- [`Marker`](#class-smartdownmodelelementmarker)
+ - [`marker_name=`](#marker_namevalue)
+ - [`marker_name`](#marker_name)
+
+- [`CountryQuestion`](#class-smartdownapicountryquestion)
+ - [`options`](#options)
+ - [`name`](#name)
+
+- [`NextNodeRules`](#class-smartdownmodelnextnoderules)
+ - [`rules=`](#rulesvalue)
+ - [`rules`](#rules)
+
+- [`Postcode`](#class-smartdownmodelanswerpostcode)
+ - [`value_type`](#value_type)
+ - [`humanize`](#humanize)
+
+- [`Named`](#class-smartdownmodelpredicatenamed)
+ - [`name=`](#namevalue)
+ - [`name`](#name)
+
+- [`PreviousQuestion`](#class-smartdownapipreviousquestion)
+ - [`answer`](#answer)
+ - [`question`](#question)
+ - [`initialize`](#initializeelements-response)
+
+- [`NodePresenter`](#class-smartdownenginenodepresenter)
+ - [`present`](#presentunpresented_node-state)
+
+- [`DirectoryInput`](#class-smartdownparserdirectoryinput)
+ - [`initialize`](#initializecoversheet_path)
+ - [`coversheet`](#coversheet)
+ - [`questions`](#questions)
+ - [`outcomes`](#outcomes)
+ - [`scenario_sets`](#scenario_sets)
+ - [`snippets`](#snippets)
+ - [`filenames_hash`](#filenames_hash)
+
+- [`InputFile`](#class-smartdownparserinputfile)
+ - [`initialize`](#initializepath-namenil)
+ - [`name`](#name)
+ - [`read`](#read)
+ - [`to_s`](#to_s)
+
+- [`NodeInterpreter`](#class-smartdownparsernodeinterpreter)
+ - [`name`](#name)
+ - [`source`](#source)
+ - [`reporter`](#reporter)
+ - [`data_module`](#data_module)
+ - [`initialize`](#initializename-source-options--)
+ - [`interpret`](#interpret)
+
+- [`ParseError`](#class-smartdownparserparseerror)
+ - [`filename`](#filename)
+ - [`parse_error`](#parse_error)
+ - [`initialize`](#initializefilename-parse_error)
+ - [`to_s`](#to_sfull--true)
+
+- [`FlowInterpreter`](#class-smartdownparserflowinterpreter)
+ - [`flow_input`](#flow_input)
+ - [`data_module`](#data_module)
+ - [`initialize`](#initializeflow_input-data_modulenil)
+ - [`interpret`](#interpret)
+
+- [`Question`](#class-smartdownmodelscenariosquestion)
+ - [`name=`](#namevalue)
+ - [`name`](#name)
+ - [`answer=`](#answervalue)
+ - [`answer`](#answer)
+
+- [`Scenario`](#class-smartdownmodelscenariosscenario)
+ - [`description=`](#descriptionvalue)
+ - [`description`](#description)
+ - [`question_groups=`](#question_groupsvalue)
+ - [`question_groups`](#question_groups)
+ - [`outcome=`](#outcomevalue)
+ - [`outcome`](#outcome)
+ - [`markers=`](#markersvalue)
+ - [`markers`](#markers)
+ - [`exact_markers=`](#exact_markersvalue)
+ - [`exact_markers`](#exact_markers)
+
+- [`NextSteps`](#class-smartdownmodelelementnextsteps)
+ - [`content=`](#contentvalue)
+ - [`content`](#content)
+
+- [`Equality`](#class-smartdownmodelpredicateequality)
+ - [`varname=`](#varnamevalue)
+ - [`varname`](#varname)
+ - [`expected_value=`](#expected_valuevalue)
+ - [`expected_value`](#expected_value)
+
+- [`Function`](#class-smartdownmodelpredicatefunction)
+ - [`name=`](#namevalue)
+ - [`name`](#name)
+ - [`arguments=`](#argumentsvalue)
+ - [`arguments`](#arguments)
+
+- [`Conditional`](#class-smartdownmodelelementconditional)
+ - [`predicate=`](#predicatevalue)
+ - [`predicate`](#predicate)
+ - [`true_case=`](#true_casevalue)
+ - [`true_case`](#true_case)
+ - [`false_case=`](#false_casevalue)
+ - [`false_case`](#false_case)
+
+- [`SnippetPreParser`](#class-smartdownparsersnippetpreparser)
+ - [`input_data`](#input_data)
+ - [`initialize`](#initializeinput_data)
+ - [`parse`](#parse)
+ - [`parse`](#parseinput_data)
+
+- [`Otherwise`](#class-smartdownmodelpredicateotherwise)
+ - [`evaluate`](#evaluatestate)
+ - [`==`](#o)
+ - [`humanize`](#humanize)
+
+- [`PreviousQuestionPage`](#class-smartdownapipreviousquestionpage)
+ - [`title`](#title)
+ - [`initialize`](#initializenode-responses)
+ - [`answers`](#answers)
+ - [`questions`](#questions)
+
+- [`StartButton`](#class-smartdownmodelelementstartbutton)
+ - [`start_node=`](#start_nodevalue)
+ - [`start_node`](#start_node)
+
+- [`ConditionalResolver`](#class-smartdownengineconditionalresolver)
+ - [`call`](#callnode-state)
+
+- [`Text`](#class-smartdownmodelelementquestiontext)
+ - [`name=`](#namevalue)
+ - [`name`](#name)
+ - [`alias=`](#aliasvalue)
+ - [`alias`](#alias)
+ - [`answer_type`](#answer_type)
+
+- [`MarkdownLine`](#class-smartdownmodelelementmarkdownline)
+ - [`content=`](#contentvalue)
+ - [`content`](#content)
+
+- [`Date`](#class-smartdownmodelelementquestiondate)
+ - [`name=`](#namevalue)
+ - [`name`](#name)
+ - [`from=`](#fromvalue)
+ - [`from`](#from)
+ - [`to=`](#tovalue)
+ - [`to`](#to)
+ - [`alias=`](#aliasvalue)
+ - [`alias`](#alias)
+ - [`answer_type`](#answer_type)
+
+- [`ScenarioSet`](#class-smartdownmodelscenariosscenarioset)
+ - [`name=`](#namevalue)
+ - [`name`](#name)
+ - [`scenarios=`](#scenariosvalue)
+ - [`scenarios`](#scenarios)
+
+- [`MultipleChoice`](#class-smartdownmodelanswermultiplechoice)
+ - [`value_type`](#value_type)
+ - [`humanize`](#humanize)
+
+- [`Money`](#class-smartdownmodelelementquestionmoney)
+ - [`name=`](#namevalue)
+ - [`name`](#name)
+ - [`alias=`](#aliasvalue)
+ - [`alias`](#alias)
+ - [`answer_type`](#answer_type)
+
+- [`OrOperation`](#class-smartdownmodelpredicateoroperation)
+ - [`predicates=`](#predicatesvalue)
+ - [`predicates`](#predicates)
+
+- [`Salary`](#class-smartdownmodelelementquestionsalary)
+ - [`name=`](#namevalue)
+ - [`name`](#name)
+ - [`alias=`](#aliasvalue)
+ - [`alias`](#alias)
+ - [`answer_type`](#answer_type)
+
+- [`NotOperation`](#class-smartdownmodelpredicatenotoperation)
+ - [`predicate=`](#predicatevalue)
+ - [`predicate`](#predicate)
+
+- [`AndOperation`](#class-smartdownmodelpredicateandoperation)
+ - [`predicates=`](#predicatesvalue)
+ - [`predicates`](#predicates)
+
+- [`MarkdownHeading`](#class-smartdownmodelelementmarkdownheading)
+ - [`content=`](#contentvalue)
+ - [`content`](#content)
+
+- [`SetMembership`](#class-smartdownmodelpredicatesetmembership)
+ - [`varname=`](#varnamevalue)
+ - [`varname`](#varname)
+ - [`values=`](#valuesvalue)
+ - [`values`](#values)
+
+- [`Country`](#class-smartdownmodelelementquestioncountry)
+ - [`name=`](#namevalue)
+ - [`name`](#name)
+ - [`countries=`](#countriesvalue)
+ - [`countries`](#countries)
+ - [`alias=`](#aliasvalue)
+ - [`alias`](#alias)
+ - [`answer_type`](#answer_type)
+
+- [`Less`](#class-smartdownmodelpredicatecomparisonless)
+ - [`evaluate`](#evaluatestate)
+ - [`humanize`](#humanize)
+
+- [`Postcode`](#class-smartdownmodelelementquestionpostcode)
+ - [`name=`](#namevalue)
+ - [`name`](#name)
+ - [`alias=`](#aliasvalue)
+ - [`alias`](#alias)
+ - [`answer_type`](#answer_type)
+
+- [`Base`](#class-smartdownmodelpredicatecomparisonbase)
+ - [`varname=`](#varnamevalue)
+ - [`varname`](#varname)
+ - [`value=`](#valuevalue)
+ - [`value`](#value)
+
+- [`ScenarioSetInterpreter`](#class-smartdownparserscenariosetinterpreter)
+ - [`initialize`](#initializescenario_string)
+ - [`scenario`](#scenario)
+ - [`description_lines`](#description_lines)
+ - [`description`](#description)
+ - [`question_groups`](#question_groups)
+ - [`last_question`](#last_question)
+ - [`first_question`](#first_question)
+ - [`outcome`](#outcome)
+ - [`has_markers?`](#has_markers)
+ - [`has_exact_markers?`](#has_exact_markers)
+ - [`markers`](#markers)
+ - [`exact_markers`](#exact_markers)
+
+- [`ScenarioSetsInterpreter`](#class-smartdownparserscenariosetsinterpreter)
+ - [`initialize`](#initializesmartdown_input)
+ - [`interpret`](#interpret)
+
+- [`Greater`](#class-smartdownmodelpredicatecomparisongreater)
+ - [`evaluate`](#evaluatestate)
+ - [`humanize`](#humanize)
+
+- [`MultipleChoice`](#class-smartdownmodelelementquestionmultiplechoice)
+ - [`name=`](#namevalue)
+ - [`name`](#name)
+ - [`choices=`](#choicesvalue)
+ - [`choices`](#choices)
+ - [`alias=`](#aliasvalue)
+ - [`alias`](#alias)
+ - [`answer_type`](#answer_type)
+
+- [`LessOrEqual`](#class-smartdownmodelpredicatecomparisonlessorequal)
+ - [`evaluate`](#evaluatestate)
+ - [`humanize`](#humanize)
+
+- [`GreaterOrEqual`](#class-smartdownmodelpredicatecomparisongreaterorequal)
+ - [`evaluate`](#evaluatestate)
+ - [`humanize`](#humanize)
+
+- [`Smartdown`](#module-smartdown)
+ - [`parse`](#parsecoversheet_file)
+
+- [`Question`](#module-smartdownmodelelementquestion)
+ - [`create_question_answer`](#create_question_answerelements-responsenil)
+
+- [`OptionPairs`](#module-smartdownparseroptionpairs)
+ - [`transform`](#transformoption_pairs)
+
+---
 
 ## `class Smartdown::Engine`
 
@@ -16,10 +494,12 @@ Returns the value of attribute flow
 
 - (`Engine`) — a new instance of Engine
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine.rb#L10)
 
 ### `#build_start_state`
+
 
 
 **See**:
@@ -28,16 +508,19 @@ Returns the value of attribute flow
 ### `#default_predicates`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine.rb#L23)
 
 ### `#process(unprocessed_responses, test_start_state = nil)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine.rb#L27)
 
 ### `#evaluate_node(state)`
+
 
 
 **See**:
@@ -62,10 +545,12 @@ Returns the value of attribute scenario_sets
 
 - (`Flow`) — a new instance of Flow
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/flow.rb#L15)
 
 ### `#state(started, responses)`
+
 
 
 **See**:
@@ -74,10 +559,12 @@ Returns the value of attribute scenario_sets
 ### `#name`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/flow.rb#L33)
 
 ### `#title`
+
 
 
 **See**:
@@ -86,10 +573,12 @@ Returns the value of attribute scenario_sets
 ### `#meta_description`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/flow.rb#L41)
 
 ### `#need_id`
+
 
 
 **See**:
@@ -98,10 +587,12 @@ Returns the value of attribute scenario_sets
 ### `#content_id`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/flow.rb#L49)
 
 ### `#status`
+
 
 
 **See**:
@@ -114,6 +605,7 @@ Returns the value of attribute scenario_sets
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/flow.rb#L57)
 
@@ -123,6 +615,7 @@ Returns the value of attribute scenario_sets
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/flow.rb#L61)
@@ -134,10 +627,12 @@ Returns the value of attribute scenario_sets
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/flow.rb#L65)
 
 ### `#nodes`
+
 
 
 **See**:
@@ -146,16 +641,19 @@ Returns the value of attribute scenario_sets
 ### `#question_pages`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/flow.rb#L76)
 
 ### `#outcomes`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/flow.rb#L80)
 
 ### `#coversheet`
+
 
 
 **See**:
@@ -212,10 +710,12 @@ Returns the value of attribute markers
 
 - (`Node`) — a new instance of Node
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/node.rb#L7)
 
 ### `#body`
+
 
 
 **See**:
@@ -224,16 +724,19 @@ Returns the value of attribute markers
 ### `#post_body`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/node.rb#L34)
 
 ### `#next_nodes`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/node.rb#L42)
 
 ### `#permitted_next_nodes`
+
 
 
 **See**:
@@ -274,16 +777,19 @@ Returns the value of attribute current_answers
 
 - (`State`) — a new instance of State
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/state.rb#L9)
 
 ### `#previous_answers`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/state.rb#L16)
 
 ### `#previous_question_pages`
+
 
 
 **See**:
@@ -296,6 +802,7 @@ Returns the value of attribute current_answers
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/state.rb#L26)
 
@@ -306,10 +813,12 @@ Returns the value of attribute current_answers
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/state.rb#L30)
 
 ### `#current_question_number`
+
 
 
 **See**:
@@ -332,6 +841,7 @@ Sets the attribute name
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/node.rb#L5)
 
@@ -342,6 +852,7 @@ Returns the value of attribute name
 **Returns**:
 
 - (`Object`) — the current value of name
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/node.rb#L5)
@@ -359,6 +870,7 @@ Sets the attribute elements
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/node.rb#L5)
 
@@ -369,6 +881,7 @@ Returns the value of attribute elements
 **Returns**:
 
 - (`Object`) — the current value of elements
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/node.rb#L5)
@@ -386,6 +899,7 @@ Sets the attribute front_matter
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/node.rb#L5)
 
@@ -396,6 +910,7 @@ Returns the value of attribute front_matter
 **Returns**:
 
 - (`Object`) — the current value of front_matter
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/node.rb#L5)
@@ -417,6 +932,7 @@ Sets the attribute predicate
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/rule.rb#L3)
 
@@ -427,6 +943,7 @@ Returns the value of attribute predicate
 **Returns**:
 
 - (`Object`) — the current value of predicate
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/rule.rb#L3)
@@ -444,6 +961,7 @@ Sets the attribute outcome
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/rule.rb#L3)
 
@@ -454,6 +972,7 @@ Returns the value of attribute outcome
 **Returns**:
 
 - (`Object`) — the current value of outcome
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/rule.rb#L3)
@@ -485,10 +1004,12 @@ Returns the value of attribute nodes
 
 - (`Flow`) — a new instance of Flow
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/flow.rb#L6)
 
 ### `#coversheet`
+
 
 
 **See**:
@@ -497,10 +1018,12 @@ Returns the value of attribute nodes
 ### `#node(node_name)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/flow.rb#L15)
 
 ### `#==(other)`
+
 
 
 **See**:
@@ -513,6 +1036,7 @@ Returns the value of attribute nodes
 ### `#next_steps`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/outcome.rb#L5)
 
@@ -523,10 +1047,12 @@ Returns the value of attribute nodes
 ### `#indent(depth)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/rules.rb#L7)
 
 ### `#conditional_line(depth)`
+
 
 
 **See**:
@@ -535,10 +1061,12 @@ Returns the value of attribute nodes
 ### `#children`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/rules.rb#L15)
 
 ### `#condition_with_children(depth)`
+
 
 
 **See**:
@@ -547,10 +1075,12 @@ Returns the value of attribute nodes
 ### `#rule(depth)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/rules.rb#L26)
 
 ### `#condition_with_children_or_rule(depth)`
+
 
 
 **See**:
@@ -567,10 +1097,12 @@ Returns the value of attribute nodes
 
 - (`Question`) — a new instance of Question
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/question.rb#L5)
 
 ### `#title`
+
 
 
 **See**:
@@ -579,16 +1111,19 @@ Returns the value of attribute nodes
 ### `#name`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/question.rb#L13)
 
 ### `#body`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/question.rb#L17)
 
 ### `#post_body`
+
 
 
 **See**:
@@ -627,6 +1162,7 @@ TODO: deprecate
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine/state.rb#L17)
 
@@ -637,10 +1173,12 @@ TODO: deprecate
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine/state.rb#L21)
 
 ### `#get(key)`
+
 
 
 **See**:
@@ -649,16 +1187,19 @@ TODO: deprecate
 ### `#put(name, value)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine/state.rb#L29)
 
 ### `#keys`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine/state.rb#L33)
 
 ### `#==(other)`
+
 
 
 **See**:
@@ -725,6 +1266,7 @@ Sets the attribute elements
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/elements.rb#L49)
 
@@ -735,6 +1277,7 @@ Returns the value of attribute elements
 **Returns**:
 
 - (`Object`) — the current value of elements
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/elements.rb#L49)
@@ -790,6 +1333,7 @@ Returns the value of attribute scenario_sets
 
 - (`InputSet`) — a new instance of InputSet
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/input_set.rb#L6)
 
@@ -820,10 +1364,12 @@ Returns the value of attribute content
 
 - (`InputData`) — a new instance of InputData
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/input_set.rb#L18)
 
 ### `#read`
+
 
 
 **See**:
@@ -836,6 +1382,7 @@ Returns the value of attribute content
 ### `#questions`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/question_page.rb#L6)
 
@@ -846,10 +1393,12 @@ Returns the value of attribute content
 ### `#start_year`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/date_question.rb#L8)
 
 ### `#end_year`
+
 
 
 **See**:
@@ -872,6 +1421,7 @@ Sets the attribute predicate
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/nested_rule.rb#L3)
 
@@ -882,6 +1432,7 @@ Returns the value of attribute predicate
 **Returns**:
 
 - (`Object`) — the current value of predicate
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/nested_rule.rb#L3)
@@ -899,6 +1450,7 @@ Sets the attribute children
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/nested_rule.rb#L3)
 
@@ -909,6 +1461,7 @@ Returns the value of attribute children
 **Returns**:
 
 - (`Object`) — the current value of children
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/nested_rule.rb#L3)
@@ -948,16 +1501,19 @@ Returns the value of attribute answers
 
 - (`Transition`) — a new instance of Transition
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine/transition.rb#L8)
 
 ### `#next_node`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine/transition.rb#L14)
 
 ### `#next_state`
+
 
 
 **See**:
@@ -970,10 +1526,12 @@ Returns the value of attribute answers
 ### `#value_type`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/text.rb#L7)
 
 ### `#humanize`
+
 
 
 **See**:
@@ -986,16 +1544,19 @@ Returns the value of attribute answers
 ### `#value_type`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/date.rb#L7)
 
 ### `#to_s`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/date.rb#L11)
 
 ### `#humanize`
+
 
 
 **See**:
@@ -1008,10 +1569,12 @@ Returns the value of attribute answers
 ### `#value_type`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/base.rb#L12)
 
 ### `#-(other)`
+
 
 
 **See**:
@@ -1020,10 +1583,12 @@ Returns the value of attribute answers
 ### `#+(other)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/base.rb#L20)
 
 ### `#*(other)`
+
 
 
 **See**:
@@ -1032,10 +1597,12 @@ Returns the value of attribute answers
 ### `#/(other)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/base.rb#L28)
 
 ### `#<=>(other)`
+
 
 
 **See**:
@@ -1072,6 +1639,7 @@ Returns the value of attribute error
 
 - (`Base`) — a new instance of Base
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/base.rb#L38)
 
@@ -1081,6 +1649,7 @@ Returns the value of attribute error
 **Returns**:
 
 - (`Boolean`) — 
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/base.rb#L44)
@@ -1092,6 +1661,7 @@ Returns the value of attribute error
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/base.rb#L48)
 
@@ -1102,16 +1672,19 @@ Returns the value of attribute error
 ### `#value_type`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/money.rb#L11)
 
 ### `#to_s`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/money.rb#L15)
 
 ### `#humanize`
+
 
 
 **See**:
@@ -1128,10 +1701,12 @@ Returns the value of attribute error
 
 - (`FrontMatter`) — a new instance of FrontMatter
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/front_matter.rb#L4)
 
 ### `#method_missing(method_name, *args, &block)`
+
 
 
 **See**:
@@ -1144,6 +1719,7 @@ Returns the value of attribute error
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/front_matter.rb#L16)
 
@@ -1154,10 +1730,12 @@ Returns the value of attribute error
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/front_matter.rb#L20)
 
 ### `#fetch(name, *args)`
+
 
 
 **See**:
@@ -1166,10 +1744,12 @@ Returns the value of attribute error
 ### `#to_hash`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/front_matter.rb#L28)
 
 ### `#==(other)`
+
 
 
 **See**:
@@ -1185,6 +1765,7 @@ Returns the value of attribute error
 **Returns**:
 
 - (`DirectoryInput`) — a new instance of DirectoryInput
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/directory_input.rb#L6)
@@ -1212,16 +1793,19 @@ Returns the value of attribute amount_per_period
 ### `#value_type`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/salary.rb#L13)
 
 ### `#to_s`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/salary.rb#L17)
 
 ### `#humanize`
+
 
 
 **See**:
@@ -1234,10 +1818,12 @@ Returns the value of attribute amount_per_period
 ### `#options`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/multiple_choice.rb#L6)
 
 ### `#name`
+
 
 
 **See**:
@@ -1248,6 +1834,7 @@ Returns the value of attribute amount_per_period
 ## `class Smartdown::Engine::Interpolator`
 
 ### `#call(node, state)`
+
 
 
 **See**:
@@ -1272,10 +1859,12 @@ Returns the value of attribute element
 
 - (`NullElementInterpolator`) — a new instance of NullElementInterpolator
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine/interpolator.rb#L28)
 
 ### `#call(state)`
+
 
 
 **See**:
@@ -1288,6 +1877,7 @@ Returns the value of attribute element
 ### `#call(state)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/engine/interpolator.rb#L38)
 
@@ -1298,10 +1888,12 @@ Returns the value of attribute element
 ### `#value_type`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/country.rb#L7)
 
 ### `#humanize`
+
 
 
 **See**:
@@ -1324,6 +1916,7 @@ Sets the attribute marker_name
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/marker.rb#L4)
 
@@ -1335,6 +1928,7 @@ Returns the value of attribute marker_name
 
 - (`Object`) — the current value of marker_name
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/marker.rb#L4)
 
@@ -1345,10 +1939,12 @@ Returns the value of attribute marker_name
 ### `#options`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/country_question.rb#L7)
 
 ### `#name`
+
 
 
 **See**:
@@ -1371,6 +1967,7 @@ Sets the attribute rules
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/next_node_rules.rb#L3)
 
@@ -1382,6 +1979,7 @@ Returns the value of attribute rules
 
 - (`Object`) — the current value of rules
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/next_node_rules.rb#L3)
 
@@ -1392,10 +1990,12 @@ Returns the value of attribute rules
 ### `#value_type`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/postcode.rb#L10)
 
 ### `#humanize`
+
 
 
 **See**:
@@ -1418,6 +2018,7 @@ Sets the attribute name
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/named.rb#L4)
 
@@ -1428,6 +2029,7 @@ Returns the value of attribute name
 **Returns**:
 
 - (`Object`) — the current value of name
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/named.rb#L4)
@@ -1459,6 +2061,7 @@ Returns the value of attribute question
 
 - (`PreviousQuestion`) — a new instance of PreviousQuestion
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/previous_question.rb#L10)
 
@@ -1467,6 +2070,7 @@ Returns the value of attribute question
 ## `class Smartdown::Engine::NodePresenter`
 
 ### `#present(unpresented_node, state)`
+
 
 
 **See**:
@@ -1483,10 +2087,12 @@ Returns the value of attribute question
 
 - (`DirectoryInput`) — a new instance of DirectoryInput
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/directory_input.rb#L6)
 
 ### `#coversheet`
+
 
 
 **See**:
@@ -1495,10 +2101,12 @@ Returns the value of attribute question
 ### `#questions`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/directory_input.rb#L14)
 
 ### `#outcomes`
+
 
 
 **See**:
@@ -1507,16 +2115,19 @@ Returns the value of attribute question
 ### `#scenario_sets`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/directory_input.rb#L22)
 
 ### `#snippets`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/directory_input.rb#L26)
 
 ### `#filenames_hash`
+
 
 
 **See**:
@@ -1533,10 +2144,12 @@ Returns the value of attribute question
 
 - (`InputFile`) — a new instance of InputFile
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/directory_input.rb#L67)
 
 ### `#name`
+
 
 
 **See**:
@@ -1545,10 +2158,12 @@ Returns the value of attribute question
 ### `#read`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/directory_input.rb#L76)
 
 ### `#to_s`
+
 
 
 **See**:
@@ -1597,10 +2212,12 @@ Returns the value of attribute data_module
 
 - (`NodeInterpreter`) — a new instance of NodeInterpreter
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/node_interpreter.rb#L12)
 
 ### `#interpret`
+
 
 
 **See**:
@@ -1633,10 +2250,12 @@ Returns the value of attribute parse_error
 
 - (`ParseError`) — a new instance of ParseError
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/flow_interpreter.rb#L10)
 
 ### `#to_s(full = true)`
+
 
 
 **See**:
@@ -1669,10 +2288,12 @@ Returns the value of attribute data_module
 
 - (`FlowInterpreter`) — a new instance of FlowInterpreter
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/flow_interpreter.rb#L27)
 
 ### `#interpret`
+
 
 
 **See**:
@@ -1695,6 +2316,7 @@ Sets the attribute name
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/question.rb#L4)
 
@@ -1705,6 +2327,7 @@ Returns the value of attribute name
 **Returns**:
 
 - (`Object`) — the current value of name
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/question.rb#L4)
@@ -1722,6 +2345,7 @@ Sets the attribute answer
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/question.rb#L4)
 
@@ -1732,6 +2356,7 @@ Returns the value of attribute answer
 **Returns**:
 
 - (`Object`) — the current value of answer
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/question.rb#L4)
@@ -1753,6 +2378,7 @@ Sets the attribute description
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/scenario.rb#L4)
 
@@ -1763,6 +2389,7 @@ Returns the value of attribute description
 **Returns**:
 
 - (`Object`) — the current value of description
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/scenario.rb#L4)
@@ -1780,6 +2407,7 @@ Sets the attribute question_groups
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/scenario.rb#L4)
 
@@ -1790,6 +2418,7 @@ Returns the value of attribute question_groups
 **Returns**:
 
 - (`Object`) — the current value of question_groups
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/scenario.rb#L4)
@@ -1807,6 +2436,7 @@ Sets the attribute outcome
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/scenario.rb#L4)
 
@@ -1817,6 +2447,7 @@ Returns the value of attribute outcome
 **Returns**:
 
 - (`Object`) — the current value of outcome
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/scenario.rb#L4)
@@ -1834,6 +2465,7 @@ Sets the attribute markers
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/scenario.rb#L4)
 
@@ -1844,6 +2476,7 @@ Returns the value of attribute markers
 **Returns**:
 
 - (`Object`) — the current value of markers
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/scenario.rb#L4)
@@ -1861,6 +2494,7 @@ Sets the attribute exact_markers
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/scenario.rb#L4)
 
@@ -1871,6 +2505,7 @@ Returns the value of attribute exact_markers
 **Returns**:
 
 - (`Object`) — the current value of exact_markers
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/scenario.rb#L4)
@@ -1892,6 +2527,7 @@ Sets the attribute content
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/next_steps.rb#L4)
 
@@ -1902,6 +2538,7 @@ Returns the value of attribute content
 **Returns**:
 
 - (`Object`) — the current value of content
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/next_steps.rb#L4)
@@ -1923,6 +2560,7 @@ Sets the attribute varname
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/equality.rb#L4)
 
@@ -1933,6 +2571,7 @@ Returns the value of attribute varname
 **Returns**:
 
 - (`Object`) — the current value of varname
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/equality.rb#L4)
@@ -1950,6 +2589,7 @@ Sets the attribute expected_value
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/equality.rb#L4)
 
@@ -1960,6 +2600,7 @@ Returns the value of attribute expected_value
 **Returns**:
 
 - (`Object`) — the current value of expected_value
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/equality.rb#L4)
@@ -1981,6 +2622,7 @@ Sets the attribute name
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/function.rb#L4)
 
@@ -1991,6 +2633,7 @@ Returns the value of attribute name
 **Returns**:
 
 - (`Object`) — the current value of name
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/function.rb#L4)
@@ -2008,6 +2651,7 @@ Sets the attribute arguments
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/function.rb#L4)
 
@@ -2018,6 +2662,7 @@ Returns the value of attribute arguments
 **Returns**:
 
 - (`Object`) — the current value of arguments
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/function.rb#L4)
@@ -2039,6 +2684,7 @@ Sets the attribute predicate
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/conditional.rb#L4)
 
@@ -2049,6 +2695,7 @@ Returns the value of attribute predicate
 **Returns**:
 
 - (`Object`) — the current value of predicate
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/conditional.rb#L4)
@@ -2066,6 +2713,7 @@ Sets the attribute true_case
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/conditional.rb#L4)
 
@@ -2076,6 +2724,7 @@ Returns the value of attribute true_case
 **Returns**:
 
 - (`Object`) — the current value of true_case
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/conditional.rb#L4)
@@ -2093,6 +2742,7 @@ Sets the attribute false_case
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/conditional.rb#L4)
 
@@ -2103,6 +2753,7 @@ Returns the value of attribute false_case
 **Returns**:
 
 - (`Object`) — the current value of false_case
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/conditional.rb#L4)
@@ -2126,16 +2777,19 @@ Returns the value of attribute input_data
 
 - (`SnippetPreParser`) — a new instance of SnippetPreParser
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/snippet_pre_parser.rb#L10)
 
 ### `#parse`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/snippet_pre_parser.rb#L14)
 
 ### `.parse(input_data)`
+
 
 
 **See**:
@@ -2148,16 +2802,19 @@ Returns the value of attribute input_data
 ### `#evaluate(state)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/otherwise.rb#L5)
 
 ### `#==(o)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/otherwise.rb#L9)
 
 ### `#humanize`
+
 
 
 **See**:
@@ -2182,16 +2839,19 @@ Returns the value of attribute title
 
 - (`PreviousQuestionPage`) — a new instance of PreviousQuestionPage
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/previous_question_page.rb#L9)
 
 ### `#answers`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/api/previous_question_page.rb#L25)
 
 ### `#questions`
+
 
 
 **See**:
@@ -2214,6 +2874,7 @@ Sets the attribute start_node
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/start_button.rb#L4)
 
@@ -2225,6 +2886,7 @@ Returns the value of attribute start_node
 
 - (`Object`) — the current value of start_node
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/start_button.rb#L4)
 
@@ -2233,6 +2895,7 @@ Returns the value of attribute start_node
 ## `class Smartdown::Engine::ConditionalResolver`
 
 ### `#call(node, state)`
+
 
 
 **See**:
@@ -2255,6 +2918,7 @@ Sets the attribute name
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/text.rb#L7)
 
@@ -2265,6 +2929,7 @@ Returns the value of attribute name
 **Returns**:
 
 - (`Object`) — the current value of name
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/text.rb#L7)
@@ -2282,6 +2947,7 @@ Sets the attribute alias
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/text.rb#L7)
 
@@ -2293,10 +2959,12 @@ Returns the value of attribute alias
 
 - (`Object`) — the current value of alias
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/text.rb#L7)
 
 ### `#answer_type`
+
 
 
 **See**:
@@ -2319,6 +2987,7 @@ Sets the attribute content
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/markdown_line.rb#L4)
 
@@ -2329,6 +2998,7 @@ Returns the value of attribute content
 **Returns**:
 
 - (`Object`) — the current value of content
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/markdown_line.rb#L4)
@@ -2350,6 +3020,7 @@ Sets the attribute name
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/date.rb#L7)
 
@@ -2360,6 +3031,7 @@ Returns the value of attribute name
 **Returns**:
 
 - (`Object`) — the current value of name
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/date.rb#L7)
@@ -2377,6 +3049,7 @@ Sets the attribute from
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/date.rb#L7)
 
@@ -2387,6 +3060,7 @@ Returns the value of attribute from
 **Returns**:
 
 - (`Object`) — the current value of from
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/date.rb#L7)
@@ -2404,6 +3078,7 @@ Sets the attribute to
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/date.rb#L7)
 
@@ -2414,6 +3089,7 @@ Returns the value of attribute to
 **Returns**:
 
 - (`Object`) — the current value of to
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/date.rb#L7)
@@ -2431,6 +3107,7 @@ Sets the attribute alias
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/date.rb#L7)
 
@@ -2442,10 +3119,12 @@ Returns the value of attribute alias
 
 - (`Object`) — the current value of alias
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/date.rb#L7)
 
 ### `#answer_type`
+
 
 
 **See**:
@@ -2468,6 +3147,7 @@ Sets the attribute name
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/scenario_set.rb#L4)
 
@@ -2478,6 +3158,7 @@ Returns the value of attribute name
 **Returns**:
 
 - (`Object`) — the current value of name
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/scenario_set.rb#L4)
@@ -2495,6 +3176,7 @@ Sets the attribute scenarios
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/scenario_set.rb#L4)
 
@@ -2506,6 +3188,7 @@ Returns the value of attribute scenarios
 
 - (`Object`) — the current value of scenarios
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/scenarios/scenario_set.rb#L4)
 
@@ -2516,10 +3199,12 @@ Returns the value of attribute scenarios
 ### `#value_type`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/answer/multiple_choice.rb#L7)
 
 ### `#humanize`
+
 
 
 **See**:
@@ -2542,6 +3227,7 @@ Sets the attribute name
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/money.rb#L7)
 
@@ -2552,6 +3238,7 @@ Returns the value of attribute name
 **Returns**:
 
 - (`Object`) — the current value of name
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/money.rb#L7)
@@ -2569,6 +3256,7 @@ Sets the attribute alias
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/money.rb#L7)
 
@@ -2580,10 +3268,12 @@ Returns the value of attribute alias
 
 - (`Object`) — the current value of alias
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/money.rb#L7)
 
 ### `#answer_type`
+
 
 
 **See**:
@@ -2606,6 +3296,7 @@ Sets the attribute predicates
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/or_operation.rb#L4)
 
@@ -2616,6 +3307,7 @@ Returns the value of attribute predicates
 **Returns**:
 
 - (`Object`) — the current value of predicates
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/or_operation.rb#L4)
@@ -2637,6 +3329,7 @@ Sets the attribute name
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/salary.rb#L7)
 
@@ -2647,6 +3340,7 @@ Returns the value of attribute name
 **Returns**:
 
 - (`Object`) — the current value of name
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/salary.rb#L7)
@@ -2664,6 +3358,7 @@ Sets the attribute alias
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/salary.rb#L7)
 
@@ -2675,10 +3370,12 @@ Returns the value of attribute alias
 
 - (`Object`) — the current value of alias
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/salary.rb#L7)
 
 ### `#answer_type`
+
 
 
 **See**:
@@ -2701,6 +3398,7 @@ Sets the attribute predicate
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/not_operation.rb#L4)
 
@@ -2711,6 +3409,7 @@ Returns the value of attribute predicate
 **Returns**:
 
 - (`Object`) — the current value of predicate
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/not_operation.rb#L4)
@@ -2732,6 +3431,7 @@ Sets the attribute predicates
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/and_operation.rb#L4)
 
@@ -2742,6 +3442,7 @@ Returns the value of attribute predicates
 **Returns**:
 
 - (`Object`) — the current value of predicates
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/and_operation.rb#L4)
@@ -2763,6 +3464,7 @@ Sets the attribute content
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/markdown_heading.rb#L4)
 
@@ -2773,6 +3475,7 @@ Returns the value of attribute content
 **Returns**:
 
 - (`Object`) — the current value of content
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/markdown_heading.rb#L4)
@@ -2794,6 +3497,7 @@ Sets the attribute varname
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/set_membership.rb#L4)
 
@@ -2804,6 +3508,7 @@ Returns the value of attribute varname
 **Returns**:
 
 - (`Object`) — the current value of varname
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/set_membership.rb#L4)
@@ -2821,6 +3526,7 @@ Sets the attribute values
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/set_membership.rb#L4)
 
@@ -2831,6 +3537,7 @@ Returns the value of attribute values
 **Returns**:
 
 - (`Object`) — the current value of values
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/set_membership.rb#L4)
@@ -2852,6 +3559,7 @@ Sets the attribute name
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/country.rb#L7)
 
@@ -2862,6 +3570,7 @@ Returns the value of attribute name
 **Returns**:
 
 - (`Object`) — the current value of name
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/country.rb#L7)
@@ -2879,6 +3588,7 @@ Sets the attribute countries
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/country.rb#L7)
 
@@ -2889,6 +3599,7 @@ Returns the value of attribute countries
 **Returns**:
 
 - (`Object`) — the current value of countries
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/country.rb#L7)
@@ -2906,6 +3617,7 @@ Sets the attribute alias
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/country.rb#L7)
 
@@ -2917,10 +3629,12 @@ Returns the value of attribute alias
 
 - (`Object`) — the current value of alias
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/country.rb#L7)
 
 ### `#answer_type`
+
 
 
 **See**:
@@ -2933,10 +3647,12 @@ Returns the value of attribute alias
 ### `#evaluate(state)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/comparison/less.rb#L9)
 
 ### `#humanize`
+
 
 
 **See**:
@@ -2959,6 +3675,7 @@ Sets the attribute name
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/postcode.rb#L7)
 
@@ -2969,6 +3686,7 @@ Returns the value of attribute name
 **Returns**:
 
 - (`Object`) — the current value of name
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/postcode.rb#L7)
@@ -2986,6 +3704,7 @@ Sets the attribute alias
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/postcode.rb#L7)
 
@@ -2997,10 +3716,12 @@ Returns the value of attribute alias
 
 - (`Object`) — the current value of alias
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/postcode.rb#L7)
 
 ### `#answer_type`
+
 
 
 **See**:
@@ -3023,6 +3744,7 @@ Sets the attribute varname
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/comparison/base.rb#L5)
 
@@ -3033,6 +3755,7 @@ Returns the value of attribute varname
 **Returns**:
 
 - (`Object`) — the current value of varname
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/comparison/base.rb#L5)
@@ -3050,6 +3773,7 @@ Sets the attribute value
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/comparison/base.rb#L5)
 
@@ -3060,6 +3784,7 @@ Returns the value of attribute value
 **Returns**:
 
 - (`Object`) — the current value of value
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/comparison/base.rb#L5)
@@ -3075,10 +3800,12 @@ Returns the value of attribute value
 
 - (`ScenarioSetInterpreter`) — a new instance of ScenarioSetInterpreter
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/scenario_set_interpreter.rb#L9)
 
 ### `#scenario`
+
 
 
 **See**:
@@ -3087,10 +3814,12 @@ Returns the value of attribute value
 ### `#description_lines`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/scenario_set_interpreter.rb#L23)
 
 ### `#description`
+
 
 
 **See**:
@@ -3099,10 +3828,12 @@ Returns the value of attribute value
 ### `#question_groups`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/scenario_set_interpreter.rb#L33)
 
 ### `#last_question`
+
 
 
 **See**:
@@ -3111,10 +3842,12 @@ Returns the value of attribute value
 ### `#first_question`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/scenario_set_interpreter.rb#L42)
 
 ### `#outcome`
+
 
 
 **See**:
@@ -3127,6 +3860,7 @@ Returns the value of attribute value
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/scenario_set_interpreter.rb#L50)
 
@@ -3137,16 +3871,19 @@ Returns the value of attribute value
 
 - (`Boolean`) — 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/scenario_set_interpreter.rb#L54)
 
 ### `#markers`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/scenario_set_interpreter.rb#L58)
 
 ### `#exact_markers`
+
 
 
 **See**:
@@ -3163,10 +3900,12 @@ Returns the value of attribute value
 
 - (`ScenarioSetsInterpreter`) — a new instance of ScenarioSetsInterpreter
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/parser/scenario_sets_interpreter.rb#L8)
 
 ### `#interpret`
+
 
 
 **See**:
@@ -3179,10 +3918,12 @@ Returns the value of attribute value
 ### `#evaluate(state)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/comparison/greater.rb#L9)
 
 ### `#humanize`
+
 
 
 **See**:
@@ -3205,6 +3946,7 @@ Sets the attribute name
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/multiple_choice.rb#L7)
 
@@ -3215,6 +3957,7 @@ Returns the value of attribute name
 **Returns**:
 
 - (`Object`) — the current value of name
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/multiple_choice.rb#L7)
@@ -3232,6 +3975,7 @@ Sets the attribute choices
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/multiple_choice.rb#L7)
 
@@ -3242,6 +3986,7 @@ Returns the value of attribute choices
 **Returns**:
 
 - (`Object`) — the current value of choices
+
 
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/multiple_choice.rb#L7)
@@ -3259,6 +4004,7 @@ Sets the attribute alias
 
 - (`Object`) — the newly set value
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/multiple_choice.rb#L7)
 
@@ -3270,10 +4016,12 @@ Returns the value of attribute alias
 
 - (`Object`) — the current value of alias
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question/multiple_choice.rb#L7)
 
 ### `#answer_type`
+
 
 
 **See**:
@@ -3286,10 +4034,12 @@ Returns the value of attribute alias
 ### `#evaluate(state)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/comparison/less_or_equal.rb#L9)
 
 ### `#humanize`
+
 
 
 **See**:
@@ -3302,10 +4052,12 @@ Returns the value of attribute alias
 ### `#evaluate(state)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/predicate/comparison/greater_or_equal.rb#L9)
 
 ### `#humanize`
+
 
 
 **See**:
@@ -3318,6 +4070,7 @@ Returns the value of attribute alias
 ### `.parse(coversheet_file)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown.rb#L5)
 
@@ -3328,6 +4081,7 @@ Returns the value of attribute alias
 ### `.create_question_answer(elements, response=nil)`
 
 
+
 **See**:
 - [Source on GitHub](https://github.com/alphagov/smartdown/blob/master/lib/smartdown/model/element/question.rb#L23)
 
@@ -3336,6 +4090,7 @@ Returns the value of attribute alias
 ## `module Smartdown::Parser::OptionPairs`
 
 ### `.transform(option_pairs)`
+
 
 
 **See**:
